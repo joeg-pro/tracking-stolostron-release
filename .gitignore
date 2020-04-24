@@ -1,0 +1,31 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, build with `go test -c`
+*.test
+cover.*
+gosec.json
+report.json
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+*.build-harness-bootstrap
+build/_output/bin/multiclusterhub-operator
+.idea/
+build-harness/
+build-harness-extensions/
+
+# override build harness vendoring
+!vbh/.build-harness-vendorized
+!vbh/build-harness
+!vbh/build-harness-extensions
+
+# Python Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
