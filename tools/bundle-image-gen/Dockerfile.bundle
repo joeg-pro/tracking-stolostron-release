@@ -1,7 +1,33 @@
 FROM scratch
 
-!LABELS!
+# These two ADD lines set up the only content of this image.
+#
+# Note: In this form of the bundle image, only the operator bundle info for a single version
+# of the operator is copied in. (This is different from how the old App Registry delivery
+# worked, where you would copy in bundles for *all* versions of your operator.
 
 ADD metadata/   /metadata/
 ADD manifests/  /manitests/
+
+# The following placeholder is replaced by scripting to be a set of LABELS
+# duplicating the content of metadata/annotations.yaml.
+
+!!ANNOTATION_LABELS!!
+
+# These are three labels needed to control how the downstream buiild pipeline should
+# handle this container image:
+
+# This first label tells the pipeline that this is a bundle image and should be
+# delivered via an index image:
+LABEL com.redhat.delivery.operator.bundle=true
+
+# This label tells the pipeline which versions of OpenShift the operator supports.
+# This is used to control which index images should include this operator.
+LABEL com.redhat.openshift.versions="V4.5"
+
+# This label tells the pipeline that this operator should *also* be supported on
+# OCP 4.4 and earlier.  It is used to control whether or not the pipeline should attempt
+# to automatically backport this content into the old App Registry format and upload it
+# to the quay.io application registry endpoints.
+LABEL com.redhat.delivery.backport=trie
 
