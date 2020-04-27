@@ -126,8 +126,6 @@ def main():
    channels_to_update = list()
    if replaces_channel:
       channels_to_update.append(replaces_channel)
-   if default_channel:
-      channels_to_update.append(default_channel)
    if other_channels:
       channels_to_update.extend(other_channels)
 
