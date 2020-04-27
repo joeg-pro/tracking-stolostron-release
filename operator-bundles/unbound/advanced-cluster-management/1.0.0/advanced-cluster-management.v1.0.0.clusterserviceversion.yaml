@@ -15,7 +15,7 @@ metadata:
     categories: A list of comma separated categories that your operator falls under.,Integration & Delivery,OpenShift
       Optional
     certified: false
-    createdAt: '2020-04-24T11:19:10Z'
+    createdAt: '2020-04-27T13:18:38Z'
     description: Advanced provisioning and management of Openshift and Kubernetes clusters
   name: advanced-cluster-management.v1.0.0
   namespace: placeholder
@@ -63,7 +63,7 @@ spec:
     app: acm-hub
   links:
   - name: Documentation
-    url: https://redhat-customer-portal.redhat.com/acm/start-here.html
+    url: http://github.com/open-cluster-management/rhacm-docs
   selector:
     matchLabels:
       app: acm-hub
@@ -397,6 +397,12 @@ spec:
                 imagePullPolicy: Always
                 command:
                 - multiclusterhub-operator
+                resources:
+                  requests:
+                    memory: 256Mi
+                    cpu: 100m
+                  limits:
+                    memory: 2048Mi
                 env:
                 - name: WATCH_NAMESPACE
                   valueFrom:

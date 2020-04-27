@@ -40,7 +40,7 @@ spec:
     app: acm-hub
   links:
   - name: Documentation
-    url: https://redhat-customer-portal.redhat.com/acm/start-here.html
+    url: http://github.com/open-cluster-management/rhacm-docs
   selector:
     matchLabels:
       app: acm-hub
