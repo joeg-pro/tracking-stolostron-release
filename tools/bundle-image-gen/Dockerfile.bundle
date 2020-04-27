@@ -1,0 +1,7 @@
+FROM scratch
+
+!LABELS!
+
+ADD metadata/   /metadata/
+ADD manifests/  /manitests/
+
