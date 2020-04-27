@@ -51,7 +51,7 @@
 me=$(basename $0)
 my_dir=$(dirname $(readlink -f $0))
 
-tmp_root="/tmp/gen-acm-bundle"
+tmp_root="/tmp/acm-bundle-manifests-build"
 
 #--- Args (Ugh) ---
 

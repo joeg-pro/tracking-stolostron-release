@@ -26,7 +26,7 @@ my_dir=$(dirname $(readlink -f $0))
 top_of_repo=$(readlink  -f $my_dir/../..)
 
 github="git@${GITHUB:-github.com}"
-tmp_root="/tmp/gen-acm-bundle"
+tmp_root="/tmp/acm-bundle-manifests-build"
 
 # The CSV version and previous CSV version are not really important un the unbound bundle
 # because they will be set/overridden anyway in the creation of the bound bundle.

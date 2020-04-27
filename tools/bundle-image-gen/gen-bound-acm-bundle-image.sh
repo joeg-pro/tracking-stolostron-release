@@ -32,7 +32,7 @@ top_of_repo=$(readlink  -f $my_dir/../..)
 # Set $docer to "podman" if you have that w/o the podman-docker compat package.
 docker="docker"
 
-tmp_dir="/tmp/acm-bundle-build"
+tmp_dir="/tmp/acm-bundle-image-build"
 build_context="$tmp_dir/build-context"
 rm -rf "$tmp_dir"
 mkdir -p "$tmp_dir"
