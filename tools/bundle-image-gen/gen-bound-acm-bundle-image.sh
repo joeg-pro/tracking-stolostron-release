@@ -33,7 +33,7 @@ local_bundle_image_name="acm-operator-bundle"
 remote_bundle_image_name="$local_bundle_image_name"
 
 # DON'T COMMIT:
-remote_bundle_image_name="jmg-test-acm-operator-bundle"
+# remote_bundle_image_name="test-acm-operator-bundle"
 
 # Args (all optional):
 # $1 = Bundle version (default: 1.0.0)
