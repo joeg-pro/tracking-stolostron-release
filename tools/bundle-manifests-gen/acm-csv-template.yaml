@@ -40,7 +40,7 @@ spec:
     app: acm-hub
   links:
   - name: Documentation
-    url: http://github.com/open-cluster-management/rhacm-docs
+    url: https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/1.0/
   selector:
     matchLabels:
       app: acm-hub
