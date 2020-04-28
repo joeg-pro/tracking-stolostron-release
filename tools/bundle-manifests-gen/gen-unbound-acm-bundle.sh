@@ -99,7 +99,7 @@ echo "Generating Hive source bundle."
 save_cwd=$PWD
 cd $hive_repo_spot
 hive_image_placeholder="quay.io/openshift-hive/hive:dont-care"
-python2.7 ./hack/generate-operator-bundle.py $hive_bundle_work dont-care 0 "-none" "$hive_image_placeholder"
+python3 ./hack/generate-operator-bundle.py $hive_bundle_work dont-care 0 "-none" "$hive_image_placeholder"
 if [[ $? -ne 0 ]]; then
    >&2 echo "Error: Could not generate Hive source bundle."
    >&2 echo "Aborting."
