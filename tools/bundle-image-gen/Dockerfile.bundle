@@ -7,7 +7,7 @@ FROM scratch
 # worked, where you would copy in bundles for *all* versions of your operator.
 
 ADD metadata/   /metadata/
-ADD manifests/  /manitests/
+ADD manifests/  /manifests/
 
 # The following placeholder is replaced by scripting to be a set of LABELS
 # duplicating the content of metadata/annotations.yaml.

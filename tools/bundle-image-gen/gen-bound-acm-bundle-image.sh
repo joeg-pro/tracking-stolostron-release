@@ -29,8 +29,20 @@ my_dir=$(dirname $(readlink -f $0))
 
 top_of_repo=$(readlink  -f $my_dir/../..)
 
-# Set $docer to "podman" if you have that w/o the podman-docker compat package.
-docker="docker"
+local_bundle_image_name="acm-operator-bundle"
+remote_bundle_image_name="$local_bundle_image_name"
+
+# DON'T COMMIT:
+remote_bundle_image_name="jmg-test-acm-operator-bundle"
+
+# Args (all optional):
+# $1 = Bundle version (default: 1.0.0)
+# $2 = Remote registry and namespace (default: quay.io/open-cluster-management)
+# $3 - Image-tag suffix (default: none)
+
+bundle_vers="${1:-1.0.0}"
+remote_rgy_and_ns="${2:-quay.io/open-cluster-management}"
+tag_suffix="$3"
 
 tmp_dir="/tmp/acm-bundle-image-build"
 build_context="$tmp_dir/build-context"
@@ -38,14 +50,15 @@ rm -rf "$tmp_dir"
 mkdir -p "$tmp_dir"
 mkdir -p "$build_context"
 
+# TODO:  Parameterize gen-bound-acm-bundle for eg. bundle version, etc.
 $top_of_repo/tools/bundle-manifests-gen/gen-bound-acm-bundle.sh
 if [[ $? -ne 0 ]]; then
    >&2 echo "Error: Could not generate manifests for bound ACM budnle."
    exit 2
 fi
-# Leaves resulting package here:
+# Above leaves resulting package here:
 bound_pkg_dir="$top_of_repo/operator-bundles/bound/advanced-cluster-management"
-bound_bundle_dir="$bound_pkg_dir/1.0.0"
+bound_bundle_dir="$bound_pkg_dir/$bundle_vers"
 
 # Turn annotations.yaml into LABEL statemetns for Dockerfile
 # - Drop "annotations:" line
@@ -62,5 +75,49 @@ cat "$my_dir/Dockerfile.bundle" | \
 # Copy bundle dirs into the docker build context
 tar -cf - -C $bound_bundle_dir manifests metadata | (cd $build_context; tar xf -)
 
-# Build the image
-$docker build -t "acm-operator-bundle:latest" --file "$tmp_final_dockerfile"
+# Form tag
+image_tag="$bundle_vers"
+if [[ -n "$tag_suffix" ]]; then
+   image_tag="$image_tag-$tag_suffix"
+fi
+
+local_image_name_and_tag="$local_bundle_image_name:$image_tag"
+remote_image_name_and_tag="$remote_bundle_image_name:$image_tag"
+
+# Get rid of previous image if any
+images=$(docker images --format "{{.Repository}}:{{.Tag}}" "$local_image_name_and_tag")
+for img in $images; do
+   docker rmi "$img" > /dev/null
+done
+
+# Build the image locally
+docker build --squash -t "$local_image_name_and_tag" "$build_context"
+# FYI: Buildah equivalent:  buildah bud -t "$image_name_and_tag" "$build_context"
+
+if [[ $? -ne 0 ]]; then
+   >&2 echo "Error: Could not build bouund ACM budnle image."
+   exit 2
+fi
+
+# Reag and push to remote registry
+if [[ -n $remote_rgy_and_ns ]]; then
+   docker tag "$local_image_name_and_tag" "$remote_rgy_and_ns/$remote_image_name_and_tag"
+   if [[ $? -ne 0 ]]; then
+      >&2 echo "Error: Could not retag local image for remote registry."
+      exit 2
+   fi
+   if [[ -n $DOCKER_USER ]]; then
+      remote_rgy=${remote_rgy_and_ns%%/*}
+      docker login $remote_rgy -u $DOCKER_USER -p $DOCKER_PASS
+      if [[ $? -ne 0 ]]; then
+         >&2 echo "Error: Could not do docker login."
+         exit 2
+      fi
+      docker push "$remote_rgy_and_ns/$remote_image_name_and_tag"
+      if [[ $? -ne 0 ]]; then
+         >&2 echo "Error: Could not push image to remote registry."
+         exit 2
+      fi
+   fi
+fi
+
