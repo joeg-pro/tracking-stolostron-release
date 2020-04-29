@@ -70,31 +70,22 @@ opt_flags="I:O:n:v:p:m:d:c:i:"
 while getopts "$opt_flags" OPTION; do
    case "$OPTION" in
       I) unbound_pkg_dir="$OPTARG"
-         echo "I: $unbound_pkg_dir"
          ;;
       O) bound_pkg_dir="$OPTARG"
-         echo "O: $bound_pkg_dir"
          ;;
       n) pkg_name="$OPTARG"
-         echo "n: $pkg_name"
          ;;
       v) new_csv_vers="$OPTARG"
-         echo "v: $new_csv_vers"
          ;;
       p) prev_csv_vers="$OPTARG"
-         echo "p: $prev_csv_vers"
          ;;
       m) image_manifest="$OPTARG"
-         echo "m: $image_manifest"
          ;;
       d) default_channel="$OPTARG"
-         echo "d: $default_channel"
          ;;
       c) additional_channels="$additional_channels $OPTARG"
-         echo "c: $additional_channels"
          ;;
       i) image_keys_and_repos="$image_keys_and_repos $OPTARG"
-         echo "i: $image_keys_and_repos"
          ;;
       ?) exit 1
          ;;
