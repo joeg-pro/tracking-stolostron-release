@@ -22,8 +22,8 @@
 
 me=$(basename $0)
 my_dir=$(dirname $(readlink -f $0))
-
 top_of_repo=$(readlink  -f $my_dir/../..)
+
 github="https://$GITHUB_USER:$GITHUB_TOKEN@github.com"
 tmp_root="/tmp/acm-bundle-manifests-build"
 
@@ -56,7 +56,7 @@ rm -rf "$unbound_acm_pkg_dir/$new_csv_vers"
 # a generation script found there.
 #
 # For the OCM hub, we generate the source bundle using the hub operator repo
-# and the create-unbound-ocm-hub-bundle script found here.
+# and the create-unbound-ocm-hub-bundle script found in this repo.
 #
 # For the application subscription operator, for the moment we grab the source bundle
 # from what is posted as a comomunity operato.  But in order to syncronize the
@@ -70,10 +70,16 @@ clone_spot="$tmp_dir/repo-clones"
 
 community_repo_spot="$clone_spot/community-operators"
 git clone "$github/operator-framework/community-operators.git" "$community_repo_spot"
-app_sub_pkg="$community_repo_spot/community-operators/multicluster-operators-subscription"
+if [[ $? -ne 0 ]]; then
+   >&2 echo "Error: Could not clone Community Operators repo."
+   >&2 echo "Aborting."
+   exit 2
+fi
+
+app_sub_pkg_dir="$community_repo_spot/community-operators/multicluster-operators-subscription"
 app_sub_channel="alpha"
 
-app_sub_bundle=$($my_dir/find-bundle-dir.py $app_sub_channel $app_sub_pkg)
+app_sub_bundle=$($my_dir/find-bundle-dir.py $app_sub_channel $app_sub_pkg_dir)
 if [[ $? -ne 0 ]]; then
    >&2 echo "Error: Could not find source bundle directory for Multicluster Subscription."
    >&2 echo "Aborting."
@@ -87,6 +93,11 @@ ln -s "$app_sub_bundle" $app_sub_bundle_spot
 hive_repo_spot="$clone_spot/hive"
 hive_stable_release_branch="ocm-4.4.0"
 git clone -b "$hive_stable_release_branch" "$github/openshift/hive.git" $hive_repo_spot
+if [[ $? -ne 0 ]]; then
+   >&2 echo "Error: Could not clone Hive operator repo."
+   >&2 echo "Aborting."
+   exit 2
+fi
 
 hive_bundle_work=$tmp_dir/hive-bundle
 mkdir -p "$hive_bundle_work"
@@ -111,27 +122,22 @@ ln -s "$hive_bundle_work/0.1.0-sha-none" $hive_bundle_spot
 
 # -- OCM Hub --
 
-hub_repo_spot="$clone_spot/ocm-hub"
-
-# TEMP
-hub_stable_release_branch="master"
-git clone -b "$hub_stable_release_branch" "$github/open-cluster-management/multicloudhub-operator.git" $hub_repo_spot
-"$hub_repo_spot/build-scripts/bundle-gen/gen-unbound-ocm-hub-bundle.sh" x.y.z
+$my_dir/gen-unbound-ocm-hub-bundle.sh
 if [[ $? -ne 0 ]]; then
-   >&2 echo "Error: Could not generate source bundle for OCM Hub."
+   >&2 echo "Error: Could not generate OCM Hub source bundle."
    >&2 echo "Aborting."
    exit 2
 fi
 
-hub_pkg="$hub_repo_spot/operator-bundles/unbound/open-cluster-management-hub"
+hub_pkg_dir="$top_of_repo/operator-bundles/unbound/open-cluster-management-hub"
 hub_channel="latest"
-hub_bundle=$($my_dir/find-bundle-dir.py $hub_channel $hub_pkg)
+
+hub_bundle=$($my_dir/find-bundle-dir.py $hub_channel $hub_pkg_dir)
 if [[ $? -ne 0 ]]; then
    >&2 echo "Error: Could not find source bundle directory for OCM Hub."
    >&2 echo "Aborting."
    exit 2
 fi
-
 hub_bundle_spot="$source_bundles/ocm-hub"
 ln -s "$hub_bundle" "$hub_bundle_spot"
 
