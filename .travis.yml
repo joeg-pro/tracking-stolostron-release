@@ -1,0 +1,32 @@
+#
+# Run our release rebuild job
+#
+os:
+  - linux
+
+language: python
+
+services:
+  - docker
+
+env:
+  global:
+    # Required
+    - OS=linux
+    - COMPONENT_TAG_EXTENSION="-${TRAVIS_COMMIT}"
+    - BUNDLE_IMAGE_NAME=multiclusterhub-operator-bundle
+    - INDEX_IMAGE_NAME=multiclusterhub-operator-index
+    - BUNDLE_COMPONENT_REPO=multicloudhub-operator
+
+stages:
+  - index
+
+jobs:
+  include:
+    - stage: index
+      name: "Run release scripting"
+      script:
+        - |
+          make
+          tools/bundle-manifests-gen/gen-unbound-acm-bundle.sh
+          tools/bundle-image-gen/gen-bound-acm-bundle-image.sh
