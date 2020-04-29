@@ -5,7 +5,8 @@ metadata:
     alm-examples: "*Insert*"
     capabilities: Basic Install
     categories: "Integration & Delivery"
-    certified: false
+    certified: "false"
+    support: "The Open Cluster Management Project"
     createdAt: "*Insert* eg: 2020-03-24T17:00:00Z>"
     description: Open management of Openshift and Kubernetes clusters
   name: "*Insert* eg: multicluster-hub-operator.v0.9.0"
@@ -17,8 +18,8 @@ spec:
   provider:
     name: Red Hat
   maintainers:
-  - email: acmteam@redhat.com
-    name: Red Hat ACM team
+  - email: ocm-dev@open-cluster-management.io
+    name: Open Cluster Management Project team
   maturity: alpha
   description: |
     The Open Cluster Management Hub operator installs and maintains an instnace

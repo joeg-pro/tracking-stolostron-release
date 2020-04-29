@@ -2,20 +2,15 @@ apiVersion: operators.coreos.com/v1alpha1
 kind: ClusterServiceVersion
 metadata:
   annotations:
-    alm-examples: "- apiVersion: operators.open-cluster-management.io/v1beta1\n  kind: MultiClusterHub\n\
-      \  metadata:\n    name: multiclusterhub\n    namespace: open-cluster-management\n  spec:\n    imagePullSecret:\
-      \ quay-secret\n- apiVersion: apps.open-cluster-management.io/v1\n  kind: Channel\n  metadata:\n\
-      \    name: dev-helmrepo\n  spec:\n    type: HelmRepo\n    pathname: http://kubernetes-charts.storage.googleapis.com/\n\
-      \  status:\n    state: N/A\n- apiVersion: apps.open-cluster-management.io/v1\n  kind: Subscription\n\
-      \  metadata:\n    name: sub-nginx\n  spec:\n    channel: ns-ch/predev-ch\n    name: nginx-ingress\n\
-      \    packageFilter:\n      version: =1.26.1\n    packageOverrides:\n    - packageAlias: nginx-ingress\n\
-      \      packageName: nginx-ingress\n      packageOverrides:\n      - path: spec\n        value:\n\
-      \          defaultBackend:\n            replicaCount: 3\n    placement:\n      local: true\n"
+    alm-examples: '[]
+
+      '
     capabilities: Basic Install
     categories: A list of comma separated categories that your operator falls under.,Integration & Delivery,OpenShift
       Optional
-    certified: false
-    createdAt: '2020-04-28T14:21:56Z'
+    certified: 'true'
+    support: Red Hat, Inc
+    createdAt: '2020-04-29T08:27:59Z'
     description: Advanced provisioning and management of Openshift and Kubernetes clusters
   name: advanced-cluster-management.v1.0.0
   namespace: placeholder

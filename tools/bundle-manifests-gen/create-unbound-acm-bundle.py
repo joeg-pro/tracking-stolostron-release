@@ -189,7 +189,7 @@ def main():
       accumulate_set("keyword", "keywords", s_keywords, m_keywords)
 
       # Add owned CRds from this CSV into the list we're accumulating.  Keep track
-      # of them by GVK so we can reconsile against required CRDs later.
+      # of them by GVK so we can reconcile against required CRDs later.
       try:
          s_crds = s_spec["customresourcedefinitions"]
          s_owned_crds_list = s_crds["owned"]
@@ -301,8 +301,13 @@ def main():
    # Convert categories into a common-separated string and plug into annotations
    o_annotations["categories"] = ','.join(sorted(list(m_categories)))
 
+   # Now that we've accumulated all proposed examples, only "publish" the
+   # onces in our whitelist, indicated by API GVK.
+
+   # TBD: TEMP DISABLED DUE TO BUNDLE FORMAT BUG.  USE EMPTY EXAMPLES LIST.
+   o_alm_examples = list()
+
    # Convert ALM examples into a sting representation and plug into annotations.
-   o_alm_examples = list(m_alm_examples.values())
    o_alm_examples_str = yaml.dump(o_alm_examples, width=100, default_flow_style=False, sort_keys=False)
    o_annotations["alm-examples"] = o_alm_examples_str
 
@@ -320,19 +325,19 @@ def main():
    # Plug in the merged keyword list (no dups)
    o_spec["keywords"] = list(sorted(m_keywords))
 
-   # Plug in reconsiled/merged CRD info...
+   # Plug in reconciled/merged CRD info...
 
    o_crds = o_spec["customresourcedefinitions"]
-   reconsile_and_plug_in_things("CRD", o_crds, m_owned_crds, m_required_crds)
+   reconcile_and_plug_in_things("CRD", o_crds, m_owned_crds, m_required_crds)
 
    # Tidy up: If no CRD info at all, remove the spec stanza.
    if not o_crds:
       del o_spec["customresourcedefinitions"]
 
 
-   #-Plug in reconsiled/merged API service info...
+   #-Plug in reconciled/merged API service info...
    o_api_svcs = o_spec["apiservicedefinitions"]
-   reconsile_and_plug_in_things("API service", o_api_svcs, m_owned_api_svcs, m_required_api_svcs)
+   reconcile_and_plug_in_things("API service", o_api_svcs, m_owned_api_svcs, m_required_api_svcs)
 
    # Tidy up: If no API service definitions info at all, remove the spec stanza.
    if not o_api_svcs:

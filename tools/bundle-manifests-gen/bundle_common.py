@@ -86,7 +86,7 @@ def plug_in_things(thing_kind, base_map, prop_name, things_map, warn_on_none=Fal
 
 
 # Reconsiles a set of required vs. owned keyed thigns and plugs resulting sets into a stanza.
-def reconsile_and_plug_in_things(thing_kind, things, owned_things, required_things):
+def reconcile_and_plug_in_things(thing_kind, things, owned_things, required_things):
 
    thing_kind_pl = "%ss" % thing_kind
    owned_thing_pl    = "owned %s" % thing_kind_pl
