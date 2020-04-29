@@ -121,5 +121,5 @@ $my_dir/gen-bound-bundle.sh \
    -i "multicluster_operators_deployable:multicluster-operators-deployable" \
    -i "multicluster_operators_channel:multicluster-operators-channel" \
    -i "multicluster_operators_application:multicluster-operators-application" \
-   -i "hive:hive"
+   -i "openshift_hive:hive"
 
