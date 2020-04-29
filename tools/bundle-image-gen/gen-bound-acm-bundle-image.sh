@@ -91,7 +91,9 @@ for img in $images; do
 done
 
 # Build the image locally
-docker build --squash -t "$local_image_name_and_tag" "$build_context"
+# Note: --squash doesn't work under Travis because appearantly it doesn't have
+# experimental docker features enabled.  (Hub?)
+docker build -t "$local_image_name_and_tag" "$build_context"
 # FYI: Buildah equivalent:  buildah bud -t "$image_name_and_tag" "$build_context"
 
 if [[ $? -ne 0 ]]; then
