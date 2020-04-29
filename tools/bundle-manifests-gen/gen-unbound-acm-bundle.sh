@@ -24,8 +24,7 @@ me=$(basename $0)
 my_dir=$(dirname $(readlink -f $0))
 
 top_of_repo=$(readlink  -f $my_dir/../..)
-
-github="git@${GITHUB:-github.com}"
+github="https://$GITHUB_USER:$GITHUB_TOKEN@github.com"
 tmp_root="/tmp/acm-bundle-manifests-build"
 
 # The CSV version and previous CSV version are not really important un the unbound bundle
@@ -70,7 +69,7 @@ clone_spot="$tmp_dir/repo-clones"
 # -- App Sub --
 
 community_repo_spot="$clone_spot/community-operators"
-git clone "$github:operator-framework/community-operators.git" "$community_repo_spot"
+git clone "$github/operator-framework/community-operators.git" "$community_repo_spot"
 app_sub_pkg="$community_repo_spot/community-operators/multicluster-operators-subscription"
 app_sub_channel="alpha"
 
@@ -87,7 +86,7 @@ ln -s "$app_sub_bundle" $app_sub_bundle_spot
 
 hive_repo_spot="$clone_spot/hive"
 hive_stable_release_branch="ocm-4.4.0"
-git clone -b "$hive_stable_release_branch" "$github:openshift/hive.git" $hive_repo_spot
+git clone -b "$hive_stable_release_branch" "$github/openshift/hive.git" $hive_repo_spot
 
 hive_bundle_work=$tmp_dir/hive-bundle
 mkdir -p "$hive_bundle_work"
@@ -116,7 +115,7 @@ hub_repo_spot="$clone_spot/ocm-hub"
 
 # TEMP
 hub_stable_release_branch="master"
-git clone -b "$hub_stable_release_branch" "$github:open-cluster-management/multicloudhub-operator.git" $hub_repo_spot
+git clone -b "$hub_stable_release_branch" "$github/open-cluster-management/multicloudhub-operator.git" $hub_repo_spot
 "$hub_repo_spot/build-scripts/bundle-gen/gen-unbound-ocm-hub-bundle.sh" x.y.z
 if [[ $? -ne 0 ]]; then
    >&2 echo "Error: Could not generate source bundle for OCM Hub."
