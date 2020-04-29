@@ -352,4 +352,77 @@ def update_pkg_manifest(manifest, for_channels, current_csv_name):
          pkg_channels.append(chan)
       chan["currentCSV"] = current_csv_name
    return
+#
 
+# Finds the bundle directory and CSV for the current CSV of a given channel
+def find_current_bundle_for_package(pkg_pathn, selected_channel):
+
+   # The package directory should have a single yaml file
+
+   pkg_yamls = []
+   bundle_dirs = []
+   try:
+      pkg_fns = os.listdir(pkg_pathn)
+   except FileNotFoundError:
+      die("Package directory not found: %s." % pkg_pathn)
+   except NotADirectoryError:
+      die("Not a directory: %s." % pkg_pathn)
+
+   pkg_manifests = load_all_manifests(pkg_pathn)
+   pkg_yamls = pkg_manifests.values()
+
+   if len(pkg_yamls) == 0:
+      die("Package manifest (.yaml) not found in %s." % pkg_pathn)
+   elif len(pkg_yamls) > 1:
+      die("More than one .yaml file found in %s." % pkg_pathn)
+
+   # Determine the current CSV for the selected channel.
+
+   pkg = list(pkg_yamls)[0]
+   pkg_channels = pkg["channels"]
+   cur_csv = None
+   for c in pkg_channels:
+      if c["name"] == selected_channel:
+         cur_csv = c["currentCSV"]
+         break
+   #
+   if cur_csv is None:
+      die("Channel %s not found in package." % selected_channel)
+
+   for fn in pkg_fns:
+      pathn = os.path.join(pkg_pathn, fn)
+      if os.path.isdir(pathn):
+         bundle_dirs.append(pathn)
+   #
+
+   # Look through all of the bundle directories to find the one containing the CSV.
+   # We do so by looking at the contents of the manifests so we avoid any depnedency
+   # on directory/manifest file naming patterns.
+
+   the_bundle_dir = None
+   the_csv = None
+   for bundle_pathn in bundle_dirs:
+      manifests = load_all_manifests(bundle_pathn)
+
+      found_csv = False
+      for manifest_fn, manifest in manifests.items():
+         kind = manifest["kind"]
+         if kind == "ClusterServiceVersion":
+            found_csv = True
+            break
+      if not found_csv:
+         emsg("CSV manifest not found in bundle %s." % bundle_pathn)
+         exit(1)
+
+      csv_name = manifest["metadata"]["name"]
+      if csv_name == cur_csv:
+         the_bundle_dir = bundle_pathn
+         the_csv = manifest
+         break
+   # end-for
+
+   if the_bundle_dir is None:
+      die("Bundle containing CSV %s not found." % cur_csv)
+
+   return the_bundle_dir, the_csv
+#
