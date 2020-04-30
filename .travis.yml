@@ -31,4 +31,4 @@ jobs:
           make
           tools/bundle-manifests-gen/gen-unbound-acm-bundle.sh
           tools/bundle-manifests-gen/gen-bound-acm-bundle.sh 
-          tools/bundle-image-gen/gen-bound-acm-bundle-image.sh $PUSH_ME
+          tools/bundle-image-gen/gen-bound-acm-bundle-image.sh -r `cat RELEASE_VERSION` -s `cat TAG` $PUSH_ME
