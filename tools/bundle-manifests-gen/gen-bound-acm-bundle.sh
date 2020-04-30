@@ -108,6 +108,12 @@ feature_release_rc_channel="candidate-$rel_x.$rel_y"
 
 # Enough setup.  Lets to this...
 
+echo "Generating bound bundle manifests for package: $pkg_name"
+echo "  From uUnbound bundle manifests in: $unbound_pkg_dir"
+echo "  Writing bound bundle manifests to: $bound_pkg_dir"
+echo "  For CSV/bundle version: $bundle_vers"
+echo "  Using image manifests file: $manifest_file"
+
 $my_dir/gen-bound-bundle.sh \
    -n $pkg_name \
    -v $bundle_vers \

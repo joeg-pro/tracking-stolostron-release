@@ -79,14 +79,12 @@ fi
 app_sub_pkg_dir="$community_repo_spot/community-operators/multicluster-operators-subscription"
 app_sub_channel="alpha"
 
-app_sub_bundle=$($my_dir/find-bundle-dir.py $app_sub_channel $app_sub_pkg_dir)
+app_sub_bundle_dir=$($my_dir/find-bundle-dir.py $app_sub_channel $app_sub_pkg_dir)
 if [[ $? -ne 0 ]]; then
    >&2 echo "Error: Could not find source bundle directory for Multicluster Subscription."
    >&2 echo "Aborting."
    exit 2
 fi
-app_sub_bundle_spot="$source_bundles/app-sub"
-ln -s "$app_sub_bundle" $app_sub_bundle_spot
 
 # -- Hive --
 
@@ -116,9 +114,7 @@ if [[ $? -ne 0 ]]; then
    exit 2
 fi
 cd $save_cwd
-
-hive_bundle_spot="$source_bundles/hive"
-ln -s "$hive_bundle_work/0.1.0-sha-none" $hive_bundle_spot
+hive_bundle_dir="$hive_bundle_work/0.1.0-sha-none"
 
 # -- OCM Hub --
 
@@ -132,14 +128,12 @@ fi
 hub_pkg_dir="$top_of_repo/operator-bundles/unbound/open-cluster-management-hub"
 hub_channel="latest"
 
-hub_bundle=$($my_dir/find-bundle-dir.py $hub_channel $hub_pkg_dir)
+hub_bundle_dir=$($my_dir/find-bundle-dir.py $hub_channel $hub_pkg_dir)
 if [[ $? -ne 0 ]]; then
    >&2 echo "Error: Could not find source bundle directory for OCM Hub."
    >&2 echo "Aborting."
    exit 2
 fi
-hub_bundle_spot="$source_bundles/ocm-hub"
-ln -s "$hub_bundle" "$hub_bundle_spot"
 
 # Generate the unbound composite bundle, which will be the source for producing
 # the bound one (by replacing image references, version, prev-version)
@@ -148,12 +142,19 @@ if [[ -n "$prev_csv_vers" ]]; then
    prev_option="--prev-csv $prev_csv_vers"
 fi
 
+echo "Generating unbound bundle manifests for package: $acm_pkg_name"
+echo "  From OCM hub bundle in:   $hub_bundle_dir"
+echo "     and Hive bundle in:    $hive_bundle_dir"
+echo "     and App Sub bundle in: $app_sub_bundle_dir"
+echo "  Writing merged unbound bundle manifests to: $unbound_acm_pkg_dir"
+echo "  For CSV/bundle version: $new_csv_vers"
+
 $my_dir/create-unbound-acm-bundle.py \
    --pkg-name  $acm_pkg_name --pkg-dir $unbound_acm_pkg_dir \
    --csv-vers "$new_csv_vers" $prev_option \
    --channel "latest" \
    --csv-template $my_dir/acm-csv-template.yaml \
-   --source-bundle-dir $hub_bundle_spot \
-   --source-bundle-dir $hive_bundle_spot \
-   --source-bundle-dir $app_sub_bundle_spot
+   --source-bundle-dir $hub_bundle_dir \
+   --source-bundle-dir $hive_bundle_dir \
+   --source-bundle-dir $app_sub_bundle_dir
 
