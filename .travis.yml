@@ -26,7 +26,7 @@ jobs:
     - stage: index
       name: "Run release scripting"
       script:
-        - if [ "$TRAVIS_PULL_REQUEST" != "true" ]; then export PUSH_ME=-P
+        - if [ "$TRAVIS_PULL_REQUEST" != "true" ]; then export PUSH_ME=-P; fi;
         - |
           make
           tools/bundle-manifests-gen/gen-unbound-acm-bundle.sh
