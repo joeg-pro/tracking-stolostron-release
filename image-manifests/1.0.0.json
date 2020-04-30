@@ -92,11 +92,11 @@
   {
     "image-name": "console-api",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-ef6ac0a9079071c1579e35cf980715c59befa498",
-    "git-sha256": "ef6ac0a9079071c1579e35cf980715c59befa498",
+    "image-tag": "1.0.0-1243f723587fd390ae6727009601f875af78b097",
+    "git-sha256": "1243f723587fd390ae6727009601f875af78b097",
     "git-repository": "open-cluster-management/console-api",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:b0d9dd928138d294382b7449887ba5804799c998d61960a0318f73687b7a3ffc",
+    "image-digest": "sha256:6420f7350a73f81b3c6234768e313b165cf3b0559acd1f7e7f17c64d01415d3d",
     "image-key": "console_api"
   },
   {
@@ -112,11 +112,11 @@
   {
     "image-name": "console-ui",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-0df5692481835779686492a158918e272b431774",
-    "git-sha256": "0df5692481835779686492a158918e272b431774",
+    "image-tag": "1.0.0-b10d5b63f6a12605a160a5ef0d115ab547e78dea",
+    "git-sha256": "b10d5b63f6a12605a160a5ef0d115ab547e78dea",
     "git-repository": "open-cluster-management/console-ui",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:6977be3f8e3757472f5b5f334641bf245030ae6831293007c33bde797b4c4922",
+    "image-digest": "sha256:5e6d06685a0cf6049f52d6c3a7058c52553e01da65827177c40547643c04c36c",
     "image-key": "console_ui"
   },
   {
@@ -166,7 +166,7 @@
     "git-sha256": "bed0e1b202815e83b25c9aaeb256fd13600e8b7d",
     "git-repository": "open-cluster-management/endpoint-operator",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:994393eb07c9a2122b9c934cadb08b59e7e147cebe92183c38db2d740ff0d5d7",
+    "image-digest": "sha256:e894dbf8c701c40afaff8231d82096be11c87ff34d8dcb477f5c8e744c158ec4",
     "image-key": "endpoint_operator"
   },
   {
@@ -246,7 +246,7 @@
     "git-sha256": "7cacbcf35330bb1e7294be6865097885a67c3890",
     "git-repository": "open-cluster-management/management-ingress",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:9599b054157957eb43385014de1a6aebe8dec92d727e560c1d7786aaa8129397",
+    "image-digest": "sha256:297d79c25a4959eb27a6701c53dbcd58e5ab261069c06fdc99303aeebab421ab",
     "image-key": "management_ingress"
   },
   {
@@ -372,21 +372,21 @@
   {
     "image-name": "multiclusterhub-operator",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-7d927231d55ddba8bba36e71475f7f23b38d573e",
-    "git-sha256": "7d927231d55ddba8bba36e71475f7f23b38d573e",
+    "image-tag": "1.0.0-aa37e6b3e81d161cf9961771f0f3260ba4e9e97f",
+    "git-sha256": "aa37e6b3e81d161cf9961771f0f3260ba4e9e97f",
     "git-repository": "open-cluster-management/multicloudhub-operator",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:1789b0e48e282c026e0cc3632fa7cc4d2aee631e496038c21b49d5f02c6f57a6",
+    "image-digest": "sha256:e119e3ab43245e722e578f9a47994d78082715457b5e30128296d43dca3e1c9e",
     "image-key": "multiclusterhub_operator"
   },
   {
     "image-name": "multiclusterhub-operator-bundle",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-7d927231d55ddba8bba36e71475f7f23b38d573e",
-    "git-sha256": "7d927231d55ddba8bba36e71475f7f23b38d573e",
+    "image-tag": "1.0.0-aa37e6b3e81d161cf9961771f0f3260ba4e9e97f",
+    "git-sha256": "aa37e6b3e81d161cf9961771f0f3260ba4e9e97f",
     "git-repository": "open-cluster-management/multicloudhub-operator",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:61fe38b028b5d355436942175370909c14c8e72c40e6c2653a7a04e4bc65df92",
+    "image-digest": "sha256:bf1fd271d5754bd57996001dce64048ede5cedccd5764008e57b3d3a0025f573",
     "image-key": "multiclusterhub_operator_bundle"
   },
   {
@@ -422,11 +422,11 @@
   {
     "image-name": "rcm-controller",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-fe000fc70de2ecf9433d37eb4d34a5b5db229b56",
-    "git-sha256": "fe000fc70de2ecf9433d37eb4d34a5b5db229b56",
+    "image-tag": "1.0.0-9c002bb4d86eab279808a26a1f9c49ecfa18a048",
+    "git-sha256": "9c002bb4d86eab279808a26a1f9c49ecfa18a048",
     "git-repository": "open-cluster-management/rcm-controller",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:832e9f2549c7ca2b5c559e6bca4d4d48e88e3e09c7e5be5011a64bd43af84007",
+    "image-digest": "sha256:6b7f9c3579ae9d6d5ab8766550b6e521df08cbaa403b33023a7effc6df8f2834",
     "image-key": "rcm_controller"
   },
   {
