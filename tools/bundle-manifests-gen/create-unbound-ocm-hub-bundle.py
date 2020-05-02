@@ -18,8 +18,46 @@ from bundle_common import *
 
 import argparse
 import datetime
+import json
 import os
-import yaml
+import traceback
+
+
+# Transform a CRD manfest into a CSV-owned-CRD entry and add it in.
+def add_owned_crd(manifest, owned_crds):
+
+   api_vers = manifest["apiVersion"]
+   if api_vers != "apiextensions.k8s.io/v1beta1":
+      die("CRD version not supported: %s" % api_vers)
+
+   the_entry = dict()
+
+   spec = manifest["spec"]
+   spec_names = spec["names"]
+
+   group  = spec["group"]
+   vers   = spec["version"]
+   kind   = spec_names["kind"]
+   plural = spec_names["plural"]
+
+   full_name = "%s.%s" % (plural, group)
+
+   the_entry["name"]    = full_name
+   the_entry["group"]   = group
+   the_entry["kind"]    = kind
+   the_entry["version"] = vers
+
+   the_entry["displayName"] = kind
+
+   try:
+      validation = spec["validation"]
+      schema     = validation["openAPIV3Schema"]
+      description = schema["description"]
+   except KeyError:
+      print("WARN: Coulnd't get descirption from OpenAPI V3 schema, using default.")
+      description = kind
+
+   accumulate_keyed("owned CRD", [the_entry], owned_crds, get_gvk)
 
 
 # --- Main ---
@@ -106,7 +144,7 @@ def main():
       # Each manifest file contains a single CRD/CR example
       kind = manifest["kind"]
       if kind == "CustomResourceDefinition":
-         accumulate_keyed("owned CRD", [manifest], owned_crds, get_gvk_for_crd)
+         add_owned_crd(manifest, owned_crds)
          print("   Copying CRD manifest file: %s" % manifest_fn)
          copy_file(manifest_fn, owned_crds_dir_pathn, bundle_pathn)
       else:
@@ -144,14 +182,14 @@ def main():
    for manifest_pathn in operator_role_pathns:
       manifest = load_manifest("role manifest", manifest_pathn)
 
-      csv_perm = {"name": manifest["metadata"]["name"]}
+      csv_perm = {"serviceAccountName": manifest["metadata"]["name"]}
       csv_perm["rules"]   = manifest["rules"]
 
       k = manifest["kind"]
       if k == "ClusterRole":
-         accumulate_keyed("cluster permission", [csv_perm], cluster_perms, lambda e: e["name"])
+         accumulate_keyed("cluster permission", [csv_perm], cluster_perms, lambda e: e["serviceAccountName"])
       elif k == "Role":
-         accumulate_keyed("namespace permission", [csv_perm], cluster_perms, lambda e: e["name"])
+         accumulate_keyed("namespace permission", [csv_perm], cluster_perms, lambda e: e["serviceAccountName"])
       else:
          die("Unrecognized kind of role: %s" % k)
 
@@ -191,7 +229,7 @@ def main():
    # Convert ALM examples into a sting representation and plug into annotations.
 
    o_alm_examples = list(alm_examples.values())
-   o_alm_examples_str = yaml.dump(o_alm_examples, width=100, default_flow_style=False, sort_keys=False)
+   o_alm_examples_str = json.dumps(o_alm_examples, sort_keys=False)
    o_annotations["alm-examples"] = o_alm_examples_str
 
    # Plug in version, remove any replaces property if there.
@@ -248,7 +286,12 @@ def main():
    exit(0)
 
 if __name__ == "__main__":
-   main()
+
+   try:
+      main()
+   except Exception:
+      traceback.print_exc()
+      die("Unhandled exception!")
 
 #-30-
 

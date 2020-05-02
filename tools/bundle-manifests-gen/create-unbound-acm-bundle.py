@@ -20,8 +20,10 @@ from bundle_common import *
 
 import argparse
 import datetime
+import json
 import os
 import sys
+import traceback
 import yaml
 
 
@@ -155,6 +157,11 @@ def main():
 
       print("Found source CSV manifest: %s" % s_csv_fn)
 
+      # Right now, we understand only v1alpha1 CSVs:
+      s_csv_vers = s_csv["apiVersion"]
+      if s_csv_vers != "operators.coreos.com/v1alpha1":
+         die("Unsupported CSV API version: %s" % s_csv_vers)
+
       s_spec = get_map(s_csv, "spec")
       if not s_spec:
          die("Source CSV doesn't have a (non-empty) spec.")
@@ -190,22 +197,18 @@ def main():
 
       # Add owned CRds from this CSV into the list we're accumulating.  Keep track
       # of them by GVK so we can reconcile against required CRDs later.
-      try:
-         s_crds = s_spec["customresourcedefinitions"]
-         s_owned_crds_list = s_crds["owned"]
-         accumulate_keyed("owned CRD", s_owned_crds_list, m_owned_crds, get_gvk, another_thing_map=s_owned_crds_map)
-      except KeyError:
+
+      s_crds = get_map(s_spec,"customresourcedefinitions")
+      s_owned_crds = get_seq(s_crds, "owned")
+      if s_owned_crds:
+         accumulate_keyed("owned CRD", s_owned_crds, m_owned_crds, get_gvk, another_thing_map=s_owned_crds_map)
+      else:
          print("   WARN: Source CSV specs no owned CRDs. (???)")
-         s_owned_crds = []
 
       # Nowc collect up the required CRDs.
-      try:
-         s_crds = s_spec["customresourcedefinitions"]
-         s_required_crds = s_crds["required"]
-         accumulate_keyed("required CRD", s_required_crds, m_required_crds, get_gvk, dups_ok=True)
-      except KeyError:
-         # No warn msg as its perfectly fine for a CSV to not defined any required CRDs.
-         s_required_crds = []
+      s_required_crds = get_seq(s_crds, "required")
+      # No warn msg as its perfectly fine for a CSV to not defined any required CRDs.
+      accumulate_keyed("required CRD", s_required_crds, m_required_crds, get_gvk, dups_ok=True)
 
       # Collect up spec.install stanzas...
 
@@ -217,28 +220,21 @@ def main():
       s_install_spec = s_install["spec"]
 
       # Cluster and namespace Permissions (Service Accounts):
-      try:
-         s_cluster_perms = s_install_spec["clusterPermissions"]
-         accumulate_keyed("cluster permission", s_cluster_perms, m_cluster_perms, lambda e: e["serviceAccountName"])
-      except KeyError:
-         s_cluster_perms = []
+      s_cluster_perms = get_seq(s_install_spec, "clusterPermissions")
+      accumulate_keyed("cluster permission", s_cluster_perms, m_cluster_perms, lambda e: e["serviceAccountName"])
 
-      try:
-         s_ns_perms = s_install_spec["permissions"]
-         accumulate_keyed("namespace permission", s_perms, m_ns_perms, lambda e: e["serviceAccountName"])
-      except KeyError:
-         s_ns_perms = []
+      s_ns_perms = get_seq(s_install_spec, "permissions")
+      accumulate_keyed("namespace permission", s_ns_perms, m_ns_perms, lambda e: e["serviceAccountName"])
 
       if not (s_cluster_perms or s_ns_perms):
          print("   WARN: Source CSV defines neither cluster nor namespace permissions/service accounts.")
 
       # Deployments:
-      try:
-         s_deployments = s_install_spec["deployments"]
+      s_deployments = get_seq(s_install_spec, "deployments")
+      if s_deployments:
          accumulate_keyed("install deployment", s_deployments, m_deployments, lambda e: e["name"])
-      except KeyError:
+      else:
          print("   WARN: Source CSV specs no install deployments. (???)")
-         s_deployments = []
 
       #--- Copy the source budnle's non-CSV manifests to the output bundle ---
 
@@ -301,14 +297,13 @@ def main():
    # Convert categories into a common-separated string and plug into annotations
    o_annotations["categories"] = ','.join(sorted(list(m_categories)))
 
-   # Now that we've accumulated all proposed examples, only "publish" the
-   # onces in our whitelist, indicated by API GVK.
-
-   # TBD: TEMP DISABLED DUE TO BUNDLE FORMAT BUG.  USE EMPTY EXAMPLES LIST.
-   o_alm_examples = list()
+   # TODO:
+   # Filtier the accumulated ALM examples down so we only "publish" the onces in our
+   # whitelist, indicated by API GVK.
+   o_alm_examples = list(m_alm_examples.values())
 
    # Convert ALM examples into a sting representation and plug into annotations.
-   o_alm_examples_str = yaml.dump(o_alm_examples, width=100, default_flow_style=False, sort_keys=False)
+   o_alm_examples_str = json.dumps(o_alm_examples, sort_keys=False)
    o_annotations["alm-examples"] = o_alm_examples_str
 
    o_spec["version"]  = csv_vers
@@ -333,7 +328,6 @@ def main():
    # Tidy up: If no CRD info at all, remove the spec stanza.
    if not o_crds:
       del o_spec["customresourcedefinitions"]
-
 
    #-Plug in reconciled/merged API service info...
    o_api_svcs = o_spec["apiservicedefinitions"]
@@ -374,7 +368,11 @@ def main():
    return
 
 if __name__ == "__main__":
-   main()
+   try:
+      main()
+   except Exception:
+      traceback.print_exc()
+      die("Unhandled exception!")
 
 #-30-
 
