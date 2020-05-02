@@ -80,6 +80,16 @@
     "image-key": "kui_web_terminal"
   },
   {
+    "image-name": "mcm-compliance",
+    "image-version": "3.6.0",
+    "image-tag": "3.6.0-b7ad115b8c9de014d0a1f5a02c0a0f6bbb03ec6b",
+    "git-sha256": "b7ad115b8c9de014d0a1f5a02c0a0f6bbb03ec6b",
+    "git-repository": "open-cluster-management/hcm-compliance",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:1762c86d338da16b837f98319c892fd5854e698a60eed9b70255add89f030f39",
+    "image-key": "mcm_compliance"
+  },
+  {
     "image-name": "mcm-topology",
     "image-version": "3.6.0",
     "image-tag": "3.6.0-d86071124dd7c6426031812fff335ffcd88190c9",
