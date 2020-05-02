@@ -2,14 +2,14 @@ apiVersion: operators.coreos.com/v1alpha1
 kind: ClusterServiceVersion
 metadata:
   annotations:
-    alm-examples: "- apiVersion: operators.open-cluster-management.io/v1beta1\n  kind: MultiClusterHub\n\
-      \  metadata:\n    name: multiclusterhub\n    namespace: open-cluster-management\n  spec:\n    imagePullSecret:\
-      \ quay-secret\n"
+    alm-examples: '[{"apiVersion": "operators.open-cluster-management.io/v1beta1", "kind": "MultiClusterHub",
+      "metadata": {"name": "multiclusterhub", "namespace": "open-cluster-management"}, "spec": {"imagePullSecret":
+      "quay-secret"}}]'
     capabilities: Basic Install
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2020-04-30T15:22:13Z'
+    createdAt: '2020-05-02T05:22:04Z'
     description: Open management of Openshift and Kubernetes clusters
   name: open-cluster-management-hub.v1.0.0
   namespace: placeholder
@@ -30,8 +30,8 @@ spec:
 
     '
   icon:
-  - base64data: PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MjEuMTUgNzIxLjE1Ij48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2RiMzkyNzt9LmNscy0ye2ZpbGw6I2NiMzYyODt9LmNscy0ze2ZpbGw6I2ZmZjt9LmNscy00e2ZpbGw6I2UzZTNlMjt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPlByb2R1Y3RfSWNvbi1SZWRfSGF0QWR2YW5jZWRfQ2x1c3Rlcl9NYW5hZ2VtZW50X2Zvcl9LdWJlcm5ldGVzLVJHQjwvdGl0bGU+PGcgaWQ9IkxheWVyXzEiIGRhdGEtbmFtZT0iTGF5ZXIgMSI+PGNpcmNsZSBjbGFzcz0iY2xzLTEiIGN4PSIzNjAuNTciIGN5PSIzNjAuNTciIHI9IjM1OC41OCIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTYxNC4xMywxMDcsMTA3LDYxNC4xM2MxNDAsMTQwLDM2Ny4wNywxNDAsNTA3LjExLDBTNzU0LjE2LDI0Ny4wNiw2MTQuMTMsMTA3WiIvPjxyZWN0IGNsYXNzPSJjbHMtMyIgeD0iMzMwLjg3IiB5PSIyODAuNiIgd2lkdGg9IjIwMy4xNyIgaGVpZ2h0PSIyMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc4LjkgMzkwLjUyKSByb3RhdGUoLTQ0Ljk2KSIvPjxyZWN0IGNsYXNzPSJjbHMtMyIgeD0iMzA2LjYzIiB5PSIxNjcuODMiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMDQuNDciIHRyYW5zZm9ybT0idHJhbnNsYXRlKC04NS4zMyAxNjIuMjcpIHJvdGF0ZSgtMjUuNDUpIi8+PHJlY3QgY2xhc3M9ImNscy0zIiB4PSIxNjIuOTgiIHk9IjM2NC4xIiB3aWR0aD0iMTk4LjI4IiBoZWlnaHQ9IjIwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDIuMzkgMzMuNjEpIHJvdGF0ZSgtNi43OSkiLz48cmVjdCBjbGFzcz0iY2xzLTMiIHg9IjI0NS4xIiB5PSI0NTEuNTQiIHdpZHRoPSIyMDAuNjIiIGhlaWdodD0iMjAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xNjMuMDEgNzMzLjI2KSByb3RhdGUoLTgxLjMxKSIvPjxyZWN0IGNsYXNzPSJjbHMtMyIgeD0iNDQzLjg1IiB5PSIzMDMuNzYiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMDcuMDQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMDkuOTcgNjM5LjU4KSByb3RhdGUoLTY0LjMpIi8+PGNpcmNsZSBjbGFzcz0iY2xzLTMiIGN4PSI1MDQuMzQiIGN5PSIyMTguODMiIHI9IjQ0LjA4Ii8+PGNpcmNsZSBjbGFzcz0iY2xzLTMiIGN4PSIyNzIuNyIgY3k9IjE3Ny43NSIgcj0iNDQuMDgiLz48Y2lyY2xlIGNsYXNzPSJjbHMtMyIgY3g9IjU0Ny4xMiIgY3k9IjQ1Mi4xNyIgcj0iNDQuMDgiLz48Y2lyY2xlIGNsYXNzPSJjbHMtMyIgY3g9IjE2My42OCIgY3k9IjM4NS44MiIgcj0iNDQuMDgiLz48Y2lyY2xlIGNsYXNzPSJjbHMtMyIgY3g9IjMzMC4yNiIgY3k9IjU2MC43IiByPSI0NC4wOCIvPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0iTTQ0NC45NCwyNzkuOTIsMjc2LjE5LDQ0OC42N0ExMTkuMzIsMTE5LjMyLDAsMCwwLDQ0NC45NCwyNzkuOTJaIi8+PHBhdGggY2xhc3M9ImNscy0zIiBkPSJNMzc1LjY4LDI0NS43NmExMTkuMzMsMTE5LjMzLDAsMCwwLTk5LjQ5LDIwMi45MUw0NDQuOTQsMjc5LjkyQTExOC44OSwxMTguODksMCwwLDAsMzc1LjY4LDI0NS43NloiLz48L2c+PC9zdmc+
-    mediatype: image/svg+xml
+  - base64data: iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEDElEQVRoge2ZSWgUQRSGv0lmXKLiAm4RRTAqmCDoUUVBjYKKIMZ49C6auB3Ei548uBy8RNCTSkAwiKAgiDkIKoLoQY1L3EHNwV1jNDGZ8VCvrJ6eXqqT7nEi+aHo7nqvuv6/6/XrVzMwhCEkghSQleNgQgHfsn/BIgmkHeeDbVXy8F+uiEau6CwGhhT85yuiUervTF7keK3IYAstIFjIQUp3VZZ5dWbJXwV9nQPOASOT5xUJdcBPDMe/cAvpk+tvcrwGTCgOx1DsI/9BWwmZD7yW86fA7GIw9UE50CRceoEGIggpAyqBO3L9AVicOOVCjAYuCYefQL30hwrpxQgJulExMBX/B2ktpNzRVw4cxyzt9tgpF6KG4NDulxCNRkzoHSO5ymAF8EXmuQlM9PAJFfIbfyEAmzDp7zxQMSDKhdgC9Mj9W/BP/9ZCgsqXRcB78bsFTOoX5XykgAMOPmErHosQgCpU7OaA58DcCKTdSAMnMO/gVosxoUL0soYJAZgC3Bb/j8BSizFujAEuyz06gXWW40KFdMt1xvKGk4HPmPS8yXIcwAzgvox9ByyMMDZWIbMdRH7JsQ/YYzF2AfBWxjxAiYqC2ISsAT6J72NgHvnp+ST+4VkLfBW/VmBcFAWCUCH6yQ7zuUEZKrtowi2oONdwpuerwCyHrQLYj0kopwLmCcOAhIwDLmKyy1689yyLgA6H3z3gBqai7hNBA9nvWAsZ7hpYA7Rj6p7akIkmosJL30+36/hntwywGWhGpfZO4AcqvTejVluHa6gQHRZOIfXAd+m/C8wMEeFEBarYWw5MC/DbIIRzIe0FsDaqkDRw2OFzmvh3jCngqIPYA2AHUA2MklYN7ATaPISFCpmOyig51EdyW8wCNI7IHN0yh1+Nh9gaMB/tQCFdcv1Gjh3AkrhYu7AeI2Klh70VuODRX4sRs1Z3+gnJoTJNZSyUC5HB7De8Vjstti6f8Y1ifym+vkKa6H+Ot0Ed5p3wCqcwIWngofh4lkU/xBj3PsONszLPDh97mBCAXeLT7GXUQiqB8dKSEPVE5pnnY7cRUiM+z7yMWkixmi5vrgT49KDqOt3OyZgxYu/0Kuo+o7KIE2XA2IAnEweCVj2DigyNKpc9Gz8de+jQqnb0jXc1XZtNcfXr5KBD67HNLjAp3AXmAKtQX2xQ0eCEzqZfUDWbG6vleDt2dhGwEUW0Df+vud6zjPCwpYFHYq9LgqAtMsArIdLg4xMkZKfY2rHflieGdZis5LUtaEXtZdz7llUyJosqc0oChzBiGgn+9SaNWgldZx1MnF0EpMjfKrShvtg1qB/QR8v5bkxJkkWJKMk/c9djfvALau2UUDj5IY0qAM+gvjOdqJ3pQ+mrowRe7CHY4A8ixrhAvKZDJwAAAABJRU5ErkJggg==
+    mediatype: image/png
   keywords:
   - Red Hat
   - cluster
@@ -57,6 +57,12 @@ spec:
   - supported: false
     type: AllNamespaces
   customresourcedefinitions:
+    owned:
+    - name: multiclusterhubs.operators.open-cluster-management.io
+      group: operators.open-cluster-management.io
+      kind: MultiClusterHub
+      version: v1beta1
+      displayName: MultiClusterHub
     required:
     - name: helmreleases.apps.open-cluster-management.io
       version: v1
@@ -83,311 +89,11 @@ spec:
       kind: Channel
       displayName: Channel
       description: Represent a helm chart repository
-    owned:
-    - apiVersion: apiextensions.k8s.io/v1beta1
-      kind: CustomResourceDefinition
-      metadata:
-        name: multiclusterhubs.operators.open-cluster-management.io
-      spec:
-        group: operators.open-cluster-management.io
-        names:
-          kind: MultiClusterHub
-          listKind: MultiClusterHubList
-          plural: multiclusterhubs
-          shortNames:
-          - mch
-          singular: multiclusterhub
-        scope: Namespaced
-        subresources:
-          status: {}
-        validation:
-          openAPIV3Schema:
-            description: MultiClusterHub is the Schema for the multiclusterhubs API
-            properties:
-              apiVersion:
-                description: 'APIVersion defines the versioned schema of this representation of an object.
-                  Servers should convert recognized schemas to the latest internal value, and may reject
-                  unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
-                type: string
-              kind:
-                description: 'Kind is a string value representing the REST resource this object represents.
-                  Servers may infer this from the endpoint the client submits requests to. Cannot be updated.
-                  In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
-                type: string
-              metadata:
-                type: object
-              spec:
-                description: MultiClusterHubSpec defines the desired state of MultiClusterHub
-                properties:
-                  cloudPakCompatibility:
-                    description: Flag to install cert-manager into its own namespace for IBM Cloud Pak
-                      compatibility
-                    type: boolean
-                  etcd:
-                    description: Spec of Etcd
-                    properties:
-                      storage:
-                        description: StorageSize for MultiCluster hub components
-                        type: string
-                      storageClass:
-                        description: StorageClass for MultiCluster hub components
-                        type: string
-                    type: object
-                  failover:
-                    description: ReplicaCount for HA support. Does not affect data stores. Enabled will
-                      toggle HA support. This will provide better support in cases of failover but consumes
-                      more resources.
-                    type: boolean
-                  hive:
-                    description: Spec of hive
-                    properties:
-                      additionalCertificateAuthorities:
-                        description: AdditionalCertificateAuthorities is a list of references to secrets
-                          in the 'hive' namespace that contain an additional Certificate Authority to
-                          use when communicating with target clusters. These certificate authorities will
-                          be used in addition to any self-signed CA generated by each cluster on installation.
-                        items:
-                          description: LocalObjectReference contains enough information to let you locate
-                            the referenced object inside the same namespace.
-                          properties:
-                            name:
-                              description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-                                TODO: Add other useful fields. apiVersion, kind, uid?'
-                              type: string
-                          type: object
-                        type: array
-                      backup:
-                        description: Backup specifies configuration for backup integration. If absent,
-                          backup integration will be disabled.
-                        properties:
-                          minBackupPeriodSeconds:
-                            description: MinBackupPeriodSeconds specifies that a minimum of MinBackupPeriodSeconds
-                              will occur in between each backup. This is used to rate limit backups. This
-                              potentially batches together multiple changes into 1 backup. No backups
-                              will be lost as changes that happen during this interval are queued up and
-                              will result in a backup happening once the interval has been completed.
-                            type: integer
-                          velero:
-                            description: Velero specifies configuration for the Velero backup integration.
-                            properties:
-                              enabled:
-                                description: Enabled dictates if Velero backup integration is enabled.
-                                  If not specified, the default is disabled.
-                                type: boolean
-                            type: object
-                        type: object
-                      externalDNS:
-                        description: ExternalDNS specifies configuration for external-dns if it is to
-                          be deployed by Hive. If absent, external-dns will not be deployed.
-                        properties:
-                          aws:
-                            description: AWS contains AWS-specific settings for external DNS
-                            properties:
-                              credentials:
-                                description: Credentials references a secret that will be used to authenticate
-                                  with AWS Route53. It will need permission to manage entries in each
-                                  of the managed domains for this cluster. Secret should have AWS keys
-                                  named 'aws_access_key_id' and 'aws_secret_access_key'.
-                                properties:
-                                  name:
-                                    description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-                                      TODO: Add other useful fields. apiVersion, kind, uid?'
-                                    type: string
-                                type: object
-                            type: object
-                          gcp:
-                            description: GCP contains GCP-specific settings for external DNS
-                            properties:
-                              credentials:
-                                description: Credentials references a secret that will be used to authenticate
-                                  with GCP DNS. It will need permission to manage entries in each of the
-                                  managed domains for this cluster. Secret should have a key names 'osServiceAccount.json'.
-                                  The credentials must specify the project to use.
-                                properties:
-                                  name:
-                                    description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-                                      TODO: Add other useful fields. apiVersion, kind, uid?'
-                                    type: string
-                                type: object
-                            type: object
-                        type: object
-                      failedProvisionConfig:
-                        description: FailedProvisionConfig is used to configure settings related to handling
-                          provision failures.
-                        properties:
-                          skipGatherLogs:
-                            description: SkipGatherLogs disables functionality that attempts to gather
-                              full logs from the cluster if an installation fails for any reason. The
-                              logs will be stored in a persistent volume for up to 7 days.
-                            type: boolean
-                        type: object
-                      globalPullSecret:
-                        description: GlobalPullSecret is used to specify a pull secret that will be used
-                          globally by all of the cluster deployments. For each cluster deployment, the
-                          contents of GlobalPullSecret will be merged with the specific pull secret for
-                          a cluster deployment(if specified), with precedence given to the contents of
-                          the pull secret for the cluster deployment.
-                        properties:
-                          name:
-                            description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-                              TODO: Add other useful fields. apiVersion, kind, uid?'
-                            type: string
-                        type: object
-                      maintenanceMode:
-                        description: MaintenanceMode can be set to true to disable the hive controllers
-                          in situations where we need to ensure nothing is running that will add or act
-                          upon finalizers on Hive types. This should rarely be needed. Sets replicas to
-                          0 for the hive-controllers deployment to accomplish this.
-                        type: boolean
-                    required:
-                    - failedProvisionConfig
-                    type: object
-                  imagePullSecret:
-                    description: Pull secret of the MultiCluster hub images
-                    type: string
-                  ipv6:
-                    description: Flag for IPv6
-                    type: boolean
-                  mongo:
-                    description: Spec of mongo
-                    properties:
-                      storage:
-                        description: StorageSize for MultiCluster hub components
-                        type: string
-                      storageClass:
-                        description: StorageClass for MultiCluster hub components
-                        type: string
-                    type: object
-                  nodeSelector:
-                    additionalProperties:
-                      type: string
-                    description: Spec of NodeSelector
-                    type: object
-                  overrides:
-                    description: Overrides
-                    properties:
-                      imagePullPolicy:
-                        description: Pull policy of the MultiCluster hub images
-                        type: string
-                      imageRepository:
-                        description: Repository of the MultiCluster hub images
-                        type: string
-                      imageTagSuffix:
-                        description: ImageTagSuffix of the MultiCluster hub images
-                        type: string
-                    type: object
-                type: object
-              status:
-                description: MultiClusterHubStatus defines the observed state of MultiClusterHub
-                properties:
-                  currentVersion:
-                    description: CurrentVersion indicates the current version
-                    type: string
-                  deployments:
-                    description: Represents the status of each deployment
-                    items:
-                      description: DeploymentResult defines the observed state of Deployment
-                      properties:
-                        name:
-                          description: Name of the deployment
-                          type: string
-                        status:
-                          description: The most recently observed status of the Deployment
-                          properties:
-                            availableReplicas:
-                              description: Total number of available pods (ready for at least minReadySeconds)
-                                targeted by this deployment.
-                              format: int32
-                              type: integer
-                            collisionCount:
-                              description: Count of hash collisions for the Deployment. The Deployment
-                                controller uses this field as a collision avoidance mechanism when it
-                                needs to create the name for the newest ReplicaSet.
-                              format: int32
-                              type: integer
-                            conditions:
-                              description: Represents the latest available observations of a deployment's
-                                current state.
-                              items:
-                                description: DeploymentCondition describes the state of a deployment at
-                                  a certain point.
-                                properties:
-                                  lastTransitionTime:
-                                    description: Last time the condition transitioned from one status
-                                      to another.
-                                    format: date-time
-                                    type: string
-                                  lastUpdateTime:
-                                    description: The last time this condition was updated.
-                                    format: date-time
-                                    type: string
-                                  message:
-                                    description: A human readable message indicating details about the
-                                      transition.
-                                    type: string
-                                  reason:
-                                    description: The reason for the condition's last transition.
-                                    type: string
-                                  status:
-                                    description: Status of the condition, one of True, False, Unknown.
-                                    type: string
-                                  type:
-                                    description: Type of deployment condition.
-                                    type: string
-                                required:
-                                - status
-                                - type
-                                type: object
-                              type: array
-                            observedGeneration:
-                              description: The generation observed by the deployment controller.
-                              format: int64
-                              type: integer
-                            readyReplicas:
-                              description: Total number of ready pods targeted by this deployment.
-                              format: int32
-                              type: integer
-                            replicas:
-                              description: Total number of non-terminated pods targeted by this deployment
-                                (their labels match the selector).
-                              format: int32
-                              type: integer
-                            unavailableReplicas:
-                              description: Total number of unavailable pods targeted by this deployment.
-                                This is the total number of pods that are still required for the deployment
-                                to have 100% available capacity. They may either be pods that are running
-                                but not yet available or pods that still have not been created.
-                              format: int32
-                              type: integer
-                            updatedReplicas:
-                              description: Total number of non-terminated pods targeted by this deployment
-                                that have the desired template spec.
-                              format: int32
-                              type: integer
-                          type: object
-                      required:
-                      - name
-                      - status
-                      type: object
-                    type: array
-                  desiredVersion:
-                    description: DesiredVersion indicates the desired version
-                    type: string
-                  phase:
-                    description: Represents the running phase of the MultiClusterHub
-                    type: string
-                type: object
-            type: object
-        version: v1beta1
-        versions:
-        - name: v1beta1
-          served: true
-          storage: true
   install:
     strategy: deployment
     spec:
       clusterPermissions:
-      - name: multiclusterhub-operator
+      - serviceAccountName: multiclusterhub-operator
         rules:
         - apiGroups:
           - ''
