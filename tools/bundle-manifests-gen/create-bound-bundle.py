@@ -6,6 +6,7 @@
 # - Updating CSV version and CSV name (to match version)
 # - Setting the "replaces" property.
 # - Overriding image refernces
+# - Removing references to pull secrets in operator deployments
 # - Setting the createdAt timestamp
 #
 # Note:
@@ -18,6 +19,93 @@ from bundle_common import *
 import argparse
 import datetime
 import os
+
+
+# Creates an image-overide map from a list of overrides (from args).
+def create_image_override_map(image_override_specs):
+
+   image_overrides = dict()
+   if image_override_specs:
+      for override in image_override_specs:
+
+         # An ooverride (as from args) is in the form:
+         # <repo_to_look_for>:<complete_replacement_image_ref>
+         #
+         # Note that the replacement image ref may contain a colon in it (if it is
+         # specifeid using a tag) so we look for the colon separator left to right.
+
+         colon_pos = override.find(":")
+         if colon_pos > 0:
+            repo = override[0:colon_pos]
+            image_ref = override[colon_pos+1:]
+            image_overrides[repo] = image_ref
+         else:
+            die("Invalid image override: %s" % override)
+
+   return image_overrides
+
+# Parse a container image reference.
+def parse_image_ref(image_ref):
+
+   # Image ref:  [registry-and-ns/]repository-name[:tag][@digest]
+
+   parsed_ref = dict()
+
+   remaining_ref = image_ref
+   at_pos = remaining_ref.rfind("@")
+   if at_pos > 0:
+      parsed_ref["digest"] = remaining_ref[at_pos+1:]
+      remaining_ref = remaining_ref[0:at_pos]
+   else:
+      parsed_ref["digest"] = None
+   colon_pos = remaining_ref.rfind(":")
+   if colon_pos > 0:
+      parsed_ref["tag"] = remaining_ref[colon_pos+1:]
+      remaining_ref = remaining_ref[0:colon_pos]
+   else:
+      parsed_ref["tag"] = None
+   slash_pos = remaining_ref.rfind("/")
+   if slash_pos > 0:
+      parsed_ref["repository"] = remaining_ref[slash_pos+1:]
+      parsed_ref["registry_and_namespace"] = remaining_ref[0:slash_pos]
+   else:
+      parsed_ref["repository"] = remaining_ref
+      parsed_ref["registry_and_namespace"] = None
+
+   return parsed_ref
+
+# Update image references in CSV deployments, remove latent pull secrets.
+def update_image_refs_in_deployment(deployment, image_overrides=None):
+
+   deployment_name = deployment["name"]
+   print("Updating image references for deployment: %s" % deployment_name)
+
+   pod_spec = deployment["spec"]["template"]["spec"]
+
+   containers = pod_spec["containers"]
+   for container in containers:
+      image_ref = container["image"]
+      parsed_ref = parse_image_ref(image_ref)
+
+      if not image_overrides:
+         print("  Image (no overrides): %s" % image_ref)
+      else:
+         repository = parsed_ref["repository"]
+         try:
+            new_image_ref = image_overrides[repository]
+            container["image"] = new_image_ref
+            print("   Image override:  %s" % new_image_ref)
+         except KeyError:
+            die("No image override for: %s" % image_ref)
+
+   # Remove any pull secrets left over from dev env practices:
+
+   image_pull_secrets = get_seq(pod_spec, "imagePullSecrets")
+   if image_pull_secrets:
+      # del pod_spec["imagePullSecrets"]
+      for entry in image_pull_secrets:
+         # print("   Removed reference to pull secret: %s" % entry["name"] )
+         print("   TEMP WORKAROUND: Leaving reference to pull secret: %s" % entry["name"] )
 
 
 # --- Main ---
@@ -176,10 +264,8 @@ def main():
    install_spec = spec["install"]["spec"]
    deployments = install_spec["deployments"]
 
-   if image_overrides:
-      print("Updating image references...")
-      for deployment in deployments:
-         update_image_refs_in_deployment(deployment, image_overrides)
+   for deployment in deployments:
+      update_image_refs_in_deployment(deployment, image_overrides)
 
    # Write out the updated CSV
 

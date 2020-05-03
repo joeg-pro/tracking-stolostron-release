@@ -247,80 +247,7 @@ def create_or_empty_directory(dir_type, pathn):
    return
 
 
-# Creates an image-overide map from a list of overrides (from args).
-def create_image_override_map(image_override_specs):
-
-   image_overrides = dict()
-   if image_override_specs:
-      for override in image_override_specs:
-
-         # An ooverride (as from args) is in the form:
-         # <repo_to_look_for>:<complete_replacement_image_ref>
-         #
-         # Note that the replacement image ref may contain a colon in it (if it is
-         # specifeid using a tag) so we look for the colon separator left to right.
-
-         colon_pos = override.find(":")
-         if colon_pos > 0:
-            repo = override[0:colon_pos]
-            image_ref = override[colon_pos+1:]
-            image_overrides[repo] = image_ref
-         else:
-            die("Invalid image override: %s" % override)
-
-   return image_overrides
-
-
-# Parse a container image reference.
-def parse_image_ref(image_ref):
-
-   # Image ref:  [registry-and-ns/]repository-name[:tag][@digest]
-
-   parsed_ref = dict()
-
-   remaining_ref = image_ref
-   at_pos = remaining_ref.rfind("@")
-   if at_pos > 0:
-      parsed_ref["digest"] = remaining_ref[at_pos+1:]
-      remaining_ref = remaining_ref[0:at_pos]
-   else:
-      parsed_ref["digest"] = None
-   colon_pos = remaining_ref.rfind(":")
-   if colon_pos > 0:
-      parsed_ref["tag"] = remaining_ref[colon_pos+1:]
-      remaining_ref = remaining_ref[0:colon_pos]
-   else:
-      parsed_ref["tag"] = None
-   slash_pos = remaining_ref.rfind("/")
-   if slash_pos > 0:
-      parsed_ref["repository"] = remaining_ref[slash_pos+1:]
-      parsed_ref["registry_and_namespace"] = remaining_ref[0:slash_pos]
-   else:
-      parsed_ref["repository"] = remaining_ref
-      parsed_ref["registry_and_namespace"] = None
-
-   return parsed_ref
-
-def update_image_refs_in_deployment(deployment, image_overrides=None):
-
-   containers = deployment["spec"]["template"]["spec"]["containers"]
-   for container in containers:
-      image_ref = container["image"]
-      parsed_ref = parse_image_ref(image_ref)
-
-      if not image_overrides:
-         print("  Image (no overrides): %s" % image_ref)
-      else:
-         repository = parsed_ref["repository"]
-         try:
-            new_image_ref = image_overrides[repository]
-            container["image"] = new_image_ref
-            print("   Image override:  %s" % new_image_ref)
-         except KeyError:
-            die("No image override for: %s" % image_ref)
-
-
-# Loads or creates a package manifest:
+# Loads or creates a package manifest.
 def load_pkg_manifest(pathn, pkg_name):
 
    if os.path.exists(pathn):
@@ -332,6 +259,7 @@ def load_pkg_manifest(pathn, pkg_name):
    return pkg_manifest
 
 
+# Finds the entry for a channel within a package.
 def find_channel_entry(manifest, channel):
 
    pkg_channels = manifest["channels"]
