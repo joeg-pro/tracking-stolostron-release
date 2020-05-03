@@ -53,6 +53,7 @@ def add_owned_crd(manifest, owned_crds):
       validation = spec["validation"]
       schema     = validation["openAPIV3Schema"]
       description = schema["description"]
+      the_entry["description"] = description
    except KeyError:
       print("WARN: Coulnd't get descirption from OpenAPI V3 schema, using default.")
       description = kind
@@ -210,7 +211,8 @@ def main():
    for manifest_pathn in operator_deployment_pathns:
       manifest = load_manifest("operator manifest", manifest_pathn)
       csv_deployment = {"name": manifest["metadata"]["name"]}
-      csv_deployment["spec"]   = manifest["spec"]
+      csv_deployment["spec"] =  manifest["spec"]
+
       accumulate_keyed("install deployment", [csv_deployment], deployments, lambda e: e["name"])
 
    if not deployments:
