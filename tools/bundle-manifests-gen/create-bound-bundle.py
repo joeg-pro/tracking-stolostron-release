@@ -165,10 +165,9 @@ def update_image_refs_in_deployment(deployment, image_key_mapping, image_manifes
 
    image_pull_secrets = get_seq(pod_spec, "imagePullSecrets")
    if image_pull_secrets:
-      # del pod_spec["imagePullSecrets"]
+      del pod_spec["imagePullSecrets"]
       for entry in image_pull_secrets:
-         # print("   Removed reference to pull secret: %s" % entry["name"] )
-         print("   TEMP WORKAROUND: Leaving reference to pull secret: %s" % entry["name"] )
+         print("   NOTE: Removed reference to pull secret: %s" % entry["name"] )
 
 
 # --- Main ---
