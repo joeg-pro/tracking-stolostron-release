@@ -31,7 +31,7 @@
 # - This script (actually the underlying Python it calls) generates the bound boundle
 #   in bundle-image format with manifests and metadata subdirectories per that format.
 #
-#   In addition, consisent with the older APP Repository format, it puts that bundle
+#   In addition, consisent with the older App Repository format, it puts that bundle
 #   under a package directory with a package.yaml, and maintains chennel entries in
 #   that package.yaml.  We do that as a possible way of trakcing some needed state
 #   (eg. the name of the previously published CSV version). Maybe doing it this way
@@ -46,7 +46,6 @@
 #
 # - readlink
 # - Python 3.6 (for underlying scripts that do the real work)
-# - jq (for parsing the image manifest file)
 
 me=$(basename $0)
 my_dir=$(dirname $(readlink -f $0))
@@ -63,7 +62,7 @@ tmp_root="/tmp/acm-bundle-manifests-build"
 # -m pathname of image Manifest file.
 # -d Default channel name.
 # -c Additional Channel name (can be repeated).
-# -i Image override spec (can be repeated).
+# -i Image key mapping spec (can be repeated).
 
 opt_flags="I:O:n:v:p:m:d:c:i:"
 
@@ -85,7 +84,7 @@ while getopts "$opt_flags" OPTION; do
          ;;
       c) additional_channels="$additional_channels $OPTARG"
          ;;
-      i) image_keys_and_repos="$image_keys_and_repos $OPTARG"
+      i) image_name_to_keys="$image_name_to_keys $OPTARG"
          ;;
       ?) exit 1
          ;;
@@ -118,11 +117,11 @@ if [[ -z "$default_channel" ]]; then
    exit 1
 fi
 if [[ -z "$additional_channels" ]]; then
-   >&2 echo "Error: At least one to-be-added-to package channel name not specified (-c)."
+   >&2 echo "Error: At least one to-be-added-to package channel name is required (-c)."
    exit 1
 fi
-if [[ -z "$image_keys_and_repos" ]]; then
-   >&2 echo "Error: At least one image-replacement-spec not specified (-i)."
+if [[ -z "$image_name_to_keys" ]]; then
+   >&2 echo "Error: At least one image-name-to-key mapping is required (-i)."
    exit 1
 fi
 if [[ -z "$prev_csv_ver" ]]; then
@@ -160,53 +159,9 @@ else
    unbound_bundle=$unbound_pkg_dir
 fi
 
-# Form image-override specificatoins for each image we expect in the CSV based on
-# the list of expected overrides defined by $image_keys_and_repos and stuff in the
-# image manifest file.
-#
-# Each whitespace-separated entry in $image_keys_and_repos is a spec of the form:
-#
-#    <image_key_In_manifest>:<image_name_expected_in_csv>
-#
-# Where <image_key_in_manifest> is a value we expect to see as the "image-key" property
-# in the image manifest, and <image_name_in_csv> is the expected "placeholder" we expect
-# to have been used for the image (more correctly, repository) name in image references
-# in the install/deployment info in the CSV.
-#
-# We use <image_key_in_manifest> to find the image's entry in the manfest, and then use
-# the various fileds in that entry to form the image-override option we pass to the
-# create-unbound-bundle script.
-
-override_options=""
-for ikr in $image_keys_and_repos; do
-
-   img_name_in_csv=${ikr#*:}
-   img_key=${ikr%:*}
-
-   entry=$(jq -c ".[] | select(.\"image-key\"==\"$img_key\")" "$image_manifest")
-   if [[ -z $entry ]]; then
-      >&2 echo "Error: Could not find entry for image key \"$img_key\" in image manifest."
-      >&2 echo "Aborting."
-      exit 2
-   fi
-
-   # Some more advanced JQ wizardry could maybe make this happen in a single JQ transform,
-   # but having somethign that works beats not having anything at all by a mile. And for
-   # sure efficiency is not an important consideration here. So...
-
-   ir_remote=$(echo "$entry" | jq -r ".\"image-remote\"")
-   ir_name=$(echo "$entry" | jq -r ".\"image-name\"")
-   ir_digest=$(echo "$entry" | jq -r ".\"image-digest\"")
-   ir_tag_or_digest="@$ir_digest"
-
-   replacement_img_ref="$ir_remote/$ir_name$ir_tag_or_digest"
-
-   # The image-override option specifies a replacement in the form:
-   #
-   #    <image_name_expected_in_csv>:<full_replacement_image_ref>
-
-   override_opt="--image-override $img_name_in_csv:$replacement_img_ref"
-   override_options="$override_options $override_opt"
+name_to_key_options=""
+for ink in $image_name_to_keys; do
+   name_to_key_options="$name_to_key_options --image-name-to-key $ink"
 done
 
 # If a previous CSV versioin has been specified, pass it on.
@@ -240,5 +195,6 @@ $my_dir/create-bound-bundle.py \
    $prev_vers_option \
    --default-channel $default_channel \
    $addl_channel_options \
-   $override_options
+   --image-manifest "$image_manifest" \
+   $name_to_key_options
 

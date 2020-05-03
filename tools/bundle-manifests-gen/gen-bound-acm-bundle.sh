@@ -121,11 +121,11 @@ $my_dir/gen-bound-bundle.sh \
    -I $unbound_pkg_dir -O $bound_pkg_dir \
    -d "$feature_release_channel" \
    -c "$feature_release_rc_channel" \
-   -i "multiclusterhub_operator:multiclusterhub-operator" \
-   -i "multicluster_operators_placementrule:multicluster-operators-placementrule" \
-   -i "multicluster_operators_subscription:multicluster-operators-subscription" \
-   -i "multicluster_operators_deployable:multicluster-operators-deployable" \
-   -i "multicluster_operators_channel:multicluster-operators-channel" \
-   -i "multicluster_operators_application:multicluster-operators-application" \
-   -i "openshift_hive:hive"
+   -i "multiclusterhub-operator:multiclusterhub_operator" \
+   -i "multicluster-operators-placementrule:multicluster_operators_placementrule" \
+   -i "multicluster-operators-subscription:multicluster_operators_subscription" \
+   -i "multicluster-operators-deployable:multicluster_operators_deployable" \
+   -i "multicluster-operators-channel:multicluster_operators_channel" \
+   -i "multicluster-operators-application:multicluster_operators_application" \
+   -i "hive:openshift_hive"
 

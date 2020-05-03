@@ -3,6 +3,7 @@
 
 # Assumes: Python 3.6+
 
+import json
 import os
 import shutil
 import sys
@@ -229,6 +230,17 @@ def copy_file(fn, from_dir_pathn, to_dir_pathn):
    shutil.copy(src_pathn, dest_pathn)
 
    return
+
+# Load a json file.
+def load_json(file_type, pathn):
+
+   try:
+      with open(pathn, "r") as f:
+         return json.load(f)
+   except FileNotFoundError:
+      cap_file_type= file_type[0:1].upper() + file_type[1:]
+      die("%s not found: %s" % (cap_file_type, pathn))
+
 
 # Creates a directory, or empties out contents if directory exists.
 def create_or_empty_directory(dir_type, pathn):

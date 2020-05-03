@@ -21,28 +21,88 @@ import datetime
 import os
 
 
-# Creates an image-overide map from a list of overrides (from args).
-def create_image_override_map(image_override_specs):
+# Loads a JSON image manifest into a manifest map that we use.
+def load_image_manifest(image_manifest_pathn, image_tag_suffix=""):
 
-   image_overrides = dict()
-   if image_override_specs:
-      for override in image_override_specs:
+   image_manifest = dict()
+   image_manifest_list = load_json("image manifest", image_manifest_pathn)
 
-         # An ooverride (as from args) is in the form:
-         # <repo_to_look_for>:<complete_replacement_image_ref>
-         #
-         # Note that the replacement image ref may contain a colon in it (if it is
-         # specifeid using a tag) so we look for the colon separator left to right.
+   for entry in image_manifest_list:
+      key = entry["image-key"]
 
-         colon_pos = override.find(":")
-         if colon_pos > 0:
-            repo = override[0:colon_pos]
-            image_ref = override[colon_pos+1:]
-            image_overrides[repo] = image_ref
-         else:
-            die("Invalid image override: %s" % override)
+      image_info = dict()
+      image_info["image-key"] = key
+      image_info["used"] = False
 
-   return image_overrides
+      rgy_ns_and_name = "%s/%s" % (entry["image-remote"], entry["image-name"])
+
+      tag = entry["image-version"]
+      if image_tag_suffix:
+         tag = "%s-%" % (tag, image_tag_suffix)
+      digest = entry["image-digest"]
+
+      image_info["image_ref_by_digest"] = "%s@%s" % (rgy_ns_and_name, digest)
+      image_info["image_ref_by_tag"]    = "%s:%s" % (rgy_ns_and_name, tag)
+
+      image_manifest[key] = image_info
+
+   return image_manifest
+
+
+# Creates an image repo to key map from a list of mappings (from aargs).
+def load_image_key_maping(image_key_mapping_specs, image_manifest):
+
+   image_key_mapping = dict()
+
+   # An image-key mapping spec (as from args) is in the form:
+   # <repo_to_look_for>:<image_key_in_manifes>
+   #
+   # We turn the list  into a map from <repo_to_look_for> to <image_key_in manifest>
+
+   for mapping in image_key_mapping_specs:
+      colon_pos = mapping.find(":")
+      if colon_pos > 0:
+         repo = mapping[0:colon_pos]
+         image_key = mapping[colon_pos+1:]
+
+         # While we're here, we might as well check that the key is in the
+         # manifest to catch missing entries earlier rather than later.
+         if not image_key in image_manifest:
+            die("Image key not found in manifest: %s", image_key)
+
+         image_key_mapping[repo] = image_key
+      else:
+         die("Invalid image-key mapping: %s" % mapping)
+   return image_key_mapping
+
+
+# Loads a JSON image manifest into a manifest map that we use.
+def load_image_manifest(image_manifest_pathn, image_tag_suffix=""):
+
+   image_manifest = dict()
+   image_manifest_list = load_json("image manifest", image_manifest_pathn)
+
+   for entry in image_manifest_list:
+      key = entry["image-key"]
+
+      image_info = dict()
+      image_info["image-key"] = key
+      image_info["used"] = False
+
+      rgy_ns_and_name = "%s/%s" % (entry["image-remote"], entry["image-name"])
+
+      tag = entry["image-version"]
+      if image_tag_suffix:
+         tag = "%s-%" % (tag, image_tag_suffix)
+      digest = entry["image-digest"]
+
+      image_info["image_ref_by_digest"] = "%s@%s" % (rgy_ns_and_name, digest)
+      image_info["image_ref_by_tag"]    = "%s:%s" % (rgy_ns_and_name, tag)
+
+      image_manifest[key] = image_info
+
+   return image_manifest
+
 
 # Parse a container image reference.
 def parse_image_ref(image_ref):
@@ -75,10 +135,12 @@ def parse_image_ref(image_ref):
    return parsed_ref
 
 # Update image references in CSV deployments, remove latent pull secrets.
-def update_image_refs_in_deployment(deployment, image_overrides=None):
+def update_image_refs_in_deployment(deployment, image_key_mapping, image_manifest, use_tags=False):
 
    deployment_name = deployment["name"]
    print("Updating image references for deployment: %s" % deployment_name)
+
+   manifest_image_ref_to_use = "image_ref_by_tag" if use_tags else "image_ref_by_digest"
 
    pod_spec = deployment["spec"]["template"]["spec"]
 
@@ -87,16 +149,17 @@ def update_image_refs_in_deployment(deployment, image_overrides=None):
       image_ref = container["image"]
       parsed_ref = parse_image_ref(image_ref)
 
-      if not image_overrides:
-         print("  Image (no overrides): %s" % image_ref)
-      else:
-         repository = parsed_ref["repository"]
-         try:
-            new_image_ref = image_overrides[repository]
-            container["image"] = new_image_ref
-            print("   Image override:  %s" % new_image_ref)
-         except KeyError:
-            die("No image override for: %s" % image_ref)
+      repository = parsed_ref["repository"]
+      try:
+         image_key = image_key_mapping[repository]
+      except KeyError:
+         die("No image key mapping for: %s" % image_ref)
+
+      manifest_entry = image_manifest[image_key]
+      new_image_ref = manifest_entry[manifest_image_ref_to_use]
+      container["image"] = new_image_ref
+      manifest_entry["used"] = True
+      print("   Image override:  %s" % new_image_ref)
 
    # Remove any pull secrets left over from dev env practices:
 
@@ -130,7 +193,8 @@ def main():
    parser.add_argument("--csv-vers",  dest="csv_vers", required=True)
    parser.add_argument("--prev-vers", dest="prev_vers")
 
-   parser.add_argument("--image-override", dest="image_overrides", action="append", required=True)
+   parser.add_argument("--image-manifest", dest="image_manifest_pathn", required=True)
+   parser.add_argument("--image-name-to-key", dest="image_name_to_key_specs", action="append", required=True)
 
    args = parser.parse_args()
 
@@ -149,7 +213,8 @@ def main():
    csv_vers  = args.csv_vers
    prev_vers = args.prev_vers
 
-   image_override_list = args.image_overrides
+   image_manifest_pathn = args.image_manifest_pathn
+   image_name_to_key_specs = args.image_name_to_key_specs
 
    csv_name = "%s.v%s" % (pkg_name, csv_vers)
    csv_fn   = "%s.clusterserviceversion.yaml" % (csv_name)
@@ -162,6 +227,12 @@ def main():
       die("Output package directory doesn't exist: %s" % pkg_dir_pathn)
    elif not os.path.isdir(pkg_dir_pathn):
       die("Output package path exists but isn't a directory: %s" % pkg_dir_pathn)
+
+   # Load image key mappins and manifest we will use to update the image references
+   # in operator deployments.
+
+   image_manifest = load_image_manifest(image_manifest_pathn)
+   image_key_mapping = load_image_key_maping(image_name_to_key_specs, image_manifest)
 
    # There seem to be several formats for a bundle directore, depending on how they
    # are being published: being placed in an operator bundle image, or made available
@@ -257,15 +328,11 @@ def main():
       except KeyError:
          pass
 
-   # Adjust image refs in deployment specs according to overrides:
-
-   image_overrides = create_image_override_map(image_override_list)
-
    install_spec = spec["install"]["spec"]
    deployments = install_spec["deployments"]
 
    for deployment in deployments:
-      update_image_refs_in_deployment(deployment, image_overrides)
+      update_image_refs_in_deployment(deployment, image_key_mapping, image_manifest)
 
    # Write out the updated CSV
 
