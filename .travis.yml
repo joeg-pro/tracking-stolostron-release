@@ -36,9 +36,6 @@ jobs:
       script:
         - if [ "$TRAVIS_PULL_REQUEST" != "true" ]; then export PUSH_ME=-P; fi;
         - |
-          #
-          # Index image gen
-          #
           make
           TAG=`cat RELEASE_VERSION`-SNAPSHOT-`cat TAG`
           echo TAG=${TAG}
@@ -51,5 +48,5 @@ jobs:
           SHA_TAG=`make retag/getquaysha RETAG_QUAY_COMPONENT_TAG=${TAG} COMPONENT_NAME=${BUNDLE_IMAGE_NAME}`
           echo SHA_TAG=${SHA_TAG}
           build-harness/vendor/opm index add --bundles quay.io/open-cluster-management/${BUNDLE_IMAGE_NAME}@${SHA_TAG} --tag quay.io/open-cluster-management/${INDEX_IMAGE_NAME}:${TAG} -c docker
-          docker push quay.io/open-cluster-management/${INDEX_IMAGE_NAME}:${TAG}
+          if [ "$TRAVIS_PULL_REQUEST" != "true" ]; then docker push quay.io/open-cluster-management/${INDEX_IMAGE_NAME}:${TAG}; fi;
 
