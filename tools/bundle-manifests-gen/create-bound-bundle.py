@@ -41,6 +41,9 @@ def load_image_manifest(image_manifest_pathn, image_tag_suffix=""):
          tag = "%s-%" % (tag, image_tag_suffix)
       digest = entry["image-digest"]
 
+      if not digest.startswith("sha"):
+         die("Invalid image digest value for image %s: %s" % (key, digest))
+
       image_info["image_ref_by_digest"] = "%s@%s" % (rgy_ns_and_name, digest)
       image_info["image_ref_by_tag"]    = "%s:%s" % (rgy_ns_and_name, tag)
 
@@ -74,34 +77,6 @@ def load_image_key_maping(image_key_mapping_specs, image_manifest):
       else:
          die("Invalid image-key mapping: %s" % mapping)
    return image_key_mapping
-
-
-# Loads a JSON image manifest into a manifest map that we use.
-def load_image_manifest(image_manifest_pathn, image_tag_suffix=""):
-
-   image_manifest = dict()
-   image_manifest_list = load_json("image manifest", image_manifest_pathn)
-
-   for entry in image_manifest_list:
-      key = entry["image-key"]
-
-      image_info = dict()
-      image_info["image-key"] = key
-      image_info["used"] = False
-
-      rgy_ns_and_name = "%s/%s" % (entry["image-remote"], entry["image-name"])
-
-      tag = entry["image-version"]
-      if image_tag_suffix:
-         tag = "%s-%" % (tag, image_tag_suffix)
-      digest = entry["image-digest"]
-
-      image_info["image_ref_by_digest"] = "%s@%s" % (rgy_ns_and_name, digest)
-      image_info["image_ref_by_tag"]    = "%s:%s" % (rgy_ns_and_name, tag)
-
-      image_manifest[key] = image_info
-
-   return image_manifest
 
 
 # Parse a container image reference.
@@ -214,6 +189,8 @@ def main():
 
    image_manifest_pathn = args.image_manifest_pathn
    image_name_to_key_specs = args.image_name_to_key_specs
+
+   add_related_images = False
 
    csv_name = "%s.v%s" % (pkg_name, csv_vers)
    csv_fn   = "%s.clusterserviceversion.yaml" % (csv_name)
@@ -332,6 +309,21 @@ def main():
 
    for deployment in deployments:
       update_image_refs_in_deployment(deployment, image_key_mapping, image_manifest)
+
+   # If we're adding in related-image info, then add in entrys for all of the
+   # entries in the image_manifest that haven't been mentioned in an operator
+   # deployment we've processed.
+
+   if add_related_images:
+      related_image_nr = 0
+      for image_info in image_manifest.values():
+         if not image_info["used"]:
+            related_image = image_info["image_ref_by_digest"]
+            related_image_nr += 1
+            print("RELEATED IMAG #%d: %s" % (related_image_nr, related_image))
+      #
+   #
+
 
    # Write out the updated CSV
 
