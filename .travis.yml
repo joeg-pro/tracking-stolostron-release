@@ -18,22 +18,29 @@ env:
     - INDEX_IMAGE_NAME=acm-custom-registry
 
 stages:
+  - bundle
   - index
 
 jobs:
   include:
-    - stage: index
-      name: "Run release scripting"
+    - stage: bundle
+      name: "Create bundle image"
       script:
         - if [ "$TRAVIS_PULL_REQUEST" != "true" ]; then export PUSH_ME=-P; fi;
         - |
-          make
           tools/bundle-manifests-gen/gen-unbound-acm-bundle.sh
           tools/bundle-manifests-gen/gen-bound-acm-bundle.sh 
           tools/bundle-image-gen/gen-bound-acm-bundle-image.sh -v `cat RELEASE_VERSION` -s SNAPSHOT-`cat TAG` $PUSH_ME
+    - stage: index
+      name: "Create index image"
+      script:
+        - if [ "$TRAVIS_PULL_REQUEST" != "true" ]; then export PUSH_ME=-P; fi;
+        - |
           #
           # Index image gen
           #
+          make
+          echo TAG=${TAG}
           docker login -u=${DOCKER_USER} -p=${DOCKER_PASS} quay.io
           docker pull quay.io/operator-framework/upstream-registry-builder:v1.6.1
           docker tag quay.io/operator-framework/upstream-registry-builder:v1.6.1 quay.io/operator-framework/upstream-registry-builder:latest
@@ -41,6 +48,7 @@ jobs:
           docker tag quay.io/operator-framework/operator-registry-server:v1.1.6 quay.io/operator-framework/operator-registry-server:latest
           make opm/install
           SHA_TAG=`make retag/getquaysha RETAG_QUAY_COMPONENT_TAG=${TAG} COMPONENT_NAME=${BUNDLE_IMAGE_NAME}`
+          echo SHA_TAG=${SHA_TAG}
           build-harness/vendor/opm index add --bundles quay.io/open-cluster-management/${BUNDLE_IMAGE_NAME}@${SHA_TAG} --tag quay.io/open-cluster-management/${INDEX_IMAGE_NAME}:${TAG} -c docker
           docker push quay.io/open-cluster-management/${INDEX_IMAGE_NAME}:${TAG}
 
