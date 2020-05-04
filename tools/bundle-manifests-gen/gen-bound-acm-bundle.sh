@@ -1,9 +1,17 @@
 #!/bin/bash
 
 # Generates bound ACM bundle.
-
+#
+# Args:
+#
+# $1 = Bundle version number in x.y.z[-suffix] form.  Presence of a suffix
+#      starting with a dash indicates an RC/SNAPSHOT build.
+#
+# $2 = FUTURE: Version of previous bundle to be replaced by this one.
+#
 # Source pkg:  this_repo/operator-bundles/unbound/advanced-cluster-management
 # Output pkg:  this_repo/operator-bundles/bound/advanced-cluster-management
+#
 #
 # Also needs:  release image manifest fle in this_repo/image-manifests.
 
@@ -12,14 +20,25 @@ my_dir=$(dirname $(readlink -f $0))
 
 top_of_repo=$(readlink  -f $my_dir/../..)
 
+bundle_vers="${1:-1.0.0}"
+
+# Determine if this is a RC or release build.  This is used to determine
+# the channel on which this bundle is to be published.
+
+if [[ $bundle_vers == *"-"* ]]; then
+   release_nr=${bundle_vers%-*}
+   is_candidate_build=1
+else
+   release_nr=$bundle_vers
+   is_candidate_build=0
+fi
+
 pkg_name="advanced-cluster-management"
-release_nr="1.0.0"
 
 manifest_file="$top_of_repo/image-manifests/$release_nr.json"
 unbound_pkg_dir="$top_of_repo/operator-bundles/unbound/$pkg_name"
 bound_pkg_dir="$top_of_repo/operator-bundles/bound/$pkg_name"
 
-bundle_vers=$release_nr
 
 # NOTE:
 # If we're going to build and publish a sequence of release candidates and want then
@@ -106,21 +125,29 @@ IFS=$old_IFS
 feature_release_channel="release-$rel_x.$rel_y"
 feature_release_rc_channel="candidate-$rel_x.$rel_y"
 
+if [[ is_candidate_build -eq 1 ]]; then
+   publish_to_channel="$feature_release_rc_channel"
+else
+   publish_to_channel="$feature_release_channel"
+fi
+
 # Enough setup.  Lets to this...
 
 echo "Generating bound bundle manifests for package: $pkg_name"
 echo "  From uUnbound bundle manifests in: $unbound_pkg_dir"
 echo "  Writing bound bundle manifests to: $bound_pkg_dir"
 echo "  For CSV/bundle version: $bundle_vers"
+echo "  To be published on channel: $publish_to_channel"
+echo "  With default channel: $feature_release_channel"
 echo "  Using image manifests file: $manifest_file"
 
 $my_dir/gen-bound-bundle.sh \
-   -n $pkg_name \
-   -v $bundle_vers \
-   -m $manifest_file \
-   -I $unbound_pkg_dir -O $bound_pkg_dir \
+   -n "$pkg_name" \
+   -v "$bundle_vers" \
+   -m "$manifest_file" \
+   -I "$unbound_pkg_dir" -O "$bound_pkg_dir" \
    -d "$feature_release_channel" \
-   -c "$feature_release_rc_channel" \
+   -c "$publish_to_channel" \
    -i "multiclusterhub-operator:multiclusterhub_operator" \
    -i "multicluster-operators-placementrule:multicluster_operators_placementrule" \
    -i "multicluster-operators-subscription:multicluster_operators_subscription" \
