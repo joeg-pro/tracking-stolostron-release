@@ -14,9 +14,8 @@ env:
     # Required
     - OS=linux
     - COMPONENT_TAG_EXTENSION="-${TRAVIS_COMMIT}"
-    - BUNDLE_IMAGE_NAME=multiclusterhub-operator-bundle
-    - INDEX_IMAGE_NAME=multiclusterhub-operator-index
-    - BUNDLE_COMPONENT_REPO=multicloudhub-operator
+    - BUNDLE_IMAGE_NAME=acm-operator-bundle
+    - INDEX_IMAGE_NAME=acm-custom-registry
 
 stages:
   - index
@@ -32,3 +31,16 @@ jobs:
           tools/bundle-manifests-gen/gen-unbound-acm-bundle.sh
           tools/bundle-manifests-gen/gen-bound-acm-bundle.sh 
           tools/bundle-image-gen/gen-bound-acm-bundle-image.sh -v `cat RELEASE_VERSION` -s SNAPSHOT-`cat TAG` $PUSH_ME
+          #
+          # Index image gen
+          #
+          docker login -u=${DOCKER_USER} -p=${DOCKER_PASS} quay.io
+          docker pull quay.io/operator-framework/upstream-registry-builder:v1.6.1
+          docker tag quay.io/operator-framework/upstream-registry-builder:v1.6.1 quay.io/operator-framework/upstream-registry-builder:latest
+          docker pull quay.io/operator-framework/operator-registry-server:v1.6.1
+          docker tag quay.io/operator-framework/operator-registry-server:v1.1.6 quay.io/operator-framework/operator-registry-server:latest
+          make opm/install
+          SHA_TAG=`make retag/getquaysha RETAG_QUAY_COMPONENT_TAG=${TAG} COMPONENT_NAME=${BUNDLE_IMAGE_NAME}`
+          build-harness/vendor/opm index add --bundles quay.io/open-cluster-management/${BUNDLE_IMAGE_NAME}@${SHA_TAG} --tag quay.io/open-cluster-management/${INDEX_IMAGE_NAME}:${TAG} -c docker
+          docker push quay.io/open-cluster-management/${INDEX_IMAGE_NAME}:${TAG}
+
