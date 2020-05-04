@@ -40,6 +40,7 @@ jobs:
           # Index image gen
           #
           make
+          TAG=`cat RELEASE_VERSION`-SNAPSHOT-`cat TAG`
           echo TAG=${TAG}
           docker login -u=${DOCKER_USER} -p=${DOCKER_PASS} quay.io
           docker pull quay.io/operator-framework/upstream-registry-builder:v1.6.1
