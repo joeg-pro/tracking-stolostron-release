@@ -166,7 +166,7 @@
     "git-sha256": "bed0e1b202815e83b25c9aaeb256fd13600e8b7d",
     "git-repository": "open-cluster-management/endpoint-operator",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:13370eeb850d107a2e07681da5bce69f589db8a8fa787c46838f680a23aa451f",
+    "image-digest": "null",
     "image-key": "endpoint_operator"
   },
   {
@@ -192,11 +192,11 @@
   {
     "image-name": "helloworld",
     "image-version": "1.0.1",
-    "image-tag": "1.0.1-340b60c5cea3bfd1335763d2fbce628aacf7c2e9",
-    "git-sha256": "340b60c5cea3bfd1335763d2fbce628aacf7c2e9",
+    "image-tag": "1.0.1-fb227bdfe064e66c537f2015a0d6cf3467e0dd2c",
+    "git-sha256": "fb227bdfe064e66c537f2015a0d6cf3467e0dd2c",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:cc7e07b7b0f2688063e44ccefd564cd48860a314dc38e7d097642305f86c9488",
+    "image-digest": "sha256:0378fadd8824af275be04c2f1dd628e002904fb72bbc345e2fc2c66160ab36ec",
     "image-key": "helloworld"
   },
   {
@@ -386,7 +386,7 @@
     "git-sha256": "aa37e6b3e81d161cf9961771f0f3260ba4e9e97f",
     "git-repository": "open-cluster-management/multicloudhub-operator",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:af6fcca6683c1acc6c95e1a8ba2d8e517f5629d640e30314d30861ccec3a2bd3",
+    "image-digest": "null",
     "image-key": "multiclusterhub_operator"
   },
   {
