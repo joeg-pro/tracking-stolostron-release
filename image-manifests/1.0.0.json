@@ -166,7 +166,7 @@
     "git-sha256": "bed0e1b202815e83b25c9aaeb256fd13600e8b7d",
     "git-repository": "open-cluster-management/endpoint-operator",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:62f71d22de0e2456b46c33b0d347b09b0189c192db61c7c3712dc84e12e896ca",
+    "image-digest": "sha256:13370eeb850d107a2e07681da5bce69f589db8a8fa787c46838f680a23aa451f",
     "image-key": "endpoint_operator"
   },
   {
@@ -386,7 +386,7 @@
     "git-sha256": "aa37e6b3e81d161cf9961771f0f3260ba4e9e97f",
     "git-repository": "open-cluster-management/multicloudhub-operator",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:64ee36352714df958c19f973fecfdb187ced8695b4168effe930549556261a68",
+    "image-digest": "sha256:af6fcca6683c1acc6c95e1a8ba2d8e517f5629d640e30314d30861ccec3a2bd3",
     "image-key": "multiclusterhub_operator"
   },
   {
@@ -402,11 +402,11 @@
   {
     "image-name": "multiclusterhub-repo",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-508f147edd50777e35c7fca4f81dc810ab58f630",
-    "git-sha256": "508f147edd50777e35c7fca4f81dc810ab58f630",
+    "image-tag": "1.0.0-7b5eebc5e2875e5aa71f9b968ee7751d36e2588a",
+    "git-sha256": "7b5eebc5e2875e5aa71f9b968ee7751d36e2588a",
     "git-repository": "open-cluster-management/multicloudhub-repo",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:be427da58d3c805179cef66274e53af881ba2f7b763da7f89e4af95a15454daf",
+    "image-digest": "sha256:5414455a5ed6882aad13476458ff6b0f8c6f46f7a3dc897b3f883705a4797ff8",
     "image-key": "multiclusterhub_repo"
   },
   {
