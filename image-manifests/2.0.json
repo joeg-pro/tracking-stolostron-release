@@ -100,6 +100,16 @@
     "image-key": "mcm_topology"
   },
   {
+    "image-name": "multicluster-operators-channel",
+    "image-version": "1.0.0",
+    "image-tag": "1.0.0-0149f5f5b45e8c56ce0ac084bc085404444eadfd",
+    "git-sha256": "0149f5f5b45e8c56ce0ac084bc085404444eadfd",
+    "git-repository": "open-cluster-management/multicloud-operators-channel",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:830492657670f3eebc696d71b8b7d87e0e96f173142c3a627cbc1ba7690dc060",
+    "image-key": "multicluster_operators_channel"
+  },
+  {
     "image-name": "redisgraph-tls",
     "image-version": "3.5.0",
     "image-tag": "3.5.0-77e979eb53220b64ff405a5d3e88629d271dd0af",
