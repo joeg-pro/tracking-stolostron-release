@@ -18,6 +18,7 @@ from bundle_common import *
 
 import argparse
 import datetime
+import math
 import os
 
 
@@ -159,6 +160,7 @@ def main():
    parser.add_argument("--pkg-name", dest="pkg_name", required=True)
 
    parser.add_argument("--use-bundle-image-format", dest="use_bundle_image_format", action="store_true")
+   parser.add_argument("--add-related-images",      dest="add_related_images", action="store_true")
 
    parser.add_argument("--default-channel",    dest="default_channel", required=True)
    parser.add_argument("--replaces-channel",   dest="replaces_channel")
@@ -190,7 +192,7 @@ def main():
    image_manifest_pathn = args.image_manifest_pathn
    image_name_to_key_specs = args.image_name_to_key_specs
 
-   add_related_images = False
+   add_related_images = args.add_related_images
 
    csv_name = "%s.v%s" % (pkg_name, csv_vers)
    csv_fn   = "%s.clusterserviceversion.yaml" % (csv_name)
@@ -315,15 +317,22 @@ def main():
    # deployment we've processed.
 
    if add_related_images:
-      related_image_nr = 0
+      print("Adding related images to CSV.")
+
+      related_images = list()
       for image_info in image_manifest.values():
          if not image_info["used"]:
-            related_image = image_info["image_ref_by_digest"]
-            related_image_nr += 1
-            print("RELEATED IMAG #%d: %s" % (related_image_nr, related_image))
-      #
-   #
+            related_image_name = image_info["image-key"]
+            related_image_ref = image_info["image_ref_by_digest"]
 
+            entry = dict()
+            entry["name"] = related_image_name
+            entry["image"] = related_image_ref
+            # entry["required"] = True
+            related_images.append(entry)
+      #
+      spec["relatedImages"] = related_images
+   #
 
    # Write out the updated CSV
 

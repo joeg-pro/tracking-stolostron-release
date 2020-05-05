@@ -188,13 +188,11 @@ done
 # bundles.
 
 $my_dir/create-bound-bundle.py \
-   --use-bundle-image-format \
+   --image-manifest "$image_manifest" \
    --pkg-name "$pkg_name" --pkg-dir "$bound_pkg_dir" \
    --source-bundle-dir "$unbound_bundle" \
-   --csv-vers "$new_csv_vers" \
-   $prev_vers_option \
-   --default-channel $default_channel \
-   $addl_channel_options \
-   --image-manifest "$image_manifest" \
+   --csv-vers "$new_csv_vers" $prev_vers_option \
+   --use-bundle-image-format --add-related-images \
+   --default-channel $default_channel $addl_channel_options \
    $name_to_key_options
 
