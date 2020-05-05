@@ -63,6 +63,8 @@ def main():
 
    source_bundle_pathns = args.source_bundle_pathns
 
+   merge_categories = False
+
 
    # And now on to the show...
 
@@ -175,12 +177,13 @@ def main():
          print("   WARN: Source CSV doesn't have any annotations.")
 
       # Accumulate categories into the output set.
-      s_cat_str = get_scalar(s_annotations, "categories")
-      if s_cat_str is None:
-         print("   WARN: Source CSV has no categories.")
-      else:
-         # Categories are specified as a common-separated string.  Spint and accumulate.
-         accumulate_set("category", "categories", s_cat_str.split(","), m_categories)
+      if merge_categories:
+         s_cat_str = get_scalar(s_annotations, "categories")
+         if s_cat_str is None:
+            print("   WARN: Source CSV has no categories.")
+         else:
+            # Categories are specified as a common-separated string.  Spint and accumulate.
+            accumulate_set("category", "categories", s_cat_str.split(","), m_categories)
 
       # Accumulate CR examples (ALM-Examples) into the output set.
       s_alm_examples_str = get_scalar(s_annotations, "alm-examples")
@@ -295,7 +298,8 @@ def main():
    o_annotations["createdAt"] = created_at
 
    # Convert categories into a common-separated string and plug into annotations
-   o_annotations["categories"] = ','.join(sorted(list(m_categories)))
+   if merge_categories:
+      o_annotations["categories"] = ','.join(sorted(list(m_categories)))
 
    # TODO:
    # Filtier the accumulated ALM examples down so we only "publish" the onces in our
