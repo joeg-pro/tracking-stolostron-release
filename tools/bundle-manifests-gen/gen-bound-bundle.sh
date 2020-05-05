@@ -63,8 +63,9 @@ tmp_root="/tmp/acm-bundle-manifests-build"
 # -d Default channel name.
 # -c Additional Channel name (can be repeated).
 # -i Image key mapping spec (can be repeated).
+# -r rgy-and-ns override spec (can be repeated).
 
-opt_flags="I:O:n:v:p:m:d:c:i:"
+opt_flags="I:O:n:v:p:m:d:c:i:r:"
 
 while getopts "$opt_flags" OPTION; do
    case "$OPTION" in
@@ -85,6 +86,8 @@ while getopts "$opt_flags" OPTION; do
       c) additional_channels="$additional_channels $OPTARG"
          ;;
       i) image_name_to_keys="$image_name_to_keys $OPTARG"
+         ;;
+      r) rgy_ns_overrides="$rgy_ns_overrides $OPTARG"
          ;;
       ?) exit 1
          ;;
@@ -164,6 +167,11 @@ for ink in $image_name_to_keys; do
    name_to_key_options="$name_to_key_options --image-name-to-key $ink"
 done
 
+rgy_ns_override_options=""
+for rno in $rgy_ns_overrides; do
+   rgy_ns_override_options="$rgy_ns_override_options --rgy-ns-override $rno"
+done
+
 # If a previous CSV versioin has been specified, pass it on.
 if [[ -n "$prev_csv_vers" ]]; then
    prev_vers_option="--prev-ver $prev_csv_vers"
@@ -194,5 +202,5 @@ $my_dir/create-bound-bundle.py \
    --csv-vers "$new_csv_vers" $prev_vers_option \
    --use-bundle-image-format --add-related-images \
    --default-channel $default_channel $addl_channel_options \
-   $name_to_key_options
+   $name_to_key_options $rgy_ns_override_options
 

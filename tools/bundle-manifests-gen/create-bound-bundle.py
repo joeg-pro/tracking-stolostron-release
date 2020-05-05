@@ -22,11 +22,61 @@ import math
 import os
 
 
+# Split a string into left and right parts based on a delimited.
+# If not delivered, favor_right controls if the string is considered
+# to be all-right or all-left.
+def split_at(the_str, the_delim, favor_right = True):
+
+   split_pos = the_str.find(the_delim)
+   if split_pos > 0:
+      left_part  = the_str[0:split_pos]
+      right_part = the_str[split_pos+1:]
+   else:
+      if favor_right:
+         left_part  = None
+         right_part = the_str
+      else:
+         left_part  = the_str
+         right_part = None
+
+   return (left_part, right_part)
+
+
 # Loads a JSON image manifest into a manifest map that we use.
-def load_image_manifest(image_manifest_pathn, image_tag_suffix=""):
+def load_image_manifest(image_manifest_pathn, rgy_ns_override_specs, image_tag_suffix=""):
 
    image_manifest = dict()
    image_manifest_list = load_json("image manifest", image_manifest_pathn)
+
+   # Load registry-and-namespace override specs, if provide.
+   #
+   # An override is of the form: <from>:<to>.
+   #
+   # If <from> has no slash, its considered to specify a registry-level replacement
+   # in which case <to> should be just a reistry too.
+
+   rgy_ns_overrides = dict()
+   if rgy_ns_override_specs:
+      for override_spec in rgy_ns_override_specs:
+         from_rgy_ns, to_rgy_ns = split_at(override_spec, ":")
+         if not from_rgy_ns:
+            die("Invalid rgy-ns override, not <from>:<to>: %s" % override_spec)
+         from_rgy, from_ns = split_at(from_rgy_ns, "/", False)
+         to_rgy, to_ns = split_at(to_rgy_ns, "/", False)
+         if (from_ns is None) != (to_ns is None):
+            die("Invalid rgy-ns override, <from> and <to> not same kind: %s" % override_spec)
+
+         rgy_ns_overrides[from_rgy_ns] = to_rgy_ns
+
+   # Check for ambiguity
+
+   for from_rgy_ns in rgy_ns_overrides.keys():
+      from_rgy, from_ns = split_at(from_rgy_ns, "/", False)
+      if from_ns:
+         if from_rgy in rgy_ns_overrides:
+            die("Oveerides for %s and %s overlap." % (from_rgy, from_rgy_ns))
+
+   # Consume image manifest data and turn inito our manifest map
 
    for entry in image_manifest_list:
       key = entry["image-key"]
@@ -35,7 +85,23 @@ def load_image_manifest(image_manifest_pathn, image_tag_suffix=""):
       image_info["image-key"] = key
       image_info["used"] = False
 
-      rgy_ns_and_name = "%s/%s" % (entry["image-remote"], entry["image-name"])
+      rgy_ns = entry["image-remote"]
+
+      # Override registry and namespace if there is a matching override
+
+      rgy, ns = split_at(rgy_ns, "/")
+      if not rgy:
+         rgy = "localhost"
+
+      rgy_ns_override = rgy_ns_overrides[rgy_ns] if rgy_ns in rgy_ns_overrides else None
+      if rgy_ns_override is None:
+         rgy_ns_override = rgy_ns_overrides[rgy] if rgy in rgy_ns_overrides else None
+      if rgy_ns_override:
+         rgy_ns = rgy_ns_override
+
+      # Form and add image manifest entry
+
+      rgy_ns_and_name = "%s/%s" % (rgy_ns, entry["image-name"])
 
       tag = entry["image-version"]
       if image_tag_suffix:
@@ -64,19 +130,18 @@ def load_image_key_maping(image_key_mapping_specs, image_manifest):
    # We turn the list  into a map from <repo_to_look_for> to <image_key_in manifest>
 
    for mapping in image_key_mapping_specs:
-      colon_pos = mapping.find(":")
-      if colon_pos > 0:
-         repo = mapping[0:colon_pos]
-         image_key = mapping[colon_pos+1:]
-
-         # While we're here, we might as well check that the key is in the
-         # manifest to catch missing entries earlier rather than later.
-         if not image_key in image_manifest:
-            die("Image key not found in manifest: %s", image_key)
-
-         image_key_mapping[repo] = image_key
-      else:
+      repo, image_key = split_at(mapping, ":")
+      if not repo:
          die("Invalid image-key mapping: %s" % mapping)
+
+      # While we're here, we might as well check that the key is in the
+      # manifest to catch missing entries earlier rather than later.
+      if not image_key in image_manifest:
+         die("Image key not found in manifest: %s", image_key)
+
+      image_key_mapping[repo] = image_key
+   #
+
    return image_key_mapping
 
 
@@ -171,6 +236,7 @@ def main():
 
    parser.add_argument("--image-manifest", dest="image_manifest_pathn", required=True)
    parser.add_argument("--image-name-to-key", dest="image_name_to_key_specs", action="append", required=True)
+   parser.add_argument("--rgy-ns-override", dest="rgy_ns_override_specs", action="append")
 
    args = parser.parse_args()
 
@@ -191,6 +257,7 @@ def main():
 
    image_manifest_pathn = args.image_manifest_pathn
    image_name_to_key_specs = args.image_name_to_key_specs
+   rgy_ns_override_specs = args.rgy_ns_override_specs
 
    add_related_images = args.add_related_images
 
@@ -209,7 +276,7 @@ def main():
    # Load image key mappins and manifest we will use to update the image references
    # in operator deployments.
 
-   image_manifest = load_image_manifest(image_manifest_pathn)
+   image_manifest = load_image_manifest(image_manifest_pathn, rgy_ns_override_specs)
    image_key_mapping = load_image_key_maping(image_name_to_key_specs, image_manifest)
 
    # There seem to be several formats for a bundle directore, depending on how they
