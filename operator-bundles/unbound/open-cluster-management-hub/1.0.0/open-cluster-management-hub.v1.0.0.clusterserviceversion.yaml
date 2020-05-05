@@ -9,7 +9,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2020-05-04T08:37:23Z'
+    createdAt: '2020-05-05T11:21:40Z'
     description: Open management of Openshift and Kubernetes clusters
   name: open-cluster-management-hub.v1.0.0
   namespace: placeholder
@@ -63,7 +63,7 @@ spec:
       kind: MultiClusterHub
       version: v1beta1
       displayName: MultiClusterHub
-      description: MultiClusterHub is the Schema for the multiclusterhubs API
+      description: MultiClusterHub defines the configuration for an instance of the MultiCluster Hub
     required:
     - name: helmreleases.apps.open-cluster-management.io
       version: v1
