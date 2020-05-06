@@ -22,26 +22,6 @@ import math
 import os
 
 
-# Split a string into left and right parts based on a delimited.
-# If not delivered, favor_right controls if the string is considered
-# to be all-right or all-left.
-def split_at(the_str, the_delim, favor_right = True):
-
-   split_pos = the_str.find(the_delim)
-   if split_pos > 0:
-      left_part  = the_str[0:split_pos]
-      right_part = the_str[split_pos+1:]
-   else:
-      if favor_right:
-         left_part  = None
-         right_part = the_str
-      else:
-         left_part  = the_str
-         right_part = None
-
-   return (left_part, right_part)
-
-
 # Loads a JSON image manifest into a manifest map that we use.
 def load_image_manifest(image_manifest_pathn, rgy_ns_override_specs, image_tag_suffix=""):
 
@@ -98,7 +78,6 @@ def load_image_manifest(image_manifest_pathn, rgy_ns_override_specs, image_tag_s
          rgy_ns_override = rgy_ns_overrides[rgy] if rgy in rgy_ns_overrides else None
       if rgy_ns_override:
          rgy_ns = rgy_ns_override
-
       # Form and add image manifest entry
 
       rgy_ns_and_name = "%s/%s" % (rgy_ns, entry["image-name"])
@@ -144,36 +123,6 @@ def load_image_key_maping(image_key_mapping_specs, image_manifest):
 
    return image_key_mapping
 
-
-# Parse a container image reference.
-def parse_image_ref(image_ref):
-
-   # Image ref:  [registry-and-ns/]repository-name[:tag][@digest]
-
-   parsed_ref = dict()
-
-   remaining_ref = image_ref
-   at_pos = remaining_ref.rfind("@")
-   if at_pos > 0:
-      parsed_ref["digest"] = remaining_ref[at_pos+1:]
-      remaining_ref = remaining_ref[0:at_pos]
-   else:
-      parsed_ref["digest"] = None
-   colon_pos = remaining_ref.rfind(":")
-   if colon_pos > 0:
-      parsed_ref["tag"] = remaining_ref[colon_pos+1:]
-      remaining_ref = remaining_ref[0:colon_pos]
-   else:
-      parsed_ref["tag"] = None
-   slash_pos = remaining_ref.rfind("/")
-   if slash_pos > 0:
-      parsed_ref["repository"] = remaining_ref[slash_pos+1:]
-      parsed_ref["registry_and_namespace"] = remaining_ref[0:slash_pos]
-   else:
-      parsed_ref["repository"] = remaining_ref
-      parsed_ref["registry_and_namespace"] = None
-
-   return parsed_ref
 
 # Update image references in CSV deployments, remove latent pull secrets.
 def update_image_refs_in_deployment(deployment, image_key_mapping, image_manifest, use_tags=False):

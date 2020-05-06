@@ -366,3 +366,70 @@ def find_current_bundle_for_package(pkg_pathn, selected_channel):
 
    return the_bundle_dir, the_csv
 #
+
+
+# Split a string into left and right parts based on a delimited.
+# If not delivered, favor_right controls if the string is considered
+# to be all-right or all-left.
+def split_at(the_str, the_delim, favor_right = True):
+
+   split_pos = the_str.find(the_delim)
+   if split_pos > 0:
+      left_part  = the_str[0:split_pos]
+      right_part = the_str[split_pos+1:]
+   else:
+      if favor_right:
+         left_part  = None
+         right_part = the_str
+      else:
+         left_part  = the_str
+         right_part = None
+
+   return (left_part, right_part)
+
+
+# Parse an image reference.
+def parse_image_ref(image_ref):
+
+   # Image ref:  [registry-and-ns/]repository-name[:tag][@digest]
+
+   parsed_ref = dict()
+
+   remaining_ref = image_ref
+   at_pos = remaining_ref.rfind("@")
+   if at_pos > 0:
+      parsed_ref["digest"] = remaining_ref[at_pos+1:]
+      remaining_ref = remaining_ref[0:at_pos]
+   else:
+      parsed_ref["digest"] = None
+   colon_pos = remaining_ref.rfind(":")
+   if colon_pos > 0:
+      parsed_ref["tag"] = remaining_ref[colon_pos+1:]
+      remaining_ref = remaining_ref[0:colon_pos]
+   else:
+      parsed_ref["tag"] = None
+   slash_pos = remaining_ref.rfind("/")
+   if slash_pos > 0:
+      parsed_ref["repository"] = remaining_ref[slash_pos+1:]
+      rgy_and_ns = remaining_ref[0:slash_pos]
+   else:
+      parsed_ref["repository"] = remaining_ref
+      rgy_and_ns = "localhost"
+   parsed_ref["registry_and_namespace"] = rgy_and_ns
+
+   rgy, ns = split_at(rgy_and_ns, "/", favor_right=False)
+   if not ns:
+      ns = ""
+
+   parsed_ref["registry"] = rgy
+   parsed_ref["namespace"] = ns
+
+   slash_pos = image_ref.rfind("/")
+   if slash_pos > 0:
+      repo_and_suffix = image_ref[slash_pos+1:]
+   else:
+      repo_and_suffix = image_ref
+   parsed_ref["repository_and_suffix"]  = repo_and_suffix
+
+   return parsed_ref
+
