@@ -200,7 +200,8 @@ $my_dir/create-bound-bundle.py \
    --pkg-name "$pkg_name" --pkg-dir "$bound_pkg_dir" \
    --source-bundle-dir "$unbound_bundle" \
    --csv-vers "$new_csv_vers" $prev_vers_option \
-   --use-bundle-image-format --add-related-images \
+   --use-bundle-image-format \
+   --add-related-images \
    --default-channel $default_channel $addl_channel_options \
    $name_to_key_options $rgy_ns_override_options
 

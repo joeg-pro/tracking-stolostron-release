@@ -34,8 +34,9 @@ fi
 # Output:
 # - Leaves local docker image: $bundle_rgy_and_ns/acm-operator-bundle:1.0.0
 
-bundle_rgy_and_ns="registry.access.redhat.com/acm-tech-preview-ns"
-$tools_dir/bundle-image-gen/gen-bound-acm-bundle-image.sh -r "$bundle_rgy_and_ns"
+bundle_rgy_and_ns="quay.io/acm-d"
+bundle_repo="acm-operator-bundle"
+$tools_dir/bundle-image-gen/gen-bound-acm-bundle-image.sh -r "$bundle_rgy_and_ns" -n "$bundle_repo"
 if [[ $? -ne 0 ]]; then
    >&2 echo "ABORTING! Could not generate ACM bundle image."
    exit 2

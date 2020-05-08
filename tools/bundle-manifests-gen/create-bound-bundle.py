@@ -116,7 +116,7 @@ def load_image_key_maping(image_key_mapping_specs, image_manifest):
       # While we're here, we might as well check that the key is in the
       # manifest to catch missing entries earlier rather than later.
       if not image_key in image_manifest:
-         die("Image key not found in manifest: %s", image_key)
+         die("Image key not found in manifest: %s" % image_key)
 
       image_key_mapping[repo] = image_key
    #
