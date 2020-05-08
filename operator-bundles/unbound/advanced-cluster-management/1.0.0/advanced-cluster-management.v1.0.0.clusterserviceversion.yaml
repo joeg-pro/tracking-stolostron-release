@@ -17,7 +17,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat, Inc
-    createdAt: '2020-05-08T12:54:19Z'
+    createdAt: '2020-05-08T16:16:49Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
   name: advanced-cluster-management.v1.0.0
@@ -38,7 +38,9 @@ spec:
     you can set compliance requirements to ensure that the clusters maintain the specified security requirements.  You
     can also deploy business applications across your clusters.
 
+
     Advanced Cluster Management for Kubernetes also provides the following operators:
+
 
     - MultiCluster Subscriptions, an operator that provides application management capabilties including
     subscribing to resources from a channel and deploying those resources on MCH-managed Kubernetes clusters
