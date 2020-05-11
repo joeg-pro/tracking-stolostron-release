@@ -120,6 +120,16 @@
     "image-key": "multicluster_operators_channel"
   },
   {
+    "image-name": "rcm-controller",
+    "image-version": "2.0.0",
+    "image-tag": "2.0.0-7d70b74c386f01186acdda1de1a53bf84060b70e",
+    "git-sha256": "7d70b74c386f01186acdda1de1a53bf84060b70e",
+    "git-repository": "open-cluster-management/rcm-controller",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:e9fdaf0abba234f07b0d9a24970dcf4126049af57f705ddfc8b9c4a98e01c391",
+    "image-key": "rcm_controller"
+  },
+  {
     "image-name": "redisgraph-tls",
     "image-version": "3.5.0",
     "image-tag": "3.5.0-77e979eb53220b64ff405a5d3e88629d271dd0af",
