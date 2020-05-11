@@ -100,6 +100,16 @@
     "image-key": "mcm_topology"
   },
   {
+    "image-name": "multicloud-manager",
+    "image-version": "0.1.0",
+    "image-tag": "0.1.0-89fe3a7b7cd8f5a6befe88c0769c46a4b7eff09b",
+    "git-sha256": "89fe3a7b7cd8f5a6befe88c0769c46a4b7eff09b",
+    "git-repository": "open-cluster-management/multicloud-operators-foundation",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:c36127e9a549f26ec5e18f7e24bcc5ec1f37761854886d21c22bf7ed1809961a",
+    "image-key": "multicloud_manager"
+  },
+  {
     "image-name": "multicluster-operators-channel",
     "image-version": "2.0",
     "image-tag": "2.0-04008fa6ad1b967febb4eaab9063afedea94ef04",
