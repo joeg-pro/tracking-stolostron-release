@@ -72,11 +72,11 @@
   {
     "image-name": "cis-crawler",
     "image-version": "3.6.0",
-    "image-tag": "3.6.0-8b4c5c18d127f6c2bad3b136fab30b5866e763db",
-    "git-sha256": "8b4c5c18d127f6c2bad3b136fab30b5866e763db",
+    "image-tag": "3.6.0-11d36472daa0b3979ba4549dac606d5ed23c4737",
+    "git-sha256": "11d36472daa0b3979ba4549dac606d5ed23c4737",
     "git-repository": "open-cluster-management/cis-crawler",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:600a346d894a6c36e25238084b35e94fd5aa02f594b57a8a00f1fae7e46a8847",
+    "image-digest": "sha256:7e4b51bef7bacc93778598a9562a52135c86d4cd1843cc2188a3f775824e9dd1",
     "image-key": "cis_crawler"
   },
   {
@@ -166,7 +166,7 @@
     "git-sha256": "bed0e1b202815e83b25c9aaeb256fd13600e8b7d",
     "git-repository": "open-cluster-management/endpoint-operator",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:82b672ecd1a10cba3a8ea12c3241e3c210e2c78cb3bdf3856c858c7f8263bf0f",
+    "image-digest": "sha256:2aec0df2eb8b943fbe240408b21501a0377a4d911da2160f860cdeb17e8b97df",
     "image-key": "endpoint_operator"
   },
   {
@@ -386,7 +386,7 @@
     "git-sha256": "d17989f6fb319377aed480f558f72d0579e0d040",
     "git-repository": "open-cluster-management/multicloudhub-operator",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:feac341c6c5efb2ba73437d2a1a8a3f2720554b78dfb2621d8adc61b98d33a85",
+    "image-digest": "sha256:b0e8d3ae1352a011056763aa005a66c1580aeac9a31df02a9c2d699baeeda906",
     "image-key": "multiclusterhub_operator"
   },
   {
