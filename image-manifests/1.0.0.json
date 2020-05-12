@@ -166,7 +166,7 @@
     "git-sha256": "bed0e1b202815e83b25c9aaeb256fd13600e8b7d",
     "git-repository": "open-cluster-management/endpoint-operator",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:226f8e694aad8e3dda691e4825cab552d853b9af2f989ed1428fc03b30093b68",
+    "image-digest": "sha256:37cbfb4c4378e162be01d1ac55a682200c3ac7bafd5763a990f36fe4015a9a97",
     "image-key": "endpoint_operator"
   },
   {
@@ -376,7 +376,7 @@
     "git-sha256": "59448a40834493102df117855ac8a1ea3bd962b3",
     "git-repository": "open-cluster-management/multicloud-operators-subscription-release",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:965513ee4483146d81945f2219a59a88316d44a2f27863ab621a3877574b8bfa",
+    "image-digest": "sha256:e8d0bfbcfa4c1b6bfe5c022853a8fbaf6b4f3ca6beec3f80a97dcf262d603f6d",
     "image-key": "multicluster_operators_subscription_release"
   },
   {
@@ -386,7 +386,7 @@
     "git-sha256": "d17989f6fb319377aed480f558f72d0579e0d040",
     "git-repository": "open-cluster-management/multicloudhub-operator",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:8675c31c48ccd59afab8e7927babdd3730909be8528977fa30ef2944667c3aa0",
+    "image-digest": "sha256:b1df5132fa4a3be1f28b660b93e9761a91a38d6824753a171933f5f965fefe15",
     "image-key": "multiclusterhub_operator"
   },
   {
@@ -462,11 +462,11 @@
   {
     "image-name": "search-api",
     "image-version": "3.5.0",
-    "image-tag": "3.5.0-f31e583ceb457ea7f1ad22516c6ab1c97b128ddb",
-    "git-sha256": "f31e583ceb457ea7f1ad22516c6ab1c97b128ddb",
+    "image-tag": "3.5.0-3cd7c597d7f9a49a67d87107280692085c6c865c",
+    "git-sha256": "3cd7c597d7f9a49a67d87107280692085c6c865c",
     "git-repository": "open-cluster-management/search-api",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:f331feae4a7316c6bbc153824f7787d3237785552f733baef44693e9cc806314",
+    "image-digest": "sha256:bc5ba8e375f8ebe67c17d1a75361a37780ea44ad25ccbe493ba768881f706786",
     "image-key": "search_api"
   },
   {
