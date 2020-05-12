@@ -37,7 +37,7 @@ jobs:
           git clone -b `cat RELEASE_VERSION` https://${GITHUB_USER}:${GITHUB_TOKEN}@github.com/open-cluster-management/release.git snapshot
           cp SNAPSHOT-`cat TAG`.tgz snapshot
           cd snapshot
-          git add SNAPSHOT-`cat ../TAG`.tgz snapshot
+          git add SNAPSHOT-`cat ../TAG`.tgz
           git commit -am "Add snapshot `cat ../TAG` to release `cat ../RELEASE_VERSION`"
           git push
           cd ..
