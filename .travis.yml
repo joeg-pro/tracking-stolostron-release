@@ -32,7 +32,7 @@ jobs:
           tools/bundle-manifests-gen/gen-bound-acm-bundle.sh
           tools/bundle-image-gen/gen-bound-acm-bundle-image.sh -v `cat RELEASE_VERSION` -s SNAPSHOT-`cat TAG` $PUSH_ME
           # Create tgz of build artifacts
-          tar -cvzf SNAPSHOT-`cat TAG`.tgz operator-bundles/* image-manifests/1.0.0.json
+          tar -cvzf SNAPSHOT-`cat TAG`.tgz operator-bundles/* tools/* image-manifests/1.0.0.json
           # Clone the release repo at the designated release version so we can commit our generated build artifacts at this snapshot level
           git clone -b `cat RELEASE_VERSION` https://${GITHUB_USER}:${GITHUB_TOKEN}@github.com/open-cluster-management/release.git snapshot
           cp SNAPSHOT-`cat TAG`.tgz snapshot
