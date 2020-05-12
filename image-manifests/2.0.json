@@ -130,6 +130,16 @@
     "image-key": "multicluster_operators_channel"
   },
   {
+    "image-name": "multiclusterhub-repo",
+    "image-version": "1.0.0",
+    "image-tag": "1.0.0-d37f32807b79e9418eda53cc7cc6bb4a913e7401",
+    "git-sha256": "d37f32807b79e9418eda53cc7cc6bb4a913e7401",
+    "git-repository": "open-cluster-management/multicloudhub-repo",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:785d6f16432e7bf7e065e4654c3f0e9ec4792b4525032703ca3f0fd622ddcf5a",
+    "image-key": "multiclusterhub_repo"
+  },
+  {
     "image-name": "rcm-controller",
     "image-version": "2.0.0",
     "image-tag": "2.0.0-22fd2ac23507b0bade167f0d5f071240caa93a63",
