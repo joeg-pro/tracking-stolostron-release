@@ -50,6 +50,16 @@
     "image-key": "console_ui"
   },
   {
+    "image-name": "endpoint-operator",
+    "image-version": "2.0.0",
+    "image-tag": "2.0.0-cd2721e73a24ac04b09116cd6252fc4c77a85b27",
+    "git-sha256": "cd2721e73a24ac04b09116cd6252fc4c77a85b27",
+    "git-repository": "open-cluster-management/endpoint-operator",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "null",
+    "image-key": "endpoint_operator"
+  },
+  {
     "image-name": "grc-ui",
     "image-version": "3.6.0",
     "image-tag": "3.6.0-fae48041b3590abd512e08f1072125b0a404ee2f",
