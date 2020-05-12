@@ -50,6 +50,16 @@
     "image-key": "console_ui"
   },
   {
+    "image-name": "endpoint-component-operator",
+    "image-version": "2.0.0",
+    "image-tag": "2.0.0-be20a115b581d2f79abc7200f00e47157028d96f",
+    "git-sha256": "be20a115b581d2f79abc7200f00e47157028d96f",
+    "git-repository": "open-cluster-management/endpoint-component-operator",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:defe3681cceb50cf05afc7896c2ff3b9c5a276c812fc949793d7c611d485a5bc",
+    "image-key": "endpoint_component_operator"
+  },
+  {
     "image-name": "endpoint-operator",
     "image-version": "2.0.0",
     "image-tag": "2.0.0-cd2721e73a24ac04b09116cd6252fc4c77a85b27",
