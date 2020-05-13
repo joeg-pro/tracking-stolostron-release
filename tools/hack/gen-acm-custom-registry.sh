@@ -91,18 +91,19 @@ docker login -u=${DOCKER_USER} -p=${DOCKER_PASS} "$login_to_image_rgy"
 # then the bundle is in the legacy App Registry format and we'll handle thusly, else we
 # will handle according to the new bundle-image format.
 
+docker pull "$bundle_image_ref"
 inspect_results=$(docker image inspect "$bundle_image_ref")
 appregistry_setting=$(echo "$inspect_results" | jq -r '.[0].Config.Labels["com.redhat.delivery.appregistry"]')
 
 if [[ $appregistry_setting == "true" ]]; then
    echo "INFO: Bundle image is in App Registry format."
-   handle_as_buundle_image=0
+   handle_as_bundle_image=0
 else
    echo "INFO: Bundle image is in Bundle Image format."
-   handle_as_buundle_image=1
+   handle_as_bundle_image=1
 fi
 
-if [[ $handle_as_buundle_image -eq 1 ]]; then
+if [[ $handle_as_bundle_image -eq 1 ]]; then
 
    # Bundle is in bundle-image format, so we can create a catalog using opm.
 
