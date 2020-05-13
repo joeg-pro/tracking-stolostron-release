@@ -1,10 +1,64 @@
 #!/bin/bash
 
+# This script approximates the steps performed downstream to turn the unbound
+# ACM operator bundle manifests we send downstream (via the contents of this
+# repo's operator-bundles/unbound directory) into an operator bundle image.
+#
+# NOTES:
+#
+# - THIS SCRIPT IS NOT CURRENTLY USED DOWNSTREAM.  IT IS MEANT AS AN EXEMPLAR ONLY.
+#
+# - Downstream is KNOWN to operate differently.  For example donstream uses a
+#   Dockerfile that is maintained in dist-git and is different than the one that
+#   is being generated from a template by this script.
+#
+# - This script ucrrently uses the "new" bundle-image format of providing operator
+#   metadata.  But due to snags downstream, we were forced to pivot to using the
+#   "old" app-registry operator metadata format for ACM 1.0.0.
+
 me=$(basename $0)
 my_dir=$(dirname $(readlink -f $0))
 top_of_repo=$(readlink  -f $my_dir/../..)
 
 tools_dir="$top_of_repo/tools"
+
+# -- Args --
+
+# -r remote Registry server/namespace.  (Default: quay.io/open-cluster-management)
+# -n repository Name (default: acm-operator-bundle)
+# -v Version (x.y.z) of generated bundle image (for tag).  (Default: 1.0.0)
+# -s image tag Suffix.  (default: none)
+
+opt_flags="r:n:v:s:"
+
+push_the_image=0
+tag_suffix=""
+
+while getopts "$opt_flags" OPTION; do
+   case "$OPTION" in
+      r) bundle_rgy_and_ns="$OPTARG"
+         ;;
+      n) bundle_repo="$OPTARG"
+         ;;
+      v) bundle_vers="$OPTARG"
+         ;;
+      s) vers_suffix="$OPTARG"
+         ;;
+      ?) exit 1
+         ;;
+   esac
+done
+shift "$(($OPTIND -1))"
+
+bundle_vers="${bundle_vers:-1.0.0}"
+bundle_rgy_and_ns="${bundle_rgy_and_ns:-quay.io/open-cluster-management}"
+bundle_repo="${bundle_repo:-acm-operator-bundle}"
+
+# -- End Args --
+
+if [[ -n "$vers_suffix" ]]; then
+   bundle_vers="$bundle_vers-$vers_suffix"
+fi
 
 # Assumption:  This repo's is available at $top_of_repo.
 
@@ -34,9 +88,8 @@ fi
 # Output:
 # - Leaves local docker image: $bundle_rgy_and_ns/acm-operator-bundle:1.0.0
 
-bundle_rgy_and_ns="quay.io/acm-d"
-bundle_repo="acm-operator-bundle"
-$tools_dir/bundle-image-gen/gen-bound-acm-bundle-image.sh -r "$bundle_rgy_and_ns" -n "$bundle_repo"
+$tools_dir/bundle-image-gen/gen-bound-acm-bundle-image.sh -P \
+   -r "$bundle_rgy_and_ns" -n "$bundle_repo" -v "$bundle_vers"
 if [[ $? -ne 0 ]]; then
    >&2 echo "ABORTING! Could not generate ACM bundle image."
    exit 2
