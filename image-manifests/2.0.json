@@ -160,6 +160,16 @@
     "image-key": "multiclusterhub_operator"
   },
   {
+    "image-name": "multiclusterhub-operator-bundle",
+    "image-version": "2.0.0",
+    "image-tag": "2.0.0-fd60c220fcc2ea2ef43321364d268d559cfce7d1",
+    "git-sha256": "fd60c220fcc2ea2ef43321364d268d559cfce7d1",
+    "git-repository": "open-cluster-management/multicloudhub-operator",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:85e0684e8d415cc1996e55aae91aa66487f8b397b02ebcacb39844524632359f",
+    "image-key": "multiclusterhub_operator_bundle"
+  },
+  {
     "image-name": "multiclusterhub-repo",
     "image-version": "2.0",
     "image-tag": "2.0-e8271ba20e7799cae02f5321ea1e73126618bc53",
