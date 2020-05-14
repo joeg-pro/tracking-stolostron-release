@@ -6,7 +6,7 @@ top_of_repo=$(readlink  -f $my_dir/../..)
 tools_dir="$top_of_repo/tools"
 
 bundle_vers="1.0.0"
-build_using_downstream=1
+build_using_downstream=0
 
 # Tack on iteration number
 
@@ -33,14 +33,14 @@ if [[ $build_using_downstream -eq 1 ]]; then
 else
 
    # Approximates what is done in upstream and committed:
-   $tools_dir/bundle-manifests-gen/gen-unbound-acm-bundle.sh
+   $tools_dir/bundle-manifests-gen/gen-unbound-acm-bundle.sh $bundle_vers
    if [[ $? -ne 0 ]]; then
       >&2 echo "ABORTING! Could not generate unbound ACM bundle manifests."
       exit 2
    fi
 
    # And what is done in downstream build:
-   $tools_dir/bundle-image-gen/downstream.sh \
+   $my_dir/downstream.sh \
       -r quay.io/open-cluster-management -n jmg-test-acm-operator-bundle \
       -v "$bundle_vers"
    if [[ $? -ne 0 ]]; then

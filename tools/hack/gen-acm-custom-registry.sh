@@ -86,12 +86,18 @@ for img in $old_images; do
 done
 
 docker login -u=${DOCKER_USER} -p=${DOCKER_PASS} "$login_to_image_rgy"
+# Ignore possible failure.  Maybe we get lucky and the user was already logged in.  :-)
 
 # Check the bundle image's com.redhat.delivery.appregistry label.  If present and "true"
 # then the bundle is in the legacy App Registry format and we'll handle thusly, else we
 # will handle according to the new bundle-image format.
 
 docker pull "$bundle_image_ref"
+if [[ $? -ne 0 ]]; then
+   >&2 echo "Error: Could not pull input bundle $bundle_image_ref."
+   exit 2
+fi
+
 inspect_results=$(docker image inspect "$bundle_image_ref")
 appregistry_setting=$(echo "$inspect_results" | jq -r '.[0].Config.Labels["com.redhat.delivery.appregistry"]')
 
@@ -122,6 +128,10 @@ else
    docker build -t "$catalog_image_ref" \
       -f Dockerfile.app-rgy-catalog \
       --build-arg "bundle_image_ref=$bundle_image_ref" .
+   if [[ $? -ne 0 ]]; then
+      >&2 echo "Error: Could not build custom catalog image $catalog_image_ref."
+      exit 2
+   fi
 
    # Maybe a little heavy handed.  Should look for <none>-tagged images only?
    docker image prune
@@ -129,6 +139,10 @@ fi
 
 if [[ $push_the_image -eq 1 ]]; then
    docker push "$catalog_image_ref"
+   if [[ $? -ne 0 ]]; then
+      >&2 echo "Error: Could not push custom catalog image $catalog_image_ref."
+      exit 2
+   fi
    echo "Pushed custom catalog image: $catalog_image_ref"
 fi
 
