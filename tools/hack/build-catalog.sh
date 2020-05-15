@@ -22,7 +22,7 @@ if [[ -n "$catalog_rgy" ]]; then
 fi
 
 # And what is done when finally publishing:
-$my_dir/gen-acm-custom-registry.sh  \
+$my_dir/gen-acm-custom-registry.sh  -P \
    -b "$bundle_image_ref" -n "$catalog_repo" -v "$catalog_vers" $rgy_arg
 if [[ $? -ne 0 ]]; then
    >&2 echo "FAILED! Could not generate ACM custom catalog image."
