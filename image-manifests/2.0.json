@@ -40,6 +40,16 @@
     "image-key": "cis_crawler"
   },
   {
+    "image-name": "configmap-watcher",
+    "image-version": "3.6.0",
+    "image-tag": "3.6.0-1b9d994fe907621eec65848d1c4bf69b41a1fda0",
+    "git-sha256": "1b9d994fe907621eec65848d1c4bf69b41a1fda0",
+    "git-repository": "open-cluster-management/configmap-watcher",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:57189c10f602bb378553d65f78a5bdce77ad36bf4c312fd0c87432b51330e705",
+    "image-key": "configmap_watcher"
+  },
+  {
     "image-name": "console-api",
     "image-version": "2.0.0",
     "image-tag": "2.0.0-30679397873e1381cb75e27eb0a0bd0a79cc0c9a",
@@ -138,6 +148,16 @@
     "image-remote": "quay.io/open-cluster-management",
     "image-digest": "sha256:b53bf5b5c0bea4d3ceb5b1c8432d87a598c15e0ea4f841809950db9aac1fa5bd",
     "image-key": "iam_policy_controller"
+  },
+  {
+    "image-name": "img-minio",
+    "image-version": "RELEASE.2019-04-09T01-22-30Z.3",
+    "image-tag": "RELEASE.2019-04-09T01-22-30Z.3-a6ba53b712483d16de4738c3e8700c5d8e290045",
+    "git-sha256": "a6ba53b712483d16de4738c3e8700c5d8e290045",
+    "git-repository": "open-cluster-management/img-minio",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:42e9d2b1cf2a14ca4f83909d77e2b594b7fd88125836f3a4f65103018bd3f4da",
+    "image-key": "img_minio"
   },
   {
     "image-name": "img-minio-mc",
