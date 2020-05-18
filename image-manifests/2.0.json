@@ -70,6 +70,16 @@
     "image-key": "console_ui"
   },
   {
+    "image-name": "drishti-cis",
+    "image-version": "3.4.0",
+    "image-tag": "3.4.0-e916937e58dc5e7ebbff6f8b5c60fabbdaa56abe",
+    "git-sha256": "e916937e58dc5e7ebbff6f8b5c60fabbdaa56abe",
+    "git-repository": "open-cluster-management/drishti-cis",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:b3ce16551616c963ab16cf36fedda50ad293baade4ea6492215019612d92581f",
+    "image-key": "drishti_cis"
+  },
+  {
     "image-name": "endpoint-component-operator",
     "image-version": "2.0.0",
     "image-tag": "2.0.0-3b3a8966a73b4f61ad39535bff94eafa67c73517",
@@ -88,6 +98,16 @@
     "image-remote": "quay.io/open-cluster-management",
     "image-digest": "null",
     "image-key": "endpoint_operator"
+  },
+  {
+    "image-name": "grc-ui",
+    "image-version": "3.6.0",
+    "image-tag": "3.6.0-1fd241b7c17fca06e4c3e25f8252eaf850f5ff73",
+    "git-sha256": "1fd241b7c17fca06e4c3e25f8252eaf850f5ff73",
+    "git-repository": "open-cluster-management/grc-ui",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:88f0515f9c9a7310f796eb5344097d5b0fd366d748b06ff7582ed6ab375fef07",
+    "image-key": "grc_ui"
   },
   {
     "image-name": "grc-ui-api",
@@ -118,6 +138,26 @@
     "image-remote": "quay.io/open-cluster-management",
     "image-digest": "sha256:b53bf5b5c0bea4d3ceb5b1c8432d87a598c15e0ea4f841809950db9aac1fa5bd",
     "image-key": "iam_policy_controller"
+  },
+  {
+    "image-name": "img-minio",
+    "image-version": "RELEASE.2019-04-09T01-22-30Z.3",
+    "image-tag": "RELEASE.2019-04-09T01-22-30Z.3-a6ba53b712483d16de4738c3e8700c5d8e290045",
+    "git-sha256": "a6ba53b712483d16de4738c3e8700c5d8e290045",
+    "git-repository": "open-cluster-management/img-minio",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:42e9d2b1cf2a14ca4f83909d77e2b594b7fd88125836f3a4f65103018bd3f4da",
+    "image-key": "img_minio"
+  },
+  {
+    "image-name": "img-minio-mc",
+    "image-version": "RELEASE.2019-04-03T17-59-57Z.3",
+    "image-tag": "RELEASE.2019-04-03T17-59-57Z.3-ee78d74af8cf834af3244e846ac8f0e55ed1744d",
+    "git-sha256": "ee78d74af8cf834af3244e846ac8f0e55ed1744d",
+    "git-repository": "open-cluster-management/img-minio-mc",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:e11d31ef35cb3f21a73f93d5e0c64d7ca3f66ad76ed046036777e79931a3cff2",
+    "image-key": "img_minio_mc"
   },
   {
     "image-name": "kui-web-terminal",
