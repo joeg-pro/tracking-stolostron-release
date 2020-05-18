@@ -220,6 +220,16 @@
     "image-key": "kui_web_terminal"
   },
   {
+    "image-name": "management-ingress",
+    "image-version": "1.0.0",
+    "image-tag": "1.0.0-2241d0cf5a0e865e26799caad1051209bc01d431",
+    "git-sha256": "2241d0cf5a0e865e26799caad1051209bc01d431",
+    "git-repository": "open-cluster-management/management-ingress",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:81716d9cb36704086fe5cbf1f32748f6f3b367021c72026acbeb297b28b2a6ec",
+    "image-key": "management_ingress"
+  },
+  {
     "image-name": "mcm-compliance",
     "image-version": "3.6.0",
     "image-tag": "3.6.0-8d7860031c02eeb45b887c5aad87b922b3bc8a3d",
