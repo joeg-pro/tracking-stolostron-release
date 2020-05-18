@@ -27,14 +27,21 @@ top_of_repo=$(readlink  -f $my_dir/../..)
 github="https://$GITHUB_USER:$GITHUB_TOKEN@github.com"
 tmp_root="/tmp/acm-bundle-manifests-build"
 
+acm_pkg_name="advanced-cluster-management"
+
+# TODO RELEASE-REWORK:
+# Need to move these to a data file that can be managed per-release:
 app_sub_source_csv_vers="0.1.5"
 hive_source_csv_vers="1.0.3"
+
+# And the template needs to be per-release too:
+csv_template="$my_dir/acm-csv-template.yaml"
 
 # The CSV version and previous CSV version are not really important un the unbound bundle
 # because they will be set/overridden anyway in the creation of the bound bundle.
 
-new_csv_vers="1.0.0"
-prev_csv_vers=""
+new_csv_vers="${1:-1.0.0}"
+prev_csv_vers="$2"
 
 mkdir -p "$tmp_root"
 tmp_dir="$tmp_root/work"
@@ -44,7 +51,6 @@ mkdir -p "$tmp_dir"
 source_bundles="$tmp_dir/source-bundles"
 mkdir -p "$source_bundles"
 
-acm_pkg_name="advanced-cluster-management"
 unbound_acm_pkg_dir="$top_of_repo/operator-bundles/unbound/$acm_pkg_name"
 
 mkdir -p "$unbound_acm_pkg_dir"
@@ -87,7 +93,7 @@ if [[ $? -ne 0 ]]; then
    exit 2
 fi
 
-if false; then
+if [[ -z "$app_sub_source_csv_vers" ]]; then
 
    # Find latest version posted on a channel:
 
@@ -145,7 +151,7 @@ if false; then
    hive_bundle_dir="$hive_bundle_work/0.1.0-sha-none"
 fi
 
-if false; then
+if [[ -z "$hive_source_csv_vers" ]]; then
    # Find latest version posted on a channel:
 
    hive_pkg_dir="$community_repo_spot/community-operators/openshift-hive"
@@ -164,7 +170,7 @@ fi
 
 # -- OCM Hub --
 
-$my_dir/gen-unbound-ocm-hub-bundle.sh
+$my_dir/gen-unbound-ocm-hub-bundle.sh "$new_csv_vers"
 if [[ $? -ne 0 ]]; then
    >&2 echo "Error: Could not generate OCM Hub source bundle."
    >&2 echo "Aborting."
@@ -199,7 +205,7 @@ $my_dir/create-unbound-acm-bundle.py \
    --pkg-name  $acm_pkg_name --pkg-dir $unbound_acm_pkg_dir \
    --csv-vers "$new_csv_vers" $prev_option \
    --channel "latest" \
-   --csv-template $my_dir/acm-csv-template.yaml \
+   --csv-template $csv_template \
    --source-bundle-dir $hub_bundle_dir \
    --source-bundle-dir $hive_bundle_dir \
    --source-bundle-dir $app_sub_bundle_dir

@@ -29,9 +29,10 @@ tools_dir="$top_of_repo/tools"
 # -v Version (x.y.z) of generated bundle image (for tag).  (Default: 1.0.0)
 # -s image tag Suffix.  (default: none)
 
-opt_flags="r:n:v:s:"
+opt_flags="r:n:v:s:a"
 
 push_the_image=0
+use_bundle_image_format=1
 tag_suffix=""
 
 while getopts "$opt_flags" OPTION; do
@@ -43,6 +44,8 @@ while getopts "$opt_flags" OPTION; do
       v) bundle_vers="$OPTARG"
          ;;
       s) vers_suffix="$OPTARG"
+         ;;
+      a) use_bundle_image_format=0
          ;;
       ?) exit 1
          ;;
@@ -75,7 +78,12 @@ fi
 # - Resulting bound bundle manifests are left in:
 #   $top_of_repo/operator-bundles/bound/advanced-cluster-management
 
-$tools_dir/bundle-manifests-gen/gen-bound-acm-bundle.sh
+
+echo ""
+echo "----- [ Generating Bound Bundle Manifests ] -----"
+echo ""
+
+$tools_dir/bundle-manifests-gen/gen-bound-acm-bundle.sh "$bundle_vers"
 if [[ $? -ne 0 ]]; then
    >&2 echo "ABORTING! Could not generate bound ACM bundle manifests."
    exit 2
@@ -88,7 +96,15 @@ fi
 # Output:
 # - Leaves local docker image: $bundle_rgy_and_ns/acm-operator-bundle:1.0.0
 
-$tools_dir/bundle-image-gen/gen-bound-acm-bundle-image.sh -P \
+echo ""
+echo "----- [ Generating Bundle Image ] -----"
+echo ""
+
+if [[ $use_bundle_image_format -eq 0 ]]; then
+  dash_a_arg="-a"
+fi
+
+$tools_dir/bundle-image-gen/gen-bound-acm-bundle-image.sh -P $dash_a_arg \
    -r "$bundle_rgy_and_ns" -n "$bundle_repo" -v "$bundle_vers"
 if [[ $? -ne 0 ]]; then
    >&2 echo "ABORTING! Could not generate ACM bundle image."

@@ -17,8 +17,9 @@
 
 me=$(basename $0)
 my_dir=$(dirname $(readlink -f $0))
-
 top_of_repo=$(readlink  -f $my_dir/../..)
+
+pkg_name="advanced-cluster-management"
 
 bundle_vers="${1:-1.0.0}"
 
@@ -32,8 +33,6 @@ else
    release_nr=$bundle_vers
    is_candidate_build=0
 fi
-
-pkg_name="advanced-cluster-management"
 
 manifest_file="$top_of_repo/image-manifests/$release_nr.json"
 unbound_pkg_dir="$top_of_repo/operator-bundles/unbound/$pkg_name"
@@ -55,7 +54,7 @@ bound_pkg_dir="$top_of_repo/operator-bundles/bound/$pkg_name"
 # Generate channel names assuming release_vers is in x.y.z format:
 
 old_IFS=$IFS
-IFS=. rel_xyz=(${release_nr##*-})
+IFS=. rel_xyz=(${release_nr%-*})
 rel_x=${rel_xyz[0]}
 rel_y=${rel_xyz[1]}
 rel_z=${rel_xyz[2]}
@@ -130,6 +129,7 @@ if [[ is_candidate_build -eq 1 ]]; then
 else
    publish_to_channel="$feature_release_channel"
 fi
+default_channel="$feature_release_channel"
 
 # Enough setup.  Lets to this...
 
@@ -138,7 +138,7 @@ echo "  From uUnbound bundle manifests in: $unbound_pkg_dir"
 echo "  Writing bound bundle manifests to: $bound_pkg_dir"
 echo "  For CSV/bundle version: $bundle_vers"
 echo "  To be published on channel: $publish_to_channel"
-echo "  With default channel: $feature_release_channel"
+echo "  With default channel: $default_channel"
 echo "  Using image manifests file: $manifest_file"
 
 $my_dir/gen-bound-bundle.sh \
@@ -146,8 +146,7 @@ $my_dir/gen-bound-bundle.sh \
    -v "$bundle_vers" \
    -m "$manifest_file" \
    -I "$unbound_pkg_dir" -O "$bound_pkg_dir" \
-   -d "$feature_release_channel" \
-   -c "$publish_to_channel" \
+   -d "$default_channel" -c "$publish_to_channel" \
    -i "multiclusterhub-operator:multiclusterhub_operator" \
    -i "multicluster-operators-placementrule:multicluster_operators_placementrule" \
    -i "multicluster-operators-subscription:multicluster_operators_subscription" \

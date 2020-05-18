@@ -38,20 +38,38 @@ top_of_repo=$(readlink -f $my_dir/../..)
 github="https://$GITHUB_USER:$GITHUB_TOKEN@github.com"
 tmp_root="/tmp/ocm-hub-bundle-manifests-build"
 
+hub_pkg_name="open-cluster-management-hub"
+hub_channel="latest"
+
+# TODO RELEASE-REWORK:
+# Need to move this to a per-release spot:
 csv_template=$my_dir/ocm-hub-csv-template.yaml
 
 # The CSV version and previous CSV version are not really important un the unbound bundle
 # because they will be set/overridden anyway in the creation of the bound bundle.
 
-new_csv_vers="1.0.0"
-prev_csv_vers=""
+new_csv_vers="${1:-1.0.0}"
+prev_csv_vers="$2"
+
+old_IFS=$IFS
+IFS=. rel_xyz=(${new_csv_vers%-*})
+rel_x=${rel_xyz[0]}
+rel_y=${rel_xyz[1]}
+rel_z=${rel_xyz[2]}
+IFS=$old_IFS
+
+feature_release_nr="$rel_x.$rel_y"
+if [[ "$feature_release_nr" != "1.0" ]]; then
+   hub_release_branch="release-$feature_release_nr"
+else
+   hub_release_branch="release-1.0.0"
+fi
 
 mkdir -p "$tmp_root"
 tmp_dir="$tmp_root/work"
 rm -rf "$tmp_dir"
 mkdir -p "$tmp_dir"
 
-hub_pkg_name="open-cluster-management-hub"
 unbound_hub_pkg_dir=$top_of_repo/operator-bundles/unbound/$hub_pkg_name
 
 mkdir -p "$unbound_hub_pkg_dir"
@@ -59,14 +77,11 @@ mkdir -p "$unbound_hub_pkg_dir"
 # Wipe out any previous bundle at this version
 rm -rf "$unbound_hub_pkg_dir/$new_csv_vers"
 
-
-hub_channel="latest"
-
 clone_spot="$tmp_dir/repo-clones"
 hub_repo_spot="$clone_spot/ocm-hub"
 
-hub_stable_release_branch="release-1.0.0"
-git clone -b "$hub_stable_release_branch" "$github/open-cluster-management/multicloudhub-operator.git" $hub_repo_spot
+echo "Using Hub operator repo branch $hub_release_branch."
+git clone -b "$hub_release_branch" "$github/open-cluster-management/multicloudhub-operator.git" $hub_repo_spot
 if [[ $? -ne 0 ]]; then
    >&2 echo "Error: Could not clone OCM Hub operator repo."
    >&2 echo "Aborting."
