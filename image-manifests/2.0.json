@@ -20,6 +20,16 @@
     "image-key": "cert_manager_acmesolver"
   },
   {
+    "image-name": "cert-manager-cainjector",
+    "image-version": "0.10.2",
+    "image-tag": "0.10.2-e095819b4850707bf2dd829032a0f1b4748d0a0b",
+    "git-sha256": "e095819b4850707bf2dd829032a0f1b4748d0a0b",
+    "git-repository": "open-cluster-management/cert-manager",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:f81caf9aa17aa3f855573675ff81f4057f8981501391210578f379c3a8590251",
+    "image-key": "cert_manager_cainjector"
+  },
+  {
     "image-name": "cert-policy-controller",
     "image-version": "3.6.0",
     "image-tag": "3.6.0-5db81a7015fad112d7e7e0e57cf54c59fc023ad0",
