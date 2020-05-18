@@ -140,6 +140,16 @@
     "image-key": "mcm_topology"
   },
   {
+    "image-name": "mcm-topology-api",
+    "image-version": "3.6.0",
+    "image-tag": "3.6.0-2c0b53786b3ed6680ce1d3e0b6e7418e02b1fa1e",
+    "git-sha256": "2c0b53786b3ed6680ce1d3e0b6e7418e02b1fa1e",
+    "git-repository": "open-cluster-management/mcm-topology-api",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:bcc2e5a15dc60a8062a6c5638462a35ba80f5e8bd080d80b8b520c8526b4a9e6",
+    "image-key": "mcm_topology_api"
+  },
+  {
     "image-name": "multicloud-manager",
     "image-version": "0.1.0",
     "image-tag": "0.1.0-89fe3a7b7cd8f5a6befe88c0769c46a4b7eff09b",
