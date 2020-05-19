@@ -330,6 +330,16 @@
     "image-key": "multicluster_operators_placementrule"
   },
   {
+    "image-name": "multicluster-operators-subscription-release",
+    "image-version": "1.0.0",
+    "image-tag": "1.0.0-285e76a606b894abd057e63dee2e142ded3fc97b",
+    "git-sha256": "285e76a606b894abd057e63dee2e142ded3fc97b",
+    "git-repository": "open-cluster-management/multicloud-operators-subscription-release",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:1210d43bd1af9889af041a1988d0239562d7bd201b13c0767573d75e490b68b0",
+    "image-key": "multicluster_operators_subscription_release"
+  },
+  {
     "image-name": "multiclusterhub-operator",
     "image-version": "2.0.0",
     "image-tag": "2.0.0-6f498d835bf98b9664b474a55f123c0bc5c19d4f",
