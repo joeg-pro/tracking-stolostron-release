@@ -120,6 +120,16 @@
     "image-key": "console_ui"
   },
   {
+    "image-name": "coredns",
+    "image-version": "1.2.6.1",
+    "image-tag": "1.2.6.1-431aa93220afb426c8be9344a30ef6d229f52b19",
+    "git-sha256": "431aa93220afb426c8be9344a30ef6d229f52b19",
+    "git-repository": "open-cluster-management/coredns",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:8814eebba1cc85beb6c20eceb345061a5cfaf791338a88049902eaf4e2bb6f88",
+    "image-key": "coredns"
+  },
+  {
     "image-name": "drishti-cis",
     "image-version": "3.4.0",
     "image-tag": "3.4.0-e916937e58dc5e7ebbff6f8b5c60fabbdaa56abe",
@@ -336,7 +346,7 @@
     "git-sha256": "285e76a606b894abd057e63dee2e142ded3fc97b",
     "git-repository": "open-cluster-management/multicloud-operators-subscription-release",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:1210d43bd1af9889af041a1988d0239562d7bd201b13c0767573d75e490b68b0",
+    "image-digest": "sha256:e0876b7ffaca45633c724ac6a44d716404ec1a8858034835d36958a5ada14714",
     "image-key": "multicluster_operators_subscription_release"
   },
   {
