@@ -336,8 +336,18 @@
     "git-sha256": "766ba50d966454e187ac50ccd5ce8d5cfcbfac58",
     "git-repository": "open-cluster-management/multicloud-operators-placementrule",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:e8e3dc5edd388c79f2b34145332eb05cba73d494d938fc5e640ff9519ed60d84",
+    "image-digest": "sha256:e9e7d35174dedb2dfb67ed481821f5bacc4dc6f1fe059c2403af1545b6cc3ed4",
     "image-key": "multicluster_operators_placementrule"
+  },
+  {
+    "image-name": "multicluster-operators-subscription",
+    "image-version": "1.0.0",
+    "image-tag": "1.0.0-7fc9d9d6577fcf330935deeb61b041c90e8c880f",
+    "git-sha256": "7fc9d9d6577fcf330935deeb61b041c90e8c880f",
+    "git-repository": "open-cluster-management/multicloud-operators-subscription",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:d5c5f2d830a37cedfdbc27e5ad739d8ce4ffc5e53e9a9210630a07882ad679aa",
+    "image-key": "multicluster_operators_subscription"
   },
   {
     "image-name": "multicluster-operators-subscription-release",
@@ -346,7 +356,7 @@
     "git-sha256": "285e76a606b894abd057e63dee2e142ded3fc97b",
     "git-repository": "open-cluster-management/multicloud-operators-subscription-release",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:e0876b7ffaca45633c724ac6a44d716404ec1a8858034835d36958a5ada14714",
+    "image-digest": "sha256:c0fdaff249f91388a6317944fdc2d6d14fa4ab3ce36f2462ffb366846e2a3070",
     "image-key": "multicluster_operators_subscription_release"
   },
   {
