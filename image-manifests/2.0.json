@@ -432,11 +432,11 @@
   {
     "image-name": "multiclusterhub-repo",
     "image-version": "2.0",
-    "image-tag": "2.0-bde8c9de530bdd6e0f98b317ac8b45e5b81b03b7",
-    "git-sha256": "bde8c9de530bdd6e0f98b317ac8b45e5b81b03b7",
+    "image-tag": "2.0-fe55a8825a618118a46bc3ff11dbc12017de6fa0",
+    "git-sha256": "fe55a8825a618118a46bc3ff11dbc12017de6fa0",
     "git-repository": "open-cluster-management/multicloudhub-repo",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:4ac96b5f18f2e172b671a3164c829052557b05217ebafc337c85c4a279ca8f5b",
+    "image-digest": "sha256:742ea52ed1a774ec23bbb33ce7df8c5fedcbd4de6a667172f07b22f0a8795d57",
     "image-key": "multiclusterhub_repo"
   },
   {
@@ -444,9 +444,9 @@
     "image-version": "4.5",
     "image-tag": "4.5",
     "git-sha256": "ffffffffffffffffffffffffffffffffffffffff",
-    "git-repository": "openshift/origin-oauth-proxy",
-    "image-remote": "quay.io/openshift",
-    "image-digest": "sha256:71f49f1c5a104996dbef900b7ca977a693ba0891cc354cdaf3388f141ad14131",
+    "git-repository": "open-cluster-management/origin-oauth-proxy",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606",
     "image-key": "oauth_proxy"
   },
   {
