@@ -1,30 +1,31 @@
-#!/bin/bash
+F#!/bin/bash
 
-# Generates bound ACM bundle.
+# Generates bound OCM Hub bundle.
 #
 # Args:
 #
 # $1 = Bundle version number in x.y.z[-suffix] form.  Presence of a suffix
-#      starting with a dash indicates an RC/SNAPSHOT build.
-#      Default: 1.0.0
-#
+#      starting with a dash indicates an RC/SNAPSHOT build.  Required.
+
 # $2 = Version of the previous bundle to be replaced by this one (upgrade scenario).
 #      Default: None
 #
-# Source pkg:  this_repo/operator-bundles/unbound/advanced-cluster-management
-# Output pkg:  this_repo/operator-bundles/bound/advanced-cluster-management
+# Source pkg:  this_repo/operator-bundles/unbound/multicluster-hub
+# Output pkg:  this_repo/operator-bundles/bound/multicluster-hub
 #
-# Also needs:  The build's image manifest file in this_repo/image-manifests.
+# Also needs:  release image manifest fle in this_repo/image-manifests.
 
 me=$(basename $0)
 my_dir=$(dirname $(readlink -f $0))
 top_of_repo=$(readlink  -f $my_dir/../..)
 
-pkg_name="advanced-cluster-management"
+pkg_name="multicluster-hub"
 
-bundle_vers="${1:-1.0.0}"
-# Note: Defaulting here is for backward compatiblity with the 1.0.0 version of
-# this script.  Moving foward, the bundle version id should be a required arg.
+bundle_vers="$1"
+if [[ -z "$bundle_vers" ]]; then
+   >&2 echo "Error: Bundle version (x.y.z[-iter]) is required."
+   exit 1
+fi
 
 prev_bundle_vers="$2"
 # This needs to be optional because the first release in a version stream
@@ -152,7 +153,7 @@ echo "  From uUnbound bundle manifests in: $unbound_pkg_dir"
 echo "  Writing bound bundle manifests to: $bound_pkg_dir"
 echo "  For CSV/bundle version: $bundle_vers"
 if [[ -n "$prev_bundle_vers" ]]; then
-   echo "  Replacing previous  CSV/bundle version: $prev_bundle_vers"
+   echo "  Replacing previous CSV/bundle version: $$prev_bundle_vers"
 fi
 echo "  To be published on channel: $publish_to_channel"
 echo "  With default channel: $default_channel"
@@ -164,11 +165,5 @@ $my_dir/gen-bound-bundle.sh \
    -m "$manifest_file" \
    -I "$unbound_pkg_dir" -O "$bound_pkg_dir" \
    -d "$default_channel" -c "$publish_to_channel" \
-   -i "multiclusterhub-operator:multiclusterhub_operator" \
-   -i "multicluster-operators-placementrule:multicluster_operators_placementrule" \
-   -i "multicluster-operators-subscription:multicluster_operators_subscription" \
-   -i "multicluster-operators-deployable:multicluster_operators_deployable" \
-   -i "multicluster-operators-channel:multicluster_operators_channel" \
-   -i "multicluster-operators-application:multicluster_operators_application" \
-   -i "hive:openshift_hive"
+   -i "multiclusterhub-operator:multiclusterhub_operator"
 

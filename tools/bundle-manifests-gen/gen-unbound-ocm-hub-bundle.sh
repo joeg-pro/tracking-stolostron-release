@@ -36,9 +36,9 @@ my_dir=$(dirname $(readlink -f $0))
 top_of_repo=$(readlink -f $my_dir/../..)
 
 github="https://$GITHUB_USER:$GITHUB_TOKEN@github.com"
-tmp_root="/tmp/ocm-hub-bundle-manifests-build"
+tmp_root="/tmp/ocm-hub-operator-bundle"
 
-hub_pkg_name="open-cluster-management-hub"
+hub_pkg_name="multicluster-hub"
 hub_channel="latest"
 
 # TODO RELEASE-REWORK:
@@ -65,8 +65,8 @@ else
    hub_release_branch="release-1.0.0"
 fi
 
-mkdir -p "$tmp_root"
-tmp_dir="$tmp_root/work"
+
+tmp_dir="$tmp_root/bundle-manifests"
 rm -rf "$tmp_dir"
 mkdir -p "$tmp_dir"
 

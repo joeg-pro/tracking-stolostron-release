@@ -50,9 +50,7 @@
 me=$(basename $0)
 my_dir=$(dirname $(readlink -f $0))
 
-tmp_root="/tmp/acm-bundle-manifests-build"
-
-#--- Args (Ugh) ---
+#--- Args ---
 
 # -I Pathname of source (Input) package (or bundle).
 # -O Pathname of (Output) package directory into which generated bundle is written.
@@ -127,7 +125,7 @@ if [[ -z "$image_name_to_keys" ]]; then
    >&2 echo "Error: At least one image-name-to-key mapping is required (-i)."
    exit 1
 fi
-if [[ -z "$prev_csv_ver" ]]; then
+if [[ -z "$prev_csv_vers" ]]; then
    >&2 echo "Note: No previous/replaced bundle/CSV version specified (-p)."
 fi
 

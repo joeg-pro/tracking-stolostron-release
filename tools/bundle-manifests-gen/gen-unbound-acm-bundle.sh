@@ -25,7 +25,7 @@ my_dir=$(dirname $(readlink -f $0))
 top_of_repo=$(readlink  -f $my_dir/../..)
 
 github="https://$GITHUB_USER:$GITHUB_TOKEN@github.com"
-tmp_root="/tmp/acm-bundle-manifests-build"
+tmp_root="/tmp/acm-operator-bundle"
 
 acm_pkg_name="advanced-cluster-management"
 
@@ -43,8 +43,7 @@ csv_template="$my_dir/acm-csv-template.yaml"
 new_csv_vers="${1:-1.0.0}"
 prev_csv_vers="$2"
 
-mkdir -p "$tmp_root"
-tmp_dir="$tmp_root/work"
+tmp_dir="$tmp_root/bundle-manifests"
 rm -rf "$tmp_dir"
 mkdir -p "$tmp_dir"
 
@@ -177,7 +176,7 @@ if [[ $? -ne 0 ]]; then
    exit 2
 fi
 
-hub_pkg_dir="$top_of_repo/operator-bundles/unbound/open-cluster-management-hub"
+hub_pkg_dir="$top_of_repo/operator-bundles/unbound/multicluster-hub"
 hub_channel="latest"
 
 hub_bundle_dir=$($my_dir/find-bundle-dir.py $hub_channel $hub_pkg_dir)
@@ -200,6 +199,9 @@ echo "     and Hive bundle in:    $hive_bundle_dir"
 echo "     and App Sub bundle in: $app_sub_bundle_dir"
 echo "  Writing merged unbound bundle manifests to: $unbound_acm_pkg_dir"
 echo "  For CSV/bundle version: $new_csv_vers"
+if [[ -n "$prev_csv_vers" ]]; then
+   echo "  Replacing previous CSV/bundle version: $prev_csv_vers"
+fi
 
 $my_dir/create-unbound-acm-bundle.py \
    --pkg-name  $acm_pkg_name --pkg-dir $unbound_acm_pkg_dir \
