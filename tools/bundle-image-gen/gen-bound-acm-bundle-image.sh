@@ -35,6 +35,7 @@ opt_flags="r:n:J:Pav:s:"
 
 dash_p_opt=""
 dash_a_opt=""
+dash_s_opt=""
 
 while getopts "$opt_flags" OPTION; do
    case "$OPTION" in
@@ -66,7 +67,7 @@ bundle_vers="$1"
 if [[ -z "$bundle_vers" ]]; then
    bundle_vers="${bundle_vers_from_opt:-1.0.0}"
    if [[ -n "$vers_suffix" ]]; then
-      bundle_vers="$bundle_vers-$vers_suffix"
+      dash_s_opt="-s $vers_suffix"
    fi
 else
    if [[ -n "$bundle_vers_from_opt" ]]; then
@@ -89,5 +90,5 @@ fi
 $tools_dir/bundle-image-gen/gen-bundle-image.sh \
    -I "$top_of_repo/operator-bundles/bound/advanced-cluster-management" \
    -r $remote_rgy_and_ns -n $bundle_repo -v $bundle_vers \
-   $dash_p_opt $dash_a_opt
+   $dash_p_opt $dash_a_opt $dash_s_opt
 
