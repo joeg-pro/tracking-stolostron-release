@@ -129,8 +129,8 @@ IFS=$old_IFS
 #   all CSVs published on this channel must indicate that they superced (replace) the
 #   immediately preceeding CSV published on this channel.
 
-feature_release_channel="release-$rel_x.$rel_y"
-feature_release_rc_channel="candidate-$rel_x.$rel_y"
+feature_release_channel="snapshot-$rel_x.$rel_y"
+feature_release_rc_channel="snapshot-$rel_x.$rel_y"
 
 if [[ is_candidate_build -eq 1 ]]; then
    publish_to_channel="$feature_release_rc_channel"
