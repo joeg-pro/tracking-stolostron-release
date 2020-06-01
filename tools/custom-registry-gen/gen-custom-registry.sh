@@ -150,7 +150,13 @@ else
 fi
 
 # Maybe a little heavy handed.  Should look for <none>-tagged images only?
-docker image prune
+docker image prune -f 2> /dev/null
+if [[ $? -ne 0 ]]; then
+   # If that failed, it could be we're actually running podman with the docker-compatibility
+   # wrappers at a version that doesn't like -f or --force at all.  Try again running ppodman
+   # directly (or could just do docker image prune w/o the -f)
+   podman image prune
+fi
 
 if [[ $push_the_image -eq 1 ]]; then
    docker push "$catalog_image_ref"
