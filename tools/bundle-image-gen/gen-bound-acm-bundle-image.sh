@@ -23,19 +23,22 @@ tools_dir="$top_of_repo/tools"
 #
 # -r Remote registry server/namespace.  (Default: quay.io/open-cluster-management)
 # -n image Name (repo).  (Default: acm-operator-bundle)
-# -J Prefix for repo names (for testing).  (Default: none)
+# -t image Tag (Default: Use bundle version)
 # -P Push the image (switch)
+#
+# -J Prefix for repo names (for testing).  (Default: none)
 # -a use App Registry format (switch)
 #
 # For backward compatibility with initial version of this script (deprecated):
 # -v Version (x.y.z) of generated bundle image (for tag). (used if positional arg not specified)
-# -s suffix (-iter) for bundle version (for tag). (used if positoinal arg not specified)
+# -s suffix (-iter) for bundle tag. (used if positoinal arg not specified)
 
-opt_flags="r:n:J:Pav:s:"
+opt_flags="r:n:t:PJ:av:s:"
 
 dash_p_opt=""
 dash_a_opt=""
-dash_s_opt=""
+dash_t_opt=""
+image_tag=""
 
 while getopts "$opt_flags" OPTION; do
    case "$OPTION" in
@@ -45,13 +48,15 @@ while getopts "$opt_flags" OPTION; do
          ;;
       P) dash_p_opt="-P"
          ;;
+      t) dash_t_opt="-t $OPTARG"
+         ;;
       J) test_repo_prefix="$OPTARG"
          ;;
       a) dash_a_opt="-a"
          ;;
       v) bundle_vers_from_opt="$OPTARG"
          ;;
-      s) vers_suffix="$OPTARG"
+      s) tag_suffix="$OPTARG"
          ;;
       ?) exit 1
          ;;
@@ -65,16 +70,22 @@ shift "$(($OPTIND -1))"
 
 bundle_vers="$1"
 if [[ -z "$bundle_vers" ]]; then
+
+   if [[ -n "$dash_t_opt" ]]; then
+      >&2 echo "Error: New -t option not allowed when handling args in legacy compatibility mode."
+      exit 1
+   fi
+
    bundle_vers="${bundle_vers_from_opt:-1.0.0}"
-   if [[ -n "$vers_suffix" ]]; then
-      dash_s_opt="-s $vers_suffix"
+   if [[ -n "$tag_suffix" ]]; then
+      dash_t_opt="-t $bundle_vers-$tag_suffix"
    fi
 else
    if [[ -n "$bundle_vers_from_opt" ]]; then
       >&2 echo "Error: Deprecated -v option not allowed when version specified as positional argument."
       exit 1
    fi
-   if [[ -n "$vers_suffix" ]]; then
+   if [[ -n "$tag_suffix" ]]; then
       >&2 echo "Error: Deprecated -s option not allowed when version specified as positional argument."
       exit 1
    fi
@@ -90,5 +101,5 @@ fi
 $tools_dir/bundle-image-gen/gen-bundle-image.sh \
    -I "$top_of_repo/operator-bundles/bound/advanced-cluster-management" \
    -r $remote_rgy_and_ns -n $bundle_repo -v $bundle_vers \
-   $dash_p_opt $dash_a_opt $dash_s_opt
+   $dash_t_opt $dash_p_opt $dash_a_opt
 

@@ -29,15 +29,16 @@ top_of_repo=$(readlink  -f $my_dir/../..)
 # -I Input package directory. (required)
 # -r Remote registry server/namespace. (required)
 # -n image Name (repo).  (required)
-# -v Version (x.y.z) of generated bundle image (for tag). (required)
-# -s image tag Suffix.  (default: none)
+# -v Version (x.y.z[-suffix]) of bundle (required)
+# -t image Tag (default: use bundle version)
 # -P Push image (switch)
+#
 # -a generate bundle image in App Registry format (switch)
 
-opt_flags="I:r:n:v:s:Pa"
+opt_flags="I:r:n:v:t:Pa"
 
 push_the_image=0
-tag_suffix=""
+image_tag=""
 use_bundle_image_format=1
 
 while getopts "$opt_flags" OPTION; do
@@ -50,7 +51,7 @@ while getopts "$opt_flags" OPTION; do
          ;;
       v) bundle_vers="$OPTARG"
          ;;
-      s) tag_suffix="$OPTARG"
+      t) image_tag="$OPTARG"
          ;;
       P) push_the_image=1
          ;;
@@ -81,7 +82,6 @@ fi
 
 bound_bundle_dir="$bound_pkg_dir/$bundle_vers"
 
-
 tmp_dir="/tmp/acm-operator-bundle"
 build_context="$tmp_dir/bundle-image/build-context"
 rm -rf "$tmp_dir"
@@ -93,9 +93,9 @@ if [[ ! -d "$bound_bundle_dir" ]]; then
    exit 2
 fi
 
-# Add version suffix if present
-if [[ -n "$tag_suffix" ]]; then
-   bundle_vers="$bundle_vers-$tag_suffix"
+# Use bundle version as tag if tag not explicitly specified
+if [[ -z "$image_tag" ]]; then
+   image_tag="$bundle_vers"
 fi
 
 # We expect the bound bundle package directory we're given to be in a hybrid form:
@@ -176,7 +176,7 @@ else
 fi
 
 bundle_image_rgy_ns_and_repo="$remote_rgy_and_ns/$bundle_repo"
-bundle_image_ref="$bundle_image_rgy_ns_and_repo:$bundle_vers"
+bundle_image_ref="$bundle_image_rgy_ns_and_repo:$image_tag"
 
 # Get rid of previous local image if any
 images=$(docker images --format "{{.Repository}}:{{.Tag}}" "$bundle_image_rgy_ns_and_repo")
@@ -215,5 +215,7 @@ if [[ $push_the_image -eq 1 ]]; then
       exit 2
    fi
    echo "Successfully pushed image: $bundle_image_ref"
+else
+   echo "Not pushing the image."
 fi
 

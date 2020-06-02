@@ -16,15 +16,17 @@ top_of_repo=$(readlink  -f $my_dir/../..)
 tools_dir="$top_of_repo/tools"
 
 # -- Args ---
-#  $1 = Version number (tag) in x.y.z[-suffix] form of input bundle and output catalog.
+#
+#  $1 = Tag (probably in x.y.z[-suffix] form) of input bundle image and output catalog image.
 #
 # -r Remote registry server/namespace.  (Default: quay.io/open-cluster-management)
 # -b bundle image Name (repo).  (Default: acm-operator-bundle)
 # -c catalog image Name (repo). (Default: acm-custom-registry)
-# -J Prefix for repo names (for testing).  (Default: none)
 # -P Push image (switch)
+#
+# -J Prefix for repo names (for testing).  (Default: none)
 
-opt_flags="r:b:c:J:P"
+opt_flags="r:b:c:PJ:"
 
 dash_p_opt=""
 
@@ -46,9 +48,9 @@ while getopts "$opt_flags" OPTION; do
 done
 shift "$(($OPTIND -1))"
 
-bundle_and_catalog_vers="$1"
-if [[ -z "$bundle_and_catalog_vers" ]]; then
-   >&2 echo "Error: Bundle/catalog version (x.y.z[-iter]) is required."
+bundle_and_catalog_tag="$1"
+if [[ -z "$bundle_and_catalog_tag" ]]; then
+   >&2 echo "Error: Bundle/catalog tag (x.y.z[-iter]) is required."
    exit 1
 fi
 
@@ -61,9 +63,9 @@ if [[ -n "$test_repo_prefix" ]]; then
    catalog_image_repo="$test_repo_prefix-$catalog_image_repo"
 fi
 
-bundle_image_ref="$remote_rgy_and_ns/$bundle_image_repo:$bundle_and_catalog_vers"
+bundle_image_ref="$remote_rgy_and_ns/$bundle_image_repo:$bundle_and_catalog_tag"
 
 $tools_dir/custom-registry-gen/gen-custom-registry.sh  \
    -B "$bundle_image_ref" -n "$catalog_image_repo" \
-   -v "$bundle_and_catalog_vers" $dash_p_opt
+   -t "$bundle_and_catalog_tag" $dash_p_opt
 

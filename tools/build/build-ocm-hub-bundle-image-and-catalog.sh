@@ -21,15 +21,18 @@ tools_dir="$top_of_repo/tools"
 # -r remote Registry server/namespace. (Default: quay.io/open-cluster-management)
 # -b Budnle repository name (default: multicluster-hub-operator-bundle)
 # -c Custom catalog repository Name (default: multicluster-hub-custom-registry)
-# -J Prefix for repo names (for testing).  (Default: none)
+# -t image Tag for bundle/catalog (default: use bundle version)
 # -P Push the bundle image to remote registry after producing it (switch)
+#
+# -J Prefix for repo names (for testing).  (Default: none)
 # -a Build bundle in old App Registry format (switch)
 
-opt_flags="r:b:c:J:Pa"
+opt_flags="r:b:c:t:PJ:a"
 
 dash_a_opt=""
 dash_p_opt=""
 dash_j_opt=""
+image_tag=""
 
 while getopts "$opt_flags" OPTION; do
    case "$OPTION" in
@@ -38,6 +41,8 @@ while getopts "$opt_flags" OPTION; do
       b) bundle_repo="$OPTARG"
          ;;
       c) catalog_repo="$OPTARG"
+         ;;
+      t) image_tag="$OPTARG"
          ;;
       J) dash_j_opt="-J $OPTARG"
          ;;
@@ -66,6 +71,12 @@ fi
 prev_vers="$2"
 if [[ -z "$prev_vers" ]]; then
    echo "Note: This bundle will not be configured as replacing a previous bundle version."
+fi
+
+if [[ -n "$image_tag" ]]; then
+   dash_t_opt="-t $image_tag"
+else
+   image_tag="$bundle_vers"
 fi
 
 # -- End Args --
@@ -102,7 +113,8 @@ echo ""
 # some scripting and Dockerifle maintained in midstream.
 
 $tools_dir/bundle-image-gen/gen-bound-$script_qualifier-bundle-image.sh \
-   -r "$bundle_rgy_and_ns" -n "$bundle_repo" $dash_a_opt $dash_p_opt $dash_j_opt \
+   -r "$bundle_rgy_and_ns" -n "$bundle_repo" \
+   $dash_t_opt $dash_p_opt $dash_a_opt $dash_j_opt \
    "$bundle_vers"
 if [[ $? -ne 0 ]]; then
    >&2 echo "ABORTING! Could not generate $what_kind bundle image."
@@ -114,8 +126,9 @@ echo "----- [ Generating $what_kind Custom Registry Image ] -----"
 echo ""
 
 $tools_dir/custom-registry-gen/gen-$script_qualifier-custom-registry.sh \
-   -b "$bundle_repo" -c "$catalog_repo" $dash_p_opt $dash_j_opt \
-   "$bundle_vers"
+   -b "$bundle_repo" -c "$catalog_repo" \
+   $dash_p_opt $dash_j_opt \
+   "$image_tag"
 if [[ $? -ne 0 ]]; then
    >&2 echo "FAILED! Could not generate $what_kind custom catalog image."
    exit 2

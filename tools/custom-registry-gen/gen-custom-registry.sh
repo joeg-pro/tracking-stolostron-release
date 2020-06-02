@@ -13,13 +13,13 @@ opm_vers="v1.6.1"
 # -B full image ref (rgy/ns/repo[:tag][@diagest]) of input Bundle image (required).
 # -r remote Registry server/namespace for generated catalog image. (Default: same as input bundle)
 # -n repository Name for generated catalog image (required)
-# -v Version (x.y.z) of generated catalog image (for tag).  (default: 1.0.0)
-# -s image tag Suffix for generated catalog image.  (default: none)
+# -t image Tag for generated catalog image.  (required)
 # -P Push the image (switch)
 
-opt_flags="B:r:n:v:s:P"
+opt_flags="B:r:n:t:P"
 
 push_the_image=0
+catalog_image_tag=""
 
 while getopts "$opt_flags" OPTION; do
    case "$OPTION" in
@@ -29,9 +29,7 @@ while getopts "$opt_flags" OPTION; do
          ;;
       n) catalog_image_repo="$OPTARG"
          ;;
-      v) catalog_image_vers="$OPTARG"
-         ;;
-      s) vers_suffix="$OPTARG"
+      t) catalog_image_tag="$OPTARG"
          ;;
       P) push_the_image=1
          ;;
@@ -49,6 +47,10 @@ if [[ -z "$catalog_image_repo" ]]; then
    >&2 echo "Error: Catalog image repository name (-n) is required."
    exit 1
 fi
+if [[ -z "$catalog_image_tag" ]]; then
+   >&2 echo "Error: Catalog image tag (-t) is required."
+   exit 1
+fi
 
 # Parse image ref:
 # <rgy>/<ns>/<repo>[:<tag>][@<digest>]
@@ -61,11 +63,6 @@ bundle_image_rgy=${bundle_image_ref%%/*}
 # as the input bundle, with the same tag.
 
 catalog_image_rgy_and_ns="${catalog_image_rgy_and_ns:-$bundle_image_rgy_and_ns}"
-catalog_image_tag="${catalog_image_vers:-1.0.0}"
-
-if [[ -n "$vcers_suffix" ]]; then
-   catalog_image_tag="$catalog_image_tag-$vcers_suffix"
-fi
 
 catalog_image_name="$catalog_image_rgy_and_ns/$catalog_image_repo"
 catalog_image_ref="$catalog_image_name:$catalog_image_tag"
