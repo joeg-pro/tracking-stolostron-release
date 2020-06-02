@@ -1,4 +1,4 @@
-F#!/bin/bash
+#!/bin/bash
 
 # Generates bound OCM Hub bundle.
 #
