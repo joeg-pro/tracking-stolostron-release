@@ -127,7 +127,7 @@ echo "----- [ Generating $what_kind Custom Registry Image ] -----"
 echo ""
 
 $tools_dir/custom-registry-gen/gen-$script_qualifier-custom-registry.sh \
-   -b "$bundle_repo" -c "$catalog_repo" \
+   -r "$bundle_rgy_and_ns" -b "$bundle_repo" -c "$catalog_repo" \
    $dash_p_opt $dash_j_opt \
    "$image_tag"
 if [[ $? -ne 0 ]]; then
