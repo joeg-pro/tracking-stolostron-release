@@ -203,7 +203,7 @@ if [[ -n "$prev_csv_vers" ]]; then
    echo "  Replacing previous CSV/bundle version: $prev_csv_vers"
 fi
 
-$my_dir/create-unbound-acm-bundle.py \
+$my_dir/merge-bundles.py \
    --pkg-name  $acm_pkg_name --pkg-dir $unbound_acm_pkg_dir \
    --csv-vers "$new_csv_vers" $prev_option \
    --channel "latest" \
