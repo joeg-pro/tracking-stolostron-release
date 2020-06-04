@@ -1,4 +1,6 @@
 #!/bin/bash
+#
+# INCOMPLETE WORK IN PROGRESS, IN ABEYANCE UNTIL A NEW NEED ARISES
 
 # Re-bundke:
 #
@@ -30,14 +32,13 @@ tools_dir="$top_of_repo/tools"
 # Args:
 
 # -I full image reference for Input bundle image (required)
-# -r Remote registry server/namespace for output bundle. (Default: quay.io/acm-d)
-# -n local image Name for output bundle.  (Default: acm-operator-bundle)
-# -R remote image Name for output bundle (default: same as local image name)
+# -r registry server/namespace for output bundle. (Default: quay.io/acm-d)
+# -n repo Name for output bundle.  (Default: acm-operator-bundle)
 # -v Version (x.y.z) of generated bundle image (for tag).  (Default: 1.0.0)
 # -s image tag Suffix.  (default: none)
 # -P Push image (switch)
 
-opt_flags="I:r:n:N:v:s:P"
+opt_flags="I:r:n:v:s:P"
 
 push_the_image=0
 tag_suffix=""
@@ -48,9 +49,7 @@ while getopts "$opt_flags" OPTION; do
          ;;
       r) remote_rgy_and_ns="$OPTARG"
          ;;
-      n) local_bundle_image_name="$OPTARG"
-         ;;
-      N) remote_bundle_image_name="$OPTARG"
+      n) bundle_image_name="$OPTARG"
          ;;
       v) bundle_vers="$OPTARG"
          ;;
@@ -74,8 +73,7 @@ fi
 # Defaulting for args not specified...
 
 remote_rgy_and_ns="${remote_rgy_and_ns:-quay.io/acm-d}"
-local_bundle_image_name="${local_bundle_image_name:-acm-operator-bundle}"
-remote_bundle_image_name="${remote_bundle_image_name:-$local_bundle_image_name}"
+bundle_image_name="${bundle_image_name:-acm-operator-bundle}"
 
 bundle_vers="${bundle_vers:-1.0.0}"
 
@@ -168,10 +166,11 @@ $tools_dir/bundle-manifests-gen/remap-csv-image-refs.py \
 # Create a new bundle image with the updated CSV (and other parts unchanged).
 
 target_bundle_rgy_and_ns="quay.io/acm-d"
-$tools_dir/bundle-image-gen/gen-bound-acm-bundle-image.sh \
+$tools_dir/bundle-image-gen/gen-bundle-image.sh \
    -I "$bundle_dir" \
    -r "$target_bundle_rgy_and_ns" \
-   -n "$target_bundle_repo"
+   -n "$target_bundle_repo" \
+   -v "$buundle_vers"
 if [[ $? -ne 0 ]]; then
    >&2 echo "ABORTING! Could not generate ACM bundle image."
    exit 2
