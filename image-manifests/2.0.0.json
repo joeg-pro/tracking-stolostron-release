@@ -528,5 +528,15 @@
     "image-remote": "quay.io/open-cluster-management",
     "image-digest": "sha256:0ddd527ca790ea1958d6d10c7ba1e5b642b37ae8358e0ff13966934509627414",
     "image-key": "search_operator"
+  },
+  {
+    "image-name": "nucleus",
+    "image-version": "0.0",
+    "image-tag": "0.0",
+    "git-sha256": "ffffffffffffffffffffffffffffffffffffffff",
+    "git-repository": "open-cluster-management/nucleus",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:b099a84e6b591cd28ba6d54f22863b82d6d2a94ccb317b71f21afef4ec47c597",
+    "image-key": "nucleus"
   }
 ]
