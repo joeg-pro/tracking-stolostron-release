@@ -3,7 +3,7 @@ FROM ${bundle_image_ref} as bundle
 FROM quay.io/operator-framework/upstream-registry-builder as builder
 
 COPY --from=bundle manifests manifests
-RUN ./bin/initializer -o ./bundles.db
+RUN ./bin/initializer --permissive -o ./bundles.db
 
 FROM scratch
 
