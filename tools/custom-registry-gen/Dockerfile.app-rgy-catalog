@@ -1,0 +1,18 @@
+ARG bundle_image_ref
+FROM ${bundle_image_ref} as bundle
+FROM quay.io/operator-framework/upstream-registry-builder as builder
+
+COPY --from=bundle manifests manifests
+RUN ./bin/initializer -o ./bundles.db
+
+FROM scratch
+
+COPY --from=builder /build/bundles.db /bundles.db
+COPY --from=builder /build/bin/registry-server /registry-server
+COPY --from=builder /bin/grpc_health_probe /bin/grpc_health_probe
+COPY --from=builder /etc/nsswitch.conf /etc/nsswitch.conf
+
+EXPOSE 50051
+ENTRYPOINT ["/registry-server"]
+CMD ["--database", "bundles.db"]
+

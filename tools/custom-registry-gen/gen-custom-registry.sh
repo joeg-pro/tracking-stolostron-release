@@ -1,5 +1,8 @@
 #!/bin/bash
-
+#
+# Builds an OLM catalog from operator metadata in either bundle image
+# or App Registry format.
+#
 # requires:
 # jq (no reasonably involvd script can live without it).
 
@@ -7,6 +10,9 @@
 
 opm="$HOME/bin/opm"
 opm_vers="v1.6.1"
+
+me=$(basename $0)
+my_dir=$(dirname $(readlink -f $0))
 
 # -- Args --
 #
@@ -136,6 +142,8 @@ else
    # Bundle is in App Registry/metadata format, so we create a calog by building
    # an image based on the catalog bundler.
 
+   old_cwd=$PWD
+   cd $my_dir
    docker build -t "$catalog_image_ref" \
       -f Dockerfile.app-rgy-catalog \
       --build-arg "bundle_image_ref=$bundle_image_ref" .
@@ -143,6 +151,7 @@ else
       >&2 echo "Error: Could not build custom catalog image $catalog_image_ref."
       exit 2
    fi
+   cd $old_cwd
 
 fi
 
