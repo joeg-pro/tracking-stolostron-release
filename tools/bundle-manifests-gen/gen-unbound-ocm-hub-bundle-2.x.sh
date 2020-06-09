@@ -76,10 +76,10 @@ hub_bundle_dir="deploy/olm-catalog/multiclusterhub-operator/manifests"
 hub_entry="Base Hub:$hub_git_repo:$hub_git_branch:$hub_bundle_dir"
 source_info+=("$hub_entry")
 
-nuc_git_repo="open-cluster-management/nucleus"
+nuc_git_repo="open-cluster-management/registration-operator"
 nuc_git_branch="master"
 nuc_bundle_dir="deploy/cluster-manager/olm-catalog/cluster-manager/manifests"
-nuc_entry="Nucleus:$nuc_git_repo:$nuc_git_branch:$nuc_bundle_dir"
+nuc_entry="Cluster Manager:$nuc_git_repo:$nuc_git_branch:$nuc_bundle_dir"
 source_info+=("$nuc_entry")
 
 

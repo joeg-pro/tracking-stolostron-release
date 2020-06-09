@@ -166,4 +166,4 @@ $my_dir/gen-bound-bundle.sh \
    -I "$unbound_pkg_dir" -O "$bound_pkg_dir" \
    -d "$default_channel" -c "$publish_to_channel" \
    -i "multiclusterhub-operator:multiclusterhub_operator" \
-   -i "nucleus:nucleus"
+   -i "registration-operator:registration_operator"
