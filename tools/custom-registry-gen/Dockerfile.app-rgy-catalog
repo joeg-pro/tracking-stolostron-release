@@ -3,7 +3,7 @@ FROM ${bundle_image_ref} as bundle
 FROM quay.io/operator-framework/upstream-registry-builder:v1.12.4 as builder
 
 COPY --from=bundle manifests manifests
-RUN ./bin/initializer --permissive -o ./bundles.db
+RUN ./bin/initializer -o ./bundles.db
 
 # As of builder v1.12.5, the registry server now assumes there is a /tmp directory
 # so create a known-empty one for copying into the final image.
