@@ -1,0 +1,245 @@
+# Source me, don't run me.
+#
+# Some Bash functions for use by upgrade-orchestration scripts.
+#
+# Blame: joeg-pro
+#
+# Notes:
+#
+# - Tested in RHEL 8, not on other Linux or Mac.
+
+use_ns=""
+# Sets a namespace we use henceforth on all OC commands.
+set_use_ns() {
+   use_ns="$1"
+}
+
+# Runs an OC command, applying a target namespace option if defined.
+oc_cmd() {
+   if [[ -n "$use_ns" ]]; then
+      dash_n_arg="-n $use_ns"
+   fi
+   oc $dash_n_arg "$@"
+}
+
+# Applies a manifest passed in vit stdin.
+function oc_apply () {
+   cat > $temp_file
+   oc_cmd apply -f $temp_file > /dev/null
+   if [[ $? -ne 0 ]]; then
+      echo "OC Apply of the following manifest failed:"
+      cat $temp_file
+      echo "Aborting."
+      rm -f $temp_file
+      exit 2
+   fi
+   rm -f $temp_file
+}
+
+# Does an OC get and optionally runs the result throuhg a status-checking cmd/function.
+get_and_check() {
+
+   kind_and_name="$1"
+   status_checker="$2"
+
+   # echo "Getting $kind_and_name"
+   oc_cmd get $kind_and_name -o json > $temp_file 2>&1
+   rc=$?
+   # echo "RC: $rc"
+   if [[ $rc -eq 0 ]]; then
+      if [[ -n $status_checker ]]; then
+         $status_checker $kind_and_name $temp_file
+         rc=$?
+      fi
+   fi
+   rm -f "$temp_file"
+   return $rc
+}
+
+# Wauts for a resource to exist and achieve a desired status as determine
+# by a status checking funciton or command.  Aborts on timeout.
+
+wait_for_resource_status() {
+
+   kind_and_name="$1"
+   status_checker="${2:-true}"
+   condition_description="$3"
+   wait_limit="${4:-10}"
+
+   # echo "kind-and-name: $kind_and_name"
+   # echo "status_checker: $status_checker"
+
+   if [[ "$status_checker" != "true" ]]; then
+      waiting_for_what="resource $kind_and_name to be $condition_description"
+   else
+      waiting_for_what="resource $kind_and_name"
+   fi
+
+   wait_ct=0
+   first_time=1
+   get_and_check $kind_and_name $status_checker
+   while [[ $? -ne 0 && ( $wait_ct -le $wait_limit ) ]]; do
+      if [[ $first_time -eq 1 ]]; then
+         echo "Waiting for $waiting_for_what."
+         first_time=0
+      fi
+      wait_ct=$(( $wait_ct + 1 ))
+      sleep 1s
+      get_and_check $kind_and_name $status_checker
+   done
+   if [[ $? -ne 0 ]]; then
+      echo "Error: Timeout waiting for $waiting_for_what."
+      echo "Aborting."
+      exit 2
+   fi
+}
+
+# Wait for a resource to actually exist.  Aborts on timeout.
+function wait_for_resource() {
+
+   kind_and_name="$1"
+   wait_limit="${2:-10}"
+
+   wait_for_resource_status "$kind_and_name" "true" "not-used" "$wait_limit"
+}
+
+# --- Status Test Functions ---
+
+# Status checking function for a subscription reaching Upgrade-Pending state.
+subscription_is_upgrade_pending() {
+
+   kind_and_name="$1"
+   resource_json_file="$2"
+
+   st=$(jq -r ".status.state" $resource_json_file)
+   # echo "Subscription $kind_and_name status is: $st"
+   [[ $st == "UpgradePending" ]]
+   return $?
+}
+
+# Status checking function for an install-plan reaching complete state.
+install_plan_is_complete() {
+
+   kind_and_name="$1"
+   resource_json_file="$2"
+
+   st=$(jq -r ".status.phase" $resource_json_file)
+   [[ $st == "Complete" ]]
+   return $?
+}
+
+# Status checking function for CSV reaching (installed) Succeeeded state.
+csv_install_is_successful() {
+
+   kind_and_name="$1"
+   resource_json_file="$2"
+   st=$(jq -r ".status.phase" $resource_json_file)
+   [[ $st == "Succeeded" ]]
+   return $?
+}
+
+
+# --- Higher Level Functions ---
+
+get_subscription_into_temp_file() {
+   oc_cmd get $subscription_kind_and_name -o json > $temp_file
+   if [[ $? -ne 0 ]]; then
+      >&2 echo "Could not get subscription $subscription_kind_and_name."
+      exit 2
+   fi
+}
+
+# Find the pending install plan for a subscription and approve it.
+find_and_approve_install_plan() {
+   # Side effect: sets the_install_plan
+
+   subscription_kind_and_name="$1"
+
+   get_subscription_into_temp_file $subscription_kind_and_name
+
+   st=$(jq -r ".status.state" $temp_file)
+   current_csv=$(jq -r ".status.currentCSV" $temp_file)
+
+   if [[ "$st" == "AtLatestKnown" ]]; then
+      >&2 echo "Error: No install/upgrade is pending."
+      rm -f $temp_file
+      exit 2
+   elif [[ "$st" != "UpgradePending" ]]; then
+      >&2 echo "Unrecognized current status for Subscription: $st."
+      exit 2
+   fi
+
+   echo "An install/upgrade is pending. Next CSV to be applied: $current_csv."
+
+   ip_ns=$(jq -r ".status.installPlanRef.namespace" $temp_file)
+   ip_kind=$(jq -r ".status.installPlanRef.kind" $temp_file)
+   ip_name=$(jq -r ".status.installPlanRef.name" $temp_file)
+   the_install_plan="$ip_kind/$ip_name"
+
+   echo "Peding install plan: $the_install_plan"
+
+   oc_cmd patch $the_install_plan --type merge --patch '{"spec": {"approved": true}}' > /dev/null
+   echo "Install Plan ($ip_name) is now approved."
+}
+
+# Wauts for an install plan to reach Complete status.
+wait_for_install_plan_complete() {
+
+   install_plan_kind_and_name="$1"
+   wait_limit="${2:-30}"
+   wait_for_resource_status $install_plan_kind_and_name install_plan_is_complete "Complete" $wait_limit
+}
+
+# Waits for the CSV listed as the "instaleldCVS" in a subscription to reach Succeeded state.
+wait_for_csv_to_succeed() {
+
+   subscription_kind_and_name="$1"
+   wait_limit="${2:-60}"
+
+   get_subscription_into_temp_file $subscription_kind_and_name
+
+   installed_csv=$(jq -r ".status.installedCSV" $temp_file)
+   the_installed_csv="ClusterServiceVErsion/$installed_csv"
+
+   oc_cmd get $the_installed_csv -o json > $temp_file
+   if [[ $? -ne 0 ]]; then
+      >&2 echo "Could not get CSV $the_installed_csv."
+      exit 2
+   fi
+
+   vers=$(jq -r ".spec.version" $temp_file)
+   st=$(jq -r ".status.phase" $temp_file)
+
+   if [[ "$st" != "Succeeded" ]]; then
+      echo "Operator installation is not finished yet."
+      msg=$(jq -r ".status.message" $temp_file)
+      echo "Currently: $msg"
+
+      echo "Waiting for operator installation to finish."
+
+      wait_for_resource_status $the_installed_csv csv_install_is_successful "Successful" 60
+   fi
+   echo "Operator is now installed. Version: $vers."
+
+}
+
+# Reports ont he status of a subscription at the end of an install/upgrade.
+report_on_subscritpion_ending_status() {
+
+   subscription_kind_and_name="$1"
+
+   get_subscription_into_temp_file $subscription_kind_and_name
+
+   st=$(jq -r ".status.state" $temp_file)
+   installed_csv=$(jq -r ".status.installedCSV" $temp_file)
+   current_csv=$(jq -r ".status.currentCSV" $temp_file)
+
+   if [[ "$st" == "AtLatestKnown" ]]; then
+      echo "Subscription is now up-to-date."
+   elif [[ "$st" == "UpgradePending" ]]; then
+      echo "Upgrades are pending.  Next CSV: $current_csv."
+   else
+      echo "Unrecognized ending status for Subscription: $st."
+   fi
+}
+
