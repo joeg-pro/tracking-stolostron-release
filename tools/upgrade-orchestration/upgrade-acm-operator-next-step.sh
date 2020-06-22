@@ -25,14 +25,40 @@
 me=$(basename $0)
 my_dir=$(dirname $(readlink -f $0))
 
-temp_file="./tmp.file"
-
-target_ns="ocm"
-operator_subscription="acm-operator-subscription"
-
 source $my_dir/common-functions
 
-the_subscription="subscriptions.operators.coreos.com/$operator_subscription"
+# --- Arg Parsing ---
+
+# -n target Namespace (default: current project namespace).
+# -s Subscription name (default: acm-operator-subscription).
+
+opt_flags="n:s:"
+
+while getopts "$opt_flags" OPTION; do
+   case "$OPTION" in
+      n) target_ns="$OPTARG"
+         ;;
+      s) subscription_name="$OPTARG"
+         ;;
+      ?) exit 1
+         ;;
+   esac
+done
+shift "$(($OPTIND -1))"
+
+# --- Arg Defaulting ---
+
+if [[ -z "$garget_ns" ]]; then
+   target_ns=$(oc_get_default_namespace)
+   echo "Using default project namespace: $target_ns"
+fi
+
+subscription_name="${subscription_name:-acm-operator-subscription}"
+
+# --- End Args ---
+
+the_subscription="subscriptions.operators.coreos.com/$subscription_name"
+use_ns="$target_ns"
 
 # Find the existing operator subscription and see if it has an upgrade pending.
 # Complain (and abort) and die if it doesn't.  Approve it if found.

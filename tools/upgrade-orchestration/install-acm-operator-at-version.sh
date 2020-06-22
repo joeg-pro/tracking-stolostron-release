@@ -1,6 +1,14 @@
 #!/bin/bash
 #
-# Installs an operator at a specified version.  Currently ACM specific.
+# Installs an operator at a specified version.
+#
+# The approach shown here is general, but this script currently includes
+# some ACM specific stuff, at least as defaults:
+#
+# - Operator package name
+# - Operator update channel
+# - Catalog source name
+# - CSV naming convention
 #
 # Requires:
 # - oc
@@ -8,39 +16,89 @@
 #
 # Assumes:
 #
-# - A Catalog Source called "acm-custom=-registry" is already defined.
+# - Custom catalog Source (default: "acm-custom=-registry") is already defined.
 #
 # Blame: joeg-pro (for the original versions, anyway)
 #
 # Notes:
 #
 # - Tested in RHEL 8, not on other Linux or Mac.
-#
-# - Currently specific to assorted OCM/ACM engineering team practices and
-#   targetting the ACM operator package, but the approach demonstrated here
-#   is general.
 
 me=$(basename $0)
 my_dir=$(dirname $(readlink -f $0))
 
-temp_file="./tmp.file"
+source $my_dir/common-functions
+
+# --- Arg Parsing ---
+
+# -n target Namespace (default: current project/namespace).
+# -p Package name (default: advanced-cluster-management).
+# -c Channel name (default: release channel for specified operator release).
+# -s Subscription name (default: acm-operator-subscription).
+# -S catalog Source name (default: acm-custom-registry).
+# -N catalog source Namespace (default: same as target (-n) namespace).
+
+opt_flags="n:p:c:s:S:N:"
+
+while getopts "$opt_flags" OPTION; do
+   case "$OPTION" in
+      n) target_ns="$OPTARG"
+         ;;
+      p) operator_package="$OPTARG"
+         ;;
+      c) subscribe_to_channel="$OPTARG"
+         ;;
+      s) subscription_name="$OPTARG"
+         ;;
+      S) catalog_source="$OPTARG"
+         ;;
+      N) catalog_source_ns="$OPTARG"
+         ;;
+      ?) exit 1
+         ;;
+   esac
+done
+shift "$(($OPTIND -1))"
 
 operator_release="$1"
-
 if [[ -z $operator_release ]]; then
    >&2 echo "Operator release id is required."
    exit 1
 fi
 
-target_ns="ocm"
-operator_package="advanced-cluster-management"
-subscribe_to_channel="release-1.0"
-source_catalog="acm-custom-registry"
+# --- Arg Defaulting ---
 
-source $my_dir/common-functions
+if [[ -z "$garget_ns" ]]; then
+   target_ns=$(oc_get_default_namespace)
+   echo "Using default project namespace: $target_ns"
+fi
 
+operator_package="${operator_package:-advanced-cluster-management}"
+subscription_name="${subscription_name:-acm-operator-subscription}"
+catalog_source="${catalog_source:-acm-custom-registry}"
+catalog_source_ns="${catalog_source_ns:-$target_ns}"
 
-# Create namespace(s)...
+# No option to override yet, but prepare for one:
+csv_name_prefix="${csv_name_prefix:-$operator_package}"
+
+# If not specified, use a default channel based on release number.
+if [[ -z "$subscribe_to_channel" ]]; then
+   oldIFS=$IFS
+   IFS=. rel_xyz=(${operator_release%-*})
+   rel_x=${rel_xyz[0]}
+   rel_y=${rel_xyz[1]}
+   rel_z=${rel_xyz[2]}
+   IFS=$oldIFS
+   subscribe_to_channel="release-$rel_x.$rel_y"
+fi
+
+# --- End Args ---
+
+# Our normal dev/test procedure is to use a custom registry, which we typically put in
+# the same namespace in which the operator will be installed (and our defaulting of
+# optoinal args is in line with this practice). So the target naemspace will usually
+# already exsits. But to allow other use cases, we'll create the target namespace
+# here if it isn't around already.
 
 oc_apply << EOF
 apiVersion: v1
@@ -52,9 +110,12 @@ wait_for_resource namespace/$target_ns
 set_use_ns "$target_ns"
 wait_for_resource serviceaccount/default
 
-# Create Operator Group...
+# OLM only tolerates one OperatorGroup per namespace.  So create on if we don't
+# find any.  Otherwise, assume/home its right for us.
 
-oc_apply << EOF
+ogs=$(oc_cmd get OperatorGroups -o name)
+if [[ -z "$ogs" ]]; then
+   oc_apply << EOF
 apiVersion: operators.coreos.com/v1
 kind: OperatorGroup
 metadata:
@@ -64,8 +125,8 @@ spec:
   targetNamespaces:
   - $target_ns
 EOF
-wait_for_resource operatorgroup/operator-group
-
+   wait_for_resource operatorgroup/operator-group
+fi
 
 # Create the subscription, with manual approval and a starting-CSV.
 #
@@ -82,15 +143,15 @@ oc_apply << EOF
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
-  name: acm-operator-subscription
+  name: $subscription_name
   namespace: $target_ns
 spec:
-  name: $operator_package
-  source: $source_catalog
   installPlanApproval: Manual
+  name: $operator_package
   channel: $subscribe_to_channel
-  sourceNamespace: $target_ns
-  startingCSV: advanced-cluster-management.v$operator_release
+  startingCSV: $csv_name_prefix.v$operator_release
+  source: $catalog_source
+  sourceNamespace: $catalog_source_ns
 EOF
 
 # NOTE:
@@ -98,7 +159,7 @@ EOF
 # OLM Subscription resource. But after installing the OCM App Sub CRD, it takes over that
 # simple kind-name/abbrev, thus breaking stuff that expects those to be OLM resources.
 
-the_subscription="subscriptions.operators.coreos.com/acm-operator-subscription"
+the_subscription="subscriptions.operators.coreos.com/$subscription_name"
 wait_for_resource $the_subscription
 
 # Since the Subscription has a Manual install-plan approval policy, we're

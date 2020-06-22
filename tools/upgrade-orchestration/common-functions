@@ -8,6 +8,9 @@
 #
 # - Tested in RHEL 8, not on other Linux or Mac.
 
+
+temp_file="./tmp.file"
+
 use_ns=""
 # Sets a namespace we use henceforth on all OC commands.
 set_use_ns() {
@@ -56,9 +59,29 @@ get_and_check() {
    return $rc
 }
 
+# Gets the default OC project/namespace.
+oc_get_default_namespace() {
+
+   msg=$(oc project)
+   # Typical msg:
+   # Using project "ocm" on server "https://api.jmg-lively-llama.dev01.red-chesterfield.com:6443".
+
+   # Parsing of msgs is often brittle. Try to do this in a way that we can hopefully
+   # detect if the msg format has changed and fail if it has.
+
+   r=${msg#Using project \"}
+   if [[ "$r" == "$msg" ]]; then
+      >&2 echo "Error: Response from oc project is not in expected format."
+      >&2 echo "Response: $msg"
+      rm -f $temp_file
+      exit 2
+   fi
+   ns=${r%%\"*}
+   echo "$ns"
+}
+
 # Wauts for a resource to exist and achieve a desired status as determine
 # by a status checking funciton or command.  Aborts on timeout.
-
 wait_for_resource_status() {
 
    kind_and_name="$1"
@@ -144,7 +167,12 @@ csv_install_is_successful() {
 get_subscription_into_temp_file() {
    oc_cmd get $subscription_kind_and_name -o json > $temp_file
    if [[ $? -ne 0 ]]; then
-      >&2 echo "Could not get subscription $subscription_kind_and_name."
+      if [[ -z "$use_ns" ]]; then
+         what_ns="default project namespace"
+      else
+         what_ns="namespace $use_ns"
+      fi
+      >&2 echo "Could not get subscription $subscription_kind_and_name in $what_ns."
       exit 2
    fi
 }
