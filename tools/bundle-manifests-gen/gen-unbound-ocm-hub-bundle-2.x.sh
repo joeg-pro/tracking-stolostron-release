@@ -45,9 +45,10 @@ new_csv_vers="$1"
 prev_csv_vers="$2"
 
 if [[ -z "$new_csv_vers" ]]; then
-   >&2 echo "Error: Bundle version is required."
+   >&2 echo "Error: CSV version is required."
    exit 1
 fi
+
 oldIFS=$IFS
 IFS=. rel_xyz=(${new_csv_vers%-*})
 rel_x=${rel_xyz[0]}
