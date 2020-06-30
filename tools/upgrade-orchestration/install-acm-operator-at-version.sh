@@ -83,13 +83,18 @@ csv_name_prefix="${csv_name_prefix:-$operator_package}"
 
 # If not specified, use a default channel based on release number.
 if [[ -z "$subscribe_to_channel" ]]; then
-   oldIFS=$IFS
-   IFS=. rel_xyz=(${operator_release%-*})
-   rel_x=${rel_xyz[0]}
-   rel_y=${rel_xyz[1]}
-   rel_z=${rel_xyz[2]}
-   IFS=$oldIFS
-   subscribe_to_channel="release-$rel_x.$rel_y"
+   if [[ "$operator_release" != "latest" ]]; then
+      oldIFS=$IFS
+      IFS=. rel_xyz=(${operator_release%-*})
+      rel_x=${rel_xyz[0]}
+      rel_y=${rel_xyz[1]}
+      rel_z=${rel_xyz[2]}
+      IFS=$oldIFS
+      subscribe_to_channel="release-$rel_x.$rel_y"
+   else
+      >&2 echo "Subscribe-to channel (-c) is required when release is \"latest\"."
+      exit 1
+   fi
 fi
 
 # --- End Args ---
@@ -138,7 +143,10 @@ fi
 # doing explicit queires of the operator registry, which might not be exposed outsde of
 # the cluster.
 
-echo "Applying subscription acm-operator-subscription for operator version $operator_release."
+echo "Applying subscription $subscription_name for operator version $operator_release."
+if [[ "$operator_release" != "latest" ]]; then
+   starting_csv_spec="startingCSV: $csv_name_prefix.v$operator_release"
+fi
 oc_apply << EOF
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
@@ -149,9 +157,9 @@ spec:
   installPlanApproval: Manual
   name: $operator_package
   channel: $subscribe_to_channel
-  startingCSV: $csv_name_prefix.v$operator_release
   source: $catalog_source
   sourceNamespace: $catalog_source_ns
+  $starting_csv_spec
 EOF
 
 # NOTE:
