@@ -21,7 +21,7 @@ spec:
   maintainers:
   - email: acm-contact@redhat.com
     name: Red Hat, Inc
-  maturity: beta
+  maturity: stable
   description: 'Advanced Cluster Management for Kubernetes provides the MultiCluster Hub,
     a central management console for managing multiple Kubernetes-based clusters
     across data centers, public clouds, and private clouds.  You can use the
@@ -57,7 +57,7 @@ spec:
     mediatype: image/svg+xml
   keywords: "*Merge* to Set"
   labels:
-    app: acm-hub
+    app: advanced-cluster-management
   links:
   - name: Documentation
     url: https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/1.0/
