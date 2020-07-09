@@ -108,6 +108,10 @@ if [[ -z "$app_sub_source_csv_vers" ]]; then
 
    app_sub_pkg_dir="$community_repo_spot/community-operators/multicluster-operators-subscription"
    app_sub_channel="release-$rel_x.$rel_y"
+   # TEMPORARY:
+   echo "TEMP: Forcing channel to release-2.0"
+   app_sub_channel="release-2.0"
+   # END TEMPORARY
    echo "Info: Using most recent App Sub bundle posted to channel: $app_sub_channel."
 
    app_sub_bundle_dir=$($my_dir/find-bundle-dir.py $app_sub_channel $app_sub_pkg_dir)
