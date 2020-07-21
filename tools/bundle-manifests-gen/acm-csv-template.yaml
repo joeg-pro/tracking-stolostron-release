@@ -24,7 +24,8 @@ spec:
   maturity: stable
   description: 'Advanced Cluster Management for Kubernetes provides the multicluster hub,
     a central management console for managing multiple Kubernetes-based clusters
-    across data centers, public clouds, and private clouds. You can use the hub to create Red Hat OpenShift Container Platform clusters on
+    across data centers, public clouds, and private clouds. You can use the hub
+    to create Red Hat OpenShift Container Platform clusters on
     selected providers, or import existing Kubernetes-based clusters. After the
     clusters are managed, you can set compliance requirements to ensure that the
     clusters maintain the specified security requirements. You can also
@@ -46,9 +47,17 @@ spec:
 
     ## How to Install
     
-    Use of this Red Hat product requires licensing and subscription agreement. Install the Advanced Cluster Management for Kubernetes operator by following instructions
-    presented when you click the `Install` button. After installing the
-    operator, create an instance of the `MultiClusterHub` resource to install the hub.
+    Use of this Red Hat product requires a licensing and subscription agreement.
+
+
+    Install the Advanced Cluster Management for Kubernetes operator by following instructions
+    presented when you click the `Install` button.
+    After installing the operator, create an instance of the `MultiClusterHub` resource
+    to install the hub.
+
+
+    You can find additional installation guidance in the
+    product [documentation](https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.0/).
     '
 
   icon:
@@ -59,7 +68,7 @@ spec:
     app: advanced-cluster-management
   links:
   - name: Documentation
-    url: https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/1.0/
+    url: https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.0/
   selector:
     matchLabels:
       app: advanced-cluster-management
