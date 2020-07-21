@@ -22,34 +22,33 @@ spec:
   - email: acm-contact@redhat.com
     name: Red Hat, Inc
   maturity: stable
-  description: 'Advanced Cluster Management for Kubernetes provides the MultiCluster Hub,
+  description: 'Advanced Cluster Management for Kubernetes provides the multicluster hub,
     a central management console for managing multiple Kubernetes-based clusters
-    across data centers, public clouds, and private clouds.  You can use the
-    MultiCluster Hub to create Red Hat OpenShift Container Platform clusters on
-    selected providers, or import existing Kubernetes-based clusters. Once the
+    across data centers, public clouds, and private clouds. You can use the hub to create Red Hat OpenShift Container Platform clusters on
+    selected providers, or import existing Kubernetes-based clusters. After the
     clusters are managed, you can set compliance requirements to ensure that the
-    clusters maintain the specified security requirements.  You can also
+    clusters maintain the specified security requirements. You can also
     deploy business applications across your clusters.
 
 
     Advanced Cluster Management for Kubernetes also provides the following operators:
 
 
-    - MultiCluster Subscriptions, an operator that provides application management
+    - Multicluster subscriptions: An operator that provides application management
     capabilties including subscribing to resources from a channel and deploying
     those resources on MCH-managed Kubernetes clusters based on placement rules.
 
-    - Hive for Red Hat OpenShift, an operator that provides APIs for provisioning and
+    - Hive for Red Hat OpenShift: An operator that provides APIs for provisioning and
     performing initial configuration of OpenShift clusters.
 
-    These operators are used by the MultiCluster Hub in providing its provisioning and
+    These operators are used by the multicluster hub to provide its provisioning and
     application-management capabilities.
 
     ## How to Install
     
-    Install the Advanced Cluster Management for Kubernetes operator by following instructions
-    presented when you click the `Install` button in the upper left.  After installing the
-    operator, create an instance of the `MultiClusterHub` resource to install the Hub.
+    Use of this Red Hat product requires licensing and subscription agreement. Install the Advanced Cluster Management for Kubernetes operator by following instructions
+    presented when you click the `Install` button. After installing the
+    operator, create an instance of the `MultiClusterHub` resource to install the hub.
     '
 
   icon:
