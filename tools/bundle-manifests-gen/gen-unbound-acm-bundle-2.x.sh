@@ -177,7 +177,7 @@ if [[ -z "$hive_source_csv_vers" ]]; then
 else
    # PIN TO VERSION:
    echo "Info: Using pinned Hive bundle version: $hive_source_csv_vers."
-   hive_bundle_dir="$community_repo_spot/community-operators/openshift-hive/$hive_source_csv_vers"
+   hive_bundle_dir="$community_repo_spot/community-operators/hive-operator/$hive_source_csv_vers"
 fi
 
 # -- OCM Hub --
