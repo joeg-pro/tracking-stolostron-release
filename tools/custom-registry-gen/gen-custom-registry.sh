@@ -1,22 +1,23 @@
 #!/bin/bash
 #
-# Builds an OLM catalog from operator metadata in either bundle image
+# Builds an OLM registry from operator metadata in either bundle image
 # or App Registry format.
 #
 # requires:
 # jq (no reasonably involvd script can live without it).
 
-# Hardcoding:
 
-opm="$HOME/bin/opm"
-opm_vers="v1.6.1"
+opm_vers="v1.13.3"
+
+operator_rgy_repo_url="https://github.com/operator-framework/operator-registry"
+opm_download_url="$operator_rgy_repo_url/releases/download/$opm_vers/linux-amd64-opm"
 
 me=$(basename $0)
 my_dir=$(dirname $(readlink -f $0))
 
 # -- Args --
 #
-# -B full image ref (rgy/ns/repo[:tag][@diagest]) of input Bundle image (required).
+# -B full image ref (rgy/ns/repo[:tag][@diagest]) of input Bundle image (required, repeated).
 # -r remote Registry server/namespace for generated catalog image. (Default: same as input bundle)
 # -n repository Name for generated catalog image (required)
 # -t image Tag for generated catalog image.  (required)
@@ -27,9 +28,11 @@ opt_flags="B:r:n:t:P"
 push_the_image=0
 catalog_image_tag=""
 
+bundle_image_refs=()
+
 while getopts "$opt_flags" OPTION; do
    case "$OPTION" in
-      B) bundle_image_ref="$OPTARG"
+      B) bundle_image_refs+=("$OPTARG")
          ;;
       r) catalog_image_rgy_and_ns="$OPTARG"
          ;;
@@ -45,8 +48,8 @@ while getopts "$opt_flags" OPTION; do
 done
 shift "$(($OPTIND -1))"
 
-if [[ -z "$bundle_image_ref" ]]; then
-   >&2 echo "Error: Input bundle image reference (-b) is required."
+if [[ ${#bundle_image_refs[@]} -eq 0  ]]; then
+   >&2 echo "Error: At least one bundle image reference (-B) is required."
    exit 1
 fi
 if [[ -z "$catalog_image_repo" ]]; then
@@ -58,6 +61,8 @@ if [[ -z "$catalog_image_tag" ]]; then
    exit 1
 fi
 
+bundle_image_ref="${bundle_image_refs[0]}"
+
 # Parse image ref:
 # <rgy>/<ns>/<repo>[:<tag>][@<digest>]
 
@@ -65,7 +70,7 @@ bundle_image_name=${bundle_image_ref%:*}
 bundle_image_rgy_and_ns=${bundle_image_ref%/*}
 bundle_image_rgy=${bundle_image_ref%%/*}
 
-# By default, put the calog back into the same rregistry/namespace
+# By default, put the registry back into the same rregistry/namespace
 # as the input bundle, with the same tag.
 
 catalog_image_rgy_and_ns="${catalog_image_rgy_and_ns:-$bundle_image_rgy_and_ns}"
@@ -90,7 +95,6 @@ for img in $old_images; do
    docker rmi "$img" > /dev/null
 done
 
-
 if [[ -n $DOCKER_USER ]]; then
    docker login -u=${DOCKER_USER} -p=${DOCKER_PASS} "$login_to_image_rgy"
    if [[ $? -ne 0 ]]; then
@@ -101,9 +105,9 @@ else
    echo "Note: DOCKER_USER not set, assuming docker login already done."
 fi
 
-# Check the bundle image's com.redhat.delivery.appregistry label.  If present and "true"
-# then the bundle is in the legacy App Registry format and we'll handle thusly, else we
-# will handle according to the new bundle-image format.
+# Check the (first) bundle image's com.redhat.delivery.appregistry label.  If present and
+# "true" then the bundle is in the legacy App Registry format and we'll handle thusly,
+# else we  will handle according to the new bundle-image format.
 
 docker pull "$bundle_image_ref"
 if [[ $? -ne 0 ]]; then
@@ -114,6 +118,10 @@ inspect_results=$(docker image inspect "$bundle_image_ref")
 appregistry_setting=$(echo "$inspect_results" | jq -r '.[0].Config.Labels["com.redhat.delivery.appregistry"]')
 
 if [[ $appregistry_setting == "true" ]]; then
+   if [[ ${#bundle_image_refs[@]} -ne 1  ]]; then
+      >&2 echo "Error: Only one bundle image reference (-B) is allowed with app-registry format."
+      exit 1
+   fi
    echo "INFO: Bundle image is in App Registry format."
    handle_as_bundle_image=0
 else
@@ -121,21 +129,60 @@ else
    handle_as_bundle_image=1
 fi
 
+tmp_dir="/tmp/acm-custom-registry"
+rm -rf "$tmp_dir"
+mkdir -p "$tmp_dir"
+build_context="$tmp_dir"
+
 if [[ $handle_as_bundle_image -eq 1 ]]; then
 
    # Bundle is in bundle-image format, so we can create a catalog using opm.
 
-   docker pull quay.io/operator-framework/upstream-registry-builder:$opm_vers
-   docker tag quay.io/operator-framework/upstream-registry-builder:$opm_vers quay.io/operator-framework/upstream-registry-builder:latest
-   docker pull quay.io/operator-framework/operator-registry-server:$opm_vers
-   docker tag quay.io/operator-framework/operator-registry-server:$opm_vers quay.io/operator-framework/operator-registry-server:latest
+   # As of v1.13.3, "opm index add" countues to be a pain in that it pulls its upstream
+   # images based on a floating tag (latest), and wose yet produces an image which
+   # does not run on OCP (Permission denied on /etc/nsswitch.conf).  To circumvent
+   # we use "opm registry add" ourselves to build the database (this is what the
+   # "opm index add" command does under the covers, and then generate the image
+   # oursleves using a patched Dockerfile captured from "opm index add ... --generate".
 
-   $opm index add -c docker \
-      --bundles "$bundle_image_ref" --tag "$catalog_image_ref"
+   old_cwd=$PWD
+   cd $build_context
+
+   # Fetch the desired version of OPM
+
+   opm="./opm"
+   curl -Ls -o "$opm" "$opm_download_url"
+   if [[ $? -ne 0 ]]; then
+      >&2 echo "Error: Could not fetch OPM binary from $opm_download_url."
+      exit 2
+   fi
+   chmod +x "$opm"
+
+   # Build registry database
+
+   mkdir "database"
+
+   for bundle_image_ref in "${bundle_image_refs[@]}"; do
+      echo "Adding bundle: $bundle_image_ref"
+      $opm registry add -b "$bundle_image_ref" -d "database/index.db"
+      if [[ $? -ne 0 ]]; then
+         >&2 echo "Error: Could not add bundle to registry database: $bundle_image_ref."
+         exit 2
+      fi
+   done
+
+   cp "$my_dir/Dockerfile.index" .
+   mkdir "etc"
+   touch "etc/nsswitch.conf"
+   chmod a+r "etc/nsswitch.conf"
+
+   docker build -t "$catalog_image_ref" -f Dockerfile.index \
+      --build-arg "opm_vers=$opm_vers"
    if [[ $? -ne 0 ]]; then
       >&2 echo "Error: Could not build custom catalog image $catalog_image_ref."
       exit 2
    fi
+   cd $old_cwd
 
 else
 
@@ -144,8 +191,7 @@ else
 
    old_cwd=$PWD
    cd $my_dir
-   docker build -t "$catalog_image_ref" \
-      -f Dockerfile.app-rgy-catalog \
+   docker build -t "$catalog_image_ref" -f Dockerfile.app-rgy-catalog \
       --build-arg "bundle_image_ref=$bundle_image_ref" .
    if [[ $? -ne 0 ]]; then
       >&2 echo "Error: Could not build custom catalog image $catalog_image_ref."
