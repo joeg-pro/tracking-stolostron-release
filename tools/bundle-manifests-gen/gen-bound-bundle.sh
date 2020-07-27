@@ -56,16 +56,27 @@ my_dir=$(dirname $(readlink -f $0))
 # -O Pathname of (Output) package directory into which generated bundle is written.
 # -n Package Name.
 # -v Version (x.y.z) of generated bundle.
-# -p version of Previous bundle/CSV replaced by the generated on (optional).
+# -p version of Previous bundle/CSV to be replaced by this one (optional).
+# -k Skip-range specification for this bundle (optional)
 # -m pathname of image Manifest file.
 # -d Default channel name.
 # -c Additional Channel name (can be repeated).
 # -i Image key mapping spec (can be repeated).
 # -r rgy-and-ns override spec (can be repeated).
 
-opt_flags="I:O:n:v:p:m:d:c:i:r:"
+opt_flags="I:O:n:v:p:k:m:d:c:i:r:"
 
 while getopts "$opt_flags" OPTION; do
+
+   if [[ $OPTARG == "-"* ]]; then
+      # We don't expect any option args that start with a dash, so getopt is likely
+      # consuming the next option as if it were this options argument because the
+      # argument is missing in the invocation.
+
+      >&2 echo "Error: Argument for -$OPTION option is missing."
+      exit 1
+   fi
+
    case "$OPTION" in
       I) unbound_pkg_dir="$OPTARG"
          ;;
@@ -76,6 +87,8 @@ while getopts "$opt_flags" OPTION; do
       v) new_csv_vers="$OPTARG"
          ;;
       p) prev_csv_vers="$OPTARG"
+         ;;
+      k) skip_range="$OPTARG"
          ;;
       m) image_manifest="$OPTARG"
          ;;
@@ -175,6 +188,26 @@ if [[ -n "$prev_csv_vers" ]]; then
    prev_vers_option="--prev-ver $prev_csv_vers"
 fi
 
+# If a skip-range has been specified, pass it on.
+
+if [[ -n "$skip_range" ]]; then
+   # Skip range probably contains blank separated expressions which need to be kept
+   # together and passsed as a single argument element. So we either have to contribute
+   # nothing to the final command (i.e. not including a null-valued arg entry), or an
+   # ooption followed by its args as a two argument entries.
+   #
+   # It might be possible to achieve this by runnning the final command through "eval"
+   # together with appropriately escaped-quoting in setting dash_lower_k_opt here,
+   # but use of eval is obscure/subtle and might have side effects on other parts of
+   # htis code not written thinking the final command weould go through an eval resolution
+   # befoer being passed to the shell.
+   #
+   # So instead, we can do this via use of  an array, together with ${var:+value} expression
+   # to consume the value later.
+
+   skip_range_option=("--skip-range" "$skip_range")
+fi
+
 # Form additional-channel options from the additiona_channels list:
 addl_channel_optons=""
 for c in $additional_channels; do
@@ -198,6 +231,7 @@ $my_dir/create-bound-bundle.py \
    --pkg-name "$pkg_name" --pkg-dir "$bound_pkg_dir" \
    --source-bundle-dir "$unbound_bundle" \
    --csv-vers "$new_csv_vers" $prev_vers_option \
+   ${skip_range_option:+"${skip_range_option[@]}"}  \
    --use-bundle-image-format \
    --add-related-images \
    --default-channel $default_channel $addl_channel_options \

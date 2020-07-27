@@ -4,7 +4,8 @@
 # Takes an "unbound" CSV bundle abd configures it for a release by:
 #
 # - Updating CSV version and CSV name (to match version)
-# - Setting the "replaces" property.
+# - Setting the "replaces" property
+# - Setting its skip-range annotation
 # - Overriding image refernces
 # - Removing references to pull secrets in operator deployments
 # - Setting the createdAt timestamp
@@ -180,8 +181,9 @@ def main():
    parser.add_argument("--replaces-channel",   dest="replaces_channel")
    parser.add_argument("--additional-channel", dest="other_channels", action="append")
 
-   parser.add_argument("--csv-vers",  dest="csv_vers", required=True)
-   parser.add_argument("--prev-vers", dest="prev_vers")
+   parser.add_argument("--csv-vers",   dest="csv_vers", required=True)
+   parser.add_argument("--prev-vers",  dest="prev_vers")
+   parser.add_argument("--skip-range", dest="skip_range")
 
    parser.add_argument("--image-manifest", dest="image_manifest_pathn", required=True)
    parser.add_argument("--image-name-to-key", dest="image_name_to_key_specs", action="append", required=True)
@@ -201,8 +203,9 @@ def main():
    other_channels   = args.other_channels
    default_channel  = args.default_channel
 
-   csv_vers  = args.csv_vers
-   prev_vers = args.prev_vers
+   csv_vers   = args.csv_vers
+   prev_vers  = args.prev_vers
+   skip_range = args.skip_range
 
    image_manifest_pathn = args.image_manifest_pathn
    image_name_to_key_specs = args.image_name_to_key_specs
@@ -276,6 +279,11 @@ def main():
    else:
       print("NOTE: New CSV does not replace a previous one.")
 
+   if skip_range:
+      print("Skips previous CSVs in range: %s" % skip_range)
+   else:
+      print("NOTE: New CSV does not skip a range of previous ones.")
+
    channels_to_update = list()
    if replaces_channel:
       channels_to_update.append(replaces_channel)
@@ -309,6 +317,9 @@ def main():
 
    annotations = metadata["annotations"]
    annotations["createdAt"] = created_at
+
+   if skip_range:
+      annotations["olm.skipRange"] = skip_range
 
    # Plug in version and previous CSV ("replaces") if any.
 

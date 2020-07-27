@@ -7,8 +7,9 @@
 # $1 = Bundle version number in x.y.z[-suffix] form.  Presence of a suffix
 #      starting with a dash indicates an RC/SNAPSHOT build.  Required.
 #
-# $2 = Version of the previous bundle to be replaced by this one (upgrade scenario).
-#      Default: None
+# $2 = Version of the immediately-previous bundle to be replaced by this
+#      one via the replaces attribute. or "auto" to determine htis based on
+#      semver practices.  Default: None
 #
 # Source pkg:  this_repo/operator-bundles/unbound/advanced-cluster-management
 # Output pkg:  this_repo/operator-bundles/bound/advanced-cluster-management
@@ -27,7 +28,7 @@ if [[ -z "$bundle_vers" ]]; then
    exit 1
 fi
 
-prev_bundle_vers="$2"
+replaces_rel_nr="$2"
 # This needs to be optional because the first release in a version stream
 # (a new x in an x.y.z release id) or maybe even of a new feature release
 # stream (a new y in x.y.z) would not have a previous bundle to be replaced.
@@ -36,39 +37,110 @@ prev_bundle_vers="$2"
 # the channel on which this bundle is to be published.
 
 if [[ $bundle_vers == *"-"* ]]; then
-   release_nr=${bundle_vers%-*}
+   this_rel_nr=${bundle_vers%-*}
    is_candidate_build=1
 else
-   release_nr=$bundle_vers
+   this_rel_nr=$bundle_vers
    is_candidate_build=0
 fi
 
-manifest_file="$top_of_repo/image-manifests/$release_nr.json"
-unbound_pkg_dir="$top_of_repo/operator-bundles/unbound/$pkg_name"
-bound_pkg_dir="$top_of_repo/operator-bundles/bound/$pkg_name"
-
-# NOTE:
-# If we're going to build and publish a sequence of release candidates and want then
-# to be upgradeable from one to the next, we'll need to:
-#
-# - Create a unique bundle version for each, perhaps by decoaring the $release_nr
-#   with some suffix to create bundle version (eg. bundle_vers="$release_nr-$seq_nr".
-#
-# - Manage teh previous-version (aka replaces) property of each bundle (-p) so
-#   that the bundle for release candidate N+1 is marked to replace the bundle for
-#   release candidate N.  That implies either some saved state or assumption about
-#   seq_nr generation.
-
-# Generate channel names assuming release_vers is in x.y.z format:
-
 old_IFS=$IFS
-IFS=. rel_xyz=(${release_nr%-*})
+IFS=. rel_xyz=(${this_rel_nr%-*})
 rel_x=${rel_xyz[0]}
 rel_y=${rel_xyz[1]}
 rel_z=${rel_xyz[2]}
 IFS=$old_IFS
 
-# Channel stragegy:
+rel_yz="$rel_y.$rel_z"
+
+if [[ "$replaces_rel_nr" == "auto" ]]; then
+
+   # Determine immediate-predecessor bundle release nr (for replaces property) and
+   # priori feature release release nrs (for skipRange) automatically based on
+   # standard semantic versioning conventions.
+
+   if [[ $rel_yz == "0.0" ]]; then
+
+      # This is the first feature release of a major version, i.e. 1.0.0 or 2.0.0.
+      #
+      # By usual semver practices, a change in major version indicates a release
+      # that is not backward compatible with any previous one.  So there is no
+      # predecessor release to be replaced by this one from an OLM perspective.
+      #
+      # Note: Maybe in such cases we should also change the OLM package name, eg.
+      # namking it advanced-cluster-management-v3, to enforce the notion that it
+      # is esssnetially the start of a new product stream?
+
+      replaces_rel_nr=""
+      skip_range=""
+
+      echo "Release $this_rel_nr is the initial feature release of a new major version."
+      echo "The bundle will not be configured as a replacement for any previous release."
+
+   elif [[ "$rel_z" != "0" ]]; then
+
+      # This is a z-stream/patch release of a feature release, i.e. 2.0.1 or 2.1.1.
+      #
+      # Its predecessor is simply the z-1 release of the same x.y feature release.
+
+      prev_rel_z=$(($rel_z-1))
+      replaces_rel_nr="$rel_x.$rel_y.$prev_rel_z"
+      skip_range=""
+
+      echo "Release $this_rel_nr is a z-stream release of the $rel_x.$rel_y feature release."
+      echo "The bundle will have a replaces property specifying: $replaces_rel_nr."
+
+   else
+
+      # This is the second or subsequent feature release of a major version, i.e.
+      # 2.1.0, 2.2.0, etc.
+      #
+      # It should replace/upgrade from the previous feature release of the same version.
+      # But from what particular z-stream release of that feature-release stream will
+      # upgrade be supported?  From any/all?  And how do you accomplish that in the
+      # OLM replacement graph given a CSV can declare exactly one previous release,
+      # considering that more z-stream releases of that previous feature release may
+      # be published after this feature release is published?
+      #
+      # This seems like a sutation solved by the olm.skipRange support, so tht is what
+      # we will try to use.
+
+      prev_rel_y=$(($rel_y-1))
+      replaces_rel_nr=""
+      skip_range=">=$rel_x.$prev_rel_y.0 <$this_rel_nr"
+
+      echo "Release $this_rel_nr is the in-maj-version feature release following $rel_x.$prev_rel_y."
+      echo "The bundle will have a skip-range annotation specifying: $skip_range"
+   fi
+fi
+
+# Random notes on replacement-chain approach for upstream snapshots:
+#
+# If we're going to build and publish a sequence of snapshots/release candidates and
+# want then to be upgradeable from one to the next, we'll need to:
+#
+# - Create a unique bundle version for each, perhaps by decoaring the $this_rel_nr
+#   with some suffix to create bundle version (eg. bundle_vers="$this_rel_nr-$seq_nr".
+#
+# - Manage teh previous-version (aka replaces) property of each bundle (-p) so
+#   that the bundle for release candidate N+1 is marked to replace the bundle for
+#   release candidate N.  That implies either some saved state or assumption about
+#   seq_nr generation.
+#
+# - We might also want to be able to skip intermediate snapshots too, via skip-range.
+#   But we would also want to use skip-range so that snapshots for feature releaase x.y
+#   would be upgrades fro snapshots for the prior feature release too.  Its not clear
+#   how we could use skip range to do both.  (Maybe multiple skip ranges?)
+#
+# - Our auto-calculation of replaces/skip-range probably won't work, will require
+#   explicit specification of both the replaced release and the skip range.
+
+manifest_file="$top_of_repo/image-manifests/$this_rel_nr.json"
+unbound_pkg_dir="$top_of_repo/operator-bundles/unbound/$pkg_name"
+bound_pkg_dir="$top_of_repo/operator-bundles/bound/$pkg_name"
+
+
+# Generate channel names using this strategy:
 #
 # For a given feature release "x.y" (eg. 1.0, 2.0, 2.1), we maintain two channels as follows.
 #
@@ -139,11 +211,27 @@ else
 fi
 default_channel="$feature_release_channel"
 
-# Form the previous-bundle arg if this bundle replaces one before it.
+# Form the previous-bundle arg or skip-range arg if appropraite.
 
-dash_lower_p_opt=""
-if [[ -n "$prev_bundle_vers" ]]; then
-   dash_lower_p_opt="-p $prev_bundle_vers"
+if [[ -n "$replaces_rel_nr" ]]; then
+   dash_lower_p_opt="-p $replaces_rel_nr"
+fi
+if [[ -n "$skip_range" ]]; then
+   # Skip range probably contains blank separated expressions which need to be kept
+   # together and passsed as a single argument element. So we either have to contribute
+   # nothing to the final command (i.e. not including a null-valued arg entry), or an
+   # ooption followed by its args as a two argument entries.
+   #
+   # It might be possible to achieve this by runnning the final command through "eval"
+   # together with appropriately escaped-quoting in setting dash_lower_k_opt here,
+   # but use of eval is obscure/subtle and might have side effects on other parts of
+   # htis code not written thinking the final command weould go through an eval resolution
+   # befoer being passed to the shell.
+   #
+   # So instead, we can do this via use of  an array, together with ${var:+value} expression
+   # to consume the value later.
+
+   dash_lower_k_opt=("-k" "$skip_range")
 fi
 
 # Enough setup.  Lets to this...
@@ -152,8 +240,11 @@ echo "Generating bound bundle manifests for package: $pkg_name"
 echo "  From uUnbound bundle manifests in: $unbound_pkg_dir"
 echo "  Writing bound bundle manifests to: $bound_pkg_dir"
 echo "  For CSV/bundle version: $bundle_vers"
-if [[ -n "$prev_bundle_vers" ]]; then
-   echo "  Replacing previous  CSV/bundle version: $prev_bundle_vers"
+if [[ -n "$replaces_rel_nr" ]]; then
+   echo "  Replacing previous CSV/bundle version: $replaces_rel_nr"
+fi
+if [[ -n "$skip_range" ]]; then
+   echo "  Skipping previous CSV/bundle range: $skip_range"
 fi
 echo "  To be published on channel: $publish_to_channel"
 echo "  With default channel: $default_channel"
@@ -162,6 +253,7 @@ echo "  Using image manifests file: $manifest_file"
 $my_dir/gen-bound-bundle.sh \
    -n "$pkg_name" \
    -v "$bundle_vers" $dash_lower_p_opt \
+   ${dash_lower_k_opt:+"${dash_lower_k_opt[@]}"}  \
    -m "$manifest_file" \
    -I "$unbound_pkg_dir" -O "$bound_pkg_dir" \
    -d "$default_channel" -c "$publish_to_channel" \
