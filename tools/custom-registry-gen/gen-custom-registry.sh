@@ -177,7 +177,7 @@ if [[ $handle_as_bundle_image -eq 1 ]]; then
    chmod a+r "etc/nsswitch.conf"
 
    docker build -t "$catalog_image_ref" -f Dockerfile.index \
-      --build-arg "opm_vers=$opm_vers"
+      --build-arg "opm_vers=$opm_vers" .
    if [[ $? -ne 0 ]]; then
       >&2 echo "Error: Could not build custom catalog image $catalog_image_ref."
       exit 2
