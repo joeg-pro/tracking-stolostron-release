@@ -30,7 +30,7 @@ tmp_root="/tmp/acm-operator-bundle"
 acm_pkg_name="advanced-cluster-management"
 
 ## Not currently pinned: app_sub_source_csv_vers="0.1.5"
-hive_source_csv_vers="1.0.3"
+## Not currently pinned: hive_source_csv_vers="1.0.3"
 
 # And the template needs to be per-release too:
 csv_template="$my_dir/acm-csv-template.yaml"
@@ -108,7 +108,6 @@ if [[ -z "$app_sub_source_csv_vers" ]]; then
 
    app_sub_pkg_dir="$community_repo_spot/community-operators/multicluster-operators-subscription"
    app_sub_channel="release-$rel_x.$rel_y"
-   echo "Info: Using most recent App Sub bundle posted to channel: $app_sub_channel."
 
    app_sub_bundle_dir=$($my_dir/find-bundle-dir.py $app_sub_channel $app_sub_pkg_dir)
    if [[ $? -ne 0 ]]; then
@@ -116,6 +115,9 @@ if [[ -z "$app_sub_source_csv_vers" ]]; then
       >&2 echo "Aborting."
       exit 2
    fi
+   app_sub_bundle_version=${app_sub_bundle_dir##*/}
+   echo "Info: Using most recent App Sub bundle posted to channel: $app_sub_channel ($app_sub_bundle_version)."
+
 else
    # PIN TO  VERSION:
    echo "Info: Using pinned App Sub bundle version: $app_sub_source_csv_vers."
@@ -124,49 +126,11 @@ fi
 
 # -- Hive --
 
-# TEMP WORKAROUND:
-# Generating the Hive bundle using the script in the hive repo produces a CSV that is
-# different than what is published as a community operator.  At least when using the
-# ocm-4.4.0 branch.  As a temp workaround, we'll source the CSV from ccommunity operatorrs
-# as we do for app sub.
-
-# TEMP: NO-OP generate-using-script code
-if false; then
-
-   hive_repo_spot="$clone_spot/hive"
-   hive_stable_release_branch="ocm-4.4.0"
-   git clone -b "$hive_stable_release_branch" "$github/openshift/hive.git" $hive_repo_spot
-   if [[ $? -ne 0 ]]; then
-      >&2 echo "Error: Could not clone Hive operator repo."
-      >&2 echo "Aborting."
-      exit 2
-   fi
-
-   hive_bundle_work=$tmp_dir/hive-bundle
-   mkdir -p "$hive_bundle_work"
-
-   echo "Generating Hive source bundle."
-
-   # Seems the generation script assumes CWD is top of repo.
-
-   save_cwd=$PWD
-   cd $hive_repo_spot
-   hive_image_placeholder="quay.io/openshift-hive/hive:dont-care"
-   python3 ./hack/generate-operator-bundle.py $hive_bundle_work dont-care 0 "-none" "$hive_image_placeholder"
-   if [[ $? -ne 0 ]]; then
-      >&2 echo "Error: Could not generate Hive source bundle."
-      >&2 echo "Aborting."
-      exit 2
-   fi
-   cd $save_cwd
-   hive_bundle_dir="$hive_bundle_work/0.1.0-sha-none"
-fi
-
 if [[ -z "$hive_source_csv_vers" ]]; then
    # Find latest version posted on a channel:
 
-   hive_pkg_dir="$community_repo_spot/community-operators/openshift-hive"
-   hive_channel="alpha"
+   hive_pkg_dir="$community_repo_spot/community-operators/hive-operator"
+   hive_channel="ocm-$rel_x.$rel_y"
 
    hive_bundle_dir=$($my_dir/find-bundle-dir.py $hive_channel $hive_pkg_dir)
    if [[ $? -ne 0 ]]; then
@@ -174,6 +138,9 @@ if [[ -z "$hive_source_csv_vers" ]]; then
       >&2 echo "Aborting."
       exit 2
    fi
+   hive_bundle_version=${hive_bundle_dir##*/}
+   echo "Info: Using most recent Hive bundle posted to channel: $hive_channel ($hive_bundle_version)."
+
 else
    # PIN TO VERSION:
    echo "Info: Using pinned Hive bundle version: $hive_source_csv_vers."

@@ -153,7 +153,7 @@ fi
 if [[ -z "$hive_source_csv_vers" ]]; then
    # Find latest version posted on a channel:
 
-   hive_pkg_dir="$community_repo_spot/community-operators/openshift-hive"
+   hive_pkg_dir="$community_repo_spot/community-operators/hive-operator"
    hive_channel="alpha"
 
    hive_bundle_dir=$($my_dir/find-bundle-dir.py $hive_channel $hive_pkg_dir)
@@ -164,7 +164,7 @@ if [[ -z "$hive_source_csv_vers" ]]; then
    fi
 else
    # PIN TO VERSION:
-   hive_bundle_dir="$community_repo_spot/community-operators/openshift-hive/$hive_source_csv_vers"
+   hive_bundle_dir="$community_repo_spot/community-operators/hive-operator/$hive_source_csv_vers"
 fi
 
 # -- OCM Hub --
