@@ -4,6 +4,7 @@
         "image-namespace": "rhacm2",
 
         "image-list": [
+            {"acm-component-name": "acm_must_gather",                   "build-info-env-var": "ACM_MUST_GATHER"},
             {"acm-component-name": "application_ui",                    "build-info-env-var": "APPLICATION_UI"},
             {"acm-component-name": "cert_manager_acmesolver",           "build-info-env-var": "ACMESOLVER"},
             {"acm-component-name": "cert_manager_cainjector",           "build-info-env-var": "CAINJECTOR"},
@@ -49,12 +50,12 @@
             {"acm-component-name": "registration_operator",  "build-info-env-var": "REGISTRATION_OPERATOR"},
             {"acm-component-name": "work",                   "build-info-env-var": "WORK"},
 
-            {"acm-component-name":      "endpoint_operator",
-             "build-info-env-var":      "ENDPOINT_OPERATOR",
+            {"acm-component-name": "endpoint_operator",
+             "build-info-env-var": "ENDPOINT_OPERATOR",
              "skip_for_components": ["endpoint_operator"]},
 
-            {"acm-component-name":      "multiclusterhub_operator",
-             "build-info-env-var":      "MULTICLUSTERHUB_OPERATOR",
+            {"acm-component-name": "multiclusterhub_operator",
+             "build-info-env-var": "MULTICLUSTERHUB_OPERATOR",
              "skip_for_components": ["endpoint_operator", "multiclusterhub_operator"]}
         ]
     },
