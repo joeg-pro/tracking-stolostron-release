@@ -131,10 +131,10 @@ def main():
         except KeyError:
             skip_this_one = False
 
+        component_name = image[ACM_COMP_NAME_KEY]
         if skip_this_one:
             print("Note: Skipping product image: %s (as component %s)" % (component_name, my_component_name))
         else:
-           component_name = image[ACM_COMP_NAME_KEY]
            print("processing product image: %s" % component_name)
 
            env_var = "%s_BUILD_INFO_JSON" % image[BUILD_INFO_ENV_VAR_PREFIX_KEY]
@@ -155,10 +155,10 @@ def main():
         except KeyError:
             skip_this_one = False
 
+        component_name = image[ACM_COMP_NAME_KEY]
         if skip_this_one:
             print("Note: Skipping external image: %s (as component %s)" % (component_name, my_component_name))
         else:
-            component_name = image[ACM_COMP_NAME_KEY]
             print("Processing external image: %s" % component_name)
 
             build_name = image[EXTERNAL_COMP_BUILD_NAME_KEY]
