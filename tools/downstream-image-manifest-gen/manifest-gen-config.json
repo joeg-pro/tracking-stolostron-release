@@ -49,6 +49,8 @@
             {"acm-component-name": "registration_operator",  "build-info-env-var": "REGISTRATION_OPERATOR"},
             {"acm-component-name": "work",                   "build-info-env-var": "WORK"},
 
+            {"acm-component-name": "observatorium",          "build-info-env-var": "OBSERVATORIUM"},
+            
             {"acm-component-name": "acm_must_gather",
              "build-info-env-var": "ACM_MUST_GATHER",
              "skip_for_components": ["endpoint_operator", "multiclusterhub_operator"]},
