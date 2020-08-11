@@ -87,7 +87,7 @@ wait_for_resource_status() {
    kind_and_name="$1"
    status_checker="${2:-true}"
    condition_description="$3"
-   wait_limit="${4:-10}"
+   wait_time="${4:-10}"
 
    # echo "kind-and-name: $kind_and_name"
    # echo "status_checker: $status_checker"
@@ -96,6 +96,20 @@ wait_for_resource_status() {
       waiting_for_what="resource $kind_and_name to be $condition_description"
    else
       waiting_for_what="resource $kind_and_name"
+   fi
+
+   if [[ $wait_time -gt 120 ]]; then
+      wait_limit=$(( (wait_time+9) / 10 ))
+      sleep_time="10s"
+   elif [[ $wait_time -gt 60 ]]; then
+      wait_limit=$(( (wait_time+4) / 5 ))
+      sleep_time="5s"
+   elif [[ $wait_time -gt 20 ]]; then
+      wait_limit=$(( (wait_time+1) / 2 ))
+      sleep_time="2s"
+   else
+      wait_limit=$wait_time
+      sleep_time="1s"
    fi
 
    wait_ct=0
@@ -107,7 +121,7 @@ wait_for_resource_status() {
          first_time=0
       fi
       wait_ct=$(( $wait_ct + 1 ))
-      sleep 1s
+      sleep $sleep_time
       get_and_check $kind_and_name $status_checker
    done
    if [[ $? -ne 0 ]]; then
@@ -126,7 +140,18 @@ function wait_for_resource() {
    wait_for_resource_status "$kind_and_name" "true" "not-used" "$wait_limit"
 }
 
-# --- Status Test Functions ---
+# --- Status Get and Test Functions ---
+
+# Get subscription status
+
+get_subscription_status() {
+
+   resource_json_file="$1"
+
+   st=$(jq -r ".status.state" "$resource_json_file")
+   echo $st
+}
+
 
 # Status checking function for a subscription reaching Upgrade-Pending state.
 subscription_is_upgrade_pending() {
@@ -134,9 +159,20 @@ subscription_is_upgrade_pending() {
    kind_and_name="$1"
    resource_json_file="$2"
 
-   st=$(jq -r ".status.state" $resource_json_file)
-   # echo "Subscription $kind_and_name status is: $st"
+   st=$(get_subscription_status "$resource_json_file")
+   # echo "Debug: Subscription $kind_and_name status is: $st"
    [[ $st == "UpgradePending" ]]
+   return $?
+}
+
+subscription_is_upgrade_available() {
+
+   kind_and_name="$1"
+   resource_json_file="$2"
+
+   st=$(get_subscription_status "$resource_json_file")
+   # echo "Debug: .Subscription $kind_and_name status is: $st"
+   [[ $st == "UpgradeAvailable" ]]
    return $?
 }
 
@@ -181,22 +217,40 @@ get_subscription_into_temp_file() {
 find_and_approve_install_plan() {
    # Side effect: sets the_install_plan
 
+   local st
+
    subscription_kind_and_name="$1"
 
    get_subscription_into_temp_file $subscription_kind_and_name
-
-   st=$(jq -r ".status.state" $temp_file)
-   current_csv=$(jq -r ".status.currentCSV" $temp_file)
+   st=$(get_subscription_status "$temp_file")
 
    if [[ "$st" == "AtLatestKnown" ]]; then
-      >&2 echo "Error: No install/upgrade is pending."
+      >&2 echo "Error: No install/upgrade is available or pending."
       rm -f $temp_file
       exit 2
-   elif [[ "$st" != "UpgradePending" ]]; then
+   fi
+
+   pending_wait_limit=600
+
+   if [[ "$st" == "UpgradeAvailable" ]]; then
+      echo "An install/upgrade is available, wiating for it to become pending."
+      start=$(date "+%s")
+      wait_for_resource_status $subscription_kind_and_name subscription_is_upgrade_pending "Upgrade-Pending" $pending_wait_limit
+      now=$(date "+%s")
+      elap=$((now - start))
+      echo "Delay until upgrade-pending state was $elap seconds."
+
+      # Refresh temp file since wait_for deleted it.
+      get_subscription_into_temp_file $subscription_kind_and_name
+      st=$(get_subscription_status "$temp_file")
+   fi
+
+   if [[ "$st" != "UpgradePending" ]]; then
       >&2 echo "Unrecognized current status for Subscription: $st."
       exit 2
    fi
 
+   current_csv=$(jq -r ".status.currentCSV" $temp_file)
    echo "An install/upgrade is pending. Next CSV to be applied: $current_csv."
 
    ip_ns=$(jq -r ".status.installPlanRef.namespace" $temp_file)
@@ -264,8 +318,10 @@ report_on_subscritpion_ending_status() {
 
    if [[ "$st" == "AtLatestKnown" ]]; then
       echo "Subscription is now up-to-date."
+   elif [[ "$st" == "UpgradeAvailable" ]]; then
+      echo "Upgrade is available.  Next CSV not yet known."
    elif [[ "$st" == "UpgradePending" ]]; then
-      echo "Upgrades are pending.  Next CSV: $current_csv."
+      echo "Upgrade is pending.  Next CSV: $current_csv."
    else
       echo "Unrecognized ending status for Subscription: $st."
    fi
