@@ -77,40 +77,40 @@ if [[ "$replaces_rel_nr" == "auto" ]]; then
       echo "Release $this_rel_nr is the initial feature release of a new major version."
       echo "The bundle will not be configured as a replacement for any previous release."
 
-   elif [[ "$rel_z" != "0" ]]; then
-
-      # This is a z-stream/patch release of a feature release, i.e. 2.0.1 or 2.1.1.
-      #
-      # Its predecessor is simply the z-1 release of the same x.y feature release.
-
-      prev_rel_z=$(($rel_z-1))
-      replaces_rel_nr="$rel_x.$rel_y.$prev_rel_z"
-      skip_range=""
-
-      echo "Release $this_rel_nr is a z-stream release of the $rel_x.$rel_y feature release."
-      echo "The bundle will have a replaces property specifying: $replaces_rel_nr."
-
-   else
+   elif [[ "$rel_z" == "0" ]]; then
 
       # This is the second or subsequent feature release of a major version, i.e.
       # 2.1.0, 2.2.0, etc.
       #
-      # It should replace/upgrade from the previous feature release of the same version.
-      # But from what particular z-stream release of that feature-release stream will
-      # upgrade be supported?  From any/all?  And how do you accomplish that in the
-      # OLM replacement graph given a CSV can declare exactly one previous release,
-      # considering that more z-stream releases of that previous feature release may
-      # be published after this feature release is published?
+      # It has no single immediate predecessor but should be an upgrade from any
+      # release (iniitial or patch) of the prior feature release.
       #
-      # This seems like a sutation solved by the olm.skipRange support, so tht is what
-      # we will try to use.
+      # Hence, it has no replaces property but does have a skip range.
 
-      prev_rel_y=$(($rel_y-1))
+      prev_rel_y=$((rel_y-1))
       replaces_rel_nr=""
-      skip_range=">=$rel_x.$prev_rel_y.0 <$this_rel_nr"
+      skip_range=">=$rel_x.$prev_rel_y.0 <$rel_x.$rel_y.0"
 
       echo "Release $this_rel_nr is the in-maj-version feature release following $rel_x.$prev_rel_y."
       echo "The bundle will have a skip-range annotation specifying: $skip_range"
+
+   else
+
+      # This is a z-stream/patch release of a feature release, i.e. 2.0.1 or 2.1.1.
+      #
+      # Its predecessor is simply the z-1 release of the same x.y feature release.
+      # But to make OLM upgrade works, it also needs to be an upgrade from any release
+      # (initial or patch) of the prior feature release.
+
+      prev_rel_y=$((rel_y-1))
+      prev_rel_z=$((rel_z-1))
+      replaces_rel_nr="$rel_x.$rel_y.$prev_rel_z"
+      skip_range=">=$rel_x.$prev_rel_y.0 <$rel_x.$rel_y.0"
+
+      echo "Release $this_rel_nr is a patch release of the $rel_x.$rel_y feature release."
+      echo "The bundle will have a replaces property specifying: $replaces_rel_nr."
+      echo "The bundle will have a skip-range annotation specifying: $skip_range"
+
    fi
 fi
 
@@ -192,7 +192,7 @@ bound_pkg_dir="$top_of_repo/operator-bundles/bound/$pkg_name"
 #   Engineering implications:
 #
 #   All to-be-public RCs for an iniital or fix-pack update for for an x.y.feature release
-#   are published  on this channel.
+#   are published on this channel.
 #
 #   Version numbers for CSVs published on this channel would be of the form "x.y.z-suffix"
 #   where "-suffix" indicates eg. an RC number, or RC date, etc.
