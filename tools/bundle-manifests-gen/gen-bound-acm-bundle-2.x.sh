@@ -74,8 +74,9 @@ if [[ "$replaces_rel_nr" == "auto" ]]; then
       replaces_rel_nr=""
       skip_range=""
 
-      echo "Release $this_rel_nr is the initial feature release of a new major version."
-      echo "The bundle will not be configured as a replacement for any previous release."
+      echo "Release $this_rel_nr is the initial feature release of new major version v$rel_x."
+      echo "The bundle will not have a replaces property specified."
+      echo "The bundle will not have a skipRange annotation specified."
 
    elif [[ "$rel_z" == "0" ]]; then
 
@@ -91,12 +92,31 @@ if [[ "$replaces_rel_nr" == "auto" ]]; then
       replaces_rel_nr=""
       skip_range=">=$rel_x.$prev_rel_y.0 <$rel_x.$rel_y.0"
 
-      echo "Release $this_rel_nr is the in-maj-version feature release following $rel_x.$prev_rel_y."
+      echo "Release $this_rel_nr is a follow-on in-maj-version feature release following $rel_x.$prev_rel_y."
+      echo "The bundle will not have a replaces property specified."
       echo "The bundle will have a skip-range annotation specifying: $skip_range"
+
+   elif [[ "$rel_y" == "0" ]]; then
+
+      # This is a z-stream/patch release of the first feature release of a major
+      # version, i.e. 2.0.1, 2.0.2.
+      #
+      # Its predecessor is simply the z-1 release of the same x.y feature release.
+      # Since this is in the z-stream of the first feature release, there is no need
+      # for a skipRange to handle upgrade from a prior feature release.
+
+      prev_rel_z=$((rel_z-1))
+      replaces_rel_nr="$rel_x.$rel_y.$prev_rel_z"
+      skip_range=""
+
+      echo "Release $this_rel_nr is a patch release of the first feature release of major version v$rel_x."
+      echo "The bundle will have a replaces property specifying: $replaces_rel_nr."
+      echo "The bundle will not have a skipRange annotation specified."
 
    else
 
-      # This is a z-stream/patch release of a feature release, i.e. 2.0.1 or 2.1.1.
+      # This is a z-stream/patch release of a second or subsequente feature release,
+      # i.e. 2.1.1 or 2.2.1.
       #
       # Its predecessor is simply the z-1 release of the same x.y feature release.
       # But to make OLM upgrade works, it also needs to be an upgrade from any release
@@ -107,7 +127,7 @@ if [[ "$replaces_rel_nr" == "auto" ]]; then
       replaces_rel_nr="$rel_x.$rel_y.$prev_rel_z"
       skip_range=">=$rel_x.$prev_rel_y.0 <$rel_x.$rel_y.0"
 
-      echo "Release $this_rel_nr is a patch release of the $rel_x.$rel_y feature release."
+      echo "Release $this_rel_nr is a patch release of follow-on in-maj-version feature release $rel_x.$rel_y."
       echo "The bundle will have a replaces property specifying: $replaces_rel_nr."
       echo "The bundle will have a skip-range annotation specifying: $skip_range"
 
