@@ -48,6 +48,7 @@ def load_image_manifest(image_manifest_pathn, rgy_ns_override_specs, image_tag_s
             die("Invalid rgy-ns override, <from> and <to> not same kind: %s" % override_spec)
 
          rgy_ns_overrides[from_rgy_ns] = to_rgy_ns
+   #
 
    # Check for ambiguity
 
