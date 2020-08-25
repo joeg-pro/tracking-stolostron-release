@@ -10,7 +10,6 @@ metadata:
     createdAt: "*Insert* eg: 2020-03-24T17:00:00Z>"
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
-    operators.openshift.io/infrastructure-features: '["Disconnected"]'
   name: "*Insert* eg: multicluster-hub-operator.v1.0.0"
   namespace: placeholder
 spec:
