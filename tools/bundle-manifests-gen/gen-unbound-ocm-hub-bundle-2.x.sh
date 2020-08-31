@@ -58,13 +58,22 @@ rel_y=${rel_xyz[1]}
 rel_z=${rel_xyz[2]}
 IFS=$oldIFS
 
+rel_xy="$rel_x.$rel_y"
+
 if [[ "$rel_x" -lt 2 ]]; then
    >&2 echo "Info: Redirecting to release 1.0 version of this script."
    exec $my_dir/gen-unbound-ocm-hub-bundle-1.0.sh "$*"
 fi
 
-rel_xy_branch="release-$rel_x.$rel_y"
+rel_xy_branch="release-$rel_xy"
 
+# Multicluster monitoring operator was added in ACM 2.1.
+include_monitoring_operator=0
+if [[ "$rel_xy" != "2.0" ]]; then
+   include_monitoring_operator=1
+fi
+# TEMP DISABLE.  Remove when operator images are being built downstream.
+include_monitoring_operator=0
 
 # Define the list of source repos/CSVs we merge
 
@@ -82,6 +91,13 @@ nuc_bundle_dir="deploy/cluster-manager/olm-catalog/cluster-manager/manifests"
 nuc_entry="Cluster Manager:$nuc_git_repo:$nuc_git_branch:$nuc_bundle_dir"
 source_info+=("$nuc_entry")
 
+if [[ $include_monitoring_operator -eq 1 ]]; then
+   op_git_repo="open-cluster-management/multicluster-monitoring-operator"
+   op_git_branch="$rel_xy_branch"
+   op_bundle_dir="deploy/olm-catalog/multicluster-observability-operator/manifests"
+   op_entry="Monitoring:$op_git_repo:$op_git_branch:$op_bundle_dir"
+   source_info+=("$op_entry")
+fi
 
 # Manage our temp directories
 
