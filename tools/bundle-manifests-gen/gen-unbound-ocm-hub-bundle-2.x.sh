@@ -37,9 +37,11 @@ pkg_name="multicluster-hub"
 csv_template="$my_dir/ocm-hub-csv-template.yaml"
 unbound_pkg_dir="$top_of_repo/operator-bundles/unbound/$pkg_name"
 
-# The CSV version and previous (replaced) CSV version are not really important un the
-# unbound bundle because they will be set/overridden anyway in the creation of the
-# bound bundle.   But we allow it to be set anyway.
+# The previous (replaced) CSV version is not really important un the  unbound bundle
+# because it will be set/overridden anyway in the creation of the bound bundle.
+# But we allow it to be set anyway.
+#
+# Note that the new_csv_version is used to determine what to put into the bundle.
 
 new_csv_vers="$1"
 prev_csv_vers="$2"
@@ -68,17 +70,14 @@ rel_xy_branch="release-$rel_x.$rel_y"
 
 source_info=()
 
-# TODO: Move to using release branch for both hub and nucleus when those
-# repos are maintaining CSV material in such a branch.
-
 hub_git_repo="open-cluster-management/multicloudhub-operator"
-hub_git_branch="master"
+hub_git_branch="$rel_xy_branch"
 hub_bundle_dir="deploy/olm-catalog/multiclusterhub-operator/manifests"
 hub_entry="Base Hub:$hub_git_repo:$hub_git_branch:$hub_bundle_dir"
 source_info+=("$hub_entry")
 
 nuc_git_repo="open-cluster-management/registration-operator"
-nuc_git_branch="master"
+nuc_git_branch="$rel_xy_branch"
 nuc_bundle_dir="deploy/cluster-manager/olm-catalog/cluster-manager/manifests"
 nuc_entry="Cluster Manager:$nuc_git_repo:$nuc_git_branch:$nuc_bundle_dir"
 source_info+=("$nuc_entry")
