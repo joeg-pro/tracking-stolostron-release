@@ -52,12 +52,8 @@ IFS=$oldIFS
 
 rel_xy="$rel_x.$rel_y"
 
-## Not currently pinned: app_sub_source_csv_vers="0.1.5"
-## Pinned for 2.0.z: hive_source_csv_vers="1.0.3"
-
-if [[ "$rel_xy" == "2.0" ]]; then
-  hive_source_csv_vers="1.0.3"
-fi
+## Not currently pinned: app_sub_source_csv_vers="x.y.z"
+## Not currently pinned: hive_source_csv_vers="x.y.z"
 
 tmp_dir="$tmp_root/bundle-manifests"
 rm -rf "$tmp_dir"
