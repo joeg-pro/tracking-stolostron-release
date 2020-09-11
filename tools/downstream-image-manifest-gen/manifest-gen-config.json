@@ -71,7 +71,12 @@
              "build-name":       "golang-github-openshift-oauth-proxy-container",
              "build-tag":        "rhaos-4.4-rhel-7-container-released",
              "prefix-to-remove": "openshift-",
-             "image-remote":     "registry.redhat.io/openshift4"}
+             "image-remote":     "registry.redhat.io/openshift4"},
+             {"acm-component-name":   "grafana",
+              "build-name":       "grafana-container",
+              "build-tag":        "rhaos-4.5-rhel-7-container-released",
+              "prefix-to-remove": "openshift-",
+              "image-remote":     "registry.redhat.io/openshift4"}
         ]
     }
 }
