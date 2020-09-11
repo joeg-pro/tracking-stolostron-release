@@ -66,6 +66,12 @@ def main():
    merge_categories = False
 
 
+   vers_parts = csv_vers.split(".")
+   if len(vers_parts) != 3:
+      die("CSV version not in x.y.z format.")
+   csv_vers_xy = vers_parts[0] + "." + vers_parts[1]
+
+
    # And now on to the show...
 
    csv_name  = "%s.v%s" % (operator_name, csv_vers)
@@ -241,10 +247,11 @@ def main():
 
       #--- Copy the source budnle's non-CSV manifests to the output bundle ---
 
-      print("\nHandling non-CSV manifests in the budnle")
+      print("\nHandling non-CSV manifests in the budnle.")
 
       expected_crds = set(s_owned_crds_map.keys())
 
+      die_due_to_unlisted_crds = False
       for fn, manifest in s_other_manifests.items():
 
          kind = manifest["kind"]
@@ -256,10 +263,21 @@ def main():
             crd_is_expected = crd_gvk in expected_crds
             if crd_is_expected:
                expected_crds.remove(crd_gvk)
+               print("   Copying Owned-CRD manifest file: %s" % fn)
+            else:
+               # Havig unlisted CRDs in the budnle will cause the bundle to fail the
+               # opm bundle validate "linting" done in downstream builds.  So if we find
+               # unlisted CRDs we should really die.  But Hive prior to its version 1.0.6
+               # bundle (used by ACM 2.0.z) has such extraneous CRDs that we will tolerate
+               # and filter out here for ACM 2.0.z builds until the Hive team has gotten
+               # the upstream bundle cleaned up.
 
-            k = "CRD" if crd_is_expected else "*Unlisted* CRD"
-            print("   Copying manifest file (%s): %s" % (k, fn))
-
+               if csv_vers_xy == "2.0":
+                  print("   WARN: Skipping Unlisted CRD manifest file : %s" % fn)
+               else:
+                  print("   ERROR: Found Unlisted CRD manifest file: %s" % fn)
+                  die_due_to_unlisted_crds = True
+               continue
          else:
             # We have a manifest file for something other than a CRD???
             print("***TBD???: %s in %s" % (kind, fn))
@@ -270,6 +288,9 @@ def main():
          else:
             die("Duplicate mainfest filename: %s." % t_manifest_fn)
       #
+
+      if die_due_to_unlisted_crds:
+         die("Bundle contains CRD manifests not listed as owned.")
 
       # Check that we found manifests for all CRDs owned by this source bundle
       if expected_crds:
