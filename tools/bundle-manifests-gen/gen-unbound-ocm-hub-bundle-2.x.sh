@@ -72,8 +72,6 @@ include_monitoring_operator=0
 if [[ "$rel_xy" != "2.0" ]]; then
    include_monitoring_operator=1
 fi
-# TEMP DISABLE.  Remove when operator images are being built downstream.
-include_monitoring_operator=0
 
 # Define the list of source repos/CSVs we merge
 
