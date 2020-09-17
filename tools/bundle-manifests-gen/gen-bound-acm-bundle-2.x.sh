@@ -284,5 +284,6 @@ $my_dir/gen-bound-bundle.sh \
    -i "multicluster-operators-deployable:multicluster_operators_deployable" \
    -i "multicluster-operators-channel:multicluster_operators_channel" \
    -i "multicluster-operators-application:multicluster_operators_application" \
+   -i "multicluster-observability-operator:multicluster_observability_operator" \
    -i "hive:openshift_hive"
 
