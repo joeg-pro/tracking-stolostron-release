@@ -49,7 +49,17 @@
             {"acm-component-name": "registration_operator",  "build-info-env-var": "REGISTRATION_OPERATOR"},
             {"acm-component-name": "work",                   "build-info-env-var": "WORK"},
 
-            {"acm-component-name": "observatorium",          "build-info-env-var": "OBSERVATORIUM"},
+            {"acm-component-name": "endpoint_monitoring_operator",        "build-info-env-var": "ENDPOINT_MONITORING_OPERATOR"},
+            {"acm-component-name": "klusterlet_addon_lease_controller",   "build-info-env-var": "KLUSTERLET_ADDON_LEASE_CONTROLLER"},
+            {"acm-component-name": "memcached",                           "build-info-env-var": "MEMCACHED"},
+            {"acm-component-name": "memcached_exporter",                  "build-info-env-var": "MEMCACHED_EXPORTER"},
+            {"acm-component-name": "metrics_collector",                   "build-info-env-var": "METRICS_COLLECTOR"},
+            {"acm-component-name": "multicluster_observability_operator", "build-info-env-var": "MULTICLUSTER_OBSERVABILITY_OPERATOR"},
+            {"acm-component-name": "observatorium",                       "build-info-env-var": "OBSERVATORIUM"},
+            {"acm-component-name": "observatorium_operator",              "build-info-env-var": "OBSERVATORIUM_OPERATOR"},
+            {"acm-component-name": "rbac_query_proxy",                    "build-info-env-var": "RBAC_QUERY_PROXY"},
+            {"acm-component-name": "thanos",                              "build-info-env-var": "THANOS"},
+            {"acm-component-name": "thanos_receive_controller",           "build-info-env-var": "THANOS_RECEIVE_CONTROLLER"},
             
             {"acm-component-name": "acm_must_gather",
              "build-info-env-var": "ACM_MUST_GATHER",
