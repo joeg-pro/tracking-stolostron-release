@@ -79,15 +79,12 @@ catalog_image_name="$catalog_image_rgy_and_ns/$catalog_image_repo"
 catalog_image_ref="$catalog_image_name:$catalog_image_tag"
 catalog_image_rgy=${catalog_image_ref%%/*}
 
-# Since we currently have only a single DOCKER_USER/PASS value, we're going to require
-# that input and output images live in the same registry and that this single docker
-# cred has access to both.
+# Since we currently have only a single DOCKER_USER/PASS pair, we're going to assume
+# they are for the registry we push to.  If the source bundles are coming from a
+# different registry then we will leave it up to the invoker to do logins to
+# those registries before inovking this script.
 
-if [[ "$bundle_image_rgy" != "$catalog_image_rgy" ]]; then
-   >&2 echo "Error: Input bundle image and output catalog image are not in the same image registry."
-   exit 1
-fi
-login_to_image_rgy="$bundle_image_rgy"
+login_to_image_rgy="$catalog_image_rgy"
 
 # Clean up any image from previous iteration
 old_images=$(docker images --format "{{.Repository}}:{{.Tag}}" "$catalog_image_name")
