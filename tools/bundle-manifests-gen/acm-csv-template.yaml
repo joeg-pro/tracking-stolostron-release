@@ -6,7 +6,7 @@ metadata:
     capabilities: Seamless Upgrades
     categories: "Integration & Delivery"
     certified: "true"
-    support: Red Hat, Inc
+    support: Red Hat
     createdAt: "*Insert* eg: 2020-03-24T17:00:00Z>"
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
@@ -21,7 +21,7 @@ spec:
     name: Red Hat
   maintainers:
   - email: acm-contact@redhat.com
-    name: Red Hat, Inc
+    name: Red Hat
   maturity: stable
   description: 'Advanced Cluster Management for Kubernetes provides the multicluster hub,
     a central management console for managing multiple Kubernetes-based clusters
