@@ -14,7 +14,7 @@ metadata:
   name: "*Insert* eg: multicluster-hub-operator.v1.0.0"
   namespace: placeholder
 spec:
-  displayName: Red Hat Advanced Cluster Management for Kubernetes
+  displayName: Advanced Cluster Management for Kubernetes
   version: "*Insert* eg: 0.9.0"
   replaces: "*Insert* eg: multicluster-hub-operator.v0.8.9"
   provider:
@@ -23,8 +23,8 @@ spec:
   - email: acm-contact@redhat.com
     name: Red Hat
   maturity: stable
-  description: 'Advanced Cluster Management for Kubernetes provides the multicluster hub,
-    a central management console for managing multiple Kubernetes-based clusters
+  description: 'Red Hat Advanced Cluster Management for Kubernetes provides the multicluster
+    hub, a central management console for managing multiple Kubernetes-based clusters
     across data centers, public clouds, and private clouds. You can use the hub
     to create Red Hat OpenShift Container Platform clusters on
     selected providers, or import existing Kubernetes-based clusters. After the
@@ -33,7 +33,7 @@ spec:
     deploy business applications across your clusters.
 
 
-    Advanced Cluster Management for Kubernetes also provides the following operators:
+    Red Hat Advanced Cluster Management for Kubernetes also provides the following operators:
 
 
     - Multicluster subscriptions: An operator that provides application management
@@ -51,8 +51,8 @@ spec:
     Use of this Red Hat product requires a licensing and subscription agreement.
 
 
-    Install the Advanced Cluster Management for Kubernetes operator by following instructions
-    presented when you click the `Install` button.
+    Install the Red Hat Advanced Cluster Management for Kubernetes operator by following
+    instructions presented when you click the `Install` button.
     After installing the operator, create an instance of the `MultiClusterHub` resource
     to install the hub.
 
