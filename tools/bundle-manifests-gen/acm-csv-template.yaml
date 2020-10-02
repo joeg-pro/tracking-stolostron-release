@@ -10,13 +10,16 @@ metadata:
     createdAt: "*Insert* eg: 2020-03-24T17:00:00Z>"
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
+    operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
+       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
+       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["Disconnected"]'
-  name: "*Insert* eg: multicluster-hub-operator.v1.0.0"
+  name: "*Insert* eg: advanced-cluster-management.v2.0.1"
   namespace: placeholder
 spec:
   displayName: Advanced Cluster Management for Kubernetes
-  version: "*Insert* eg: 0.9.0"
-  replaces: "*Insert* eg: multicluster-hub-operator.v0.8.9"
+  version: "*Insert* eg: 2.0.1"
+  replaces: "*Insert* eg: advanced-cluster-management.v2.0.0"
   provider:
     name: Red Hat
   maintainers:
@@ -55,10 +58,14 @@ spec:
     instructions presented when you click the `Install` button.
     After installing the operator, create an instance of the `MultiClusterHub` resource
     to install the hub.
+    Note that if you will be using the hub to manage non-OpenShift 4.x clusters,
+    you will need to create a Kubernetes `Secret` resource containing your OpenShift
+    pull secret and specify this `Secret` in the `MultiClusterHub` resource, as described
+    in the install documentation.
 
 
     You can find additional installation guidance in the
-    product [documentation](https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.1/).
+    [install documentation](https://access.redhat.com/documentation/en-us/red_hat_advanced_cluster_management_for_kubernetes/2.1/html/install/installing).
     '
 
   icon:
