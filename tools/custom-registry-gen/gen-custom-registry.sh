@@ -156,6 +156,12 @@ if [[ $handle_as_bundle_image -eq 1 ]]; then
    chmod +x "$opm"
 
    # Build registry database
+   #
+   # Note:  If your workstation is running podman with the podman-docker compat layer
+   # rather than genuine docker and you run into 401 Unauthroized errors on opm add,
+   # you might need this env var in effect:
+   #
+   # export REGISTRY_AUTH_FILE=$HOME/.docker/config.json
 
    mkdir "database"
 
