@@ -210,6 +210,8 @@ def load_all_manifests(dir_pathn):
    for fn in all_fns:
       if not fn.endswith(".yaml"):
          continue
+      if fn.startswith("ci."):
+         continue
       manifest = load_manifest("file", os.path.join(dir_pathn, fn))
       manifests[fn] = manifest
    #
