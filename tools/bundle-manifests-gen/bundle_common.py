@@ -210,8 +210,6 @@ def load_all_manifests(dir_pathn):
    for fn in all_fns:
       if not fn.endswith(".yaml"):
          continue
-      if fn.startswith("ci."):
-         continue
       manifest = load_manifest("file", os.path.join(dir_pathn, fn))
       manifests[fn] = manifest
    #
@@ -310,17 +308,25 @@ def find_current_bundle_for_package(pkg_pathn, selected_channel):
    except NotADirectoryError:
       die("Not a directory: %s." % pkg_pathn)
 
-   pkg_manifests = load_all_manifests(pkg_pathn)
-   pkg_yamls = pkg_manifests.values()
+   top_of_pkg_manifests = load_all_manifests(pkg_pathn)
+   top_of_pkg_yamls = list(top_of_pkg_manifests.values())
 
-   if len(pkg_yamls) == 0:
-      die("Package manifest (.yaml) not found in %s." % pkg_pathn)
-   elif len(pkg_yamls) > 1:
-      die("More than one .yaml file found in %s." % pkg_pathn)
+   if len(top_of_pkg_yamls) == 0:
+      die("Package manifest (.yaml file) not found in %s." % pkg_pathn)
+
+   # We have one or more yamls. Look through the list of them to find the one
+   # that defines the channels list as that's the one we want to use.
+
+   pkg = None
+   for yaml in top_of_pkg_yamls:
+      if "channels" in yaml:
+         pkg = yaml
+         break
+   if not pkg:
+      die("Package manifest not found among .yaml files in %s." % pkg_pathn)
 
    # Determine the current CSV for the selected channel.
 
-   pkg = list(pkg_yamls)[0]
    pkg_channels = pkg["channels"]
    cur_csv = None
    for c in pkg_channels:
