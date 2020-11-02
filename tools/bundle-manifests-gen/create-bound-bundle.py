@@ -9,11 +9,12 @@
 # - Overriding image refernces
 # - Removing references to pull secrets in operator deployments
 # - Setting the createdAt timestamp
+# - Optionally setting the default-channel specification.
 #
 # Note:
-# - We declare our Pyton requirement as 3.6+ to gain use of the inseration-oder preserving
+# - We declare our Pyton requirement as 3.6+ to gain use of the inseration-oder-preserving
 #   implementation of dict() to have a generated CSV ordering that matches that of the
-#   template CSV.  (Python 3.7+ makes this order preserving a part of the language spec, btw).
+#   template CSV.  (Python 3.7+ makes this order preserving a part of the language spec, btw.)
 
 from bundle_common import *
 
@@ -178,7 +179,7 @@ def main():
    parser.add_argument("--use-bundle-image-format", dest="use_bundle_image_format", action="store_true")
    parser.add_argument("--add-related-images",      dest="add_related_images", action="store_true")
 
-   parser.add_argument("--default-channel",    dest="default_channel", required=True)
+   parser.add_argument("--default-channel",    dest="default_channel")
    parser.add_argument("--replaces-channel",   dest="replaces_channel")
    parser.add_argument("--additional-channel", dest="other_channels", action="append")
 
@@ -256,9 +257,13 @@ def main():
    if default_channel:
       pkg_manifest["defaultChannel"] = default_channel
    else:
-      # TODO/Idea: Use default channel already in package manifest if any?
       if use_bundle_image_format:
-         emsg("A default channel is required when using bundle-image format.")
+         try:
+            del pkg_manifest["defaultChannel"]
+         except KeyError:
+            pass
+      else:
+         die("A default channel is required when using package-manifest format.")
 
    # See if this CSV is to replace an existing one as determeined by:
    #
@@ -392,7 +397,13 @@ def main():
       # (representing a specific version of a CSV) seems odd, as this is really a
       # property of the package, not a paritcular CSV.  I wonder what the result is if
       # multiple CSVs decleare different defaults??
-      annot["operators.operatorframework.io.bundle.channel.default.v1"] = default_channel
+      #
+      # Update:  It seems its a last-one-(into the index image)-wins situation applies here.
+      # And also, there are cases where we don't want to specify a default channel and OPM/OLM
+      # now allows this).
+
+      if default_channel:
+         annot["operators.operatorframework.io.bundle.channel.default.v1"] = default_channel
 
       print("Writing bundle metadata.")
       bundle_annotations_pathn = os.path.join(metadata_pathn, "annotations.yaml")

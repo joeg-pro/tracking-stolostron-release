@@ -73,6 +73,7 @@ if [[ "$replaces_rel_nr" == "auto" ]]; then
 
       replaces_rel_nr=""
       skip_range=""
+      specify_default_channel=1
 
       echo "Release $this_rel_nr is the initial feature release of new major version v$rel_x."
       echo "The bundle will not have a replaces property specified."
@@ -91,6 +92,7 @@ if [[ "$replaces_rel_nr" == "auto" ]]; then
       prev_rel_y=$((rel_y-1))
       replaces_rel_nr=""
       skip_range=">=$rel_x.$prev_rel_y.0 <$rel_x.$rel_y.0"
+      specify_default_channel=1
 
       echo "Release $this_rel_nr is a follow-on in-maj-version feature release following $rel_x.$prev_rel_y."
       echo "The bundle will not have a replaces property specified."
@@ -108,6 +110,7 @@ if [[ "$replaces_rel_nr" == "auto" ]]; then
       prev_rel_z=$((rel_z-1))
       replaces_rel_nr="$rel_x.$rel_y.$prev_rel_z"
       skip_range=""
+      specify_default_channel=0
 
       echo "Release $this_rel_nr is a patch release of the first feature release of major version v$rel_x."
       echo "The bundle will have a replaces property specifying: $replaces_rel_nr."
@@ -126,6 +129,7 @@ if [[ "$replaces_rel_nr" == "auto" ]]; then
       prev_rel_z=$((rel_z-1))
       replaces_rel_nr="$rel_x.$rel_y.$prev_rel_z"
       skip_range=">=$rel_x.$prev_rel_y.0 <$rel_x.$rel_y.0"
+      specify_default_channel=0
 
       echo "Release $this_rel_nr is a patch release of follow-on in-maj-version feature release $rel_x.$rel_y."
       echo "The bundle will have a replaces property specifying: $replaces_rel_nr."
@@ -229,7 +233,11 @@ if [[ is_candidate_build -eq 1 ]]; then
 else
    publish_to_channel="$feature_release_channel"
 fi
-default_channel="$feature_release_channel"
+
+if [[ $specify_default_channel -eq 1 ]]; then
+   default_channel="$feature_release_channel"
+   dash_lower_d_option="-d $default_channel"
+fi
 
 # Form the previous-bundle arg or skip-range arg if appropraite.
 
@@ -267,7 +275,11 @@ if [[ -n "$skip_range" ]]; then
    echo "  Skipping previous CSV/bundle range: $skip_range"
 fi
 echo "  To be published on channel: $publish_to_channel"
-echo "  With default channel: $default_channel"
+if [[ -n "$default_channel" ]]; then
+   echo "  With default channel: $default_channel"
+else
+   echo "  With no default channel specified"
+fi
 echo "  Using image manifests file: $manifest_file"
 
 $my_dir/gen-bound-bundle.sh \
@@ -276,7 +288,7 @@ $my_dir/gen-bound-bundle.sh \
    ${dash_lower_k_opt:+"${dash_lower_k_opt[@]}"}  \
    -m "$manifest_file" \
    -I "$unbound_pkg_dir" -O "$bound_pkg_dir" \
-   -d "$default_channel" -c "$publish_to_channel" \
+   $dash_lower_d_option -c "$publish_to_channel" \
    -i "multiclusterhub-operator:multiclusterhub_operator" \
    -i "registration-operator:registration_operator" \
    -i "multicluster-operators-placementrule:multicluster_operators_placementrule" \

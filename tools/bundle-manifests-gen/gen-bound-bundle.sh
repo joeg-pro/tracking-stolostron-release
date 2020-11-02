@@ -126,10 +126,6 @@ if [[ -z "$image_manifest" ]]; then
    >&2 echo "Error: Image manifest file pathanem not specified (-m)."
    exit 1
 fi
-if [[ -z "$default_channel" ]]; then
-   >&2 echo "Error: Default package channel name not specified (-d)."
-   exit 1
-fi
 if [[ -z "$additional_channels" ]]; then
    >&2 echo "Error: At least one to-be-added-to package channel name is required (-c)."
    exit 1
@@ -208,6 +204,11 @@ if [[ -n "$skip_range" ]]; then
    skip_range_option=("--skip-range" "$skip_range")
 fi
 
+# If default channel is specified, pass it on.
+if [[ -n "$default_channel" ]]; then
+   default_channel_option="--default-channel $default_channel"
+fi
+
 # Form additional-channel options from the additiona_channels list:
 addl_channel_optons=""
 for c in $additional_channels; do
@@ -234,6 +235,6 @@ $my_dir/create-bound-bundle.py \
    ${skip_range_option:+"${skip_range_option[@]}"}  \
    --use-bundle-image-format \
    --add-related-images \
-   --default-channel $default_channel $addl_channel_options \
+   $default_channel_option $addl_channel_options \
    $name_to_key_options $rgy_ns_override_options
 
