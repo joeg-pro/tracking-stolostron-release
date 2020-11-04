@@ -32,6 +32,14 @@ acm_pkg_name="advanced-cluster-management"
 # And the template needs to be per-release too:
 csv_template="$my_dir/acm-csv-template.yaml"
 
+# Historically, community-operator owners are slow to get release-related channels
+# into their packages when we begin work on a new feature release.  In the past we've
+# just hacked in a temporary bypass, but this is getting to be a theme so we make
+# this a bit more explicit.
+
+appsub_use_previous_release_channel_override=0
+hive_use_previous_release_channel_override=0
+
 # The CSV version and previous CSV version are not really important un the unbound bundle
 # because they will be set/overridden anyway in the creation of the bound bundle.
 
@@ -51,6 +59,10 @@ rel_z=${rel_xyz[2]}
 IFS=$oldIFS
 
 rel_xy="$rel_x.$rel_y"
+
+# Works for x.y with y>0:
+prev_rel_y=$((rel_y-1))
+prev_rel_xy="$rel_x.$prev_rel_y"
 
 ## Not currently pinned: app_sub_source_csv_vers="x.y.z"
 ## Not currently pinned: hive_source_csv_vers="x.y.z"
@@ -109,7 +121,11 @@ if [[ -z "$app_sub_source_csv_vers" ]]; then
    # Find latest version posted on a channel:
 
    app_sub_pkg_dir="$community_repo_spot/community-operators/multicluster-operators-subscription"
-   app_sub_channel="release-$rel_x.$rel_y"
+   app_sub_channel="release-$rel_xy"
+   if [[ $appsub_use_previous_release_channel_override -eq 1 ]]; then
+      echo "Warning: Previous-release-channel override is in effect for App Sub operator."
+      app_sub_channel="release-$prev_rel_xy"
+   fi
 
    app_sub_bundle_dir=$($my_dir/find-bundle-dir.py $app_sub_channel $app_sub_pkg_dir)
    if [[ $? -ne 0 ]]; then
@@ -132,7 +148,11 @@ if [[ -z "$hive_source_csv_vers" ]]; then
    # Find latest version posted on a channel:
 
    hive_pkg_dir="$community_repo_spot/community-operators/hive-operator"
-   hive_channel="ocm-$rel_x.$rel_y"
+   hive_channel="ocm-$rel_xy"
+   if [[ $hive_use_previous_release_channel_override -eq 1 ]]; then
+      echo "Warning: Previous-release-channel override is in effect for Hive operator."
+      hive_channel="ocm-$prev_rel_xy"
+   fi
 
    hive_bundle_dir=$($my_dir/find-bundle-dir.py $hive_channel $hive_pkg_dir)
    if [[ $? -ne 0 ]]; then
