@@ -14,8 +14,6 @@ my_dir=$(dirname $(readlink -f $0))
 top_of_repo=$(readlink  -f $my_dir/../..)
 tools_dir="$top_of_repo/tools"
 
-default_channel_name="release-2.1"
-
 # -- Args --
 
 # $1 Bundle version for this bundle (Format: x.y.z[-iter]).  (Required)
@@ -84,6 +82,16 @@ else
 fi
 
 # -- End Args --
+
+old_IFS=$IFS
+IFS=. rel_xyz=(${bundle_vers%-*})
+rel_x=${rel_xyz[0]}
+rel_y=${rel_xyz[1]}
+rel_z=${rel_xyz[2]}
+IFS=$old_IFS
+
+default_channel_name="release-$rel_x.$rel_y"
+
 
 echo ""
 echo "----- [ Generating Unbound $what_kind Bundle Manifests ] -----"
