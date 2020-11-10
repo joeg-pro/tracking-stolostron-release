@@ -14,6 +14,8 @@ my_dir=$(dirname $(readlink -f $0))
 top_of_repo=$(readlink  -f $my_dir/../..)
 tools_dir="$top_of_repo/tools"
 
+default_channel_name="release-2.1"
+
 # -- Args --
 
 # $1 Bundle version for this bundle (Format: x.y.z[-iter]).  (Required)
@@ -72,6 +74,7 @@ fi
 prev_vers="$2"
 if [[ -z "$prev_vers" ]]; then
    echo "Note: This bundle will not be configured as replacing a previous bundle version."
+   prev_vers="none"
 fi
 
 if [[ -n "$image_tag" ]]; then
@@ -100,7 +103,7 @@ echo ""
 # same script being run here and unbound bundle manifests generated upstream
 # as done above and snpashotted into a branch for consumption downstream.
 
-$tools_dir/bundle-manifests-gen/gen-bound-$script_qualifier-bundle.sh "$bundle_vers" "$prev_vers"
+$tools_dir/bundle-manifests-gen/gen-bound-$script_qualifier-bundle.sh "$bundle_vers" "$prev_vers" "$default_channel_name"
 if [[ $? -ne 0 ]]; then
    >&2 echo "ABORTING! Could not generate bound $what_kind bundle manifests."
    exit 2

@@ -33,6 +33,10 @@ replaces_rel_nr="$2"
 # (a new x in an x.y.z release id) or maybe even of a new feature release
 # stream (a new y in x.y.z) would not have a previous bundle to be replaced.
 
+if [[ "$replaces_rel_nr" == "none" ]]; then
+   replaces_rel_nr=""
+fi
+
 explicit_default_channel="$3"
 # If specified, use this channel as the default channel rather than computing
 # a default based on $bundle_vers.  This is needed so that eg. the default
