@@ -105,6 +105,17 @@ if [[ "$rel_x" -ge 2 ]]; then
       source_info+=("$op_entry")
    fi
 
+   # Since ACM 2.2:
+   if [[ "$rel_y" -ge 2 ]]; then
+
+      # Submariner add-on
+      op_git_repo="open-cluster-management/submariner-addon"
+      op_git_branch="$rel_xy_branch"
+      op_bundle_dir="deploy/olm-catalog/manifests"
+      op_entry="Submariner Addon:$op_git_repo:$op_git_branch:$op_bundle_dir"
+      source_info+=("$op_entry")
+   fi
+
 fi
 
 # Manage our temp directories

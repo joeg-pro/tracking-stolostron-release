@@ -88,6 +88,12 @@ if [[ "$rel_x" -ge 2 ]]; then
       image_key_mappings+=("multicluster-observability-operator:multicluster_observability_operator")
    fi
 
+   # Since ACM 2.2:
+   if [[ "$rel_y" -ge 2 ]]; then
+      image_key_mappings+=("submariner-addon:submariner_addon")
+
+  fi
+
 fi
 
 # Determine if this is a RC or release build.  This is used to determine
