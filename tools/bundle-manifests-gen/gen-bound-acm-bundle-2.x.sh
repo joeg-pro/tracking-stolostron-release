@@ -21,18 +21,24 @@ my_dir=$(dirname $(readlink -f $0))
 top_of_repo=$(readlink  -f $my_dir/../..)
 
 pkg_name="advanced-cluster-management"
+feature_release_channel_prefix="release"
+feature_release_rc_channel_prefix="candidate"
 
 bundle_vers="$1"
 if [[ -z "$bundle_vers" ]]; then
    >&2 echo "Error: Bundle version (x.y.z[-iter]) is required."
    exit 1
 fi
+this_rel_nr=${bundle_vers%-*}  # Remove [-iter] if present.
 
 replaces_rel_nr="$2"
 # This needs to be optional because the first release in a version stream
 # (a new x in an x.y.z release id) or maybe even of a new feature release
 # stream (a new y in x.y.z) would not have a previous bundle to be replaced.
 
+# Allow the replaces-release-nr to be omitted via a dummy value so
+# invoker can specify an explicit default channel w/o replaces release.
+# (Shouldn't have used positional args, I guess.)
 if [[ "$replaces_rel_nr" == "none" ]]; then
    replaces_rel_nr=""
 fi
@@ -51,18 +57,6 @@ explicit_default_channel="$3"
 # coded into the script by gets trumped by the explicit default channel
 # if specified.
 
-
-# Determine if this is a RC or release build.  This is used to determine
-# the channel on which this bundle is to be published.
-
-if [[ $bundle_vers == *"-"* ]]; then
-   this_rel_nr=${bundle_vers%-*}
-   is_candidate_build=1
-else
-   this_rel_nr=$bundle_vers
-   is_candidate_build=0
-fi
-
 old_IFS=$IFS
 IFS=. rel_xyz=(${this_rel_nr%-*})
 rel_x=${rel_xyz[0]}
@@ -72,11 +66,51 @@ IFS=$old_IFS
 
 rel_yz="$rel_y.$rel_z"
 
-if [[ "$replaces_rel_nr" == "auto" ]]; then
 
-   # Determine immediate-predecessor bundle release nr (for replaces property) and
-   # priori feature release release nrs (for skipRange) automatically based on
-   # standard semantic versioning conventions.
+# Define the list of image-key mappings for use in image pinning.
+
+# We add mappings to the list based on the release for which the components were added
+# to ACM as compared to the release we're building the bundle for.  Doing it this way
+# lets us keep  this script idential across ACM release branches if we want.
+
+image_key_mappings=()
+
+# Since 1.0:
+
+image_key_mappings+=("multiclusterhub-operator:multiclusterhub_operator")
+image_key_mappings+=("multicluster-operators-placementrule:multicluster_operators_placementrule")
+image_key_mappings+=("multicluster-operators-subscription:multicluster_operators_subscription")
+image_key_mappings+=("multicluster-operators-deployable:multicluster_operators_deployable")
+image_key_mappings+=("multicluster-operators-channel:multicluster_operators_channel")
+image_key_mappings+=("multicluster-operators-application:multicluster_operators_application")
+image_key_mappings+=("hive:openshift_hive")
+
+# Since ACM 2.0:
+if [[ "$rel_x" -ge 2 ]]; then
+   image_key_mappings+=("registration-operator:registration_operator")
+
+
+   # Since ACM 2.1:
+   if [[ "$rel_y" -ge 1 ]]; then
+      image_key_mappings+=("multicluster-observability-operator:multicluster_observability_operator")
+   fi
+
+fi
+
+# Determine if this is a RC or release build.  This is used to determine
+# the channel on which this bundle is to be published.
+
+if [[ $bundle_vers == *"-"* ]]; then
+   is_candidate_build=1
+else
+   is_candidate_build=0
+fi
+
+# If requested by "auto", determine immediate-predecessor bundle release nr (for replaces
+# property) and priori feature release release nrs (for skipRange) automatically based on
+# standard semantic versioning conventions.
+
+if [[ "$replaces_rel_nr" == "auto" ]]; then
 
    if [[ $rel_yz == "0.0" ]]; then
 
@@ -202,8 +236,12 @@ bound_pkg_dir="$top_of_repo/operator-bundles/bound/$pkg_name"
 #   fix-packs are published.  (Configuration of automatic or manual insall-plan approval
 #   is orthoginal to specifying the channel "followed" by the subscription.)
 #
-#   THIS IS THE DEFAULT CHANNEL for the package.  That is, its the channel subscription
-#   will use if that subscription does not identify a particular channel.
+#   This is specified as the default channel for the package when the release is
+#   an x.y.0 feature release. That is, its the channel subscription will use if that
+#   subscription does not identify a particular channel.  My specifying it as default
+#   only on a feature release, we avoid having a subsequently-published patch (z-stream)
+#   release for a prior x.y release set the edfault channel to something other than
+#   the most recently publisyed x.y.
 #
 #   Engineering implications:
 #
@@ -244,8 +282,8 @@ bound_pkg_dir="$top_of_repo/operator-bundles/bound/$pkg_name"
 #   all CSVs published on this channel must indicate that they superced (replace) the
 #   immediately preceeding CSV published on this channel.
 
-feature_release_channel="release-$rel_x.$rel_y"
-feature_release_rc_channel="candidate-$rel_x.$rel_y"
+feature_release_channel="$feature_release_channel_prefix-$rel_x.$rel_y"
+feature_release_rc_channel="$feature_release_rc_channel_prefix-$rel_x.$rel_y"
 
 if [[ is_candidate_build -eq 1 ]]; then
    publish_to_channel="$feature_release_rc_channel"
@@ -286,6 +324,13 @@ if [[ -n "$skip_range" ]]; then
    dash_lower_k_opt=("-k" "$skip_range")
 fi
 
+# Form the list of -i image-key-mapping arguments.
+
+dash_lower_i_opts=()
+for m in "${image_key_mappings[@]}"; do
+   dash_lower_i_opts+=("-i" "$m")
+done
+
 # Enough setup.  Lets to this...
 
 echo "Generating bound bundle manifests for package: $pkg_name"
@@ -313,13 +358,5 @@ $my_dir/gen-bound-bundle.sh \
    -m "$manifest_file" \
    -I "$unbound_pkg_dir" -O "$bound_pkg_dir" \
    $dash_lower_d_option -c "$publish_to_channel" \
-   -i "multiclusterhub-operator:multiclusterhub_operator" \
-   -i "registration-operator:registration_operator" \
-   -i "multicluster-operators-placementrule:multicluster_operators_placementrule" \
-   -i "multicluster-operators-subscription:multicluster_operators_subscription" \
-   -i "multicluster-operators-deployable:multicluster_operators_deployable" \
-   -i "multicluster-operators-channel:multicluster_operators_channel" \
-   -i "multicluster-operators-application:multicluster_operators_application" \
-   -i "multicluster-observability-operator:multicluster_observability_operator" \
-   -i "hive:openshift_hive"
+   ${dash_lower_i_opts:+"${dash_lower_i_opts[@]}"}
 

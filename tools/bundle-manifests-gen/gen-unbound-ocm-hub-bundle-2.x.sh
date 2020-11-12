@@ -67,34 +67,44 @@ fi
 
 rel_xy_branch="release-$rel_xy"
 
-# Multicluster monitoring operator was added in ACM 2.1.
-include_monitoring_operator=0
-if [[ "$rel_xy" != "2.0" ]]; then
-   include_monitoring_operator=1
-fi
 
 # Define the list of source repos/CSVs we merge
 
+# We add repos to the list based on the release for which the components were added
+# to ACM as compared to the release we're building the bundle for.  Doing it this way
+# lets us keep  this script idential across ACM release branches if we want.
+
 source_info=()
 
-hub_git_repo="open-cluster-management/multicloudhub-operator"
-hub_git_branch="$rel_xy_branch"
-hub_bundle_dir="deploy/olm-catalog/multiclusterhub-operator/manifests"
-hub_entry="Base Hub:$hub_git_repo:$hub_git_branch:$hub_bundle_dir"
-source_info+=("$hub_entry")
+# Since ACM 1.0:
 
-nuc_git_repo="open-cluster-management/registration-operator"
-nuc_git_branch="$rel_xy_branch"
-nuc_bundle_dir="deploy/cluster-manager/olm-catalog/cluster-manager/manifests"
-nuc_entry="Cluster Manager:$nuc_git_repo:$nuc_git_branch:$nuc_bundle_dir"
-source_info+=("$nuc_entry")
+op_git_repo="open-cluster-management/multicloudhub-operator"
+op_git_branch="$rel_xy_branch"
+op_bundle_dir="deploy/olm-catalog/multiclusterhub-operator/manifests"
+op_entry="Base Hub:$op_git_repo:$op_git_branch:$op_bundle_dir"
+source_info+=("$op_entry")
 
-if [[ $include_monitoring_operator -eq 1 ]]; then
-   op_git_repo="open-cluster-management/multicluster-monitoring-operator"
+# Since ACM 2.0:
+if [[ "$rel_x" -ge 2 ]]; then
+
+   # Registration operator
+   op_git_repo="open-cluster-management/registration-operator"
    op_git_branch="$rel_xy_branch"
-   op_bundle_dir="deploy/olm-catalog/multicluster-observability-operator/manifests"
-   op_entry="Monitoring:$op_git_repo:$op_git_branch:$op_bundle_dir"
+   op_bundle_dir="deploy/cluster-manager/olm-catalog/cluster-manager/manifests"
+   op_entry="Cluster Manager:$op_git_repo:$op_git_branch:$op_bundle_dir"
    source_info+=("$op_entry")
+
+   # Since ACM 2.1:
+   if [[ "$rel_y" -ge 1 ]]; then
+
+      # Monitoring operator
+      op_git_repo="open-cluster-management/multicluster-monitoring-operator"
+      op_git_branch="$rel_xy_branch"
+      op_bundle_dir="deploy/olm-catalog/multicluster-observability-operator/manifests"
+      op_entry="Monitoring:$op_git_repo:$op_git_branch:$op_bundle_dir"
+      source_info+=("$op_entry")
+   fi
+
 fi
 
 # Manage our temp directories
