@@ -89,7 +89,6 @@ image_key_mappings+=("hive:openshift_hive")
 if [[ "$rel_x" -ge 2 ]]; then
    image_key_mappings+=("registration-operator:registration_operator")
 
-
    # Since ACM 2.1:
    if [[ "$rel_y" -ge 1 ]]; then
       image_key_mappings+=("multicluster-observability-operator:multicluster_observability_operator")
