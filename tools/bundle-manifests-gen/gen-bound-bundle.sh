@@ -138,7 +138,7 @@ if [[ -z "$prev_csv_vers" ]]; then
    >&2 echo "Note: No previous/replaced bundle/CSV version specified (-p)."
 fi
 
-#--- Doe with Args (Thank goodness) ---
+#--- Done with Args (Thank goodness) ---
 
 
 mkdir -p "$bound_pkg_dir"
