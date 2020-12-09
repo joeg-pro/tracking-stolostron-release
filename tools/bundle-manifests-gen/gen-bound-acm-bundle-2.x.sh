@@ -81,7 +81,6 @@ if [[ "$rel_x" -ge 2 ]]; then
    # Since ACM 2.2:
    if [[ "$rel_y" -ge 2 ]]; then
       image_key_mappings+=("submariner-addon:submariner_addon")
-      image_key_mappings+=("discovery-operator:discovery_operator")
   fi
 
 fi
