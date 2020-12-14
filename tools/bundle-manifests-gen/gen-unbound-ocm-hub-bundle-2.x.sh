@@ -114,6 +114,10 @@ if [[ "$rel_x" -ge 2 ]]; then
       op_bundle_dir="deploy/olm-catalog/manifests"
       op_entry="Submariner Addon:$op_git_repo:$op_git_branch:$op_bundle_dir"
       source_info+=("$op_entry")
+   fi
+
+   # Since ACM 2.3:
+   if [[ "$rel_y" -ge 3 ]]; then
 
       # Discovery operator
       op_git_repo="open-cluster-management/discovery"
