@@ -114,6 +114,14 @@ if [[ "$rel_x" -ge 2 ]]; then
       op_bundle_dir="deploy/olm-catalog/manifests"
       op_entry="Submariner Addon:$op_git_repo:$op_git_branch:$op_bundle_dir"
       source_info+=("$op_entry")
+
+      # Discovery operator
+      op_git_repo="open-cluster-management/discovery"
+      op_git_branch="$rel_xy_branch"
+      # This repo is using operator-sdk v1.x, the following is the default place for v1:
+      op_bundle_dir="bundle/manifests"
+      op_entry="Discovery:$op_git_repo:$op_git_branch:$op_bundle_dir"
+      source_info+=("$op_entry")
    fi
 
 fi
