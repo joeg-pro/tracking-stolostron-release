@@ -256,7 +256,11 @@ def main():
 
          kind = manifest["kind"]
          if kind == "CustomResourceDefinition":
-            crd_gvk = get_gvk_for_crd(manifest)
+            try:
+               crd_gvk = get_gvk_for_crd(manifest)
+            except Exception as exc:
+               traceback.print_exc()
+               die("Error reading/parsing Owned-CRD manifest file: %s" % fn)
 
             # Check that the CRD is expected (listed as owned in CSV) and if so, take
             # it out of the list of expected ones not seen yet.
