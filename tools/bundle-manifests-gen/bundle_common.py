@@ -153,15 +153,35 @@ def get_avk(a_map):
    return gvk
 
 # Forms a group/version/kind string from a CRD resource:
-def get_gvk_for_crd(crd_map):
+def get_gvks_for_crd(crd_map):
+
+   crd_api_gv = crd_map["apiVersion"]
+   crd_api_vers = crd_api_gv.split("/")[1]
 
    spec = crd_map["spec"]
    group = spec["group"]
-   vers  = spec["version"]
    kind  = spec["names"]["kind"]
-   gvk = "%s/%s/%s" % (group, vers, kind)
-   return gvk
 
+   gvks = []
+   if crd_api_vers == "v1beta1":
+      # A v1beta1 CRD defines only a single CR version
+      vers  = spec["version"]
+      this_gvk = "%s/%s/%s" % (group, vers, kind)
+      gvks.append(this_gvk)
+
+   elif crd_api_vers == "v1":
+      # A v1 CRD can define a list of versions.
+      version_entries = spec["versions"]
+      for ve in version_entries:
+         vers = ve["name"]
+         this_gvk = "%s/%s/%s" % (group, vers, kind)
+         gvks.append(this_gvk)
+
+   else:
+      m = "Bundle-merge tooling does not support CustomResourceDefinition/%s manifests." % crd_api_vers
+      raise NotImplementedError(m)
+
+   return gvks
 
 # Get a sequence property, defaulting to an empty one.
 def get_seq(from_map, prop_name):

@@ -257,16 +257,27 @@ def main():
          kind = manifest["kind"]
          if kind == "CustomResourceDefinition":
             try:
-               crd_gvk = get_gvk_for_crd(manifest)
+               crd_gvks = get_gvks_for_crd(manifest)
             except Exception as exc:
                traceback.print_exc()
-               die("Error reading/parsing Owned-CRD manifest file: %s" % fn)
+               die("Error reading/parsing CRD manifest file: %s" % fn)
 
-            # Check that the CRD is expected (listed as owned in CSV) and if so, take
-            # it out of the list of expected ones not seen yet.
-            crd_is_expected = crd_gvk in expected_crds
-            if crd_is_expected:
-               expected_crds.remove(crd_gvk)
+            # Check that the CRD GVKs defined by this CRD manifest are expected (listed
+            #  as owned in CSV) and if so, take them out of the list of expected ones
+            #  not seen yet.
+
+            all_gvks_are_expected = True
+            for this_gvk in crd_gvks:
+               if this_gvk in expected_crds:
+                  expected_crds.remove(this_gvk)
+               else:
+                  if all_gvks_are_expected:
+                     # First error.  Mention the manifest file.
+                     print("   ERROR: CRD manifest file contains unlisted CRD GVKs: %s" % fn)
+                  print("          CRD GVK is not listed as owned in CSV: %s" % this_gvk)
+                  all_gvks_are_expected = False
+            #
+            if all_gvks_are_expected:
                print("   Copying Owned-CRD manifest file: %s" % fn)
             else:
                # Havig unlisted CRDs in the budnle will cause the bundle to fail the
@@ -277,9 +288,8 @@ def main():
                # the upstream bundle cleaned up.
 
                if csv_vers_xy == "2.0":
-                  print("   WARN: Skipping Unlisted CRD manifest file : %s" % fn)
+                  print("   WARN: Tolerating/skipping CRD manifest file with unlisted CRDs rather than aborting.")
                else:
-                  print("   ERROR: Found Unlisted CRD manifest file: %s" % fn)
                   die_due_to_unlisted_crds = True
                continue
          else:
@@ -294,7 +304,7 @@ def main():
       #
 
       if die_due_to_unlisted_crds:
-         die("Bundle contains CRD manifests not listed as owned.")
+         die("Bundle contains CRD manifest file(s) with CRD GVKs not listed as owned.")
 
       # Check that we found manifests for all CRDs owned by this source bundle
       if expected_crds:
