@@ -101,8 +101,17 @@ for m in "${image_key_mappings[@]}"; do
    dash_lower_i_opts+=("-i" "$m")
 done
 
+# Specify specific version skips we need to bypass bad releases:
+dash_upper_k_options=""
+dash_lower_p_opton=""
+if [[ "$bundle_vers" == "2.1.2" ]]; then
+   dash_upper_k_options="$dash_upper_k_options -K 2.1.1"
+   dash_lower_p_option="-p 2.1.0"
+fi
+
 $my_dir/gen-bound-acm-ocm-hub-bundle-common.sh \
    -n "$pkg_name" -v "$bundle_vers" \
+   $dash_upper_k_options $dash_lower_p_option \
    -c $release_channel_prefix -C $candidate_channel_prefix \
    $dash_lower_d_option \
    ${dash_lower_i_opts:+"${dash_lower_i_opts[@]}"}

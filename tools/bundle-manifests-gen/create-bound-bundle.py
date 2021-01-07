@@ -186,6 +186,7 @@ def main():
    parser.add_argument("--csv-vers",   dest="csv_vers", required=True)
    parser.add_argument("--prev-vers",  dest="prev_vers")
    parser.add_argument("--skip-range", dest="skip_range")
+   parser.add_argument("--skip",       dest="skip_versions", action="append")
 
    parser.add_argument("--image-manifest", dest="image_manifest_pathn", required=True)
    parser.add_argument("--image-name-to-key", dest="image_name_to_key_specs", action="append", required=True)
@@ -205,9 +206,10 @@ def main():
    other_channels   = args.other_channels
    default_channel  = args.default_channel
 
-   csv_vers   = args.csv_vers
-   prev_vers  = args.prev_vers
-   skip_range = args.skip_range
+   csv_vers      = args.csv_vers
+   prev_vers     = args.prev_vers
+   skip_range    = args.skip_range
+   skip_versions = args.skip_versions
 
    image_manifest_pathn = args.image_manifest_pathn
    image_name_to_key_specs = args.image_name_to_key_specs
@@ -290,6 +292,14 @@ def main():
    else:
       print("NOTE: New CSV does not skip a range of previous ones.")
 
+   # Turn to-be-skipped versions into skipped CSV names and echo.
+   skips_list = []
+   if skip_versions:
+      for skip_vers in skip_versions:
+         skip_csv_name = "%s.v%s" % (pkg_name, skip_vers)
+         print("Skips specific previous CSVs: %s" % skip_csv_name)
+         skips_list.append(skip_csv_name)
+
    channels_to_update = list()
    if replaces_channel:
       channels_to_update.append(replaces_channel)
@@ -336,6 +346,16 @@ def main():
    else:
       try:
          del spec["replaces"]
+      except KeyError:
+         pass
+
+   # Plug in specific CSV skips if any.
+
+   if skips_list:
+      spec["skips"] = skips_list
+   else:
+      try:
+         del spec["skips"]
       except KeyError:
          pass
 

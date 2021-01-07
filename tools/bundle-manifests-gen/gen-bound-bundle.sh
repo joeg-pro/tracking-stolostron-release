@@ -58,13 +58,14 @@ my_dir=$(dirname $(readlink -f $0))
 # -v Version (x.y.z) of generated bundle.
 # -p version of Previous bundle/CSV to be replaced by this one (optional).
 # -k Skip-range specification for this bundle (optional)
+# -K Specific previous bundle/CSV versions to skip (Optionial, can be repeated)
 # -m pathname of image Manifest file.
 # -d Default channel name.
 # -c Additional Channel name (can be repeated).
 # -i Image key mapping spec (can be repeated).
 # -r rgy-and-ns override spec (can be repeated).
 
-opt_flags="I:O:n:v:p:k:m:d:c:i:r:"
+opt_flags="I:O:n:v:p:k:K:m:d:c:i:r:"
 
 while getopts "$opt_flags" OPTION; do
 
@@ -89,6 +90,8 @@ while getopts "$opt_flags" OPTION; do
       p) prev_csv_vers="$OPTARG"
          ;;
       k) skip_range="$OPTARG"
+         ;;
+      K) skip_list="$skip_list $OPTARG"
          ;;
       m) image_manifest="$OPTARG"
          ;;
@@ -204,6 +207,11 @@ if [[ -n "$skip_range" ]]; then
    skip_range_option=("--skip-range" "$skip_range")
 fi
 
+skip_options=""
+for skip in $skip_list; do
+   skip_options="$skip_options --skip $skip"
+done
+
 # If default channel is specified, pass it on.
 if [[ -n "$default_channel" ]]; then
    default_channel_option="--default-channel $default_channel"
@@ -232,6 +240,7 @@ $my_dir/create-bound-bundle.py \
    --pkg-name "$pkg_name" --pkg-dir "$bound_pkg_dir" \
    --source-bundle-dir "$unbound_bundle" \
    --csv-vers "$new_csv_vers" $prev_vers_option \
+   $skip_options \
    ${skip_range_option:+"${skip_range_option[@]}"}  \
    --use-bundle-image-format \
    --add-related-images \

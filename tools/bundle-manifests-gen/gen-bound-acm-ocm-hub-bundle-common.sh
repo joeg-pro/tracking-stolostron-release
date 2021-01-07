@@ -11,6 +11,11 @@
 # -v Bundle version number in x.y.z[-suffix] form (eg. 2.2.0-1). Required.
 #    Presence of a [-suffix] in the bundle version indicates a candiddate/snapshot.
 #
+# -p Explicit specification of version of Previous bundle/CSV to be replaced by this one (optional).
+#    If omitted (typical), this is computed automatically.
+#
+# -K Specific previous bundle/CSV versions to skip (Optionial, can be repeated)
+#
 # -d Default channel name (full name, eg. "release-2.1").  (Optional, but not really.)
 #
 #    If specified, use this channel as the default channel rather than computing a default
@@ -43,7 +48,7 @@ top_of_repo=$(readlink  -f $my_dir/../..)
 
 #--- Args ---
 
-opt_flags="n:v:d:c:C:i:"
+opt_flags="n:v:p:K:d:c:C:i:"
 
 image_key_mappings=()
 
@@ -62,6 +67,10 @@ while getopts "$opt_flags" OPTION; do
       n) pkg_name="$OPTARG"
          ;;
       v) bundle_vers="$OPTARG"
+         ;;
+      p) explicit_prev_csv_vers="$OPTARG"
+         ;;
+      K) skip_list="$skip_list $OPTARG"
          ;;
       d) explicit_default_channel="$OPTARG"
          ;;
@@ -143,8 +152,8 @@ if [[ $rel_yz == "0.0" ]]; then
    specify_default_channel=1
 
    echo "Release $this_rel_nr is the initial feature release of new major version v$rel_x."
-   echo "The bundle will not have a replaces property specified."
-   echo "The bundle will not have a skipRange annotation specified."
+   # echo "The bundle will not have a replaces property specified."
+   # echo "The bundle will not have a skipRange annotation specified."
 
 elif [[ "$rel_z" == "0" ]]; then
 
@@ -162,8 +171,8 @@ elif [[ "$rel_z" == "0" ]]; then
    specify_default_channel=1
 
    echo "Release $this_rel_nr is a follow-on in-maj-version feature release following $rel_x.$prev_rel_y."
-   echo "The bundle will not have a replaces property specified."
-   echo "The bundle will have a skip-range annotation specifying: $skip_range"
+   # echo "The bundle will not have a replaces property specified."
+   # echo "The bundle will have a skip-range annotation specifying: $skip_range"
 
 elif [[ "$rel_y" == "0" ]]; then
 
@@ -180,8 +189,8 @@ elif [[ "$rel_y" == "0" ]]; then
    specify_default_channel=0
 
    echo "Release $this_rel_nr is a patch release of the first feature release of major version v$rel_x."
-   echo "The bundle will have a replaces property specifying: $replaces_rel_nr."
-   echo "The bundle will not have a skipRange annotation specified."
+   # echo "The bundle will have a replaces property specifying: $replaces_rel_nr."
+   # echo "The bundle will not have a skipRange annotation specified."
 
 else
 
@@ -199,10 +208,20 @@ else
    specify_default_channel=0
 
    echo "Release $this_rel_nr is a patch release of follow-on in-maj-version feature release $rel_x.$rel_y."
-   echo "The bundle will have a replaces property specifying: $replaces_rel_nr."
-   echo "The bundle will have a skip-range annotation specifying: $skip_range"
+   # echo "The bundle will have a replaces property specifying: $replaces_rel_nr."
+   # echo "The bundle will have a skip-range annotation specifying: $skip_range"
 
 fi
+
+if [[ -n "$explicit_prev_csv_vers" ]]; then
+   echo "NOTE: Explicitly-specified previous release number is being used."
+   replaces_rel_nr=$explicit_prev_csv_vers
+fi
+
+dash_cap_k_options=""
+for skip in $skip_list; do
+   dash_cap_k_options="$dash_cap_k_options -K $skip"
+done
 
 # Random notes on replacement-chain approach for upstream snapshots:
 #
@@ -356,6 +375,9 @@ fi
 if [[ -n "$skip_range" ]]; then
    echo "  Skipping previous CSV/bundle range: $skip_range"
 fi
+if [[ -n "$skip_list" ]]; then
+   echo "  Skipping specific previous CSV/bundle versions: $skip_list"
+fi
 echo "  To be published on channel: $publish_to_channel"
 if [[ -n "$default_channel" ]]; then
    echo "  With default channel: $default_channel"
@@ -368,6 +390,7 @@ $my_dir/gen-bound-bundle.sh \
    -n "$pkg_name" \
    -v "$bundle_vers" $dash_lower_p_opt \
    ${dash_lower_k_opt:+"${dash_lower_k_opt[@]}"}  \
+   $dash_cap_k_options \
    -m "$manifest_file" \
    -I "$unbound_pkg_dir" -O "$bound_pkg_dir" \
    $dash_lower_d_option -c "$publish_to_channel" \
