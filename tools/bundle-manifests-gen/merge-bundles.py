@@ -115,6 +115,7 @@ def main():
    m_categories        = set()
    m_keywords          = set()
    m_alm_examples      = dict()
+   m_internal_objects  = set()
    m_owned_crds        = dict()
    m_required_crds     = dict()
    m_owned_api_svcs    = dict()
@@ -184,21 +185,43 @@ def main():
 
       # Accumulate categories into the output set.
       if merge_categories:
+         s_cats = None
          s_cat_str = get_scalar(s_annotations, "categories")
-         if s_cat_str is None:
-            print("   WARN: Source CSV has no categories.")
-         else:
+         if s_cat_str:
             # Categories are specified as a common-separated string.  Spint and accumulate.
-            accumulate_set("category", "categories", s_cat_str.split(","), m_categories)
+            s_cats = s_cat_str.split(",")
+         if s_cats:
+            accumulate_set("category", "categories", s_cats, m_categories)
+         else:
+            print("   WARN: Source CSV has no categories.")
 
       # Accumulate CR examples (ALM-Examples) into the output set.
+      s_alm_examples = None
       s_alm_examples_str = get_scalar(s_annotations, "alm-examples")
-      if s_alm_examples_str is None:
-         print("   WARN: Source CSV has no ALM examples.")
-      else:
-         # ALM examples contains a string representation of a YML sequence of mappings.
+      if s_alm_examples_str:
+         # ALM examples contains a string representation of a YAML sequence of mappings.
+
+         # Bug?: OLM doc isn't clear on format, but treating them as YAMML nght not be right,
+         # esp. since when we plug them into the merged CSV we do so as JSON.  But its been
+         # working up until now, so we'll leave well enough alone for now.
+         #
          s_alm_examples = yaml.load(s_alm_examples_str, Loader=yaml_loader)
+      if s_alm_examples:
          accumulate_keyed("ALM example", s_alm_examples, m_alm_examples, get_avk)
+      else:
+         print("   WARN: Source CSV has no ALM examples.")
+
+      # Accuulate internal-objects annotations.
+      internal_objects_annotation_name = "operators.operatorframework.io/internal-objects"
+      s_internal_objects = None
+      s_internal_objects_str = get_scalar(s_annotations, internal_objects_annotation_name)
+      if s_internal_objects_str:
+         # interal-objects contains a string representation of a JSON sequence of strings.
+         s_internal_objects = json.loads(s_internal_objects_str)
+      if s_internal_objects:
+         accumulate_set("Internal object", "Internal objects", s_internal_objects, m_internal_objects)
+      else:
+         print("   Note: Source CSV has no internal objects listed.")
 
       # Accumulate keywords into the output set.
       s_keywords = get_seq(s_spec, "keywords")
@@ -344,6 +367,10 @@ def main():
    # Convert ALM examples into a sting representation and plug into annotations.
    o_alm_examples_str = json.dumps(o_alm_examples, sort_keys=False)
    o_annotations["alm-examples"] = o_alm_examples_str
+
+   # Convert accumulated internal objects into a string representation and plug into annotations.
+   o_internal_objects_str = json.dumps(list(m_internal_objects), sort_keys=False)
+   o_annotations[internal_objects_annotation_name] = o_internal_objects_str
 
    o_spec["version"]  = csv_vers
 
