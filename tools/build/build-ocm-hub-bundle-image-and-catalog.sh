@@ -16,7 +16,6 @@ tools_dir="$top_of_repo/tools"
 # -- Args --
 
 # $1 Bundle version for this bundle (Format: x.y.z[-iter]).  (Required)
-# $2 Version of bundle replaced by this one (Format: x.y.z[-iter]).  Default: None
 #
 # -r remote Registry server/namespace. (Default: quay.io/open-cluster-management)
 # -b Budnle repository name (default: multicluster-hub-operator-bundle)
@@ -68,10 +67,9 @@ if [[ -z "$bundle_vers" ]]; then
    >&2 echo "Error: Bundle version (x.y.z[-iter]) is required."
    exit 1
 fi
-prev_vers="$2"
-if [[ -z "$prev_vers" ]]; then
-   echo "Note: This bundle will not be configured as replacing a previous bundle version."
-fi
+
+echo "Note: This bundle will not include any replacement-graph properties."
+prev_vers="none"
 
 if [[ -n "$image_tag" ]]; then
    dash_t_opt="-t $image_tag"

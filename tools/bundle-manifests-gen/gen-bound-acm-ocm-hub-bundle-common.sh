@@ -29,6 +29,10 @@
 #
 # -i Image key mapping spec. At least one required.
 #
+# -U Suppress insertion of all replacement-graph-related properties in the CSV
+#    (replaces, skips, and/or olm.skipRange).  Overrides any -p or -k option
+#    specified, or automatic generation of these aspects if omitted.
+#
 #
 # Source pkg:  this_repo/operator-bundles/unbound/<package-name>
 # Output pkg:  this_repo/operator-bundles/bound/<package-name>
@@ -48,9 +52,10 @@ top_of_repo=$(readlink  -f $my_dir/../..)
 
 #--- Args ---
 
-opt_flags="n:v:p:K:d:c:C:i:"
+opt_flags="n:v:p:K:d:c:C:i:U"
 
 image_key_mappings=()
+suppress_repl_graph_stuff=0
 
 while getopts "$opt_flags" OPTION; do
 
@@ -79,6 +84,8 @@ while getopts "$opt_flags" OPTION; do
       C) candidate_channel_prefix="$OPTARG"
          ;;
       i) image_key_mappings+=("$OPTARG")
+         ;;
+      U) suppress_repl_graph_stuff=1
          ;;
       ?) exit 1
          ;;
@@ -213,15 +220,12 @@ else
 
 fi
 
-if [[ -n "$explicit_prev_csv_vers" ]]; then
-   echo "NOTE: Explicitly-specified previous release number is being used."
-   replaces_rel_nr=$explicit_prev_csv_vers
+if [[ $suppress_repl_graph_stuff -eq 0 ]]; then
+   if [[ -n "$explicit_prev_csv_vers" ]]; then
+      echo "NOTE: Explicitly-specified previous release number is being used."
+      replaces_rel_nr=$explicit_prev_csv_vers
+   fi
 fi
-
-dash_cap_k_options=""
-for skip in $skip_list; do
-   dash_cap_k_options="$dash_cap_k_options -K $skip"
-done
 
 # Random notes on replacement-chain approach for upstream snapshots:
 #
@@ -333,28 +337,44 @@ if [[ -n "$default_channel" ]]; then
    dash_lower_d_option="-d $default_channel"
 fi
 
-# Form the previous-bundle arg and/or skip-range arg if appropraite.
+# Form the previous-bundle arg and/or skip-range and/or skip args if appropraite
+# unless we're skipping all replacement-graph stuff.
 
-if [[ -n "$replaces_rel_nr" ]]; then
-   dash_lower_p_opt="-p $replaces_rel_nr"
-fi
-if [[ -n "$skip_range" ]]; then
-   # Skip range probably contains blank separated expressions which need to be kept
-   # together and passsed as a single argument element. So we either have to contribute
-   # nothing to the final command (i.e. not including a null-valued arg entry), or an
-   # ooption followed by its args as a two argument entries.
-   #
-   # It might be possible to achieve this by runnning the final command through "eval"
-   # together with appropriately escaped-quoting in setting dash_lower_k_opt here,
-   # but use of eval is obscure/subtle and might have side effects on other parts of
-   # htis code not written thinking the final command weould go through an eval resolution
-   # befoer being passed to the shell.
-   #
-   # So instead, we can do this via use of  an array, together with ${var:+value} expression
-   # to consume the value later.
+if [[ $suppress_repl_graph_stuff -eq 0 ]]; then
 
-   dash_lower_k_opt=("-k" "$skip_range")
+   if [[ -n "$replaces_rel_nr" ]]; then
+      dash_lower_p_opt="-p $replaces_rel_nr"
+   fi
+   if [[ -n "$skip_range" ]]; then
+      # Skip range probably contains blank separated expressions which need to be kept
+      # together and passsed as a single argument element. So we either have to contribute
+      # nothing to the final command (i.e. not including a null-valued arg entry), or an
+      # ooption followed by its args as a two argument entries.
+      #
+      # It might be possible to achieve this by runnning the final command through "eval"
+      # together with appropriately escaped-quoting in setting dash_lower_k_opt here,
+      # but use of eval is obscure/subtle and might have side effects on other parts of
+      # htis code not written thinking the final command weould go through an eval resolution
+      # befoer being passed to the shell.
+      #
+      # So instead, we can do this via use of  an array, together with ${var:+value} expression
+      # to consume the value later.
+
+      dash_lower_k_opt=("-k" "$skip_range")
+   fi
+
+   dash_cap_k_options=""
+   for skip in $skip_list; do
+      dash_cap_k_options="$dash_cap_k_options -K $skip"
+   done
+
+else
+   echo "NOTE: All replacement-graph-related properties are being suppressed for the CSV/bundle."
+   replaces_rel_nr=""
+   skip_range=""
+   skip_list=""
 fi
+
 
 # Form the list of -i image-key-mapping arguments.
 
