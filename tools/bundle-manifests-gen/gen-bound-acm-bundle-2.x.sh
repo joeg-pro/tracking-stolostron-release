@@ -8,7 +8,7 @@
 #      starting with a dash indicates an RC/SNAPSHOT build.  Required.
 #
 # $2 = Method for handling generation of replacement-graph properties.  If
-#      specified as the value "nonoe" then no upgrade-graph properties are put
+#      specified as the value "none" then no upgrade-graph properties are put
 #      into the CSV/bundle (to support upstream builds which don't yet build a
 #      multi-bundle catalog).  If specified as "auto" or omitted or null,
 #      replacment-graph properties are automatically computed and placed in

@@ -7,11 +7,15 @@
 # $1 = Bundle version number in x.y.z[-suffix] form.  Presence of a suffix
 #      starting with a dash indicates an RC/SNAPSHOT build.  Required.
 #
-# $2 = Obsolete and now ignored: Version of the immediately-previous bundle to be
-#      replaced by this one via the replaces attribute. or "auto" to determine htis
-#      based on semver practices.
+# $2 = Method for handling generation of replacement-graph properties.  If
+#      specified as the value "none" then no upgrade-graph properties are put
+#      into the CSV/bundle (to support upstream builds which don't yet build a
+#      multi-bundle catalog).  If specified as "auto" or omitted or null,
+#      replacment-graph properties are automatically computed and placed in
+#      the CSV.
 #
-#      Now: Always treated as if "auto" was specified.
+#      Historically, this position parameter used to speciy the previon-release
+#      version number for use in forming the replacement-graph properties.
 #
 # $3 = Explicit default-channel name, overrides any automatic determination or
 #      management of same.
@@ -36,8 +40,15 @@ if [[ -z "$bundle_vers" ]]; then
 fi
 this_rel_nr=${bundle_vers%-*}  # Remove [-iter] if present.
 
-replaces_rel_nr="auto"
-# Syntax compatibility, but ignore $2.  Underlying -common script always does "auto".
+# Note: The handling of $2 has evolved a lot, from originally being the number
+# of the immediately predecessor release, to being fully ignored, to now being
+# a way to suppress insertion of replacement-graph properties.
+
+if [[ "$2" == "none" ]]; then
+   suppress_repl_graph_stuff=1
+else
+   suppress_repl_graph_stuff=0
+fi
 
 explicit_default_channel="$3"
 
@@ -84,6 +95,10 @@ if [[ "$rel_x" -ge 2 ]]; then
 
 fi
 
+if [[ $suppress_repl_graph_stuff -eq 1 ]]; then
+   suppress_repl_graph_option="-U"
+fi
+
 # Pass along an explicit default channel if specified.
 if [[ -n "$explicit_default_channel" ]]; then
    dash_lower_d_option="-d $explicit_default_channel"
@@ -97,6 +112,7 @@ done
 
 $my_dir/gen-bound-acm-ocm-hub-bundle-common.sh \
    -n "$pkg_name" -v "$bundle_vers" \
+   $suppress_repl_graph_option \
    -c $release_channel_prefix -C $candidate_channel_prefix \
    $dash_lower_d_option \
    ${dash_lower_i_opts:+"${dash_lower_i_opts[@]}"}
