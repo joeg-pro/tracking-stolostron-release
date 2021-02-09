@@ -37,8 +37,8 @@ csv_template="$my_dir/acm-csv-template.yaml"
 # just hacked in a temporary bypass, but this is getting to be a theme so we make
 # this a bit more explicit.
 
-appsub_use_previous_release_channel_override=0
-hive_use_previous_release_channel_override=0
+appsub_use_previous_release_channel_override=1
+hive_use_previous_release_channel_override=1
 
 # The CSV version and previous CSV version are not really important un the unbound bundle
 # because they will be set/overridden anyway in the creation of the bound bundle.
