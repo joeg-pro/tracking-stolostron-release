@@ -169,14 +169,12 @@ def get_gvks_for_crd(crd_map):
       this_gvk = "%s/%s/%s" % (group, vers, kind)
       gvks.append(this_gvk)
 
-   # TEMP DISABLE;  A combination of factors has led to the constrain that ACM can't
-   # deliver V1 CRDs in the bundle until the oldest OCP release supported by ACM is
-   # OCP 4.6 or later.  So the following support for V1 CRDs is premature.  We want
-   # atttempts to use V1 CRDs to result in build breaks until we are clear to use
-   # them, so we're temporarily disabling the V1 support.  Reenable this for
-   # ACM 2.3.
+   # NB: This function is now enabled to allow V1 CRDs in the bundle. This should be in
+   # effect for ACM 2.3 and beyond.  If changes to this part need to be back ported into
+   # the branches for ACM 2.2 or earlier, be sure to re-disable V1 CRDs.
 
-   elif crd_api_vers == "--v1-disabled-for-now--":
+   # elif crd_api_vers == "--v1-disabled-for-now--":
+   elif crd_api_vers == "v1":
       # A v1 CRD can define a list of versions.
       version_entries = spec["versions"]
       for ve in version_entries:
