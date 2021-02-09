@@ -204,8 +204,12 @@ def main():
          # Bug?: OLM doc isn't clear on format, but treating them as YAMML nght not be right,
          # esp. since when we plug them into the merged CSV we do so as JSON.  But its been
          # working up until now, so we'll leave well enough alone for now.
-         #
-         s_alm_examples = yaml.load(s_alm_examples_str, Loader=yaml_loader)
+
+         try:
+            s_alm_examples = yaml.load(s_alm_examples_str, Loader=yaml_loader)
+         except json.decoder.JSONDecodeError:
+            emsg("Value of alm-examples annotation is not a valid JSON string.")
+            raise
       if s_alm_examples:
          accumulate_keyed("ALM example", s_alm_examples, m_alm_examples, get_avk)
       else:
@@ -217,7 +221,11 @@ def main():
       s_internal_objects_str = get_scalar(s_annotations, internal_objects_annotation_name)
       if s_internal_objects_str:
          # interal-objects contains a string representation of a JSON sequence of strings.
-         s_internal_objects = json.loads(s_internal_objects_str)
+         try:
+            s_internal_objects = json.loads(s_internal_objects_str)
+         except json.decoder.JSONDecodeError:
+            emsg("Value of internal-objects annotation is not a valid JSON string.")
+            raise
       if s_internal_objects:
          accumulate_set("Internal object", "Internal objects", s_internal_objects, m_internal_objects)
       else:
