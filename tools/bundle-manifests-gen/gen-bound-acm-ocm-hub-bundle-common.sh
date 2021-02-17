@@ -127,7 +127,6 @@ else
 fi
 this_rel_nr=${bundle_vers%-*}  # Remove [-iter] if present.
 
-
 old_IFS=$IFS
 IFS=. rel_xyz=(${this_rel_nr%-*})
 rel_x=${rel_xyz[0]}
@@ -167,8 +166,8 @@ elif [[ "$rel_z" == "0" ]]; then
    # This is the second or subsequent feature release of a major version, i.e.
    # 2.1.0, 2.2.0, etc.
    #
-   # It has no single immediate predecessor but should be an upgrade from any
-   # release (iniitial or patch) of the prior feature release.
+   # It has no in-channel predecessor but is an upgrade from any release (iniitial
+   # or patch) of the pprevious feature release x.(y-1).
    #
    # Hence, it has no replaces property but does have a skip range.
 
@@ -186,14 +185,34 @@ elif [[ "$rel_y" == "0" ]]; then
    # This is a z-stream/patch release of the first feature release of a major
    # version, i.e. 2.0.1, 2.0.2.
    #
-   # Its predecessor is simply the z-1 release of the same x.y feature release. Since this is
-   # in the z-stream of the first feature release, there is no need for a skipRange to handle
-   # upgrade from a prior feature release.
+   # Its in-channel predecessor is the x.y.(z-1) release (same x.y feature release).
+   # There is no predecessor feature release within its major version so there
+   # is no previous feature release for which it is an upgrade.
+   #
+   # For releases prior to 2.2.0:
+   #
+   # - We want a customers to do stricly squential upgrades within the feature
+   #   release's z-stream (.z to .z+1). Thus there is no need to use skipRange to
+   #   premit skipping within z-stream.  Future, because this is no predecessor
+   #   feature release in major version, there is no need for a skipRange to handle
+   #   upgrade from prior feature release.  Hence no skipRange in this case.
+   #
+   # For releases starting with 2.2.0:
+   #
+   # - We now allow skipping within a feature release's z-stream, so we apply a
+   #   skipRange to allow skipping of all preioir .z releases for this feature
+   #   release.
 
    prev_rel_z=$((rel_z-1))
-   replaces_rel_nr="$rel_x.$rel_y.$prev_rel_z"
-   skip_range=""
+
    specify_default_channel=0
+   replaces_rel_nr="$rel_x.$rel_y.$prev_rel_z"
+
+   if [[ "$rel_x" -le 2 ]] && [[ "$rel_y" -lt 2 ]]; then
+      skip_range=""
+   else
+      skip_range=">=$rel_x.rel_y.0 <$rel_x.$rel_y.$rel_z"
+   fi
 
    echo "Release $this_rel_nr is a patch release of the first feature release of major version v$rel_x."
    # echo "The bundle will have a replaces property specifying: $replaces_rel_nr."
@@ -204,15 +223,46 @@ else
    # This is a z-stream/patch release of a second or subsequente feature release,
    # i.e. 2.1.1 or 2.2.1.
    #
-   # Its predecessor is simply the z-1 release of the same x.y feature release.  But to make
-   # OLM upgrade works, it also needs to be an upgrade from any release (initial or patch)
-   # of the prior feature release.
+   # Its in-channel predecessor is the x.y.(z-1) release (same x.y feature release).
+   # It is also an upgrade from any release (initial or patch) of the previous
+   # feature release x.(y-1).
+   #
+   # For releases prior to 2.2.0:
+   #
+   # - We want a customers to do stricly squential upgrades within the feature
+   #   release's z-stream (.z to .z+1). Thus there is no need to use skipRange to
+   #   premit skipping within z-stream. But we need to allow an upgrade from any
+   #   release (initial or path) of the prior feature release stream.  So we
+   #   specify a skipRange that allows just that.
+   #
+   # For releases starting with 2.2.0:
+   #
+   # - We now allow skipping within a feature release's z-stream, so we apply a
+   #   skipRange to allow skipping of all preioir .z releases for this feature
+   #   release.  And since we also need to premit upgrade from the prior release,
+   #   we expand the skipRange to include all releases of the prior feature
+   #   release (initial and patch) as well.
+   #
+   #   Intuition might suggest that with this skipRange now in effect there is no
+   #   need to specify the replaces property anymore.  But because we still want to
+   #   allow the customer to install prior releases (and we certainly need to do this
+   #   in dev for testing of upgrade combinations), we need to continue to specify
+   #   the replace property to keep prior versions in the index.  This is discussed
+   #   in the following Google doc prepared by the operator pipeline/OLM team:
+   #
+   #   https://docs.google.com/document/d/1N29w764eZroOywvLK1tb00XqX40A9yo4ghmSLE9PaMI/edit#heading=h.rmlu2bexicpd
 
    prev_rel_y=$((rel_y-1))
    prev_rel_z=$((rel_z-1))
-   replaces_rel_nr="$rel_x.$rel_y.$prev_rel_z"
-   skip_range=">=$rel_x.$prev_rel_y.0 <$rel_x.$rel_y.0"
+
    specify_default_channel=0
+   replaces_rel_nr="$rel_x.$rel_y.$prev_rel_z"
+
+   if [[ "$rel_x" -le 2 ]] && [[ "$rel_y" -lt 2 ]]; then
+      skip_range=">=$rel_x.$prev_rel_y.0 <$rel_x.$rel_y.0"
+   else
+      skip_range=">=$rel_x.$prev_rel_y.0 <$rel_x.$rel_y.$rel_z"
+   fi
 
    echo "Release $this_rel_nr is a patch release of follow-on in-maj-version feature release $rel_x.$rel_y."
    # echo "The bundle will have a replaces property specifying: $replaces_rel_nr."
