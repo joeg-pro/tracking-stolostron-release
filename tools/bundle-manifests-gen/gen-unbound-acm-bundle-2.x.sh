@@ -32,14 +32,6 @@ acm_pkg_name="advanced-cluster-management"
 # And the template needs to be per-release too:
 csv_template="$my_dir/acm-csv-template.yaml"
 
-# Historically, community-operator owners are slow to get release-related channels
-# into their packages when we begin work on a new feature release.  In the past we've
-# just hacked in a temporary bypass, but this is getting to be a theme so we make
-# this a bit more explicit.
-
-appsub_use_previous_release_channel_override=1
-hive_use_previous_release_channel_override=1
-
 # The CSV version and previous CSV version are not really important un the unbound bundle
 # because they will be set/overridden anyway in the creation of the bound bundle.
 
@@ -50,6 +42,18 @@ if [[ -z "$new_csv_vers" ]]; then
 fi
 
 prev_csv_vers="$2"
+
+# Historically, community-operator owners are slow to get release-related channels
+# into their packages when we begin work on a new feature release.  In the past we've
+# just hacked in a temporary bypass, but this is getting to be a theme so we make
+# this a bit fancier.
+
+appsub_use_previous_release_channel_override=0
+hive_use_previous_release_channel_override=0
+if [[ "$new_csv_vers" == "2.3.0" ]]; then
+   appsub_use_previous_release_channel_override=1
+   hive_use_previous_release_channel_override=1
+fi
 
 oldIFS=$IFS
 IFS=. rel_xyz=(${new_csv_vers%-*})
