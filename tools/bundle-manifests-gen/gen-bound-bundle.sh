@@ -160,17 +160,24 @@ if [[ ! -d $bound_pkg_dir ]]; then
    exit 2
 fi
 
-if [[ -f $unbound_pkg_dir/package.yaml ]]; then
-   unbound_bundle=$($my_dir/find-bundle-dir.py "latest" $unbound_pkg_dir)
-   if [[ $? -ne 0 ]]; then
-      >&2 echo "Error: Could not find source bundle directory for unbound ACM bundle."
-      >&2 echo "Aborting."
-      exit 2
-   fi
-else
-   # Lets guess we were given a bundle directory rather than a package directory.
-   unbound_bundle=$unbound_pkg_dir
-fi
+# The following use of package.yaml is related to an old thought of using that
+# package-level file to hold the state as to the current (last-released) version
+# in each channel.  This idea was never really fleshed out and put into production
+# use.  This vertigal stuff slows things done and causes wrong results in dev testing
+# use cases, so we're disabling it.
+
+# if [[ -f $unbound_pkg_dir/package.yaml ]]; then
+#    unbound_bundle=$($my_dir/find-bundle-dir.py "latest" $unbound_pkg_dir)
+#    if [[ $? -ne 0 ]]; then
+#       >&2 echo "Error: Could not find source bundle directory for unbound ACM bundle."
+#       >&2 echo "Aborting."
+#       exit 2
+#    fi
+# else
+#    # Lets guess we were given a bundle directory rather than a package directory.
+#    unbound_bundle=$unbound_pkg_dir
+# fi
+unbound_bundle="$unbound_pkg_dir/$new_csv_vers"
 
 name_to_key_options=""
 for ink in $image_name_to_keys; do
