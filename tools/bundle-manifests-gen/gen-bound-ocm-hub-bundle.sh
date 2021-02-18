@@ -28,11 +28,9 @@ IFS=$old_IFS
 
 rel_xy="$rel_x.$rel_y"
 
-if [[ "$rel_xy" == "1.0" ]]; then
-   echo "Info: Using release 1.0 version of bundle generation script."
    rel_qualifier="1.0"
-elif [[ "$rel_x" -ge 2 ]]; then
-   echo "Info: Using release 2.x+ version of bundle generation script."
+if [[ "$rel_x" -ge 2 ]]; then
+   # echo "Info: Using release 2.x+ version of bundle generation script."
    rel_qualifier="2.x"
 else
    # Catch an unexpected 1.y release
