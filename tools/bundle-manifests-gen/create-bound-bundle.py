@@ -176,7 +176,6 @@ def main():
    parser.add_argument("--pkg-dir",  dest="pkg_dir_pathn", required=True)
    parser.add_argument("--pkg-name", dest="pkg_name", required=True)
 
-   parser.add_argument("--use-bundle-image-format", dest="use_bundle_image_format", action="store_true")
    parser.add_argument("--add-related-images",      dest="add_related_images", action="store_true")
 
    parser.add_argument("--default-channel",    dest="default_channel")
@@ -199,8 +198,6 @@ def main():
    operator_name  = args.pkg_name
    pkg_name       = args.pkg_name
    pkg_dir_pathn  = args.pkg_dir_pathn
-
-   use_bundle_image_format = args.use_bundle_image_format
 
    replaces_channel = args.replaces_channel
    other_channels   = args.other_channels
@@ -235,22 +232,8 @@ def main():
    image_manifest = load_image_manifest(image_manifest_pathn, rgy_ns_override_specs)
    image_key_mapping = load_image_key_maping(image_name_to_key_specs, image_manifest)
 
-   # There seem to be several formats for a bundle directore, depending on how they
-   # are being published: being placed in an operator bundle image, or made available
-   # some other way (eg. via a Quay.io Application Repo).
-   #
-   # When the bundle is in bundle-image format, the bundle directory has a manifests
-   # subdirectory containing all CSV, CRD manifests, and a metadata directory containing
-   # an annotations manifest. When other formats these subdirectories do not exist and
-   # all manifests are in the bundle directory itself.  (The bits of metadata are instead
-   # in a package.yamml in the package directory containing the bundle.)
-
-   if use_bundle_image_format:
-      bundle_pathn = os.path.join(pkg_dir_pathn, csv_vers, "manifests")
-   else:
-      bundle_pathn = os.path.join(pkg_dir_pathn, csv_vers)
+   bundle_pathn = os.path.join(pkg_dir_pathn, csv_vers, "manifests")
    create_or_empty_directory("outout bundle manifests", bundle_pathn)
-
 
    # Load or create the (output) package manifest.
 
@@ -259,13 +242,10 @@ def main():
    if default_channel:
       pkg_manifest["defaultChannel"] = default_channel
    else:
-      if use_bundle_image_format:
-         try:
-            del pkg_manifest["defaultChannel"]
-         except KeyError:
-            pass
-      else:
-         die("A default channel is required when using package-manifest format.")
+      try:
+         del pkg_manifest["defaultChannel"]
+      except KeyError:
+         pass
 
    # See if this CSV is to replace an existing one as determeined by:
    #
@@ -396,38 +376,37 @@ def main():
 
    # Generate metadata/annotatoins
 
-   if use_bundle_image_format:
-      metadata_pathn = os.path.join(pkg_dir_pathn, csv_vers, "metadata")
-      create_or_empty_directory("outout bundle metadata", metadata_pathn)
+   metadata_pathn = os.path.join(pkg_dir_pathn, csv_vers, "metadata")
+   create_or_empty_directory("outout bundle metadata", metadata_pathn)
 
-      annotations_manifest = dict()
-      annotations_manifest["annotations"] = dict()
-      annot = annotations_manifest["annotations"]
+   annotations_manifest = dict()
+   annotations_manifest["annotations"] = dict()
+   annot = annotations_manifest["annotations"]
 
-      annot["operators.operatorframework.io.bundle.mediatype.v1"] = "registry+v1"
-      annot["operators.operatorframework.io.bundle.manifests.v1"] = "manifests/"
-      annot["operators.operatorframework.io.bundle.metadata.v1"]  = "metadata/"
+   annot["operators.operatorframework.io.bundle.mediatype.v1"] = "registry+v1"
+   annot["operators.operatorframework.io.bundle.manifests.v1"] = "manifests/"
+   annot["operators.operatorframework.io.bundle.metadata.v1"]  = "metadata/"
 
-      annot["operators.operatorframework.io.bundle.package.v1"] = pkg_name
+   annot["operators.operatorframework.io.bundle.package.v1"] = pkg_name
 
-      channels_list = ','.join(sorted(list(channels_to_update)))
-      annot["operators.operatorframework.io.bundle.channels.v1"] = channels_list
+   channels_list = ','.join(sorted(list(channels_to_update)))
+   annot["operators.operatorframework.io.bundle.channels.v1"] = channels_list
 
-      # Observation: Having a default channel annotation be a property of a bundle
-      # (representing a specific version of a CSV) seems odd, as this is really a
-      # property of the package, not a paritcular CSV.  I wonder what the result is if
-      # multiple CSVs decleare different defaults??
-      #
-      # Update:  It seems its a last-one-(into the index image)-wins situation applies here.
-      # And also, there are cases where we don't want to specify a default channel and OPM/OLM
-      # now allows this).
+   # Observation: Having a default channel annotation be a property of a bundle
+   # (representing a specific version of a CSV) seems odd, as this is really a
+   # property of the package, not a paritcular CSV.  I wonder what the result is if
+   # multiple CSVs decleare different defaults??
+   #
+   # Update:  It seems its a last-one-(into the index image)-wins situation applies here.
+   # And also, there are cases where we don't want to specify a default channel and OPM/OLM
+   # now allows this).
 
-      if default_channel:
-         annot["operators.operatorframework.io.bundle.channel.default.v1"] = default_channel
+   if default_channel:
+      annot["operators.operatorframework.io.bundle.channel.default.v1"] = default_channel
 
-      print("Writing bundle metadata.")
-      bundle_annotations_pathn = os.path.join(metadata_pathn, "annotations.yaml")
-      dump_manifest("bundle metadata", bundle_annotations_pathn, annotations_manifest)
+   print("Writing bundle metadata.")
+   bundle_annotations_pathn = os.path.join(metadata_pathn, "annotations.yaml")
+   dump_manifest("bundle metadata", bundle_annotations_pathn, annotations_manifest)
 
    # Update the package manifest to point to the new CSV
 

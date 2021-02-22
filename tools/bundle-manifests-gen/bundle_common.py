@@ -404,7 +404,7 @@ def find_current_bundle_for_package(pkg_pathn, selected_channel):
 # Split a string into left and right parts based on a delimited.
 # If not delivered, favor_right controls if the string is considered
 # to be all-right or all-left.
-def split_at(the_str, the_delim, favor_right = True):
+def split_at(the_str, the_delim, favor_right=True):
 
    split_pos = the_str.find(the_delim)
    if split_pos > 0:

@@ -249,7 +249,6 @@ $my_dir/create-bound-bundle.py \
    --csv-vers "$new_csv_vers" $prev_vers_option \
    $skip_options \
    ${skip_range_option:+"${skip_range_option[@]}"}  \
-   --use-bundle-image-format \
    --add-related-images \
    $default_channel_option $addl_channel_options \
    $name_to_key_options $rgy_ns_override_options
