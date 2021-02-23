@@ -1,10 +1,14 @@
 #!/bin/bash
 #
 # This script takes an unbound operator bundle as input, and produces a bound operator
-# bundle as output. The "binding" action consists of editing the bundle's CSV to replace
-# placeholder image references with actual image refernces (based an image manifest file),
-# and establishing establising the bundle's/CSV final version and replaced bundle/CSV
-# attributes.
+# bundle as output. The "binding" (sometimes called "pinning") action involves editing
+# the CSV to make a number of changes to finalize the bundle, including:
+#
+# - Replacing placeholder image references with actual image refernces based
+#   the image manifest file maintained by the build pipeline
+# - Adding related-images information
+# - Establishing the bundle's/CSV final version
+# - Setting CSV properties that indicate its upgrade handling
 #
 # Its expect this script would be used as one of the last steps in:
 #
@@ -23,10 +27,12 @@
 #
 # - Version info for the operator bundle release being generated.
 #
-# - Version number of the previous operator bundle release within the same package that
-#   is to be considered replaced by this release, if any.
+# - Version numbers of the previous operator bundle release or range of releases that
+#   are considered predecessors for which an upgrade to this bundle is allowed.
 #
 # Notes:
+#
+# - Requires Bash 4.4 or newer.
 #
 # - This script (actually the underlying Python it calls) generates the bound boundle
 #   in bundle-image format with manifests and metadata subdirectories per that format.
@@ -54,18 +60,41 @@ my_dir=$(dirname $(readlink -f $0))
 
 # -I Pathname of source (Input) package (or bundle).
 # -O Pathname of (Output) package directory into which generated bundle is written.
+# -m pathname of image Manifest file.
+#
 # -n Package Name.
 # -v Version (x.y.z) of generated bundle.
+#
 # -p version of Previous bundle/CSV to be replaced by this one (optional).
 # -k Skip-range specification for this bundle (optional)
 # -K Specific previous bundle/CSV versions to skip (Optionial, can be repeated)
-# -m pathname of image Manifest file.
-# -d Default channel name.
-# -c Additional Channel name (can be repeated).
+#
+# -d Default channel name (optioinal).
+# -c Additional Channel name (optional, can be repeated).
+#
 # -i Image key mapping spec (can be repeated).
-# -r rgy-and-ns override spec (can be repeated).
+# -r rgy-and-ns override spec (optional, can be repeated).
+#
+# -E Omit related-images list (optional).
+# -e Deployment/container to receive image-ref env vars (optional, can be repeated).
+#
+# -T Use image tags rather than digest.
+# -t Tag override: Tag used for all images overrides any tag from image manifest.
+# -s Tag suffix: Suffix appended to all tags, overrides any suffix from image manifest.
+#
+# Specifying -t or -s implies the use of tags (-T).
 
-opt_flags="I:O:n:v:p:k:K:m:d:c:i:r:"
+opt_flags="I:O:n:v:p:k:K:m:d:c:i:r:Ee:Tt:s:"
+
+omit_related_images=0
+
+# For collecting options that are basically pass-thru:
+
+add_image_ref_opts=()
+addl_channel_opts=()
+name_to_key_opts=()
+rgy_ns_override_opts=()
+skip_opts=()
 
 while getopts "$opt_flags" OPTION; do
 
@@ -87,21 +116,31 @@ while getopts "$opt_flags" OPTION; do
          ;;
       v) new_csv_vers="$OPTARG"
          ;;
-      p) prev_csv_vers="$OPTARG"
-         ;;
-      k) skip_range="$OPTARG"
-         ;;
-      K) skip_list="$skip_list $OPTARG"
-         ;;
       m) image_manifest="$OPTARG"
          ;;
-      d) default_channel="$OPTARG"
+      p) prev_vers_opt=("--prev-ver" "$OPTARG")
          ;;
-      c) additional_channels="$additional_channels $OPTARG"
+      k) skip_range_opt=("--skip-range" "$OPTARG")
          ;;
-      i) image_name_to_keys="$image_name_to_keys $OPTARG"
+      K) skip_opts+=("--skip" "$OPTARG")
          ;;
-      r) rgy_ns_overrides="$rgy_ns_overrides $OPTARG"
+      d) default_channel_opt=("--default-channel" "$OPTARG")
+         ;;
+      c) addl_channel_opts+=("--additional-channel" "$OPTARG")
+         ;;
+      r) rgy_ns_override_opts+=("--rgy-ns-override" "$OPTARG")
+         ;;
+      E) omit_related_images=1
+         ;;
+      e) add_image_ref_opts+=("--add-image-ref-env-vars-to" "$OPTARG")
+         ;;
+      i) name_to_key_opts+=("--image-name-to-key" "$OPTARG")
+         ;;
+      T) use_image_tags_opt="--use-image-tags"
+         ;;
+      t) tag_override_opt=("--tag-override" "$OPTARG")
+         ;;
+      s) tag_suffix_opt=("--tag-suffix" "$OPTARG")
          ;;
       ?) exit 1
          ;;
@@ -126,18 +165,18 @@ if [[ -z "$new_csv_vers" ]]; then
    exit 1
 fi
 if [[ -z "$image_manifest" ]]; then
-   >&2 echo "Error: Image manifest file pathanem not specified (-m)."
+   >&2 echo "Error: Image manifest file pathname not specified (-m)."
    exit 1
 fi
-if [[ -z "$additional_channels" ]]; then
+if [[ -z "$addl_channel_opts" ]]; then
    >&2 echo "Error: At least one to-be-added-to package channel name is required (-c)."
    exit 1
 fi
-if [[ -z "$image_name_to_keys" ]]; then
+if [[ -z "$name_to_key_opts" ]]; then
    >&2 echo "Error: At least one image-name-to-key mapping is required (-i)."
    exit 1
 fi
-if [[ -z "$prev_csv_vers" ]]; then
+if [[ -z "$prev_csv_vers_opt" ]]; then
    >&2 echo "Note: No previous/replaced bundle/CSV version specified (-p)."
 fi
 
@@ -179,77 +218,21 @@ fi
 # fi
 unbound_bundle="$unbound_pkg_dir/$new_csv_vers"
 
-name_to_key_options=""
-for ink in $image_name_to_keys; do
-   name_to_key_options="$name_to_key_options --image-name-to-key $ink"
-done
+# Use of add-related-images used to be unconditional, now add it unless
+# we've been asked to omit it.
 
-rgy_ns_override_options=""
-for rno in $rgy_ns_overrides; do
-   rgy_ns_override_options="$rgy_ns_override_options --rgy-ns-override $rno"
-done
-
-# If a previous CSV versioin has been specified, pass it on.
-if [[ -n "$prev_csv_vers" ]]; then
-   prev_vers_option="--prev-ver $prev_csv_vers"
+if [[ $omit_related_images -eq 0 ]]; then
+   add_related_images_opt="--add-related-images"
 fi
-
-# If a skip-range has been specified, pass it on.
-
-if [[ -n "$skip_range" ]]; then
-   # Skip range probably contains blank separated expressions which need to be kept
-   # together and passsed as a single argument element. So we either have to contribute
-   # nothing to the final command (i.e. not including a null-valued arg entry), or an
-   # ooption followed by its args as a two argument entries.
-   #
-   # It might be possible to achieve this by runnning the final command through "eval"
-   # together with appropriately escaped-quoting in setting dash_lower_k_opt here,
-   # but use of eval is obscure/subtle and might have side effects on other parts of
-   # htis code not written thinking the final command weould go through an eval resolution
-   # befoer being passed to the shell.
-   #
-   # So instead, we can do this via use of  an array, together with ${var:+value} expression
-   # to consume the value later.
-
-   skip_range_option=("--skip-range" "$skip_range")
-fi
-
-skip_options=""
-for skip in $skip_list; do
-   skip_options="$skip_options --skip $skip"
-done
-
-# If default channel is specified, pass it on.
-if [[ -n "$default_channel" ]]; then
-   default_channel_option="--default-channel $default_channel"
-fi
-
-# Form additional-channel options from the additiona_channels list:
-addl_channel_optons=""
-for c in $additional_channels; do
-   addl_channel_options="$additional_channel_options --additional-channel $c"
-done
-
-# Channel stuff:
-#
-# We build the output bundle in (what we'll call) bundle-image format.
-#
-# This format asks for metadata regarding the channels on which this bundle release
-# is to be posted as the current version.
-#
-#
-# As mentioned in prolog comments, the create-bound-bundle script maintains channel
-# info in a package.yaml manifest as it appears to be used in App Repository type
-# bundles.
 
 $my_dir/create-bound-bundle.py \
    --image-manifest "$image_manifest" \
    --pkg-name "$pkg_name" --pkg-dir "$bound_pkg_dir" \
    --source-bundle-dir "$unbound_bundle" \
-   --csv-vers "$new_csv_vers" $prev_vers_option \
-   $skip_options \
-   ${skip_range_option:+"${skip_range_option[@]}"}  \
-   --add-related-images \
-   $default_channel_option $addl_channel_options \
-   $name_to_key_options $rgy_ns_override_options
+   --csv-vers "$new_csv_vers" "${prev_vers_opt[@]}" \
+   "${skip_opts[@]}" "${skip_range_opt[@]}" \
+   "${default_channel_opt[@]}" "${addl_channel_opts[@]}" \
+   "${name_to_key_opts[@]}" "${rgy_ns_override_opts[@]}" \
+   $add_related_images_opt "${add_image_ref_opts[@]}" \
+   $use_image_tags_opt "${tag_override_opt[@]}" "${tag_suffix_opt[@]}"
 

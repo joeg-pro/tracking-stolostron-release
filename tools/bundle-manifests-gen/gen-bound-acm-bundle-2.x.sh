@@ -7,12 +7,11 @@
 # $1 = Bundle version number in x.y.z[-suffix] form.  Presence of a suffix
 #      starting with a dash indicates an RC/SNAPSHOT build.  Required.
 #
-# $2 = Method for handling generation of replacement-graph properties.  If
-#      specified as the value "none" then no upgrade-graph properties are put
-#      into the CSV/bundle (to support upstream builds which don't yet build a
-#      multi-bundle catalog).  If specified as "auto" or omitted or null,
-#      replacment-graph properties are automatically computed and placed in
-#      the CSV.
+# $2 = Method for handling generation of replacement-graph properties.  If specified as
+#      the value "none" then no upgrade-graph properties are put into the CSV/bundle
+#      (to support upstream builds which don't yet build a  multi-bundle catalog).
+#      If specified as "auto" or omitted or null, replacment-graph properties are
+#      automatically computed and placed in the CSV.
 #
 #      Historically, this position parameter used to speciy the previon-release
 #      version number for use in forming the replacement-graph properties.
@@ -24,6 +23,8 @@
 # Output pkg:  this_repo/operator-bundles/bound/advanced-cluster-management
 #
 # Also needs:  The build's image manifest file in this_repo/image-manifests.
+#
+# Note: Requires Bash 4.4 or newer.
 
 me=$(basename $0)
 my_dir=$(dirname $(readlink -f $0))
@@ -80,8 +81,10 @@ image_key_mappings+=("multicluster-operators-channel:multicluster_operators_chan
 image_key_mappings+=("multicluster-operators-application:multicluster_operators_application")
 image_key_mappings+=("hive:openshift_hive")
 
-# Since ACM 2.0:
+# Since ACM 2.x:
 if [[ "$rel_x" -ge 2 ]]; then
+
+   # Since ACM 2.0:
    image_key_mappings+=("registration-operator:registration_operator")
 
    # Since ACM 2.1:
@@ -98,39 +101,59 @@ if [[ "$rel_x" -ge 2 ]]; then
    if [[ "$rel_y" -ge 3 ]]; then
       image_key_mappings+=("discovery-operator:discovery_operator")
   fi
-
 fi
 
+# Define the list of CSV deployment containers that are to have image-ref
+# environment variables injected for the bundle's related images.
+
+image_ref_containers=()
+
+# Since ACM 2.x:
+if [[ "$rel_x" -ge 2 ]]; then
+
+   # Since ACM 2.3:
+   if [[ "$rel_y" -ge 3 ]]; then
+      image_ref_containers+=("multiclusterhub-operator/multiclusterhub-operator")
+  fi
+fi
+
+# Squash all replacement graph stuff if requested.
 if [[ $suppress_repl_graph_stuff -eq 1 ]]; then
    suppress_repl_graph_option="-U"
 fi
 
 # Pass along an explicit default channel if specified.
 if [[ -n "$explicit_default_channel" ]]; then
-   dash_lower_d_option="-d $explicit_default_channel"
+   dash_lower_d_opt=("-d" "$explicit_default_channel")
 fi
 
-# Form the list of -i image-key-mapping arguments from the image_key_mappings:
+# Convert list of image-key-mappings to corresponding list of -i arguments:
 dash_lower_i_opts=()
 for m in "${image_key_mappings[@]}"; do
    dash_lower_i_opts+=("-i" "$m")
 done
 
+# Do the same kind of conversion for the list of add-image-ferfs-to container specs:
+dash_lower_e_opts=()
+for c in "${image_ref_containers[@]}"; do
+   dash_lower_e_opts+=("-e" "$c")
+done
+
 # Specify specific version skips we need to bypass bad releases:
-dash_upper_k_options=""
-dash_lower_p_opton=""
+dash_upper_k_opts=()
+dash_lower_p_opt=()
 if [[ $suppress_repl_graph_stuff -eq 0 ]]; then
    if [[ "$bundle_vers" == "2.1.2" ]]; then
-      dash_upper_k_options="$dash_upper_k_options -K 2.1.1"
-      dash_lower_p_option="-p 2.1.0"
+      dash_upper_k_opts+=("K" "2.1.1")
+      dash_lower_p_opt=("-p" "2.1.0")
    fi
 fi
 
 $my_dir/gen-bound-acm-ocm-hub-bundle-common.sh \
    -n "$pkg_name" -v "$bundle_vers" \
-   $dash_upper_k_options $dash_lower_p_option \
+   "${dash_upper_k_opts[@]}" "${dash_lower_p_opt[@]}" \
    $suppress_repl_graph_option \
    -c $release_channel_prefix -C $candidate_channel_prefix \
-   $dash_lower_d_option \
-   ${dash_lower_i_opts:+"${dash_lower_i_opts[@]}"}
+   "${dash_lower_d_opt[@]}" \
+   "${dash_lower_i_opts[@]}" "${dash_lower_e_opts[@]}"
 

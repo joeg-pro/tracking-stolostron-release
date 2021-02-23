@@ -29,10 +29,23 @@
 #
 # -i Image key mapping spec. At least one required.
 #
-# -U Suppress insertion of all replacement-graph-related properties in the CSV
-#    (replaces, skips, and/or olm.skipRange).  Overrides any -p or -k option
-#    specified, or automatic generation of these aspects if omitted.
+# -e Specifies a container within a CSV install deployment that is to be updated to inect
+#    a set of image-reference environment variables (RELATED_IMAGE_*) for all of the related
+#    images of the bundle. The argument should be of the form:
 #
+#    <deployment_name>/<container_name>.
+#
+#    (Optional, can be repeated.)
+#
+# -U Suppress insertion of all replacement-graph-related properties in the CSV (replaces,
+#    skips, and/or olm.skipRange).  Overrides any -p or -k option specified, or automatic
+#    generation of these aspects if omitted.
+#
+# Reserved for future implementation:
+#
+# -R Enable Red Hat downstream build mode. Generates the bundle in a way appropriate for
+#    the Red Hat OSBS downstream build process. Optoinal. If omitted, the bundle is generated
+#    in a way that is consistent with upstream practices.
 #
 # Source pkg:  this_repo/operator-bundles/unbound/<package-name>
 # Output pkg:  this_repo/operator-bundles/bound/<package-name>
@@ -40,8 +53,10 @@
 # Also needs:  The build's image manifest file in this_repo/image-manifests.
 #
 # Notes:
+#-  Requires Bash 4.4 or newer.
 #
-# - Once OCP 4.5 is the oldest release we support, OLM will allow us to omit a default-channel
+# - Once OCP 4.6 is the oldest release we support, we'll be on a combination of OLM and
+#   Red Hat downstream build-pipeline capability that will allow us to omit a default-channel
 #   anootation in the bundle. Once we can do that, we can adopt a strategy of specifying a new
 #   default in the x.y.0 bundles so that the temporal bundle release (add-to-index) order
 #   controls the default.
@@ -52,10 +67,13 @@ top_of_repo=$(readlink  -f $my_dir/../..)
 
 #--- Args ---
 
-opt_flags="n:v:p:K:d:c:C:i:U"
+opt_flags="n:v:p:K:d:c:C:i:Ue:"
 
-image_key_mappings=()
 suppress_repl_graph_stuff=0
+
+# For collection options that are basically pass-thru:
+dash_lower_i_opts=()
+dash_lower_e_opts=()
 
 while getopts "$opt_flags" OPTION; do
 
@@ -83,9 +101,11 @@ while getopts "$opt_flags" OPTION; do
          ;;
       C) candidate_channel_prefix="$OPTARG"
          ;;
-      i) image_key_mappings+=("$OPTARG")
-         ;;
       U) suppress_repl_graph_stuff=1
+         ;;
+      e) dash_lower_e_opts+=("-e" "$OPTARG")
+         ;;
+      i) dash_lower_i_opts+=("-i" "$OPTARG")
          ;;
       ?) exit 1
          ;;
@@ -109,7 +129,7 @@ if [[ -z "$candidate_channel_prefix" ]]; then
    >&2 echo "Error: Channel-name prefix for release candidates is required (-C)."
    exit 1
 fi
-if [[ -z "$image_key_mappings" ]]; then
+if [[ -z "$dash_lower_i_opts" ]]; then
    >&2 echo "Error: At least one image-name-to-key mapping is required (-i)."
    exit 1
 fi
@@ -384,7 +404,7 @@ elif [[ $specify_default_channel -eq 1 ]]; then
    default_channel="$feature_release_channel"
 fi
 if [[ -n "$default_channel" ]]; then
-   dash_lower_d_option="-d $default_channel"
+   dash_lower_d_opt=("-d" "$default_channel")
 fi
 
 # Form the previous-bundle arg and/or skip-range and/or skip args if appropraite
@@ -393,7 +413,7 @@ fi
 if [[ $suppress_repl_graph_stuff -eq 0 ]]; then
 
    if [[ -n "$replaces_rel_nr" ]]; then
-      dash_lower_p_opt="-p $replaces_rel_nr"
+      dash_lower_p_opt=("-p" "$replaces_rel_nr")
    fi
    if [[ -n "$skip_range" ]]; then
       # Skip range probably contains blank separated expressions which need to be kept
@@ -413,9 +433,9 @@ if [[ $suppress_repl_graph_stuff -eq 0 ]]; then
       dash_lower_k_opt=("-k" "$skip_range")
    fi
 
-   dash_cap_k_options=""
+   dash_upper_k_opts=()
    for skip in $skip_list; do
-      dash_cap_k_options="$dash_cap_k_options -K $skip"
+      dash_upper_k_opts+=("-K" "$skip")
    done
 
 else
@@ -424,14 +444,6 @@ else
    skip_range=""
    skip_list=""
 fi
-
-
-# Form the list of -i image-key-mapping arguments.
-
-dash_lower_i_opts=()
-for m in "${image_key_mappings[@]}"; do
-   dash_lower_i_opts+=("-i" "$m")
-done
 
 # Enough setup.  Lets to this...
 
@@ -458,11 +470,10 @@ echo "  Using image manifests file: $manifest_file"
 
 $my_dir/gen-bound-bundle.sh \
    -n "$pkg_name" \
-   -v "$bundle_vers" $dash_lower_p_opt \
-   ${dash_lower_k_opt:+"${dash_lower_k_opt[@]}"}  \
-   $dash_cap_k_options \
+   -v "$bundle_vers" "${dash_lower_p_opt[@]}" \
+   "${dash_lower_k_opt[@]}" "${dash_upper_k_opts[@]}" \
    -m "$manifest_file" \
    -I "$unbound_pkg_dir" -O "$bound_pkg_dir" \
-   $dash_lower_d_option -c "$publish_to_channel" \
-   ${dash_lower_i_opts:+"${dash_lower_i_opts[@]}"}
+   "${dash_lower_d_opt[@]}" -c "$publish_to_channel" \
+   "${dash_lower_i_opts[@]}" "${dash_lower_e_opts[@]}"
 
