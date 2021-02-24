@@ -28,7 +28,8 @@
 
 me=$(basename $0)
 my_dir=$(dirname $(readlink -f $0))
-top_of_repo=$(readlink  -f $my_dir/../..)
+
+source "$my_dir/bundle-common.bash"
 
 pkg_name="advanced-cluster-management"
 release_channel_prefix="release"
@@ -37,31 +38,20 @@ candidate_channel_prefix="candidate"
 bundle_vers="$1"
 if [[ -z "$bundle_vers" ]]; then
    >&2 echo "Error: Bundle version (x.y.z[-iter]) is required."
-   exit 1
+   exit 5
 fi
 this_rel_nr=${bundle_vers%-*}  # Remove [-iter] if present.
+parse_version "$bundle_vers"   # Sets rel_x, rel_y, etc.
 
 # Note: The handling of $2 has evolved a lot, from originally being the number
 # of the immediately predecessor release, to being fully ignored, to now being
 # a way to suppress insertion of replacement-graph properties.
 
 if [[ "$2" == "none" ]]; then
-   suppress_repl_graph_stuff=1
-else
-   suppress_repl_graph_stuff=0
+   suppress_all_repl_graph_properties=1
 fi
 
 explicit_default_channel="$3"
-
-old_IFS=$IFS
-IFS=. rel_xyz=(${this_rel_nr%-*})
-rel_x=${rel_xyz[0]}
-rel_y=${rel_xyz[1]}
-rel_z=${rel_xyz[2]}
-IFS=$old_IFS
-
-rel_yz="$rel_y.$rel_z"
-
 
 # Define the list of image-key mappings for use in image pinning.
 
@@ -117,43 +107,15 @@ if [[ "$rel_x" -ge 2 ]]; then
   fi
 fi
 
-# Squash all replacement graph stuff if requested.
-if [[ $suppress_repl_graph_stuff -eq 1 ]]; then
-   suppress_repl_graph_option="-U"
-fi
-
-# Pass along an explicit default channel if specified.
-if [[ -n "$explicit_default_channel" ]]; then
-   dash_lower_d_opt=("-d" "$explicit_default_channel")
-fi
-
-# Convert list of image-key-mappings to corresponding list of -i arguments:
-dash_lower_i_opts=()
-for m in "${image_key_mappings[@]}"; do
-   dash_lower_i_opts+=("-i" "$m")
-done
-
-# Do the same kind of conversion for the list of add-image-ferfs-to container specs:
-dash_lower_e_opts=()
-for c in "${image_ref_containers[@]}"; do
-   dash_lower_e_opts+=("-e" "$c")
-done
-
 # Specify specific version skips we need to bypass bad releases:
-dash_upper_k_opts=()
-dash_lower_p_opt=()
+skip_list=()
 if [[ $suppress_repl_graph_stuff -eq 0 ]]; then
    if [[ "$bundle_vers" == "2.1.2" ]]; then
-      dash_upper_k_opts+=("K" "2.1.1")
-      dash_lower_p_opt=("-p" "2.1.0")
+      skip_list+=("2.1.1")
+      explicit_prev_csv_vers="2.1.0"
    fi
 fi
 
-$my_dir/gen-bound-acm-ocm-hub-bundle-common.sh \
-   -n "$pkg_name" -v "$bundle_vers" \
-   "${dash_upper_k_opts[@]}" "${dash_lower_p_opt[@]}" \
-   $suppress_repl_graph_option \
-   -c $release_channel_prefix -C $candidate_channel_prefix \
-   "${dash_lower_d_opt[@]}" \
-   "${dash_lower_i_opts[@]}" "${dash_lower_e_opts[@]}"
+source $my_dir/gen-bound-acm-ocm-hub-bundle-common.bash
+
 

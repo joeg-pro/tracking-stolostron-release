@@ -1,51 +1,63 @@
 #!/bin/bash
+# Bash, but source me, don't run me!
+if ! (return 0 2>/dev/null); then
+   >&2 echo "Error: $(basename $0) is intended to be sourced, not run."
+   exit 5
+fi
 
-# Common logic for generating bound ACM/OCM Hub bundles.
+# Common logic for generating bound ACM/OCM Hub bundles.  Source this at
+# the end of a cover script after setting the following input variables.
 #
-# Args: No opsotiional args.
+# Input Bash variables:
 #
-# Options:
+# pkg_name: (Required)
+#    Name of the OLM package (eg. "advanced-cluster-management").
 #
-# -n Package Name (eg. "advanced-cluster-management"). Required.
-#
-# -v Bundle version number in x.y.z[-suffix] form (eg. 2.2.0-1). Required.
+# bundle_vers: (Required)
+#    Bundle version number in x.y.z[-suffix] form (eg. 2.2.0-1).
 #    Presence of a [-suffix] in the bundle version indicates a candiddate/snapshot.
 #
-# -p Explicit specification of version of Previous bundle/CSV to be replaced by this one (optional).
-#    If omitted (typical), this is computed automatically.
+# release_channel_prefix: (Required)
+#    Channel-name prefix (eg. "release") for final-release bundle versions.
 #
-# -K Specific previous bundle/CSV versions to skip (Optionial, can be repeated)
+# candidate_channel_prefix: (Required)
+#    Channel-name prefix (eg. "candidate) for pre-release bundle versions.
 #
-# -d Default channel name (full name, eg. "release-2.1").  (Optional, but not really.)
+# image_key_mappings: (Required)
+#     Array of image-name-to-key mapping specs.  At least one entry is required.
 #
-#    If specified, use this channel as the default channel rather than computing a default
+# explicit_default_channel: (Optional, but not really)
+#    Default channel name (full name, eg. "release-2.1").
+#
+#    If set, use this channel as the default channel rather than computing a default
 #    based on bundle_vers.  This is currently needed so that eg. the default channel in a
 #    2.0.5 bundle that is released after 2.1.0 will keep the default channel as the 2.1
 #    one  vs. reverting it to the 2.0 oone.
 #
-# -c Published-release channel-name prefix (eg. "release").  Required.
+# image_ref_containers:
+#    Array that specifies a set containers with deployments within the CSV for which image-
+#    reference environment variables (RELATED_IMAGE_*) should be injected. The array entries
+#    as strings of the form <deployment_name>/<container_name>.
 #
-# -C Release-candidate channel-name prefix (eg. "candidate).  Required.
+# explicit_prev_csv_vers:
+#    Explicit specification of version of Previous bundle/CSV to be replaced by this one.
+#    (Optional. If omitted (typical), this is computed automatically.)
 #
-# -i Image key mapping spec. At least one required.
+# skip_list:
+#    Array of specific previous bundle/CSV versions to skip.
 #
-# -e Specifies a container within a CSV install deployment that is to be updated to inect
-#    a set of image-reference environment variables (RELATED_IMAGE_*) for all of the related
-#    images of the bundle. The argument should be of the form:
-#
-#    <deployment_name>/<container_name>.
-#
-#    (Optional, can be repeated.)
-#
-# -U Suppress insertion of all replacement-graph-related properties in the CSV (replaces,
-#    skips, and/or olm.skipRange).  Overrides any -p or -k option specified, or automatic
-#    generation of these aspects if omitted.
+# suppress_all_repl_graph_properties:
+#    If non-zero, suppress insertion of all replacement-graph-related properties in the
+#    CSV  (replaces, skips, and/or olm.skipRange). Overrides anything specified via the
+#    explicit_prev_csv_release or skip_list variables, and automatic determination of
+#    these aspects when not explicitly specified.
 #
 # Reserved for future implementation:
 #
-# -R Enable Red Hat downstream build mode. Generates the bundle in a way appropriate for
-#    the Red Hat OSBS downstream build process. Optoinal. If omitted, the bundle is generated
-#    in a way that is consistent with upstream practices.
+# red_hat_downstream:
+#    If non-zero, enable Red Hat downstream build mode. Generates the bundle in a way
+#    cuttomized for the Red Hat OSBS downstream build process. Optoinal. If omitted, the
+#    bundle is generated in a way that is consistent with upstream practices.
 #
 # Source pkg:  this_repo/operator-bundles/unbound/<package-name>
 # Output pkg:  this_repo/operator-bundles/bound/<package-name>
@@ -53,6 +65,7 @@
 # Also needs:  The build's image manifest file in this_repo/image-manifests.
 #
 # Notes:
+#
 #-  Requires Bash 4.4 or newer.
 #
 # - Once OCP 4.6 is the oldest release we support, we'll be on a combination of OLM and
@@ -65,76 +78,37 @@ me=$(basename $0)
 my_dir=$(dirname $(readlink -f $0))
 top_of_repo=$(readlink  -f $my_dir/../..)
 
-#--- Args ---
+source "$my_dir/bundle-common.bash"
 
-opt_flags="n:v:p:K:d:c:C:i:Ue:"
+#--- Input variable validation ---
 
-suppress_repl_graph_stuff=0
-
-# For collection options that are basically pass-thru:
-dash_lower_i_opts=()
-dash_lower_e_opts=()
-
-while getopts "$opt_flags" OPTION; do
-
-   if [[ $OPTARG == "-"* ]]; then
-      # We don't expect any option args that start with a dash, so getopt is likely
-      # consuming the next option as if it were this options argument because the
-      # argument is missing in the invocation.
-
-      >&2 echo "Error: Argument for -$OPTION option is missing."
-      exit 1
-   fi
-
-   case "$OPTION" in
-      n) pkg_name="$OPTARG"
-         ;;
-      v) bundle_vers="$OPTARG"
-         ;;
-      p) explicit_prev_csv_vers="$OPTARG"
-         ;;
-      K) skip_list="$skip_list $OPTARG"
-         ;;
-      d) explicit_default_channel="$OPTARG"
-         ;;
-      c) release_channel_prefix="$OPTARG"
-         ;;
-      C) candidate_channel_prefix="$OPTARG"
-         ;;
-      U) suppress_repl_graph_stuff=1
-         ;;
-      e) dash_lower_e_opts+=("-e" "$OPTARG")
-         ;;
-      i) dash_lower_i_opts+=("-i" "$OPTARG")
-         ;;
-      ?) exit 1
-         ;;
-   esac
-done
-shift "$(($OPTIND -1))"
+suppress_all_repl_graph_properties=${suppress_all_repl_graph_properties:-0}
+red_hat_downstream=${red_hat_downstream:-0}
 
 if [[ -z "$pkg_name" ]]; then
-   >&2 echo "Error: Bundle package name is required (-n)."
+   >&2 echo "Error: Bundle package name is required (pkg_name)."
    exit 1
 fi
 if [[ -z "$bundle_vers" ]]; then
-   >&2 echo "Error: Bundle version (x.y.z[-iter]) is required (-v)."
+   >&2 echo "Error: Bundle version (x.y.z[-iter]) is required (bundle_vers)."
    exit 1
 fi
 if [[ -z "$release_channel_prefix" ]]; then
-   >&2 echo "Error: Channel-name prefix for published releases is required (-c)."
+   >&2 echo "Error: Channel-name prefix for final release versions is required (release_channel_prefix)."
    exit 1
 fi
 if [[ -z "$candidate_channel_prefix" ]]; then
-   >&2 echo "Error: Channel-name prefix for release candidates is required (-C)."
-   exit 1
-fi
-if [[ -z "$dash_lower_i_opts" ]]; then
-   >&2 echo "Error: At least one image-name-to-key mapping is required (-i)."
+   >&2 echo "Error: Channel-name prefix for pre-release versions is required (candidate_channel_prefix)."
    exit 1
 fi
 
-#--- Done with Args ---
+if [[ -z "$image_key_mappings" ]]; then
+   >&2 echo "Error: At least one image-name-to-key mapping is required (image_key_mappings)."
+   exit 1
+fi
+
+#--- Done with input var validation ---
+
 
 # Determine if this is a RC or release build and come up with a "clean" release number
 # that omits any iteration number.  The release vs RC determination is used to establish
@@ -146,15 +120,7 @@ else
    is_candidate_build=0
 fi
 this_rel_nr=${bundle_vers%-*}  # Remove [-iter] if present.
-
-old_IFS=$IFS
-IFS=. rel_xyz=(${this_rel_nr%-*})
-rel_x=${rel_xyz[0]}
-rel_y=${rel_xyz[1]}
-rel_z=${rel_xyz[2]}
-IFS=$old_IFS
-
-rel_yz="$rel_y.$rel_z"
+parse_version "$bundle_vers"  # Sets rel_x, rel_y, etc.
 
 
 # Determine immediate-predecessor bundle release nr (for replaces property) and prior
@@ -219,9 +185,8 @@ elif [[ "$rel_y" == "0" ]]; then
    #
    # For releases starting with 2.2.0:
    #
-   # - We now allow skipping within a feature release's z-stream, so we apply a
-   #   skipRange to allow skipping of all preioir .z releases for this feature
-   #   release.
+   # - We now allow skipping within a feature release's z-stream, so we apply a skipRange
+   #   to allow skipping of all preioir .z releases for this feature release.
 
    prev_rel_z=$((rel_z-1))
 
@@ -290,7 +255,7 @@ else
 
 fi
 
-if [[ $suppress_repl_graph_stuff -eq 0 ]]; then
+if [[ $suppress_all_repl_graph_properties -eq 0 ]]; then
    if [[ -n "$explicit_prev_csv_vers" ]]; then
       echo "NOTE: Explicitly-specified previous release number is being used."
       replaces_rel_nr=$explicit_prev_csv_vers
@@ -410,7 +375,7 @@ fi
 # Form the previous-bundle arg and/or skip-range and/or skip args if appropraite
 # unless we're skipping all replacement-graph stuff.
 
-if [[ $suppress_repl_graph_stuff -eq 0 ]]; then
+if [[ $suppress_all_repl_graph_properties -eq 0 ]]; then
 
    if [[ -n "$replaces_rel_nr" ]]; then
       dash_lower_p_opt=("-p" "$replaces_rel_nr")
@@ -440,40 +405,60 @@ if [[ $suppress_repl_graph_stuff -eq 0 ]]; then
 
 else
    echo "NOTE: All replacement-graph-related properties are being suppressed for the CSV/bundle."
-   replaces_rel_nr=""
-   skip_range=""
-   skip_list=""
+   dash_lower_p_opt=()
+   dash_lower_k_opt=()
+   dash_upper_k_opts=()
 fi
+
+# Convert list of image-key-mappings to corresponding list of -i arguments:
+dash_lower_i_opts=()
+for m in "${image_key_mappings[@]}"; do
+   dash_lower_i_opts+=("-i" "$m")
+done
+
+# Do the same kind of conversion for the list of add-image-ferfs-to container specs:
+dash_lower_e_opts=()
+for c in "${image_ref_containers[@]}"; do
+   dash_lower_e_opts+=("-e" "$c")
+done
 
 # Enough setup.  Lets to this...
-
+echo ""
+echo "----------------------------------------------------------------------------"
 echo "Generating bound bundle manifests for package: $pkg_name"
-echo "  From uUnbound bundle manifests in: $unbound_pkg_dir"
-echo "  Writing bound bundle manifests to: $bound_pkg_dir"
 echo "  For CSV/bundle version: $bundle_vers"
-if [[ -n "$replaces_rel_nr" ]]; then
-   echo "  Replacing previous CSV/bundle version: $replaces_rel_nr"
-fi
-if [[ -n "$skip_range" ]]; then
-   echo "  Skipping previous CSV/bundle range: $skip_range"
-fi
-if [[ -n "$skip_list" ]]; then
-   echo "  Skipping specific previous CSV/bundle versions: $skip_list"
-fi
 echo "  To be published on channel: $publish_to_channel"
 if [[ -n "$default_channel" ]]; then
    echo "  With default channel: $default_channel"
 else
    echo "  With no default channel specified"
 fi
+if [[ -n "$dash_lower_p_opt" ]]; then
+   echo "  Replacing previous CSV/bundle version: $replaces_rel_nr"
+fi
+if [[ -n "$dash_lower_k_opt" ]]; then
+   echo "  Skipping previous CSV/bundle range: $skip_range"
+fi
+if [[ -n "$dash_upper_k_opts" ]]; then
+   echo "  Skipping specific previous CSV/bundle versions: $skip_list"
+fi
+if [[ -n "$dash_lower_e_opts" ]]; then
+   cnt=$(( ${#dash_lower_e_opts[@]} / 2 ))
+   containers="containers"
+   if [[ $cnt -eq 1 ]]; then
+      containers="container"
+   fi
+   echo "  With inage-ref enviornment variables being injected into $cnt operator $containers"
+fi
+echo "  From uUnbound bundle manifests in: $unbound_pkg_dir"
+echo "  Writing bound bundle manifests to: $bound_pkg_dir"
 echo "  Using image manifests file: $manifest_file"
-
+echo "----------------------------------------------------------------------------"
+echo ""
 $my_dir/gen-bound-bundle.sh \
-   -n "$pkg_name" \
-   -v "$bundle_vers" "${dash_lower_p_opt[@]}" \
-   "${dash_lower_k_opt[@]}" "${dash_upper_k_opts[@]}" \
-   -m "$manifest_file" \
-   -I "$unbound_pkg_dir" -O "$bound_pkg_dir" \
-   "${dash_lower_d_opt[@]}" -c "$publish_to_channel" \
+   -n "$pkg_name" -v "$bundle_vers" \
+   -c "$publish_to_channel" "${dash_lower_d_opt[@]}" \
+   "${dash_lower_p_opt[@]}" "${dash_lower_k_opt[@]}" "${dash_upper_k_opts[@]}" \
+   -I "$unbound_pkg_dir" -O "$bound_pkg_dir" -m "$manifest_file" \
    "${dash_lower_i_opts[@]}" "${dash_lower_e_opts[@]}"
 
