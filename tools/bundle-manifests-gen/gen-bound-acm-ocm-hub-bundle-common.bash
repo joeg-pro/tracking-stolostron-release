@@ -422,6 +422,43 @@ for c in "${image_ref_containers[@]}"; do
    dash_lower_e_opts+=("-e" "$c")
 done
 
+# We probably have to think through how community contributors will build the entire
+# set of OCM parts, including the budnle.
+#
+# One possibility might be that regardless of how they get the images built and into
+# some registry, they would also have to also generate/maintain an image-manifest
+# in our expected format in order to use as an input to the bundle-building process.
+# In which case, maybe nothing unique will be needed here. (WE already allow an
+# invoker to specify the location of same, along with other input and output
+# directories).
+#
+# But maybe we could offer something simpler.  The first requirement a contributor
+# fases is the need to put the images somewhere other than quay.io/o-c-m.  Ada next
+# challenge would be the need to maintain the image manifest so as to convey the
+# image digests to us as we currently insist on digest-based pinning.  Maybe we can
+# address these two things by allowing registry remapping and tag-based "pinning".
+# With that in place, the image manifest file really devolves into being just a
+# list of image (repository) names, wiht the other info coming from outside of
+# tha tfile.  Then, a contributor could just use one of the recent image manifest
+# files in the release repo rather than having to have one of thier own.
+#
+# So, as a stab in that direction, we look for a couple of enviornment variables,
+# and if set, use them to do image-and-namespace mapping and tag-based "pininnng"
+# of image references we find.
+
+rgy_and_ns_override="$BUNDLE_GEN_RGY_AND_NAMESPACE"
+pin_using_tag_override="$BUNDLE_GEN_PIN_TO_TAG"
+
+dash_lower_r_opts=()
+if [[ -n "$rgy_and_ns_override" ]]; then
+   # Assume the image manifest will be using quay.io/open-cluster-management
+   # and map from tha tto what is mentioned in the env var.
+   dash_lower_r_opts+=("-r" "quay.io/open-cluster-management:$rgy_and_ns_override")
+fi
+if [[ -n "$pin_using_tag_override" ]]; then
+   dash_lower_t_opt=("-t" "$pin_using_tag_override")
+fi
+
 # Enough setup.  Lets to this...
 echo ""
 echo "----------------------------------------------------------------------------"
@@ -450,6 +487,12 @@ if [[ -n "$dash_lower_e_opts" ]]; then
    fi
    echo "  With inage-ref enviornment variables being injected into $cnt operator $containers"
 fi
+if [[ -n "$dash_lower_r_opts" ]]; then
+   echo "  Remapping all image references to registry/namespace $rgy_and_ns_override"
+fi
+if [[ -n "$dash_lower_t_opt" ]]; then
+   echo "  Pinning all image references to tag $pin_using_tag_override"
+fi
 echo "  From uUnbound bundle manifests in: $unbound_pkg_dir"
 echo "  Writing bound bundle manifests to: $bound_pkg_dir"
 echo "  Using image manifests file: $manifest_file"
@@ -459,6 +502,7 @@ $my_dir/gen-bound-bundle.sh \
    -n "$pkg_name" -v "$bundle_vers" \
    -c "$publish_to_channel" "${dash_lower_d_opt[@]}" \
    "${dash_lower_p_opt[@]}" "${dash_lower_k_opt[@]}" "${dash_upper_k_opts[@]}" \
+   "${dash_lower_r_opts[@]}" "${dash_lower_t_opt[@]}"  \
    -I "$unbound_pkg_dir" -O "$bound_pkg_dir" -m "$manifest_file" \
    "${dash_lower_i_opts[@]}" "${dash_lower_e_opts[@]}"
 

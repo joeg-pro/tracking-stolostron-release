@@ -46,12 +46,13 @@ def load_image_manifest(image_manifest_pathn, rgy_ns_override_specs,
 
    image_ref_to_use = "image-ref-by-tag" if use_tags else "image-ref-by-digest"
 
-   # Load registry-and-namespace override specs, if provide.
+   # Load registry-and-namespace override specs, if provided.
    #
-   # An override is of the form: <from>:<to>.
+   # An override is of the form: <from>:<to>, Where <from> and <to> are of
+   # the form <registry>[/<namespace>].
    #
-   # If <from> has no slash, its considered to specify a registry-level replacement
-   # in which case <to> should be just a reistry too.
+   # That is, if <from> has no slash, its considered to specify a registry-level
+   # replacement in which case <to> should be just a reistry also.
 
    rgy_ns_overrides = dict()
    if rgy_ns_override_specs:

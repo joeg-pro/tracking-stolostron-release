@@ -78,9 +78,9 @@ my_dir=$(dirname $(readlink -f $0))
 # -E Omit related-images list (optional).
 # -e Deployment/container to receive image-ref env vars (optional, can be repeated).
 #
-# -T Use image tags rather than digest.
-# -t Tag override: Tag used for all images overrides any tag from image manifest.
-# -s Tag suffix: Suffix appended to all tags, overrides any suffix from image manifest.
+# -T Use image tag (as specified in image manifest) rather than digest.
+# -t Tag override: Tag used for all images, overriding tag from image manifest.
+# -s Tag suffix: Suffix appended to all tags, overriding any suffix from image manifest.
 #
 # Specifying -t or -s implies the use of tags (-T).
 
