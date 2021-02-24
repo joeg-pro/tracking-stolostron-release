@@ -227,7 +227,8 @@ def load_target_containers(target_container_specs):
 
 
 # Add image reference environment variables to secifeid containers of a deployment.
-def add_image_ref_env_vars_to_deployment(deployment, target_containers, image_manifest):
+def add_image_ref_env_vars_to_deployment(deployment, target_containers,
+                                         image_manifest, image_ref_env_var_prefix):
 
    deployment_name = deployment["name"]
    pod_spec = deployment["spec"]["template"]["spec"]
@@ -250,7 +251,7 @@ def add_image_ref_env_vars_to_deployment(deployment, target_containers, image_ma
          if not image_info["used-in-csv-deployment"]:
             # TODO: Maybe check the env var isn't already defined?
             entry = dict()
-            entry["name"]  = "RELATED_IMAGE_%s" % image_info["image-key"].upper()
+            entry["name"]  = "%s_%s" % (image_ref_env_var_prefix, image_info["image-key"].upper())
             entry["value"] = image_info["image-ref-to-use"]
             container_env_vars.append(entry)
 
@@ -466,21 +467,20 @@ def main():
    for deployment in deployments:
       deployment_name = deployment["name"]
       update_image_refs_in_deployment(deployment, image_key_mapping, image_manifest)
-      if deployment_name in image_ref_containers:
-         conatiners_of_deployment = image_ref_containers[deployment_name]
-         add_image_ref_env_vars_to_deployment(deployment, conatiners_of_deployment, image_manifest)
    #
 
    # Pass 2 - Now that we know the images that are considered related images vs.
    # operator ones, inject inage-ref env variables for related images into the
    # container for which its been requested.
 
+   image_ref_env_var_prefix = "OPERAND_IMAGE"
    if image_ref_containers:
       for deployment in deployments:
          deployment_name = deployment["name"]
          if deployment_name in image_ref_containers:
             conatiners_of_deployment = image_ref_containers[deployment_name]
-            add_image_ref_env_vars_to_deployment(deployment, conatiners_of_deployment, image_manifest)
+            add_image_ref_env_vars_to_deployment(deployment, conatiners_of_deployment,
+                                                 image_manifest, image_ref_env_var_prefix)
    #
 
    # If we're adding in related-image info, then add in entrys for all of the
