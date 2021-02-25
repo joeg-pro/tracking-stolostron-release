@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 
-# Generates a downstream image manifest, using build info for product images
-# provided by CPASS, and agumented with external image information retrieved
-# via Brew CLI.
+# Generates a downstream image manifest, using build info for product images provided by
+# CPASS, and agumented with external image information retrieved via Brew CLI.
 #
 # Driven by config in manifest-gen-config.json.
 #
@@ -10,15 +9,17 @@
 #
 # $1 = Release number (in x.y.z format)
 #
-# $2 = ACM component name of the component for which the image manifest
-#      is being generated (endpoint_operator, multiclsterhub_operator, etc.).
-#      (See valid_component_names variable.)
+# $2 = ACM component name of the component for which the image manifest is being generated
+#      (endpoint_operator, multiclsterhub_operator, etc.). See valid_component_names variable.
+#
+# Note: As we pare away or need for built-in image manifest info in componetns in favor of
+# other ways of "injecting" this info, we are heading to a happy day where the only component
+# that needs this is the operator bundle.
 
 import json
 import os
 import sys
 from subprocess import check_output
-
 
 valid_component_names = ["endpoint_operator", "multiclusterhub_operator", "acm_operator_bundle"]
 
@@ -41,6 +42,8 @@ PFX_TO_REMOVE_KEY="prefix-to-remove"
 EXTERNAL_COMP_BUILD_NAME_KEY = "build-name"
 EXTERNAL_COMP_BUILD_TAG_KEY = "build-tag"
 
+# Probably will need a invocation tag to toggle this.
+use_version_floating_tag_as_tag = False
 
 def brew_build_info(nvr):
     return check_output(['brew', 'call', 'getBuild', nvr, '--json-output'], encoding="UTF-8")
@@ -57,7 +60,7 @@ def get_build_info(name, tag):
     # print('build info for %s: %s' % (nvr,build_info))
     return build_info
 
-def get_image_manifest(component_name,build_info, image_name_prefix_to_remove, image_remote):
+def get_image_manifest(component_name, build_info, image_name_prefix_to_remove, image_remote):
     obj = json.loads(build_info)
 
     image_ref = obj["extra"]["image"]["index"]["pull"][0]
@@ -65,14 +68,74 @@ def get_image_manifest(component_name,build_info, image_name_prefix_to_remove, i
     image_digest= image_ref.split("@")[1]
     updated_image_name = image_name.replace(image_name_prefix_to_remove, "")
 
+    # Floating-tags probably contains a set of automatically defined floating tags,
+    # including a (dangerous-to-use) "latest" and maybe a few related to the version.
+    # Tge version-related tags should include one that specifies the full x.y.z version
+    # (eg. v2.3.1) and one that relates to the feature release ahnd thus is only x.y
+    # (eg. v2.3).  Pick these out as we might want to use one vs. another depending
+    # on the use case.
+
+    build_info_index = obj["extra"]["image"]["index"]
+
+    floating_tags = build_info_index["floating_tags"]
+    if len(floating_tags) == 0:
+        print("ERROR (component %s): Has no floating tags." % component_name)
+        exit(2)
+
+    version_xyz_floating_tag = None
+    version_xy_floating_tag  = None
+    latest_floating_tag  = None
+    for ft in floating_tags:
+        if ft == "latest":
+            latest_floating_tag = ft
+        elif ft.startswith("v"):
+            dot_cnt = ft.count(".")
+            if dot_cnt == 1:
+                version_xy_floating_tag = ft
+                # print("** Version x.y floating tag: %s" % version_xy_floating_tag)
+            elif dot_cnt == 2:
+                version_xyz_floating_tag = ft
+    #
+    if version_xyz_floating_tag is None:
+        print("ERROR (component %s): Did not find vx.y.z floating tag." % component_name)
+        exit(2)
+
+    image_version = version_xyz_floating_tag[1:]
+
+    tags = build_info_index["tags"]
+    if len(tags) != 1:
+        if len(tags) > 1:
+           print("ERROR (component %s): Has more than 1 (fixed) tag." % component_name)
+        else:
+            print("ERROR (component %s): Has no (fixed) tags." % component_name)
+        exit(2)
+    build_fixed_tag = tags[0]
+
+    # If we're going to enable the use of Freshmarker, I guess it will be automatically
+    # creating a new version vx.y.(z+1) for us, and it will do so using the same input
+    # (eg. CSV) as we had generated for version x.y.z.  This suggests that we would
+    # have to use a floating tag more general than a vx.y.z one.  Using a "latest"
+    # tag would be dangerous, so I guess that means we want to use a "vx.y" tag.
+    # But wedon't really have that for ACM components yet, so for purposes of sketching
+    # this out in advance, go ahead and use an vx.y.z tag if no vx.y is found.
+
+    if version_xy_floating_tag is not None:
+        version_floating_tag = version_xy_floating_tag
+    else:
+        version_floating_tag = version_xyz_floating_tag
+    image_tag = version_floating_tag if use_version_floating_tag_as_tag else build_fixed_tag
+
     entry = {
-        "image-key":      component_name,
-        "image-name":     updated_image_name,
-        "image-version":  obj["extra"]["image"]["index"]["floating_tags"][1],
-        "image-tag":      obj["extra"]["image"]["index"]["tags"][0],
-        "image-remote":   image_remote,
-        "image-digest":   image_digest
+        "image-key":              component_name,
+        "image-name":             updated_image_name,
+        "image-version":          image_version,
+        "image-version-xyz-tag":  version_xyz_floating_tag,
+        "image-tag":              image_tag,
+        "image-remote":           image_remote,
+        "image-digest":           image_digest
     }
+    if version_xy_floating_tag is not None:
+        entry["image-version-xy-tag"] = version_xy_floating_tag
 
     return entry
 
