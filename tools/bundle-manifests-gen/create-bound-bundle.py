@@ -249,12 +249,17 @@ def add_image_ref_env_vars_to_deployment(deployment, target_containers,
          container_env_vars = list()
 
       for image_info in image_manifest.values():
-         if not image_info["used-in-csv-deployment"]:
-            # TODO: Maybe check the env var isn't already defined?
-            entry = dict()
-            entry["name"]  = "%s_%s" % (image_ref_env_var_prefix, image_info["image-key"].upper())
-            entry["value"] = image_info["image-ref-to-use"]
-            container_env_vars.append(entry)
+         # Notes:  In a first pass of this, we explicitly excluded adding image-ref
+         # env vars for images that were use din the CSV itself, as it didn't seem
+         # the "operand stuff" needed to know about operator images.  That's not the
+         # case (at least for registration-operator) so now we add image refs for
+         # everything we know about.
+
+         # TODO: Maybe check the env var isn't already defined?
+         entry = dict()
+         entry["name"]  = "%s_%s" % (image_ref_env_var_prefix, image_info["image-key"].upper())
+         entry["value"] = image_info["image-ref-to-use"]
+         container_env_vars.append(entry)
 
       if not container_env_vars:
          container_spec["env"] = container_env_vars
@@ -461,27 +466,18 @@ def main():
    deployments = install_spec["deployments"]
 
 
-   # Pass 1 - Update the image refs in the deployments.  As a side effect, we also
-   # identify the images that are used within CSV deployments since we don't want
-   # to treat those as related images.
+   # Update the image refs in the deployments.  As a side effect, we also identify
+   # the images that are used within CSV deployments since we don't want to treat
+   # those as related images.
 
+   image_ref_env_var_prefix = "OPERAND_IMAGE"
    for deployment in deployments:
       deployment_name = deployment["name"]
       update_image_refs_in_deployment(deployment, image_key_mapping, image_manifest)
-   #
-
-   # Pass 2 - Now that we know the images that are considered related images vs.
-   # operator ones, inject inage-ref env variables for related images into the
-   # container for which its been requested.
-
-   image_ref_env_var_prefix = "OPERAND_IMAGE"
-   if image_ref_containers:
-      for deployment in deployments:
-         deployment_name = deployment["name"]
-         if deployment_name in image_ref_containers:
-            conatiners_of_deployment = image_ref_containers[deployment_name]
-            add_image_ref_env_vars_to_deployment(deployment, conatiners_of_deployment,
-                                                 image_manifest, image_ref_env_var_prefix)
+      if deployment_name in image_ref_containers:
+         conatiners_of_deployment = image_ref_containers[deployment_name]
+         add_image_ref_env_vars_to_deployment(deployment, conatiners_of_deployment,
+                                              image_manifest, image_ref_env_var_prefix)
    #
 
    # If we're adding in related-image info, then add in entrys for all of the
