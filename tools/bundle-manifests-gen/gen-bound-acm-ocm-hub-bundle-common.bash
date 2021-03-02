@@ -446,8 +446,8 @@ done
 # and if set, use them to do image-and-namespace mapping and tag-based "pininnng"
 # of image references we find.
 
-rgy_and_ns_override="$BUNDLE_GEN_RGY_AND_NAMESPACE"
-pin_using_tag_override="$BUNDLE_GEN_PIN_TO_TAG"
+rgy_and_ns_override="$OCM_BUILD_IMAGE_RGY_AND_NS"
+pin_using_tag_override="$OCM_BUILD_BUNDLE_GEN_PIN_TO_TAG"
 
 dash_lower_r_opts=()
 if [[ -n "$rgy_and_ns_override" ]]; then
@@ -492,6 +492,8 @@ if [[ -n "$dash_lower_r_opts" ]]; then
 fi
 if [[ -n "$dash_lower_t_opt" ]]; then
    echo "  Pinning all image references to tag $pin_using_tag_override"
+else
+   echo "  Pinning all image references to image digests"
 fi
 echo "  From uUnbound bundle manifests in: $unbound_pkg_dir"
 echo "  Writing bound bundle manifests to: $bound_pkg_dir"
