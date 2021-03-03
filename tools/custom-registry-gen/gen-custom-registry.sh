@@ -95,114 +95,71 @@ done
 if [[ -n $DOCKER_USER ]]; then
    docker login -u=${DOCKER_USER} -p=${DOCKER_PASS} "$login_to_image_rgy"
    if [[ $? -ne 0 ]]; then
-      >&2 echo "Error: Error doing docker login to remote registry."
+      >&2 echo "Error: Coud not login to image registry $login_to_image_rgy."
       exit 2
    fi
 else
-   echo "Note: DOCKER_USER not set, assuming docker login already done."
+   echo "Note: DOCKER_USER not set, assuming login to image registry already done."
 fi
 
-# Check the (first) bundle image's com.redhat.delivery.appregistry label.  If present and
-# "true" then the bundle is in the legacy App Registry format and we'll handle thusly,
-# else we  will handle according to the new bundle-image format.
+tmp_root="${TMPDIR:-/tmp}"
+tmp_dir=$(mktemp -d -p "$tmp_root"  "$me.XXXXXXXX")
 
-docker pull "$bundle_image_ref"
-if [[ $? -ne 0 ]]; then
-   >&2 echo "Error: Could not pull input bundle $bundle_image_ref."
-   exit 2
-fi
-inspect_results=$(docker image inspect "$bundle_image_ref")
-appregistry_setting=$(echo "$inspect_results" | jq -r '.[0].Config.Labels["com.redhat.delivery.appregistry"]')
-
-if [[ $appregistry_setting == "true" ]]; then
-   if [[ ${#bundle_image_refs[@]} -ne 1  ]]; then
-      >&2 echo "Error: Only one bundle image reference (-B) is allowed with app-registry format."
-      exit 1
-   fi
-   echo "INFO: Bundle image is in App Registry format."
-   handle_as_bundle_image=0
-else
-   echo "INFO: Bundle image is in Bundle Image format."
-   handle_as_bundle_image=1
-fi
-
-tmp_dir="/tmp/acm-custom-registry"
 rm -rf "$tmp_dir"
 mkdir -p "$tmp_dir"
 build_context="$tmp_dir"
 
-if [[ $handle_as_bundle_image -eq 1 ]]; then
+# As of v1.13.3, "opm index add" countues to be a pain in that it pulls its upstream
+# images based on a floating tag (latest), and worse yet produces an image which
+# does not run on OCP (Permission denied on /etc/nsswitch.conf).  To circumvent
+# we use "opm registry add" ourselves to build the database (this is what the
+# "opm index add" command does under the covers, and then generate the image
+# oursleves using a patched Dockerfile captured from "opm index add ... --generate".
 
-   # Bundle is in bundle-image format, so we can create a catalog using opm.
+old_cwd=$PWD
+cd $build_context
 
-   # As of v1.13.3, "opm index add" countues to be a pain in that it pulls its upstream
-   # images based on a floating tag (latest), and wose yet produces an image which
-   # does not run on OCP (Permission denied on /etc/nsswitch.conf).  To circumvent
-   # we use "opm registry add" ourselves to build the database (this is what the
-   # "opm index add" command does under the covers, and then generate the image
-   # oursleves using a patched Dockerfile captured from "opm index add ... --generate".
+# Fetch the desired version of OPM
 
-   old_cwd=$PWD
-   cd $build_context
-
-   # Fetch the desired version of OPM
-
-   opm="./opm"
-   curl -Ls -o "$opm" "$opm_download_url"
-   if [[ $? -ne 0 ]]; then
-      >&2 echo "Error: Could not fetch OPM binary from $opm_download_url."
-      exit 2
-   fi
-   chmod +x "$opm"
-
-   # Build registry database
-   #
-   # Note:  If your workstation is running podman with the podman-docker compat layer
-   # rather than genuine docker and you run into 401 Unauthroized errors on opm add,
-   # you might need this env var in effect:
-   #
-   # export REGISTRY_AUTH_FILE=$HOME/.docker/config.json
-
-   mkdir "database"
-
-   for bundle_image_ref in "${bundle_image_refs[@]}"; do
-      echo "Adding bundle: $bundle_image_ref"
-      $opm registry add -b "$bundle_image_ref" -d "database/index.db"
-      if [[ $? -ne 0 ]]; then
-         >&2 echo "Error: Could not add bundle to registry database: $bundle_image_ref."
-         exit 2
-      fi
-   done
-
-   cp "$my_dir/Dockerfile.index" .
-   mkdir "etc"
-   touch "etc/nsswitch.conf"
-   chmod a+r "etc/nsswitch.conf"
-
-   docker build -t "$catalog_image_ref" -f Dockerfile.index \
-      --build-arg "opm_vers=$opm_vers" .
-   if [[ $? -ne 0 ]]; then
-      >&2 echo "Error: Could not build custom catalog image $catalog_image_ref."
-      exit 2
-   fi
-   cd $old_cwd
-
-else
-
-   # Bundle is in App Registry/metadata format, so we create a calog by building
-   # an image based on the catalog bundler.
-
-   old_cwd=$PWD
-   cd $my_dir
-   docker build -t "$catalog_image_ref" -f Dockerfile.app-rgy-catalog \
-      --build-arg "bundle_image_ref=$bundle_image_ref" .
-   if [[ $? -ne 0 ]]; then
-      >&2 echo "Error: Could not build custom catalog image $catalog_image_ref."
-      exit 2
-   fi
-   cd $old_cwd
-
+opm="./opm"
+curl -Ls -o "$opm" "$opm_download_url"
+if [[ $? -ne 0 ]]; then
+   >&2 echo "Error: Could not fetch OPM binary from $opm_download_url."
+   exit 2
 fi
+chmod +x "$opm"
+
+# Build registry database
+#
+# Note:  If your workstation is running podman with the podman-docker compat layer
+# rather than genuine docker and you run into 401 Unauthroized errors on opm add,
+# you might need this env var in effect:
+#
+# export REGISTRY_AUTH_FILE=$HOME/.docker/config.json
+
+mkdir "database"
+
+for bundle_image_ref in "${bundle_image_refs[@]}"; do
+   echo "Adding bundle: $bundle_image_ref"
+   $opm registry add -b "$bundle_image_ref" -d "database/index.db"
+   if [[ $? -ne 0 ]]; then
+      >&2 echo "Error: Could not add bundle to registry database: $bundle_image_ref."
+      exit 2
+   fi
+done
+
+cp "$my_dir/Dockerfile.index" .
+mkdir "etc"
+touch "etc/nsswitch.conf"
+chmod a+r "etc/nsswitch.conf"
+
+docker build -t "$catalog_image_ref" -f Dockerfile.index \
+   --build-arg "opm_vers=$opm_vers" .
+if [[ $? -ne 0 ]]; then
+   >&2 echo "Error: Could not build custom catalog image $catalog_image_ref."
+   exit 2
+fi
+cd $old_cwd
 
 # Maybe a little heavy handed.  Should look for <none>-tagged images only?
 docker image prune -f 2> /dev/null
