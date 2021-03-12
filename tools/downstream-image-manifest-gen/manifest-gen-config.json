@@ -10,6 +10,7 @@
             {"acm-component-name": "cert_manager_controller",                     "build-info-env-var": "CERT_MANAGER_CONTROLLER"},
             {"acm-component-name": "cert_manager_webhook",                        "build-info-env-var": "CERT_MANAGER_WEBHOOK"},
             {"acm-component-name": "cert_policy_controller",                      "build-info-env-var": "CERT_POLICY_CONTROLLER"},
+            {"acm-component-name": "cluster_curator_controller",                  "build-info-env-var": "CLUSTER_CURATOR_CONTROLLER"},
             {"acm-component-name": "clusterlifecycle_state_metrics",              "build-info-env-var": "CLUSTERLIFECYCLE_STATE_METRICS"},
             {"acm-component-name": "config_policy_controller",                    "build-info-env-var": "CONFIG_POLICY_CONTROLLER"},
             {"acm-component-name": "configmap_watcher",                           "build-info-env-var": "CONFIGMAP_WATCHER"},
