@@ -52,6 +52,7 @@ appsub_use_previous_release_channel_override=0
 hive_use_previous_release_channel_override=0
 if [[ "$new_csv_vers" == "2.3.0" ]]; then
    # No oerrides.
+   true
 fi
 
 oldIFS=$IFS
