@@ -100,7 +100,12 @@ if [[ "$rel_x" -ge 2 ]]; then
       # Monitoring operator
       op_git_repo="open-cluster-management/multicluster-monitoring-operator"
       op_git_branch="$rel_xy_branch"
-      op_bundle_dir="deploy/olm-catalog/multicluster-observability-operator/manifests"
+      # Bundle moved to new standard location in ACM 2.3:
+      if [[ "$rel_y" -ge 3 ]]; then
+         op_bundle_dir="bundle/manifests"
+      else
+         op_bundle_dir="deploy/olm-catalog/multicluster-observability-operator/manifests"
+      fi
       op_entry="Monitoring:$op_git_repo:$op_git_branch:$op_bundle_dir"
       source_info+=("$op_entry")
    fi
