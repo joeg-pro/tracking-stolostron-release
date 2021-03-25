@@ -177,11 +177,11 @@ def main():
 
       s_metadata = get_map(s_csv, "metadata")
       if not s_metadata:
-         die("Source CSV doesn't have any metadata.")
+         emsg("Source CSV doesn't have any metadata.")
 
       s_annotations = get_map(s_metadata, "annotations")
       if not s_annotations:
-         print("   WARN: Source CSV doesn't have any annotations.")
+         wmsg("Source CSV doesn't have any annotations.")
 
       # Accumulate categories into the output set.
       if merge_categories:
@@ -213,7 +213,7 @@ def main():
       if s_alm_examples:
          accumulate_keyed("ALM example", s_alm_examples, m_alm_examples, get_avk)
       else:
-         print("   WARN: Source CSV has no ALM examples.")
+         wmsg("Source CSV has no ALM examples.")
 
       # Accuulate internal-objects annotations.
       internal_objects_annotation_name = "operators.operatorframework.io/internal-objects"
@@ -267,18 +267,24 @@ def main():
       accumulate_keyed("namespace permission", s_ns_perms, m_ns_perms, lambda e: e["serviceAccountName"])
 
       if not (s_cluster_perms or s_ns_perms):
-         print("   WARN: Source CSV defines neither cluster nor namespace permissions/service accounts.")
+         wmsg("Source CSV defines neither cluster nor namespace permissions/service accounts.")
+
+      if "default" in m_cluster_perms or "default" in m_ns_perms:
+         emsg("Source CSV is defining permissions for the default service account")
 
       # Deployments:
       s_deployments = get_seq(s_install_spec, "deployments")
       if s_deployments:
          accumulate_keyed("install deployment", s_deployments, m_deployments, lambda e: e["name"])
       else:
-         print("   WARN: Source CSV specs no install deployments. (???)")
+         wmsg("Source CSV specs no install deployments. (???)")
 
       #--- Copy the source budnle's non-CSV manifests to the output bundle ---
 
       print("\nHandling non-CSV manifests in the budnle.")
+
+      ok_for_bundle = ["ConfigMap", "Service"]
+      should_be_in_csv = ["ClusterRole", "ClusterRoleBinding", "ServiceAccount"]
 
       expected_crds = set(s_owned_crds_map.keys())
 
@@ -319,33 +325,39 @@ def main():
                # the upstream bundle cleaned up.
 
                if csv_vers_xy == "2.0":
-                  print("   WARN: Tolerating/skipping CRD manifest file with unlisted CRDs rather than aborting.")
+                  wmsg("Tolerating/skipping CRD manifest file with unlisted CRDs rather than aborting.")
                else:
                   die_due_to_unlisted_crds = True
                continue
+         elif kind in should_be_in_csv:
+            wmsg("%s should be defined via permissions in CSV rather than in %s" % (kind, fn))
+
+         elif kind in ok_for_bundle:
+            pass
          else:
-            # We have a manifest file for something other than a CRD???
-            print("***TBD???: %s in %s" % (kind, fn))
+            # We have a manifest file for something we don't expect
+            wmsg("Unrecognized kind %s in %s" % (kind, fn))
 
          if fn not in bundle_fns:
             copy_file(fn, s_bundle_pathn, bundle_pathn)
             bundle_fns.add(fn)
          else:
-            die("Duplicate mainfest filename: %s." % t_manifest_fn)
+            emsg("Duplicate mainfest filename: %s." % t_manifest_fn)
       #
-
-      if die_due_to_unlisted_crds:
-         die("Bundle contains CRD manifest file(s) with CRD GVKs not listed as owned.")
 
       # Check that we found manifests for all CRDs owned by this source bundle
       if expected_crds:
          for crd_gvk in expected_crds:
-            die("No manifest found for expected CRD: %s" % crd_gvk)
+            emsg("No manifest found for expected CRD: %s" % crd_gvk)
       else:
          print("   Note: Manfests were copied for all expected CRDs.")
 
       #
    # End for each source-bundle
+
+   # WE're done gathering input, abort if errors occurred while doing so.
+
+   die_if_errors_have_occurred()
 
    print("\n============\n")
    print("Creating merged CSV...")

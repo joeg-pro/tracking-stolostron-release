@@ -144,7 +144,7 @@ mkdir -p "$tmp_dir"
 source_bundles="$tmp_dir/source-bundles"
 clone_top="$tmp_dir/repo-clones"
 mkdir -p "$source_bundles"
-mkdir -p "$clone_spot"
+mkdir -p "$clone_top"
 
 # Wipe out any previous bundle at this version
 mkdir -p "$unbound_pkg_dir"

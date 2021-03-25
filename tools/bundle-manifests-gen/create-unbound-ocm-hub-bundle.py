@@ -218,6 +218,10 @@ def main():
    if not deployments:
       die("No install deployments found.")
 
+   # Done gathering input, abort if we've run into any errors in doing so.
+
+   die_if_errors_have_occurred()
+
    #  Plug in output CSV metadata and annotaitons
 
    o_metadata = o_csv["metadata"]

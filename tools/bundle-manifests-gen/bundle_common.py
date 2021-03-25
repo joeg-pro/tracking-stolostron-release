@@ -12,16 +12,31 @@ import yaml
 yaml_loader = yaml.SafeLoader
 
 
+errors_have_occurred = False
+
 def eprint(*args, **kwargs):
    print(*args, file=sys.stderr, **kwargs)
 
 def emsg(msg, *args):
+   global errors_have_occurred
    eprint("Error: " + msg, *args)
+   errors_have_occurred = True
 
 def die(msg, *args):
    eprint("Error: " + msg, *args)
    eprint("Aborting.")
    exit(2)
+
+def die_if_errors_have_occurred(*args, **kwargs):
+   if errors_have_occurred:
+      if len(args) == 0:
+         eprint("Aborting due to previous errors.")
+      else:
+         eprint(*args, **kwargs)
+      exit(2)
+
+def wmsg(msg, *args):
+   eprint("WARN: " + msg, *args)
 
 # Accumulate a set of scalars
 def accumulate_set(thing_kind, thing_kind_pl, thing_list, thing_set):
@@ -52,7 +67,7 @@ def accumulate_keyed(thing_kind, thing_list, thing_map, key_getter, dups_ok=Fals
          thing_map[key] = thing
       else:
          if not dups_ok:
-            die("Duplicate %s: %s." % (thing_kind, key))
+            emsg("Duplicate %s: %s." % (thing_kind, key))
 
       # Also accomulate into a second map in passed, eg. a per-source-bundle map rather
       # than one that is accumulating over all source bundles.
@@ -370,7 +385,7 @@ def find_current_bundle_for_package(pkg_pathn, selected_channel):
 
    # Look through all of the bundle directories to find the one containing the CSV.
    # We do so by looking at the contents of the manifests so we avoid any depnedency
-   # on directory/manifest file naming patterns.
+   # on directory/manifest file naming patterns.  (This makes it much slower, though.)
 
    the_bundle_dir = None
    the_csv = None
@@ -401,9 +416,11 @@ def find_current_bundle_for_package(pkg_pathn, selected_channel):
 #
 
 
-# Split a string into left and right parts based on a delimited.
-# If not delivered, favor_right controls if the string is considered
-# to be all-right or all-left.
+# Split a string into left and right parts based on the first occurrence of a
+# delimiter encountered when scanning left to right. If the delimiter isn't
+# found, the favor_right argument determines if the string is considered to
+# be all right of the delimiter or all left of it.
+
 def split_at(the_str, the_delim, favor_right=True):
 
    split_pos = the_str.find(the_delim)
