@@ -173,15 +173,15 @@ def main():
 
       s_spec = get_map(s_csv, "spec")
       if not s_spec:
-         die("Source CSV doesn't have a (non-empty) spec.")
+         die("CSV doesn't have a (non-empty) spec.")
 
       s_metadata = get_map(s_csv, "metadata")
       if not s_metadata:
-         emsg("Source CSV doesn't have any metadata.")
+         emsg("CSV has no metadata.")
 
       s_annotations = get_map(s_metadata, "annotations")
       if not s_annotations:
-         wmsg("Source CSV doesn't have any annotations.")
+         wmsg("CSV has no annotations.")
 
       # Accumulate categories into the output set.
       if merge_categories:
@@ -193,7 +193,7 @@ def main():
          if s_cats:
             accumulate_set("category", "categories", s_cats, m_categories)
          else:
-            print("   WARN: Source CSV has no categories.")
+            print("   WARN: CSV has no categories.")
 
       # Accumulate CR examples (ALM-Examples) into the output set.
       s_alm_examples = None
@@ -213,7 +213,7 @@ def main():
       if s_alm_examples:
          accumulate_keyed("ALM example", s_alm_examples, m_alm_examples, get_avk)
       else:
-         wmsg("Source CSV has no ALM examples.")
+         wmsg("CSV has no ALM examples.")
 
       # Accuulate internal-objects annotations.
       internal_objects_annotation_name = "operators.operatorframework.io/internal-objects"
@@ -229,7 +229,7 @@ def main():
       if s_internal_objects:
          accumulate_set("Internal object", "Internal objects", s_internal_objects, m_internal_objects)
       else:
-         print("   Note: Source CSV has no internal objects listed.")
+         print("   Note: CSV has no internal objects listed.")
 
       # Accumulate keywords into the output set.
       s_keywords = get_seq(s_spec, "keywords")
@@ -243,7 +243,7 @@ def main():
       if s_owned_crds:
          accumulate_keyed("owned CRD", s_owned_crds, m_owned_crds, get_gvk, another_thing_map=s_owned_crds_map)
       else:
-         print("   WARN: Source CSV specs no owned CRDs. (???)")
+         print("   WARN: CSV has no owned CRDs listed. (???)")
 
       # Nowc collect up the required CRDs.
       s_required_crds = get_seq(s_crds, "required")
@@ -255,7 +255,7 @@ def main():
       s_install = s_spec["install"]
       s_install_strategy = s_install["strategy"]
       if s_install_strategy != "deployment":
-         die("Source CSV specs unsupported install stragegy (%s)." % s_install_strategy)
+         die("CSV uses an unsupported install stragegy \"%s\"." % s_install_strategy)
 
       s_install_spec = s_install["spec"]
 
@@ -267,17 +267,30 @@ def main():
       accumulate_keyed("namespace permission", s_ns_perms, m_ns_perms, lambda e: e["serviceAccountName"])
 
       if not (s_cluster_perms or s_ns_perms):
-         wmsg("Source CSV defines neither cluster nor namespace permissions/service accounts.")
+         wmsg("CSV has neither cluster nor namespace permissions/service accounts.")
 
       if "default" in m_cluster_perms or "default" in m_ns_perms:
-         emsg("Source CSV is defining permissions for the default service account")
+         emsg("CSV is defining permissions for the default service account")
 
       # Deployments:
+
       s_deployments = get_seq(s_install_spec, "deployments")
+
+      # Check that the deployments aren't using the default service account.
+
+      for chk_deployment in s_deployments:
+         chk_deployment_name = chk_deployment["name"]
+         try:
+            chk_svc_acct = chk_deployment["serviceAccountName"]
+         except KeyError:
+            chk_svc_acct = "default"
+         if chk_svc_acct == "default":
+            emsg("CSV deployment %s is using the default service account." % chk_deployment_name)
+
       if s_deployments:
          accumulate_keyed("install deployment", s_deployments, m_deployments, lambda e: e["name"])
       else:
-         wmsg("Source CSV specs no install deployments. (???)")
+         wmsg("CSV has no install deployments. (???)")
 
       #--- Copy the source budnle's non-CSV manifests to the output bundle ---
 
