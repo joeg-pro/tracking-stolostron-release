@@ -70,6 +70,7 @@ prev_rel_xy="$rel_x.$prev_rel_y"
 
 ## Not currently pinned: app_sub_source_csv_vers="x.y.z"
 ## Not currently pinned: hive_source_csv_vers="x.y.z"
+## Not currently pinned: ai_source_csv_vers="x.y.z"
 
 tmp_dir="$tmp_root/bundle-manifests"
 rm -rf "$tmp_dir"
@@ -88,27 +89,63 @@ rm -rf "$unbound_acm_pkg_dir/$new_csv_vers"
 
 # To generate the composite ACM bundle, we need some source bundles as input.
 #
-# For Hive, we generate the source bundle using the Hive operator repo and
-# a generation script found there.
-#
 # For the OCM hub, we generate the source bundle using the hub operator repo
 # and the create-unbound-ocm-hub-bundle script found in this repo.
 #
-# For the application subscription operator, for the moment we grab the source bundle
-# from what is posted as a comomunity operator. Because the community operator
-# package doesn't have an ocm-tracking channel we pin the version we pick by by
-# hardcoding it here.
+# For the application subscription operator, as well as the other community operators
+# we merge into ACM, the source bundle material is obtained from the operator's package
+# in the community operators repo.  If we're not pinning the version, we pick up the
+# current bundle on a release-tracking channel.  If pinned, we use the pinned version.
 #
-# For Hive, we do the same thing as we do for the application subscription ooperator.
-#
-# FUTURE:  For both app sub and Hive, we probably need a better way to synchronize the
-# version of the CSV manifests used with the code we pick up for donwstream builds.
-# Options include: (a) generating the CSVs from tooling and artifacts found in the
+# FUTURE:  For both app sub and community operators, we probably need a better way to
+# synchronize the version of the CSV manifests used with the code we pick up for donwstream
+# builds.  Options include: (a) generating the CSVs from tooling and artifacts found in the
 # operator repo branches we pick up for downstream, assuming that tooling generates
 # "complete" CSVs, or (b) pick up from community operators using an ocm-focused
 # channel that is managed to track to the release branch used for builds.
 
 clone_spot="$tmp_dir/repo-clones"
+
+
+function locate_community_operator {
+
+   local op_display_name="$1"
+   local pkg_path="$2"
+   local channel_name_prefix="$3"
+   local pinned_csv_vers="$4"
+   local use_previons_rel_channel="$5"
+
+   pkg_dir="$community_repo_spot/community-operators/$pkg_path"
+
+   if [[ "$pinned_csv_vers" == "none" ]]; then
+
+      # Find latest version posted on a channel:
+
+      local channel_name="$channel_name_prefix-$rel_xy"
+      if [[ $use_previons_rel_channel -eq 1 ]]; then
+         echo "Warning: Previous-release-channel override is in effect for $op_display_name operator."
+         channel_name="$channel_name_prefix-$prev_rel_xy"
+      fi
+
+      bundle_dir=$($my_dir/find-bundle-dir.py $channel_name $pkg_dir)
+      if [[ $? -ne 0 ]]; then
+         >&2 echo "Error: Could not find source bundle directory for $op_display_name operator."
+         >&2 echo "Aborting."
+         exit 2
+      fi
+      local bundle_version=${bundle_dir##*/}
+      echo "Info: Using most recent $op_display_name bundle posted to channel: $channel_name ($bundle_version)."
+
+   else
+      # PIN TO  VERSION:
+      echo "HUH?"
+      echo "Info: Using pinned $op_display_name bundle version: $pinned_csv_vers."
+      bundle_dir="$pkg_dir/$pinned_csv_vers"
+   fi
+
+   # We leave (global) bundle_dir set as an output.
+}
+
 
 # -- App Sub --
 
@@ -173,6 +210,21 @@ else
    hive_bundle_dir="$community_repo_spot/community-operators/hive-operator/$hive_source_csv_vers"
 fi
 
+# For ACM V2.x:
+if [[ "$rel_x" -ge 2 ]]; then
+
+   # Pending inclusion in ACM 2.3:
+   if [[ "$rel_y" -ge 999 ]]; then
+
+      #-- Assisted Service --
+
+      locate_community_operator "AI" "assisted-service-operator" "ocm" \
+         "${ai_source_csv_vers:-none}" "${ai_use_previous_release_channel_override:-0}"
+      ai_bundle_dir="$bundle_dir"
+
+   fi
+fi
+
 # -- OCM Hub --
 
 $my_dir/gen-unbound-ocm-hub-bundle.sh "$new_csv_vers"
@@ -185,6 +237,7 @@ fi
 hub_pkg_dir="$top_of_repo/operator-bundles/unbound/multicluster-hub"
 hub_channel="latest"
 
+echo Running: my_dir/find-bundle-dir.py $hub_channel $hub_pkg_dir
 hub_bundle_dir=$($my_dir/find-bundle-dir.py $hub_channel $hub_pkg_dir)
 if [[ $? -ne 0 ]]; then
    >&2 echo "Error: Could not find source bundle directory for OCM Hub."
@@ -203,6 +256,10 @@ echo "Generating unbound bundle manifests for package: $acm_pkg_name"
 echo "  From OCM hub bundle in:   $hub_bundle_dir"
 echo "     and Hive bundle in:    $hive_bundle_dir"
 echo "     and App Sub bundle in: $app_sub_bundle_dir"
+if [[ -n "$ai_bundle_dir" ]]; then
+   echo "     and AI bundle in:      $ai_bundle_dir"
+   ai_source_bundle_option="--source-bundle-dir $ai_bundle_dir"
+fi
 echo "  Writing merged unbound bundle manifests to: $unbound_acm_pkg_dir"
 echo "  For CSV/bundle version: $new_csv_vers"
 if [[ -n "$prev_csv_vers" ]]; then
@@ -216,5 +273,6 @@ $my_dir/merge-bundles.py \
    --csv-template $csv_template \
    --source-bundle-dir $hub_bundle_dir \
    --source-bundle-dir $hive_bundle_dir \
-   --source-bundle-dir $app_sub_bundle_dir
+   --source-bundle-dir $app_sub_bundle_dir \
+   $ai_source_bundle_option
 
