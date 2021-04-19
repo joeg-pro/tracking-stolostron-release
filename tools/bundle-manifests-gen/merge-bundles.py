@@ -281,7 +281,8 @@ def main():
       for chk_deployment in s_deployments:
          chk_deployment_name = chk_deployment["name"]
          try:
-            chk_svc_acct = chk_deployment["serviceAccountName"]
+            chk_pod_spec = chk_deployment["spec"]["template"]["spec"]
+            chk_svc_acct = chk_pod_spec["serviceAccountName"]
          except KeyError:
             chk_svc_acct = "default"
          if chk_svc_acct == "default":
