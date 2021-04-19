@@ -147,8 +147,6 @@ function locate_community_operator {
 }
 
 
-# -- App Sub --
-
 community_repo_spot="$clone_spot/community-operators"
 git clone "$github/operator-framework/community-operators.git" "$community_repo_spot"
 if [[ $? -ne 0 ]]; then
@@ -157,58 +155,20 @@ if [[ $? -ne 0 ]]; then
    exit 2
 fi
 
-if [[ -z "$app_sub_source_csv_vers" ]]; then
 
-   # Find latest version posted on a channel:
+# -- App Sub --
 
-   app_sub_pkg_dir="$community_repo_spot/community-operators/multicluster-operators-subscription"
-   app_sub_channel="release-$rel_xy"
-   if [[ $appsub_use_previous_release_channel_override -eq 1 ]]; then
-      echo "Warning: Previous-release-channel override is in effect for App Sub operator."
-      app_sub_channel="release-$prev_rel_xy"
-   fi
+locate_community_operator "App Sub" "multicluster-operators-subscription" "release" \
+   "${app_sub_source_csv_vers:-none}" "${app_sub_use_previous_release_channel_override:-0}"
+app_sub_bundle_dir="$bundle_dir"
 
-   app_sub_bundle_dir=$($my_dir/find-bundle-dir.py $app_sub_channel $app_sub_pkg_dir)
-   if [[ $? -ne 0 ]]; then
-      >&2 echo "Error: Could not find source bundle directory for Multicluster Subscription."
-      >&2 echo "Aborting."
-      exit 2
-   fi
-   app_sub_bundle_version=${app_sub_bundle_dir##*/}
-   echo "Info: Using most recent App Sub bundle posted to channel: $app_sub_channel ($app_sub_bundle_version)."
-
-else
-   # PIN TO  VERSION:
-   echo "Info: Using pinned App Sub bundle version: $app_sub_source_csv_vers."
-   app_sub_bundle_dir="$community_repo_spot/community-operators/multicluster-operators-subscription/$app_sub_source_csv_vers"
-fi
 
 # -- Hive --
 
-if [[ -z "$hive_source_csv_vers" ]]; then
-   # Find latest version posted on a channel:
+locate_community_operator "Hive" "hive-operator" "ocm" \
+   "${hive_source_csv_vers:-none}" "${hive_use_previous_release_channel_override:-0}"
+hive_bundle_dir="$bundle_dir"
 
-   hive_pkg_dir="$community_repo_spot/community-operators/hive-operator"
-   hive_channel="ocm-$rel_xy"
-   if [[ $hive_use_previous_release_channel_override -eq 1 ]]; then
-      echo "Warning: Previous-release-channel override is in effect for Hive operator."
-      hive_channel="ocm-$prev_rel_xy"
-   fi
-
-   hive_bundle_dir=$($my_dir/find-bundle-dir.py $hive_channel $hive_pkg_dir)
-   if [[ $? -ne 0 ]]; then
-      >&2 echo "Error: Could not find source bundle directory for Hive."
-      >&2 echo "Aborting."
-      exit 2
-   fi
-   hive_bundle_version=${hive_bundle_dir##*/}
-   echo "Info: Using most recent Hive bundle posted to channel: $hive_channel ($hive_bundle_version)."
-
-else
-   # PIN TO VERSION:
-   echo "Info: Using pinned Hive bundle version: $hive_source_csv_vers."
-   hive_bundle_dir="$community_repo_spot/community-operators/hive-operator/$hive_source_csv_vers"
-fi
 
 # For ACM V2.x:
 if [[ "$rel_x" -ge 2 ]]; then
