@@ -67,74 +67,6 @@ fi
 
 rel_xy_branch="release-$rel_xy"
 
-
-# Define the list of source repos/CSVs we merge
-
-# We add repos to the list based on the release for which the components were added
-# to ACM as compared to the release we're building the bundle for.  Doing it this way
-# lets us keep  this script idential across ACM release branches if we want.
-
-source_info=()
-
-# Since ACM 1.0:
-
-op_git_repo="open-cluster-management/multicloudhub-operator"
-op_git_branch="$rel_xy_branch"
-op_bundle_dir="deploy/olm-catalog/multiclusterhub-operator/manifests"
-op_entry="Base Hub:$op_git_repo:$op_git_branch:$op_bundle_dir"
-source_info+=("$op_entry")
-
-# Since ACM 2.0:
-if [[ "$rel_x" -ge 2 ]]; then
-
-   # Registration operator
-   op_git_repo="open-cluster-management/registration-operator"
-   op_git_branch="$rel_xy_branch"
-   op_bundle_dir="deploy/cluster-manager/olm-catalog/cluster-manager/manifests"
-   op_entry="Cluster Manager:$op_git_repo:$op_git_branch:$op_bundle_dir"
-   source_info+=("$op_entry")
-
-   # Since ACM 2.1:
-   if [[ "$rel_y" -ge 1 ]]; then
-
-      # Monitoring operator
-      op_git_repo="open-cluster-management/multicluster-monitoring-operator"
-      op_git_branch="$rel_xy_branch"
-      # Bundle moved to new standard location in ACM 2.3:
-      if [[ "$rel_y" -ge 3 ]]; then
-         op_bundle_dir="bundle/manifests"
-      else
-         op_bundle_dir="deploy/olm-catalog/multicluster-observability-operator/manifests"
-      fi
-      op_entry="Monitoring:$op_git_repo:$op_git_branch:$op_bundle_dir"
-      source_info+=("$op_entry")
-   fi
-
-   # Since ACM 2.2:
-   if [[ "$rel_y" -ge 2 ]]; then
-
-      # Submariner add-on
-      op_git_repo="open-cluster-management/submariner-addon"
-      op_git_branch="$rel_xy_branch"
-      op_bundle_dir="deploy/olm-catalog/manifests"
-      op_entry="Submariner Addon:$op_git_repo:$op_git_branch:$op_bundle_dir"
-      source_info+=("$op_entry")
-   fi
-
-   # Since ACM 2.3:
-   if [[ "$rel_y" -ge 3 ]]; then
-
-      # Discovery operator
-      op_git_repo="open-cluster-management/discovery"
-      op_git_branch="$rel_xy_branch"
-      # This repo is using operator-sdk v1.x, the following is the default place for v1:
-      op_bundle_dir="bundle/manifests"
-      op_entry="Discovery:$op_git_repo:$op_git_branch:$op_bundle_dir"
-      source_info+=("$op_entry")
-   fi
-
-fi
-
 # Manage our temp directories
 
 tmp_dir="$tmp_root/bundle-manifests"
@@ -150,61 +82,147 @@ mkdir -p "$clone_top"
 mkdir -p "$unbound_pkg_dir"
 rm -rf "$unbound_pkg_dir/$new_csv_vers"
 
+bundle_names=()
+declare -A bundle_dirs
 
-# Clone and verify each of the source-bundle entries
+function locate_repo_operator {
 
-sbd_opts=""
-sb_msgs=()
+   local op_display_name="$1"
+   local git_repo="$2"
+   local git_branch="$3"
+   local bundle_path="$4"
 
-for s in "${source_info[@]}"; do
-   oldIFS=$IFS
-   IFS=: si=($s)
-   s_name="${si[0]}"
-   s_repo="${si[1]}"
-   s_branch="${si[2]}"
-   s_dir="${si[3]}"
-   IFS=$oldIFS
+   local clone_spot="$clone_top/${git_repo##*/}"
 
-   clone_spot="$clone_top/${s_repo##*/}"
-
-   echo "Cloning $s_name operator repo branch $s_branch."
-   git clone -b "$s_branch" "$github/$s_repo" "$clone_spot"
+   echo "Cloning $op_display_name operator repo branch $git_branch."
+   git clone -b "$git_branch" "$github/$git_repo" "$clone_spot"
    if [[ $? -ne 0 ]]; then
-      >&2 echo "Error: Could not clone $s_name operator repo."
+      >&2 echo "Error: Could not clone $op_display_name operator repo."
       exit 2
    fi
 
-   manifests_dir="$clone_spot/$s_dir"
-   if [[ ! -d "$manifests_dir" ]]; then
-      >&2 echo "Error: Expected $s_name bundle manifests directory does not exist."
+   bundle_dir="$clone_spot/$bundle_path"
+   if [[ ! -d "$bundle_dir" ]]; then
+      >&2 echo "Error: Expected $op_display_name bundle manifests directory does not exist."
       exit 2
    fi
 
-   sbd_opts="$sbd_opts  --source-bundle-dir $manifests_dir"
-   sb_msgs+=("    $s_name in: $manifests_dir")
+   bundle_names+=("$op_display_name")
+   bundle_dirs["$op_display_name"]="$bundle_dir"
+}
 
-done
+
+# Clone and verify each of the source-bundles merge together
+
+# Since ACM 1.0:
+
+locate_repo_operator "Base Hub" "open-cluster-management/multicloudhub-operator" \
+   "$rel_xy_branch" "deploy/olm-catalog/multiclusterhub-operator/manifests"
+
+
+# Since ACM 2.0:
+if [[ "$rel_x" -ge 2 ]]; then
+
+   # Registration operator
+   locate_repo_operator "Cluster Manager" "open-cluster-management/registration-operator" \
+      "$rel_xy_branch" "deploy/cluster-manager/olm-catalog/cluster-manager/manifests"
+
+   # Since ACM 2.1:
+   if [[ "$rel_y" -ge 1 ]]; then
+
+      # Monitoring operator
+
+      # Bundle moved to new standard location in ACM 2.3:
+      if [[ "$rel_y" -ge 3 ]]; then
+         op_bundle_path="bundle/manifests"
+      else
+         op_bundle_path="deploy/olm-catalog/multicluster-observability-operator/manifests"
+      fi
+
+      locate_repo_operator "Monitoring" "open-cluster-management/multicluster-monitoring-operator" \
+         "$rel_xy_branch" "$op_bundle_path"
+   fi
+
+   # Since ACM 2.2:
+   if [[ "$rel_y" -ge 2 ]]; then
+
+      # Submariner add-on
+      locate_repo_operator "Submariner Addon" "open-cluster-management/submariner-addon" \
+         "$rel_xy_branch" "deploy/olm-catalog/manifests"
+   fi
+
+   # Since ACM 2.3:
+   if [[ "$rel_y" -ge 3 ]]; then
+
+      # Discovery operator
+
+      locate_repo_operator "Discovery" "open-cluster-management/discovery" \
+         "$rel_xy_branch" "bundle/manifests"
+   fi
+fi
 
 if [[ -n "$prev_csv_vers" ]]; then
    prev_option="--prev-csv $prev_csv_vers"
 fi
 
+source_bundle_dir_opts=()
+for k in "${bundle_names[@]}"; do
+   source_bundle_dir_opts+=("--source-bundle-dir" "${bundle_dirs[$k]}")
+done
+
+# Starting with ACM 2.3, we support multiple architectures. Specify the list
+# of supported architectures to get the CSV labeled right.
+
+supported_archs=()
+supported_op_syss=()
+
+if [[ "$rel_x" -ge 2 ]]; then
+   if [[ "$rel_y" -ge 3 ]]; then
+      supported_op_syss+=("linux")
+      supported_archs+=("amd64")
+      supported_archs+=("ppc64le")
+   fi
+fi
+
+supported_thing_opts=()
+for e in "${supported_archs[@]}"; do
+   supported_thing_opts+=("--supported-arch" "$e")
+done
+for e in "${supported_op_syss[@]}"; do
+   supported_thing_opts+=("--supported-os" "$e")
+done
+
 
 # Produce the merged CSV/bundle
 
+echo ""
+echo "----------------------------------------------------------------------------"
 echo "Generating unbound bundle manifests for package: $pkg_name"
 echo "  From Source OPerator Bundles..."
-printf "%s\n" "${sb_msgs[@]}"
+for k in "${bundle_names[@]}"; do
+   echo "     $k in: ${bundle_dirs[$k]}"
+done
+
 echo "  Using CSV template: $csv_template"
+
+if [[ -n "$supported_thing_opts" ]]; then
+   echo "  With supported architectures: ${supported_archs[@]}"
+   echo "     abd supported operating systems: ${supported_op_syss[@]}"
+fi
+
 echo "  Writing merged unbound bundle manifests to: $unbound_pkg_dir"
 echo "  For CSV/bundle version: $new_csv_vers"
+
 if [[ -n "$prev_csv_vers" ]]; then
    echo "  Replacing previous CSV/bundle version: $prev_csv_vers"
 fi
+echo "----------------------------------------------------------------------------"
+echo ""
 
 $my_dir/merge-bundles.py \
    --pkg-name  $pkg_name --pkg-dir $unbound_pkg_dir \
    --csv-vers "$new_csv_vers" $prev_option \
    --channel "latest" \--csv-template $csv_template \
-   $sbd_opts
+   "${supported_thing_opts[@]}" \
+   "${source_bundle_dir_opts[@]}"
 

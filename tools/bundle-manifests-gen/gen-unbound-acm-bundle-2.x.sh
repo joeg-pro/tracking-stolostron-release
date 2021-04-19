@@ -106,6 +106,8 @@ rm -rf "$unbound_acm_pkg_dir/$new_csv_vers"
 
 clone_spot="$tmp_dir/repo-clones"
 
+bundle_names=()
+declare -A bundle_dirs
 
 function locate_community_operator {
 
@@ -143,7 +145,10 @@ function locate_community_operator {
       bundle_dir="$pkg_dir/$pinned_csv_vers"
    fi
 
-   # We leave (global) bundle_dir set as an output.
+   # Add info into the accumulation (global vars)
+
+   bundle_names+=("$op_display_name")
+   bundle_dirs["$op_display_name"]="$bundle_dir"
 }
 
 
@@ -153,36 +158,6 @@ if [[ $? -ne 0 ]]; then
    >&2 echo "Error: Could not clone Community Operators repo."
    >&2 echo "Aborting."
    exit 2
-fi
-
-
-# -- App Sub --
-
-locate_community_operator "App Sub" "multicluster-operators-subscription" "release" \
-   "${app_sub_source_csv_vers:-none}" "${app_sub_use_previous_release_channel_override:-0}"
-app_sub_bundle_dir="$bundle_dir"
-
-
-# -- Hive --
-
-locate_community_operator "Hive" "hive-operator" "ocm" \
-   "${hive_source_csv_vers:-none}" "${hive_use_previous_release_channel_override:-0}"
-hive_bundle_dir="$bundle_dir"
-
-
-# For ACM V2.x:
-if [[ "$rel_x" -ge 2 ]]; then
-
-   # Pending inclusion in ACM 2.3:
-   if [[ "$rel_y" -ge 999 ]]; then
-
-      #-- Assisted Service --
-
-      locate_community_operator "AI" "assisted-service-operator" "ocm" \
-         "${ai_source_csv_vers:-none}" "${ai_use_previous_release_channel_override:-0}"
-      ai_bundle_dir="$bundle_dir"
-
-   fi
 fi
 
 # -- OCM Hub --
@@ -197,42 +172,102 @@ fi
 hub_pkg_dir="$top_of_repo/operator-bundles/unbound/multicluster-hub"
 hub_channel="latest"
 
-echo Running: my_dir/find-bundle-dir.py $hub_channel $hub_pkg_dir
-hub_bundle_dir=$($my_dir/find-bundle-dir.py $hub_channel $hub_pkg_dir)
+# echo Running: my_dir/find-bundle-dir.py $hub_channel $hub_pkg_dir
+bundle_dir=$($my_dir/find-bundle-dir.py $hub_channel $hub_pkg_dir)
 if [[ $? -ne 0 ]]; then
    >&2 echo "Error: Could not find source bundle directory for OCM Hub."
    >&2 echo "Aborting."
    exit 2
 fi
+bundle_names+=("OCM Hub")
+bundle_dirs["OCM Hub"]="$bundle_dir"
 
-# Generate the unbound composite bundle, which will be the source for producing
-# the bound one (by replacing image references, version, prev-version)
+# -- App Sub --
+
+locate_community_operator "App Sub" "multicluster-operators-subscription" "release" \
+   "${app_sub_source_csv_vers:-none}" "${app_sub_use_previous_release_channel_override:-0}"
+
+# -- Hive --
+
+locate_community_operator "Hive" "hive-operator" "ocm" \
+   "${hive_source_csv_vers:-none}" "${hive_use_previous_release_channel_override:-0}"
+
+# For ACM V2.x:
+if [[ "$rel_x" -ge 2 ]]; then
+
+   # Pending inclusion in ACM 2.3:
+   if [[ "$rel_y" -ge 999 ]]; then
+
+      #-- Assisted Service --
+
+      locate_community_operator "AI" "assisted-service-operator" "ocm" \
+         "${ai_source_csv_vers:-none}" "${ai_use_previous_release_channel_override:-0}"
+   fi
+fi
 
 if [[ -n "$prev_csv_vers" ]]; then
    prev_option="--prev-csv $prev_csv_vers"
 fi
 
-echo "Generating unbound bundle manifests for package: $acm_pkg_name"
-echo "  From OCM hub bundle in:   $hub_bundle_dir"
-echo "     and Hive bundle in:    $hive_bundle_dir"
-echo "     and App Sub bundle in: $app_sub_bundle_dir"
-if [[ -n "$ai_bundle_dir" ]]; then
-   echo "     and AI bundle in:      $ai_bundle_dir"
-   ai_source_bundle_option="--source-bundle-dir $ai_bundle_dir"
+source_bundle_dir_opts=()
+for k in "${bundle_names[@]}"; do
+   source_bundle_dir_opts+=("--source-bundle-dir" "${bundle_dirs[$k]}")
+done
+
+# Starting with ACM 2.3, we support multiple architectures. Specify the list
+# of supported architectures to get the CSV labeled right.
+
+supported_archs=()
+supported_op_syss=()
+
+if [[ "$rel_x" -ge 2 ]]; then
+   if [[ "$rel_y" -ge 3 ]]; then
+      supported_op_syss+=("linux")
+      supported_archs+=("amd64")
+      supported_archs+=("ppc64le")
+   fi
 fi
+
+supported_thing_opts=()
+for e in "${supported_archs[@]}"; do
+   supported_thing_opts+=("--supported-arch" "$e")
+done
+for e in "${supported_op_syss[@]}"; do
+   supported_thing_opts+=("--supported-os" "$e")
+done
+
+# Generate the unbound composite bundle, which will be the source for producing
+# the bound one (by replacing image references, version, prev-version)
+
+echo ""
+echo "----------------------------------------------------------------------------"
+echo "Generating unbound bundle manifests for package: $acm_pkg_name"
+echo "  From Source OPerator Bundles..."
+for k in "${bundle_names[@]}"; do
+   echo "     $k in: ${bundle_dirs[$k]}"
+done
+
+echo "  Using CSV template: $csv_template"
+
+if [[ -n "$supported_thing_opts" ]]; then
+   echo "  With supported architectures: ${supported_archs[@]}"
+   echo "     abd supported operating systems: ${supported_op_syss[@]}"
+fi
+
 echo "  Writing merged unbound bundle manifests to: $unbound_acm_pkg_dir"
 echo "  For CSV/bundle version: $new_csv_vers"
+
 if [[ -n "$prev_csv_vers" ]]; then
    echo "  Replacing previous CSV/bundle version: $prev_csv_vers"
 fi
+echo "----------------------------------------------------------------------------"
+echo ""
 
 $my_dir/merge-bundles.py \
    --pkg-name  $acm_pkg_name --pkg-dir $unbound_acm_pkg_dir \
    --csv-vers "$new_csv_vers" $prev_option \
    --channel "latest" \
    --csv-template $csv_template \
-   --source-bundle-dir $hub_bundle_dir \
-   --source-bundle-dir $hive_bundle_dir \
-   --source-bundle-dir $app_sub_bundle_dir \
-   $ai_source_bundle_option
+   "${supported_thing_opts[@]}" \
+   "${source_bundle_dir_opts[@]}"
 

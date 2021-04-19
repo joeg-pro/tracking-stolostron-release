@@ -27,6 +27,14 @@ import traceback
 import yaml
 
 
+def add_supported_labels(labels, label_pattern, entries):
+
+   if not entries:
+      return
+   new_labels = {label_pattern % e: "supported" for e in entries}
+   labels.update(new_labels)
+
+
 # --- Main ---
 
 def main():
@@ -49,6 +57,9 @@ def main():
 
    parser.add_argument("--csv-template", dest="csv_template_pathn", default=default_csv_template_pathn)
 
+   parser.add_argument("--supported-arch", dest="supported_archs", action="append")
+   parser.add_argument("--supported-os  ", dest="supported_op_syss", action="append")
+
    args = parser.parse_args()
 
    csv_template_pathn = args.csv_template_pathn
@@ -57,6 +68,9 @@ def main():
    pkg_name      = args.pkg_name
    pkg_dir_pathn = args.pkg_dir_pathn
    for_channels  = args.for_channels
+
+   supported_archs   = args.supported_archs
+   supported_op_syss = args.supported_op_syss
 
    csv_vers  = args.csv_vers
    prev_vers = args.prev_vers
@@ -405,6 +419,16 @@ def main():
    # Convert accumulated internal objects into a string representation and plug into annotations.
    o_internal_objects_str = json.dumps(list(m_internal_objects), sort_keys=False)
    o_annotations[internal_objects_annotation_name] = o_internal_objects_str
+
+   # Insert supported-archiecture and OS labels if any architectures were specified.
+
+   o_labels = dict()  # Don't inherit any from the template.
+
+   add_supported_labels(o_labels, "operatorframework.io/arch.%s", supported_archs)
+   add_supported_labels(o_labels, "operatorframework.io/os.%s",   supported_op_syss)
+
+   if o_labels:
+      o_metadata["labels"] = o_labels
 
    o_spec["version"]  = csv_vers
 
