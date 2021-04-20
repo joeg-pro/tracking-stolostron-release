@@ -24,6 +24,7 @@
             {"acm-component-name": "governance_policy_spec_sync",                 "build-info-env-var": "GOVERNANCE_POLICY_SPEC_SYNC"},
             {"acm-component-name": "governance_policy_status_sync",               "build-info-env-var": "GOVERNANCE_POLICY_STATUS_SYNC"},
             {"acm-component-name": "governance_policy_template_sync",             "build-info-env-var": "GOVERNANCE_POLICY_TEMPLATE_SYNC"},
+            {"acm-component-name": "grafana",                                     "build-info-env-var": "GRAFANA"},
             {"acm-component-name": "grafana_dashboard_loader",                    "build-info-env-var": "GRAFANA_DASHBOARD_LOADER"},
             {"acm-component-name": "grc_ui",                                      "build-info-env-var": "GRC_UI"},
             {"acm-component-name": "grc_ui_api",                                  "build-info-env-var": "GRC_UI_API"},
@@ -66,36 +67,21 @@
             {"acm-component-name": "thanos",                                      "build-info-env-var": "THANOS"},
             {"acm-component-name": "thanos_receive_controller",                   "build-info-env-var": "THANOS_RECEIVE_CONTROLLER"},            
             {"acm-component-name": "work",                                        "build-info-env-var": "WORK"},
-            
-            {"acm-component-name": "acm_must_gather",
-             "build-info-env-var": "ACM_MUST_GATHER",
-             "skip_for_components": ["endpoint_operator", "multiclusterhub_operator"]},
-
-            {"acm-component-name": "endpoint_operator",
-             "build-info-env-var": "ENDPOINT_OPERATOR",
-             "skip_for_components": ["endpoint_operator"]},
-
-            {"acm-component-name": "multiclusterhub_operator",
-             "build-info-env-var": "MULTICLUSTERHUB_OPERATOR",
-             "skip_for_components": ["endpoint_operator", "multiclusterhub_operator"]}
+            {"acm-component-name": "acm_must_gather",                             "build-info-env-var": "ACM_MUST_GATHER"},
+            {"acm-component-name": "endpoint_operator",                           "build-info-env-var": "ENDPOINT_OPERATOR"},
+            {"acm-component-name": "multiclusterhub_operator",                    "build-info-env-var": "MULTICLUSTERHUB_OPERATOR"}
         ]
     },
 
     "external-images": {
         "image-list": [ { 
-              "acm-component-name": "grafana",
-              "build-name":         "grafana-container",
+              "acm-component-name": "oauth_proxy",
+              "build-name":         "golang-github-openshift-oauth-proxy-container",
               "build-tag":          "rhaos-4.5-rhel-7-container-released",
               "prefix-to-remove":   "openshift-",
               "image-remote":       "registry.redhat.io/openshift4" 
             },{ 
-              "acm-component-name": "oauth_proxy",
-              "build-name":         "golang-github-openshift-oauth-proxy-container",
-              "build-tag":          "rhaos-4.4-rhel-7-container-released",
-              "prefix-to-remove":   "openshift-",
-              "image-remote":       "registry.redhat.io/openshift4" 
-            },{ 
-               "acm-component-name": "prometheus-alertmanager",
+              "acm-component-name": "prometheus-alertmanager",
               "build-name":         "golang-github-prometheus-alertmanager-container",
               "build-tag":          "rhaos-4.5-rhel-7-container-released",
               "prefix-to-remove":   "openshift-",
