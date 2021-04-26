@@ -427,6 +427,9 @@ def main():
          copy_file(manifest_fn, source_bundle_pathn, bundle_pathn)
    #
 
+   if csv is None:
+      die("CSV manifest not found in bundle directory.")
+
    # Adjust CSV name and creation timestamp in metadata
 
    metadata = csv["metadata"]
