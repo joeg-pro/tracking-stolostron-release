@@ -150,15 +150,6 @@ if [[ "$rel_x" -ge 2 ]]; then
       locate_repo_operator "Submariner Addon" "open-cluster-management/submariner-addon" \
          "$rel_xy_branch" "deploy/olm-catalog/manifests"
    fi
-
-   # Since ACM 2.3:
-   if [[ "$rel_y" -ge 3 ]]; then
-
-      # Discovery operator
-
-      locate_repo_operator "Discovery" "open-cluster-management/discovery" \
-         "$rel_xy_branch" "bundle/manifests"
-   fi
 fi
 
 if [[ -n "$prev_csv_vers" ]]; then
