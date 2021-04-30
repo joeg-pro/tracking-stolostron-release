@@ -140,7 +140,6 @@ function locate_community_operator {
 
    else
       # PIN TO  VERSION:
-      echo "HUH?"
       echo "Info: Using pinned $op_display_name bundle version: $pinned_csv_vers."
       bundle_dir="$pkg_dir/$pinned_csv_vers"
    fi
@@ -189,8 +188,21 @@ locate_community_operator "App Sub" "multicluster-operators-subscription" "relea
 
 # -- Hive --
 
-locate_community_operator "Hive" "hive-operator" "ocm" \
-   "${hive_source_csv_vers:-none}" "${hive_use_previous_release_channel_override:-0}"
+# ACM 2.0 ships with the Hive 1.0.5 bundle, but in order to get around other issues
+# with OLM in OCP 4.8, the Hive team has had to remove the Hive 1.0.5 bundle from
+# community operators.  As of this writing, we expect that ACM 2.0 only has a few more
+# months of active service.  So, we're special casing the Hive merging for 2.0 and pkcing
+# up the bundle the stashed-bundles directory in this repo rather than from the
+# community operators repo.
+
+if [[ "$rel_xy" == "2.0" ]]; then
+   echo "WARN: Using a stashed copy of the Hive 1.0.5 bundle."
+   bundle_names+=("Hive")
+   bundle_dirs["Hive"]="$top_of_repo/stashed-bundles/hive-1.0.5"
+else
+   locate_community_operator "Hive" "hive-operator" "ocm" \
+      "${hive_source_csv_vers:-none}" "${hive_use_previous_release_channel_override:-0}"
+fi
 
 # For ACM V2.x:
 if [[ "$rel_x" -ge 2 ]]; then
