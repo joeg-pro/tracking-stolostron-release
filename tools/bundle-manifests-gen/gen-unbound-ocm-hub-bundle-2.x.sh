@@ -116,7 +116,7 @@ function locate_repo_operator {
 
 # Since ACM 1.0:
 
-locate_repo_operator "Base Hub" "open-cluster-management/multicloudhub-operator" \
+locate_repo_operator "Base Hub" "open-cluster-management/multiclusterhub-operator" \
    "$rel_xy_branch" "deploy/olm-catalog/multiclusterhub-operator/manifests"
 
 
