@@ -51,6 +51,7 @@
             {"acm-component-name": "observatorium",                               "build-info-env-var": "OBSERVATORIUM"},
             {"acm-component-name": "observatorium_operator",                      "build-info-env-var": "OBSERVATORIUM_OPERATOR"},
             {"acm-component-name": "openshift_hive",                              "build-info-env-var": "OPENSHIFT_HIVE_OPERATOR"},
+            {"acm-component-name": "placement",                                   "build-info-env-var": "PLACEMENT"},
             {"acm-component-name": "prometheus_alertmanager",                     "build-info-env-var": "PROMETHEUS_ALERTMANAGER"},
             {"acm-component-name": "provider_credential_controller",              "build-info-env-var": "PROVIDER_CREDENTIAL_CONTROLLER"},
             {"acm-component-name": "rbac_query_proxy",                            "build-info-env-var": "RBAC_QUERY_PROXY"},
