@@ -5,10 +5,6 @@
 
         "image-list": [
             {"acm-component-name": "application_ui",                              "build-info-env-var": "APPLICATION_UI"},
-            {"acm-component-name": "cert_manager_acmesolver",                     "build-info-env-var": "ACMESOLVER"},
-            {"acm-component-name": "cert_manager_cainjector",                     "build-info-env-var": "CAINJECTOR"},
-            {"acm-component-name": "cert_manager_controller",                     "build-info-env-var": "CERT_MANAGER_CONTROLLER"},
-            {"acm-component-name": "cert_manager_webhook",                        "build-info-env-var": "CERT_MANAGER_WEBHOOK"},
             {"acm-component-name": "cert_policy_controller",                      "build-info-env-var": "CERT_POLICY_CONTROLLER"},
             {"acm-component-name": "cluster_curator_controller",                  "build-info-env-var": "CLUSTER_CURATOR_CONTROLLER"},
             {"acm-component-name": "clusterlifecycle_state_metrics",              "build-info-env-var": "CLUSTERLIFECYCLE_STATE_METRICS"},
