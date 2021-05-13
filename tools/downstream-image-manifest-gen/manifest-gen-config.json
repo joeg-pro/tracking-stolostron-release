@@ -5,6 +5,10 @@
 
         "image-list": [
             {"acm-component-name": "application_ui",                              "build-info-env-var": "APPLICATION_UI"},
+            {"acm-component-name": "assisted_installer",                          "build-info-env-var": "ASSISTED_INSTALLER"},
+            {"acm-component-name": "assisted_installer_agent",                    "build-info-env-var": "ASSISTED_INSTALLER_AGENT"},
+            {"acm-component-name": "assisted_installer_controller",               "build-info-env-var": "ASSISTED_INSTALLER_REPORTER"},
+            {"acm-component-name": "assisted_service",                            "build-info-env-var": "ASSISTED_SERVICE"},
             {"acm-component-name": "cert_policy_controller",                      "build-info-env-var": "CERT_POLICY_CONTROLLER"},
             {"acm-component-name": "cluster_curator_controller",                  "build-info-env-var": "CLUSTER_CURATOR_CONTROLLER"},
             {"acm-component-name": "clusterlifecycle_state_metrics",              "build-info-env-var": "CLUSTERLIFECYCLE_STATE_METRICS"},
@@ -77,6 +81,12 @@
               "build-tag":          "rhaos-4.5-rhel-7-container-released",
               "prefix-to-remove":   "openshift-",
               "image-remote":       "registry.redhat.io/openshift4" 
+            },{
+              "acm-component-name": "postgresql_12_centos7",
+              "build-name":         "postgresql-12-container",
+              "build-tag":          "rhel-8.3.1-z-container-released",
+              "prefix-to-remove":   "rhel8-",
+              "image-remote":       "registry.redhat.io/rhel8"
             },{ 
               "acm-component-name": "prometheus-alertmanager",
               "build-name":         "golang-github-prometheus-alertmanager-container",
