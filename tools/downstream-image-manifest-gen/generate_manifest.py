@@ -19,6 +19,7 @@
 import json
 import os
 import sys
+from re import findall
 from subprocess import check_output
 
 valid_component_names = ["endpoint_operator", "multiclusterhub_operator", "acm_operator_bundle"]
@@ -38,20 +39,20 @@ ACM_COMP_NAME_KEY = "acm-component-name"
 BUILD_INFO_ENV_VAR_PREFIX_KEY = "build-info-env-var"
 SKIP_FOR_COMPONENTS_KEY = "skip_for_components"
 IMAGE_REMOTE_KEY = "image-remote"
-PFX_TO_REMOVE_KEY="prefix-to-remove"
+PFX_TO_REMOVE_KEY = "prefix-to-remove"
 EXTERNAL_COMP_BUILD_NAME_KEY = "build-name"
 EXTERNAL_COMP_BUILD_TAG_KEY = "build-tag"
 
-# Probably will need a invocation tag to toggle this.
-use_version_floating_tag_as_tag = False
 
 def brew_build_info(nvr):
     return check_output(['brew', 'call', 'getBuild', nvr, '--json-output'], encoding="UTF-8")
+
 
 def brew_latest_build(name, tag):
     cmd_output = check_output(['brew', 'latest-build', '--quiet', tag, name], universal_newlines=True)
     # print("Brew Latest-Build for %s %s: %s" % (tag, name, cmd_output))
     return cmd_output.split()[0]
+
 
 def get_build_info(name, tag):
     nvr = brew_latest_build(name, tag)
@@ -60,82 +61,47 @@ def get_build_info(name, tag):
     # print('build info for %s: %s' % (nvr,build_info))
     return build_info
 
+
 def get_image_manifest(component_name, build_info, image_name_prefix_to_remove, image_remote):
     obj = json.loads(build_info)
 
     image_ref = obj["extra"]["image"]["index"]["pull"][0]
     image_name = image_ref.split("@")[0].split('/')[-1]
-    image_digest= image_ref.split("@")[1]
+    image_digest = image_ref.split("@")[1]
     updated_image_name = image_name.replace(image_name_prefix_to_remove, "")
 
-    # Floating-tags probably contains a set of automatically defined floating tags,
-    # including a (dangerous-to-use) "latest" and maybe a few related to the version.
-    # Tge version-related tags should include one that specifies the full x.y.z version
-    # (eg. v2.3.1) and one that relates to the feature release ahnd thus is only x.y
-    # (eg. v2.3).  Pick these out as we might want to use one vs. another depending
-    # on the use case.
-
     build_info_index = obj["extra"]["image"]["index"]
-
-    floating_tags = build_info_index["floating_tags"]
-    if len(floating_tags) == 0:
-        print("ERROR (component %s): Has no floating tags." % component_name)
-        exit(2)
-
-    version_xyz_floating_tag = None
-    version_xy_floating_tag  = None
-    latest_floating_tag  = None
-    for ft in floating_tags:
-        if ft == "latest":
-            latest_floating_tag = ft
-        elif ft.startswith("v"):
-            dot_cnt = ft.count(".")
-            if dot_cnt == 1:
-                version_xy_floating_tag = ft
-                # print("** Version x.y floating tag: %s" % version_xy_floating_tag)
-            elif dot_cnt == 2:
-                version_xyz_floating_tag = ft
-    #
-    if version_xyz_floating_tag is None:
-        print("ERROR (component %s): Did not find vx.y.z floating tag." % component_name)
-        exit(2)
-
-    image_version = version_xyz_floating_tag[1:]
 
     tags = build_info_index["tags"]
     if len(tags) != 1:
         if len(tags) > 1:
-           print("ERROR (component %s): Has more than 1 (fixed) tag." % component_name)
+            print("ERROR (component %s): Has more than 1 (fixed) tag." % component_name)
         else:
             print("ERROR (component %s): Has no (fixed) tags." % component_name)
         exit(2)
     build_fixed_tag = tags[0]
 
-    # If we're going to enable the use of Freshmarker, I guess it will be automatically
-    # creating a new version vx.y.(z+1) for us, and it will do so using the same input
-    # (eg. CSV) as we had generated for version x.y.z.  This suggests that we would
-    # have to use a floating tag more general than a vx.y.z one.  Using a "latest"
-    # tag would be dangerous, so I guess that means we want to use a "vx.y" tag.
-    # But wedon't really have that for ACM components yet, so for purposes of sketching
-    # this out in advance, go ahead and use an vx.y.z tag if no vx.y is found.
+    # Let's keep track of the floating tags in case we want to use any with preference
+    # to the more "precise" tags (i.e. X.Y.Z) over less "precise" tags (i.e. latest).
+    #
+    # Since floating tags are optional, we can default to the first `-` split of the static
+    # tag since that character indicates the end of the version and the beginning of the release.
 
-    if version_xy_floating_tag is not None:
-        version_floating_tag = version_xy_floating_tag
-    else:
-        version_floating_tag = version_xyz_floating_tag
-    image_tag = version_floating_tag if use_version_floating_tag_as_tag else build_fixed_tag
+    floating_tags = build_info_index["floating_tags"]
+    floating_tags.sort(key=lambda s: list(findall(r'\.', s)), reverse=True)
+    image_version = floating_tags[0] if floating_tags else build_fixed_tag.split('-')[0]
 
     entry = {
         "image-key":              component_name,
         "image-name":             updated_image_name,
         "image-version":          image_version,
-        "image-version-xyz-tag":  version_xyz_floating_tag,
-        "image-tag":              image_tag,
+        "image-tag":              build_fixed_tag,
         "image-remote":           image_remote,
         "image-digest":           image_digest
     }
-    if version_xy_floating_tag is not None:
-        entry["image-version-xy-tag"] = version_xy_floating_tag
+    # Save off all floating tags if any are present
+    for i, v in enumerate(floating_tags):
+        entry["floating-tag-{}".format(i)] = v
 
     return entry
 
@@ -150,7 +116,7 @@ def main():
 
     release_nr = sys.argv[1]
     my_component_name = sys.argv[2]
-    if not my_component_name in valid_component_names:
+    if my_component_name not in valid_component_names:
         print("ERROR: Component name \"%s\" not recognized." % my_component_name)
         exit(1)
 
@@ -162,10 +128,10 @@ def main():
     with open(config_json, "r", encoding="UTF-8") as file:
         config = json.load(file)
 
-    product_image_registry  = config[CFG_PRODUCT_IMAGES_KEY][CFG_IMAGE_REGISTRY_KEY]
+    product_image_registry = config[CFG_PRODUCT_IMAGES_KEY][CFG_IMAGE_REGISTRY_KEY]
     product_image_namespace = config[CFG_PRODUCT_IMAGES_KEY][CFG_IMAGE_NAMESPACE_KEY]
 
-    product_image_remote="%s/%s" % (product_image_registry, product_image_namespace)
+    product_image_remote = "%s/%s" % (product_image_registry, product_image_namespace)
 
     # Notes:
     # When OSBS builds, it places all images (across all products) into a single OSBS-owned
@@ -198,13 +164,13 @@ def main():
         if skip_this_one:
             print("Note: Skipping product image: %s (as component %s)" % (component_name, my_component_name))
         else:
-           print("processing product image: %s" % component_name)
+            print("processing product image: %s" % component_name)
 
-           env_var = "%s_BUILD_INFO_JSON" % image[BUILD_INFO_ENV_VAR_PREFIX_KEY]
-           build_info = os.getenv(env_var)
-           if build_info is None:
-               print("ERROR: Build info env var %s is not defined." % env_var)
-               exit(2)
+            env_var = "%s_BUILD_INFO_JSON" % image[BUILD_INFO_ENV_VAR_PREFIX_KEY]
+            build_info = os.getenv(env_var)
+            if build_info is None:
+                print("ERROR: Build info env var %s is not defined." % env_var)
+                exit(2)
 
            entry = get_image_manifest(component_name, build_info,
                                       product_osbs_prefix_to_remove,
