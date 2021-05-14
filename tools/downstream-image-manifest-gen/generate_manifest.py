@@ -172,10 +172,10 @@ def main():
                 print("ERROR: Build info env var %s is not defined." % env_var)
                 exit(2)
 
-           entry = get_image_manifest(component_name, build_info,
-                                      product_osbs_prefix_to_remove,
-                                      product_image_remote)
-           manifest.append(entry)
+            entry = get_image_manifest(component_name, build_info,
+                                       product_osbs_prefix_to_remove,
+                                       product_image_remote)
+            manifest.append(entry)
 
     for image in config[CFG_EXTERNAL_IMAGES_KEY][CFG_IMAGE_LIST_KEY]:
 
@@ -191,7 +191,7 @@ def main():
             print("Processing external image: %s" % component_name)
 
             build_name = image[EXTERNAL_COMP_BUILD_NAME_KEY]
-            build_tag  = image[EXTERNAL_COMP_BUILD_TAG_KEY]
+            build_tag = image[EXTERNAL_COMP_BUILD_TAG_KEY]
             build_info = get_build_info(build_name, build_tag)
             if build_info is None:
                 print("ERROR: Build info for external image %s/%s is not available." % (build_name, build_tag))
@@ -204,6 +204,7 @@ def main():
     with open("./%s.json" % release_nr, "w", encoding="UTF-8") as file:
         formatted_manifest = json.dumps(manifest, indent=2)
         file.write(formatted_manifest)
+
 
 if __name__ == '__main__':
     main()
