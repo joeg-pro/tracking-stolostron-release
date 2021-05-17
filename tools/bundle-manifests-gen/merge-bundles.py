@@ -483,6 +483,10 @@ def main():
    else:
       die("Duplicate manifest filename (for the CSV): %s." % csv_fn)
 
+   # -- Check that the manifest directory is under the OLM 1Mb limit ---
+
+   check_bundle_size(pkg_name, csv_vers, bundle_pathn)
+
    # --- Update the package manifest to point to the new CSV ---
 
    print("Updating package manifest.")

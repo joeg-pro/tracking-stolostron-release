@@ -271,6 +271,34 @@ def copy_file(fn, from_dir_pathn, to_dir_pathn):
 
    return
 
+# Computes the total size of all files in a directory
+def get_directory_size(dir_pathn):
+
+   all_fns = os.listdir(dir_pathn)
+   total_size = 0
+   for fn in all_fns:
+      fp = dir_pathn + os.path.sep + fn
+      fs = os.path.getsize(fp)
+      total_size += fs
+
+   return total_size
+
+# Checks bundle size against OLM limits.
+def check_bundle_size(pkg_name, csv_vers, bundle_dir):
+
+   bundle_size = get_directory_size(bundle_dir)
+   bundle_size_in_kb = bundle_size / 1024
+
+   size_limit = 1024 * 1024  # 1 Mib
+   size_warn_threshhold = .90 * size_limit
+
+   if bundle_size > size_limit:
+      die("The %s %s bundle is too big. Bundle size is %.1f KiB." % (pkg_name, csv_vers, bundle_size_in_kb))
+   elif bundle_size > size_warn_threshhold:
+      wmsg("The %s %s bundle is getting close to the limit. Bundle size is %.1f KiB." % (pkg_name, csv_vers, bundle_size_in_kb))
+   else:
+      print("Note: The size of %s %s bundle is %.1f KiB." % (pkg_name, csv_vers, bundle_size_in_kb))
+
 # Load a json file.
 def load_json(file_type, pathn):
 
