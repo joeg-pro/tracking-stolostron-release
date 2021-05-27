@@ -25,7 +25,7 @@ oc_cmd() {
    oc $dash_n_arg "$@"
 }
 
-# Applies a manifest passed in vit stdin.
+# Applies a manifest passed in via stdin.
 function oc_apply () {
    cat > $temp_file
    oc_cmd apply -f $temp_file > /dev/null
@@ -268,7 +268,7 @@ find_and_approve_install_plan() {
 wait_for_install_plan_complete() {
 
    install_plan_kind_and_name="$1"
-   wait_limit="${2:-30}"
+   wait_limit="${2:-480}"
    wait_for_resource_status $install_plan_kind_and_name install_plan_is_complete "Complete" $wait_limit
 }
 
@@ -276,7 +276,7 @@ wait_for_install_plan_complete() {
 wait_for_csv_to_succeed() {
 
    subscription_kind_and_name="$1"
-   wait_limit="${2:-60}"
+   wait_limit="${2:-480}"
 
    get_subscription_into_temp_file $subscription_kind_and_name
 

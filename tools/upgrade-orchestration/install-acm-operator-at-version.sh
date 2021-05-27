@@ -29,6 +29,8 @@ my_dir=$(dirname $(readlink -f $0))
 
 source $my_dir/common-functions
 
+tmp_file=$(mktemp -t "$me.XXXXXXXX")
+
 # --- Arg Parsing ---
 
 # -n target Namespace (default: current project/namespace).
@@ -37,8 +39,11 @@ source $my_dir/common-functions
 # -s Subscription name (default: acm-operator-subscription).
 # -S catalog Source name (default: acm-custom-registry).
 # -N catalog source Namespace (default: same as target (-n) namespace).
+# -i Request deployement on infra nodes.
 
-opt_flags="n:p:c:s:S:N:"
+opt_flags="n:p:c:s:S:N:i"
+
+on_infra_nodes=0
 
 while getopts "$opt_flags" OPTION; do
    case "$OPTION" in
@@ -53,6 +58,8 @@ while getopts "$opt_flags" OPTION; do
       S) catalog_source="$OPTARG"
          ;;
       N) catalog_source_ns="$OPTARG"
+         ;;
+      i) on_infra_nodes=1
          ;;
       ?) exit 1
          ;;
@@ -143,11 +150,7 @@ fi
 # doing explicit queires of the operator registry, which might not be exposed outsde of
 # the cluster.
 
-echo "Applying subscription $subscription_name for operator version $operator_release."
-if [[ "$operator_release" != "latest" ]]; then
-   starting_csv_spec="startingCSV: $csv_name_prefix.v$operator_release"
-fi
-oc_apply << EOF
+cat << EOF > "$tmp_file"
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
@@ -159,8 +162,30 @@ spec:
   channel: $subscribe_to_channel
   source: $catalog_source
   sourceNamespace: $catalog_source_ns
-  $starting_csv_spec
 EOF
+
+if [[ "$operator_release" != "latest" ]]; then
+   cat << EOF >> "$tmp_file"
+  startingCSV: $csv_name_prefix.v$operator_release
+EOF
+fi
+
+if [[ "$on_infra_nodes" -eq 1 ]]; then
+   echo "Specifing infra-node selector/tolerations."
+   cat << EOF >> "$tmp_file"
+  config:
+    nodeSelector:
+      node-role.kubernetes.io/infra: ""
+    tolerations:
+    - key: node-role.kubernetes.io/infra
+      effect: NoSchedule
+      operator: Exists
+EOF
+fi
+
+echo "Applying subscription $subscription_name for operator version $operator_release."
+oc_apply < "$tmp_file"
+rm -f "$tmp_file"
 
 # NOTE:
 # Usually the simple kind name "subscription" or abbreviation "sub" will refer to an
@@ -182,7 +207,6 @@ find_and_approve_install_plan $the_subscription
 
 # Wait for OLM to get done with the install plan (Complete status).
 wait_for_install_plan_complete $the_install_plan
-wait_for_resource_status $the_install_plan install_plan_is_complete "Complete" 60
 echo "Install plan is now Complete."
 
 # Notes:
@@ -231,8 +255,8 @@ echo "Install plan is now Complete."
 #  state: UpgradePending
 #
 # With the install plan marked complete, you'd think that might mean that
-# the CSV is also installed now too.  But typically, its not and at this
-# point might be:
+# the CSV is also installed now too.  But typically, its not (at least
+# on OCP 4.3/4.4) and at this point might be:
 #
 # kind: ClusterServiceVersion
 # status:
