@@ -82,7 +82,7 @@
               "prefix-to-remove":   "openshift-",
               "image-remote":       "registry.redhat.io/openshift4" 
             },{
-              "acm-component-name": "postgresql_12_centos7",
+              "acm-component-name": "postgresql_12",
               "build-name":         "postgresql-12-container",
               "build-tag":          "rhel-8.3.1-z-container-released",
               "prefix-to-remove":   "rhel8-",
