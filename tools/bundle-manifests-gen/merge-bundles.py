@@ -358,7 +358,7 @@ def main():
                   die_due_to_unlisted_crds = True
                continue
          elif kind in should_be_in_csv:
-            wmsg("%s should be defined via permissions in CSV rather than in %s" % (kind, fn))
+            emsg("%s should be defined via permissions in CSV rather than in %s" % (kind, fn))
 
          elif kind in ok_for_bundle:
             pass
