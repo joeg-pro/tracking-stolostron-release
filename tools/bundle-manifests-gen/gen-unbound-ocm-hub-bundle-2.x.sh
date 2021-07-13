@@ -12,11 +12,7 @@
 #
 # The resulting operator bundle manifests will then be be input to building and
 # publishing a bundle image in both upstream and downstream builds.
-#
-# Assumptions:
-#
-# - We assume this script is located two directorries below top of this repo.
-#
+##
 # Cautions:
 #
 # - Tested only on RHEL 8, not on other Linux nor Mac.
@@ -26,16 +22,22 @@
 # - readlink
 # - Python 3.6 (for underlying scripts that do the real work)
 
-me=$(basename $0)
-my_dir=$(dirname $(readlink -f $0))
-top_of_repo=$(readlink  -f $my_dir/../..)
+me=$(basename "$0")
+my_dir=$(dirname $(readlink -f "$0"))
+
+source $my_dir/bundle-common.bash
+# top_of_repo is set as side effect of above source'ing.
 
 github="https://$GITHUB_USER:$GITHUB_TOKEN@github.com"
 tmp_root="/tmp/ocm-hub-operator-bundle"
+tmp_dir="$tmp_root/bundle-manifests"
 
 pkg_name="multicluster-hub"
 csv_template="$my_dir/ocm-hub-csv-template.yaml"
 unbound_pkg_dir="$top_of_repo/operator-bundles/unbound/$pkg_name"
+
+# Used by locate_repo_operator and locate_community_operator functions:
+clone_repo_spot="$tmp_dir/repo-clones"
 
 # The previous (replaced) CSV version is not really important un the  unbound bundle
 # because it will be set/overridden anyway in the creation of the bound bundle.
@@ -44,83 +46,42 @@ unbound_pkg_dir="$top_of_repo/operator-bundles/unbound/$pkg_name"
 # Note that the new_csv_version is used to determine what to put into the bundle.
 
 new_csv_vers="$1"
-prev_csv_vers="$2"
-
 if [[ -z "$new_csv_vers" ]]; then
    >&2 echo "Error: CSV version is required."
    exit 1
 fi
 
-oldIFS=$IFS
-IFS=. rel_xyz=(${new_csv_vers%-*})
-rel_x=${rel_xyz[0]}
-rel_y=${rel_xyz[1]}
-rel_z=${rel_xyz[2]}
-IFS=$oldIFS
+prev_csv_vers="$2"
 
-rel_xy="$rel_x.$rel_y"
-
-if [[ "$rel_x" -lt 2 ]]; then
-   >&2 echo "Info: Redirecting to release 1.0 version of this script."
-   exec $my_dir/gen-unbound-ocm-hub-bundle-1.0.sh "$*"
-fi
+parse_release_nr "$new_csv_vers"
+# Sets rel_x, rel_y, etc.
 
 rel_xy_branch="release-$rel_xy"
 
 # Manage our temp directories
 
-tmp_dir="$tmp_root/bundle-manifests"
 rm -rf "$tmp_dir"
 mkdir -p "$tmp_dir"
 
 source_bundles="$tmp_dir/source-bundles"
-clone_top="$tmp_dir/repo-clones"
+
 mkdir -p "$source_bundles"
-mkdir -p "$clone_top"
+mkdir -p "$clone_repo_spot"
+mkdir -p "$unbound_pkg_dir"
 
 # Wipe out any previous bundle at this version
-mkdir -p "$unbound_pkg_dir"
 rm -rf "$unbound_pkg_dir/$new_csv_vers"
 
 bundle_names=()
 declare -A bundle_dirs
-
-function locate_repo_operator {
-
-   local op_display_name="$1"
-   local git_repo="$2"
-   local git_branch="$3"
-   local bundle_path="$4"
-
-   local clone_spot="$clone_top/${git_repo##*/}"
-
-   echo "Cloning $op_display_name operator repo branch $git_branch."
-   git clone -b "$git_branch" "$github/$git_repo" "$clone_spot"
-   if [[ $? -ne 0 ]]; then
-      >&2 echo "Error: Could not clone $op_display_name operator repo."
-      exit 2
-   fi
-
-   bundle_dir="$clone_spot/$bundle_path"
-   if [[ ! -d "$bundle_dir" ]]; then
-      >&2 echo "Error: Expected $op_display_name bundle manifests directory does not exist."
-      exit 2
-   fi
-
-   bundle_names+=("$op_display_name")
-   bundle_dirs["$op_display_name"]="$bundle_dir"
-}
-
-
-# Clone and verify each of the source-bundles merge together
 
 # Since ACM 1.0:
 
 locate_repo_operator "Base Hub" "open-cluster-management/multiclusterhub-operator" \
    "$rel_xy_branch" "deploy/olm-catalog/multiclusterhub-operator/manifests"
 
-
 # Since ACM 2.0:
+
 if [[ "$rel_x" -ge 2 ]]; then
 
    # Registration operator
@@ -152,15 +113,6 @@ if [[ "$rel_x" -ge 2 ]]; then
    fi
 fi
 
-if [[ -n "$prev_csv_vers" ]]; then
-   prev_option="--prev-csv $prev_csv_vers"
-fi
-
-source_bundle_dir_opts=()
-for k in "${bundle_names[@]}"; do
-   source_bundle_dir_opts+=("--source-bundle-dir" "${bundle_dirs[$k]}")
-done
-
 # Starting with ACM 2.3, we support multiple architectures. Specify the list
 # of supported architectures to get the CSV labeled right.
 
@@ -175,45 +127,10 @@ if [[ "$rel_x" -ge 2 ]]; then
    fi
 fi
 
-supported_thing_opts=()
-for e in "${supported_archs[@]}"; do
-   supported_thing_opts+=("--supported-arch" "$e")
-done
-for e in "${supported_op_syss[@]}"; do
-   supported_thing_opts+=("--supported-os" "$e")
-done
+# Generate the unbound composite bundle, which will be the source for producing
+# the bound one (by replacing image references, version, prev-version)
 
-
-# Produce the merged CSV/bundle
-
-echo ""
-echo "----------------------------------------------------------------------------"
-echo "Generating unbound bundle manifests for package: $pkg_name"
-echo "  From Source OPerator Bundles..."
-for k in "${bundle_names[@]}"; do
-   echo "     $k in: ${bundle_dirs[$k]}"
-done
-
-echo "  Using CSV template: $csv_template"
-
-if [[ -n "$supported_thing_opts" ]]; then
-   echo "  With supported architectures: ${supported_archs[@]}"
-   echo "     abd supported operating systems: ${supported_op_syss[@]}"
-fi
-
-echo "  Writing merged unbound bundle manifests to: $unbound_pkg_dir"
-echo "  For CSV/bundle version: $new_csv_vers"
-
-if [[ -n "$prev_csv_vers" ]]; then
-   echo "  Replacing previous CSV/bundle version: $prev_csv_vers"
-fi
-echo "----------------------------------------------------------------------------"
-echo ""
-
-$my_dir/merge-bundles.py \
-   --pkg-name  $pkg_name --pkg-dir $unbound_pkg_dir \
-   --csv-vers "$new_csv_vers" $prev_option \
-   --channel "latest" \--csv-template $csv_template \
-   "${supported_thing_opts[@]}" \
-   "${source_bundle_dir_opts[@]}"
+gen_unbound_bundle pkg_name new_csv_vers prev_csv_ver \
+  csv_template unbound_pkg_dir bundle_names bundle_dirs \
+  supported_archs supported_op_syss
 

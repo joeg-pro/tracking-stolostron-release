@@ -41,12 +41,13 @@ if [[ -z "$bundle_vers" ]]; then
    exit 5
 fi
 this_rel_nr=${bundle_vers%-*}  # Remove [-iter] if present.
-parse_version "$bundle_vers"   # Sets rel_x, rel_y, etc.
+parse_release_nr "$bundle_vers"   # Sets rel_x, rel_y, etc.
 
 # Note: The handling of $2 has evolved a lot, from originally being the number
 # of the immediately predecessor release, to being fully ignored, to now being
 # a way to suppress insertion of replacement-graph properties.
 
+suppress_all_repl_graph_properties=0
 if [[ "$2" == "none" ]]; then
    suppress_all_repl_graph_properties=1
 fi
@@ -109,13 +110,20 @@ fi
 
 # Specify specific version skips we need to bypass bad releases:
 skip_list=()
+explicit_prev_csv_vers=""
 if [[ $suppress_repl_graph_stuff -eq 0 ]]; then
    if [[ "$bundle_vers" == "2.1.2" ]]; then
       skip_list+=("2.1.1")
       explicit_prev_csv_vers="2.1.0"
    fi
 fi
+red_hat_downstream=0
 
-source $my_dir/gen-bound-acm-ocm-hub-bundle-common.bash
-
+gen_bound_bundle pkg_name bundle_vers \
+   release_channel_prefix candidate_channel_prefix \
+   image_key_mappings image_ref_containers \
+   explicit_default_channel \
+   explicit_prev_csv_vers skip_list \
+   suppress_all_repl_graph_properties \
+   red_hat_downstream
 
