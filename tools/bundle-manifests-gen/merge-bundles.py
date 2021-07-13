@@ -312,7 +312,8 @@ def main():
       print("\nHandling non-CSV manifests in the budnle.")
 
       ok_for_bundle = ["ConfigMap", "Service"]
-      should_be_in_csv = ["ClusterRole", "ClusterRoleBinding", "ServiceAccount"]
+      questionable_for_bundle = ["ServiceAccount"]
+      must_be_in_csv = ["ClusterRole", "ClusterRoleBinding"]
 
       expected_crds = set(s_owned_crds_map.keys())
 
@@ -357,8 +358,13 @@ def main():
                else:
                   die_due_to_unlisted_crds = True
                continue
-         elif kind in should_be_in_csv:
-            emsg("%s should be defined via permissions in CSV rather than in %s" % (kind, fn))
+         elif kind in must_be_in_csv:
+            emsg("%s must be defined via permissions in CSV, not in bundle file %s" % (kind, fn))
+
+         elif kind in questionable_for_bundle:
+            w_name = manifest["metadata"]["name"]
+            wmsg("%s %s is being defined in bundle file %s rather than in CSV" %
+                 (kind, manifest["metadata"]["name"], fn))
 
          elif kind in ok_for_bundle:
             pass
@@ -378,7 +384,7 @@ def main():
          for crd_gvk in expected_crds:
             emsg("No manifest found for expected CRD: %s" % crd_gvk)
       else:
-         print("   Note: Manfests were copied for all expected CRDs.")
+         print("   Note: Manifests were copied for all expected CRDs.")
 
       #
    # End for each source-bundle

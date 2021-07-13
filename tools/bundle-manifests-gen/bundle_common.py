@@ -130,7 +130,7 @@ def reconcile_and_plug_in_things(thing_kind, things, owned_things, required_thin
       print("   No %s requirements are internally satisfied." % thing_kind)
 
    # Plug in the resulting required-things list.
-   plug_in_things(required_thing_pl, things, "required", required_things, True)
+   plug_in_things(required_thing_pl, things, "required", required_things)
 
    return
 
