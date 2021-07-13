@@ -2,15 +2,24 @@
 
 # Generates a bundle image.
 #
-# ARgs (all "options", no positional):
+# (Only used upstream.)
+#
+# ARgs:
+#
+# $1 = Bundle version number.  Superceded by -v option if provided.
 #
 # -I Input bundle manifest package directory. Required.
 # -n Repo (image) name.  Required.
-# -v Version (x.y.z[-suffix]) of bundle image.  Required.
+# -v Version (x.y.z[-suffix]) of bundle image.
 # -r Remote registry server/namespace.  Required.
+#
+# -l Supported OCP version list, as needed on version label.  Optional.
 #
 # -t Tag for bundle image. (Default: use bundle version)
 # -P Push image (switch)
+#
+# A bundle version number is required, either via $1 or via -v with
+# whatever is specified as -v winning.
 #
 # Environment variables:
 #
@@ -36,14 +45,20 @@
 # - tar
 # - docker or podman with docker-compat wrappers
 
-me=$(basename $0)
-my_dir=$(dirname $(readlink -f $0))
-top_of_repo=$(readlink  -f $my_dir/../..)
+me=$(basename "$0")
+my_dir=$(dirname $(readlink -f "$0"))
 
-opt_flags="I:n:v:r:t:P"
+source "$my_dir/bundle-common.bash"
+# Sets top_of_repo
+
+default_ocp_versions="v4.6-v4.9"
+
+opt_flags="I:n:v:r:t:l:P"
 
 push_the_image=0
 image_tag=""
+
+ocp_versions=()
 
 while getopts "$opt_flags" OPTION; do
    case "$OPTION" in
@@ -58,6 +73,8 @@ while getopts "$opt_flags" OPTION; do
       t) image_tag="$OPTARG"
          ;;
       P) push_the_image=1
+         ;;
+      l) ocp_versions="$OPTARG"
          ;;
       ?) exit 1
          ;;
@@ -74,8 +91,12 @@ if [[ -z "$bundle_repo" ]]; then
    exit 5
 fi
 if [[ -z "$bundle_vers" ]]; then
-   >&2 echo "Error: Bundle version (-v) is required."
-   exit 5
+   if [[ -n "$1" ]]; then
+      bundle_vers="$1"
+   else
+      >&2 echo "Error: Bundle version (-v or positional argument) is required."
+      exit 5
+   fi
 fi
 if [[ -z "$remote_rgy_and_ns" ]]; then
    >&2 echo "Error: Remote registry server and namespace (-r) is required."
@@ -88,8 +109,19 @@ if [[ ! -d "$bound_bundle_dir" ]]; then
    exit 2
 fi
 
-tmp_root="${TMPDIR:-/tmp}"
-tmp_dir=$(mktemp -d -p "$tmp_root"  "$me.XXXXXXXX")
+ocp_versions="${ocp_versions:-$default_ocp_versions}"
+
+
+# Cleanup remnants on any exit.
+
+function cleanup {
+   if [[ -n "$tmp_dir" ]]; then
+      rm -rf "$tmp_dir"
+   fi
+}
+trap cleanup EXIT
+
+tmp_dir=$(mktemp -td "$me.XXXXXXXX")
 
 build_context="$tmp_dir/bundle-image/build-context"
 rm -rf "$tmp_dir"
@@ -107,11 +139,12 @@ fi
 # should have manifests and metadata subdirectories as in bundle-image format.  We use this
 # hybrid format in the tooling to make it easy to build bundle images in either format.
 #
-# Note: The need to  build in either format as mentioned above is now historical as we now
+# Note: The need to build in either format as mentioned above is now historical as we now
 # only produce bundles in bundle-image format, but the hybrid input format currently remains
 # in place.
 
 echo "Building the bundle image in Bundle Image format."
+echo "Targetted OCP versions: $ocp_versions"
 
 # Copy the budnle's metadata and manfests dirs into the docker build context
 tar -cf - -C $bound_bundle_dir manifests metadata | (cd $build_context; tar xf -)
@@ -130,8 +163,9 @@ tail -n +2 "$build_context/metadata/annotations.yaml" | \
    sed "s/: /=/" | sed "s/^ /LABEL/" > "$tmp_label_lines"
 
 cat "$my_dir/Dockerfile.template" | \
-   sed "/!!ANNOTATION_LABELS!!/r $tmp_label_lines" | \
-   sed "/!!ANNOTATION_LABELS!!/d" > "$build_context/Dockerfile"
+   sed -e "/!!ANNOTATION_LABELS!!/r $tmp_label_lines" | \
+   sed -e "/!!ANNOTATION_LABELS!!/d" |
+   sed -e "s/!!OCP_VERSIONS!!/$ocp_versions/" > "$build_context/Dockerfile"
 
 bundle_image_rgy_ns_and_repo="$remote_rgy_and_ns/$bundle_repo"
 bundle_image_ref="$bundle_image_rgy_ns_and_repo:$image_tag"
