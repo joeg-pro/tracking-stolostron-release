@@ -1,42 +1,136 @@
 #!/bin/bash
-
-# Cover script that redirects to release-specific version of script assumed
-# to be  named like this one (with  a release-qualifier suffix) and that lives
-# in the same directory as this one.
 #
-# Assumes:
-# - The script name(s) ends with a ".sh" suffix.
+# This script generates the unbound operator bundle (manifests) for the OCM Hub,
+# based on the release for which we're budiling a bundle:
 #
-# Note: This simple-minded redirect works because the underlying scripts don't
-# have any getopt options to worry about.
+# - For 1.0.z, the OCM Hub bundle was simple (non-composite) and generated
+#   by a script here, which we exec out to.
+#
+# - For 2.0.z and beyond, the OCM Hub bundle is now composite, consisting of the
+#   the "Base Hub operator" bundle plus one or more add-in operator bundles,
+#   which we merge together via this script.
+#
+# The resulting operator bundle manifests will then be be input to building and
+# publishing a bundle image in both upstream and downstream builds.
+##
+# Cautions:
+#
+# - Tested only on RHEL 8, not on other Linux nor Mac.
+#
+# Requires:
+#
+# - readlink
+# - Python 3.6 (for underlying scripts that do the real work)
 
-me=${0##*/}
-me_pfx=${0%$me}
+me=$(basename "$0")
+my_dir=$(dirname $(readlink -f "$0"))
+
+source $my_dir/bundle-common.bash
+# top_of_repo is set as side effect of above source'ing.
+
+github="https://$GITHUB_USER:$GITHUB_TOKEN@github.com"
+tmp_root="/tmp/ocm-hub-operator-bundle"
+tmp_dir="$tmp_root/bundle-manifests"
+
+pkg_name="multicluster-hub"
+csv_template="$my_dir/ocm-hub-csv-template.yaml"
+unbound_pkg_dir="$top_of_repo/operator-bundles/unbound/$pkg_name"
+
+# Used by locate_repo_operator and locate_community_operator functions:
+clone_repo_spot="$tmp_dir/repo-clones"
+
+# The previous (replaced) CSV version is not really important un the  unbound bundle
+# because it will be set/overridden anyway in the creation of the bound bundle.
+# But we allow it to be set anyway.
+#
+# Note that the new_csv_version is used to determine what to put into the bundle.
 
 new_csv_vers="$1"
 if [[ -z "$new_csv_vers" ]]; then
-   >&2 echo "Error: Bundle version is required."
+   >&2 echo "Error: CSV version is required."
    exit 1
 fi
 
-old_IFS=$IFS
-IFS=. rel_xyz=(${new_csv_vers%-*})
-rel_x=${rel_xyz[0]}
-rel_y=${rel_xyz[1]}
-rel_z=${rel_xyz[2]}
-IFS=$old_IFS
+prev_csv_vers="$2"
 
-rel_xy="$rel_x.$rel_y"
+parse_release_nr "$new_csv_vers"
+# Sets rel_x, rel_y, etc.
+
+rel_xy_branch="release-$rel_xy"
+
+# Manage our temp directories
+
+rm -rf "$tmp_dir"
+mkdir -p "$tmp_dir"
+
+source_bundles="$tmp_dir/source-bundles"
+
+mkdir -p "$source_bundles"
+mkdir -p "$clone_repo_spot"
+mkdir -p "$unbound_pkg_dir"
+
+# Wipe out any previous bundle at this version
+rm -rf "$unbound_pkg_dir/$new_csv_vers"
+
+bundle_names=()
+declare -A bundle_dirs
+
+# Since ACM 1.0:
+
+locate_repo_operator "Base Hub" "open-cluster-management/multiclusterhub-operator" \
+   "$rel_xy_branch" "deploy/olm-catalog/multiclusterhub-operator/manifests"
+
+# Since ACM 2.0:
 
 if [[ "$rel_x" -ge 2 ]]; then
-   # echo "Info: Using release 2.x+ version of bundle generation script."
-   rel_qualifier="2.x"
-else
-   # Catch an unexpected 1.y release
-   >&2 echo "Error: Bundle version $new_csv_vers is not expected/understood."
-   exit 1
+
+   # Registration operator
+   locate_repo_operator "Cluster Manager" "open-cluster-management/registration-operator" \
+      "$rel_xy_branch" "deploy/cluster-manager/olm-catalog/cluster-manager/manifests"
+
+   # Since ACM 2.1:
+   if [[ "$rel_y" -ge 1 ]]; then
+
+      # Monitoring operator
+
+      # Bundle moved to new standard location in ACM 2.3:
+      if [[ "$rel_y" -ge 3 ]]; then
+         op_bundle_path="bundle/manifests"
+      else
+         op_bundle_path="deploy/olm-catalog/multicluster-observability-operator/manifests"
+      fi
+
+      locate_repo_operator "Monitoring" "open-cluster-management/multicluster-monitoring-operator" \
+         "$rel_xy_branch" "$op_bundle_path"
+   fi
+
+   # Since ACM 2.2:
+   if [[ "$rel_y" -ge 2 ]]; then
+
+      # Submariner add-on
+      locate_repo_operator "Submariner Addon" "open-cluster-management/submariner-addon" \
+         "$rel_xy_branch" "deploy/olm-catalog/manifests"
+   fi
 fi
 
-target_script="$me_pfx${me%.sh}-$rel_qualifier.sh"
-exec $target_script "$@"
+# Starting with ACM 2.3, we support multiple architectures. Specify the list
+# of supported architectures to get the CSV labeled right.
+
+supported_archs=()
+supported_op_syss=()
+
+if [[ "$rel_x" -ge 2 ]]; then
+   if [[ "$rel_y" -ge 3 ]]; then
+      supported_op_syss+=("linux")
+      supported_archs+=("amd64")
+      supported_archs+=("ppc64le")
+   fi
+fi
+
+# Generate the unbound composite bundle, which will be the source for producing
+# the bound one (by replacing image references, version, prev-version)
+
+gen_unbound_bundle pkg_name new_csv_vers prev_csv_ver \
+  csv_template unbound_pkg_dir bundle_names bundle_dirs \
+  supported_archs supported_op_syss
 
