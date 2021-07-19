@@ -100,7 +100,7 @@ if [[ "$rel_x" -ge 2 ]]; then
          op_bundle_path="deploy/olm-catalog/multicluster-observability-operator/manifests"
       fi
 
-      locate_repo_operator "Monitoring" "open-cluster-management/multicluster-monitoring-operator" \
+      locate_repo_operator "Monitoring" "open-cluster-management/multicluster-observability-operator" \
          "$rel_xy_branch" "$op_bundle_path"
    fi
 
