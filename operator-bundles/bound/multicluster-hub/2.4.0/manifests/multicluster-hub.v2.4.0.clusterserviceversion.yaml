@@ -18,7 +18,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-07-19T18:27:26Z'
+    createdAt: '2021-07-19T18:40:23Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '[]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1235,7 +1235,7 @@ spec:
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/open-cluster-management/helloprow-go@sha256:76d7907a1984632604f779b13940228d3d85b9f493971ebe3f0c408fd357fa7a
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/open-cluster-management/helloworld@sha256:6129b37157d252d8fdd93834dadce60a6dfd5e0a83919ccdf33d182578399d2f
+                  value: quay.io/open-cluster-management/helloworld@sha256:62645ba22c47b51cd8e461d978724be74c043fe6cd8e9bda9d658afbd9d45687
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
                   value: quay.io/openshift-hive/hive@sha256:1bea3fa5888ec1e0479702d454da7d65d0d232221b13751312201f2bc8c492bb
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
@@ -1575,7 +1575,7 @@ spec:
   - name: helloprow_go
     image: quay.io/open-cluster-management/helloprow-go@sha256:76d7907a1984632604f779b13940228d3d85b9f493971ebe3f0c408fd357fa7a
   - name: helloworld
-    image: quay.io/open-cluster-management/helloworld@sha256:6129b37157d252d8fdd93834dadce60a6dfd5e0a83919ccdf33d182578399d2f
+    image: quay.io/open-cluster-management/helloworld@sha256:62645ba22c47b51cd8e461d978724be74c043fe6cd8e9bda9d658afbd9d45687
   - name: openshift_hive
     image: quay.io/openshift-hive/hive@sha256:1bea3fa5888ec1e0479702d454da7d65d0d232221b13751312201f2bc8c492bb
   - name: iam_policy_controller
