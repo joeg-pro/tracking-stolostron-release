@@ -94,7 +94,9 @@ if [[ "$rel_x" -ge 2 ]]; then
       # Monitoring operator
 
       # Bundle moved to new standard location in ACM 2.3:
-      if [[ "$rel_y" -ge 3 ]]; then
+      if [[ "$rel_y" -ge 4 ]]; then
+         op_bundle_path="operators/multiclusterobservability/bundle/manifests"
+      elif [[ "$rel_y" -ge 3 ]]; then
          op_bundle_path="bundle/manifests"
       else
          op_bundle_path="deploy/olm-catalog/multicluster-observability-operator/manifests"
