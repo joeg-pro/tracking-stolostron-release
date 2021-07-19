@@ -1,0 +1,5 @@
+packageName: multicluster-hub
+channels:
+- name: snapshot-2.4
+  currentCSV: multicluster-hub.v2.4.0
+defaultChannel: snapshot-2.4

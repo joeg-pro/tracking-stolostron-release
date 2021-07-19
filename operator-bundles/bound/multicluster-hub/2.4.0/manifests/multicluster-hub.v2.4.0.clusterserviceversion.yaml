@@ -1,0 +1,1658 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: ClusterServiceVersion
+metadata:
+  annotations:
+    alm-examples: '[{"apiVersion": "operator.open-cluster-management.io/v1", "kind": "MultiClusterHub",
+      "metadata": {"name": "multiclusterhub", "namespace": "open-cluster-management"}, "spec": {}}, {"apiVersion":
+      "operator.open-cluster-management.io/v1", "kind": "ClusterManager", "metadata": {"name": "cluster-manager"},
+      "spec": {"placementImagePullSpec": "quay.io/open-cluster-management/placement", "registrationImagePullSpec":
+      "quay.io/open-cluster-management/registration", "workImagePullSpec": "quay.io/open-cluster-management/work"}},
+      {"apiVersion": "observability.open-cluster-management.io/v1beta1", "kind": "MultiClusterObservability",
+      "metadata": {"name": "observability"}, "spec": {"observabilityAddonSpec": {}, "storageConfigObject":
+      {"metricObjectStorage": {"key": "thanos.yaml", "name": "thanos-object-storage"}}}}, {"apiVersion":
+      "observability.open-cluster-management.io/v1beta1", "kind": "ObservabilityAddon", "metadata": {"name":
+      "observability-addon"}, "spec": {"enableMetrics": true, "interval": 30}}, {"apiVersion": "observability.open-cluster-management.io/v1beta2",
+      "kind": "MultiClusterObservability", "metadata": {"name": "observability"}, "spec": {"observabilityAddonSpec":
+      {}, "storageConfig": {"metricObjectStorage": {"key": "thanos.yaml", "name": "thanos-object-storage"}}}}]'
+    capabilities: Basic Install
+    categories: Integration & Delivery
+    certified: 'false'
+    support: The Open Cluster Management Project
+    createdAt: '2021-07-19T18:27:26Z'
+    description: Open management of Openshift and Kubernetes clusters
+    operators.operatorframework.io/internal-objects: '[]'
+    olm.skipRange: '>=2.3.0 <2.4.0'
+  name: multicluster-hub.v2.4.0
+  namespace: placeholder
+  labels:
+    operatorframework.io/arch.amd64: supported
+    operatorframework.io/arch.ppc64le: supported
+    operatorframework.io/os.linux: supported
+spec:
+  displayName: Open Cluster Management Hub
+  version: 2.4.0
+  provider:
+    name: Red Hat
+  maintainers:
+  - email: ocm-dev@open-cluster-management.io
+    name: Open Cluster Management Project team
+  maturity: alpha
+  description: 'The Open Cluster Management Hub operator installs and maintains an instnace
+
+    of the OCM hub, a cetneral management console for managing OpenShift and
+
+    Kubernetes clusters.
+
+    '
+  icon:
+  - base64data: iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEDElEQVRoge2ZSWgUQRSGv0lmXKLiAm4RRTAqmCDoUUVBjYKKIMZ49C6auB3Ei548uBy8RNCTSkAwiKAgiDkIKoLoQY1L3EHNwV1jNDGZ8VCvrJ6eXqqT7nEi+aHo7nqvuv6/6/XrVzMwhCEkghSQleNgQgHfsn/BIgmkHeeDbVXy8F+uiEau6CwGhhT85yuiUervTF7keK3IYAstIFjIQUp3VZZ5dWbJXwV9nQPOASOT5xUJdcBPDMe/cAvpk+tvcrwGTCgOx1DsI/9BWwmZD7yW86fA7GIw9UE50CRceoEGIggpAyqBO3L9AVicOOVCjAYuCYefQL30hwrpxQgJulExMBX/B2ktpNzRVw4cxyzt9tgpF6KG4NDulxCNRkzoHSO5ymAF8EXmuQlM9PAJFfIbfyEAmzDp7zxQMSDKhdgC9Mj9W/BP/9ZCgsqXRcB78bsFTOoX5XykgAMOPmErHosQgCpU7OaA58DcCKTdSAMnMO/gVosxoUL0soYJAZgC3Bb/j8BSizFujAEuyz06gXWW40KFdMt1xvKGk4HPmPS8yXIcwAzgvox9ByyMMDZWIbMdRH7JsQ/YYzF2AfBWxjxAiYqC2ISsAT6J72NgHvnp+ST+4VkLfBW/VmBcFAWCUCH6yQ7zuUEZKrtowi2oONdwpuerwCyHrQLYj0kopwLmCcOAhIwDLmKyy1689yyLgA6H3z3gBqai7hNBA9nvWAsZ7hpYA7Rj6p7akIkmosJL30+36/hntwywGWhGpfZO4AcqvTejVluHa6gQHRZOIfXAd+m/C8wMEeFEBarYWw5MC/DbIIRzIe0FsDaqkDRw2OFzmvh3jCngqIPYA2AHUA2MklYN7ATaPISFCpmOyig51EdyW8wCNI7IHN0yh1+Nh9gaMB/tQCFdcv1Gjh3AkrhYu7AeI2Klh70VuODRX4sRs1Z3+gnJoTJNZSyUC5HB7De8Vjstti6f8Y1ifym+vkKa6H+Ot0Ed5p3wCqcwIWngofh4lkU/xBj3PsONszLPDh97mBCAXeLT7GXUQiqB8dKSEPVE5pnnY7cRUiM+z7yMWkixmi5vrgT49KDqOt3OyZgxYu/0Kuo+o7KIE2XA2IAnEweCVj2DigyNKpc9Gz8de+jQqnb0jXc1XZtNcfXr5KBD67HNLjAp3AXmAKtQX2xQ0eCEzqZfUDWbG6vleDt2dhGwEUW0Df+vud6zjPCwpYFHYq9LgqAtMsArIdLg4xMkZKfY2rHflieGdZis5LUtaEXtZdz7llUyJosqc0oChzBiGgn+9SaNWgldZx1MnF0EpMjfKrShvtg1qB/QR8v5bkxJkkWJKMk/c9djfvALau2UUDj5IY0qAM+gvjOdqJ3pQ+mrowRe7CHY4A8ixrhAvKZDJwAAAABJRU5ErkJggg==
+    mediatype: image/png
+  keywords:
+  - ClusterManager
+  - MultiClusterObservability
+  - install
+  - multiclusterhub
+  - open-cluster-management
+  - submariner-addon
+  labels:
+    app: ocm-hub
+  links:
+  - name: Documentation
+    url: https://github.com/open-cluster-management/acm/start-here.html
+  selector:
+    matchLabels:
+      app: ocm-hub
+  installModes:
+  - supported: true
+    type: OwnNamespace
+  - supported: false
+    type: SingleNamespace
+  - supported: false
+    type: MultiNamespace
+  - supported: false
+    type: AllNamespaces
+  customresourcedefinitions:
+    owned:
+    - description: MultiClusterHub defines the configuration for an instance of the MultiCluster Hub
+      displayName: MultiClusterHub
+      kind: MultiClusterHub
+      name: multiclusterhubs.operator.open-cluster-management.io
+      specDescriptors:
+      - description: 'Specifies deployment replication for improved availability. Options are: Basic and
+          High (default)'
+        displayName: Availability Configuration
+        path: availabilityConfig
+        x-descriptors:
+        - urn:alm:descriptor:com.tectonic.ui:advanced
+        - urn:alm:descriptor:com.tectonic.ui:select:Basic
+        - urn:alm:descriptor:com.tectonic.ui:select:High
+      - description: Provide the customized OpenShift default ingress CA certificate to RHACM
+        displayName: Custom CA Configmap
+        path: customCAConfigmap
+        x-descriptors:
+        - urn:alm:descriptor:com.tectonic.ui:advanced
+        - urn:alm:descriptor:io.kubernetes:ConfigMap
+      - description: Disable automatic import of the hub cluster as a managed cluster
+        displayName: Disable Hub Self Management
+        path: disableHubSelfManagement
+        x-descriptors:
+        - urn:alm:descriptor:com.tectonic.ui:advanced
+        - urn:alm:descriptor:io.kubernetes:booleanSwitch
+      - description: Disable automatic update of ClusterImageSets
+        displayName: Disable Update ClusterImageSets
+        path: disableUpdateClusterImageSets
+        x-descriptors:
+        - urn:alm:descriptor:com.tectonic.ui:advanced
+        - urn:alm:descriptor:io.kubernetes:booleanSwitch
+      - description: (Deprecated) Overrides for the default HiveConfig spec
+        displayName: Hive Config
+        path: hive
+        x-descriptors:
+        - urn:alm:descriptor:com.tectonic.ui:advanced
+      - description: Override pull secret for accessing MultiClusterHub operand and endpoint images
+        displayName: Image Pull Secret
+        path: imagePullSecret
+        x-descriptors:
+        - urn:alm:descriptor:com.tectonic.ui:advanced
+        - urn:alm:descriptor:io.kubernetes:Secret
+      - description: Configuration options for ingress management
+        displayName: Ingress Management
+        path: ingress
+        x-descriptors:
+        - urn:alm:descriptor:com.tectonic.ui:advanced
+      - description: Developer Overrides
+        displayName: Developer Overrides
+        path: overrides
+        x-descriptors:
+        - urn:alm:descriptor:com.tectonic.ui:hidden
+      - description: (Deprecated) Install cert-manager into its own namespace
+        displayName: Separate Certificate Management
+        path: separateCertificateManagement
+        x-descriptors:
+        - urn:alm:descriptor:com.tectonic.ui:advanced
+        - urn:alm:descriptor:com.tectonic.ui:booleanSwitch
+      version: v1
+    - description: ClusterManager defines the configurations of controllers running hub that govern registration
+        and work distribution for attached Klusterlets
+      displayName: ClusterManager
+      kind: ClusterManager
+      name: clustermanagers.operator.open-cluster-management.io
+      version: v1
+    - description: MultiClusterObservability defines the configuration for the Observability installation
+        on Hub and Managed Clusters all through this one custom resource.
+      displayName: MultiClusterObservability
+      kind: MultiClusterObservability
+      name: multiclusterobservabilities.observability.open-cluster-management.io
+      version: v1beta1
+    - description: MultiClusterObservability defines the configuration for the Observability installation
+        on Hub and Managed Clusters all through this one custom resource.
+      displayName: MultiClusterObservability
+      kind: MultiClusterObservability
+      name: multiclusterobservabilities.observability.open-cluster-management.io
+      version: v1beta2
+    - description: ObservabilityAddon is the Schema for the observabilityaddon API
+      displayName: ObservabilityAddon
+      kind: ObservabilityAddon
+      name: observabilityaddons.observability.open-cluster-management.io
+      version: v1beta1
+    - kind: Observatorium
+      name: observatoria.core.observatorium.io
+      version: v1alpha1
+    - kind: SubmarinerConfig
+      name: submarinerconfigs.submarineraddon.open-cluster-management.io
+      version: v1alpha1
+  install:
+    strategy: deployment
+    spec:
+      clusterPermissions:
+      - rules:
+        - apiGroups:
+          - ''
+          - admissionregistration.k8s.io
+          - apiextensions.k8s.io
+          - apiregistration.k8s.io
+          - apps
+          - apps.open-cluster-management.io
+          - authorization.k8s.io
+          - hive.openshift.io
+          - mcm.ibm.com
+          - proxy.open-cluster-management.io
+          - rbac.authorization.k8s.io
+          - security.openshift.io
+          - clusterview.open-cluster-management.io
+          - discovery.open-cluster-management.io
+          - wgpolicyk8s.io
+          resources:
+          - apiservices
+          - channels
+          - clusterjoinrequests
+          - clusterrolebindings
+          - clusterstatuses/log
+          - configmaps
+          - customresourcedefinitions
+          - deployments
+          - discoveryconfigs
+          - hiveconfigs
+          - mutatingwebhookconfigurations
+          - validatingwebhookconfigurations
+          - namespaces
+          - pods
+          - policyreports
+          - replicasets
+          - rolebindings
+          - secrets
+          - serviceaccounts
+          - services
+          - subjectaccessreviews
+          - subscriptions
+          - helmreleases
+          - managedclusters
+          - managedclustersets
+          verbs:
+          - get
+        - apiGroups:
+          - ''
+          - admissionregistration.k8s.io
+          - apiextensions.k8s.io
+          - apiregistration.k8s.io
+          - apps
+          - apps.open-cluster-management.io
+          - authorization.k8s.io
+          - hive.openshift.io
+          - monitoring.coreos.com
+          - rbac.authorization.k8s.io
+          - mcm.ibm.com
+          - security.openshift.io
+          resources:
+          - apiservices
+          - channels
+          - clusterjoinrequests
+          - clusterrolebindings
+          - clusterroles
+          - configmaps
+          - customresourcedefinitions
+          - deployments
+          - hiveconfigs
+          - mutatingwebhookconfigurations
+          - validatingwebhookconfigurations
+          - namespaces
+          - rolebindings
+          - secrets
+          - serviceaccounts
+          - services
+          - servicemonitors
+          - subjectaccessreviews
+          - subscriptions
+          - validatingwebhookconfigurations
+          verbs:
+          - create
+          - update
+        - apiGroups:
+          - ''
+          - apps
+          - apps.open-cluster-management.io
+          - admissionregistration.k8s.io
+          - apiregistration.k8s.io
+          - authorization.k8s.io
+          - config.openshift.io
+          - inventory.open-cluster-management.io
+          - mcm.ibm.com
+          - observability.open-cluster-management.io
+          - operator.open-cluster-management.io
+          - rbac.authorization.k8s.io
+          - hive.openshift.io
+          - clusterview.open-cluster-management.io
+          - discovery.open-cluster-management.io
+          - wgpolicyk8s.io
+          resources:
+          - apiservices
+          - baremetalassets
+          - clusterjoinrequests
+          - configmaps
+          - deployments
+          - discoveryconfigs
+          - helmreleases
+          - ingresses
+          - multiclusterhubs
+          - multiclusterobservabilities
+          - namespaces
+          - hiveconfigs
+          - rolebindings
+          - servicemonitors
+          - secrets
+          - services
+          - subjectaccessreviews
+          - subscriptions
+          - validatingwebhookconfigurations
+          - pods
+          - policyreports
+          - managedclusters
+          - managedclustersets
+          verbs:
+          - list
+        - apiGroups:
+          - ''
+          - admissionregistration.k8s.io
+          - apiregistration.k8s.io
+          - apps
+          - authorization.k8s.io
+          - config.openshift.io
+          - mcm.ibm.com
+          - operator.open-cluster-management.io
+          - rbac.authorization.k8s.io
+          - storage.k8s.io
+          - apps.open-cluster-management.io
+          - hive.openshift.io
+          - clusterview.open-cluster-management.io
+          - wgpolicyk8s.io
+          resources:
+          - apiservices
+          - helmreleases
+          - hiveconfigs
+          - configmaps
+          - clusterjoinrequests
+          - deployments
+          - ingresses
+          - multiclusterhubs
+          - namespaces
+          - rolebindings
+          - secrets
+          - services
+          - subjectaccessreviews
+          - validatingwebhookconfigurations
+          - pods
+          - policyreports
+          - managedclusters
+          - managedclustersets
+          verbs:
+          - watch
+        - apiGroups:
+          - ''
+          - admissionregistration.k8s.io
+          - apps
+          - apps.open-cluster-management.io
+          - mcm.ibm.com
+          - monitoring.coreos.com
+          - operator.open-cluster-management.io
+          resources:
+          - deployments
+          - deployments/finalizers
+          - helmreleases
+          - services
+          - services/finalizers
+          - servicemonitors
+          - servicemonitors/finalizers
+          - validatingwebhookconfigurations
+          - multiclusterhubs
+          - multiclusterhubs/finalizers
+          - multiclusterhubs/status
+          verbs:
+          - update
+        - apiGroups:
+          - admissionregistration.k8s.io
+          - apiextensions.k8s.io
+          - apiregistration.k8s.io
+          - hive.openshift.io
+          - mcm.ibm.com
+          - rbac.authorization.k8s.io
+          resources:
+          - apiservices
+          - clusterroles
+          - clusterrolebindings
+          - customresourcedefinitions
+          - hiveconfigs
+          - mutatingwebhookconfigurations
+          - validatingwebhookconfigurations
+          verbs:
+          - deletecollection
+        - apiGroups:
+          - ''
+          - apps
+          - apiregistration.k8s.io
+          - apps.open-cluster-management.io
+          - apiextensions.k8s.io
+          resources:
+          - deployments
+          - services
+          - channels
+          - customresourcedefinitions
+          - apiservices
+          verbs:
+          - delete
+        - apiGroups:
+          - ''
+          - action.open-cluster-management.io
+          - addon.open-cluster-management.io
+          - agent.open-cluster-management.io
+          - argoproj.io
+          - cluster.open-cluster-management.io
+          - work.open-cluster-management.io
+          - app.k8s.io
+          - apps.open-cluster-management.io
+          - authorization.k8s.io
+          - certificates.k8s.io
+          - clusterregistry.k8s.io
+          - config.openshift.io
+          - compliance.mcm.ibm.com
+          - hive.openshift.io
+          - hiveinternal.openshift.io
+          - internal.open-cluster-management.io
+          - inventory.open-cluster-management.io
+          - mcm.ibm.com
+          - multicloud.ibm.com
+          - policy.open-cluster-management.io
+          - proxy.open-cluster-management.io
+          - rbac.authorization.k8s.io
+          - view.open-cluster-management.io
+          - operator.open-cluster-management.io
+          - register.open-cluster-management.io
+          - coordination.k8s.io
+          - search.open-cluster-management.io
+          - submarineraddon.open-cluster-management.i
+          - discovery.open-cluster-management.io
+          resources:
+          - applications
+          - applications/status
+          - applicationrelationships
+          - applicationrelationships/status
+          - baremetalassets
+          - baremetalassets/status
+          - baremetalassets/finalizers
+          - certificatesigningrequests
+          - certificatesigningrequests/approval
+          - channels
+          - channels/status
+          - clustermanagementaddons
+          - managedclusteractions
+          - managedclusteractions/status
+          - clusterdeployments
+          - clusterpools
+          - clusterclaims
+          - discoveryconfigs
+          - discoveredclusters
+          - managedclusteraddons
+          - managedclusteraddons/status
+          - managedclusterinfos
+          - managedclusterinfos/status
+          - managedclustersets
+          - managedclustersets/bind
+          - managedclustersets/join
+          - managedclustersets/status
+          - managedclustersetbindings
+          - managedclusters
+          - managedclusters/accept
+          - managedclusters/status
+          - managedclusterviews
+          - managedclusterviews/status
+          - manifestworks
+          - manifestworks/status
+          - clustercurators
+          - clustermanagers
+          - clusterroles
+          - clusterrolebindings
+          - clusterstatuses/aggregator
+          - clusterversions
+          - compliances
+          - configmaps
+          - deployables
+          - deployables/status
+          - deployableoverrides
+          - deployableoverrides/status
+          - endpoints
+          - endpointconfigs
+          - events
+          - helmrepos
+          - helmrepos/status
+          - klusterletaddonconfigs
+          - machinepools
+          - namespaces
+          - placements
+          - placementrules/status
+          - placementdecisions
+          - placementdecisions/status
+          - placementrules
+          - placementrules/status
+          - pods
+          - pods/log
+          - policies
+          - policies/status
+          - placementbindings
+          - policyautomations
+          - roles
+          - rolebindings
+          - secrets
+          - signers
+          - subscriptions
+          - subscriptions/status
+          - subjectaccessreviews
+          - submarinerconfigs
+          - submarinerconfigs/status
+          - syncsets
+          - clustersyncs
+          - leases
+          - searchcustomizations
+          verbs:
+          - create
+          - get
+          - list
+          - watch
+          - update
+          - delete
+          - deletecollection
+          - patch
+          - approve
+          - escalate
+          - bind
+        serviceAccountName: multiclusterhub-operator
+      - rules:
+        - apiGroups:
+          - ''
+          resources:
+          - configmaps
+          - namespaces
+          - serviceaccounts
+          - services
+          - secrets
+          verbs:
+          - create
+          - get
+          - list
+          - update
+          - watch
+          - patch
+          - delete
+        - apiGroups:
+          - ''
+          resources:
+          - nodes
+          verbs:
+          - get
+          - list
+          - watch
+        - apiGroups:
+          - authorization.k8s.io
+          resources:
+          - subjectaccessreviews
+          verbs:
+          - create
+        - apiGroups:
+          - ''
+          - events.k8s.io
+          resources:
+          - events
+          verbs:
+          - create
+          - patch
+          - update
+        - apiGroups:
+          - apps
+          resources:
+          - deployments
+          verbs:
+          - create
+          - get
+          - list
+          - update
+          - watch
+          - patch
+          - delete
+        - apiGroups:
+          - rbac.authorization.k8s.io
+          resources:
+          - clusterrolebindings
+          - rolebindings
+          verbs:
+          - create
+          - get
+          - list
+          - update
+          - watch
+          - patch
+          - delete
+        - apiGroups:
+          - rbac.authorization.k8s.io
+          resources:
+          - clusterroles
+          - roles
+          verbs:
+          - create
+          - get
+          - list
+          - update
+          - watch
+          - patch
+          - delete
+          - escalate
+          - bind
+        - apiGroups:
+          - apiextensions.k8s.io
+          resources:
+          - customresourcedefinitions
+          verbs:
+          - create
+          - get
+          - list
+          - update
+          - watch
+          - patch
+          - delete
+        - apiGroups:
+          - apiregistration.k8s.io
+          resources:
+          - apiservices
+          verbs:
+          - create
+          - get
+          - list
+          - update
+          - watch
+          - patch
+          - delete
+        - apiGroups:
+          - admissionregistration.k8s.io
+          resources:
+          - validatingwebhookconfigurations
+          - mutatingwebhookconfigurations
+          verbs:
+          - create
+          - get
+          - list
+          - update
+          - watch
+          - patch
+          - delete
+        - apiGroups:
+          - operator.open-cluster-management.io
+          resources:
+          - clustermanagers
+          verbs:
+          - get
+          - list
+          - watch
+          - update
+          - delete
+        - apiGroups:
+          - operator.open-cluster-management.io
+          resources:
+          - clustermanagers/status
+          verbs:
+          - update
+          - patch
+        serviceAccountName: cluster-manager
+      - rules:
+        - apiGroups:
+          - ''
+          resources:
+          - pods
+          - services
+          - services/finalizers
+          - endpoints
+          - persistentvolumeclaims
+          - events
+          - configmaps
+          - secrets
+          - serviceaccounts
+          - namespaces
+          - nodes
+          verbs:
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
+        - apiGroups:
+          - apps
+          resources:
+          - deployments
+          - daemonsets
+          - replicasets
+          - statefulsets
+          verbs:
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
+        - apiGroups:
+          - storage.k8s.io
+          resources:
+          - storageclasses
+          verbs:
+          - watch
+          - get
+          - list
+        - apiGroups:
+          - monitoring.coreos.com
+          resources:
+          - servicemonitors
+          verbs:
+          - get
+          - create
+        - apiGroups:
+          - apps
+          resourceNames:
+          - multicluster-observability-operator
+          resources:
+          - deployments/finalizers
+          verbs:
+          - update
+        - apiGroups:
+          - apps
+          resources:
+          - replicasets
+          - deployments
+          verbs:
+          - get
+        - apiGroups:
+          - monitor.open-cluster-management.io
+          resources:
+          - '*'
+          verbs:
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
+        - apiGroups:
+          - observability.open-cluster-management.io
+          resources:
+          - '*'
+          - multiclusterobservabilities
+          - endpointmonitorings
+          verbs:
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
+        - apiGroups:
+          - rbac.authorization.k8s.io
+          resources:
+          - '*'
+          verbs:
+          - '*'
+        - apiGroups:
+          - core.observatorium.io
+          resources:
+          - observatoria
+          verbs:
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
+        - apiGroups:
+          - integreatly.org
+          resources:
+          - grafanas
+          - grafanas/status
+          - grafanas/finalizers
+          - grafanadashboards
+          - grafanadashboards/status
+          - grafanadatasources
+          - grafanadatasources/status
+          verbs:
+          - get
+          - list
+          - create
+          - update
+          - delete
+          - deletecollection
+          - watch
+        - apiGroups:
+          - apiextensions.k8s.io
+          resources:
+          - customresourcedefinitions
+          verbs:
+          - '*'
+        - apiGroups:
+          - networking.k8s.io
+          resources:
+          - ingresses
+          verbs:
+          - get
+          - list
+          - create
+          - update
+          - delete
+          - deletecollection
+          - watch
+        - apiGroups:
+          - route.openshift.io
+          resources:
+          - routes
+          - routes/custom-host
+          - routes/status
+          verbs:
+          - get
+          - list
+          - create
+          - update
+          - delete
+          - deletecollection
+          - watch
+          - create
+        - apiGroups:
+          - apps.open-cluster-management.io
+          resources:
+          - '*'
+          - placementrules
+          verbs:
+          - '*'
+        - apiGroups:
+          - work.open-cluster-management.io
+          resources:
+          - '*'
+          - manifestworks
+          verbs:
+          - '*'
+        - apiGroups:
+          - config.openshift.io
+          resources:
+          - '*'
+          - infrastructures
+          verbs:
+          - '*'
+        - apiGroups:
+          - operator.openshift.io
+          resources:
+          - ingresscontrollers
+          verbs:
+          - get
+          - list
+          - watch
+        - apiGroups:
+          - certmanager.k8s.io
+          resources:
+          - '*'
+          verbs:
+          - '*'
+        - apiGroups:
+          - coordination.k8s.io
+          resources:
+          - leases
+          verbs:
+          - delete
+          - get
+          - list
+          - watch
+          - create
+          - update
+          - patch
+        - apiGroups:
+          - addon.open-cluster-management.io
+          resources:
+          - clustermanagementaddons
+          verbs:
+          - create
+          - update
+          - get
+          - delete
+          - list
+          - watch
+        - apiGroups:
+          - addon.open-cluster-management.io
+          resources:
+          - managedclusteraddons
+          - managedclusteraddons/status
+          verbs:
+          - watch
+          - create
+          - update
+          - delete
+          - get
+          - list
+        - apiGroups:
+          - migration.k8s.io
+          resources:
+          - storageversionmigrations
+          verbs:
+          - create
+          - delete
+          - get
+          - list
+          - update
+          - watch
+        - apiGroups:
+          - cluster.open-cluster-management.io
+          resources:
+          - managedclusters
+          verbs:
+          - watch
+          - get
+          - list
+        - apiGroups:
+          - operator.open-cluster-management.io
+          resources:
+          - multiclusterhubs
+          verbs:
+          - watch
+          - get
+          - list
+        - apiGroups:
+          - certificates.k8s.io
+          resources:
+          - certificatesigningrequests
+          verbs:
+          - get
+          - list
+          - watch
+        - apiGroups:
+          - certificates.k8s.io
+          resources:
+          - certificatesigningrequests/status
+          - certificatesigningrequests/approval
+          verbs:
+          - update
+        - apiGroups:
+          - certificates.k8s.io
+          resourceNames:
+          - kubernetes.io/kube-apiserver-client
+          - open-cluster-management.io/observability-signer
+          resources:
+          - signers
+          verbs:
+          - approve
+        - apiGroups:
+          - certificates.k8s.io
+          resources:
+          - certificatesigningrequests
+          verbs:
+          - get
+          - list
+          - watch
+        - apiGroups:
+          - certificates.k8s.io
+          resources:
+          - certificatesigningrequests/status
+          verbs:
+          - update
+        - apiGroups:
+          - certificates.k8s.io
+          resourceNames:
+          - open-cluster-management.io/observability-signer
+          resources:
+          - signers
+          verbs:
+          - sign
+        serviceAccountName: multicluster-observability-operator
+      - rules:
+        - apiGroups:
+          - ''
+          resources:
+          - configmaps
+          verbs:
+          - create
+          - get
+          - list
+          - watch
+          - delete
+          - update
+        - apiGroups:
+          - ''
+          resources:
+          - pods
+          verbs:
+          - get
+        - apiGroups:
+          - apps
+          resources:
+          - replicasets
+          verbs:
+          - get
+        - apiGroups:
+          - ''
+          - events.k8s.io
+          resources:
+          - events
+          verbs:
+          - create
+          - patch
+          - update
+        - apiGroups:
+          - ''
+          resources:
+          - namespaces
+          - serviceaccounts
+          verbs:
+          - create
+          - get
+          - list
+          - watch
+          - update
+          - patch
+          - delete
+        - apiGroups:
+          - rbac.authorization.k8s.io
+          resources:
+          - roles
+          verbs:
+          - create
+          - get
+          - list
+          - watch
+          - update
+          - patch
+          - delete
+          - bind
+          - escalate
+        - apiGroups:
+          - rbac.authorization.k8s.io
+          resources:
+          - rolebindings
+          verbs:
+          - create
+          - get
+          - list
+          - watch
+          - update
+          - patch
+          - delete
+        - apiGroups:
+          - apiextensions.k8s.io
+          resources:
+          - customresourcedefinitions
+          - customresourcedefinitions/finalizers
+          verbs:
+          - create
+          - get
+          - list
+          - watch
+          - update
+          - patch
+          - delete
+        - apiGroups:
+          - ''
+          resources:
+          - secrets
+          verbs:
+          - create
+          - get
+          - list
+          - watch
+        - apiGroups:
+          - cluster.open-cluster-management.io
+          resources:
+          - managedclusters
+          - managedclustersets
+          verbs:
+          - get
+          - list
+          - watch
+          - update
+          - patch
+        - apiGroups:
+          - work.open-cluster-management.io
+          resources:
+          - manifestworks
+          verbs:
+          - create
+          - get
+          - list
+          - watch
+          - update
+          - patch
+          - delete
+        - apiGroups:
+          - config.openshift.io
+          resources:
+          - apiservers
+          - infrastructures
+          - infrastructures/status
+          verbs:
+          - get
+        - apiGroups:
+          - submarineraddon.open-cluster-management.io
+          resources:
+          - submarinerconfigs
+          verbs:
+          - get
+          - list
+          - watch
+          - update
+          - patch
+        - apiGroups:
+          - submarineraddon.open-cluster-management.io
+          resources:
+          - submarinerconfigs/status
+          verbs:
+          - update
+          - patch
+        - apiGroups:
+          - addon.open-cluster-management.io
+          resources:
+          - managedclusteraddons
+          verbs:
+          - get
+          - list
+          - watch
+          - patch
+          - update
+        - apiGroups:
+          - addon.open-cluster-management.io
+          resources:
+          - managedclusteraddons/finalizers
+          verbs:
+          - update
+        - apiGroups:
+          - addon.open-cluster-management.io
+          resources:
+          - managedclusteraddons/status
+          verbs:
+          - patch
+          - update
+        - apiGroups:
+          - certificates.k8s.io
+          resources:
+          - certificatesigningrequests
+          verbs:
+          - get
+          - list
+          - watch
+        - apiGroups:
+          - certificates.k8s.io
+          resources:
+          - certificatesigningrequests/approval
+          verbs:
+          - update
+          - patch
+        - apiGroups:
+          - certificates.k8s.io
+          resourceNames:
+          - kubernetes.io/kube-apiserver-client
+          resources:
+          - signers
+          verbs:
+          - approve
+        serviceAccountName: submariner-addon
+      deployments:
+      - name: multiclusterhub-operator
+        spec:
+          replicas: 1
+          selector:
+            matchLabels:
+              name: multiclusterhub-operator
+          strategy: {}
+          template:
+            metadata:
+              labels:
+                name: multiclusterhub-operator
+            spec:
+              containers:
+              - command:
+                - multiclusterhub-operator
+                env:
+                - name: WATCH_NAMESPACE
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.annotations['olm.targetNamespaces']
+                - name: POD_NAME
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.name
+                - name: POD_NAMESPACE
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.namespace
+                - name: OPERATOR_NAME
+                  value: multiclusterhub-operator
+                - name: USER
+                  value: multiclusterhub-operator
+                - name: TEMPLATES_PATH
+                  value: /usr/local/templates
+                - name: MANIFESTS_PATH
+                  value: /image-manifests
+                - name: CRDS_PATH
+                  value: /crds
+                - name: OPERAND_IMAGE_APPLICATION_UI
+                  value: quay.io/open-cluster-management/application-ui@sha256:904b20f6239527282e2bffc140ee0555a3c4191bbe67a5c008874c20ca342cee
+                - name: OPERAND_IMAGE_APPLICATION_UI_TESTS
+                  value: quay.io/open-cluster-management/application-ui-tests@sha256:602e9723f4c266fb47c05bcdecc65f5086a4a6d729da03fd8abf5369a8c69d16
+                - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
+                  value: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:f5890caf612adc7aed114de2dafe242d15677dd943387d84dbf2f542f569ba0b
+                - name: OPERAND_IMAGE_ASSISTED_INSTALLER
+                  value: quay.io/ocpmetal/assisted-installer@sha256:6c7a2ee01972ab503e6e7a812e8f10e7713624c27258440349fdf6d97ff0b6c1
+                - name: OPERAND_IMAGE_ASSISTED_INSTALLER_AGENT
+                  value: quay.io/ocpmetal/assisted-installer-agent@sha256:fa8e96d4eca777b2a3286d53701e86076d6717c5cadb7cec1b0d8e417c43c8ae
+                - name: OPERAND_IMAGE_ASSISTED_INSTALLER_CONTROLLER
+                  value: quay.io/ocpmetal/assisted-installer-controller@sha256:60d96a6edb613180b4629d0fd70fe69eb2c4652d32e12637f344ad2ed8eefcb7
+                - name: OPERAND_IMAGE_ASSISTED_SERVICE
+                  value: quay.io/ocpmetal/assisted-service@sha256:e817c8419fcf19562e4353f45525e60ae7d368a19c64cc19b28332485b95d905
+                - name: OPERAND_IMAGE_BAILER
+                  value: quay.io/open-cluster-management/bailer@sha256:49ed8f260a05eda10149534770e5a454317e0e6d60af954141973fcea0f4ec76
+                - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
+                  value: quay.io/open-cluster-management/cert-policy-controller@sha256:c3b0343c44e77fbf487583d4feb3736e3a75cf3659f41a86012868bdd923a25a
+                - name: OPERAND_IMAGE_CLUSTER_CURATOR_CONTROLLER
+                  value: quay.io/open-cluster-management/cluster-curator-controller@sha256:2320de99b8ad1d567735992cfb154e12400869d35adec244e0bb7dd07805567c
+                - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
+                  value: quay.io/open-cluster-management/cluster-lifecycle-e2e@sha256:eb478b9a00e3762da3d9601292b765c03030386339abae179299eb889820d444
+                - name: OPERAND_IMAGE_CLUSTERLIFECYCLE_STATE_METRICS
+                  value: quay.io/open-cluster-management/clusterlifecycle-state-metrics@sha256:ec7952dd732198474b1036b209b35c5b9bdedc3c03185e173f7b3991ade51c76
+                - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
+                  value: quay.io/open-cluster-management/config-policy-controller@sha256:21129341fa11d101b043a7779c430bf831a9a0ea4b23bb04ca3f6d35bfa0baf1
+                - name: OPERAND_IMAGE_CONSOLE
+                  value: quay.io/open-cluster-management/console@sha256:e4ab87d1e2496e75ab16118271a43daec05440cd74b4e72350f218cf4dbee718
+                - name: OPERAND_IMAGE_CONSOLE_API
+                  value: quay.io/open-cluster-management/console-api@sha256:44c7730cbe13bc407c08b2bb261e798c5f06f93f9baca7e759f1cf6ff04f1f85
+                - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
+                  value: quay.io/open-cluster-management/discovery-operator@sha256:db10c7d7f2ecdcef2382a1872f76e0f676b7a2c96630c7bf0b88354ce8ad98f1
+                - name: OPERAND_IMAGE_DISCOVERY_OPERATOR_TESTS
+                  value: quay.io/open-cluster-management/discovery-operator-tests@sha256:661c161514cb8dbfd9635114d2e865274e0b0ae463f12cc48e5f5c57a71f22ee
+                - name: OPERAND_IMAGE_DISCOVERY-TESTSERVER
+                  value: quay.io/open-cluster-management/discovery-testserver@sha256:a7222a290896d6c3b711f3754329ee125f7d58822bcd3fb4b8ea51b6c44eee90
+                - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
+                  value: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:437e9e2f1e94c1ceb06aeb1fb7eaa863dea867e3f0a33f4e80c5d4c52214685d
+                - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
+                  value: quay.io/open-cluster-management/governance-policy-propagator@sha256:fbfb7c138f73ef553b4185fcab32fd28b63599375b081cc85d7081afbf823f7f
+                - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
+                  value: quay.io/open-cluster-management/governance-policy-spec-sync@sha256:b364734c040c2caa59e9c3d912262b8987d2db8f77c8be79b33c8594a0a7d02d
+                - name: OPERAND_IMAGE_GOVERNANCE_POLICY_STATUS_SYNC
+                  value: quay.io/open-cluster-management/governance-policy-status-sync@sha256:bb4c75f670cce552edbd358ce0121b72e3ab6e174407580cc2681203ea10c147
+                - name: OPERAND_IMAGE_GOVERNANCE_POLICY_TEMPLATE_SYNC
+                  value: quay.io/open-cluster-management/governance-policy-template-sync@sha256:a1a33c6e45710a28ccfb1f143053695596df6bfed79cf57dd3359d098f429701
+                - name: OPERAND_IMAGE_GRAFANA
+                  value: quay.io/open-cluster-management/grafana@sha256:a52371dc5794f9172c9ea03685da3064b9c1303c1ebf6390a24dad285ad9422b
+                - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
+                  value: quay.io/open-cluster-management/grafana-dashboard-loader@sha256:3b84580924f265f0942256c19555dbe82aa742db473cb05c1d7219029709623a
+                - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
+                  value: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:6ef0459aa8c1401bf694a709679105a10a18e4ba487183a075c7183272f9ad8e
+                - name: OPERAND_IMAGE_GRC_UI
+                  value: quay.io/open-cluster-management/grc-ui@sha256:770a25cf368586ed6444397d042c3f74422c21123fa54ba39453536e5a10f80a
+                - name: OPERAND_IMAGE_GRC_UI_API
+                  value: quay.io/open-cluster-management/grc-ui-api@sha256:4f3b2eb182f9667c173047fe33a41d73436b1637dbf38ab24b8d59ad465c6f63
+                - name: OPERAND_IMAGE_GRC_UI_TESTS
+                  value: quay.io/open-cluster-management/grc-ui-tests@sha256:33207f73614c546d1178d0164f854f5cc5ee6204bd75b56de259686de16ca986
+                - name: OPERAND_IMAGE_HELLOPROW_GO
+                  value: quay.io/open-cluster-management/helloprow-go@sha256:76d7907a1984632604f779b13940228d3d85b9f493971ebe3f0c408fd357fa7a
+                - name: OPERAND_IMAGE_HELLOWORLD
+                  value: quay.io/open-cluster-management/helloworld@sha256:6129b37157d252d8fdd93834dadce60a6dfd5e0a83919ccdf33d182578399d2f
+                - name: OPERAND_IMAGE_OPENSHIFT_HIVE
+                  value: quay.io/openshift-hive/hive@sha256:1bea3fa5888ec1e0479702d454da7d65d0d232221b13751312201f2bc8c492bb
+                - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
+                  value: quay.io/open-cluster-management/iam-policy-controller@sha256:8cd117dfb02752c6904aa40201a5554bbb78355924ef01b2961d6a4b67b31ee5
+                - name: OPERAND_IMAGE_INSIGHTS_CLIENT
+                  value: quay.io/open-cluster-management/insights-client@sha256:34c6e148c9e434be0bc9b7fa3ed633d210a5615ec3ff258484b80a8c94941383
+                - name: OPERAND_IMAGE_INSIGHTS_METRICS
+                  value: quay.io/open-cluster-management/insights-metrics@sha256:40c189fd0fb6e620832b4b912421dcddd3195ca74f1367e2a36f7fe51f98c20c
+                - name: OPERAND_IMAGE_KLUSTERLET_ADDON_CONTROLLER
+                  value: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:854d913d2a4f40ae2a1ab8349aca3788d1772fc84056cfae6a6ed1f3d8290a62
+                - name: OPERAND_IMAGE_KLUSTERLET_ADDON_OPERATOR
+                  value: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:a3e07497330ba4c325cf3e7ced704867f6ec48e96f366e81040ab7eae0d5243d
+                - name: OPERAND_IMAGE_KUI_WEB_TERMINAL
+                  value: quay.io/open-cluster-management/kui-web-terminal@sha256:9ff0dbce865418c4aa3cd1fb7e6ab281c7de1e648d27145abd4a376a828e2199
+                - name: OPERAND_IMAGE_KUI_WEB_TERMINAL_TESTS
+                  value: quay.io/open-cluster-management/kui-web-terminal-tests@sha256:f10dcf53dd758e3d807e25857d32653317976c9d0b513d818b67f571cb7ad031
+                - name: OPERAND_IMAGE_MANAGEDCLUSTER_IMPORT_CONTROLLER
+                  value: quay.io/open-cluster-management/managedcluster-import-controller@sha256:d3077858fd272c2b6edb85c5a96e58a0316e61d7dbb38183a28acf647c7007a0
+                - name: OPERAND_IMAGE_MANAGEMENT_INGRESS
+                  value: quay.io/open-cluster-management/management-ingress@sha256:05273e2b0c2dbcd08d8df7128de820270079268e91a17a227c0fd4c343193fc5
+                - name: OPERAND_IMAGE_METRICS_COLLECTOR
+                  value: quay.io/open-cluster-management/metrics-collector@sha256:5f4cb107082e9c1ac12449835e8cb6a442d0fbe75974028d9d66aed5169f47cf
+                - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
+                  value: quay.io/open-cluster-management/multicloud-manager@sha256:60d132b045ba56e8d1d9cc3da7887b55a190de0c5ccaf2909f3fcfaff2c16678
+                - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
+                  value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:70ce0a4dddd78210725bd33a94a655259ef9d5a70e61d73fb9f6ce3c6d4bb24a
+                - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
+                  value: quay.io/open-cluster-management/multicluster-operators-application@sha256:02b0fff2cbc2f8790b34748994cb029259aa87190b48eac1109627c86a6eaee8
+                - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
+                  value: quay.io/open-cluster-management/multicluster-operators-channel@sha256:367028643175ba42f6cb02f8b617df94ddd91da5b135f2eda1068aba09c2676d
+                - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_DEPLOYABLE
+                  value: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:7e36d4c7064e69a6a9a94c09f067652a70d2b1d14d5b5e5f90102c540850acac
+                - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_PLACEMENTRULE
+                  value: quay.io/open-cluster-management/multicluster-operators-placementrule@sha256:cfcc7dc54a3139bc3994b5a2217bcc08c45324e52c741f7755536eecb94d5e79
+                - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION
+                  value: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:fbadb6fbe859f03c0518fd3ee42551ad9be50138a76b9e7585cfb64c15daa31e
+                - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION_RELEASE
+                  value: quay.io/open-cluster-management/multicluster-operators-subscription-release@sha256:f5153c2fdc7c80775ba411fe634f2432552149854262b35ff1058b7222cbb997
+                - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR
+                  value: quay.io/open-cluster-management/multiclusterhub-operator@sha256:4505ccd28936e95e75b0d4c5f2e565c07f4110e8cda2141ea403f7224a0fc4a4
+                - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
+                  value: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:75b2cb2766ec474babd03376d602bb1e4f9e3e6e9fa4c315f3c11de29746e721
+                - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
+                  value: quay.io/open-cluster-management/multiclusterhub-repo@sha256:0dd0dec4f44ff012783288af30c100439dd5ec3251576586782c80165ff5223c
+                - name: OPERAND_IMAGE_MUST_GATHER
+                  value: quay.io/open-cluster-management/must-gather@sha256:8129604adf22baac54e1acc0c53e147c735839cbe464ac9e43af98e3d6e08c7a
+                - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
+                  value: quay.io/open-cluster-management/observability-e2e-test@sha256:275a40ed57b5a13d0967d6d7430593cd982d4eeb2f93eea371b907d17e7d2228
+                - name: OPERAND_IMAGE_OBSERVATORIUM
+                  value: quay.io/open-cluster-management/observatorium@sha256:332105ccac9604c86f5072ecf2a8efab2346c93e8735cfd1bc09839536dba019
+                - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
+                  value: quay.io/open-cluster-management/observatorium-operator@sha256:687ee4cb4bc83354b6b7dacf88c7e92ef55ec99b93b628d377c90dbc69d52768
+                - name: OPERAND_IMAGE_OAUTH_PROXY
+                  value: quay.io/open-cluster-management/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
+                - name: OPERAND_IMAGE_PLACEMENT
+                  value: quay.io/open-cluster-management/placement@sha256:b9e96c7d6cc425935f9b946165ead0acae7338accf56f617fa9c8ddc50749458
+                - name: OPERAND_IMAGE_POSTGRESQL_12
+                  value: quay.io/ocpmetal/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
+                - name: OPERAND_IMAGE_PROMETHEUS_ALERTMANAGER
+                  value: quay.io/open-cluster-management/prometheus-alertmanager@sha256:e9d26fa484a10d5aec9ec95a00ca2571de57fb49875ebbe2bbe15f50910c2885
+                - name: OPERAND_IMAGE_PROVIDER_CREDENTIAL_CONTROLLER
+                  value: quay.io/open-cluster-management/provider-credential-controller@sha256:c646dd1b2a6c28dbc1e3d2128398ce00c1e24c1b12213dc2cd756001bf65e4d7
+                - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
+                  value: quay.io/open-cluster-management/rbac-query-proxy@sha256:3bb09e5ec2183a5857187998936aa0f4c9b7d09632f461f1aeef7ccab3fb307f
+                - name: OPERAND_IMAGE_REDISGRAPH_TLS
+                  value: quay.io/open-cluster-management/redisgraph-tls@sha256:8c99dea684ceea2cb16363ae3564677be433603c10f0d13e9bb0d3fb4f0ce883
+                - name: OPERAND_IMAGE_REGISTRATION
+                  value: quay.io/open-cluster-management/registration@sha256:65e96f8c94fdad43044fd96287339d6f84d5bbaff706fe74806c0c2fec1bb996
+                - name: OPERAND_IMAGE_REGISTRATION_OPERATOR
+                  value: quay.io/open-cluster-management/registration-operator@sha256:141802f180113965c45ee21484b615bd6e977ce0ec57bb350a9a35df676dca2c
+                - name: OPERAND_IMAGE_SEARCH_AGGREGATOR
+                  value: quay.io/open-cluster-management/search-aggregator@sha256:52e9186a179643a16d01705c87db185a4f6defe55b989938f88104367967543b
+                - name: OPERAND_IMAGE_SEARCH_API
+                  value: quay.io/open-cluster-management/search-api@sha256:3b09bbce951802e089a5e817b13db333a868f1f9ad1f55fbf47251db21163b57
+                - name: OPERAND_IMAGE_SEARCH_COLLECTOR
+                  value: quay.io/open-cluster-management/search-collector@sha256:8ed41a2400d300a25948a12c78d1adf8d29d660b94f963e178b51f426ed5baca
+                - name: OPERAND_IMAGE_SEARCH_E2E
+                  value: quay.io/open-cluster-management/search-e2e@sha256:b59cb2e27286d5d9c72a27eeb8da36918cf0dc79ccd6fae11cbb2448d708f81d
+                - name: OPERAND_IMAGE_SEARCH_OPERATOR
+                  value: quay.io/open-cluster-management/search-operator@sha256:99719d266ccbe923771bad7dc4448680c19c0d2d2e8a158c728e51fa51417945
+                - name: OPERAND_IMAGE_SEARCH_UI
+                  value: quay.io/open-cluster-management/search-ui@sha256:1062ede4c7042e5132fdbd0b380f018f097d6bab11012d1f15ea62997ab3ffa3
+                - name: OPERAND_IMAGE_SUBMARINER_ADDON
+                  value: quay.io/open-cluster-management/submariner-addon@sha256:6d8a8c52ef716f7cb8acd37ab4efb6b8680c374a3b2691ea63fffac30e45706d
+                - name: OPERAND_IMAGE_THANOS
+                  value: quay.io/open-cluster-management/thanos@sha256:165a56abf18d2b1b9bdf6e4d74e003cf5247e5c1bcaf1221eb8d70320aa9cb6c
+                - name: OPERAND_IMAGE_WORK
+                  value: quay.io/open-cluster-management/work@sha256:c6066827186e66832428b96036950fb62791fa22d3059537e575ac62fe679bed
+                image: quay.io/open-cluster-management/multiclusterhub-operator@sha256:4505ccd28936e95e75b0d4c5f2e565c07f4110e8cda2141ea403f7224a0fc4a4
+                imagePullPolicy: Always
+                name: multiclusterhub-operator
+                resources:
+                  limits:
+                    memory: 2Gi
+                  requests:
+                    cpu: 100m
+                    memory: 256Mi
+              serviceAccountName: multiclusterhub-operator
+      - name: cluster-manager
+        spec:
+          replicas: 3
+          selector:
+            matchLabels:
+              app: cluster-manager
+          strategy: {}
+          template:
+            metadata:
+              labels:
+                app: cluster-manager
+            spec:
+              affinity:
+                podAntiAffinity:
+                  preferredDuringSchedulingIgnoredDuringExecution:
+                  - podAffinityTerm:
+                      labelSelector:
+                        matchExpressions:
+                        - key: app
+                          operator: In
+                          values:
+                          - cluster-manager
+                      topologyKey: failure-domain.beta.kubernetes.io/zone
+                    weight: 70
+                  - podAffinityTerm:
+                      labelSelector:
+                        matchExpressions:
+                        - key: app
+                          operator: In
+                          values:
+                          - cluster-manager
+                      topologyKey: kubernetes.io/hostname
+                    weight: 30
+              containers:
+              - args:
+                - /registration-operator
+                - hub
+                image: quay.io/open-cluster-management/registration-operator@sha256:141802f180113965c45ee21484b615bd6e977ce0ec57bb350a9a35df676dca2c
+                livenessProbe:
+                  httpGet:
+                    path: /healthz
+                    port: 8443
+                    scheme: HTTPS
+                  initialDelaySeconds: 2
+                  periodSeconds: 10
+                name: registration-operator
+                readinessProbe:
+                  httpGet:
+                    path: /healthz
+                    port: 8443
+                    scheme: HTTPS
+                  initialDelaySeconds: 2
+                resources:
+                  requests:
+                    cpu: 100m
+                    memory: 128Mi
+                securityContext:
+                  allowPrivilegeEscalation: false
+                  capabilities:
+                    drop:
+                    - ALL
+                  privileged: false
+                  runAsNonRoot: true
+              serviceAccountName: cluster-manager
+      - name: multicluster-observability-operator
+        spec:
+          replicas: 1
+          selector:
+            matchLabels:
+              name: multicluster-observability-operator
+          strategy: {}
+          template:
+            metadata:
+              labels:
+                name: multicluster-observability-operator
+            spec:
+              containers:
+              - args:
+                - -leader-elect
+                command:
+                - mco-operator
+                env:
+                - name: WATCH_NAMESPACE
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.annotations['olm.targetNamespaces']
+                - name: POD_NAME
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.name
+                - name: POD_NAMESPACE
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.namespace
+                - name: OPERATOR_NAME
+                  value: multicluster-observability-operator
+                - name: TEMPLATES_PATH
+                  value: /usr/local/manifests
+                - name: SPOKE_NAMESPACE
+                  value: open-cluster-management-addon-observability
+                image: quay.io/open-cluster-management/multicluster-observability-operator@sha256:70ce0a4dddd78210725bd33a94a655259ef9d5a70e61d73fb9f6ce3c6d4bb24a
+                imagePullPolicy: Always
+                livenessProbe:
+                  httpGet:
+                    path: /healthz
+                    port: 8081
+                  initialDelaySeconds: 15
+                  periodSeconds: 20
+                name: multicluster-observability-operator
+                ports:
+                - containerPort: 9443
+                  name: webhook-server
+                  protocol: TCP
+                readinessProbe:
+                  httpGet:
+                    path: /readyz
+                    port: 8081
+                  initialDelaySeconds: 5
+                  periodSeconds: 10
+                resources:
+                  limits:
+                    cpu: 300m
+                    memory: 512Mi
+                  requests:
+                    cpu: 100m
+                    memory: 128Mi
+                securityContext:
+                  allowPrivilegeEscalation: false
+                volumeMounts:
+                - mountPath: /tmp/k8s-webhook-server/serving-certs
+                  name: cert
+                  readOnly: true
+              serviceAccountName: multicluster-observability-operator
+              volumes:
+              - name: cert
+                secret:
+                  defaultMode: 420
+                  secretName: multicluster-observability-operator-webhook-server-cert
+      - name: submariner-addon
+        spec:
+          replicas: 1
+          selector:
+            matchLabels:
+              app: submariner-addon
+          strategy: {}
+          template:
+            metadata:
+              labels:
+                app: submariner-addon
+            spec:
+              containers:
+              - args:
+                - /submariner
+                - controller
+                env:
+                - name: POD_NAME
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.name
+                image: quay.io/open-cluster-management/submariner-addon@sha256:6d8a8c52ef716f7cb8acd37ab4efb6b8680c374a3b2691ea63fffac30e45706d
+                livenessProbe:
+                  httpGet:
+                    path: /healthz
+                    port: 8443
+                    scheme: HTTPS
+                  initialDelaySeconds: 2
+                  periodSeconds: 10
+                name: submariner-addon
+                readinessProbe:
+                  httpGet:
+                    path: /healthz
+                    port: 8443
+                    scheme: HTTPS
+                  initialDelaySeconds: 2
+                resources:
+                  requests:
+                    cpu: 100m
+                    memory: 128Mi
+              serviceAccountName: submariner-addon
+  relatedImages:
+  - name: application_ui
+    image: quay.io/open-cluster-management/application-ui@sha256:904b20f6239527282e2bffc140ee0555a3c4191bbe67a5c008874c20ca342cee
+  - name: application_ui_tests
+    image: quay.io/open-cluster-management/application-ui-tests@sha256:602e9723f4c266fb47c05bcdecc65f5086a4a6d729da03fd8abf5369a8c69d16
+  - name: applifecycle_backend_e2e
+    image: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:f5890caf612adc7aed114de2dafe242d15677dd943387d84dbf2f542f569ba0b
+  - name: assisted_installer
+    image: quay.io/ocpmetal/assisted-installer@sha256:6c7a2ee01972ab503e6e7a812e8f10e7713624c27258440349fdf6d97ff0b6c1
+  - name: assisted_installer_agent
+    image: quay.io/ocpmetal/assisted-installer-agent@sha256:fa8e96d4eca777b2a3286d53701e86076d6717c5cadb7cec1b0d8e417c43c8ae
+  - name: assisted_installer_controller
+    image: quay.io/ocpmetal/assisted-installer-controller@sha256:60d96a6edb613180b4629d0fd70fe69eb2c4652d32e12637f344ad2ed8eefcb7
+  - name: assisted_service
+    image: quay.io/ocpmetal/assisted-service@sha256:e817c8419fcf19562e4353f45525e60ae7d368a19c64cc19b28332485b95d905
+  - name: bailer
+    image: quay.io/open-cluster-management/bailer@sha256:49ed8f260a05eda10149534770e5a454317e0e6d60af954141973fcea0f4ec76
+  - name: cert_policy_controller
+    image: quay.io/open-cluster-management/cert-policy-controller@sha256:c3b0343c44e77fbf487583d4feb3736e3a75cf3659f41a86012868bdd923a25a
+  - name: cluster_curator_controller
+    image: quay.io/open-cluster-management/cluster-curator-controller@sha256:2320de99b8ad1d567735992cfb154e12400869d35adec244e0bb7dd07805567c
+  - name: cluster_lifecycle_e2e
+    image: quay.io/open-cluster-management/cluster-lifecycle-e2e@sha256:eb478b9a00e3762da3d9601292b765c03030386339abae179299eb889820d444
+  - name: clusterlifecycle_state_metrics
+    image: quay.io/open-cluster-management/clusterlifecycle-state-metrics@sha256:ec7952dd732198474b1036b209b35c5b9bdedc3c03185e173f7b3991ade51c76
+  - name: config_policy_controller
+    image: quay.io/open-cluster-management/config-policy-controller@sha256:21129341fa11d101b043a7779c430bf831a9a0ea4b23bb04ca3f6d35bfa0baf1
+  - name: console
+    image: quay.io/open-cluster-management/console@sha256:e4ab87d1e2496e75ab16118271a43daec05440cd74b4e72350f218cf4dbee718
+  - name: console_api
+    image: quay.io/open-cluster-management/console-api@sha256:44c7730cbe13bc407c08b2bb261e798c5f06f93f9baca7e759f1cf6ff04f1f85
+  - name: discovery_operator
+    image: quay.io/open-cluster-management/discovery-operator@sha256:db10c7d7f2ecdcef2382a1872f76e0f676b7a2c96630c7bf0b88354ce8ad98f1
+  - name: discovery_operator_tests
+    image: quay.io/open-cluster-management/discovery-operator-tests@sha256:661c161514cb8dbfd9635114d2e865274e0b0ae463f12cc48e5f5c57a71f22ee
+  - name: discovery-testserver
+    image: quay.io/open-cluster-management/discovery-testserver@sha256:a7222a290896d6c3b711f3754329ee125f7d58822bcd3fb4b8ea51b6c44eee90
+  - name: endpoint_monitoring_operator
+    image: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:437e9e2f1e94c1ceb06aeb1fb7eaa863dea867e3f0a33f4e80c5d4c52214685d
+  - name: governance_policy_propagator
+    image: quay.io/open-cluster-management/governance-policy-propagator@sha256:fbfb7c138f73ef553b4185fcab32fd28b63599375b081cc85d7081afbf823f7f
+  - name: governance_policy_spec_sync
+    image: quay.io/open-cluster-management/governance-policy-spec-sync@sha256:b364734c040c2caa59e9c3d912262b8987d2db8f77c8be79b33c8594a0a7d02d
+  - name: governance_policy_status_sync
+    image: quay.io/open-cluster-management/governance-policy-status-sync@sha256:bb4c75f670cce552edbd358ce0121b72e3ab6e174407580cc2681203ea10c147
+  - name: governance_policy_template_sync
+    image: quay.io/open-cluster-management/governance-policy-template-sync@sha256:a1a33c6e45710a28ccfb1f143053695596df6bfed79cf57dd3359d098f429701
+  - name: grafana
+    image: quay.io/open-cluster-management/grafana@sha256:a52371dc5794f9172c9ea03685da3064b9c1303c1ebf6390a24dad285ad9422b
+  - name: grafana_dashboard_loader
+    image: quay.io/open-cluster-management/grafana-dashboard-loader@sha256:3b84580924f265f0942256c19555dbe82aa742db473cb05c1d7219029709623a
+  - name: grc_policy_framework_tests
+    image: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:6ef0459aa8c1401bf694a709679105a10a18e4ba487183a075c7183272f9ad8e
+  - name: grc_ui
+    image: quay.io/open-cluster-management/grc-ui@sha256:770a25cf368586ed6444397d042c3f74422c21123fa54ba39453536e5a10f80a
+  - name: grc_ui_api
+    image: quay.io/open-cluster-management/grc-ui-api@sha256:4f3b2eb182f9667c173047fe33a41d73436b1637dbf38ab24b8d59ad465c6f63
+  - name: grc_ui_tests
+    image: quay.io/open-cluster-management/grc-ui-tests@sha256:33207f73614c546d1178d0164f854f5cc5ee6204bd75b56de259686de16ca986
+  - name: helloprow_go
+    image: quay.io/open-cluster-management/helloprow-go@sha256:76d7907a1984632604f779b13940228d3d85b9f493971ebe3f0c408fd357fa7a
+  - name: helloworld
+    image: quay.io/open-cluster-management/helloworld@sha256:6129b37157d252d8fdd93834dadce60a6dfd5e0a83919ccdf33d182578399d2f
+  - name: openshift_hive
+    image: quay.io/openshift-hive/hive@sha256:1bea3fa5888ec1e0479702d454da7d65d0d232221b13751312201f2bc8c492bb
+  - name: iam_policy_controller
+    image: quay.io/open-cluster-management/iam-policy-controller@sha256:8cd117dfb02752c6904aa40201a5554bbb78355924ef01b2961d6a4b67b31ee5
+  - name: insights_client
+    image: quay.io/open-cluster-management/insights-client@sha256:34c6e148c9e434be0bc9b7fa3ed633d210a5615ec3ff258484b80a8c94941383
+  - name: insights_metrics
+    image: quay.io/open-cluster-management/insights-metrics@sha256:40c189fd0fb6e620832b4b912421dcddd3195ca74f1367e2a36f7fe51f98c20c
+  - name: klusterlet_addon_controller
+    image: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:854d913d2a4f40ae2a1ab8349aca3788d1772fc84056cfae6a6ed1f3d8290a62
+  - name: klusterlet_addon_operator
+    image: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:a3e07497330ba4c325cf3e7ced704867f6ec48e96f366e81040ab7eae0d5243d
+  - name: kui_web_terminal
+    image: quay.io/open-cluster-management/kui-web-terminal@sha256:9ff0dbce865418c4aa3cd1fb7e6ab281c7de1e648d27145abd4a376a828e2199
+  - name: kui_web_terminal_tests
+    image: quay.io/open-cluster-management/kui-web-terminal-tests@sha256:f10dcf53dd758e3d807e25857d32653317976c9d0b513d818b67f571cb7ad031
+  - name: managedcluster_import_controller
+    image: quay.io/open-cluster-management/managedcluster-import-controller@sha256:d3077858fd272c2b6edb85c5a96e58a0316e61d7dbb38183a28acf647c7007a0
+  - name: management_ingress
+    image: quay.io/open-cluster-management/management-ingress@sha256:05273e2b0c2dbcd08d8df7128de820270079268e91a17a227c0fd4c343193fc5
+  - name: metrics_collector
+    image: quay.io/open-cluster-management/metrics-collector@sha256:5f4cb107082e9c1ac12449835e8cb6a442d0fbe75974028d9d66aed5169f47cf
+  - name: multicloud_manager
+    image: quay.io/open-cluster-management/multicloud-manager@sha256:60d132b045ba56e8d1d9cc3da7887b55a190de0c5ccaf2909f3fcfaff2c16678
+  - name: multicluster_operators_application
+    image: quay.io/open-cluster-management/multicluster-operators-application@sha256:02b0fff2cbc2f8790b34748994cb029259aa87190b48eac1109627c86a6eaee8
+  - name: multicluster_operators_channel
+    image: quay.io/open-cluster-management/multicluster-operators-channel@sha256:367028643175ba42f6cb02f8b617df94ddd91da5b135f2eda1068aba09c2676d
+  - name: multicluster_operators_deployable
+    image: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:7e36d4c7064e69a6a9a94c09f067652a70d2b1d14d5b5e5f90102c540850acac
+  - name: multicluster_operators_placementrule
+    image: quay.io/open-cluster-management/multicluster-operators-placementrule@sha256:cfcc7dc54a3139bc3994b5a2217bcc08c45324e52c741f7755536eecb94d5e79
+  - name: multicluster_operators_subscription
+    image: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:fbadb6fbe859f03c0518fd3ee42551ad9be50138a76b9e7585cfb64c15daa31e
+  - name: multicluster_operators_subscription_release
+    image: quay.io/open-cluster-management/multicluster-operators-subscription-release@sha256:f5153c2fdc7c80775ba411fe634f2432552149854262b35ff1058b7222cbb997
+  - name: multiclusterhub_operator_tests
+    image: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:75b2cb2766ec474babd03376d602bb1e4f9e3e6e9fa4c315f3c11de29746e721
+  - name: multiclusterhub_repo
+    image: quay.io/open-cluster-management/multiclusterhub-repo@sha256:0dd0dec4f44ff012783288af30c100439dd5ec3251576586782c80165ff5223c
+  - name: must_gather
+    image: quay.io/open-cluster-management/must-gather@sha256:8129604adf22baac54e1acc0c53e147c735839cbe464ac9e43af98e3d6e08c7a
+  - name: observability_e2e_test
+    image: quay.io/open-cluster-management/observability-e2e-test@sha256:275a40ed57b5a13d0967d6d7430593cd982d4eeb2f93eea371b907d17e7d2228
+  - name: observatorium
+    image: quay.io/open-cluster-management/observatorium@sha256:332105ccac9604c86f5072ecf2a8efab2346c93e8735cfd1bc09839536dba019
+  - name: observatorium_operator
+    image: quay.io/open-cluster-management/observatorium-operator@sha256:687ee4cb4bc83354b6b7dacf88c7e92ef55ec99b93b628d377c90dbc69d52768
+  - name: oauth_proxy
+    image: quay.io/open-cluster-management/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
+  - name: placement
+    image: quay.io/open-cluster-management/placement@sha256:b9e96c7d6cc425935f9b946165ead0acae7338accf56f617fa9c8ddc50749458
+  - name: postgresql_12
+    image: quay.io/ocpmetal/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
+  - name: prometheus_alertmanager
+    image: quay.io/open-cluster-management/prometheus-alertmanager@sha256:e9d26fa484a10d5aec9ec95a00ca2571de57fb49875ebbe2bbe15f50910c2885
+  - name: provider_credential_controller
+    image: quay.io/open-cluster-management/provider-credential-controller@sha256:c646dd1b2a6c28dbc1e3d2128398ce00c1e24c1b12213dc2cd756001bf65e4d7
+  - name: rbac_query_proxy
+    image: quay.io/open-cluster-management/rbac-query-proxy@sha256:3bb09e5ec2183a5857187998936aa0f4c9b7d09632f461f1aeef7ccab3fb307f
+  - name: redisgraph_tls
+    image: quay.io/open-cluster-management/redisgraph-tls@sha256:8c99dea684ceea2cb16363ae3564677be433603c10f0d13e9bb0d3fb4f0ce883
+  - name: registration
+    image: quay.io/open-cluster-management/registration@sha256:65e96f8c94fdad43044fd96287339d6f84d5bbaff706fe74806c0c2fec1bb996
+  - name: search_aggregator
+    image: quay.io/open-cluster-management/search-aggregator@sha256:52e9186a179643a16d01705c87db185a4f6defe55b989938f88104367967543b
+  - name: search_api
+    image: quay.io/open-cluster-management/search-api@sha256:3b09bbce951802e089a5e817b13db333a868f1f9ad1f55fbf47251db21163b57
+  - name: search_collector
+    image: quay.io/open-cluster-management/search-collector@sha256:8ed41a2400d300a25948a12c78d1adf8d29d660b94f963e178b51f426ed5baca
+  - name: search_e2e
+    image: quay.io/open-cluster-management/search-e2e@sha256:b59cb2e27286d5d9c72a27eeb8da36918cf0dc79ccd6fae11cbb2448d708f81d
+  - name: search_operator
+    image: quay.io/open-cluster-management/search-operator@sha256:99719d266ccbe923771bad7dc4448680c19c0d2d2e8a158c728e51fa51417945
+  - name: search_ui
+    image: quay.io/open-cluster-management/search-ui@sha256:1062ede4c7042e5132fdbd0b380f018f097d6bab11012d1f15ea62997ab3ffa3
+  - name: thanos
+    image: quay.io/open-cluster-management/thanos@sha256:165a56abf18d2b1b9bdf6e4d74e003cf5247e5c1bcaf1221eb8d70320aa9cb6c
+  - name: work
+    image: quay.io/open-cluster-management/work@sha256:c6066827186e66832428b96036950fb62791fa22d3059537e575ac62fe679bed
