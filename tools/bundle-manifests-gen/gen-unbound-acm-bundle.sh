@@ -50,10 +50,10 @@ prev_csv_vers="$2"
 # just hacked in a temporary bypass, but this is getting to be a theme so we make
 # this a bit fancier.
 
-appsub_use_previous_release_channel_override=0
-hive_use_previous_release_channel_override=0
+appsub_use_previous_release_channel_override=1
+hive_use_previous_release_channel_override=1
 if [[ "$new_csv_vers" == "2.3.0" ]]; then
-   # No oerrides.
+   # No overrides.
    true
 fi
 
