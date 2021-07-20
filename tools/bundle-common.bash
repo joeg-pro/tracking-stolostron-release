@@ -99,7 +99,7 @@ function locate_community_operator {
    local rel_x rel_y rel_z rel_xy rel_yz prev_rel_y prev_rel_z prev_rel_xy
    parse_release_nr "$release_nr"
 
-   pkg_dir="$community_repo_spot/community-operators/$pkg_path"
+   pkg_dir="$community_repo_spot/operators/$pkg_path"
 
    if [[ "$pinned_csv_vers" == "none" ]]; then
 

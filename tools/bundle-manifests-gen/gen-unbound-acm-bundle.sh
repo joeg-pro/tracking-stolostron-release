@@ -96,7 +96,9 @@ rm -rf "$unbound_pkg_dir/$new_csv_vers"
 bundle_names=()
 declare -A bundle_dirs
 
-git clone "$github/operator-framework/community-operators.git" "$community_repo_spot"
+community_operators_path="redhat-openshift-ecosystem/community-operators-prod.git"
+echo "Cloning upstream community-operators repo $community_repo_spot."
+git clone "$github/$community_operators_path" "$community_repo_spot"
 if [[ $? -ne 0 ]]; then
    >&2 echo "Error: Could not clone Community Operators repo."
    >&2 echo "Aborting."
