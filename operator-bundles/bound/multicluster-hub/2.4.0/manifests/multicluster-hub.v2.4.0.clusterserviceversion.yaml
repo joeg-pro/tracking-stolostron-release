@@ -18,9 +18,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-07-19T23:47:42Z'
+    createdAt: '2021-07-20T01:36:46Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '[]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1261,7 +1261,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
                   value: quay.io/open-cluster-management/multicloud-manager@sha256:60d132b045ba56e8d1d9cc3da7887b55a190de0c5ccaf2909f3fcfaff2c16678
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
-                  value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:70ce0a4dddd78210725bd33a94a655259ef9d5a70e61d73fb9f6ce3c6d4bb24a
+                  value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:92612a5f0f7df7a3d5e1cb6c6963c6188bcefea18ce4a56ce5320111405d61d0
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
                   value: quay.io/open-cluster-management/multicluster-operators-application@sha256:02b0fff2cbc2f8790b34748994cb029259aa87190b48eac1109627c86a6eaee8
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
@@ -1434,7 +1434,7 @@ spec:
                   value: /usr/local/manifests
                 - name: SPOKE_NAMESPACE
                   value: open-cluster-management-addon-observability
-                image: quay.io/open-cluster-management/multicluster-observability-operator@sha256:70ce0a4dddd78210725bd33a94a655259ef9d5a70e61d73fb9f6ce3c6d4bb24a
+                image: quay.io/open-cluster-management/multicluster-observability-operator@sha256:92612a5f0f7df7a3d5e1cb6c6963c6188bcefea18ce4a56ce5320111405d61d0
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
