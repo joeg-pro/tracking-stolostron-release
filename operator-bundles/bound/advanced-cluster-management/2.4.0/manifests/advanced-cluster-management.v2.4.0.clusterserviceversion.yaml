@@ -27,15 +27,14 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-07-20T15:13:31Z'
+    createdAt: '2021-07-20T17:02:47Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["Disconnected"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -2022,8 +2021,8 @@ spec:
                   exec:
                     command:
                     - ls
-                  initialDelaySeconds: 15
-                  periodSeconds: 15
+                  initialDelaySeconds: 30
+                  periodSeconds: 30
                 readinessProbe:
                   exec:
                     command:
@@ -2035,10 +2034,10 @@ spec:
                 name: multicluster-operators-placementrule
                 resources:
                   limits:
-                    cpu: 100m
+                    cpu: 750m
                     memory: 512Mi
                   requests:
-                    cpu: 25m
+                    cpu: 150m
                     memory: 64Mi
                 volumeMounts:
                 - name: tmp
