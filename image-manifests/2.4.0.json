@@ -86,12 +86,12 @@
   {
     "image-name": "cert-policy-controller",
     "image-version": "3.8.0",
-    "image-tag": "3.8.0-ab838d6290f7554cb7294ccd19059fc111fdf6e2",
-    "git-sha256": "ab838d6290f7554cb7294ccd19059fc111fdf6e2",
+    "image-tag": "3.8.0-f752d32f69bd8d9aa1e4182b92a48533e41e4c24",
+    "git-sha256": "f752d32f69bd8d9aa1e4182b92a48533e41e4c24",
     "git-repository": "open-cluster-management/cert-policy-controller",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:c3b0343c44e77fbf487583d4feb3736e3a75cf3659f41a86012868bdd923a25a",
+    "image-digest": "sha256:4ee8b6d8420a667e5adb89c69d8b30b75af740ba53dd7d66b6db3076ce03bf51",
     "image-key": "cert_policy_controller"
   },
   {
@@ -129,12 +129,12 @@
   {
     "image-name": "config-policy-controller",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-5b9873ca844f3389bb6148814aaffdaf561b77ba",
-    "git-sha256": "5b9873ca844f3389bb6148814aaffdaf561b77ba",
+    "image-tag": "1.0.0-545fefc14d1e80688b557927c61faa32412a1025",
+    "git-sha256": "545fefc14d1e80688b557927c61faa32412a1025",
     "git-repository": "open-cluster-management/config-policy-controller",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:21129341fa11d101b043a7779c430bf831a9a0ea4b23bb04ca3f6d35bfa0baf1",
+    "image-digest": "sha256:b48ae525c34a7daf08cc97a53d47eaef007ccc7713b2b5f44afe29def5e2d505",
     "image-key": "config_policy_controller"
   },
   {
@@ -206,12 +206,12 @@
   {
     "image-name": "governance-policy-propagator",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-97ff9a0a2a3cf5d1dc1893d413caef67ea53c14f",
-    "git-sha256": "97ff9a0a2a3cf5d1dc1893d413caef67ea53c14f",
+    "image-tag": "1.0.0-653998ebd7e8370dace4bc1c4e7e1efcc687b021",
+    "git-sha256": "653998ebd7e8370dace4bc1c4e7e1efcc687b021",
     "git-repository": "open-cluster-management/governance-policy-propagator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:fbfb7c138f73ef553b4185fcab32fd28b63599375b081cc85d7081afbf823f7f",
+    "image-digest": "sha256:bc9ea355404ef1a7ccf114c638361b3dded10e6d46ec63a21e230fb01e1d4f2a",
     "image-key": "governance_policy_propagator"
   },
   {
@@ -228,23 +228,23 @@
   {
     "image-name": "governance-policy-status-sync",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-a0fe742561089aef4fc276334b1395a7c51fadaa",
-    "git-sha256": "a0fe742561089aef4fc276334b1395a7c51fadaa",
+    "image-tag": "1.0.0-fff6a07d21c0ca9b0801bec7b984f229e96dafd8",
+    "git-sha256": "fff6a07d21c0ca9b0801bec7b984f229e96dafd8",
     "git-repository": "open-cluster-management/governance-policy-status-sync",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:bb4c75f670cce552edbd358ce0121b72e3ab6e174407580cc2681203ea10c147",
+    "image-digest": "sha256:7b6b619b6f27d81d9172f1c08dbdcdaa370e57f8fc1d5643de92ac8213617a12",
     "image-key": "governance_policy_status_sync"
   },
   {
     "image-name": "governance-policy-template-sync",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-20e65df7c9aa017db1bbb06c22913c77b2e0a5ce",
-    "git-sha256": "20e65df7c9aa017db1bbb06c22913c77b2e0a5ce",
+    "image-tag": "1.0.0-6431d9bb3fdbe6845dabea0de7a8e5606d0279ab",
+    "git-sha256": "6431d9bb3fdbe6845dabea0de7a8e5606d0279ab",
     "git-repository": "open-cluster-management/governance-policy-template-sync",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:a1a33c6e45710a28ccfb1f143053695596df6bfed79cf57dd3359d098f429701",
+    "image-digest": "sha256:399bd43c9946bc2fe6b1a7c28c3fcddfb6ce9c96e104c4f4c2c00c4050747485",
     "image-key": "governance_policy_template_sync"
   },
   {
