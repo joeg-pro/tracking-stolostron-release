@@ -27,14 +27,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-07-21T18:50:25Z'
+    createdAt: '2021-07-21T19:33:55Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["Disconnected"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1722,7 +1723,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION_RELEASE
                   value: quay.io/open-cluster-management/multicluster-operators-subscription-release@sha256:f5153c2fdc7c80775ba411fe634f2432552149854262b35ff1058b7222cbb997
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR
-                  value: quay.io/open-cluster-management/multiclusterhub-operator@sha256:4505ccd28936e95e75b0d4c5f2e565c07f4110e8cda2141ea403f7224a0fc4a4
+                  value: quay.io/open-cluster-management/multiclusterhub-operator@sha256:d14895952bd559ca16943b5918373c3f905ce107b9fd5e94fd8114e6850b9cc0
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
                   value: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:75b2cb2766ec474babd03376d602bb1e4f9e3e6e9fa4c315f3c11de29746e721
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
@@ -1771,7 +1772,7 @@ spec:
                   value: quay.io/open-cluster-management/thanos@sha256:165a56abf18d2b1b9bdf6e4d74e003cf5247e5c1bcaf1221eb8d70320aa9cb6c
                 - name: OPERAND_IMAGE_WORK
                   value: quay.io/open-cluster-management/work@sha256:c6066827186e66832428b96036950fb62791fa22d3059537e575ac62fe679bed
-                image: quay.io/open-cluster-management/multiclusterhub-operator@sha256:4505ccd28936e95e75b0d4c5f2e565c07f4110e8cda2141ea403f7224a0fc4a4
+                image: quay.io/open-cluster-management/multiclusterhub-operator@sha256:d14895952bd559ca16943b5918373c3f905ce107b9fd5e94fd8114e6850b9cc0
                 imagePullPolicy: Always
                 name: multiclusterhub-operator
                 resources:
