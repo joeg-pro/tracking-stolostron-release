@@ -72,8 +72,8 @@ function parse_release_nr {
       prev_rel_xy="no-prev-release"
    fi
 
-   if [[ $rel_1 -gt 0 ]]; then
-      prev_rel_1=$((rel_1-1))
+   if [[ $rel_z -gt 0 ]]; then
+      prev_rel_z=$((rel_z-1))
    else
       prev_rel_z="no-prev-release"
    fi
