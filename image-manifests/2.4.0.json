@@ -397,34 +397,14 @@
     "image-key": "klusterlet_addon_operator"
   },
   {
-    "image-name": "kui-web-terminal",
-    "image-version": "3.9.0",
-    "image-tag": "3.9.0-12ccf3801453e32ce99c8147ed0de6b8d96cdf35",
-    "git-sha256": "12ccf3801453e32ce99c8147ed0de6b8d96cdf35",
-    "git-repository": "open-cluster-management/kui-web-terminal",
-    "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:9ff0dbce865418c4aa3cd1fb7e6ab281c7de1e648d27145abd4a376a828e2199",
-    "image-key": "kui_web_terminal"
-  },
-  {
-    "image-name": "kui-web-terminal-tests",
-    "image-version": "3.9.0",
-    "image-tag": "3.9.0-12ccf3801453e32ce99c8147ed0de6b8d96cdf35",
-    "git-sha256": "12ccf3801453e32ce99c8147ed0de6b8d96cdf35",
-    "git-repository": "open-cluster-management/kui-web-terminal",
-    "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:f10dcf53dd758e3d807e25857d32653317976c9d0b513d818b67f571cb7ad031",
-    "image-key": "kui_web_terminal_tests"
-  },
-  {
     "image-name": "managedcluster-import-controller",
-    "image-version": "2.3.0",
-    "image-tag": "2.3.0-33cf2014906d2c1d3087ccbee6d1dd0b3101098e",
-    "git-sha256": "33cf2014906d2c1d3087ccbee6d1dd0b3101098e",
+    "image-version": "2.4.0",
+    "image-tag": "2.4.0-75d85b3b92926632e831328c781719108da27b59",
+    "git-sha256": "75d85b3b92926632e831328c781719108da27b59",
     "git-repository": "open-cluster-management/managedcluster-import-controller",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:d3077858fd272c2b6edb85c5a96e58a0316e61d7dbb38183a28acf647c7007a0",
+    "image-digest": "sha256:04598b6ced6073206d270c18f88b57ed23a3d37c2836e29261db258fa8c936c5",
     "image-key": "managedcluster_import_controller"
   },
   {
