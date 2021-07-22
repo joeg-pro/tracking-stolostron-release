@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-07-21T23:40:59Z'
+    createdAt: '2021-07-22T13:34:36Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1707,7 +1707,7 @@ spec:
                 - name: OPERAND_IMAGE_METRICS_COLLECTOR
                   value: quay.io/open-cluster-management/metrics-collector@sha256:5f4cb107082e9c1ac12449835e8cb6a442d0fbe75974028d9d66aed5169f47cf
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
-                  value: quay.io/open-cluster-management/multicloud-manager@sha256:60d132b045ba56e8d1d9cc3da7887b55a190de0c5ccaf2909f3fcfaff2c16678
+                  value: quay.io/open-cluster-management/multicloud-manager@sha256:4cc157e88aaf24b0a6dc132d47d77cef488cf2ccbd024b44b21f96b96ed88e62
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
                   value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:92612a5f0f7df7a3d5e1cb6c6963c6188bcefea18ce4a56ce5320111405d61d0
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
@@ -2585,7 +2585,7 @@ spec:
   - name: metrics_collector
     image: quay.io/open-cluster-management/metrics-collector@sha256:5f4cb107082e9c1ac12449835e8cb6a442d0fbe75974028d9d66aed5169f47cf
   - name: multicloud_manager
-    image: quay.io/open-cluster-management/multicloud-manager@sha256:60d132b045ba56e8d1d9cc3da7887b55a190de0c5ccaf2909f3fcfaff2c16678
+    image: quay.io/open-cluster-management/multicloud-manager@sha256:4cc157e88aaf24b0a6dc132d47d77cef488cf2ccbd024b44b21f96b96ed88e62
   - name: multicluster_operators_subscription_release
     image: quay.io/open-cluster-management/multicluster-operators-subscription-release@sha256:f5153c2fdc7c80775ba411fe634f2432552149854262b35ff1058b7222cbb997
   - name: multiclusterhub_operator_tests
