@@ -85,8 +85,10 @@ cmb_operator_branch="$rel_xy_branch"
 cmb_operator_branch="main"
 # END TEMP SCAFFOLDING
 
-locate_repo_operator "Backplane Installer" "open-cluster-management/backplane-operator" \
-   "$cmb_operator_branch" "bundle/manifests"
+# TEMP
+# Omit for iteration 0.
+# locate_repo_operator "Backplane Installer" "open-cluster-management/backplane-operator" \
+#    "$cmb_operator_branch" "bundle/manifests"
 
 # -- Registration operator --
 
@@ -95,8 +97,11 @@ reg_operator_branch=""$rel_xy_branch""
 reg_operator_branch=""release-2.3""
 # END TEMP SCAFFOLDING
 
-locate_repo_operator "Cluster Manager" "open-cluster-management/registration-operator" \
-   "$reg_operator_branch" "deploy/cluster-manager/olm-catalog/cluster-manager/manifests"
+
+# TEMP
+# Omit for iteration 0.
+# locate_repo_operator "Cluster Manager" "open-cluster-management/registration-operator" \
+#    "$reg_operator_branch" "deploy/cluster-manager/olm-catalog/cluster-manager/manifests"
 
 # -- Hive --
 
