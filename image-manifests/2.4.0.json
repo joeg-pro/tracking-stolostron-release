@@ -282,12 +282,12 @@
   {
     "image-name": "grc-ui",
     "image-version": "3.6.0",
-    "image-tag": "3.6.0-6b81cc8b99c46537770c954317ecffd6515832b4",
-    "git-sha256": "6b81cc8b99c46537770c954317ecffd6515832b4",
+    "image-tag": "3.6.0-228881f92af5620b922f662997fe7499282ae171",
+    "git-sha256": "228881f92af5620b922f662997fe7499282ae171",
     "git-repository": "open-cluster-management/grc-ui",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:631c67f8c19bf25dd2a7624c3c895da9b47b8c4af452cfd4ed04fd57cdc87c2b",
+    "image-digest": "sha256:0b6de8fd90d525b32349db7cd1ab11acda954f18c512159766b61baef6784da0",
     "image-key": "grc_ui"
   },
   {
@@ -573,13 +573,13 @@
   },
   {
     "image-name": "observatorium",
-    "image-version": "2.3",
-    "image-tag": "2.3-d3340b1adc966dbc71d167ebefafae05bf29f762",
-    "git-sha256": "d3340b1adc966dbc71d167ebefafae05bf29f762",
+    "image-version": "2.4",
+    "image-tag": "2.4-54af57c382b1f54b3948e35798fa206d21e985ce",
+    "git-sha256": "54af57c382b1f54b3948e35798fa206d21e985ce",
     "git-repository": "open-cluster-management/observatorium",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:332105ccac9604c86f5072ecf2a8efab2346c93e8735cfd1bc09839536dba019",
+    "image-digest": "sha256:4aac791d906b9d19eb15875acaec6283b5f6435e758c0192657d20ce2ce3250f",
     "image-key": "observatorium"
   },
   {
