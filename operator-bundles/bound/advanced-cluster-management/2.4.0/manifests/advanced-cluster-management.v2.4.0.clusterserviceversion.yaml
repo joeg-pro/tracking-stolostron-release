@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-07-22T13:34:36Z'
+    createdAt: '2021-07-22T14:47:47Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1679,7 +1679,7 @@ spec:
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
                   value: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:6ef0459aa8c1401bf694a709679105a10a18e4ba487183a075c7183272f9ad8e
                 - name: OPERAND_IMAGE_GRC_UI
-                  value: quay.io/open-cluster-management/grc-ui@sha256:631c67f8c19bf25dd2a7624c3c895da9b47b8c4af452cfd4ed04fd57cdc87c2b
+                  value: quay.io/open-cluster-management/grc-ui@sha256:0b6de8fd90d525b32349db7cd1ab11acda954f18c512159766b61baef6784da0
                 - name: OPERAND_IMAGE_GRC_UI_API
                   value: quay.io/open-cluster-management/grc-ui-api@sha256:2dfd75e130a15a7b00b9246003b7533f859f83b258250d5f8b20cc35e9e0b27b
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
@@ -1733,7 +1733,7 @@ spec:
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
                   value: quay.io/open-cluster-management/observability-e2e-test@sha256:275a40ed57b5a13d0967d6d7430593cd982d4eeb2f93eea371b907d17e7d2228
                 - name: OPERAND_IMAGE_OBSERVATORIUM
-                  value: quay.io/open-cluster-management/observatorium@sha256:332105ccac9604c86f5072ecf2a8efab2346c93e8735cfd1bc09839536dba019
+                  value: quay.io/open-cluster-management/observatorium@sha256:4aac791d906b9d19eb15875acaec6283b5f6435e758c0192657d20ce2ce3250f
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
                   value: quay.io/open-cluster-management/observatorium-operator@sha256:2e292040d16387c50fbb9392eae667a80e7881cbfd28e36175126788ecb00f7a
                 - name: OPERAND_IMAGE_OAUTH_PROXY
@@ -2559,7 +2559,7 @@ spec:
   - name: grc_policy_framework_tests
     image: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:6ef0459aa8c1401bf694a709679105a10a18e4ba487183a075c7183272f9ad8e
   - name: grc_ui
-    image: quay.io/open-cluster-management/grc-ui@sha256:631c67f8c19bf25dd2a7624c3c895da9b47b8c4af452cfd4ed04fd57cdc87c2b
+    image: quay.io/open-cluster-management/grc-ui@sha256:0b6de8fd90d525b32349db7cd1ab11acda954f18c512159766b61baef6784da0
   - name: grc_ui_api
     image: quay.io/open-cluster-management/grc-ui-api@sha256:2dfd75e130a15a7b00b9246003b7533f859f83b258250d5f8b20cc35e9e0b27b
   - name: grc_ui_tests
@@ -2597,7 +2597,7 @@ spec:
   - name: observability_e2e_test
     image: quay.io/open-cluster-management/observability-e2e-test@sha256:275a40ed57b5a13d0967d6d7430593cd982d4eeb2f93eea371b907d17e7d2228
   - name: observatorium
-    image: quay.io/open-cluster-management/observatorium@sha256:332105ccac9604c86f5072ecf2a8efab2346c93e8735cfd1bc09839536dba019
+    image: quay.io/open-cluster-management/observatorium@sha256:4aac791d906b9d19eb15875acaec6283b5f6435e758c0192657d20ce2ce3250f
   - name: observatorium_operator
     image: quay.io/open-cluster-management/observatorium-operator@sha256:2e292040d16387c50fbb9392eae667a80e7881cbfd28e36175126788ecb00f7a
   - name: oauth_proxy
