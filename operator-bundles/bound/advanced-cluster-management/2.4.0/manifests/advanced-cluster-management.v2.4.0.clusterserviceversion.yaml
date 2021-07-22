@@ -27,14 +27,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-07-22T22:41:35Z'
+    createdAt: '2021-07-22T23:31:29Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["Disconnected"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1680,7 +1681,7 @@ spec:
                 - name: OPERAND_IMAGE_GRC_UI
                   value: quay.io/open-cluster-management/grc-ui@sha256:15d8328223c43ab55161f73ce23697a879f86eb0b841c35aba6b17d3b3269f5b
                 - name: OPERAND_IMAGE_GRC_UI_API
-                  value: quay.io/open-cluster-management/grc-ui-api@sha256:2dfd75e130a15a7b00b9246003b7533f859f83b258250d5f8b20cc35e9e0b27b
+                  value: quay.io/open-cluster-management/grc-ui-api@sha256:870eb1d4a19e046bc74c3c4149cd78844cc8fcebb73c366e87b9d987d62cbd10
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
                   value: quay.io/open-cluster-management/grc-ui-tests@sha256:33207f73614c546d1178d0164f854f5cc5ee6204bd75b56de259686de16ca986
                 - name: OPERAND_IMAGE_HELLOPROW_GO
@@ -2560,7 +2561,7 @@ spec:
   - name: grc_ui
     image: quay.io/open-cluster-management/grc-ui@sha256:15d8328223c43ab55161f73ce23697a879f86eb0b841c35aba6b17d3b3269f5b
   - name: grc_ui_api
-    image: quay.io/open-cluster-management/grc-ui-api@sha256:2dfd75e130a15a7b00b9246003b7533f859f83b258250d5f8b20cc35e9e0b27b
+    image: quay.io/open-cluster-management/grc-ui-api@sha256:870eb1d4a19e046bc74c3c4149cd78844cc8fcebb73c366e87b9d987d62cbd10
   - name: grc_ui_tests
     image: quay.io/open-cluster-management/grc-ui-tests@sha256:33207f73614c546d1178d0164f854f5cc5ee6204bd75b56de259686de16ca986
   - name: helloprow_go
