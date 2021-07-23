@@ -18,10 +18,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-07-22T23:46:40Z'
+    createdAt: '2021-07-23T03:17:17Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1248,7 +1247,7 @@ spec:
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_CONTROLLER
                   value: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:854d913d2a4f40ae2a1ab8349aca3788d1772fc84056cfae6a6ed1f3d8290a62
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_OPERATOR
-                  value: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:a3e07497330ba4c325cf3e7ced704867f6ec48e96f366e81040ab7eae0d5243d
+                  value: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:5c33c5d682a2bd653c481c770fc3922cbabab52e203ff859a24648eaad69bbdd
                 - name: OPERAND_IMAGE_MANAGEDCLUSTER_IMPORT_CONTROLLER
                   value: quay.io/open-cluster-management/managedcluster-import-controller@sha256:04598b6ced6073206d270c18f88b57ed23a3d37c2836e29261db258fa8c936c5
                 - name: OPERAND_IMAGE_MANAGEMENT_INGRESS
@@ -1584,7 +1583,7 @@ spec:
   - name: klusterlet_addon_controller
     image: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:854d913d2a4f40ae2a1ab8349aca3788d1772fc84056cfae6a6ed1f3d8290a62
   - name: klusterlet_addon_operator
-    image: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:a3e07497330ba4c325cf3e7ced704867f6ec48e96f366e81040ab7eae0d5243d
+    image: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:5c33c5d682a2bd653c481c770fc3922cbabab52e203ff859a24648eaad69bbdd
   - name: managedcluster_import_controller
     image: quay.io/open-cluster-management/managedcluster-import-controller@sha256:04598b6ced6073206d270c18f88b57ed23a3d37c2836e29261db258fa8c936c5
   - name: management_ingress
