@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-07-23T06:31:30Z'
+    createdAt: '2021-07-23T06:55:55Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1767,7 +1767,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_UI
                   value: quay.io/open-cluster-management/search-ui@sha256:1062ede4c7042e5132fdbd0b380f018f097d6bab11012d1f15ea62997ab3ffa3
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
-                  value: quay.io/open-cluster-management/submariner-addon@sha256:6d8a8c52ef716f7cb8acd37ab4efb6b8680c374a3b2691ea63fffac30e45706d
+                  value: quay.io/open-cluster-management/submariner-addon@sha256:d87b6ce9045362f35e2558fc6793b244715bd4a897343c29e6844295945ec31c
                 - name: OPERAND_IMAGE_THANOS
                   value: quay.io/open-cluster-management/thanos@sha256:165a56abf18d2b1b9bdf6e4d74e003cf5247e5c1bcaf1221eb8d70320aa9cb6c
                 - name: OPERAND_IMAGE_WORK
@@ -1941,7 +1941,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.name
-                image: quay.io/open-cluster-management/submariner-addon@sha256:6d8a8c52ef716f7cb8acd37ab4efb6b8680c374a3b2691ea63fffac30e45706d
+                image: quay.io/open-cluster-management/submariner-addon@sha256:d87b6ce9045362f35e2558fc6793b244715bd4a897343c29e6844295945ec31c
                 livenessProbe:
                   httpGet:
                     path: /healthz
