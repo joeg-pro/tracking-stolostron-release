@@ -18,7 +18,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-07-23T03:17:17Z'
+    createdAt: '2021-07-23T06:32:02Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1197,7 +1197,7 @@ spec:
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
                   value: quay.io/open-cluster-management/cluster-lifecycle-e2e@sha256:60368d835be99206b5e831fdbf8acab4922d35ee228058b88a730b407317adcd
                 - name: OPERAND_IMAGE_CLUSTERLIFECYCLE_STATE_METRICS
-                  value: quay.io/open-cluster-management/clusterlifecycle-state-metrics@sha256:ec7952dd732198474b1036b209b35c5b9bdedc3c03185e173f7b3991ade51c76
+                  value: quay.io/open-cluster-management/clusterlifecycle-state-metrics@sha256:6c33354e5b4f1fc833a7a50a8311dcbca961205bec5875db21f3ff6d01bdf12c
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/open-cluster-management/config-policy-controller@sha256:b48ae525c34a7daf08cc97a53d47eaef007ccc7713b2b5f44afe29def5e2d505
                 - name: OPERAND_IMAGE_CONSOLE
@@ -1533,7 +1533,7 @@ spec:
   - name: cluster_lifecycle_e2e
     image: quay.io/open-cluster-management/cluster-lifecycle-e2e@sha256:60368d835be99206b5e831fdbf8acab4922d35ee228058b88a730b407317adcd
   - name: clusterlifecycle_state_metrics
-    image: quay.io/open-cluster-management/clusterlifecycle-state-metrics@sha256:ec7952dd732198474b1036b209b35c5b9bdedc3c03185e173f7b3991ade51c76
+    image: quay.io/open-cluster-management/clusterlifecycle-state-metrics@sha256:6c33354e5b4f1fc833a7a50a8311dcbca961205bec5875db21f3ff6d01bdf12c
   - name: config_policy_controller
     image: quay.io/open-cluster-management/config-policy-controller@sha256:b48ae525c34a7daf08cc97a53d47eaef007ccc7713b2b5f44afe29def5e2d505
   - name: console
