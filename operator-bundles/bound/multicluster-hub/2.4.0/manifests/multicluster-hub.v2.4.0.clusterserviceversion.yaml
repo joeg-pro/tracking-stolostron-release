@@ -18,7 +18,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-07-23T07:00:23Z'
+    createdAt: '2021-07-23T08:19:36Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1294,7 +1294,7 @@ spec:
                 - name: OPERAND_IMAGE_PROMETHEUS_ALERTMANAGER
                   value: quay.io/open-cluster-management/prometheus-alertmanager@sha256:e9d26fa484a10d5aec9ec95a00ca2571de57fb49875ebbe2bbe15f50910c2885
                 - name: OPERAND_IMAGE_PROVIDER_CREDENTIAL_CONTROLLER
-                  value: quay.io/open-cluster-management/provider-credential-controller@sha256:c646dd1b2a6c28dbc1e3d2128398ce00c1e24c1b12213dc2cd756001bf65e4d7
+                  value: quay.io/open-cluster-management/provider-credential-controller@sha256:7f6666ce2b001e5b19bdc99276b83d9c7f17980428224fd4344239e88aff1432
                 - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
                   value: quay.io/open-cluster-management/rbac-query-proxy@sha256:3bb09e5ec2183a5857187998936aa0f4c9b7d09632f461f1aeef7ccab3fb307f
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
@@ -1626,7 +1626,7 @@ spec:
   - name: prometheus_alertmanager
     image: quay.io/open-cluster-management/prometheus-alertmanager@sha256:e9d26fa484a10d5aec9ec95a00ca2571de57fb49875ebbe2bbe15f50910c2885
   - name: provider_credential_controller
-    image: quay.io/open-cluster-management/provider-credential-controller@sha256:c646dd1b2a6c28dbc1e3d2128398ce00c1e24c1b12213dc2cd756001bf65e4d7
+    image: quay.io/open-cluster-management/provider-credential-controller@sha256:7f6666ce2b001e5b19bdc99276b83d9c7f17980428224fd4344239e88aff1432
   - name: rbac_query_proxy
     image: quay.io/open-cluster-management/rbac-query-proxy@sha256:3bb09e5ec2183a5857187998936aa0f4c9b7d09632f461f1aeef7ccab3fb307f
   - name: redisgraph_tls
