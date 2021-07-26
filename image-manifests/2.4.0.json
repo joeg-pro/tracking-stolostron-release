@@ -562,13 +562,13 @@
   },
   {
     "image-name": "observability-e2e-test",
-    "image-version": "2.3.0",
-    "image-tag": "2.3.0-1a81d26f0733a5bdf4351ee64f124c1e7b361f4d",
-    "git-sha256": "1a81d26f0733a5bdf4351ee64f124c1e7b361f4d",
-    "git-repository": "open-cluster-management/observability-e2e-test",
+    "image-version": "2.4",
+    "image-tag": "2.4-3c0484c946f35829d379893532ea66b4541e9496",
+    "git-sha256": "3c0484c946f35829d379893532ea66b4541e9496",
+    "git-repository": "open-cluster-management/multicluster-observability-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:275a40ed57b5a13d0967d6d7430593cd982d4eeb2f93eea371b907d17e7d2228",
+    "image-digest": "sha256:210d33c8c10ef43a2fe995d643f4fb0384ea5d9d6891286ce8833ade02b01b4d",
     "image-key": "observability_e2e_test"
   },
   {
