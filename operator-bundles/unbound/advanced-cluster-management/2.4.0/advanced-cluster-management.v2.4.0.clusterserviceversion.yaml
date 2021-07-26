@@ -27,14 +27,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-07-26T04:24:31Z'
+    createdAt: '2021-07-26T10:31:38Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["Disconnected"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
   labels:
@@ -1061,16 +1062,16 @@ spec:
           - watch
           - create
         - apiGroups:
-          - apps.open-cluster-management.io
+          - cluster.open-cluster-management.io
           resources:
-          - '*'
-          - placementrules
+          - manageclusters
           verbs:
-          - '*'
+          - get
+          - list
+          - watch
         - apiGroups:
           - work.open-cluster-management.io
           resources:
-          - '*'
           - manifestworks
           verbs:
           - '*'
