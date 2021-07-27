@@ -77,8 +77,15 @@ declare -A bundle_dirs
 
 # Since ACM 1.0:
 
+
+ # Bundle moved to new standard location in ACM 2.4:
+if [[ "$rel_x" -ge 2 ]] && [[ "$rel_y" -ge 4 ]]; then
+   hub_bundle_path="bundle/manifests"
+else
+   hub_bundle_path="deploy/olm-catalog/multiclusterhub-operator/manifests"
+fi
 locate_repo_operator "Base Hub" "open-cluster-management/multiclusterhub-operator" \
-   "$rel_xy_branch" "deploy/olm-catalog/multiclusterhub-operator/manifests"
+   "$rel_xy_branch" "$hub_bundle_path"
 
 # Since ACM 2.0:
 
@@ -93,7 +100,8 @@ if [[ "$rel_x" -ge 2 ]]; then
 
       # Monitoring operator
 
-      # Bundle moved to new standard location in ACM 2.3:
+      # Bundle moved to new standard location in ACM 2.3 and then to a custom
+      # place in ACM 2.4:
       if [[ "$rel_y" -ge 4 ]]; then
          op_bundle_path="operators/multiclusterobservability/bundle/manifests"
       elif [[ "$rel_y" -ge 3 ]]; then
