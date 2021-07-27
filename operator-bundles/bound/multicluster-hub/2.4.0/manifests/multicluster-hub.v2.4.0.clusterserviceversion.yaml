@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-07-27T19:47:31Z'
+    createdAt: '2021-07-27T20:11:41Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1495,7 +1494,7 @@ spec:
   - name: multicluster_operators_channel
     image: quay.io/open-cluster-management/multicluster-operators-channel@sha256:367028643175ba42f6cb02f8b617df94ddd91da5b135f2eda1068aba09c2676d
   - name: multicluster_operators_deployable
-    image: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:7e36d4c7064e69a6a9a94c09f067652a70d2b1d14d5b5e5f90102c540850acac
+    image: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:96d855701c283a0ec179a09d34a0a05a87b969ea9086180597562480002790d0
   - name: multicluster_operators_placementrule
     image: quay.io/open-cluster-management/multicluster-operators-placementrule@sha256:cfcc7dc54a3139bc3994b5a2217bcc08c45324e52c741f7755536eecb94d5e79
   - name: multicluster_operators_subscription

@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-07-27T19:46:59Z'
+    createdAt: '2021-07-27T20:11:00Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -2006,7 +2006,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:7e36d4c7064e69a6a9a94c09f067652a70d2b1d14d5b5e5f90102c540850acac
+                image: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:96d855701c283a0ec179a09d34a0a05a87b969ea9086180597562480002790d0
                 imagePullPolicy: Always
                 name: multicluster-operators-deployable
                 resources:
