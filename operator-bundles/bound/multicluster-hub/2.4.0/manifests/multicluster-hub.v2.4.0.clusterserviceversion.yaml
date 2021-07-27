@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-07-27T18:17:07Z'
+    createdAt: '2021-07-27T18:21:40Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1200,7 +1201,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.namespace
-                image: quay.io/open-cluster-management/multiclusterhub-operator@sha256:626bf027c827cfcc1de869f3cc3290926b7da6df0104140afa702437a37540e6
+                image: quay.io/open-cluster-management/multiclusterhub-operator@sha256:2294bfc920dce17aed186ffcd4daabe45cb2f5c080f778e87e04f4c7527d0f2a
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -1434,7 +1435,7 @@ spec:
   - name: config_policy_controller
     image: quay.io/open-cluster-management/config-policy-controller@sha256:35b74270a512039b86a11c0308b56573af17caefb45c8b0a74940dc38c63dfec
   - name: console
-    image: quay.io/open-cluster-management/console@sha256:64ec04b36b12b0c41dee1fa8f80919cd97eceea645bc7c857abb8bdc0dfbefb9
+    image: quay.io/open-cluster-management/console@sha256:62fb95b24dbbbc84ec45b3e7501a750d20a51ae4914c58184a96cb6efaf9726a
   - name: console_api
     image: quay.io/open-cluster-management/console-api@sha256:ad8dbc1289584e6a7664bc5abfacb8ca90fe869c28d1a4a85a215362d2f81858
   - name: discovery_operator
