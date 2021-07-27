@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-07-27T20:11:41Z'
+    createdAt: '2021-07-27T20:15:50Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1490,17 +1491,17 @@ spec:
   - name: multicloud_manager
     image: quay.io/open-cluster-management/multicloud-manager@sha256:4cc157e88aaf24b0a6dc132d47d77cef488cf2ccbd024b44b21f96b96ed88e62
   - name: multicluster_operators_application
-    image: quay.io/open-cluster-management/multicluster-operators-application@sha256:505193a7f0527c504be2572e0a6e7209ee189f93d1086f3dbfdefe8db7bb1f3a
+    image: quay.io/open-cluster-management/multicluster-operators-application@sha256:968a992e385064728eaec63bee9b608529cb85a09372228d2d56380aada7b61a
   - name: multicluster_operators_channel
     image: quay.io/open-cluster-management/multicluster-operators-channel@sha256:367028643175ba42f6cb02f8b617df94ddd91da5b135f2eda1068aba09c2676d
   - name: multicluster_operators_deployable
     image: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:96d855701c283a0ec179a09d34a0a05a87b969ea9086180597562480002790d0
   - name: multicluster_operators_placementrule
-    image: quay.io/open-cluster-management/multicluster-operators-placementrule@sha256:cfcc7dc54a3139bc3994b5a2217bcc08c45324e52c741f7755536eecb94d5e79
+    image: quay.io/open-cluster-management/multicluster-operators-placementrule@sha256:e56daa8106dd3ae2bc7a8f5e205f0bbef0ff0c24b3f55a19b58cc3dee4a74a6f
   - name: multicluster_operators_subscription
-    image: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:fbadb6fbe859f03c0518fd3ee42551ad9be50138a76b9e7585cfb64c15daa31e
+    image: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:8c714ed179c8e3b3202c85d80ed3a1c4a84fa695ebfc61f6aacbd9584a5145a2
   - name: multicluster_operators_subscription_release
-    image: quay.io/open-cluster-management/multicluster-operators-subscription-release@sha256:f5153c2fdc7c80775ba411fe634f2432552149854262b35ff1058b7222cbb997
+    image: quay.io/open-cluster-management/multicluster-operators-subscription-release@sha256:ba52444e704ae77aab040c6c211372157ebb50887bd29e9b74df1211771f3b20
   - name: multiclusterhub_operator_tests
     image: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:75b2cb2766ec474babd03376d602bb1e4f9e3e6e9fa4c315f3c11de29746e721
   - name: multiclusterhub_repo
