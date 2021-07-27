@@ -18,10 +18,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-07-27T17:32:26Z'
+    createdAt: '2021-07-27T17:39:57Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1232,7 +1231,7 @@ spec:
                 - name: OPERAND_IMAGE_GRC_UI_API
                   value: quay.io/open-cluster-management/grc-ui-api@sha256:870eb1d4a19e046bc74c3c4149cd78844cc8fcebb73c366e87b9d987d62cbd10
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
-                  value: quay.io/open-cluster-management/grc-ui-tests@sha256:33207f73614c546d1178d0164f854f5cc5ee6204bd75b56de259686de16ca986
+                  value: quay.io/open-cluster-management/grc-ui-tests@sha256:a677d5a8c8551974dd8b143cdd315424e9bfa89a650214f571d3202425178143
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/open-cluster-management/helloprow-go@sha256:68cfb75d288532cd7e1861e1be70fd34445d878083ca3471673b35cbc8363efb
                 - name: OPERAND_IMAGE_HELLOWORLD
@@ -1568,7 +1567,7 @@ spec:
   - name: grc_ui_api
     image: quay.io/open-cluster-management/grc-ui-api@sha256:870eb1d4a19e046bc74c3c4149cd78844cc8fcebb73c366e87b9d987d62cbd10
   - name: grc_ui_tests
-    image: quay.io/open-cluster-management/grc-ui-tests@sha256:33207f73614c546d1178d0164f854f5cc5ee6204bd75b56de259686de16ca986
+    image: quay.io/open-cluster-management/grc-ui-tests@sha256:a677d5a8c8551974dd8b143cdd315424e9bfa89a650214f571d3202425178143
   - name: helloprow_go
     image: quay.io/open-cluster-management/helloprow-go@sha256:68cfb75d288532cd7e1861e1be70fd34445d878083ca3471673b35cbc8363efb
   - name: helloworld
