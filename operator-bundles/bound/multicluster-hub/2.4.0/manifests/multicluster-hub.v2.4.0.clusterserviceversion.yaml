@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-07-28T20:48:09Z'
+    createdAt: '2021-07-28T23:23:07Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1253,7 +1254,7 @@ spec:
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
                   value: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:f1770dabb58f3316caf8a204960554c80caca805cbc11807bee429ba8013e1a7
                 - name: OPERAND_IMAGE_GRC_UI
-                  value: quay.io/open-cluster-management/grc-ui@sha256:f73955e794a5a218b58b9cfde2e9fbe23991a2f47d48291724d2c0e4f32fbb53
+                  value: quay.io/open-cluster-management/grc-ui@sha256:e2a1bb61e7f50c909366d2ffc1c2cf81c8dd727b7217eb11e8ffad6a95188fa4
                 - name: OPERAND_IMAGE_GRC_UI_API
                   value: quay.io/open-cluster-management/grc-ui-api@sha256:870eb1d4a19e046bc74c3c4149cd78844cc8fcebb73c366e87b9d987d62cbd10
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
@@ -1606,7 +1607,7 @@ spec:
   - name: grc_policy_framework_tests
     image: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:f1770dabb58f3316caf8a204960554c80caca805cbc11807bee429ba8013e1a7
   - name: grc_ui
-    image: quay.io/open-cluster-management/grc-ui@sha256:f73955e794a5a218b58b9cfde2e9fbe23991a2f47d48291724d2c0e4f32fbb53
+    image: quay.io/open-cluster-management/grc-ui@sha256:e2a1bb61e7f50c909366d2ffc1c2cf81c8dd727b7217eb11e8ffad6a95188fa4
   - name: grc_ui_api
     image: quay.io/open-cluster-management/grc-ui-api@sha256:870eb1d4a19e046bc74c3c4149cd78844cc8fcebb73c366e87b9d987d62cbd10
   - name: grc_ui_tests
