@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-07-28T02:27:50Z'
+    createdAt: '2021-07-28T04:31:58Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1729,7 +1729,7 @@ spec:
                 - name: OPERAND_IMAGE_MANAGEMENT_INGRESS
                   value: quay.io/open-cluster-management/management-ingress@sha256:05273e2b0c2dbcd08d8df7128de820270079268e91a17a227c0fd4c343193fc5
                 - name: OPERAND_IMAGE_METRICS_COLLECTOR
-                  value: quay.io/open-cluster-management/metrics-collector@sha256:5f4cb107082e9c1ac12449835e8cb6a442d0fbe75974028d9d66aed5169f47cf
+                  value: quay.io/open-cluster-management/metrics-collector@sha256:b605ee47f8135dfe008dc35523316ffffc1f062a4c050dae5199ed9815399629
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
                   value: quay.io/open-cluster-management/multicloud-manager@sha256:4cc157e88aaf24b0a6dc132d47d77cef488cf2ccbd024b44b21f96b96ed88e62
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
@@ -1755,7 +1755,7 @@ spec:
                 - name: OPERAND_IMAGE_MUST_GATHER
                   value: quay.io/open-cluster-management/must-gather@sha256:8129604adf22baac54e1acc0c53e147c735839cbe464ac9e43af98e3d6e08c7a
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
-                  value: quay.io/open-cluster-management/observability-e2e-test@sha256:06e367d17fbd2843a87adb0fd7474cd7b86ea2b9b662091266861e09ae44d668
+                  value: quay.io/open-cluster-management/observability-e2e-test@sha256:ce238bef25197dc5d8bee6033f1b44ce9ebe7fc2e5ee3ce9ac5de13eba2e5e7b
                 - name: OPERAND_IMAGE_OBSERVATORIUM
                   value: quay.io/open-cluster-management/observatorium@sha256:4aac791d906b9d19eb15875acaec6283b5f6435e758c0192657d20ce2ce3250f
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
@@ -1775,7 +1775,7 @@ spec:
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
                   value: quay.io/open-cluster-management/redisgraph-tls@sha256:8c99dea684ceea2cb16363ae3564677be433603c10f0d13e9bb0d3fb4f0ce883
                 - name: OPERAND_IMAGE_REGISTRATION
-                  value: quay.io/open-cluster-management/registration@sha256:65e96f8c94fdad43044fd96287339d6f84d5bbaff706fe74806c0c2fec1bb996
+                  value: quay.io/open-cluster-management/registration@sha256:accd6b31b81f934e45422b7b3697f47e9041d50e27a3a09e51ac9de7c43ec5c4
                 - name: OPERAND_IMAGE_REGISTRATION_OPERATOR
                   value: quay.io/open-cluster-management/registration-operator@sha256:141802f180113965c45ee21484b615bd6e977ce0ec57bb350a9a35df676dca2c
                 - name: OPERAND_IMAGE_SEARCH_AGGREGATOR
@@ -2624,7 +2624,7 @@ spec:
   - name: management_ingress
     image: quay.io/open-cluster-management/management-ingress@sha256:05273e2b0c2dbcd08d8df7128de820270079268e91a17a227c0fd4c343193fc5
   - name: metrics_collector
-    image: quay.io/open-cluster-management/metrics-collector@sha256:5f4cb107082e9c1ac12449835e8cb6a442d0fbe75974028d9d66aed5169f47cf
+    image: quay.io/open-cluster-management/metrics-collector@sha256:b605ee47f8135dfe008dc35523316ffffc1f062a4c050dae5199ed9815399629
   - name: multicloud_manager
     image: quay.io/open-cluster-management/multicloud-manager@sha256:4cc157e88aaf24b0a6dc132d47d77cef488cf2ccbd024b44b21f96b96ed88e62
   - name: multicluster_operators_subscription_release
@@ -2636,7 +2636,7 @@ spec:
   - name: must_gather
     image: quay.io/open-cluster-management/must-gather@sha256:8129604adf22baac54e1acc0c53e147c735839cbe464ac9e43af98e3d6e08c7a
   - name: observability_e2e_test
-    image: quay.io/open-cluster-management/observability-e2e-test@sha256:06e367d17fbd2843a87adb0fd7474cd7b86ea2b9b662091266861e09ae44d668
+    image: quay.io/open-cluster-management/observability-e2e-test@sha256:ce238bef25197dc5d8bee6033f1b44ce9ebe7fc2e5ee3ce9ac5de13eba2e5e7b
   - name: observatorium
     image: quay.io/open-cluster-management/observatorium@sha256:4aac791d906b9d19eb15875acaec6283b5f6435e758c0192657d20ce2ce3250f
   - name: observatorium_operator
@@ -2656,7 +2656,7 @@ spec:
   - name: redisgraph_tls
     image: quay.io/open-cluster-management/redisgraph-tls@sha256:8c99dea684ceea2cb16363ae3564677be433603c10f0d13e9bb0d3fb4f0ce883
   - name: registration
-    image: quay.io/open-cluster-management/registration@sha256:65e96f8c94fdad43044fd96287339d6f84d5bbaff706fe74806c0c2fec1bb996
+    image: quay.io/open-cluster-management/registration@sha256:accd6b31b81f934e45422b7b3697f47e9041d50e27a3a09e51ac9de7c43ec5c4
   - name: search_aggregator
     image: quay.io/open-cluster-management/search-aggregator@sha256:52e9186a179643a16d01705c87db185a4f6defe55b989938f88104367967543b
   - name: search_api
