@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-07-28T20:04:37Z'
+    createdAt: '2021-07-28T20:19:58Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1226,7 +1225,7 @@ spec:
                 - name: OPERAND_IMAGE_CLUSTERLIFECYCLE_STATE_METRICS
                   value: quay.io/open-cluster-management/clusterlifecycle-state-metrics@sha256:6c33354e5b4f1fc833a7a50a8311dcbca961205bec5875db21f3ff6d01bdf12c
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
-                  value: quay.io/open-cluster-management/config-policy-controller@sha256:109f6d7277a39df5dc1f3c6d652b8bbe806333e124f840328f89e1aa36f99e79
+                  value: quay.io/open-cluster-management/config-policy-controller@sha256:d26a2a5b79dccf9283c2e0ea938c25593a145ad4b84570e951bf1320e2943bd9
                 - name: OPERAND_IMAGE_CONSOLE
                   value: quay.io/open-cluster-management/console@sha256:0a56610f978e768586c82d50ce09a3dcf2f8e38349d824252fe001a90bb85eb5
                 - name: OPERAND_IMAGE_CONSOLE_API
@@ -1290,7 +1289,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
                   value: quay.io/open-cluster-management/multicluster-operators-channel@sha256:32afad6add84109f7ea29996335f80424f2b16d1666acd9a26f1dfdc5edb76d4
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_DEPLOYABLE
-                  value: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:f4aafb9720b72aea2196f13137265066c5cc7562a808fb7d14c9a25f6064c99d
+                  value: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:a7e7c980c5b765c8b21108b54465a217a06a55362df84b1e6c4f7dc13b2db212
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_PLACEMENTRULE
                   value: quay.io/open-cluster-management/multicluster-operators-placementrule@sha256:81702c5ae44fd6da72c0fac19522a7b6adaf020bba7a7d76e0568b3610ec50a8
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION
@@ -1579,7 +1578,7 @@ spec:
   - name: clusterlifecycle_state_metrics
     image: quay.io/open-cluster-management/clusterlifecycle-state-metrics@sha256:6c33354e5b4f1fc833a7a50a8311dcbca961205bec5875db21f3ff6d01bdf12c
   - name: config_policy_controller
-    image: quay.io/open-cluster-management/config-policy-controller@sha256:109f6d7277a39df5dc1f3c6d652b8bbe806333e124f840328f89e1aa36f99e79
+    image: quay.io/open-cluster-management/config-policy-controller@sha256:d26a2a5b79dccf9283c2e0ea938c25593a145ad4b84570e951bf1320e2943bd9
   - name: console
     image: quay.io/open-cluster-management/console@sha256:0a56610f978e768586c82d50ce09a3dcf2f8e38349d824252fe001a90bb85eb5
   - name: console_api
@@ -1641,7 +1640,7 @@ spec:
   - name: multicluster_operators_channel
     image: quay.io/open-cluster-management/multicluster-operators-channel@sha256:32afad6add84109f7ea29996335f80424f2b16d1666acd9a26f1dfdc5edb76d4
   - name: multicluster_operators_deployable
-    image: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:f4aafb9720b72aea2196f13137265066c5cc7562a808fb7d14c9a25f6064c99d
+    image: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:a7e7c980c5b765c8b21108b54465a217a06a55362df84b1e6c4f7dc13b2db212
   - name: multicluster_operators_placementrule
     image: quay.io/open-cluster-management/multicluster-operators-placementrule@sha256:81702c5ae44fd6da72c0fac19522a7b6adaf020bba7a7d76e0568b3610ec50a8
   - name: multicluster_operators_subscription
