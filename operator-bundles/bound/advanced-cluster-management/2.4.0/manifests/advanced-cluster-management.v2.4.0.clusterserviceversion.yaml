@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-07-28T14:39:33Z'
+    createdAt: '2021-07-28T14:52:22Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1678,7 +1678,7 @@ spec:
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/open-cluster-management/config-policy-controller@sha256:35b74270a512039b86a11c0308b56573af17caefb45c8b0a74940dc38c63dfec
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/open-cluster-management/console@sha256:62fb95b24dbbbc84ec45b3e7501a750d20a51ae4914c58184a96cb6efaf9726a
+                  value: quay.io/open-cluster-management/console@sha256:0a56610f978e768586c82d50ce09a3dcf2f8e38349d824252fe001a90bb85eb5
                 - name: OPERAND_IMAGE_CONSOLE_API
                   value: quay.io/open-cluster-management/console-api@sha256:d30e9b149c089c63c6f0224e9c5a2ba41334d10b0f976a200caeac115047b7ef
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
@@ -1738,7 +1738,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
                   value: quay.io/open-cluster-management/multicluster-operators-application@sha256:968a992e385064728eaec63bee9b608529cb85a09372228d2d56380aada7b61a
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
-                  value: quay.io/open-cluster-management/multicluster-operators-channel@sha256:367028643175ba42f6cb02f8b617df94ddd91da5b135f2eda1068aba09c2676d
+                  value: quay.io/open-cluster-management/multicluster-operators-channel@sha256:1f3fce5607d1fc8729e5530e1163354a8bba9ad707aa2babfdaab10be589af1d
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_DEPLOYABLE
                   value: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:96d855701c283a0ec179a09d34a0a05a87b969ea9086180597562480002790d0
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_PLACEMENTRULE
@@ -2284,7 +2284,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-channel@sha256:367028643175ba42f6cb02f8b617df94ddd91da5b135f2eda1068aba09c2676d
+                image: quay.io/open-cluster-management/multicluster-operators-channel@sha256:1f3fce5607d1fc8729e5530e1163354a8bba9ad707aa2babfdaab10be589af1d
                 imagePullPolicy: Always
                 name: multicluster-operators-channel
                 resources:
@@ -2575,7 +2575,7 @@ spec:
   - name: config_policy_controller
     image: quay.io/open-cluster-management/config-policy-controller@sha256:35b74270a512039b86a11c0308b56573af17caefb45c8b0a74940dc38c63dfec
   - name: console
-    image: quay.io/open-cluster-management/console@sha256:62fb95b24dbbbc84ec45b3e7501a750d20a51ae4914c58184a96cb6efaf9726a
+    image: quay.io/open-cluster-management/console@sha256:0a56610f978e768586c82d50ce09a3dcf2f8e38349d824252fe001a90bb85eb5
   - name: console_api
     image: quay.io/open-cluster-management/console-api@sha256:d30e9b149c089c63c6f0224e9c5a2ba41334d10b0f976a200caeac115047b7ef
   - name: discovery_operator
