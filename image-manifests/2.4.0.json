@@ -140,12 +140,12 @@
   {
     "image-name": "console",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-18b49e8eadb7f052f57c29522648bd1ff0732d97",
-    "git-sha256": "18b49e8eadb7f052f57c29522648bd1ff0732d97",
+    "image-tag": "2.4.0-a64a121492ceb83be38d97f5cc1be276268a6785",
+    "git-sha256": "a64a121492ceb83be38d97f5cc1be276268a6785",
     "git-repository": "open-cluster-management/console",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:62fb95b24dbbbc84ec45b3e7501a750d20a51ae4914c58184a96cb6efaf9726a",
+    "image-digest": "sha256:0a56610f978e768586c82d50ce09a3dcf2f8e38349d824252fe001a90bb85eb5",
     "image-key": "console"
   },
   {
@@ -464,13 +464,13 @@
   },
   {
     "image-name": "multicluster-operators-channel",
-    "image-version": "2.3",
-    "image-tag": "2.3-9dcafbac7d44e0d2133c244feffc098f771a1bad",
-    "git-sha256": "9dcafbac7d44e0d2133c244feffc098f771a1bad",
+    "image-version": "2.4",
+    "image-tag": "2.4-e87d9909d988f776aecf115e419e8a7711e21ab9",
+    "git-sha256": "e87d9909d988f776aecf115e419e8a7711e21ab9",
     "git-repository": "open-cluster-management/multicloud-operators-channel",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:367028643175ba42f6cb02f8b617df94ddd91da5b135f2eda1068aba09c2676d",
+    "image-digest": "sha256:1f3fce5607d1fc8729e5530e1163354a8bba9ad707aa2babfdaab10be589af1d",
     "image-key": "multicluster_operators_channel"
   },
   {
