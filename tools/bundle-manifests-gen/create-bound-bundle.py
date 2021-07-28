@@ -482,6 +482,16 @@ def main():
          add_image_ref_env_vars_to_deployment(deployment, conatiners_of_deployment,
                                               image_manifest, image_ref_env_var_prefix)
    #
+   image_ref_containers_not_found = False
+   for dn in image_ref_containers:
+      for cn in image_ref_containers[dn]:
+         if not image_ref_containers[dn][cn]["added"]:
+            if not image_ref_containers_not_found:
+               emsg("One or more containers specified for additoin of image-ref env vars not found.")
+               image_ref_containers_not_found = True
+            print("   Deployment/container not found: %s/%s" % (dn, cn))
+   if image_ref_containers_not_found:
+      die("Aborting due to missing deployment/containers.")
 
    # If we're adding in related-image info, then add in entrys for all of the
    # entries in the image_manifest that haven't been mentioned in an operator
