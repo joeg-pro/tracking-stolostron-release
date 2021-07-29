@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-07-29T10:46:50Z'
+    createdAt: '2021-07-29T11:48:39Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1298,7 +1298,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION_RELEASE
                   value: quay.io/open-cluster-management/multicluster-operators-subscription-release@sha256:ed189db218c2d8a41a53f78c70574cb67151699ff9208675ef61c8a88c9c312d
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR
-                  value: quay.io/open-cluster-management/multiclusterhub-operator@sha256:0bb0302a68a0b89849fdcd7675ec33501779174be01ad6297e7d75782f2e633f
+                  value: quay.io/open-cluster-management/multiclusterhub-operator@sha256:775d2500b2764c45d6805f784367862e06cc5432a97fd524437d90a1a26aa5af
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
                   value: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:75b2cb2766ec474babd03376d602bb1e4f9e3e6e9fa4c315f3c11de29746e721
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
@@ -1347,7 +1347,7 @@ spec:
                   value: quay.io/open-cluster-management/thanos@sha256:165a56abf18d2b1b9bdf6e4d74e003cf5247e5c1bcaf1221eb8d70320aa9cb6c
                 - name: OPERAND_IMAGE_WORK
                   value: quay.io/open-cluster-management/work@sha256:e55f21429e58664879a206c893da8c4956d7565d83d2b3244a489089479373b0
-                image: quay.io/open-cluster-management/multiclusterhub-operator@sha256:0bb0302a68a0b89849fdcd7675ec33501779174be01ad6297e7d75782f2e633f
+                image: quay.io/open-cluster-management/multiclusterhub-operator@sha256:775d2500b2764c45d6805f784367862e06cc5432a97fd524437d90a1a26aa5af
                 livenessProbe:
                   httpGet:
                     path: /healthz
