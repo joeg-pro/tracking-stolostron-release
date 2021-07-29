@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-07-29T15:23:45Z'
+    createdAt: '2021-07-29T17:18:40Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
   labels:
@@ -1188,12 +1187,12 @@ spec:
               - args:
                 - --leader-elect
                 command:
-                - /multiclusterhub-operator
+                - multiclusterhub-operator
                 env:
                 - name: MANIFESTS_PATH
-                  value: /usr/local/image-manifests
+                  value: /image-manifests
                 - name: CRDS_PATH
-                  value: /usr/local/crds
+                  value: /crds
                 - name: TEMPLATES_PATH
                   value: /usr/local/templates
                 - name: POD_NAMESPACE
@@ -1201,6 +1200,7 @@ spec:
                     fieldRef:
                       fieldPath: metadata.namespace
                 image: quay.io/open-cluster-management/multiclusterhub-operator:2.4.0
+                imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
                     path: /healthz

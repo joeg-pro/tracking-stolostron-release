@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-07-29T15:23:10Z'
+    createdAt: '2021-07-29T17:18:07Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1639,12 +1639,12 @@ spec:
               - args:
                 - --leader-elect
                 command:
-                - /multiclusterhub-operator
+                - multiclusterhub-operator
                 env:
                 - name: MANIFESTS_PATH
-                  value: /usr/local/image-manifests
+                  value: /image-manifests
                 - name: CRDS_PATH
-                  value: /usr/local/crds
+                  value: /crds
                 - name: TEMPLATES_PATH
                   value: /usr/local/templates
                 - name: POD_NAMESPACE
@@ -1748,7 +1748,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION_RELEASE
                   value: quay.io/open-cluster-management/multicluster-operators-subscription-release@sha256:ed189db218c2d8a41a53f78c70574cb67151699ff9208675ef61c8a88c9c312d
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR
-                  value: quay.io/open-cluster-management/multiclusterhub-operator@sha256:775d2500b2764c45d6805f784367862e06cc5432a97fd524437d90a1a26aa5af
+                  value: quay.io/open-cluster-management/multiclusterhub-operator@sha256:81d67c4930b78d688dab996e3c2ae40694626f5c9fc6ca8df569e1baacf31111
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
                   value: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:75b2cb2766ec474babd03376d602bb1e4f9e3e6e9fa4c315f3c11de29746e721
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
@@ -1797,7 +1797,8 @@ spec:
                   value: quay.io/open-cluster-management/thanos@sha256:165a56abf18d2b1b9bdf6e4d74e003cf5247e5c1bcaf1221eb8d70320aa9cb6c
                 - name: OPERAND_IMAGE_WORK
                   value: quay.io/open-cluster-management/work@sha256:e55f21429e58664879a206c893da8c4956d7565d83d2b3244a489089479373b0
-                image: quay.io/open-cluster-management/multiclusterhub-operator@sha256:775d2500b2764c45d6805f784367862e06cc5432a97fd524437d90a1a26aa5af
+                image: quay.io/open-cluster-management/multiclusterhub-operator@sha256:81d67c4930b78d688dab996e3c2ae40694626f5c9fc6ca8df569e1baacf31111
+                imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
                     path: /healthz
