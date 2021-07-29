@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-07-29T19:27:04Z'
+    createdAt: '2021-07-29T19:59:33Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1336,7 +1335,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_COLLECTOR
                   value: quay.io/open-cluster-management/search-collector@sha256:8ed41a2400d300a25948a12c78d1adf8d29d660b94f963e178b51f426ed5baca
                 - name: OPERAND_IMAGE_SEARCH_E2E
-                  value: quay.io/open-cluster-management/search-e2e@sha256:b59cb2e27286d5d9c72a27eeb8da36918cf0dc79ccd6fae11cbb2448d708f81d
+                  value: quay.io/open-cluster-management/search-e2e@sha256:fdc31f75a0b7142786b701e9183777390c8b861432d7dbd4e28cc5adb875a982
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
                   value: quay.io/open-cluster-management/search-operator@sha256:99719d266ccbe923771bad7dc4448680c19c0d2d2e8a158c728e51fa51417945
                 - name: OPERAND_IMAGE_SEARCH_UI
@@ -1684,7 +1683,7 @@ spec:
   - name: search_collector
     image: quay.io/open-cluster-management/search-collector@sha256:8ed41a2400d300a25948a12c78d1adf8d29d660b94f963e178b51f426ed5baca
   - name: search_e2e
-    image: quay.io/open-cluster-management/search-e2e@sha256:b59cb2e27286d5d9c72a27eeb8da36918cf0dc79ccd6fae11cbb2448d708f81d
+    image: quay.io/open-cluster-management/search-e2e@sha256:fdc31f75a0b7142786b701e9183777390c8b861432d7dbd4e28cc5adb875a982
   - name: search_operator
     image: quay.io/open-cluster-management/search-operator@sha256:99719d266ccbe923771bad7dc4448680c19c0d2d2e8a158c728e51fa51417945
   - name: search_ui
