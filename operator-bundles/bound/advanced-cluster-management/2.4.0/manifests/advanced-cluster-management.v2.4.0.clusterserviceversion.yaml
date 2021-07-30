@@ -27,15 +27,14 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-07-30T16:01:04Z'
+    createdAt: '2021-07-30T16:07:46Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["Disconnected"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1654,7 +1653,7 @@ spec:
                 - name: OPERAND_IMAGE_APPLICATION_UI
                   value: quay.io/open-cluster-management/application-ui@sha256:db594086c58cc0461f70715585632e496dab4ed6ef85bf66f0e6e969581b670d
                 - name: OPERAND_IMAGE_APPLICATION_UI_TESTS
-                  value: quay.io/open-cluster-management/application-ui-tests@sha256:602e9723f4c266fb47c05bcdecc65f5086a4a6d729da03fd8abf5369a8c69d16
+                  value: quay.io/open-cluster-management/application-ui-tests@sha256:b4d64c49ad3d04356740db7e0f25a375304e3b214883d876ed90491ad04a4754
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
                   value: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:f5890caf612adc7aed114de2dafe242d15677dd943387d84dbf2f542f569ba0b
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER
@@ -2552,7 +2551,7 @@ spec:
   - name: application_ui
     image: quay.io/open-cluster-management/application-ui@sha256:db594086c58cc0461f70715585632e496dab4ed6ef85bf66f0e6e969581b670d
   - name: application_ui_tests
-    image: quay.io/open-cluster-management/application-ui-tests@sha256:602e9723f4c266fb47c05bcdecc65f5086a4a6d729da03fd8abf5369a8c69d16
+    image: quay.io/open-cluster-management/application-ui-tests@sha256:b4d64c49ad3d04356740db7e0f25a375304e3b214883d876ed90491ad04a4754
   - name: applifecycle_backend_e2e
     image: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:f5890caf612adc7aed114de2dafe242d15677dd943387d84dbf2f542f569ba0b
   - name: assisted_installer
