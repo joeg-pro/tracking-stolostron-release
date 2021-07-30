@@ -27,15 +27,14 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-07-29T19:59:04Z'
+    createdAt: '2021-07-30T03:38:22Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["Disconnected"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1778,7 +1777,7 @@ spec:
                 - name: OPERAND_IMAGE_REGISTRATION
                   value: quay.io/open-cluster-management/registration@sha256:accd6b31b81f934e45422b7b3697f47e9041d50e27a3a09e51ac9de7c43ec5c4
                 - name: OPERAND_IMAGE_REGISTRATION_OPERATOR
-                  value: quay.io/open-cluster-management/registration-operator@sha256:141802f180113965c45ee21484b615bd6e977ce0ec57bb350a9a35df676dca2c
+                  value: quay.io/open-cluster-management/registration-operator@sha256:dee940105d30db3e6fc645f9064a8a7ba0ef91ab90a8d50c6678dd25b5561a69
                 - name: OPERAND_IMAGE_SEARCH_AGGREGATOR
                   value: quay.io/open-cluster-management/search-aggregator@sha256:52e9186a179643a16d01705c87db185a4f6defe55b989938f88104367967543b
                 - name: OPERAND_IMAGE_SEARCH_API
@@ -1862,7 +1861,7 @@ spec:
               - args:
                 - /registration-operator
                 - hub
-                image: quay.io/open-cluster-management/registration-operator@sha256:141802f180113965c45ee21484b615bd6e977ce0ec57bb350a9a35df676dca2c
+                image: quay.io/open-cluster-management/registration-operator@sha256:dee940105d30db3e6fc645f9064a8a7ba0ef91ab90a8d50c6678dd25b5561a69
                 livenessProbe:
                   httpGet:
                     path: /healthz
