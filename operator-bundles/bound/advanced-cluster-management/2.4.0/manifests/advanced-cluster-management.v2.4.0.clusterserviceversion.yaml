@@ -27,15 +27,14 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-07-30T20:27:12Z'
+    createdAt: '2021-07-30T22:08:33Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["Disconnected"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1702,7 +1701,7 @@ spec:
                 - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
                   value: quay.io/open-cluster-management/grafana-dashboard-loader@sha256:3b84580924f265f0942256c19555dbe82aa742db473cb05c1d7219029709623a
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
-                  value: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:f1770dabb58f3316caf8a204960554c80caca805cbc11807bee429ba8013e1a7
+                  value: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:311542631502ad51659760ba4fd7a0bec8cd7b10d262710981ff99523c602d47
                 - name: OPERAND_IMAGE_GRC_UI
                   value: quay.io/open-cluster-management/grc-ui@sha256:e2a1bb61e7f50c909366d2ffc1c2cf81c8dd727b7217eb11e8ffad6a95188fa4
                 - name: OPERAND_IMAGE_GRC_UI_API
@@ -2600,7 +2599,7 @@ spec:
   - name: grafana_dashboard_loader
     image: quay.io/open-cluster-management/grafana-dashboard-loader@sha256:3b84580924f265f0942256c19555dbe82aa742db473cb05c1d7219029709623a
   - name: grc_policy_framework_tests
-    image: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:f1770dabb58f3316caf8a204960554c80caca805cbc11807bee429ba8013e1a7
+    image: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:311542631502ad51659760ba4fd7a0bec8cd7b10d262710981ff99523c602d47
   - name: grc_ui
     image: quay.io/open-cluster-management/grc-ui@sha256:e2a1bb61e7f50c909366d2ffc1c2cf81c8dd727b7217eb11e8ffad6a95188fa4
   - name: grc_ui_api
