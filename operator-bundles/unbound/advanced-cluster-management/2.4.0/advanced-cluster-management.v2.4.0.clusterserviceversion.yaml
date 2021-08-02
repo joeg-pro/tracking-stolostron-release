@@ -27,14 +27,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-08-02T14:18:31Z'
+    createdAt: '2021-08-02T16:11:37Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["Disconnected"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
   labels:
@@ -1921,15 +1922,15 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-placementrule:2.3.0
+                image: quay.io/open-cluster-management/multicluster-operators-placementrule:2.4.0
                 imagePullPolicy: Always
                 name: multicluster-operators-placementrule
                 resources:
                   limits:
-                    cpu: 750m
+                    cpu: 1500m
                     memory: 512Mi
                   requests:
-                    cpu: 150m
+                    cpu: 300m
                     memory: 64Mi
                 volumeMounts:
                 - name: tmp
@@ -1963,7 +1964,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-placementrule:2.3.0
+                image: quay.io/open-cluster-management/multicluster-operators-placementrule:2.4.0
                 imagePullPolicy: Always
                 name: multicluster-operators-gitopscluster
                 resources:
@@ -2005,7 +2006,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-deployable:2.3.0
+                image: quay.io/open-cluster-management/multicluster-operators-deployable:2.4.0
                 imagePullPolicy: Always
                 name: multicluster-operators-deployable
                 resources:
@@ -2051,7 +2052,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-application:2.3.0
+                image: quay.io/open-cluster-management/multicluster-operators-application:2.4.0
                 imagePullPolicy: Always
                 name: multicluster-operators-application
                 resources:
@@ -2137,7 +2138,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-channel:2.3.0
+                image: quay.io/open-cluster-management/multicluster-operators-channel:2.4.0
                 imagePullPolicy: Always
                 name: multicluster-operators-channel
                 resources:
@@ -2220,7 +2221,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-subscription:2.3.0
+                image: quay.io/open-cluster-management/multicluster-operators-subscription:2.4.0
                 imagePullPolicy: Always
                 name: multicluster-operators-standalone-subscription
                 resources:
@@ -2316,7 +2317,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-subscription:2.3.0
+                image: quay.io/open-cluster-management/multicluster-operators-subscription:2.4.0
                 imagePullPolicy: Always
                 name: multicluster-operators-hub-subscription
                 resources:
@@ -2373,7 +2374,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.namespace
-                image: quay.io/openshift-hive/hive:v1.1.8
+                image: quay.io/openshift-hive/hive:v1.1.10
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
