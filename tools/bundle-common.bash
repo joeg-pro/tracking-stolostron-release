@@ -115,7 +115,7 @@ function locate_community_operator {
       if [[ $? -ne 0 ]]; then
          >&2 echo "Error: Could not find source bundle directory for $op_display_name operator."
          >&2 echo "Aborting."
-         exit 2
+         return 2
       fi
       local bundle_version=${bundle_dir##*/}
       echo "Info: Using most recent $op_display_name bundle posted to channel: $channel_name ($bundle_version)."

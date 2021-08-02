@@ -130,6 +130,11 @@ bundle_dirs["OCM Hub"]="$bundle_dir"
 
 locate_community_operator "App Sub" "multicluster-operators-subscription" "release" "$rel_xy" \
    "${app_sub_source_csv_vers:-none}" "${appsub_use_previous_release_channel_override:-0}"
+rc=$?
+if [[ $rc -ne 0 ]]; then
+   # locate_community_operator has already blurted an error msg.
+   exit $rc
+fi
 
 # -- Hive --
 
@@ -147,6 +152,11 @@ if [[ "$rel_xy" == "2.0" ]]; then
 else
    locate_community_operator "Hive" "hive-operator" "ocm" "$rel_xy" \
       "${hive_source_csv_vers:-none}" "${hive_use_previous_release_channel_override:-0}"
+   rc=$?
+   if [[ $rc -ne 0 ]]; then
+      # locate_community_operator has already blurted an error msg.
+      exit $rc
+   fi
 fi
 
 # Starting with ACM 2.3, we support multiple architectures. Specify the list
