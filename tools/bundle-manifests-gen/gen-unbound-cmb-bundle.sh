@@ -121,6 +121,11 @@ hive_rel_xy="2.4"
 # END TEMP
 locate_community_operator "Hive" "hive-operator" "$hive_branch_prefix" "$hive_rel_xy" \
    "${hive_source_csv_vers:-none}" "${hive_use_previous_release_channel_override:-0}"
+rc=$?
+if [[ $rc -ne 0 ]]; then
+   # locate_community_operator has already blurted an error msg.
+   exit $rc
+fi
 
 # -- Done finding source bundles --
 
@@ -140,4 +145,6 @@ supported_archs+=("amd64")
 gen_unbound_bundle pkg_name new_csv_vers prev_csv_ver \
   csv_template unbound_pkg_dir bundle_names bundle_dirs \
   supported_archs supported_op_syss
+
+rm -rf "$tmp_dir"
 

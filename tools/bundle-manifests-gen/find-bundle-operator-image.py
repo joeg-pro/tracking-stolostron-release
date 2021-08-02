@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 
-# Given a package directory (eg. as exists in App-Registry-format bundles),
-# find the operator image for the current CSV in a specified channel of a package.
+# Given a bundle manifests directory, find the operator image
+# referenced by the bundle's CSV.
+#
+# If the CSV has only a single deployment/container, then the names of these
+# need not be specified.  But if it has multiples, then the --container argument
+# must be used to specify the desired deployment/container(s).
 
 from bundle_common import *
 
@@ -14,16 +18,14 @@ import sys
 def main():
 
    parser = argparse.ArgumentParser()
-   parser.add_argument("channel_name", nargs=1)
-   parser.add_argument("package_dir", nargs=1)
+   parser.add_argument("bundle_dir", nargs=1)
 
    parser.add_argument("--container", dest="container_specs", action="append")
 
    args = parser.parse_args()
 
-   selected_channel = args.channel_name[0]
-   pkg_pathn        = args.package_dir[0]
-   container_specs  = args.container_specs
+   bundle_pathn    = args.bundle_dir[0]
+   container_specs = args.container_specs
 
    if container_specs:
       for container_spec in container_specs:
@@ -32,7 +34,7 @@ def main():
             die("Invalid container spec, not <deployment>:<container>: %s" % container_spec)
    #
 
-   the_bundle_dir, the_csv = find_current_bundle_for_package(pkg_pathn, selected_channel)
+   csv_name, the_csv = find_csv_for_bundle(bundle_pathn)
 
    # Collect up all deployment/container image info in the CSV:
 
