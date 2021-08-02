@@ -5,6 +5,7 @@
 
 import json
 import os
+import re
 import shutil
 import sys
 import yaml
@@ -362,6 +363,24 @@ def update_pkg_manifest(manifest, for_channels, current_csv_name):
    return
 #
 
+# Finds the CSV in a bundle manifests directory.
+def find_csv_for_bundle(bundle_pathn):
+
+   manifests = load_all_manifests(bundle_pathn)
+
+   found_csv = False
+   for manifest_fn, manifest in manifests.items():
+      kind = manifest["kind"]
+      if kind == "ClusterServiceVersion":
+         found_csv = True
+         break
+   if not found_csv:
+      emsg("CSV manifest not found in bundle %s." % bundle_pathn)
+      exit(1)
+
+   csv_name = manifest["metadata"]["name"]
+   return csv_name, manifest
+
 # Finds the bundle directory and CSV for the current CSV of a given channel
 def find_current_bundle_for_package(pkg_pathn, selected_channel):
 
@@ -405,35 +424,39 @@ def find_current_bundle_for_package(pkg_pathn, selected_channel):
    if cur_csv is None:
       die("Channel %s not found in package." % selected_channel)
 
+   # Collect up the pathnames of all bundle-version subdirectories. If the name is
+   # of the CSV we're looking for is of the form <name>.vx.y.z and the x.y.z part is
+   # one of the directroeis in our list, put that directory first since its likely
+   # the one containing the bundle we're looking for.
+
+   favor_this_dir=None
+   m = re.search("^.+\.[vV]([0-9]+\.[0-9]+\.[0-9]+)$", cur_csv)
+   if m is not None:
+      favor_this_dir=m.group(1)
+
    for fn in pkg_fns:
       pathn = os.path.join(pkg_pathn, fn)
       if os.path.isdir(pathn):
-         bundle_dirs.append(pathn)
+         if fn == favor_this_dir:
+            bundle_dirs.insert(0, pathn)
+         else:
+            bundle_dirs.append(pathn)
    #
 
    # Look through all of the bundle directories to find the one containing the CSV.
-   # We do so by looking at the contents of the manifests so we avoid any depnedency
-   # on directory/manifest file naming patterns.  (This makes it much slower, though.)
+   # We do so by looking at the contents of the manifests so we avoid any hard depnedency
+   # on directory/manifest file naming patterns, though above we might have ordered
+   # the directories so as to look in the right one first.
+
+   eprint("Looking for CSV: %s" % cur_csv)
 
    the_bundle_dir = None
    the_csv = None
    for bundle_pathn in bundle_dirs:
-      manifests = load_all_manifests(bundle_pathn)
-
-      found_csv = False
-      for manifest_fn, manifest in manifests.items():
-         kind = manifest["kind"]
-         if kind == "ClusterServiceVersion":
-            found_csv = True
-            break
-      if not found_csv:
-         emsg("CSV manifest not found in bundle %s." % bundle_pathn)
-         exit(1)
-
-      csv_name = manifest["metadata"]["name"]
+      eprint("Looking in directory: %s" % bundle_pathn)
+      csv_name, the_csv = find_csv_for_bundle(bundle_pathn)
       if csv_name == cur_csv:
          the_bundle_dir = bundle_pathn
-         the_csv = manifest
          break
    # end-for
 
