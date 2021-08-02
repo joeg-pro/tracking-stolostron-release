@@ -92,9 +92,9 @@ cmb_operator_branch="main"
 
 # -- Registration operator --
 
-reg_operator_branch=""$rel_xy_branch""
+reg_operator_branch="$rel_xy_branch"
 # TEMP SCAFFOLDING
-reg_operator_branch=""release-2.3""
+reg_operator_branch="release-2.4"
 # END TEMP SCAFFOLDING
 
 
@@ -117,7 +117,7 @@ fi
 # TEMP SCAFFOLDING
 # Need to ask Hive team for a backplane-related release branch.
 hive_branch_prefix="ocm"
-hive_rel_xy="2.3"
+hive_rel_xy="2.4"
 # END TEMP
 locate_community_operator "Hive" "hive-operator" "$hive_branch_prefix" "$hive_rel_xy" \
    "${hive_source_csv_vers:-none}" "${hive_use_previous_release_channel_override:-0}"
