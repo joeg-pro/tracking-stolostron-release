@@ -448,12 +448,9 @@ def find_current_bundle_for_package(pkg_pathn, selected_channel):
    # on directory/manifest file naming patterns, though above we might have ordered
    # the directories so as to look in the right one first.
 
-   eprint("Looking for CSV: %s" % cur_csv)
-
    the_bundle_dir = None
    the_csv = None
    for bundle_pathn in bundle_dirs:
-      eprint("Looking in directory: %s" % bundle_pathn)
       csv_name, the_csv = find_csv_for_bundle(bundle_pathn)
       if csv_name == cur_csv:
          the_bundle_dir = bundle_pathn
