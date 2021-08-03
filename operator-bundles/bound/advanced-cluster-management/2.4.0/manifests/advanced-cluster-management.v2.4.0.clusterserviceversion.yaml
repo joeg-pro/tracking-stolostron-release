@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-08-02T20:35:36Z'
+    createdAt: '2021-08-03T08:35:52Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1688,7 +1688,7 @@ spec:
                 - name: OPERAND_IMAGE_DISCOVERY-TESTSERVER
                   value: quay.io/open-cluster-management/discovery-testserver@sha256:a7222a290896d6c3b711f3754329ee125f7d58822bcd3fb4b8ea51b6c44eee90
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
-                  value: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:1cca4d81f9242dcedeebeb0e5af427e9fbedcabd3404be58145b7db9fe1751e4
+                  value: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:a29c11a6cb8d7a5a993ce787a668c4da88a162795c3a63758c06e6abe07eff46
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
                   value: quay.io/open-cluster-management/governance-policy-propagator@sha256:bc9ea355404ef1a7ccf114c638361b3dded10e6d46ec63a21e230fb01e1d4f2a
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
@@ -2586,7 +2586,7 @@ spec:
   - name: discovery-testserver
     image: quay.io/open-cluster-management/discovery-testserver@sha256:a7222a290896d6c3b711f3754329ee125f7d58822bcd3fb4b8ea51b6c44eee90
   - name: endpoint_monitoring_operator
-    image: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:1cca4d81f9242dcedeebeb0e5af427e9fbedcabd3404be58145b7db9fe1751e4
+    image: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:a29c11a6cb8d7a5a993ce787a668c4da88a162795c3a63758c06e6abe07eff46
   - name: governance_policy_propagator
     image: quay.io/open-cluster-management/governance-policy-propagator@sha256:bc9ea355404ef1a7ccf114c638361b3dded10e6d46ec63a21e230fb01e1d4f2a
   - name: governance_policy_spec_sync
