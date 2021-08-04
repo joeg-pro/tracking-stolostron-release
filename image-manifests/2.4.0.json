@@ -625,6 +625,17 @@
     "image-key": "postgresql_12"
   },
   {
+    "image-name": "prometheus",
+    "image-version": "2.4",
+    "image-tag": "2.4-004c12ad76f4b968b600601777ffe93060f0f22c",
+    "git-sha256": "004c12ad76f4b968b600601777ffe93060f0f22c",
+    "git-repository": "open-cluster-management/prometheus",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
+    "image-digest": "sha256:fc47d86c0cae6d5508e79f0bde67bb6265b93760809732b7ace1eb68c6f250cf",
+    "image-key": "prometheus"
+  },
+  {
     "image-name": "prometheus-alertmanager",
     "image-version": "2.3",
     "image-tag": "2.3-468ea2c04f668e3be81b8d0489808100508583ef",
