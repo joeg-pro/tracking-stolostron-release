@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-08-04T15:07:48Z'
+    createdAt: '2021-08-04T17:54:21Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1766,6 +1766,8 @@ spec:
                   value: quay.io/open-cluster-management/placement@sha256:c69461711b073da1f2ece087ec6a208db027c66b34eb7df38c8fde274b098f5d
                 - name: OPERAND_IMAGE_POSTGRESQL_12
                   value: quay.io/ocpmetal/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
+                - name: OPERAND_IMAGE_PROMETHEUS
+                  value: quay.io/open-cluster-management/prometheus@sha256:fc47d86c0cae6d5508e79f0bde67bb6265b93760809732b7ace1eb68c6f250cf
                 - name: OPERAND_IMAGE_PROMETHEUS_ALERTMANAGER
                   value: quay.io/open-cluster-management/prometheus-alertmanager@sha256:e9d26fa484a10d5aec9ec95a00ca2571de57fb49875ebbe2bbe15f50910c2885
                 - name: OPERAND_IMAGE_PROVIDER_CREDENTIAL_CONTROLLER
@@ -2648,6 +2650,8 @@ spec:
     image: quay.io/open-cluster-management/placement@sha256:c69461711b073da1f2ece087ec6a208db027c66b34eb7df38c8fde274b098f5d
   - name: postgresql_12
     image: quay.io/ocpmetal/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
+  - name: prometheus
+    image: quay.io/open-cluster-management/prometheus@sha256:fc47d86c0cae6d5508e79f0bde67bb6265b93760809732b7ace1eb68c6f250cf
   - name: prometheus_alertmanager
     image: quay.io/open-cluster-management/prometheus-alertmanager@sha256:e9d26fa484a10d5aec9ec95a00ca2571de57fb49875ebbe2bbe15f50910c2885
   - name: provider_credential_controller

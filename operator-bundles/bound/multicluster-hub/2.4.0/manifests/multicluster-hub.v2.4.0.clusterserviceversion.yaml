@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-04T15:08:19Z'
+    createdAt: '2021-08-04T17:54:52Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1317,6 +1316,8 @@ spec:
                   value: quay.io/open-cluster-management/placement@sha256:c69461711b073da1f2ece087ec6a208db027c66b34eb7df38c8fde274b098f5d
                 - name: OPERAND_IMAGE_POSTGRESQL_12
                   value: quay.io/ocpmetal/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
+                - name: OPERAND_IMAGE_PROMETHEUS
+                  value: quay.io/open-cluster-management/prometheus@sha256:fc47d86c0cae6d5508e79f0bde67bb6265b93760809732b7ace1eb68c6f250cf
                 - name: OPERAND_IMAGE_PROMETHEUS_ALERTMANAGER
                   value: quay.io/open-cluster-management/prometheus-alertmanager@sha256:e9d26fa484a10d5aec9ec95a00ca2571de57fb49875ebbe2bbe15f50910c2885
                 - name: OPERAND_IMAGE_PROVIDER_CREDENTIAL_CONTROLLER
@@ -1667,6 +1668,8 @@ spec:
     image: quay.io/open-cluster-management/placement@sha256:c69461711b073da1f2ece087ec6a208db027c66b34eb7df38c8fde274b098f5d
   - name: postgresql_12
     image: quay.io/ocpmetal/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
+  - name: prometheus
+    image: quay.io/open-cluster-management/prometheus@sha256:fc47d86c0cae6d5508e79f0bde67bb6265b93760809732b7ace1eb68c6f250cf
   - name: prometheus_alertmanager
     image: quay.io/open-cluster-management/prometheus-alertmanager@sha256:e9d26fa484a10d5aec9ec95a00ca2571de57fb49875ebbe2bbe15f50910c2885
   - name: provider_credential_controller
