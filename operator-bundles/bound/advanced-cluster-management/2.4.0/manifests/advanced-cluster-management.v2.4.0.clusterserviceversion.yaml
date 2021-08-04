@@ -27,15 +27,14 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-08-04T10:12:55Z'
+    createdAt: '2021-08-04T15:07:48Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["Disconnected"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1764,7 +1763,7 @@ spec:
                 - name: OPERAND_IMAGE_OAUTH_PROXY
                   value: quay.io/open-cluster-management/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
                 - name: OPERAND_IMAGE_PLACEMENT
-                  value: quay.io/open-cluster-management/placement@sha256:013f0a011fff92dea0f3c47526be54ea9175fc42ff7a4633437f84c7a11828dc
+                  value: quay.io/open-cluster-management/placement@sha256:c69461711b073da1f2ece087ec6a208db027c66b34eb7df38c8fde274b098f5d
                 - name: OPERAND_IMAGE_POSTGRESQL_12
                   value: quay.io/ocpmetal/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
                 - name: OPERAND_IMAGE_PROMETHEUS_ALERTMANAGER
@@ -2646,7 +2645,7 @@ spec:
   - name: oauth_proxy
     image: quay.io/open-cluster-management/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
   - name: placement
-    image: quay.io/open-cluster-management/placement@sha256:013f0a011fff92dea0f3c47526be54ea9175fc42ff7a4633437f84c7a11828dc
+    image: quay.io/open-cluster-management/placement@sha256:c69461711b073da1f2ece087ec6a208db027c66b34eb7df38c8fde274b098f5d
   - name: postgresql_12
     image: quay.io/ocpmetal/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
   - name: prometheus_alertmanager
