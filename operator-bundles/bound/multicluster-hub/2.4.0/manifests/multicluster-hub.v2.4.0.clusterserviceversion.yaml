@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-05T06:31:59Z'
+    createdAt: '2021-08-05T07:09:19Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1329,7 +1330,7 @@ spec:
                 - name: OPERAND_IMAGE_REGISTRATION
                   value: quay.io/open-cluster-management/registration@sha256:8165d4ecbcadfd40e6dbdfa92f48813b57b5cada75cbbe4b54cd8ab33b6b9dfd
                 - name: OPERAND_IMAGE_REGISTRATION_OPERATOR
-                  value: quay.io/open-cluster-management/registration-operator@sha256:91cd9a85d6a343ba9374cfdbf449c9a9e749a7ff55efe1b0113eb7ee2911e051
+                  value: quay.io/open-cluster-management/registration-operator@sha256:475bb7039f0d9fbde00b9bd50c310262e89585340a62db82564c6b2630f12a40
                 - name: OPERAND_IMAGE_SEARCH_AGGREGATOR
                   value: quay.io/open-cluster-management/search-aggregator@sha256:52e9186a179643a16d01705c87db185a4f6defe55b989938f88104367967543b
                 - name: OPERAND_IMAGE_SEARCH_API
@@ -1347,7 +1348,7 @@ spec:
                 - name: OPERAND_IMAGE_THANOS
                   value: quay.io/open-cluster-management/thanos@sha256:165a56abf18d2b1b9bdf6e4d74e003cf5247e5c1bcaf1221eb8d70320aa9cb6c
                 - name: OPERAND_IMAGE_WORK
-                  value: quay.io/open-cluster-management/work@sha256:e55f21429e58664879a206c893da8c4956d7565d83d2b3244a489089479373b0
+                  value: quay.io/open-cluster-management/work@sha256:23c0c3f50ce5649d295278d16bc218c8e26565a28466367de568b2d38bf0d749
                 image: quay.io/open-cluster-management/multiclusterhub-operator@sha256:c0e1e6e197bc9145d4c02bebcaa321bc0fd31ce6200d67f5248be147e98c24b5
                 imagePullPolicy: Always
                 livenessProbe:
@@ -1413,7 +1414,7 @@ spec:
               - args:
                 - /registration-operator
                 - hub
-                image: quay.io/open-cluster-management/registration-operator@sha256:91cd9a85d6a343ba9374cfdbf449c9a9e749a7ff55efe1b0113eb7ee2911e051
+                image: quay.io/open-cluster-management/registration-operator@sha256:475bb7039f0d9fbde00b9bd50c310262e89585340a62db82564c6b2630f12a40
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -1695,4 +1696,4 @@ spec:
   - name: thanos
     image: quay.io/open-cluster-management/thanos@sha256:165a56abf18d2b1b9bdf6e4d74e003cf5247e5c1bcaf1221eb8d70320aa9cb6c
   - name: work
-    image: quay.io/open-cluster-management/work@sha256:e55f21429e58664879a206c893da8c4956d7565d83d2b3244a489089479373b0
+    image: quay.io/open-cluster-management/work@sha256:23c0c3f50ce5649d295278d16bc218c8e26565a28466367de568b2d38bf0d749
