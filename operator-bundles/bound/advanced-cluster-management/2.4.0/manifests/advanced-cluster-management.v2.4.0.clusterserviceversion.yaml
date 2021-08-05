@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-08-05T07:39:53Z'
+    createdAt: '2021-08-05T14:02:48Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1678,7 +1678,7 @@ spec:
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/open-cluster-management/config-policy-controller@sha256:d26a2a5b79dccf9283c2e0ea938c25593a145ad4b84570e951bf1320e2943bd9
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/open-cluster-management/console@sha256:010c033973e8fc5fcf1134d6ba3cd901c331275364176767f9221eda3de2a78b
+                  value: quay.io/open-cluster-management/console@sha256:e2e1ea3f9a5355a1cf24c9f2b7d2c97e98a44350f63b46debbf77ead61c02e27
                 - name: OPERAND_IMAGE_CONSOLE_API
                   value: quay.io/open-cluster-management/console-api@sha256:d30e9b149c089c63c6f0224e9c5a2ba41334d10b0f976a200caeac115047b7ef
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
@@ -1730,7 +1730,7 @@ spec:
                 - name: OPERAND_IMAGE_MANAGEMENT_INGRESS
                   value: quay.io/open-cluster-management/management-ingress@sha256:05273e2b0c2dbcd08d8df7128de820270079268e91a17a227c0fd4c343193fc5
                 - name: OPERAND_IMAGE_METRICS_COLLECTOR
-                  value: quay.io/open-cluster-management/metrics-collector@sha256:f8bc43ab7d41ce5fbda44259bf4341b6538921cf5f32aead8a0c3f95aaf6e9f9
+                  value: quay.io/open-cluster-management/metrics-collector@sha256:4b1480dac9c1c8fde6e62ea3d441b2d559c47be263ac3dc743cbe46728d75643
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
                   value: quay.io/open-cluster-management/multicloud-manager@sha256:965007952ab400bd8a9773360be3f77a6904ac8cb901b23f71fdefc29bdbe7f9
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
@@ -1939,6 +1939,9 @@ spec:
                 ports:
                 - containerPort: 9443
                   name: webhook-server
+                  protocol: TCP
+                - containerPort: 8383
+                  name: metrics
                   protocol: TCP
                 readinessProbe:
                   httpGet:
@@ -2578,7 +2581,7 @@ spec:
   - name: config_policy_controller
     image: quay.io/open-cluster-management/config-policy-controller@sha256:d26a2a5b79dccf9283c2e0ea938c25593a145ad4b84570e951bf1320e2943bd9
   - name: console
-    image: quay.io/open-cluster-management/console@sha256:010c033973e8fc5fcf1134d6ba3cd901c331275364176767f9221eda3de2a78b
+    image: quay.io/open-cluster-management/console@sha256:e2e1ea3f9a5355a1cf24c9f2b7d2c97e98a44350f63b46debbf77ead61c02e27
   - name: console_api
     image: quay.io/open-cluster-management/console-api@sha256:d30e9b149c089c63c6f0224e9c5a2ba41334d10b0f976a200caeac115047b7ef
   - name: discovery_operator
@@ -2628,7 +2631,7 @@ spec:
   - name: management_ingress
     image: quay.io/open-cluster-management/management-ingress@sha256:05273e2b0c2dbcd08d8df7128de820270079268e91a17a227c0fd4c343193fc5
   - name: metrics_collector
-    image: quay.io/open-cluster-management/metrics-collector@sha256:f8bc43ab7d41ce5fbda44259bf4341b6538921cf5f32aead8a0c3f95aaf6e9f9
+    image: quay.io/open-cluster-management/metrics-collector@sha256:4b1480dac9c1c8fde6e62ea3d441b2d559c47be263ac3dc743cbe46728d75643
   - name: multicloud_manager
     image: quay.io/open-cluster-management/multicloud-manager@sha256:965007952ab400bd8a9773360be3f77a6904ac8cb901b23f71fdefc29bdbe7f9
   - name: multicluster_operators_subscription_release
