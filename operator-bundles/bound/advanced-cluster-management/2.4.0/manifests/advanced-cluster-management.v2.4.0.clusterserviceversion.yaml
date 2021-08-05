@@ -27,14 +27,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-08-05T15:12:33Z'
+    createdAt: '2021-08-05T16:25:58Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["Disconnected"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1733,7 +1734,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
                   value: quay.io/open-cluster-management/multicloud-manager@sha256:965007952ab400bd8a9773360be3f77a6904ac8cb901b23f71fdefc29bdbe7f9
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
-                  value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:f4462f2d1c0b2e9f18b10e0b062f3779a9a6159427fb0a3cd64e1efdc484bd6c
+                  value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:d8c09317ca9600472dd05a5386fb51a24fc9dbb8eca7a8b77e2423dc7868ad7e
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
                   value: quay.io/open-cluster-management/multicluster-operators-application@sha256:b9d4bb565a362d4bbd4ba64a7a5de9241ff50ab54c8a643b09b575a84d286f04
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
@@ -1755,7 +1756,7 @@ spec:
                 - name: OPERAND_IMAGE_MUST_GATHER
                   value: quay.io/open-cluster-management/must-gather@sha256:8129604adf22baac54e1acc0c53e147c735839cbe464ac9e43af98e3d6e08c7a
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
-                  value: quay.io/open-cluster-management/observability-e2e-test@sha256:bd73967dcfc99a99e00899517263a45e0f79b1c125a83cb53adc73fe62f93a7a
+                  value: quay.io/open-cluster-management/observability-e2e-test@sha256:66a323ed9df5d3d93122f38dc782b696c6185fa702aa9130260b8f7e4892f54e
                 - name: OPERAND_IMAGE_OBSERVATORIUM
                   value: quay.io/open-cluster-management/observatorium@sha256:4aac791d906b9d19eb15875acaec6283b5f6435e758c0192657d20ce2ce3250f
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
@@ -1926,7 +1927,7 @@ spec:
                   value: /usr/local/manifests
                 - name: SPOKE_NAMESPACE
                   value: open-cluster-management-addon-observability
-                image: quay.io/open-cluster-management/multicluster-observability-operator@sha256:f4462f2d1c0b2e9f18b10e0b062f3779a9a6159427fb0a3cd64e1efdc484bd6c
+                image: quay.io/open-cluster-management/multicluster-observability-operator@sha256:d8c09317ca9600472dd05a5386fb51a24fc9dbb8eca7a8b77e2423dc7868ad7e
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -2642,7 +2643,7 @@ spec:
   - name: must_gather
     image: quay.io/open-cluster-management/must-gather@sha256:8129604adf22baac54e1acc0c53e147c735839cbe464ac9e43af98e3d6e08c7a
   - name: observability_e2e_test
-    image: quay.io/open-cluster-management/observability-e2e-test@sha256:bd73967dcfc99a99e00899517263a45e0f79b1c125a83cb53adc73fe62f93a7a
+    image: quay.io/open-cluster-management/observability-e2e-test@sha256:66a323ed9df5d3d93122f38dc782b696c6185fa702aa9130260b8f7e4892f54e
   - name: observatorium
     image: quay.io/open-cluster-management/observatorium@sha256:4aac791d906b9d19eb15875acaec6283b5f6435e758c0192657d20ce2ce3250f
   - name: observatorium_operator
