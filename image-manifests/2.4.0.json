@@ -692,12 +692,12 @@
   {
     "image-name": "registration-operator",
     "image-version": "0.5.0",
-    "image-tag": "0.5.0-5872bf1942d1d2e6f94d74010c471bb14af88316",
-    "git-sha256": "5872bf1942d1d2e6f94d74010c471bb14af88316",
+    "image-tag": "0.5.0-f77604537552efb3d5eea4ef24ff903d6bf9a759",
+    "git-sha256": "f77604537552efb3d5eea4ef24ff903d6bf9a759",
     "git-repository": "open-cluster-management/registration-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:91cd9a85d6a343ba9374cfdbf449c9a9e749a7ff55efe1b0113eb7ee2911e051",
+    "image-digest": "sha256:475bb7039f0d9fbde00b9bd50c310262e89585340a62db82564c6b2630f12a40",
     "image-key": "registration_operator"
   },
   {
@@ -784,13 +784,13 @@
   },
   {
     "image-name": "work",
-    "image-version": "0.1.0",
-    "image-tag": "0.1.0-02670266de35e3a64df4cd7c344c5ba943d805ba",
-    "git-sha256": "02670266de35e3a64df4cd7c344c5ba943d805ba",
+    "image-version": "0.5.0",
+    "image-tag": "0.5.0-a61cea406f124ef03deb5ffc316d90db1d588bff",
+    "git-sha256": "a61cea406f124ef03deb5ffc316d90db1d588bff",
     "git-repository": "open-cluster-management/work",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:e55f21429e58664879a206c893da8c4956d7565d83d2b3244a489089479373b0",
+    "image-digest": "sha256:23c0c3f50ce5649d295278d16bc218c8e26565a28466367de568b2d38bf0d749",
     "image-key": "work"
   }
 ]
