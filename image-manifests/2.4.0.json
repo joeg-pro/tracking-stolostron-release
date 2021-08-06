@@ -561,6 +561,17 @@
     "image-key": "must_gather"
   },
   {
+    "image-name": "node-exporter",
+    "image-version": "2.4",
+    "image-tag": "2.4-116ff68a25a7f91d4453f6ec46499bcdae7a193a",
+    "git-sha256": "116ff68a25a7f91d4453f6ec46499bcdae7a193a",
+    "git-repository": "open-cluster-management/node_exporter",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
+    "image-digest": "sha256:00ad09f8ca00f856d6e3e122dfe73404521c25066526b33f8447b2785b729dd2",
+    "image-key": "node_exporter"
+  },
+  {
     "image-name": "observability-e2e-test",
     "image-version": "2.4",
     "image-tag": "2.4-ddff4003c07fe34642173a6af5f80d0543d6734b",
