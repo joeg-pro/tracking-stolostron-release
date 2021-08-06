@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-08-06T06:52:26Z'
+    createdAt: '2021-08-06T18:26:46Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1678,7 +1678,7 @@ spec:
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/open-cluster-management/config-policy-controller@sha256:d26a2a5b79dccf9283c2e0ea938c25593a145ad4b84570e951bf1320e2943bd9
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/open-cluster-management/console@sha256:300742c970a974502d1fa2b774e839cf881aad12460cc6c593c647b8012ed204
+                  value: quay.io/open-cluster-management/console@sha256:23e32e94d006b0c27558fd1893a5d281afb3052d5beba318408b8088ab390d2e
                 - name: OPERAND_IMAGE_CONSOLE_API
                   value: quay.io/open-cluster-management/console-api@sha256:d30e9b149c089c63c6f0224e9c5a2ba41334d10b0f976a200caeac115047b7ef
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
@@ -2585,7 +2585,7 @@ spec:
   - name: config_policy_controller
     image: quay.io/open-cluster-management/config-policy-controller@sha256:d26a2a5b79dccf9283c2e0ea938c25593a145ad4b84570e951bf1320e2943bd9
   - name: console
-    image: quay.io/open-cluster-management/console@sha256:300742c970a974502d1fa2b774e839cf881aad12460cc6c593c647b8012ed204
+    image: quay.io/open-cluster-management/console@sha256:23e32e94d006b0c27558fd1893a5d281afb3052d5beba318408b8088ab390d2e
   - name: console_api
     image: quay.io/open-cluster-management/console-api@sha256:d30e9b149c089c63c6f0224e9c5a2ba41334d10b0f976a200caeac115047b7ef
   - name: discovery_operator
