@@ -397,6 +397,17 @@
     "image-key": "klusterlet_addon_operator"
   },
   {
+    "image-name": "kube-state-metrics",
+    "image-version": "2.4",
+    "image-tag": "2.4-cbe374ca54d0513536068f1fbcc012d3902c4410",
+    "git-sha256": "cbe374ca54d0513536068f1fbcc012d3902c4410",
+    "git-repository": "open-cluster-management/kube-state-metrics",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
+    "image-digest": "sha256:44d1cb0cd8b9a0ab627e0a0eed2f519a9ef19ccef3d399da05d211388868971f",
+    "image-key": "kube_state_metrics"
+  },
+  {
     "image-name": "managedcluster-import-controller",
     "image-version": "2.4.0",
     "image-tag": "2.4.0-75d85b3b92926632e831328c781719108da27b59",
