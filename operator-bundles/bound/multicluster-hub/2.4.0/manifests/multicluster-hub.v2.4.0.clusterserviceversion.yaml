@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-05T21:44:08Z'
+    createdAt: '2021-08-06T06:34:17Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1305,6 +1305,8 @@ spec:
                   value: quay.io/open-cluster-management/multiclusterhub-repo@sha256:5fb5e1eacd6ef6488a75360fdc7d8e27fd4b568221cc790f5803e78dca25febc
                 - name: OPERAND_IMAGE_MUST_GATHER
                   value: quay.io/open-cluster-management/must-gather@sha256:8129604adf22baac54e1acc0c53e147c735839cbe464ac9e43af98e3d6e08c7a
+                - name: OPERAND_IMAGE_NODE_EXPORTER
+                  value: quay.io/open-cluster-management/node-exporter@sha256:00ad09f8ca00f856d6e3e122dfe73404521c25066526b33f8447b2785b729dd2
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
                   value: quay.io/open-cluster-management/observability-e2e-test@sha256:66a323ed9df5d3d93122f38dc782b696c6185fa702aa9130260b8f7e4892f54e
                 - name: OPERAND_IMAGE_OBSERVATORIUM
@@ -1660,6 +1662,8 @@ spec:
     image: quay.io/open-cluster-management/multiclusterhub-repo@sha256:5fb5e1eacd6ef6488a75360fdc7d8e27fd4b568221cc790f5803e78dca25febc
   - name: must_gather
     image: quay.io/open-cluster-management/must-gather@sha256:8129604adf22baac54e1acc0c53e147c735839cbe464ac9e43af98e3d6e08c7a
+  - name: node_exporter
+    image: quay.io/open-cluster-management/node-exporter@sha256:00ad09f8ca00f856d6e3e122dfe73404521c25066526b33f8447b2785b729dd2
   - name: observability_e2e_test
     image: quay.io/open-cluster-management/observability-e2e-test@sha256:66a323ed9df5d3d93122f38dc782b696c6185fa702aa9130260b8f7e4892f54e
   - name: observatorium
