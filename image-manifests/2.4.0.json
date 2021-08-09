@@ -272,11 +272,11 @@
   {
     "image-name": "grc-policy-framework-tests",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-adc5e4da1ec9e53e351a5c9463ab9a77a67ab934",
-    "git-sha256": "adc5e4da1ec9e53e351a5c9463ab9a77a67ab934",
+    "image-tag": "1.0.0-70baece980950fd0fccbe39cd3c390a7cecf258a",
+    "git-sha256": "70baece980950fd0fccbe39cd3c390a7cecf258a",
     "git-repository": "open-cluster-management/governance-policy-framework",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:311542631502ad51659760ba4fd7a0bec8cd7b10d262710981ff99523c602d47",
+    "image-digest": "sha256:565d331664c8963d9ad8839862472f971fc1bb375d8360dc403a7a6119984626",
     "image-key": "grc_policy_framework_tests"
   },
   {
@@ -304,12 +304,12 @@
   {
     "image-name": "grc-ui-tests",
     "image-version": "3.6.0",
-    "image-tag": "3.6.0-60880c88efbaa3e9362e9069f783673a74fb2723",
-    "git-sha256": "60880c88efbaa3e9362e9069f783673a74fb2723",
+    "image-tag": "3.6.0-6bc0e8e73f36a7bd0ccb3c287ecd2a778c599a6b",
+    "git-sha256": "6bc0e8e73f36a7bd0ccb3c287ecd2a778c599a6b",
     "git-repository": "open-cluster-management/grc-ui",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:72ff8686b7df6e1b6ae336c6a66d1b0e42d3fbcaf70e81f25e568fa47e768d44",
+    "image-digest": "sha256:d3d9dc47960b2268f0c013bcd8b3031f7694f41a11cabd4fa063534967fac216",
     "image-key": "grc_ui_tests"
   },
   {
