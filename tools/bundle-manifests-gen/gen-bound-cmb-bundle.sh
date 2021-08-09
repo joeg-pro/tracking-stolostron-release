@@ -65,28 +65,14 @@ explicit_default_channel="$3"
 
 image_key_mappings=()
 
-# TEMP SCAFFOLDING
-# Fix this when  we rename the generated image name to something more specific.
-#
-# TEMP omit for iteration 0
-# image_key_mappings+=("controller:backplane_operator")
-# END TEMP SCAFFOLDING
-
-# TEMP omit for iteration 0
-# image_key_mappings+=("registration-operator:registration_operator")
+image_key_mappings+=("backplane-operator:backplane_operator")
+image_key_mappings+=("registration-operator:registration_operator")
 image_key_mappings+=("hive:openshift_hive")
 
 # Define the list of CSV deployment containers that are to have image-ref
 # environment variables injected for the bundle's related images.
 
-# TEMP SCAFFOLDING #
-# Fix this when we rename the generated deployment/container names to something
-# more in line with our other operators.
-# image_ref_containers+=("backplane-operator-controller-manager/manager")
-
-# For iteration 0:
-image_ref_containers+=("hive-operator/hive-operator")
-# END TEMP SCAFFOLDING
+image_ref_containers+=("backplane-operator/backplane-operator")
 
 # Specify specific version skips we need to bypass bad releases:
 

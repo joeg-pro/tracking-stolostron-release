@@ -55,7 +55,7 @@ fi
 parse_release_nr "$new_csv_vers"
 # Sets rel_x, rel_y, etc.
 
-rel_xy_branch="release-$rel_xy"
+rel_xy_branch="backplane-$rel_xy"
 
 tmp_dir="$tmp_root/bundle-manifests"
 rm -rf "$tmp_dir"
@@ -81,27 +81,16 @@ declare -A bundle_dirs
 # -- CMB Installer --
 
 cmb_operator_branch="$rel_xy_branch"
-# TEMP SCAFFOLDING
-cmb_operator_branch="main"
-# END TEMP SCAFFOLDING
 
-# TEMP
-# Omit for iteration 0.
-# locate_repo_operator "Backplane Installer" "open-cluster-management/backplane-operator" \
-#    "$cmb_operator_branch" "bundle/manifests"
+locate_repo_operator "Backplane Installer" "open-cluster-management/backplane-operator" \
+   "$cmb_operator_branch" "bundle/manifests"
 
 # -- Registration operator --
 
 reg_operator_branch="$rel_xy_branch"
-# TEMP SCAFFOLDING
-reg_operator_branch="release-2.4"
-# END TEMP SCAFFOLDING
 
-
-# TEMP
-# Omit for iteration 0.
-# locate_repo_operator "Cluster Manager" "open-cluster-management/registration-operator" \
-#    "$reg_operator_branch" "deploy/cluster-manager/olm-catalog/cluster-manager/manifests"
+locate_repo_operator "Cluster Manager" "open-cluster-management/registration-operator" \
+   "$reg_operator_branch" "deploy/cluster-manager/olm-catalog/cluster-manager/manifests"
 
 # -- Hive --
 
