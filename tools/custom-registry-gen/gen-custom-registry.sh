@@ -7,7 +7,7 @@
 # jq (no reasonably involvd script can live without it).
 
 
-opm_vers="v1.13.3"
+opm_vers="v1.17.6"
 
 operator_rgy_repo_url="https://github.com/operator-framework/operator-registry"
 opm_download_url="$operator_rgy_repo_url/releases/download/$opm_vers/linux-amd64-opm"
