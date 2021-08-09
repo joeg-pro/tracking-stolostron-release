@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-09T09:20:09Z'
+    createdAt: '2021-08-09T09:46:15Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1282,7 +1282,7 @@ spec:
                 - name: OPERAND_IMAGE_MANAGEMENT_INGRESS
                   value: quay.io/open-cluster-management/management-ingress@sha256:05273e2b0c2dbcd08d8df7128de820270079268e91a17a227c0fd4c343193fc5
                 - name: OPERAND_IMAGE_METRICS_COLLECTOR
-                  value: quay.io/open-cluster-management/metrics-collector@sha256:4b1480dac9c1c8fde6e62ea3d441b2d559c47be263ac3dc743cbe46728d75643
+                  value: quay.io/open-cluster-management/metrics-collector@sha256:6f5380f884dfb26f392174fb6303042cfc5a2923d784eb6933bc841c46d116b0
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
                   value: quay.io/open-cluster-management/multicloud-manager@sha256:965007952ab400bd8a9773360be3f77a6904ac8cb901b23f71fdefc29bdbe7f9
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
@@ -1645,7 +1645,7 @@ spec:
   - name: management_ingress
     image: quay.io/open-cluster-management/management-ingress@sha256:05273e2b0c2dbcd08d8df7128de820270079268e91a17a227c0fd4c343193fc5
   - name: metrics_collector
-    image: quay.io/open-cluster-management/metrics-collector@sha256:4b1480dac9c1c8fde6e62ea3d441b2d559c47be263ac3dc743cbe46728d75643
+    image: quay.io/open-cluster-management/metrics-collector@sha256:6f5380f884dfb26f392174fb6303042cfc5a2923d784eb6933bc841c46d116b0
   - name: multicloud_manager
     image: quay.io/open-cluster-management/multicloud-manager@sha256:965007952ab400bd8a9773360be3f77a6904ac8cb901b23f71fdefc29bdbe7f9
   - name: multicluster_operators_application
