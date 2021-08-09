@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-08-09T17:13:59Z'
+    createdAt: '2021-08-09T18:47:44Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1792,7 +1792,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_COLLECTOR
                   value: quay.io/open-cluster-management/search-collector@sha256:8ed41a2400d300a25948a12c78d1adf8d29d660b94f963e178b51f426ed5baca
                 - name: OPERAND_IMAGE_SEARCH_E2E
-                  value: quay.io/open-cluster-management/search-e2e@sha256:9fd102bd4390a911f3d3c67a4f3ca3b51f759fb08fe4d058f123af23585dc92d
+                  value: quay.io/open-cluster-management/search-e2e@sha256:d6228720b7260c266c98d6db51986db42c1b3592d95069f988c7c26afb619d2f
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
                   value: quay.io/open-cluster-management/search-operator@sha256:99719d266ccbe923771bad7dc4448680c19c0d2d2e8a158c728e51fa51417945
                 - name: OPERAND_IMAGE_SEARCH_UI
@@ -2681,7 +2681,7 @@ spec:
   - name: search_collector
     image: quay.io/open-cluster-management/search-collector@sha256:8ed41a2400d300a25948a12c78d1adf8d29d660b94f963e178b51f426ed5baca
   - name: search_e2e
-    image: quay.io/open-cluster-management/search-e2e@sha256:9fd102bd4390a911f3d3c67a4f3ca3b51f759fb08fe4d058f123af23585dc92d
+    image: quay.io/open-cluster-management/search-e2e@sha256:d6228720b7260c266c98d6db51986db42c1b3592d95069f988c7c26afb619d2f
   - name: search_operator
     image: quay.io/open-cluster-management/search-operator@sha256:99719d266ccbe923771bad7dc4448680c19c0d2d2e8a158c728e51fa51417945
   - name: search_ui
