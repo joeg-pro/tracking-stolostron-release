@@ -796,12 +796,13 @@
   },
   {
     "image-name": "search-ui",
-    "image-version": "2.3.0",
-    "image-tag": "2.3.0-c6e4acd82bde00e98c4bf38709b5f1ee26ab0ea0",
-    "git-sha256": "c6e4acd82bde00e98c4bf38709b5f1ee26ab0ea0",
+    "image-version": "2.4.0",
+    "image-tag": "2.4.0-1509d2c59071579625122cb71b54ae8b64f6464a",
+    "git-sha256": "1509d2c59071579625122cb71b54ae8b64f6464a",
     "git-repository": "open-cluster-management/search-ui",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:0a5279cd96bba761e95ccf7f6893a7014fb8831b97f8627487cd937bff8d440d",
+    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
+    "image-digest": "sha256:5301d9c8e3bd5c8948657d92eb301904aee8225f9e08c7cf033f9acad78382a8",
     "image-key": "search_ui"
   },
   {
