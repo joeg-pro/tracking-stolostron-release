@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-10T20:03:00Z'
+    createdAt: '2021-08-10T21:20:30Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1350,7 +1350,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
                   value: quay.io/open-cluster-management/search-operator@sha256:99719d266ccbe923771bad7dc4448680c19c0d2d2e8a158c728e51fa51417945
                 - name: OPERAND_IMAGE_SEARCH_UI
-                  value: quay.io/open-cluster-management/search-ui@sha256:0a5279cd96bba761e95ccf7f6893a7014fb8831b97f8627487cd937bff8d440d
+                  value: quay.io/open-cluster-management/search-ui@sha256:5301d9c8e3bd5c8948657d92eb301904aee8225f9e08c7cf033f9acad78382a8
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
                   value: quay.io/open-cluster-management/submariner-addon@sha256:8c9e7476a6e17a519af24669f75d304bdcfee5704a578497161b9a6902185598
                 - name: OPERAND_IMAGE_THANOS
@@ -1711,7 +1711,7 @@ spec:
   - name: search_operator
     image: quay.io/open-cluster-management/search-operator@sha256:99719d266ccbe923771bad7dc4448680c19c0d2d2e8a158c728e51fa51417945
   - name: search_ui
-    image: quay.io/open-cluster-management/search-ui@sha256:0a5279cd96bba761e95ccf7f6893a7014fb8831b97f8627487cd937bff8d440d
+    image: quay.io/open-cluster-management/search-ui@sha256:5301d9c8e3bd5c8948657d92eb301904aee8225f9e08c7cf033f9acad78382a8
   - name: thanos
     image: quay.io/open-cluster-management/thanos@sha256:165a56abf18d2b1b9bdf6e4d74e003cf5247e5c1bcaf1221eb8d70320aa9cb6c
   - name: work
