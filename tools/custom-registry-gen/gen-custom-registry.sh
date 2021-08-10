@@ -6,8 +6,7 @@
 # requires:
 # jq (no reasonably involvd script can live without it).
 
-
-opm_vers="vv1.13.3"
+opm_vers="v1.13.3"
 
 operator_rgy_repo_url="https://github.com/operator-framework/operator-registry"
 opm_download_url="$operator_rgy_repo_url/releases/download/$opm_vers/linux-amd64-opm"
@@ -122,9 +121,9 @@ cd $build_context
 # Fetch the desired version of OPM
 
 opm="./opm"
-curl -Ls -o "$opm" "$opm_download_url"
-if [[ $? -ne 0 ]]; then
-   >&2 echo "Error: Could not fetch OPM binary from $opm_download_url."
+http_status=$(curl -Ls -o "$opm" --write-out "%{http_code}" "$opm_download_url")
+if [[ $http_status -ne 200 ]]; then
+   >&2 echo "Error: Could not fetch OPM binary from $opm_download_url (HTTP Status Code: $http_status)"
    exit 2
 fi
 chmod +x "$opm"
