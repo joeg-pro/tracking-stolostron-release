@@ -116,6 +116,17 @@
     "image-key": "cluster_lifecycle_e2e"
   },
   {
+    "image-name": "cluster-proxy-addon",
+    "image-version": "2.4.0",
+    "image-tag": "2.4.0-cb61a9251116d2697ae6164a279aace9a1c3d20f",
+    "git-sha256": "cb61a9251116d2697ae6164a279aace9a1c3d20f",
+    "git-repository": "open-cluster-management/cluster-proxy-addon",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
+    "image-digest": "sha256:d7a73dabfc1b893822597d7efce22f3141370331d58501d5df3fd45b143e6ce1",
+    "image-key": "cluster_proxy_addon"
+  },
+  {
     "image-name": "clusterlifecycle-state-metrics",
     "image-version": "2.4.0",
     "image-tag": "2.4.0-c5722cd5b64f5a65b4eab33c0a60922481515ac7",
