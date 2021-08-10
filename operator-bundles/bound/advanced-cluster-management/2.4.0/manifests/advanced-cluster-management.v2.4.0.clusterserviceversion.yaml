@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-08-10T19:10:53Z'
+    createdAt: '2021-08-10T19:15:33Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1750,7 +1750,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_PLACEMENTRULE
                   value: quay.io/open-cluster-management/multicluster-operators-placementrule@sha256:157d7b5e16e3a6bd97694d9548560a4cc9f08cd0a6be3ae9646ccb5eedb720de
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION
-                  value: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:dccd1484293c444ea7829f83114d3dd3a9882e4fa94e807a436247aa6c656337
+                  value: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:8278efdd99ac81a69e21ec7283a1eb8c0ca45dc4f5f58a90e62f2f62349e0a4c
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION_RELEASE
                   value: quay.io/open-cluster-management/multicluster-operators-subscription-release@sha256:84c97e3ed35629e2b8d079c2d5ad9be320c8acaa21c524f206aa8c085b1e9477
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR
@@ -1758,7 +1758,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
                   value: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:75b2cb2766ec474babd03376d602bb1e4f9e3e6e9fa4c315f3c11de29746e721
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
-                  value: quay.io/open-cluster-management/multiclusterhub-repo@sha256:7c2e08df3d240e2977a66b80265fb4a99941395bb0d28719d498f6a79311c4a8
+                  value: quay.io/open-cluster-management/multiclusterhub-repo@sha256:684d8091a1ce223a3e083946dbe75f76efb182282137566475b804b87c43d502
                 - name: OPERAND_IMAGE_MUST_GATHER
                   value: quay.io/open-cluster-management/must-gather@sha256:8129604adf22baac54e1acc0c53e147c735839cbe464ac9e43af98e3d6e08c7a
                 - name: OPERAND_IMAGE_NODE_EXPORTER
@@ -2381,7 +2381,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:dccd1484293c444ea7829f83114d3dd3a9882e4fa94e807a436247aa6c656337
+                image: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:8278efdd99ac81a69e21ec7283a1eb8c0ca45dc4f5f58a90e62f2f62349e0a4c
                 imagePullPolicy: Always
                 name: multicluster-operators-standalone-subscription
                 resources:
@@ -2477,7 +2477,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:dccd1484293c444ea7829f83114d3dd3a9882e4fa94e807a436247aa6c656337
+                image: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:8278efdd99ac81a69e21ec7283a1eb8c0ca45dc4f5f58a90e62f2f62349e0a4c
                 imagePullPolicy: Always
                 name: multicluster-operators-hub-subscription
                 resources:
@@ -2653,7 +2653,7 @@ spec:
   - name: multiclusterhub_operator_tests
     image: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:75b2cb2766ec474babd03376d602bb1e4f9e3e6e9fa4c315f3c11de29746e721
   - name: multiclusterhub_repo
-    image: quay.io/open-cluster-management/multiclusterhub-repo@sha256:7c2e08df3d240e2977a66b80265fb4a99941395bb0d28719d498f6a79311c4a8
+    image: quay.io/open-cluster-management/multiclusterhub-repo@sha256:684d8091a1ce223a3e083946dbe75f76efb182282137566475b804b87c43d502
   - name: must_gather
     image: quay.io/open-cluster-management/must-gather@sha256:8129604adf22baac54e1acc0c53e147c735839cbe464ac9e43af98e3d6e08c7a
   - name: node_exporter
