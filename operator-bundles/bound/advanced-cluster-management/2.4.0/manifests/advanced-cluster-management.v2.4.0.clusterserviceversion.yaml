@@ -27,15 +27,14 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-08-10T19:15:33Z'
+    createdAt: '2021-08-10T20:02:28Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["Disconnected"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1680,7 +1679,7 @@ spec:
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/open-cluster-management/config-policy-controller@sha256:68eef6d7b54b4762ba4ad2787ca0789043c1a3adabc85e0b423f0081a08cd7f6
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/open-cluster-management/console@sha256:783f7283c890466806d2b1ef95acc2dcf8f0dcebc6a96239f7711b475ccba6a3
+                  value: quay.io/open-cluster-management/console@sha256:d30fbec20f63fcc22f39a80bfa62a01a851ee25ab20ecea31241d51fa79d639c
                 - name: OPERAND_IMAGE_CONSOLE_API
                   value: quay.io/open-cluster-management/console-api@sha256:6911174b857cd91d81e0ab1a8345f461778bdcd69d13a78af6ab752ec07c066e
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
@@ -2591,7 +2590,7 @@ spec:
   - name: config_policy_controller
     image: quay.io/open-cluster-management/config-policy-controller@sha256:68eef6d7b54b4762ba4ad2787ca0789043c1a3adabc85e0b423f0081a08cd7f6
   - name: console
-    image: quay.io/open-cluster-management/console@sha256:783f7283c890466806d2b1ef95acc2dcf8f0dcebc6a96239f7711b475ccba6a3
+    image: quay.io/open-cluster-management/console@sha256:d30fbec20f63fcc22f39a80bfa62a01a851ee25ab20ecea31241d51fa79d639c
   - name: console_api
     image: quay.io/open-cluster-management/console-api@sha256:6911174b857cd91d81e0ab1a8345f461778bdcd69d13a78af6ab752ec07c066e
   - name: discovery_operator
