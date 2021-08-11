@@ -3,18 +3,19 @@
 # Generates a downstream image manifest, using build info for product images provided by
 # CPASS, and agumented with external image information retrieved via Brew CLI.
 #
-# Driven by config in manifest-gen-config.json.
+# Driven by config in a JSON config file (eg. manifest-gen-config.json).
 #
 # Args:
 #
 # $1 = Release number (in x.y.z format)
 #
-# $2 = ACM component name of the component for which the image manifest is being generated
+# $2 =  ACM component name of the component for which the image manifest is being generated
 #      (endpoint_operator, multiclsterhub_operator, etc.). See valid_component_names variable.
 #
-# Note: As we pare away or need for built-in image manifest info in componetns in favor of
-# other ways of "injecting" this info, we are heading to a happy day where the only component
-# that needs this is the operator bundle.
+#      As of ACM 2.2, this script really doesn't need to know the component name anymore, so
+#      the dummy value "." can be used here.
+#
+# $3 = Config file name.  Optional.  Default is "manifest-gen-config.json".
 
 import json
 import os
@@ -22,12 +23,12 @@ import sys
 from re import findall
 from subprocess import check_output
 
-valid_component_names = ["endpoint_operator", "multiclusterhub_operator", "acm_operator_bundle"]
-
+valid_component_names = ["endpoint_operator", "multiclusterhub_operator",
+                         "acm_operator_bundle", "."]
 
 # For consuming the config json:
 
-CONFIG_JSON = "manifest-gen-config.json"
+DEFAULT_CONFIG_JSON = "manifest-gen-config.json"
 
 CFG_PRODUCT_IMAGES_KEY = "product-images"
 CFG_EXTERNAL_IMAGES_KEY = "external-images"
@@ -110,8 +111,9 @@ def main():
 
     manifest = []
 
-    if len(sys.argv) != 3:
-        print("Syntax: %s <release_nr> <this_component_name>" % sys.argv[0])
+    arg_count = len(sys.argv) - 1
+    if arg_count < 2 or arg_count > 3:
+        print("Syntax: %s <release_nr> <this_component_name> [<config_file_name>]" % sys.argv[0])
         exit(1)
 
     release_nr = sys.argv[1]
@@ -120,10 +122,14 @@ def main():
         print("ERROR: Component name \"%s\" not recognized." % my_component_name)
         exit(1)
 
+    config_file_name = DEFAULT_CONFIG_JSON
+    if arg_count == 3:
+        config_file_name = sys.argv[3]
+
     # Find the directory we are in, as we expect our config.json in the same dir.
 
     my_dir = os.path.dirname(os.path.realpath(sys.argv[0]))
-    config_json = "%s/%s" % (my_dir, CONFIG_JSON)
+    config_json = "%s/%s" % (my_dir, config_file_name)
 
     with open(config_json, "r", encoding="UTF-8") as file:
         config = json.load(file)
@@ -177,7 +183,12 @@ def main():
                                        product_image_remote)
             manifest.append(entry)
 
-    for image in config[CFG_EXTERNAL_IMAGES_KEY][CFG_IMAGE_LIST_KEY]:
+    if CFG_EXTERNAL_IMAGES_KEY in config:
+        external_image_list = config[CFG_EXTERNAL_IMAGES_KEY][CFG_IMAGE_LIST_KEY]
+    else:
+        external_image_list = []
+
+    for image in external_image_list:
 
         try:
             skip_this_one = (my_component_name in image[SKIP_FOR_COMPONENTS_KEY])

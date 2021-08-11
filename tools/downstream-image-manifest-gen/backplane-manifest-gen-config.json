@@ -1,0 +1,16 @@
+{
+    "product-images": {
+        "image-registry":  "registry.redhat.io",
+        "image-namespace": "rhacm2",
+
+        "image-list": [
+            {"acm-component-name": "multicloud_manager",     "build-info-env-var": "MULTICLOUD_MANAGER"},
+            {"acm-component-name": "openshift_hive",         "build-info-env-var": "OPENSHIFT_HIVE_OPERATOR"},
+            {"acm-component-name": "placement",              "build-info-env-var": "PLACEMENT"},
+            {"acm-component-name": "registration",           "build-info-env-var": "REGISTRATION"},
+            {"acm-component-name": "registration_operator",  "build-info-env-var": "REGISTRATION_OPERATOR"},
+            {"acm-component-name": "backplane_operator",     "build-info-env-var": "BACKPLANE_OPERATOR"}
+        ]
+    }
+}
+
