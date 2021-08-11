@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-11T07:26:15Z'
+    createdAt: '2021-08-11T12:00:45Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1313,7 +1314,7 @@ spec:
                 - name: OPERAND_IMAGE_NODE_EXPORTER
                   value: quay.io/open-cluster-management/node-exporter@sha256:00ad09f8ca00f856d6e3e122dfe73404521c25066526b33f8447b2785b729dd2
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
-                  value: quay.io/open-cluster-management/observability-e2e-test@sha256:372a9ba7eaa27ec7a0d04db760bc35bb2fc508ec74ad20658276da0b47458638
+                  value: quay.io/open-cluster-management/observability-e2e-test@sha256:c113cc46f7ddbd46a4d2d9ec9837c818257d74fcbe1cacd2e8b684895a6b1a42
                 - name: OPERAND_IMAGE_OBSERVATORIUM
                   value: quay.io/open-cluster-management/observatorium@sha256:4aac791d906b9d19eb15875acaec6283b5f6435e758c0192657d20ce2ce3250f
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
@@ -1676,7 +1677,7 @@ spec:
   - name: node_exporter
     image: quay.io/open-cluster-management/node-exporter@sha256:00ad09f8ca00f856d6e3e122dfe73404521c25066526b33f8447b2785b729dd2
   - name: observability_e2e_test
-    image: quay.io/open-cluster-management/observability-e2e-test@sha256:372a9ba7eaa27ec7a0d04db760bc35bb2fc508ec74ad20658276da0b47458638
+    image: quay.io/open-cluster-management/observability-e2e-test@sha256:c113cc46f7ddbd46a4d2d9ec9837c818257d74fcbe1cacd2e8b684895a6b1a42
   - name: observatorium
     image: quay.io/open-cluster-management/observatorium@sha256:4aac791d906b9d19eb15875acaec6283b5f6435e758c0192657d20ce2ce3250f
   - name: observatorium_operator
