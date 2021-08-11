@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-08-11T19:27:21Z'
+    createdAt: '2021-08-11T20:23:53Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1725,7 +1725,7 @@ spec:
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_CONTROLLER
                   value: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:854d913d2a4f40ae2a1ab8349aca3788d1772fc84056cfae6a6ed1f3d8290a62
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_OPERATOR
-                  value: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:5c33c5d682a2bd653c481c770fc3922cbabab52e203ff859a24648eaad69bbdd
+                  value: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:94a68a44cb25ea50bee0f9df3c8b6373ef979cba7a0177476159cb3268eb224c
                 - name: OPERAND_IMAGE_KUBE_RBAC_PROXY
                   value: quay.io/open-cluster-management/kube-rbac-proxy@sha256:023ba01640ba74f0f67088eceec6b87d76028d351c6981ecf6007b7a31ab1603
                 - name: OPERAND_IMAGE_KUBE_STATE_METRICS
@@ -2634,7 +2634,7 @@ spec:
   - name: klusterlet_addon_controller
     image: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:854d913d2a4f40ae2a1ab8349aca3788d1772fc84056cfae6a6ed1f3d8290a62
   - name: klusterlet_addon_operator
-    image: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:5c33c5d682a2bd653c481c770fc3922cbabab52e203ff859a24648eaad69bbdd
+    image: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:94a68a44cb25ea50bee0f9df3c8b6373ef979cba7a0177476159cb3268eb224c
   - name: kube_rbac_proxy
     image: quay.io/open-cluster-management/kube-rbac-proxy@sha256:023ba01640ba74f0f67088eceec6b87d76028d351c6981ecf6007b7a31ab1603
   - name: kube_state_metrics
