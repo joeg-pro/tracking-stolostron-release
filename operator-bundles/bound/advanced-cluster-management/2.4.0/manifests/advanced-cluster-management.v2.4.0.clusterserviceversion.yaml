@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-08-11T04:37:29Z'
+    createdAt: '2021-08-11T07:03:58Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1740,7 +1740,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
                   value: quay.io/open-cluster-management/multicloud-manager@sha256:965007952ab400bd8a9773360be3f77a6904ac8cb901b23f71fdefc29bdbe7f9
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
-                  value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:523f577275ffd2e7030e02ed8f6f92ec47a92c280916f35ae94c332d685f21fe
+                  value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:a459bb8d41187616ffd731643568887d93c846b80cf619b65e15fdbd2fa5e003
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
                   value: quay.io/open-cluster-management/multicluster-operators-application@sha256:b9d4bb565a362d4bbd4ba64a7a5de9241ff50ab54c8a643b09b575a84d286f04
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
@@ -1764,7 +1764,7 @@ spec:
                 - name: OPERAND_IMAGE_NODE_EXPORTER
                   value: quay.io/open-cluster-management/node-exporter@sha256:00ad09f8ca00f856d6e3e122dfe73404521c25066526b33f8447b2785b729dd2
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
-                  value: quay.io/open-cluster-management/observability-e2e-test@sha256:66a323ed9df5d3d93122f38dc782b696c6185fa702aa9130260b8f7e4892f54e
+                  value: quay.io/open-cluster-management/observability-e2e-test@sha256:372a9ba7eaa27ec7a0d04db760bc35bb2fc508ec74ad20658276da0b47458638
                 - name: OPERAND_IMAGE_OBSERVATORIUM
                   value: quay.io/open-cluster-management/observatorium@sha256:4aac791d906b9d19eb15875acaec6283b5f6435e758c0192657d20ce2ce3250f
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
@@ -1935,7 +1935,7 @@ spec:
                   value: /usr/local/manifests
                 - name: SPOKE_NAMESPACE
                   value: open-cluster-management-addon-observability
-                image: quay.io/open-cluster-management/multicluster-observability-operator@sha256:523f577275ffd2e7030e02ed8f6f92ec47a92c280916f35ae94c332d685f21fe
+                image: quay.io/open-cluster-management/multicluster-observability-operator@sha256:a459bb8d41187616ffd731643568887d93c846b80cf619b65e15fdbd2fa5e003
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -2659,7 +2659,7 @@ spec:
   - name: node_exporter
     image: quay.io/open-cluster-management/node-exporter@sha256:00ad09f8ca00f856d6e3e122dfe73404521c25066526b33f8447b2785b729dd2
   - name: observability_e2e_test
-    image: quay.io/open-cluster-management/observability-e2e-test@sha256:66a323ed9df5d3d93122f38dc782b696c6185fa702aa9130260b8f7e4892f54e
+    image: quay.io/open-cluster-management/observability-e2e-test@sha256:372a9ba7eaa27ec7a0d04db760bc35bb2fc508ec74ad20658276da0b47458638
   - name: observatorium
     image: quay.io/open-cluster-management/observatorium@sha256:4aac791d906b9d19eb15875acaec6283b5f6435e758c0192657d20ce2ce3250f
   - name: observatorium_operator
