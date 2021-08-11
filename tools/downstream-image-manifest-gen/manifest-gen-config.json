@@ -16,7 +16,6 @@
             {"acm-component-name": "console",                                     "build-info-env-var": "CONSOLE"},
             {"acm-component-name": "console_api",                                 "build-info-env-var": "CONSOLE_API"},
             {"acm-component-name": "discovery_operator",                          "build-info-env-var": "DISCOVERY_OPERATOR"},
-            {"acm-component-name": "endpoint_component_operator",                 "build-info-env-var": "ENDPOINT_COMPONENT_OPERATOR"},
             {"acm-component-name": "endpoint_monitoring_operator",                "build-info-env-var": "ENDPOINT_MONITORING_OPERATOR"},
             {"acm-component-name": "governance_policy_propagator",                "build-info-env-var": "GOVERNANCE_POLICY_PROPAGATOR"},
             {"acm-component-name": "governance_policy_spec_sync",                 "build-info-env-var": "GOVERNANCE_POLICY_SPEC_SYNC"},
@@ -52,7 +51,6 @@
             {"acm-component-name": "prometheus_alertmanager",                     "build-info-env-var": "PROMETHEUS_ALERTMANAGER"},
             {"acm-component-name": "provider_credential_controller",              "build-info-env-var": "PROVIDER_CREDENTIAL_CONTROLLER"},
             {"acm-component-name": "rbac_query_proxy",                            "build-info-env-var": "RBAC_QUERY_PROXY"},
-            {"acm-component-name": "rcm_controller",                              "build-info-env-var": "RCM_CONTROLLER"},
             {"acm-component-name": "redisgraph_tls",                              "build-info-env-var": "REDISGRAPH_TLS"},
             {"acm-component-name": "registration",                                "build-info-env-var": "REGISTRATION"},
             {"acm-component-name": "registration_operator",                       "build-info-env-var": "REGISTRATION_OPERATOR"},
@@ -66,7 +64,6 @@
             {"acm-component-name": "thanos_receive_controller",                   "build-info-env-var": "THANOS_RECEIVE_CONTROLLER"},            
             {"acm-component-name": "work",                                        "build-info-env-var": "WORK"},
             {"acm-component-name": "acm_must_gather",                             "build-info-env-var": "ACM_MUST_GATHER"},
-            {"acm-component-name": "endpoint_operator",                           "build-info-env-var": "ENDPOINT_OPERATOR"},
             {"acm-component-name": "multiclusterhub_operator",                    "build-info-env-var": "MULTICLUSTERHUB_OPERATOR"}
         ]
     },
