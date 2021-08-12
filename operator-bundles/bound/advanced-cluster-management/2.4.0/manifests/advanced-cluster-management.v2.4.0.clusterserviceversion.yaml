@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-08-12T06:25:51Z'
+    createdAt: '2021-08-12T07:15:29Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1669,7 +1669,7 @@ spec:
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
                   value: quay.io/open-cluster-management/cert-policy-controller@sha256:6bd0ba2416d22638314425ebfa7da4062925ae7fc13aecf924f89b0237a9c0cc
                 - name: OPERAND_IMAGE_CLUSTER_CURATOR_CONTROLLER
-                  value: quay.io/open-cluster-management/cluster-curator-controller@sha256:de64b76110d2f176e4082a006575a0fd5f6f9628d48f7c310029065395db8c3a
+                  value: quay.io/open-cluster-management/cluster-curator-controller@sha256:2914bf05f85b13280e4f78e2edebf8cdc955bab411a60e6049b96b7a05d1bb2b
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
                   value: quay.io/open-cluster-management/cluster-lifecycle-e2e@sha256:60368d835be99206b5e831fdbf8acab4922d35ee228058b88a730b407317adcd
                 - name: OPERAND_IMAGE_CLUSTER_PROXY_ADDON
@@ -2580,7 +2580,7 @@ spec:
   - name: cert_policy_controller
     image: quay.io/open-cluster-management/cert-policy-controller@sha256:6bd0ba2416d22638314425ebfa7da4062925ae7fc13aecf924f89b0237a9c0cc
   - name: cluster_curator_controller
-    image: quay.io/open-cluster-management/cluster-curator-controller@sha256:de64b76110d2f176e4082a006575a0fd5f6f9628d48f7c310029065395db8c3a
+    image: quay.io/open-cluster-management/cluster-curator-controller@sha256:2914bf05f85b13280e4f78e2edebf8cdc955bab411a60e6049b96b7a05d1bb2b
   - name: cluster_lifecycle_e2e
     image: quay.io/open-cluster-management/cluster-lifecycle-e2e@sha256:60368d835be99206b5e831fdbf8acab4922d35ee228058b88a730b407317adcd
   - name: cluster_proxy_addon
