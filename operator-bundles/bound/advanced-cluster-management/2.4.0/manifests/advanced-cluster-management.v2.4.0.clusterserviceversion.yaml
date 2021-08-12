@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-08-12T05:57:33Z'
+    createdAt: '2021-08-12T06:04:01Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1705,7 +1705,7 @@ spec:
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
                   value: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:795fbc75447e7f2980e389cdb06ceba372df7a91b7155f76b73ed352667af508
                 - name: OPERAND_IMAGE_GRC_UI
-                  value: quay.io/open-cluster-management/grc-ui@sha256:0dc9fa36569ec40689fed020ada48f7794c858bd26196852127a02e45093aaa4
+                  value: quay.io/open-cluster-management/grc-ui@sha256:7c6f96d94cbb60c16730d9f920c221221d220f7af2a990daa1ea3959b3b4f00a
                 - name: OPERAND_IMAGE_GRC_UI_API
                   value: quay.io/open-cluster-management/grc-ui-api@sha256:dec5f8232239f57bd91b762c9f707cb2b263a1f75394ba1d3c004413d9603065
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
@@ -2616,7 +2616,7 @@ spec:
   - name: grc_policy_framework_tests
     image: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:795fbc75447e7f2980e389cdb06ceba372df7a91b7155f76b73ed352667af508
   - name: grc_ui
-    image: quay.io/open-cluster-management/grc-ui@sha256:0dc9fa36569ec40689fed020ada48f7794c858bd26196852127a02e45093aaa4
+    image: quay.io/open-cluster-management/grc-ui@sha256:7c6f96d94cbb60c16730d9f920c221221d220f7af2a990daa1ea3959b3b4f00a
   - name: grc_ui_api
     image: quay.io/open-cluster-management/grc-ui-api@sha256:dec5f8232239f57bd91b762c9f707cb2b263a1f75394ba1d3c004413d9603065
   - name: grc_ui_tests
