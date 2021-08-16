@@ -346,12 +346,12 @@
   },
   {
     "image-name": "hive",
-    "image-version": "v1.1.8",
-    "image-tag": "v1.1.8",
-    "git-sha256": "023f095eaf99afeb730b103f6881ef081c7ac88e",
+    "image-version": "v1.1.12",
+    "image-tag": "v1.1.12",
+    "git-sha256": "54262c1c9f9857d829bb6beba5bae33fd2c2f63f",
     "git-repository": "openshift/hive",
     "image-remote": "quay.io/openshift-hive",
-    "image-digest": "sha256:1bea3fa5888ec1e0479702d454da7d65d0d232221b13751312201f2bc8c492bb",
+    "image-digest": "sha256:dfdd162a135a9317b9a255d22aee4e31576afa6284df7926a0ff9a0499f0d38f",
     "image-key": "openshift_hive"
   },
   {
@@ -531,12 +531,12 @@
   {
     "image-name": "multicluster-operators-subscription",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-6910d7d3379ba550d54ecb33025d5da7d3962b82",
-    "git-sha256": "6910d7d3379ba550d54ecb33025d5da7d3962b82",
+    "image-tag": "2.4.0-75ff25b38f1b6a8bf8224e776784485a4f98a506",
+    "git-sha256": "75ff25b38f1b6a8bf8224e776784485a4f98a506",
     "git-repository": "open-cluster-management/multicloud-operators-subscription",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:855aa1293aae41f8b2e47533c9151227f8829f67dceaccaeb5fb61babcd9567f",
+    "image-digest": "sha256:c0ede9f4e09a82405e862397021cc0f6bf7b6b2e50dfa961574255424048591c",
     "image-key": "multicluster_operators_subscription"
   },
   {
