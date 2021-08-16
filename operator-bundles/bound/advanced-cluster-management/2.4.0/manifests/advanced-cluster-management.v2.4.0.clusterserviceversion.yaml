@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-08-16T17:46:47Z'
+    createdAt: '2021-08-16T19:06:26Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1745,7 +1745,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
                   value: quay.io/open-cluster-management/multicluster-operators-channel@sha256:32afad6add84109f7ea29996335f80424f2b16d1666acd9a26f1dfdc5edb76d4
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_DEPLOYABLE
-                  value: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:a7e7c980c5b765c8b21108b54465a217a06a55362df84b1e6c4f7dc13b2db212
+                  value: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:9adddc76c3388beb98e1a1da56e2ef1a5a0834ce2dc9ed590c6c64ff73351653
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_PLACEMENTRULE
                   value: quay.io/open-cluster-management/multicluster-operators-placementrule@sha256:dddbbf54e6460836c2435221820841f523be2b87e274ae6a36a313907f6947ec
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION
@@ -2165,7 +2165,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:a7e7c980c5b765c8b21108b54465a217a06a55362df84b1e6c4f7dc13b2db212
+                image: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:9adddc76c3388beb98e1a1da56e2ef1a5a0834ce2dc9ed590c6c64ff73351653
                 imagePullPolicy: Always
                 name: multicluster-operators-deployable
                 resources:
