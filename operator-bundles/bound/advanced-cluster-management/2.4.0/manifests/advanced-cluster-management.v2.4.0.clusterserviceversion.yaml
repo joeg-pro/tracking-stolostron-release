@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-08-16T21:52:02Z'
+    createdAt: '2021-08-16T21:57:06Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1653,7 +1653,7 @@ spec:
                 - name: OPERAND_IMAGE_APPLICATION_UI
                   value: quay.io/open-cluster-management/application-ui@sha256:57c1d5f18d1674b2b454501f901ba9a63ebd712f8e10daa0762b26e942609e61
                 - name: OPERAND_IMAGE_APPLICATION_UI_TESTS
-                  value: quay.io/open-cluster-management/application-ui-tests@sha256:01469291d7017a10dae3c1ca364e1a5c14147f3eb3ac895824c5b573ce80b544
+                  value: quay.io/open-cluster-management/application-ui-tests@sha256:e6858ef6fb5e67bf7e61d0ef4f22b2248483ecdd59957e82cf5f0332d97f1aaa
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
                   value: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:f5890caf612adc7aed114de2dafe242d15677dd943387d84dbf2f542f569ba0b
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER
@@ -2564,7 +2564,7 @@ spec:
   - name: application_ui
     image: quay.io/open-cluster-management/application-ui@sha256:57c1d5f18d1674b2b454501f901ba9a63ebd712f8e10daa0762b26e942609e61
   - name: application_ui_tests
-    image: quay.io/open-cluster-management/application-ui-tests@sha256:01469291d7017a10dae3c1ca364e1a5c14147f3eb3ac895824c5b573ce80b544
+    image: quay.io/open-cluster-management/application-ui-tests@sha256:e6858ef6fb5e67bf7e61d0ef4f22b2248483ecdd59957e82cf5f0332d97f1aaa
   - name: applifecycle_backend_e2e
     image: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:f5890caf612adc7aed114de2dafe242d15677dd943387d84dbf2f542f569ba0b
   - name: assisted_installer
