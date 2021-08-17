@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-17T02:31:48Z'
+    createdAt: '2021-08-17T02:55:19Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1332,7 +1332,7 @@ spec:
                 - name: OPERAND_IMAGE_PROVIDER_CREDENTIAL_CONTROLLER
                   value: quay.io/open-cluster-management/provider-credential-controller@sha256:7f6666ce2b001e5b19bdc99276b83d9c7f17980428224fd4344239e88aff1432
                 - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
-                  value: quay.io/open-cluster-management/rbac-query-proxy@sha256:3bb09e5ec2183a5857187998936aa0f4c9b7d09632f461f1aeef7ccab3fb307f
+                  value: quay.io/open-cluster-management/rbac-query-proxy@sha256:ba9ba565982062f58a1c504c9a4a79b5c56c3f1d504f552079f4fa2ae5628b81
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
                   value: quay.io/open-cluster-management/redisgraph-tls@sha256:8c99dea684ceea2cb16363ae3564677be433603c10f0d13e9bb0d3fb4f0ce883
                 - name: OPERAND_IMAGE_REGISTRATION
@@ -1695,7 +1695,7 @@ spec:
   - name: provider_credential_controller
     image: quay.io/open-cluster-management/provider-credential-controller@sha256:7f6666ce2b001e5b19bdc99276b83d9c7f17980428224fd4344239e88aff1432
   - name: rbac_query_proxy
-    image: quay.io/open-cluster-management/rbac-query-proxy@sha256:3bb09e5ec2183a5857187998936aa0f4c9b7d09632f461f1aeef7ccab3fb307f
+    image: quay.io/open-cluster-management/rbac-query-proxy@sha256:ba9ba565982062f58a1c504c9a4a79b5c56c3f1d504f552079f4fa2ae5628b81
   - name: redisgraph_tls
     image: quay.io/open-cluster-management/redisgraph-tls@sha256:8c99dea684ceea2cb16363ae3564677be433603c10f0d13e9bb0d3fb4f0ce883
   - name: registration
