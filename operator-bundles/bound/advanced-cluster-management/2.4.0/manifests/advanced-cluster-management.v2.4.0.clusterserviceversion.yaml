@@ -27,14 +27,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-08-16T21:57:06Z'
+    createdAt: '2021-08-17T00:04:23Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["Disconnected"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1705,7 +1706,7 @@ spec:
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
                   value: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:e8a93ef79a95139847df424d975cb33a8fa4257ed504989d585e0c8f5bee40ce
                 - name: OPERAND_IMAGE_GRC_UI
-                  value: quay.io/open-cluster-management/grc-ui@sha256:7c6f96d94cbb60c16730d9f920c221221d220f7af2a990daa1ea3959b3b4f00a
+                  value: quay.io/open-cluster-management/grc-ui@sha256:540bf98d4367c15b0d808456fd49a20ed09175d81d060ee4bef693b63d9eacac
                 - name: OPERAND_IMAGE_GRC_UI_API
                   value: quay.io/open-cluster-management/grc-ui-api@sha256:dec5f8232239f57bd91b762c9f707cb2b263a1f75394ba1d3c004413d9603065
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
@@ -2616,7 +2617,7 @@ spec:
   - name: grc_policy_framework_tests
     image: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:e8a93ef79a95139847df424d975cb33a8fa4257ed504989d585e0c8f5bee40ce
   - name: grc_ui
-    image: quay.io/open-cluster-management/grc-ui@sha256:7c6f96d94cbb60c16730d9f920c221221d220f7af2a990daa1ea3959b3b4f00a
+    image: quay.io/open-cluster-management/grc-ui@sha256:540bf98d4367c15b0d808456fd49a20ed09175d81d060ee4bef693b63d9eacac
   - name: grc_ui_api
     image: quay.io/open-cluster-management/grc-ui-api@sha256:dec5f8232239f57bd91b762c9f707cb2b263a1f75394ba1d3c004413d9603065
   - name: grc_ui_tests
