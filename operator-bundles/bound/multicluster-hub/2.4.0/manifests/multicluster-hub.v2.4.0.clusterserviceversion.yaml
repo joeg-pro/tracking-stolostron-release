@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-18T20:46:59Z'
+    createdAt: '2021-08-18T23:58:07Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1248,7 +1248,7 @@ spec:
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_STATUS_SYNC
                   value: quay.io/open-cluster-management/governance-policy-status-sync@sha256:0b742658910fe94df4d54bfcd116bbd8e603bb35aff6f02e9d607b1a8ee9e472
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_TEMPLATE_SYNC
-                  value: quay.io/open-cluster-management/governance-policy-template-sync@sha256:dee1def72e3f541c7bd64bf53f23bffc828d8753562303c373f5c4202b2b9064
+                  value: quay.io/open-cluster-management/governance-policy-template-sync@sha256:35ccd73ecb85fc4b437da9495b6382f0709ce03f682cbaa9e3d1fc30525d009a
                 - name: OPERAND_IMAGE_GRAFANA
                   value: quay.io/open-cluster-management/grafana@sha256:a52371dc5794f9172c9ea03685da3064b9c1303c1ebf6390a24dad285ad9422b
                 - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
@@ -1615,7 +1615,7 @@ spec:
   - name: governance_policy_status_sync
     image: quay.io/open-cluster-management/governance-policy-status-sync@sha256:0b742658910fe94df4d54bfcd116bbd8e603bb35aff6f02e9d607b1a8ee9e472
   - name: governance_policy_template_sync
-    image: quay.io/open-cluster-management/governance-policy-template-sync@sha256:dee1def72e3f541c7bd64bf53f23bffc828d8753562303c373f5c4202b2b9064
+    image: quay.io/open-cluster-management/governance-policy-template-sync@sha256:35ccd73ecb85fc4b437da9495b6382f0709ce03f682cbaa9e3d1fc30525d009a
   - name: grafana
     image: quay.io/open-cluster-management/grafana@sha256:a52371dc5794f9172c9ea03685da3064b9c1303c1ebf6390a24dad285ad9422b
   - name: grafana_dashboard_loader
