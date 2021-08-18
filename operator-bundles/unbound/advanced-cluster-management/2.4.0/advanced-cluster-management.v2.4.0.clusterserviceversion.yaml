@@ -27,15 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-08-18T06:10:20Z'
+    createdAt: '2021-08-18T18:08:35Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["Disconnected"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "checkpoints.hive.openshift.io",
+      "observabilityaddons.observability.open-cluster-management.io", "clusterstates.hive.openshift.io",
+      "machinepoolnameleases.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "clustersyncleases.hiveinternal.openshift.io",
+      "fakeclusterinstalls.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io", "clusterdeprovisions.hive.openshift.io"]'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
   labels:
@@ -313,25 +315,25 @@ spec:
       kind: Application
       name: applications.app.k8s.io
       version: v1beta1
-    - description: ClusterDeployment is the Schema for the clusterdeployments API
-      displayName: ClusterDeployment
-      kind: ClusterDeployment
-      name: clusterdeployments.hive.openshift.io
-      version: v1
-    - description: ClusterState is the Schema for the clusterstates API
-      displayName: ClusterState
-      kind: ClusterState
-      name: clusterstates.hive.openshift.io
-      version: v1
-    - description: DNSZone is the Schema for the dnszones API
-      displayName: DNSZone
-      kind: DNSZone
-      name: dnszones.hive.openshift.io
+    - description: Checkpoint is the Schema for the backup of Hive objects.
+      displayName: Checkpoint
+      kind: Checkpoint
+      name: checkpoints.hive.openshift.io
       version: v1
     - description: ClusterClaim represents a claim to a cluster from a cluster pool.
       displayName: ClusterClaim
       kind: ClusterClaim
       name: clusterclaims.hive.openshift.io
+      version: v1
+    - description: ClusterDeployment is the Schema for the clusterdeployments API
+      displayName: ClusterDeployment
+      kind: ClusterDeployment
+      name: clusterdeployments.hive.openshift.io
+      version: v1
+    - description: ClusterDeprovision is the Schema for the clusterdeprovisions API
+      displayName: ClusterDeprovision
+      kind: ClusterDeprovision
+      name: clusterdeprovisions.hive.openshift.io
       version: v1
     - description: ClusterImageSet is the Schema for the clusterimagesets API
       displayName: ClusterImageSet
@@ -345,52 +347,30 @@ spec:
       kind: ClusterPool
       name: clusterpools.hive.openshift.io
       version: v1
-    - description: ClusterRelocate is the Schema for the ClusterRelocates API
-      displayName: ClusterRelocate
-      kind: ClusterRelocate
-      name: clusterrelocates.hive.openshift.io
-      version: v1
-    - description: Checkpoint is the Schema for the backup of Hive objects.
-      displayName: Checkpoint
-      kind: Checkpoint
-      name: checkpoints.hive.openshift.io
-      version: v1
-    - description: ClusterSyncLease is a record of the last time that SyncSets and SelectorSyncSets were
-        applied to a cluster.
-      displayName: ClusterSyncLease
-      kind: ClusterSyncLease
-      name: clustersyncleases.hiveinternal.openshift.io
-      version: v1alpha1
-    - description: SelectorSyncSet is the Schema for the SelectorSyncSet API
-      displayName: SelectorSyncSet
-      kind: SelectorSyncSet
-      name: selectorsyncsets.hive.openshift.io
-      version: v1
-    - description: MachinePool is the Schema for the machinepools API
-      displayName: MachinePool
-      kind: MachinePool
-      name: machinepools.hive.openshift.io
-      version: v1
     - description: ClusterProvision is the Schema for the clusterprovisions API
       displayName: ClusterProvision
       kind: ClusterProvision
       name: clusterprovisions.hive.openshift.io
       version: v1
-    - description: ClusterDeprovision is the Schema for the clusterdeprovisions API
-      displayName: ClusterDeprovision
-      kind: ClusterDeprovision
-      name: clusterdeprovisions.hive.openshift.io
+    - description: ClusterRelocate is the Schema for the ClusterRelocates API
+      displayName: ClusterRelocate
+      kind: ClusterRelocate
+      name: clusterrelocates.hive.openshift.io
       version: v1
-    - description: ClusterSync is the status of all of the SelectorSyncSets and SyncSets that apply to
-        a ClusterDeployment.
-      displayName: ClusterSync
-      kind: ClusterSync
-      name: clustersyncs.hiveinternal.openshift.io
-      version: v1alpha1
-    - description: SyncIdentityProvider is the Schema for the SyncIdentityProvider API
-      displayName: SyncIdentityProvider
-      kind: SyncIdentityProvider
-      name: syncidentityproviders.hive.openshift.io
+    - description: ClusterState is the Schema for the clusterstates API
+      displayName: ClusterState
+      kind: ClusterState
+      name: clusterstates.hive.openshift.io
+      version: v1
+    - description: DNSZone is the Schema for the dnszones API
+      displayName: DNSZone
+      kind: DNSZone
+      name: dnszones.hive.openshift.io
+      version: v1
+    - description: HiveConfig is the Schema for the hives API
+      displayName: HiveConfig
+      kind: HiveConfig
+      name: hiveconfigs.hive.openshift.io
       version: v1
     - description: MachinePoolNameLease is the Schema for the MachinePoolNameLeases API. This resource
         is mostly empty as we're primarily relying on the name to determine if a lease is available. Note
@@ -400,26 +380,48 @@ spec:
       kind: MachinePoolNameLease
       name: machinepoolnameleases.hive.openshift.io
       version: v1
-    - description: FakeClusterInstall represents a fake request to provision an agent based cluster.
-      displayName: FakeClusterInstall
-      kind: FakeClusterInstall
-      name: fakeclusterinstalls.hiveinternal.openshift.io
-      version: v1alpha1
-    - description: HiveConfig is the Schema for the hives API
-      displayName: HiveConfig
-      kind: HiveConfig
-      name: hiveconfigs.hive.openshift.io
-      version: v1
-    - description: SyncSet is the Schema for the SyncSet API
-      displayName: SyncSet
-      kind: SyncSet
-      name: syncsets.hive.openshift.io
+    - description: MachinePool is the Schema for the machinepools API
+      displayName: MachinePool
+      kind: MachinePool
+      name: machinepools.hive.openshift.io
       version: v1
     - description: SelectorSyncIdentityProvider is the Schema for the SelectorSyncSet API
       displayName: SelectorSyncIdentityProvider
       kind: SelectorSyncIdentityProvider
       name: selectorsyncidentityproviders.hive.openshift.io
       version: v1
+    - description: SelectorSyncSet is the Schema for the SelectorSyncSet API
+      displayName: SelectorSyncSet
+      kind: SelectorSyncSet
+      name: selectorsyncsets.hive.openshift.io
+      version: v1
+    - description: SyncIdentityProvider is the Schema for the SyncIdentityProvider API
+      displayName: SyncIdentityProvider
+      kind: SyncIdentityProvider
+      name: syncidentityproviders.hive.openshift.io
+      version: v1
+    - description: SyncSet is the Schema for the SyncSet API
+      displayName: SyncSet
+      kind: SyncSet
+      name: syncsets.hive.openshift.io
+      version: v1
+    - description: ClusterSyncLease is a record of the last time that SyncSets and SelectorSyncSets were
+        applied to a cluster.
+      displayName: ClusterSyncLease
+      kind: ClusterSyncLease
+      name: clustersyncleases.hiveinternal.openshift.io
+      version: v1alpha1
+    - description: ClusterSync is the status of all of the SelectorSyncSets and SyncSets that apply to
+        a ClusterDeployment.
+      displayName: ClusterSync
+      kind: ClusterSync
+      name: clustersyncs.hiveinternal.openshift.io
+      version: v1alpha1
+    - description: FakeClusterInstall represents a fake request to provision an agent based cluster.
+      displayName: FakeClusterInstall
+      kind: FakeClusterInstall
+      name: fakeclusterinstalls.hiveinternal.openshift.io
+      version: v1alpha1
   install:
     strategy: deployment
     spec:
@@ -2377,7 +2379,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.namespace
-                image: quay.io/openshift-hive/hive:v1.1.10
+                image: quay.io/openshift-hive/hive:v1.1.14
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:

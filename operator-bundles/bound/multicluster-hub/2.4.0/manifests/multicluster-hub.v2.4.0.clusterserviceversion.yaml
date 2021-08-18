@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-18T06:10:53Z'
+    createdAt: '2021-08-18T18:09:12Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1266,11 +1266,11 @@ spec:
                 - name: OPERAND_IMAGE_HELLOWORLD
                   value: quay.io/open-cluster-management/helloworld@sha256:7b6b31b0b5d10941eeb06538bdf9f7a08eb7869488744f5f01fa7bac9aeb622d
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
-                  value: quay.io/openshift-hive/hive@sha256:dfdd162a135a9317b9a255d22aee4e31576afa6284df7926a0ff9a0499f0d38f
+                  value: quay.io/openshift-hive/hive@sha256:d10e08dd2a6e6e63ed007d9c03ad07754411af2abfcf07c27878208d91fdc8db
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
                   value: quay.io/open-cluster-management/iam-policy-controller@sha256:a6e519906413bc225fdb8374af97cac0c51a17a25383e27ad341fe2edda150be
                 - name: OPERAND_IMAGE_INSIGHTS_CLIENT
-                  value: quay.io/open-cluster-management/insights-client@sha256:34c6e148c9e434be0bc9b7fa3ed633d210a5615ec3ff258484b80a8c94941383
+                  value: quay.io/open-cluster-management/insights-client@sha256:c35d4cbe2b7c68f81cf31817f78fccae8be5f3a77460c15ae20b1848a8d19b88
                 - name: OPERAND_IMAGE_INSIGHTS_METRICS
                   value: quay.io/open-cluster-management/insights-metrics@sha256:40c189fd0fb6e620832b4b912421dcddd3195ca74f1367e2a36f7fe51f98c20c
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_CONTROLLER
@@ -1633,11 +1633,11 @@ spec:
   - name: helloworld
     image: quay.io/open-cluster-management/helloworld@sha256:7b6b31b0b5d10941eeb06538bdf9f7a08eb7869488744f5f01fa7bac9aeb622d
   - name: openshift_hive
-    image: quay.io/openshift-hive/hive@sha256:dfdd162a135a9317b9a255d22aee4e31576afa6284df7926a0ff9a0499f0d38f
+    image: quay.io/openshift-hive/hive@sha256:d10e08dd2a6e6e63ed007d9c03ad07754411af2abfcf07c27878208d91fdc8db
   - name: iam_policy_controller
     image: quay.io/open-cluster-management/iam-policy-controller@sha256:a6e519906413bc225fdb8374af97cac0c51a17a25383e27ad341fe2edda150be
   - name: insights_client
-    image: quay.io/open-cluster-management/insights-client@sha256:34c6e148c9e434be0bc9b7fa3ed633d210a5615ec3ff258484b80a8c94941383
+    image: quay.io/open-cluster-management/insights-client@sha256:c35d4cbe2b7c68f81cf31817f78fccae8be5f3a77460c15ae20b1848a8d19b88
   - name: insights_metrics
     image: quay.io/open-cluster-management/insights-metrics@sha256:40c189fd0fb6e620832b4b912421dcddd3195ca74f1367e2a36f7fe51f98c20c
   - name: klusterlet_addon_controller
