@@ -5,6 +5,7 @@
 
         "image-list": [
             {"acm-component-name": "application_ui",                              "build-info-env-var": "APPLICATION_UI"},
+            {"acm-component-name": "assisted_image_service",                      "build-info-env-var": "ASSISTED_IMAGE_SERVICE"},            
             {"acm-component-name": "assisted_installer",                          "build-info-env-var": "ASSISTED_INSTALLER"},
             {"acm-component-name": "assisted_installer_agent",                    "build-info-env-var": "ASSISTED_INSTALLER_AGENT"},
             {"acm-component-name": "assisted_installer_controller",               "build-info-env-var": "ASSISTED_INSTALLER_REPORTER"},
