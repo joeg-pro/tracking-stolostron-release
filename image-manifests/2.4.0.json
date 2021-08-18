@@ -346,12 +346,12 @@
   },
   {
     "image-name": "hive",
-    "image-version": "v1.1.12",
-    "image-tag": "v1.1.12",
-    "git-sha256": "4d8d83dcd46406bc4ff1d6c7708eb7e07dc23727",
+    "image-version": "v1.1.14",
+    "image-tag": "v1.1.14",
+    "git-sha256": "ca28d1a70f1ae82ee180d5cf2cafa05b2763b1f9",
     "git-repository": "openshift/hive",
     "image-remote": "quay.io/openshift-hive",
-    "image-digest": "sha256:dfdd162a135a9317b9a255d22aee4e31576afa6284df7926a0ff9a0499f0d38f",
+    "image-digest": "sha256:d10e08dd2a6e6e63ed007d9c03ad07754411af2abfcf07c27878208d91fdc8db",
     "image-key": "openshift_hive"
   },
   {
@@ -368,11 +368,12 @@
   {
     "image-name": "insights-client",
     "image-version": "2.3.0",
-    "image-tag": "2.3.0-28d3b54e7b21b1f897c837d9a8cdd53464a7b9f3",
-    "git-sha256": "28d3b54e7b21b1f897c837d9a8cdd53464a7b9f3",
+    "image-tag": "2.3.0-b5c12c41a43411ef95ad5fec13154a912d0cb012",
+    "git-sha256": "b5c12c41a43411ef95ad5fec13154a912d0cb012",
     "git-repository": "open-cluster-management/insights-client",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:34c6e148c9e434be0bc9b7fa3ed633d210a5615ec3ff258484b80a8c94941383",
+    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
+    "image-digest": "sha256:c35d4cbe2b7c68f81cf31817f78fccae8be5f3a77460c15ae20b1848a8d19b88",
     "image-key": "insights_client"
   },
   {
