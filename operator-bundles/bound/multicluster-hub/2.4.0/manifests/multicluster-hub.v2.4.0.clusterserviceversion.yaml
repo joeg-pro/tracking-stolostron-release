@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-18T05:48:45Z'
+    createdAt: '2021-08-18T06:10:53Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1318,7 +1318,7 @@ spec:
                 - name: OPERAND_IMAGE_OBSERVATORIUM
                   value: quay.io/open-cluster-management/observatorium@sha256:4aac791d906b9d19eb15875acaec6283b5f6435e758c0192657d20ce2ce3250f
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
-                  value: quay.io/open-cluster-management/observatorium-operator@sha256:d49a702fb1a04a093f9333ba2af47090e9103ba080e152676bdbaf37cdb54bc1
+                  value: quay.io/open-cluster-management/observatorium-operator@sha256:fcfdefbafbe61c9c93eaf9ee6ee1f04a7ee3feefd532c0d6abd63a10ffe429ae
                 - name: OPERAND_IMAGE_OAUTH_PROXY
                   value: quay.io/open-cluster-management/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
                 - name: OPERAND_IMAGE_PLACEMENT
@@ -1681,7 +1681,7 @@ spec:
   - name: observatorium
     image: quay.io/open-cluster-management/observatorium@sha256:4aac791d906b9d19eb15875acaec6283b5f6435e758c0192657d20ce2ce3250f
   - name: observatorium_operator
-    image: quay.io/open-cluster-management/observatorium-operator@sha256:d49a702fb1a04a093f9333ba2af47090e9103ba080e152676bdbaf37cdb54bc1
+    image: quay.io/open-cluster-management/observatorium-operator@sha256:fcfdefbafbe61c9c93eaf9ee6ee1f04a7ee3feefd532c0d6abd63a10ffe429ae
   - name: oauth_proxy
     image: quay.io/open-cluster-management/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
   - name: placement
