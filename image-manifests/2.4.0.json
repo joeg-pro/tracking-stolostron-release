@@ -140,12 +140,12 @@
   {
     "image-name": "config-policy-controller",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-888daf3931ad7550450be82dd0bccba8b6b88dc5",
-    "git-sha256": "888daf3931ad7550450be82dd0bccba8b6b88dc5",
+    "image-tag": "1.0.0-31e8fd3eeb0d9cb6f07eb2071c8995327631d461",
+    "git-sha256": "31e8fd3eeb0d9cb6f07eb2071c8995327631d461",
     "git-repository": "open-cluster-management/config-policy-controller",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:68eef6d7b54b4762ba4ad2787ca0789043c1a3adabc85e0b423f0081a08cd7f6",
+    "image-digest": "sha256:98651d3017e4b9dabab46f37dfc692ef88cdd6ada88a6e5767753283d25db871",
     "image-key": "config_policy_controller"
   },
   {
@@ -217,12 +217,12 @@
   {
     "image-name": "governance-policy-propagator",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-98514d43ad261419be514db7e4fbf93a3c653c92",
-    "git-sha256": "98514d43ad261419be514db7e4fbf93a3c653c92",
+    "image-tag": "1.0.0-4ceb2b9c13ba360c3b3a92a33b615a4cad34ed0b",
+    "git-sha256": "4ceb2b9c13ba360c3b3a92a33b615a4cad34ed0b",
     "git-repository": "open-cluster-management/governance-policy-propagator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:36afaf2d894f60a984584c47b9c970e54c9cbb14161bdc8b68e290ace765e40b",
+    "image-digest": "sha256:cabdf8b532adbeed2f7ab8bbee9eaa51ff03b0eb35bc0a59e19664e6383a59af",
     "image-key": "governance_policy_propagator"
   },
   {
@@ -293,12 +293,12 @@
   {
     "image-name": "grc-ui",
     "image-version": "3.6.0",
-    "image-tag": "3.6.0-23fd822558dfbbc9a6182ddb670c6c094f848935",
-    "git-sha256": "23fd822558dfbbc9a6182ddb670c6c094f848935",
+    "image-tag": "3.6.0-9104e04d3c62b7b433c59ca87c3d689f9e5b4e5b",
+    "git-sha256": "9104e04d3c62b7b433c59ca87c3d689f9e5b4e5b",
     "git-repository": "open-cluster-management/grc-ui",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:540bf98d4367c15b0d808456fd49a20ed09175d81d060ee4bef693b63d9eacac",
+    "image-digest": "sha256:41d091b0ae14522543a9b188d9d74fb695ce110efb88d6fec25af9a94a99c8c0",
     "image-key": "grc_ui"
   },
   {
