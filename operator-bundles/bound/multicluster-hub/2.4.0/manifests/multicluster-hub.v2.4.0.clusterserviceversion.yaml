@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-19T06:00:57Z'
+    createdAt: '2021-08-19T08:37:02Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1273,7 +1273,7 @@ spec:
                 - name: OPERAND_IMAGE_INSIGHTS_METRICS
                   value: quay.io/open-cluster-management/insights-metrics@sha256:40c189fd0fb6e620832b4b912421dcddd3195ca74f1367e2a36f7fe51f98c20c
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_CONTROLLER
-                  value: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:854d913d2a4f40ae2a1ab8349aca3788d1772fc84056cfae6a6ed1f3d8290a62
+                  value: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:1d0b9bc2c5494d75e0b7e2d7fb2820b9aa32c0c98229524f9b42c1150e295526
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_OPERATOR
                   value: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:4c7f62934622ceb752fc40a8b5dcb29e31bc5de0beefc54187de1647f327dc4e
                 - name: OPERAND_IMAGE_KUBE_RBAC_PROXY
@@ -1640,7 +1640,7 @@ spec:
   - name: insights_metrics
     image: quay.io/open-cluster-management/insights-metrics@sha256:40c189fd0fb6e620832b4b912421dcddd3195ca74f1367e2a36f7fe51f98c20c
   - name: klusterlet_addon_controller
-    image: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:854d913d2a4f40ae2a1ab8349aca3788d1772fc84056cfae6a6ed1f3d8290a62
+    image: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:1d0b9bc2c5494d75e0b7e2d7fb2820b9aa32c0c98229524f9b42c1150e295526
   - name: klusterlet_addon_operator
     image: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:4c7f62934622ceb752fc40a8b5dcb29e31bc5de0beefc54187de1647f327dc4e
   - name: kube_rbac_proxy
