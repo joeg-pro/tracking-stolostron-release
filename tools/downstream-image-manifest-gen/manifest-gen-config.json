@@ -48,6 +48,7 @@
             {"acm-component-name": "multicluster_operators_subscription",         "build-info-env-var": "MULTICLUSTER_OPERATORS_SUBSCRIPTION_OPERATOR"},
             {"acm-component-name": "multicluster_operators_subscription_release", "build-info-env-var": "MULTICLUSTER_OPERATORS_SUBSCRIPTION_RELEASE"},
             {"acm-component-name": "multiclusterhub_repo",                        "build-info-env-var": "MULTICLUSTERHUB_REPO"},
+            {"acm-component-name": "node_exporter",                               "build-info-env-var": "NODE_EXPORTER"},
             {"acm-component-name": "observatorium",                               "build-info-env-var": "OBSERVATORIUM"},
             {"acm-component-name": "observatorium_operator",                      "build-info-env-var": "OBSERVATORIUM_OPERATOR"},
             {"acm-component-name": "openshift_hive",                              "build-info-env-var": "OPENSHIFT_HIVE_OPERATOR"},
