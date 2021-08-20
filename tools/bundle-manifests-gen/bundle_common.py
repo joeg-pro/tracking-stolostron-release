@@ -430,9 +430,16 @@ def find_current_bundle_for_package(pkg_pathn, selected_channel):
    # the one containing the bundle we're looking for.
 
    favor_this_dir=None
-   m = re.search("^.+\.[vV]([0-9]+\.[0-9]+\.[0-9]+)$", cur_csv)
-   if m is not None:
-      favor_this_dir=m.group(1)
+
+   # Based on: https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string
+   valid_semvar_regex = "^(?P<major>0|[1-9]\d*)\.(?P<minor>0|[1-9]\d*)\.(?P<patch>0|[1-9]\d*)(?:-(?P<prerelease>(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+(?P<buildmetadata>[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$"
+
+   m1 = re.search("^.+\.[vV](.+)$", cur_csv)
+   if m1 is not None:
+      version_id = m1.group(1)
+      m2 = re.search(valid_semvar_regex, version_id)
+      if m2 is not None:
+         favor_this_dir = version_id
 
    for fn in pkg_fns:
       pathn = os.path.join(pkg_pathn, fn)
