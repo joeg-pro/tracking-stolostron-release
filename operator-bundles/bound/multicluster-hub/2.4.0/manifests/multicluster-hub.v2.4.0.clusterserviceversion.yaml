@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-20T16:00:18Z'
+    createdAt: '2021-08-20T16:05:12Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1253,7 +1253,7 @@ spec:
                 - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
                   value: quay.io/open-cluster-management/grafana-dashboard-loader@sha256:3b84580924f265f0942256c19555dbe82aa742db473cb05c1d7219029709623a
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
-                  value: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:65dbe614f2cbe470220584c52d67db94e9d84e1c8a8ef3a99b3f017254aa4b2a
+                  value: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:c395e94e1ec602205d851ee6a67540071f7d17e62cb010afb221ad2024d4d5be
                 - name: OPERAND_IMAGE_GRC_UI
                   value: quay.io/open-cluster-management/grc-ui@sha256:41d091b0ae14522543a9b188d9d74fb695ce110efb88d6fec25af9a94a99c8c0
                 - name: OPERAND_IMAGE_GRC_UI_API
@@ -1620,7 +1620,7 @@ spec:
   - name: grafana_dashboard_loader
     image: quay.io/open-cluster-management/grafana-dashboard-loader@sha256:3b84580924f265f0942256c19555dbe82aa742db473cb05c1d7219029709623a
   - name: grc_policy_framework_tests
-    image: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:65dbe614f2cbe470220584c52d67db94e9d84e1c8a8ef3a99b3f017254aa4b2a
+    image: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:c395e94e1ec602205d851ee6a67540071f7d17e62cb010afb221ad2024d4d5be
   - name: grc_ui
     image: quay.io/open-cluster-management/grc-ui@sha256:41d091b0ae14522543a9b188d9d74fb695ce110efb88d6fec25af9a94a99c8c0
   - name: grc_ui_api
