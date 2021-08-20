@@ -32,6 +32,7 @@
             {"acm-component-name": "klusterlet_addon_controller",                 "build-info-env-var": "KLUSTERLET_ADDON_CONTROLLER"},
             {"acm-component-name": "klusterlet_addon_operator",                   "build-info-env-var": "KLUSTERLET_ADDON_OPERATOR"},
             {"acm-component-name": "kube_rbac_proxy",                             "build-info-env-var": "KUBE_RBAC_PROXY"},
+            {"acm-component-name": "kube_state_metrics",                          "build-info-env-var": "KUBE_STATE_METRICS"},
             {"acm-component-name": "managedcluster_import_controller",            "build-info-env-var": "MANAGEDCLUSTER_IMPORT_CONTROLLER"},
             {"acm-component-name": "management_ingress",                          "build-info-env-var": "MANAGEMENT_INGRESS"},
             {"acm-component-name": "memcached",                                   "build-info-env-var": "MEMCACHED"},
