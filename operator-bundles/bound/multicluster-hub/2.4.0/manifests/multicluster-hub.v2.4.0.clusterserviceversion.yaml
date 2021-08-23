@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-23T15:28:48Z'
+    createdAt: '2021-08-23T15:47:35Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1235,7 +1235,7 @@ spec:
                 - name: OPERAND_IMAGE_CONSOLE
                   value: quay.io/open-cluster-management/console@sha256:fad23129c90c0505841236cbcbb6b8a3aa7da3ec2a5f56fae14f21613b4f5825
                 - name: OPERAND_IMAGE_CONSOLE_API
-                  value: quay.io/open-cluster-management/console-api@sha256:a1922bfe08076f15aafe09a2a9ac66c574207ae692db529bcf21be7851b91897
+                  value: quay.io/open-cluster-management/console-api@sha256:b65d0723b9fce56a2ff8f6dda349c68cfeee4875b8405dbeb03a0d3e7a4b80f0
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
                   value: quay.io/open-cluster-management/discovery-operator@sha256:9887c12d522e3f0aceb74d6f3b53622a9cc2eb4b09bb3f69bee3336cb08fc975
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR_TESTS
@@ -1602,7 +1602,7 @@ spec:
   - name: console
     image: quay.io/open-cluster-management/console@sha256:fad23129c90c0505841236cbcbb6b8a3aa7da3ec2a5f56fae14f21613b4f5825
   - name: console_api
-    image: quay.io/open-cluster-management/console-api@sha256:a1922bfe08076f15aafe09a2a9ac66c574207ae692db529bcf21be7851b91897
+    image: quay.io/open-cluster-management/console-api@sha256:b65d0723b9fce56a2ff8f6dda349c68cfeee4875b8405dbeb03a0d3e7a4b80f0
   - name: discovery_operator
     image: quay.io/open-cluster-management/discovery-operator@sha256:9887c12d522e3f0aceb74d6f3b53622a9cc2eb4b09bb3f69bee3336cb08fc975
   - name: discovery_operator_tests
