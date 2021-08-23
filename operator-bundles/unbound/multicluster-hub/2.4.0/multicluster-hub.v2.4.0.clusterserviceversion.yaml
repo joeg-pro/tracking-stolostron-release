@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-23T10:34:33Z'
+    createdAt: '2021-08-23T15:28:46Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -185,6 +185,7 @@ spec:
           - discovery.open-cluster-management.io
           - hive.openshift.io
           - hiveinternal.openshift.io
+          - imageregistry.open-cluster-management.io
           - internal.open-cluster-management.io
           - inventory.open-cluster-management.io
           - mcm.ibm.com
@@ -241,6 +242,8 @@ spec:
           - managedclusteractions/status
           - managedclusteraddons
           - managedclusteraddons/status
+          - managedclusterimageregistries
+          - managedclusterimageregistries/status
           - managedclusterinfos
           - managedclusterinfos/status
           - managedclusters
