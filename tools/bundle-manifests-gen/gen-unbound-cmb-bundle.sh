@@ -39,19 +39,6 @@ if [[ -z "$new_csv_vers" ]]; then
 fi
 prev_csv_vers="$2"
 
-# Historically, community-operator owners are slow to get release-related channels
-# into their packages when we begin work on a new feature release.  In the past we've
-# just hacked in a temporary bypass, but this is getting to be a theme so we make
-# this a bit fancier.
-
-hive_use_previous_release_channel_override=0
-# No override currently:
-if [[ "$new_csv_vers" == "99.99.99" ]]; then
-   hive_use_previous_release_channel_override=1
-fi
-
-## Not currently pinned: hive_source_csv_vers="x.y.z"
-
 parse_release_nr "$new_csv_vers"
 # Sets rel_x, rel_y, etc.
 
@@ -84,37 +71,6 @@ cmb_operator_branch="$rel_xy_branch"
 
 locate_repo_operator "Backplane Installer" "open-cluster-management/backplane-operator" \
    "$cmb_operator_branch" "bundle/manifests"
-
-# -- Registration operator --
-
-reg_operator_branch="$rel_xy_branch"
-
-locate_repo_operator "Cluster Manager" "open-cluster-management/registration-operator" \
-   "$reg_operator_branch" "deploy/cluster-manager/olm-catalog/cluster-manager/manifests"
-
-# -- Hive --
-
-community_operators_path="redhat-openshift-ecosystem/community-operators-prod.git"
-echo "Cloning upstream community-operators repo $community_repo_spot."
-git clone "$github/$community_operators_path" "$community_repo_spot"
-if [[ $? -ne 0 ]]; then
-   >&2 echo "Error: Could not clone Community Operators repo."
-   >&2 echo "Aborting."
-   exit 2
-fi
-
-# TEMP SCAFFOLDING
-# Need to ask Hive team for a backplane-related release branch.
-hive_branch_prefix="ocm"
-hive_rel_xy="2.4"
-# END TEMP
-locate_community_operator "Hive" "hive-operator" "$hive_branch_prefix" "$hive_rel_xy" \
-   "${hive_source_csv_vers:-none}" "${hive_use_previous_release_channel_override:-0}"
-rc=$?
-if [[ $rc -ne 0 ]]; then
-   # locate_community_operator has already blurted an error msg.
-   exit $rc
-fi
 
 # -- Done finding source bundles --
 
