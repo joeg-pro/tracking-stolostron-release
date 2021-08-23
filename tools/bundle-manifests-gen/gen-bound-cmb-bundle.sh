@@ -34,7 +34,7 @@ source $my_dir/bundle-common.bash
 # top_of_repo is set as side effect of above source'ing.
 
 pkg_name="cluster-management-backplane"
-release_channel_prefix="release"
+release_channel_prefix="stable"
 candidate_channel_prefix="candidate"
 
 bundle_vers="$1"
@@ -64,10 +64,7 @@ explicit_default_channel="$3"
 # lets us keep  this script idential across ACM release branches if we want.
 
 image_key_mappings=()
-
 image_key_mappings+=("backplane-operator:backplane_operator")
-image_key_mappings+=("registration-operator:registration_operator")
-image_key_mappings+=("hive:openshift_hive")
 
 # Define the list of CSV deployment containers that are to have image-ref
 # environment variables injected for the bundle's related images.
