@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-24T11:02:00Z'
+    createdAt: '2021-08-24T13:40:40Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1295,7 +1294,7 @@ spec:
                 - name: OPERAND_IMAGE_MANAGEMENT_INGRESS
                   value: quay.io/open-cluster-management/management-ingress@sha256:05273e2b0c2dbcd08d8df7128de820270079268e91a17a227c0fd4c343193fc5
                 - name: OPERAND_IMAGE_METRICS_COLLECTOR
-                  value: quay.io/open-cluster-management/metrics-collector@sha256:05fd9373b68e1c263bf281ff17942f2c971fb137d718f4f0478d42e97c2e8536
+                  value: quay.io/open-cluster-management/metrics-collector@sha256:880aa578acb5c2e93ef87e5f93b3042a92e901fc8c8bf77d7f3c58002d26ba88
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
                   value: quay.io/open-cluster-management/multicloud-manager@sha256:e98d22f9f48ea66cdd735c91f146be3364bf962b84030c041de2d38145f031ba
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
@@ -1662,7 +1661,7 @@ spec:
   - name: management_ingress
     image: quay.io/open-cluster-management/management-ingress@sha256:05273e2b0c2dbcd08d8df7128de820270079268e91a17a227c0fd4c343193fc5
   - name: metrics_collector
-    image: quay.io/open-cluster-management/metrics-collector@sha256:05fd9373b68e1c263bf281ff17942f2c971fb137d718f4f0478d42e97c2e8536
+    image: quay.io/open-cluster-management/metrics-collector@sha256:880aa578acb5c2e93ef87e5f93b3042a92e901fc8c8bf77d7f3c58002d26ba88
   - name: multicloud_manager
     image: quay.io/open-cluster-management/multicloud-manager@sha256:e98d22f9f48ea66cdd735c91f146be3364bf962b84030c041de2d38145f031ba
   - name: multicluster_operators_application
