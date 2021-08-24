@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-24T13:40:40Z'
+    createdAt: '2021-08-24T14:38:13Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1264,7 +1264,7 @@ spec:
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
                   value: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:cdcd8131be5c80732a64325bdc03ee5ac896c989899cb13b1f6bd0b139bb9cbd
                 - name: OPERAND_IMAGE_GRC_UI
-                  value: quay.io/open-cluster-management/grc-ui@sha256:ad43611c40936ccf3dcce40c4ed2811f0ff45171a36f7d4c80b503805b5350ec
+                  value: quay.io/open-cluster-management/grc-ui@sha256:8821c76116303a50b3d66b1392c865ccb86fb621570ada33f3974f82f722892e
                 - name: OPERAND_IMAGE_GRC_UI_API
                   value: quay.io/open-cluster-management/grc-ui-api@sha256:573ac4e74422f616d4749a4685221b579cf4bb4297d8b05f6a10964721226c76
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
@@ -1631,7 +1631,7 @@ spec:
   - name: grc_policy_framework_tests
     image: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:cdcd8131be5c80732a64325bdc03ee5ac896c989899cb13b1f6bd0b139bb9cbd
   - name: grc_ui
-    image: quay.io/open-cluster-management/grc-ui@sha256:ad43611c40936ccf3dcce40c4ed2811f0ff45171a36f7d4c80b503805b5350ec
+    image: quay.io/open-cluster-management/grc-ui@sha256:8821c76116303a50b3d66b1392c865ccb86fb621570ada33f3974f82f722892e
   - name: grc_ui_api
     image: quay.io/open-cluster-management/grc-ui-api@sha256:573ac4e74422f616d4749a4685221b579cf4bb4297d8b05f6a10964721226c76
   - name: grc_ui_tests
