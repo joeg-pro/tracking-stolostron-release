@@ -118,12 +118,12 @@
   {
     "image-name": "cluster-proxy-addon",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-75dcce9d89811c345d3b7d1bc68cd5536de67931",
-    "git-sha256": "75dcce9d89811c345d3b7d1bc68cd5536de67931",
+    "image-tag": "2.4.0-51b313805cc67f28a0ee907cd018d846da7c241d",
+    "git-sha256": "51b313805cc67f28a0ee907cd018d846da7c241d",
     "git-repository": "open-cluster-management/cluster-proxy-addon",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:61aa698d8f390061a19a309ad7b15baa4ddafc1bbd4ce21d7282b3bd2c8f494f",
+    "image-digest": "sha256:c469aefdd3d1265e3932450cb4d6cecc259b4f7032357e25646b0bf2c60f9e19",
     "image-key": "cluster_proxy_addon"
   },
   {
@@ -477,12 +477,12 @@
   {
     "image-name": "multicluster-observability-operator",
     "image-version": "2.4",
-    "image-tag": "2.4-155591cd93421258064327c2a253cc6f894ada51",
-    "git-sha256": "155591cd93421258064327c2a253cc6f894ada51",
+    "image-tag": "2.4-0cb30ee3fd712deaa0a7c2545a4d53f0f67d682f",
+    "git-sha256": "0cb30ee3fd712deaa0a7c2545a4d53f0f67d682f",
     "git-repository": "open-cluster-management/multicluster-observability-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:a459bb8d41187616ffd731643568887d93c846b80cf619b65e15fdbd2fa5e003",
+    "image-digest": "sha256:72a500ad5e22c26b39c62b68a064a49ad0f1af1932a71414dcea885ee8fc6045",
     "image-key": "multicluster_observability_operator"
   },
   {
