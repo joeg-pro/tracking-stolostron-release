@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-08-24T08:58:42Z'
+    createdAt: '2021-08-24T10:33:21Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware"]'
-    operators.operatorframework.io/internal-objects: '["clusterprovisions.hive.openshift.io", "clusterdeprovisions.hive.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "observatoria.core.observatorium.io",
-      "machinepoolnameleases.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "checkpoints.hive.openshift.io",
-      "clusterstates.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["clustersyncleases.hiveinternal.openshift.io",
+      "clusterstates.hive.openshift.io", "clusterprovisions.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "checkpoints.hive.openshift.io", "clusterdeprovisions.hive.openshift.io", "machinepoolnameleases.hive.openshift.io",
+      "observatoria.core.observatorium.io", "fakeclusterinstalls.hiveinternal.openshift.io", "clustersyncs.hiveinternal.openshift.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1795,7 +1795,7 @@ spec:
                 - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
                   value: quay.io/open-cluster-management/rbac-query-proxy@sha256:ba9ba565982062f58a1c504c9a4a79b5c56c3f1d504f552079f4fa2ae5628b81
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
-                  value: quay.io/open-cluster-management/redisgraph-tls@sha256:8c99dea684ceea2cb16363ae3564677be433603c10f0d13e9bb0d3fb4f0ce883
+                  value: quay.io/open-cluster-management/redisgraph-tls@sha256:5b36bdf168c5ec005e75e2d36ab8f66111811df7b49c37cf321232d46993a9e2
                 - name: OPERAND_IMAGE_REGISTRATION
                   value: quay.io/open-cluster-management/registration@sha256:8165d4ecbcadfd40e6dbdfa92f48813b57b5cada75cbbe4b54cd8ab33b6b9dfd
                 - name: OPERAND_IMAGE_REGISTRATION_OPERATOR
@@ -2690,7 +2690,7 @@ spec:
   - name: rbac_query_proxy
     image: quay.io/open-cluster-management/rbac-query-proxy@sha256:ba9ba565982062f58a1c504c9a4a79b5c56c3f1d504f552079f4fa2ae5628b81
   - name: redisgraph_tls
-    image: quay.io/open-cluster-management/redisgraph-tls@sha256:8c99dea684ceea2cb16363ae3564677be433603c10f0d13e9bb0d3fb4f0ce883
+    image: quay.io/open-cluster-management/redisgraph-tls@sha256:5b36bdf168c5ec005e75e2d36ab8f66111811df7b49c37cf321232d46993a9e2
   - name: registration
     image: quay.io/open-cluster-management/registration@sha256:8165d4ecbcadfd40e6dbdfa92f48813b57b5cada75cbbe4b54cd8ab33b6b9dfd
   - name: search_aggregator
