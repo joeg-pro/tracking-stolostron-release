@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-25T08:34:48Z'
+    createdAt: '2021-08-25T08:54:11Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1248,7 +1248,7 @@ spec:
                 - name: OPERAND_IMAGE_DISCOVERY-TESTSERVER
                   value: quay.io/open-cluster-management/discovery-testserver@sha256:a7222a290896d6c3b711f3754329ee125f7d58822bcd3fb4b8ea51b6c44eee90
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
-                  value: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:b9ec13d3b6084418baf7bc0b2be0d983f45b612856e5ee0a0710a29415dff9fa
+                  value: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:18c64b0da705b525d5941373852924705c0a941ac3e7e5e141304aa97f9d9d7e
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
                   value: quay.io/open-cluster-management/governance-policy-propagator@sha256:50b25d0a285d64e815bff2612fc272dbcd0d303988e6f4bc3b0d6c83432b6f33
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
@@ -1360,7 +1360,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_UI
                   value: quay.io/open-cluster-management/search-ui@sha256:9a5d8eec643317682394e98a0a10a0052864baae2d6b9474d206c3e620ed8ee2
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
-                  value: quay.io/open-cluster-management/submariner-addon@sha256:2b5ebd34172d6c8cbb74e52bf244ce7f0d6be166f6b37a689362755c656033bf
+                  value: quay.io/open-cluster-management/submariner-addon@sha256:1c3c570d56d5fff8effa718c16fa75b11cfea72976f0d6efea641e6bfe32c5ef
                 - name: OPERAND_IMAGE_THANOS
                   value: quay.io/open-cluster-management/thanos@sha256:165a56abf18d2b1b9bdf6e4d74e003cf5247e5c1bcaf1221eb8d70320aa9cb6c
                 - name: OPERAND_IMAGE_WORK
@@ -1555,7 +1555,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.name
-                image: quay.io/open-cluster-management/submariner-addon@sha256:2b5ebd34172d6c8cbb74e52bf244ce7f0d6be166f6b37a689362755c656033bf
+                image: quay.io/open-cluster-management/submariner-addon@sha256:1c3c570d56d5fff8effa718c16fa75b11cfea72976f0d6efea641e6bfe32c5ef
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -1615,7 +1615,7 @@ spec:
   - name: discovery-testserver
     image: quay.io/open-cluster-management/discovery-testserver@sha256:a7222a290896d6c3b711f3754329ee125f7d58822bcd3fb4b8ea51b6c44eee90
   - name: endpoint_monitoring_operator
-    image: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:b9ec13d3b6084418baf7bc0b2be0d983f45b612856e5ee0a0710a29415dff9fa
+    image: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:18c64b0da705b525d5941373852924705c0a941ac3e7e5e141304aa97f9d9d7e
   - name: governance_policy_propagator
     image: quay.io/open-cluster-management/governance-policy-propagator@sha256:50b25d0a285d64e815bff2612fc272dbcd0d303988e6f4bc3b0d6c83432b6f33
   - name: governance_policy_spec_sync
