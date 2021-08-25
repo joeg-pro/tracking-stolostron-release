@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-25T18:09:43Z'
+    createdAt: '2021-08-25T19:10:28Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1359,7 +1358,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
                   value: quay.io/open-cluster-management/search-operator@sha256:99719d266ccbe923771bad7dc4448680c19c0d2d2e8a158c728e51fa51417945
                 - name: OPERAND_IMAGE_SEARCH_UI
-                  value: quay.io/open-cluster-management/search-ui@sha256:9a5d8eec643317682394e98a0a10a0052864baae2d6b9474d206c3e620ed8ee2
+                  value: quay.io/open-cluster-management/search-ui@sha256:7b42124c11e9d91bc37d2608090e80a6498754888ff9b8f54a14dcffd3560577
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
                   value: quay.io/open-cluster-management/submariner-addon@sha256:1c3c570d56d5fff8effa718c16fa75b11cfea72976f0d6efea641e6bfe32c5ef
                 - name: OPERAND_IMAGE_THANOS
@@ -1720,7 +1719,7 @@ spec:
   - name: search_operator
     image: quay.io/open-cluster-management/search-operator@sha256:99719d266ccbe923771bad7dc4448680c19c0d2d2e8a158c728e51fa51417945
   - name: search_ui
-    image: quay.io/open-cluster-management/search-ui@sha256:9a5d8eec643317682394e98a0a10a0052864baae2d6b9474d206c3e620ed8ee2
+    image: quay.io/open-cluster-management/search-ui@sha256:7b42124c11e9d91bc37d2608090e80a6498754888ff9b8f54a14dcffd3560577
   - name: thanos
     image: quay.io/open-cluster-management/thanos@sha256:165a56abf18d2b1b9bdf6e4d74e003cf5247e5c1bcaf1221eb8d70320aa9cb6c
   - name: work
