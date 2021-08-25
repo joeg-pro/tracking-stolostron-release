@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-25T14:08:09Z'
+    createdAt: '2021-08-25T14:43:50Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1308,7 +1309,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_PLACEMENTRULE
                   value: quay.io/open-cluster-management/multicluster-operators-placementrule@sha256:d910a3a05aa3b405e8bdddb88773a976a89b985741f97de99d17079aa8ae2f9c
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION
-                  value: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:51b112dee34d66f562bd84f7b53206b13f08ed3af81af4650bcfe5ca53c2b424
+                  value: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:b189a1287c7fe90c6feacc552676218fed3544f7ce4eb868a4f7ad612dfb3b16
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION_RELEASE
                   value: quay.io/open-cluster-management/multicluster-operators-subscription-release@sha256:87c94b1d984bd86745d45cc59c867028ad518fe629c34f56bfb2da110faaf6bf
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR
@@ -1673,7 +1674,7 @@ spec:
   - name: multicluster_operators_placementrule
     image: quay.io/open-cluster-management/multicluster-operators-placementrule@sha256:d910a3a05aa3b405e8bdddb88773a976a89b985741f97de99d17079aa8ae2f9c
   - name: multicluster_operators_subscription
-    image: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:51b112dee34d66f562bd84f7b53206b13f08ed3af81af4650bcfe5ca53c2b424
+    image: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:b189a1287c7fe90c6feacc552676218fed3544f7ce4eb868a4f7ad612dfb3b16
   - name: multicluster_operators_subscription_release
     image: quay.io/open-cluster-management/multicluster-operators-subscription-release@sha256:87c94b1d984bd86745d45cc59c867028ad518fe629c34f56bfb2da110faaf6bf
   - name: multiclusterhub_operator_tests
