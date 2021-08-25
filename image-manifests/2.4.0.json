@@ -151,8 +151,8 @@
   {
     "image-name": "console",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-8ba6a51eebb86640696cc39c599b4202662847cd",
-    "git-sha256": "8ba6a51eebb86640696cc39c599b4202662847cd",
+    "image-tag": "2.4.0-d38a36fa5817930de38d30298b4b6c96026841a3",
+    "git-sha256": "d38a36fa5817930de38d30298b4b6c96026841a3",
     "git-repository": "open-cluster-management/console",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
@@ -554,12 +554,12 @@
   {
     "image-name": "multiclusterhub-operator",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-e5c8b176161bce8a925b40bbc319b2b8c071c28a",
-    "git-sha256": "e5c8b176161bce8a925b40bbc319b2b8c071c28a",
+    "image-tag": "2.4.0-abfc1e8c954d6f9e9c4ca0c3e2978a441e6fb74e",
+    "git-sha256": "abfc1e8c954d6f9e9c4ca0c3e2978a441e6fb74e",
     "git-repository": "open-cluster-management/multiclusterhub-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:5c3ce5bcc01f51aebec1dc829459055b84c93e1c19a931327d2feb6a1ff54cb5",
+    "image-digest": "sha256:ef22573813f2aa306d40c92aefb9681479da9afb33abf338863537cf13f60cd9",
     "image-key": "multiclusterhub_operator"
   },
   {
@@ -672,12 +672,12 @@
   {
     "image-name": "prometheus",
     "image-version": "2.4",
-    "image-tag": "2.4-f2f20c6dcc8491ed5e37e005de24b227b07fb932",
-    "git-sha256": "f2f20c6dcc8491ed5e37e005de24b227b07fb932",
+    "image-tag": "2.4-564e44878ae6451ad120ad10524906580a991995",
+    "git-sha256": "564e44878ae6451ad120ad10524906580a991995",
     "git-repository": "open-cluster-management/prometheus",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:ebc5ec77210a515930acec5abfdfa33e0d971dc0ba27f6a29f27ac6ab480387e",
+    "image-digest": "sha256:5f2b766d575f09586b4844dee6eca62c29483cbc8e93e3a328e6226d52e40de5",
     "image-key": "prometheus"
   },
   {
