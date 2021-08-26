@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-26T04:07:17Z'
+    createdAt: '2021-08-26T08:01:10Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1248,7 +1249,7 @@ spec:
                 - name: OPERAND_IMAGE_DISCOVERY-TESTSERVER
                   value: quay.io/open-cluster-management/discovery-testserver@sha256:a7222a290896d6c3b711f3754329ee125f7d58822bcd3fb4b8ea51b6c44eee90
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
-                  value: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:18c64b0da705b525d5941373852924705c0a941ac3e7e5e141304aa97f9d9d7e
+                  value: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:64a68e8aae43c862793e05094fe9ba1ecf2d94e5755b2923a04c002488e2ec56
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
                   value: quay.io/open-cluster-management/governance-policy-propagator@sha256:b7df274a27af00f51f7b25185a7ee4a3083b27573adcc79014b10f11c78efc0c
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
@@ -1615,7 +1616,7 @@ spec:
   - name: discovery-testserver
     image: quay.io/open-cluster-management/discovery-testserver@sha256:a7222a290896d6c3b711f3754329ee125f7d58822bcd3fb4b8ea51b6c44eee90
   - name: endpoint_monitoring_operator
-    image: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:18c64b0da705b525d5941373852924705c0a941ac3e7e5e141304aa97f9d9d7e
+    image: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:64a68e8aae43c862793e05094fe9ba1ecf2d94e5755b2923a04c002488e2ec56
   - name: governance_policy_propagator
     image: quay.io/open-cluster-management/governance-policy-propagator@sha256:b7df274a27af00f51f7b25185a7ee4a3083b27573adcc79014b10f11c78efc0c
   - name: governance_policy_spec_sync
