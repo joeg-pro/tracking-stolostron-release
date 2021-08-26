@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-08-26T14:49:16Z'
+    createdAt: '2021-08-26T15:03:43Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -35,9 +35,9 @@ metadata:
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware"]'
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "clusterprovisions.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "observatoria.core.observatorium.io",
-      "machinepoolnameleases.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io", "clusterstates.hive.openshift.io",
-      "clustersyncleases.hiveinternal.openshift.io", "checkpoints.hive.openshift.io", "clusterdeprovisions.hive.openshift.io"]'
+      "clusterdeprovisions.hive.openshift.io", "machinepoolnameleases.hive.openshift.io", "observatoria.core.observatorium.io",
+      "checkpoints.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "clusterstates.hive.openshift.io",
+      "clustersyncleases.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1723,7 +1723,7 @@ spec:
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/open-cluster-management/helloprow-go@sha256:3d79bf6936c57c2efaf8be88c75baea5b8e64fe9f5855ef64294682e4d3b15b6
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/open-cluster-management/helloworld@sha256:4bebbfb7bed259d65f7fdd90fbc05e8389cad2eef83c0f1107dff3a2ba61c16e
+                  value: quay.io/open-cluster-management/helloworld@sha256:20ad0d13b81ff899959046a665b3660d506a9e327ca45f4dae48f51331600a65
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
                   value: quay.io/openshift-hive/hive@sha256:d10e08dd2a6e6e63ed007d9c03ad07754411af2abfcf07c27878208d91fdc8db
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
@@ -1814,6 +1814,10 @@ spec:
                   value: quay.io/open-cluster-management/submariner-addon@sha256:6e482ca4d24972664beb3d79880b8e2830f65693c48141d176067f9c274da73e
                 - name: OPERAND_IMAGE_THANOS
                   value: quay.io/open-cluster-management/thanos@sha256:165a56abf18d2b1b9bdf6e4d74e003cf5247e5c1bcaf1221eb8d70320aa9cb6c
+                - name: OPERAND_IMAGE_VOLSYNC
+                  value: quay.io/backube/volsync@sha256:cfe9bc8a7bc951f3bcb05c161a64e7a1e770b986cfaf7c700aef23a7e97e7232
+                - name: OPERAND_IMAGE_WORK
+                  value: quay.io/open-cluster-management/work@sha256:23c0c3f50ce5649d295278d16bc218c8e26565a28466367de568b2d38bf0d749
                 image: quay.io/open-cluster-management/multiclusterhub-operator@sha256:334880751992032fe63b2251d5cfde0bcc386db507ef2908f7c67bc7576513ac
                 imagePullPolicy: Always
                 livenessProbe:
@@ -2632,7 +2636,7 @@ spec:
   - name: helloprow_go
     image: quay.io/open-cluster-management/helloprow-go@sha256:3d79bf6936c57c2efaf8be88c75baea5b8e64fe9f5855ef64294682e4d3b15b6
   - name: helloworld
-    image: quay.io/open-cluster-management/helloworld@sha256:4bebbfb7bed259d65f7fdd90fbc05e8389cad2eef83c0f1107dff3a2ba61c16e
+    image: quay.io/open-cluster-management/helloworld@sha256:20ad0d13b81ff899959046a665b3660d506a9e327ca45f4dae48f51331600a65
   - name: iam_policy_controller
     image: quay.io/open-cluster-management/iam-policy-controller@sha256:e717766dea3ae770ba4b7ec5e5f10fae60cb2eeba555c16fef4f49137dae2456
   - name: insights_client
@@ -2703,3 +2707,7 @@ spec:
     image: quay.io/open-cluster-management/search-ui@sha256:7b42124c11e9d91bc37d2608090e80a6498754888ff9b8f54a14dcffd3560577
   - name: thanos
     image: quay.io/open-cluster-management/thanos@sha256:165a56abf18d2b1b9bdf6e4d74e003cf5247e5c1bcaf1221eb8d70320aa9cb6c
+  - name: volsync
+    image: quay.io/backube/volsync@sha256:cfe9bc8a7bc951f3bcb05c161a64e7a1e770b986cfaf7c700aef23a7e97e7232
+  - name: work
+    image: quay.io/open-cluster-management/work@sha256:23c0c3f50ce5649d295278d16bc218c8e26565a28466367de568b2d38bf0d749
