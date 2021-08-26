@@ -337,11 +337,11 @@
   {
     "image-name": "helloworld",
     "image-version": "1.0.1",
-    "image-tag": "1.0.1-c78db7d87746bd677791fcc6c53729dcbcc80686",
-    "git-sha256": "c78db7d87746bd677791fcc6c53729dcbcc80686",
+    "image-tag": "1.0.1-f614dbbbeeda7a075f352298be33078da58d0a60",
+    "git-sha256": "f614dbbbeeda7a075f352298be33078da58d0a60",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:7b6b31b0b5d10941eeb06538bdf9f7a08eb7869488744f5f01fa7bac9aeb622d",
+    "image-digest": "sha256:4bebbfb7bed259d65f7fdd90fbc05e8389cad2eef83c0f1107dff3a2ba61c16e",
     "image-key": "helloworld"
   },
   {
@@ -829,16 +829,5 @@
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
     "image-digest": "sha256:165a56abf18d2b1b9bdf6e4d74e003cf5247e5c1bcaf1221eb8d70320aa9cb6c",
     "image-key": "thanos"
-  },
-  {
-    "image-name": "work",
-    "image-version": "0.5.0",
-    "image-tag": "0.5.0-a61cea406f124ef03deb5ffc316d90db1d588bff",
-    "git-sha256": "a61cea406f124ef03deb5ffc316d90db1d588bff",
-    "git-repository": "open-cluster-management/work",
-    "image-remote": "quay.io/open-cluster-management",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:23c0c3f50ce5649d295278d16bc218c8e26565a28466367de568b2d38bf0d749",
-    "image-key": "work"
   }
 ]
