@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-27T04:44:10Z'
+    createdAt: '2021-08-27T05:34:06Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1246,7 +1246,7 @@ spec:
                 - name: OPERAND_IMAGE_DISCOVERY-TESTSERVER
                   value: quay.io/open-cluster-management/discovery-testserver@sha256:a7222a290896d6c3b711f3754329ee125f7d58822bcd3fb4b8ea51b6c44eee90
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
-                  value: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:64a68e8aae43c862793e05094fe9ba1ecf2d94e5755b2923a04c002488e2ec56
+                  value: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:63970389e4368cebce9fd5cefb850af826cabb8d4334127b2fbb7de02f27aef7
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
                   value: quay.io/open-cluster-management/governance-policy-propagator@sha256:b7df274a27af00f51f7b25185a7ee4a3083b27573adcc79014b10f11c78efc0c
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
@@ -1320,7 +1320,7 @@ spec:
                 - name: OPERAND_IMAGE_NODE_EXPORTER
                   value: quay.io/open-cluster-management/node-exporter@sha256:00ad09f8ca00f856d6e3e122dfe73404521c25066526b33f8447b2785b729dd2
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
-                  value: quay.io/open-cluster-management/observability-e2e-test@sha256:c3c036c59847e8b055ea85b4c05d84e00fbde7ed40d42dabc4c4447041fdd959
+                  value: quay.io/open-cluster-management/observability-e2e-test@sha256:f80064c4b17c8f6b0ce9a69e9f5803b9fcc21129b94231cd06cee81262a75838
                 - name: OPERAND_IMAGE_OBSERVATORIUM
                   value: quay.io/open-cluster-management/observatorium@sha256:4aac791d906b9d19eb15875acaec6283b5f6435e758c0192657d20ce2ce3250f
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
@@ -1615,7 +1615,7 @@ spec:
   - name: discovery-testserver
     image: quay.io/open-cluster-management/discovery-testserver@sha256:a7222a290896d6c3b711f3754329ee125f7d58822bcd3fb4b8ea51b6c44eee90
   - name: endpoint_monitoring_operator
-    image: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:64a68e8aae43c862793e05094fe9ba1ecf2d94e5755b2923a04c002488e2ec56
+    image: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:63970389e4368cebce9fd5cefb850af826cabb8d4334127b2fbb7de02f27aef7
   - name: governance_policy_propagator
     image: quay.io/open-cluster-management/governance-policy-propagator@sha256:b7df274a27af00f51f7b25185a7ee4a3083b27573adcc79014b10f11c78efc0c
   - name: governance_policy_spec_sync
@@ -1685,7 +1685,7 @@ spec:
   - name: node_exporter
     image: quay.io/open-cluster-management/node-exporter@sha256:00ad09f8ca00f856d6e3e122dfe73404521c25066526b33f8447b2785b729dd2
   - name: observability_e2e_test
-    image: quay.io/open-cluster-management/observability-e2e-test@sha256:c3c036c59847e8b055ea85b4c05d84e00fbde7ed40d42dabc4c4447041fdd959
+    image: quay.io/open-cluster-management/observability-e2e-test@sha256:f80064c4b17c8f6b0ce9a69e9f5803b9fcc21129b94231cd06cee81262a75838
   - name: observatorium
     image: quay.io/open-cluster-management/observatorium@sha256:4aac791d906b9d19eb15875acaec6283b5f6435e758c0192657d20ce2ce3250f
   - name: observatorium_operator
