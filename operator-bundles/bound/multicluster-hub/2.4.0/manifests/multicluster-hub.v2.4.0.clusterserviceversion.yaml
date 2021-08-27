@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-27T14:13:59Z'
+    createdAt: '2021-08-27T14:35:43Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1248,7 +1248,7 @@ spec:
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
                   value: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:63970389e4368cebce9fd5cefb850af826cabb8d4334127b2fbb7de02f27aef7
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
-                  value: quay.io/open-cluster-management/governance-policy-propagator@sha256:b7df274a27af00f51f7b25185a7ee4a3083b27573adcc79014b10f11c78efc0c
+                  value: quay.io/open-cluster-management/governance-policy-propagator@sha256:14d4a28d19a91b6a0fe664d8d67966a9ab7b7113a625d734b9a14df312057cdc
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
                   value: quay.io/open-cluster-management/governance-policy-spec-sync@sha256:457b1438720fe186dd705a8ac6608ebf3e757063955d4383355c95078ecdb971
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_STATUS_SYNC
@@ -1617,7 +1617,7 @@ spec:
   - name: endpoint_monitoring_operator
     image: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:63970389e4368cebce9fd5cefb850af826cabb8d4334127b2fbb7de02f27aef7
   - name: governance_policy_propagator
-    image: quay.io/open-cluster-management/governance-policy-propagator@sha256:b7df274a27af00f51f7b25185a7ee4a3083b27573adcc79014b10f11c78efc0c
+    image: quay.io/open-cluster-management/governance-policy-propagator@sha256:14d4a28d19a91b6a0fe664d8d67966a9ab7b7113a625d734b9a14df312057cdc
   - name: governance_policy_spec_sync
     image: quay.io/open-cluster-management/governance-policy-spec-sync@sha256:457b1438720fe186dd705a8ac6608ebf3e757063955d4383355c95078ecdb971
   - name: governance_policy_status_sync
