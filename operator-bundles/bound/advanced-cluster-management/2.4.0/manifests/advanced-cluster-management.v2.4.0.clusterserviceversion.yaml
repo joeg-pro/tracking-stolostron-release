@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-08-30T13:42:02Z'
+    createdAt: '2021-08-30T13:50:32Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware"]'
-    operators.operatorframework.io/internal-objects: '["checkpoints.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io",
-      "clusterprovisions.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "observatoria.core.observatorium.io",
-      "clusterstates.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io", "clusterdeprovisions.hive.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "machinepoolnameleases.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["machinepoolnameleases.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io",
+      "clustersyncs.hiveinternal.openshift.io", "observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io",
+      "fakeclusterinstalls.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io", "checkpoints.hive.openshift.io",
+      "clusterstates.hive.openshift.io", "clusterdeprovisions.hive.openshift.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1815,7 +1815,7 @@ spec:
                 - name: OPERAND_IMAGE_THANOS
                   value: quay.io/open-cluster-management/thanos@sha256:165a56abf18d2b1b9bdf6e4d74e003cf5247e5c1bcaf1221eb8d70320aa9cb6c
                 - name: OPERAND_IMAGE_VOLSYNC
-                  value: quay.io/backube/volsync@sha256:5add77a100a3eee2d8a4b0ee113c1e05519833e8c330580ec2a6c2e6ba08832a
+                  value: quay.io/backube/volsync@sha256:c4221f4dd140fa3b1a601d554a6d42b48b2e454603e89b8588cfc7b782079434
                 - name: OPERAND_IMAGE_WORK
                   value: quay.io/open-cluster-management/work@sha256:23c0c3f50ce5649d295278d16bc218c8e26565a28466367de568b2d38bf0d749
                 image: quay.io/open-cluster-management/multiclusterhub-operator@sha256:334880751992032fe63b2251d5cfde0bcc386db507ef2908f7c67bc7576513ac
@@ -2708,6 +2708,6 @@ spec:
   - name: thanos
     image: quay.io/open-cluster-management/thanos@sha256:165a56abf18d2b1b9bdf6e4d74e003cf5247e5c1bcaf1221eb8d70320aa9cb6c
   - name: volsync
-    image: quay.io/backube/volsync@sha256:5add77a100a3eee2d8a4b0ee113c1e05519833e8c330580ec2a6c2e6ba08832a
+    image: quay.io/backube/volsync@sha256:c4221f4dd140fa3b1a601d554a6d42b48b2e454603e89b8588cfc7b782079434
   - name: work
     image: quay.io/open-cluster-management/work@sha256:23c0c3f50ce5649d295278d16bc218c8e26565a28466367de568b2d38bf0d749

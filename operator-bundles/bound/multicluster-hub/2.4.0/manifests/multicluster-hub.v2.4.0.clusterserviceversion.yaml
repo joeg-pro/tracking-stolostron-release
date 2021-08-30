@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-30T13:42:35Z'
+    createdAt: '2021-08-30T13:51:04Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1362,7 +1362,7 @@ spec:
                 - name: OPERAND_IMAGE_THANOS
                   value: quay.io/open-cluster-management/thanos@sha256:165a56abf18d2b1b9bdf6e4d74e003cf5247e5c1bcaf1221eb8d70320aa9cb6c
                 - name: OPERAND_IMAGE_VOLSYNC
-                  value: quay.io/backube/volsync@sha256:5add77a100a3eee2d8a4b0ee113c1e05519833e8c330580ec2a6c2e6ba08832a
+                  value: quay.io/backube/volsync@sha256:c4221f4dd140fa3b1a601d554a6d42b48b2e454603e89b8588cfc7b782079434
                 - name: OPERAND_IMAGE_WORK
                   value: quay.io/open-cluster-management/work@sha256:23c0c3f50ce5649d295278d16bc218c8e26565a28466367de568b2d38bf0d749
                 image: quay.io/open-cluster-management/multiclusterhub-operator@sha256:334880751992032fe63b2251d5cfde0bcc386db507ef2908f7c67bc7576513ac
@@ -1723,6 +1723,6 @@ spec:
   - name: thanos
     image: quay.io/open-cluster-management/thanos@sha256:165a56abf18d2b1b9bdf6e4d74e003cf5247e5c1bcaf1221eb8d70320aa9cb6c
   - name: volsync
-    image: quay.io/backube/volsync@sha256:5add77a100a3eee2d8a4b0ee113c1e05519833e8c330580ec2a6c2e6ba08832a
+    image: quay.io/backube/volsync@sha256:c4221f4dd140fa3b1a601d554a6d42b48b2e454603e89b8588cfc7b782079434
   - name: work
     image: quay.io/open-cluster-management/work@sha256:23c0c3f50ce5649d295278d16bc218c8e26565a28466367de568b2d38bf0d749
