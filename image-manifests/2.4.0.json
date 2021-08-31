@@ -337,11 +337,11 @@
   {
     "image-name": "helloworld",
     "image-version": "1.0.1",
-    "image-tag": "1.0.1-d09e07dc8a637dfc1ab46a9dfebab794f840eb7f",
-    "git-sha256": "d09e07dc8a637dfc1ab46a9dfebab794f840eb7f",
+    "image-tag": "1.0.1-519f78e34fd4658bae40d4c009c7d9ab4a69d022",
+    "git-sha256": "519f78e34fd4658bae40d4c009c7d9ab4a69d022",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:20ad0d13b81ff899959046a665b3660d506a9e327ca45f4dae48f51331600a65",
+    "image-digest": "sha256:20d820dc44128927e6316028a1c4f1b1b9a4b6b25dea673a0996f33a2d63e8d3",
     "image-key": "helloworld"
   },
   {
@@ -411,12 +411,12 @@
   {
     "image-name": "kube-rbac-proxy",
     "image-version": "2.4",
-    "image-tag": "2.4-adf165d8c703040d6190f8e85998b39d43fa4f38",
-    "git-sha256": "adf165d8c703040d6190f8e85998b39d43fa4f38",
+    "image-tag": "2.4-9627ffdcf13dcbd24615b42b07745fa7f59697b1",
+    "git-sha256": "9627ffdcf13dcbd24615b42b07745fa7f59697b1",
     "git-repository": "open-cluster-management/kube-rbac-proxy",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:023ba01640ba74f0f67088eceec6b87d76028d351c6981ecf6007b7a31ab1603",
+    "image-digest": "sha256:548805136c5b03834f130de09e227a6ecfc983c973778cbddedaedc583a7a2e6",
     "image-key": "kube_rbac_proxy"
   },
   {
