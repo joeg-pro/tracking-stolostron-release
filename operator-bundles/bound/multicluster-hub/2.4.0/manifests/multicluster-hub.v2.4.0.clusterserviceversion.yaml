@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-31T12:26:44Z'
+    createdAt: '2021-08-31T13:19:46Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1270,7 +1270,7 @@ spec:
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/open-cluster-management/helloprow-go@sha256:3d79bf6936c57c2efaf8be88c75baea5b8e64fe9f5855ef64294682e4d3b15b6
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/open-cluster-management/helloworld@sha256:20ad0d13b81ff899959046a665b3660d506a9e327ca45f4dae48f51331600a65
+                  value: quay.io/open-cluster-management/helloworld@sha256:20d820dc44128927e6316028a1c4f1b1b9a4b6b25dea673a0996f33a2d63e8d3
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
                   value: quay.io/openshift-hive/hive@sha256:d10e08dd2a6e6e63ed007d9c03ad07754411af2abfcf07c27878208d91fdc8db
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
@@ -1284,7 +1284,7 @@ spec:
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_OPERATOR
                   value: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:8461ae8251e744f9504ccb866abfdb45c59158665efcc6f298106ff60fa751d2
                 - name: OPERAND_IMAGE_KUBE_RBAC_PROXY
-                  value: quay.io/open-cluster-management/kube-rbac-proxy@sha256:023ba01640ba74f0f67088eceec6b87d76028d351c6981ecf6007b7a31ab1603
+                  value: quay.io/open-cluster-management/kube-rbac-proxy@sha256:548805136c5b03834f130de09e227a6ecfc983c973778cbddedaedc583a7a2e6
                 - name: OPERAND_IMAGE_KUBE_STATE_METRICS
                   value: quay.io/open-cluster-management/kube-state-metrics@sha256:47cb7bb81d85b7dae8370c54df36947dae587a6591f05d4c3118d82fa596c04c
                 - name: OPERAND_IMAGE_MANAGEDCLUSTER_IMPORT_CONTROLLER
@@ -1639,7 +1639,7 @@ spec:
   - name: helloprow_go
     image: quay.io/open-cluster-management/helloprow-go@sha256:3d79bf6936c57c2efaf8be88c75baea5b8e64fe9f5855ef64294682e4d3b15b6
   - name: helloworld
-    image: quay.io/open-cluster-management/helloworld@sha256:20ad0d13b81ff899959046a665b3660d506a9e327ca45f4dae48f51331600a65
+    image: quay.io/open-cluster-management/helloworld@sha256:20d820dc44128927e6316028a1c4f1b1b9a4b6b25dea673a0996f33a2d63e8d3
   - name: openshift_hive
     image: quay.io/openshift-hive/hive@sha256:d10e08dd2a6e6e63ed007d9c03ad07754411af2abfcf07c27878208d91fdc8db
   - name: iam_policy_controller
@@ -1653,7 +1653,7 @@ spec:
   - name: klusterlet_addon_operator
     image: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:8461ae8251e744f9504ccb866abfdb45c59158665efcc6f298106ff60fa751d2
   - name: kube_rbac_proxy
-    image: quay.io/open-cluster-management/kube-rbac-proxy@sha256:023ba01640ba74f0f67088eceec6b87d76028d351c6981ecf6007b7a31ab1603
+    image: quay.io/open-cluster-management/kube-rbac-proxy@sha256:548805136c5b03834f130de09e227a6ecfc983c973778cbddedaedc583a7a2e6
   - name: kube_state_metrics
     image: quay.io/open-cluster-management/kube-state-metrics@sha256:47cb7bb81d85b7dae8370c54df36947dae587a6591f05d4c3118d82fa596c04c
   - name: managedcluster_import_controller
