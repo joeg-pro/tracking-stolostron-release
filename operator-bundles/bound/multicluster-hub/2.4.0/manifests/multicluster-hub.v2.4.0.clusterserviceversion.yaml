@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-08-31T09:30:38Z'
+    createdAt: '2021-08-31T11:31:34Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1288,7 +1289,7 @@ spec:
                 - name: OPERAND_IMAGE_KUBE_STATE_METRICS
                   value: quay.io/open-cluster-management/kube-state-metrics@sha256:44d1cb0cd8b9a0ab627e0a0eed2f519a9ef19ccef3d399da05d211388868971f
                 - name: OPERAND_IMAGE_MANAGEDCLUSTER_IMPORT_CONTROLLER
-                  value: quay.io/open-cluster-management/managedcluster-import-controller@sha256:a60d686829017d268233be7fe16bc32cfcdc6f06e936cc4a6769149480ee79df
+                  value: quay.io/open-cluster-management/managedcluster-import-controller@sha256:35202cbf25f5dfccca68a27f5420d31e49679854ae146104001867c5679d2b6e
                 - name: OPERAND_IMAGE_MANAGEMENT_INGRESS
                   value: quay.io/open-cluster-management/management-ingress@sha256:b4d78ae8f7980d751c5367714ff0d7ee101b1395087f347c672f281b1d9c618a
                 - name: OPERAND_IMAGE_METRICS_COLLECTOR
@@ -1657,7 +1658,7 @@ spec:
   - name: kube_state_metrics
     image: quay.io/open-cluster-management/kube-state-metrics@sha256:44d1cb0cd8b9a0ab627e0a0eed2f519a9ef19ccef3d399da05d211388868971f
   - name: managedcluster_import_controller
-    image: quay.io/open-cluster-management/managedcluster-import-controller@sha256:a60d686829017d268233be7fe16bc32cfcdc6f06e936cc4a6769149480ee79df
+    image: quay.io/open-cluster-management/managedcluster-import-controller@sha256:35202cbf25f5dfccca68a27f5420d31e49679854ae146104001867c5679d2b6e
   - name: management_ingress
     image: quay.io/open-cluster-management/management-ingress@sha256:b4d78ae8f7980d751c5367714ff0d7ee101b1395087f347c672f281b1d9c618a
   - name: metrics_collector
