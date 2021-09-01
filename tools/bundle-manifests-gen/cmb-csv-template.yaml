@@ -9,24 +9,23 @@ metadata:
     support: Red Hat
     createdAt: "*Insert* eg: 2021-07-06T17:00:00Z>"
     description: Foundational components for central management of multiple OpenShift and Kubernetes clusters
-    operatorframework.io/suggested-namespace: cluster-management-backplane
-    operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
-       "kind":"ClusterManagementBackplane","metadata":{"name":"backplane","namespace":"cluster-management-backplane"},
+    operatorframework.io/suggested-namespace: multicluster-engine
+    operatorframework.io/initialization-resource: '{"apiVersion":"multicluster.openshift.io/v1alpha1",
+       "kind":"MultiClusterEngine","metadata":{"name":"engine","namespace":"multicluster-engine"},
        "spec": {}}'
-    operators.openshift.io/infrastructure-features: '["Disconnected"]'
-  name: "*Insert* eg: cluster-management-backplane.v1.0.0"
+  name: "*Insert* eg: multicluster-engine.v1.0.0"
   namespace: placeholder
 spec:
-  displayName: Openshift Cluster Management Backplane
+  displayName: Multicluster Engine
   version: "*Insert* eg: 1.0.0"
-  replaces: "*Insert* eg: cluster-management-backplane.v1.0.0"
+  replaces: "*Insert* eg: multicluster-engine.v1.0.0"
   provider:
     name: Red Hat
   maintainers:
   - email: cmb-contact@redhat.com
     name: Red Hat
   maturity: stable
-  description: 'Openshift Cluster Management Backplane provides the foundational
+  description: 'Multicluster Engine provides the foundational
     components necessary for managing multiple Kubernetes-based clusters
     across data centers, public clouds, and private clouds.
     '
@@ -36,13 +35,13 @@ spec:
     mediatype: image/svg+xml
   keywords: "*Merge* to Set"
   labels:
-    app: cluster-management-backplane
+    app: multicluster-engine
   links:
   - name: Documentation
-    url: https://access.redhat.com/documentation/en-us/cluster-management-backplane/1.0/
+    url: https://access.redhat.com/documentation/en-us/multicluster-engine/1.0/
   selector:
     matchLabels:
-      app: cluster-management-backplane
+      app: multicluster-engine
   installModes:
   - supported: true
     type: OwnNamespace

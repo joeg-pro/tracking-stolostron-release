@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Generates bound Cloud Management Backplane bundle.
+# Generates bound Multicloud Engine bundle.
 #
 # Args:
 #
@@ -20,8 +20,8 @@
 # $3 = Explicit default-channel name, overrides any automatic determination or
 #      management of same.
 #
-# Source pkg:  this_repo/operator-bundles/unbound/cluster-management-backplane
-# Output pkg:  this_repo/operator-bundles/bound/cluster-management-backplane
+# Source pkg:  this_repo/operator-bundles/unbound/multicluster-engine
+# Output pkg:  this_repo/operator-bundles/bound/multicluster-engine
 #
 # Also needs:  The build's image manifest file in this_repo/image-manifests.
 #
@@ -33,7 +33,7 @@ my_dir=$(dirname $(readlink -f $0))
 source $my_dir/bundle-common.bash
 # top_of_repo is set as side effect of above source'ing.
 
-pkg_name="cluster-management-backplane"
+pkg_name="multicluster-engine"
 release_channel_prefix="stable"
 candidate_channel_prefix="candidate"
 

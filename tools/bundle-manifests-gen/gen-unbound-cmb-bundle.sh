@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # This script generates the unbound operator bundle (manifests) for the productized
-# Cluster Management Backplane operator bundle by generating and merging the individual
+# Multicluster Engine operator bundle by generating and merging the individual
 # source operator bundles (manifests) that contribute to the final bundle.
 #
 # The resulting operator bundle manifests will then be be input to building and
@@ -26,7 +26,7 @@ source $my_dir/bundle-common.bash
 github="https://$GITHUB_USER:$GITHUB_TOKEN@github.com"
 tmp_root="/tmp/cmb-operator-bundle"
 
-pkg_name="cluster-management-backplane"
+pkg_name="multicluster-engine"
 csv_template="$my_dir/cmb-csv-template.yaml"
 
 # The CSV version and previous CSV version are not really important un the unbound bundle
