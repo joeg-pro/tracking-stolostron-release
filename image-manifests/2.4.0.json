@@ -138,6 +138,17 @@
     "image-key": "cluster_proxy_addon"
   },
   {
+    "image-name": "clusterclaims-controller",
+    "image-version": "2.4.0",
+    "image-tag": "2.4.0-280a2e731edf955020ce4e8806c3c237f8a30a2e",
+    "git-sha256": "280a2e731edf955020ce4e8806c3c237f8a30a2e",
+    "git-repository": "open-cluster-management/clusterclaims-controller",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
+    "image-digest": "sha256:10871097a00ff6c742e77af2ec68a500a11ce20e04d2e14fa7f6664db4015328",
+    "image-key": "clusterclaims_controller"
+  },
+  {
     "image-name": "clusterlifecycle-state-metrics",
     "image-version": "2.4.0",
     "image-tag": "2.4.0-62333090b6ab6a29d83660eca484e1a69f6c824e",
@@ -348,11 +359,11 @@
   {
     "image-name": "helloworld",
     "image-version": "1.0.1",
-    "image-tag": "1.0.1-3f9ca0574c4df896f2bf2a37846a62a1a50003d8",
-    "git-sha256": "3f9ca0574c4df896f2bf2a37846a62a1a50003d8",
+    "image-tag": "1.0.1-7c62ee788f05852638e5f6953e107b6185f3eadd",
+    "git-sha256": "7c62ee788f05852638e5f6953e107b6185f3eadd",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:a495a06a77c8741c01866bfbce17d8b53b10aa11191e98e6f3f8d1a7bb745214",
+    "image-digest": "sha256:2f747755c341149d3420aa437f4d357e52810b9c8c30c07564ffa7c4088dc50a",
     "image-key": "helloworld"
   },
   {
