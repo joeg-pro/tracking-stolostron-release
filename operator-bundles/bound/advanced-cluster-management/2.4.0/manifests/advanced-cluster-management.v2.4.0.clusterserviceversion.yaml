@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-09-02T13:53:19Z'
+    createdAt: '2021-09-02T14:38:25Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware"]'
-    operators.operatorframework.io/internal-objects: '["machinepoolnameleases.hive.openshift.io", "clusterstates.hive.openshift.io",
-      "checkpoints.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "clustersyncs.hiveinternal.openshift.io",
-      "observatoria.core.observatorium.io", "fakeclusterinstalls.hiveinternal.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
-      "clusterdeprovisions.hive.openshift.io", "clusterprovisions.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["clusterdeprovisions.hive.openshift.io", "machinepoolnameleases.hive.openshift.io",
+      "observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io",
+      "clusterprovisions.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
+      "clustersyncs.hiveinternal.openshift.io", "clusterstates.hive.openshift.io", "checkpoints.hive.openshift.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1815,7 +1815,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_UI
                   value: quay.io/open-cluster-management/search-ui@sha256:415d0df20a85c803c8dcabae4c42c609df68835fdf53f27526f20349175f3fb0
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
-                  value: quay.io/open-cluster-management/submariner-addon@sha256:a4c7cbaa1989a6a288281e98c428bdbc3c481e7cfef42dc81213912098dbed55
+                  value: quay.io/open-cluster-management/submariner-addon@sha256:b5f67c17caea4934b49315441c8a7d2491bb8399c7893bd8661b1e1646e49305
                 - name: OPERAND_IMAGE_THANOS
                   value: quay.io/open-cluster-management/thanos@sha256:165a56abf18d2b1b9bdf6e4d74e003cf5247e5c1bcaf1221eb8d70320aa9cb6c
                 - name: OPERAND_IMAGE_VOLSYNC
@@ -2012,7 +2012,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.name
-                image: quay.io/open-cluster-management/submariner-addon@sha256:a4c7cbaa1989a6a288281e98c428bdbc3c481e7cfef42dc81213912098dbed55
+                image: quay.io/open-cluster-management/submariner-addon@sha256:b5f67c17caea4934b49315441c8a7d2491bb8399c7893bd8661b1e1646e49305
                 livenessProbe:
                   httpGet:
                     path: /healthz
