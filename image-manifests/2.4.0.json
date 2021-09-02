@@ -359,11 +359,11 @@
   {
     "image-name": "helloworld",
     "image-version": "1.0.1",
-    "image-tag": "1.0.1-7c62ee788f05852638e5f6953e107b6185f3eadd",
-    "git-sha256": "7c62ee788f05852638e5f6953e107b6185f3eadd",
+    "image-tag": "1.0.1-01faef3cd5e3da212244f6ffad82aa1041d4926f",
+    "git-sha256": "01faef3cd5e3da212244f6ffad82aa1041d4926f",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:2f747755c341149d3420aa437f4d357e52810b9c8c30c07564ffa7c4088dc50a",
+    "image-digest": "sha256:6fc1f52ac1390f4f1a88355c3dfab7aaad02f8c72bbb51faaf89cb400fa5e6f2",
     "image-key": "helloworld"
   },
   {
@@ -861,6 +861,36 @@
     "image-remote": "quay.io/backube",
     "image-digest": "sha256:b2e380c116949e11140ef793b774cae2f70efc6f5b02e027382d1b60d28c3447",
     "image-key": "volsync"
+  },
+  {
+    "image-name": "volsync-mover-rclone",
+    "image-version": "ocm-2.4",
+    "image-tag": "ocm-2.4",
+    "git-sha256": "f5276e8673f988e7af49f1a7cd8080547ad48799",
+    "git-repository": "backube/volsync",
+    "image-remote": "quay.io/backube",
+    "image-digest": "sha256:a578e765041eac29d41aebbdb8488b07bb05dd76249b480c6bc5e7dc421062ff",
+    "image-key": "volsync_mover_rclone"
+  },
+  {
+    "image-name": "volsync-mover-restic",
+    "image-version": "ocm-2.4",
+    "image-tag": "ocm-2.4",
+    "git-sha256": "f5276e8673f988e7af49f1a7cd8080547ad48799",
+    "git-repository": "backube/volsync",
+    "image-remote": "quay.io/backube",
+    "image-digest": "sha256:2cd14cd84f9d85fe814a76ae035ab56e2231b26c153a379325257427c14b1320",
+    "image-key": "volsync_mover_restic"
+  },
+  {
+    "image-name": "volsync-mover-rsync",
+    "image-version": "ocm-2.4",
+    "image-tag": "ocm-2.4",
+    "git-sha256": "f5276e8673f988e7af49f1a7cd8080547ad48799",
+    "git-repository": "backube/volsync",
+    "image-remote": "quay.io/backube",
+    "image-digest": "sha256:f3f6cb9307284a0d4146bf3b66d3d3426859b50807aae11776750eced2492b8f",
+    "image-key": "volsync_mover_rsync"
   },
   {
     "image-name": "work",
