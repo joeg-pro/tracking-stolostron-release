@@ -25,7 +25,7 @@ source "$my_dir/bundle-common.bash"
 # Sets top_of_repo
 
 default_bundle_repo="cmb-operator-bundle"
-input_bundle_manifests_spot="$top_of_repo/operator-bundles/bound/cluster-management-backplane"
+input_bundle_manifests_spot="$top_of_repo/operator-bundles/bound/multicluster-engine"
 default_image_rgy_and_ns=${OCM_BUILD_IMAGE_RGY_AND_NS:-quay.io/open-cluster-management}
 
 $my_dir/gen-bundle-image.sh \
