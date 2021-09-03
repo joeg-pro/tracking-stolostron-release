@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-02T21:50:54Z'
+    createdAt: '2021-09-03T01:09:51Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1227,7 +1227,7 @@ spec:
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
                   value: quay.io/open-cluster-management/cert-policy-controller@sha256:7770bc107c14f858786a20b11baf7bb1c79f1729fe951f2741dc958dea530689
                 - name: OPERAND_IMAGE_CLUSTER_BACKUP_CONTROLLER
-                  value: quay.io/open-cluster-management/cluster-backup-controller@sha256:4facd03f4241766a41b4d97ee3638dc9b8b61c663b589652fbece2105ea00fc6
+                  value: quay.io/open-cluster-management/cluster-backup-controller@sha256:f17ca8ef60528f1b1b7cba894e3df73c2853702ede4d275aaaa98bda4dbc91cf
                 - name: OPERAND_IMAGE_CLUSTER_CURATOR_CONTROLLER
                   value: quay.io/open-cluster-management/cluster-curator-controller@sha256:e08f0f17e2075cc57ea9d1bd41ae9912e3376edad2189999df878cc0ddc58272
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
@@ -1606,7 +1606,7 @@ spec:
   - name: cert_policy_controller
     image: quay.io/open-cluster-management/cert-policy-controller@sha256:7770bc107c14f858786a20b11baf7bb1c79f1729fe951f2741dc958dea530689
   - name: cluster_backup_controller
-    image: quay.io/open-cluster-management/cluster-backup-controller@sha256:4facd03f4241766a41b4d97ee3638dc9b8b61c663b589652fbece2105ea00fc6
+    image: quay.io/open-cluster-management/cluster-backup-controller@sha256:f17ca8ef60528f1b1b7cba894e3df73c2853702ede4d275aaaa98bda4dbc91cf
   - name: cluster_curator_controller
     image: quay.io/open-cluster-management/cluster-curator-controller@sha256:e08f0f17e2075cc57ea9d1bd41ae9912e3376edad2189999df878cc0ddc58272
   - name: cluster_lifecycle_e2e
