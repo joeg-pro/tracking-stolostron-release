@@ -630,12 +630,12 @@
   {
     "image-name": "observability-e2e-test",
     "image-version": "2.4",
-    "image-tag": "2.4-6bd9da46a94cb590bf5c5d0a49a5d958420bc4c4",
-    "git-sha256": "6bd9da46a94cb590bf5c5d0a49a5d958420bc4c4",
+    "image-tag": "2.4-ee1eb295ee512971d72dfb496b9d274fc21cee9b",
+    "git-sha256": "ee1eb295ee512971d72dfb496b9d274fc21cee9b",
     "git-repository": "open-cluster-management/multicluster-observability-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:f80064c4b17c8f6b0ce9a69e9f5803b9fcc21129b94231cd06cee81262a75838",
+    "image-digest": "sha256:59ccb3477a2139fc40f129a5072bfd850f89f09033fd68c7d9fdcee66c0af3a1",
     "image-key": "observability_e2e_test"
   },
   {
@@ -833,12 +833,12 @@
   {
     "image-name": "submariner-addon",
     "image-version": "0.5.0",
-    "image-tag": "0.5.0-8b0c82993cd7979e73dd47006a6c14dc7c6a81e5",
-    "git-sha256": "8b0c82993cd7979e73dd47006a6c14dc7c6a81e5",
+    "image-tag": "0.5.0-6760956eb565ac9eafc10a9fff58bb7fd9676ea0",
+    "git-sha256": "6760956eb565ac9eafc10a9fff58bb7fd9676ea0",
     "git-repository": "open-cluster-management/submariner-addon",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:b5f67c17caea4934b49315441c8a7d2491bb8399c7893bd8661b1e1646e49305",
+    "image-digest": "sha256:c7b1d160b6aa4143eae985abe380a01d0b75de9fd644676c1ea336a54ce88060",
     "image-key": "submariner_addon"
   },
   {
