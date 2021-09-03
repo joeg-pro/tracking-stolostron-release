@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-09-03T16:59:00Z'
+    createdAt: '2021-09-03T18:55:35Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "checkpoints.hive.openshift.io", "clusterprovisions.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
-      "observatoria.core.observatorium.io", "clustersyncs.hiveinternal.openshift.io", "clusterstates.hive.openshift.io",
-      "clusterdeprovisions.hive.openshift.io", "machinepoolnameleases.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "clusterstates.hive.openshift.io",
+      "machinepoolnameleases.hive.openshift.io", "clusterdeprovisions.hive.openshift.io", "clusterprovisions.hive.openshift.io",
+      "clustersyncs.hiveinternal.openshift.io", "checkpoints.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io",
+      "observabilityaddons.observability.open-cluster-management.io", "fakeclusterinstalls.hiveinternal.openshift.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1695,7 +1695,7 @@ spec:
                 - name: OPERAND_IMAGE_CONSOLE
                   value: quay.io/open-cluster-management/console@sha256:a9ce032c2d7f449d666e2faea3caadd1ff9fb53c46c62936361192e30405f218
                 - name: OPERAND_IMAGE_CONSOLE_API
-                  value: quay.io/open-cluster-management/console-api@sha256:635f01161ef8c500336abf3411a1fdab40a4fe199904d27ad5390861bec9e687
+                  value: quay.io/open-cluster-management/console-api@sha256:48000cc5c1bac4ff67815fc7f5f44184a40e3d18ca5c24bd2f2e13b4f270652c
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
                   value: quay.io/open-cluster-management/discovery-operator@sha256:9887c12d522e3f0aceb74d6f3b53622a9cc2eb4b09bb3f69bee3336cb08fc975
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR_TESTS
@@ -2618,7 +2618,7 @@ spec:
   - name: console
     image: quay.io/open-cluster-management/console@sha256:a9ce032c2d7f449d666e2faea3caadd1ff9fb53c46c62936361192e30405f218
   - name: console_api
-    image: quay.io/open-cluster-management/console-api@sha256:635f01161ef8c500336abf3411a1fdab40a4fe199904d27ad5390861bec9e687
+    image: quay.io/open-cluster-management/console-api@sha256:48000cc5c1bac4ff67815fc7f5f44184a40e3d18ca5c24bd2f2e13b4f270652c
   - name: discovery_operator
     image: quay.io/open-cluster-management/discovery-operator@sha256:9887c12d522e3f0aceb74d6f3b53622a9cc2eb4b09bb3f69bee3336cb08fc975
   - name: discovery_operator_tests
