@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-06T02:38:21Z'
+    createdAt: '2021-09-06T03:13:57Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1294,7 +1294,7 @@ spec:
                 - name: OPERAND_IMAGE_MANAGEDCLUSTER_IMPORT_CONTROLLER
                   value: quay.io/open-cluster-management/managedcluster-import-controller@sha256:7e192cebbe55c0c42bc422a88d31130168b67980505d3fed44f9c944a7c42d2f
                 - name: OPERAND_IMAGE_MANAGEMENT_INGRESS
-                  value: quay.io/open-cluster-management/management-ingress@sha256:b4d78ae8f7980d751c5367714ff0d7ee101b1395087f347c672f281b1d9c618a
+                  value: quay.io/open-cluster-management/management-ingress@sha256:60b4387ef1dfe765cbe870aac84de866dacf1451bb38ee1d6792b0ef6165d2bb
                 - name: OPERAND_IMAGE_METRICS_COLLECTOR
                   value: quay.io/open-cluster-management/metrics-collector@sha256:7c3c3b2d7e6c87a356afe2f98005fd25011be79b7b6729921491909eddd4b347
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
@@ -1673,7 +1673,7 @@ spec:
   - name: managedcluster_import_controller
     image: quay.io/open-cluster-management/managedcluster-import-controller@sha256:7e192cebbe55c0c42bc422a88d31130168b67980505d3fed44f9c944a7c42d2f
   - name: management_ingress
-    image: quay.io/open-cluster-management/management-ingress@sha256:b4d78ae8f7980d751c5367714ff0d7ee101b1395087f347c672f281b1d9c618a
+    image: quay.io/open-cluster-management/management-ingress@sha256:60b4387ef1dfe765cbe870aac84de866dacf1451bb38ee1d6792b0ef6165d2bb
   - name: metrics_collector
     image: quay.io/open-cluster-management/metrics-collector@sha256:7c3c3b2d7e6c87a356afe2f98005fd25011be79b7b6729921491909eddd4b347
   - name: multicloud_manager
