@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-09-06T15:12:07Z'
+    createdAt: '2021-09-06T16:45:33Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -35,9 +35,9 @@ metadata:
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware"]'
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "clusterprovisions.hive.openshift.io", "checkpoints.hive.openshift.io", "clusterstates.hive.openshift.io",
-      "observatoria.core.observatorium.io", "clusterdeprovisions.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
-      "machinepoolnameleases.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "clustersyncleases.hiveinternal.openshift.io"]'
+      "checkpoints.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "machinepoolnameleases.hive.openshift.io",
+      "clusterprovisions.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "observatoria.core.observatorium.io",
+      "clusterdeprovisions.hive.openshift.io", "clusterstates.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io"]'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
   labels:
