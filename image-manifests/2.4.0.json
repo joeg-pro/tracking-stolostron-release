@@ -359,11 +359,11 @@
   {
     "image-name": "helloworld",
     "image-version": "1.0.1",
-    "image-tag": "1.0.1-01faef3cd5e3da212244f6ffad82aa1041d4926f",
-    "git-sha256": "01faef3cd5e3da212244f6ffad82aa1041d4926f",
+    "image-tag": "1.0.1-a99e58bdcee79530b9c6c92483b07a7c866a7369",
+    "git-sha256": "a99e58bdcee79530b9c6c92483b07a7c866a7369",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:6fc1f52ac1390f4f1a88355c3dfab7aaad02f8c72bbb51faaf89cb400fa5e6f2",
+    "image-digest": "sha256:38612080f2705724bc207f5c4476f880d0bd9cc10f4189095908042e5574ea8d",
     "image-key": "helloworld"
   },
   {
@@ -543,23 +543,23 @@
   {
     "image-name": "multicluster-operators-placementrule",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-1ebf041daa0db750d311c08a3ce0b29786ac0ac4",
-    "git-sha256": "1ebf041daa0db750d311c08a3ce0b29786ac0ac4",
+    "image-tag": "2.4.0-95e830fdea41382aa9d710b5cee83e6c3ae847ab",
+    "git-sha256": "95e830fdea41382aa9d710b5cee83e6c3ae847ab",
     "git-repository": "open-cluster-management/multicloud-operators-placementrule",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:d910a3a05aa3b405e8bdddb88773a976a89b985741f97de99d17079aa8ae2f9c",
+    "image-digest": "sha256:4b89ce8c3aea9a4963fb30feb38add16eed72d3bb0f4ca9a391fc7e72e80220d",
     "image-key": "multicluster_operators_placementrule"
   },
   {
     "image-name": "multicluster-operators-subscription",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-c2483888ae089cae6bd66dec13afa19d254442c7",
-    "git-sha256": "c2483888ae089cae6bd66dec13afa19d254442c7",
+    "image-tag": "2.4.0-0ca2780f4c51ab8a69534e2d5144c75216a6f24e",
+    "git-sha256": "0ca2780f4c51ab8a69534e2d5144c75216a6f24e",
     "git-repository": "open-cluster-management/multicloud-operators-subscription",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:fda0f430ac340fb594cade12378e303ce5079d6b46d03d61d248952d9d715917",
+    "image-digest": "sha256:7deba23603f56ea619681c1a4be01603fa83064909e0ecee65493c26b02a4a8b",
     "image-key": "multicluster_operators_subscription"
   },
   {
