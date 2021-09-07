@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-06T16:46:08Z'
+    createdAt: '2021-09-07T01:45:28Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1305,7 +1306,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
                   value: quay.io/open-cluster-management/multicloud-manager@sha256:41dc3b9a333223374f9473d6e8d03bdfe9e81788045fea33208e1328c109b98a
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
-                  value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:b54d94fc9b78159fb5ab8380191fe3188f246accd646abcd44cc2fe49eb29a22
+                  value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:a799f441ef18704b5544f372f72c0ffc02c9a15a4978f8b054beb881dae0edaf
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
                   value: quay.io/open-cluster-management/multicluster-operators-application@sha256:663f95e5d2e5a76cf6496c13748634cc8e68fc67ee1fa935272bb0f0632342c7
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
@@ -1327,7 +1328,7 @@ spec:
                 - name: OPERAND_IMAGE_MUST_GATHER
                   value: quay.io/open-cluster-management/must-gather@sha256:4d5441585666d51adec487c24eeb8a9dc380c9d81daa06933f83f23a9ed02b8b
                 - name: OPERAND_IMAGE_NODE_EXPORTER
-                  value: quay.io/open-cluster-management/node-exporter@sha256:00ad09f8ca00f856d6e3e122dfe73404521c25066526b33f8447b2785b729dd2
+                  value: quay.io/open-cluster-management/node-exporter@sha256:fa2dede7e52505fc8c3fdaecf126b3aa0d8587830a6502e56c880582e716333e
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
                   value: quay.io/open-cluster-management/observability-e2e-test@sha256:2a9f0d3cba0fe257641e4a5f3612a356059ff5b22b78a1f627254cfab8ef3603
                 - name: OPERAND_IMAGE_OBSERVATORIUM
@@ -1343,7 +1344,7 @@ spec:
                 - name: OPERAND_IMAGE_PROMETHEUS
                   value: quay.io/open-cluster-management/prometheus@sha256:5f2b766d575f09586b4844dee6eca62c29483cbc8e93e3a328e6226d52e40de5
                 - name: OPERAND_IMAGE_PROMETHEUS_ALERTMANAGER
-                  value: quay.io/open-cluster-management/prometheus-alertmanager@sha256:e9d26fa484a10d5aec9ec95a00ca2571de57fb49875ebbe2bbe15f50910c2885
+                  value: quay.io/open-cluster-management/prometheus-alertmanager@sha256:ac646a2dad67a680c1cecccc48fc81d4dd5b4d4197dc1e4e80acef8e5024107f
                 - name: OPERAND_IMAGE_PROVIDER_CREDENTIAL_CONTROLLER
                   value: quay.io/open-cluster-management/provider-credential-controller@sha256:7f6666ce2b001e5b19bdc99276b83d9c7f17980428224fd4344239e88aff1432
                 - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
@@ -1369,7 +1370,7 @@ spec:
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
                   value: quay.io/open-cluster-management/submariner-addon@sha256:5e02871ea02b2373f054f7b54c02c59b35013317f89c0c340cda6c93a6cf41f1
                 - name: OPERAND_IMAGE_THANOS
-                  value: quay.io/open-cluster-management/thanos@sha256:165a56abf18d2b1b9bdf6e4d74e003cf5247e5c1bcaf1221eb8d70320aa9cb6c
+                  value: quay.io/open-cluster-management/thanos@sha256:303783c6eef1631e070397a6fa72db43f32c81305fd9e6138743aa56d1ac6b51
                 - name: OPERAND_IMAGE_VOLSYNC
                   value: quay.io/backube/volsync@sha256:b2e380c116949e11140ef793b774cae2f70efc6f5b02e027382d1b60d28c3447
                 - name: OPERAND_IMAGE_VOLSYNC_MOVER_RCLONE
@@ -1508,7 +1509,7 @@ spec:
                   value: /usr/local/manifests
                 - name: SPOKE_NAMESPACE
                   value: open-cluster-management-addon-observability
-                image: quay.io/open-cluster-management/multicluster-observability-operator@sha256:b54d94fc9b78159fb5ab8380191fe3188f246accd646abcd44cc2fe49eb29a22
+                image: quay.io/open-cluster-management/multicluster-observability-operator@sha256:a799f441ef18704b5544f372f72c0ffc02c9a15a4978f8b054beb881dae0edaf
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -1702,7 +1703,7 @@ spec:
   - name: must_gather
     image: quay.io/open-cluster-management/must-gather@sha256:4d5441585666d51adec487c24eeb8a9dc380c9d81daa06933f83f23a9ed02b8b
   - name: node_exporter
-    image: quay.io/open-cluster-management/node-exporter@sha256:00ad09f8ca00f856d6e3e122dfe73404521c25066526b33f8447b2785b729dd2
+    image: quay.io/open-cluster-management/node-exporter@sha256:fa2dede7e52505fc8c3fdaecf126b3aa0d8587830a6502e56c880582e716333e
   - name: observability_e2e_test
     image: quay.io/open-cluster-management/observability-e2e-test@sha256:2a9f0d3cba0fe257641e4a5f3612a356059ff5b22b78a1f627254cfab8ef3603
   - name: observatorium
@@ -1718,7 +1719,7 @@ spec:
   - name: prometheus
     image: quay.io/open-cluster-management/prometheus@sha256:5f2b766d575f09586b4844dee6eca62c29483cbc8e93e3a328e6226d52e40de5
   - name: prometheus_alertmanager
-    image: quay.io/open-cluster-management/prometheus-alertmanager@sha256:e9d26fa484a10d5aec9ec95a00ca2571de57fb49875ebbe2bbe15f50910c2885
+    image: quay.io/open-cluster-management/prometheus-alertmanager@sha256:ac646a2dad67a680c1cecccc48fc81d4dd5b4d4197dc1e4e80acef8e5024107f
   - name: provider_credential_controller
     image: quay.io/open-cluster-management/provider-credential-controller@sha256:7f6666ce2b001e5b19bdc99276b83d9c7f17980428224fd4344239e88aff1432
   - name: rbac_query_proxy
@@ -1740,7 +1741,7 @@ spec:
   - name: search_ui
     image: quay.io/open-cluster-management/search-ui@sha256:415d0df20a85c803c8dcabae4c42c609df68835fdf53f27526f20349175f3fb0
   - name: thanos
-    image: quay.io/open-cluster-management/thanos@sha256:165a56abf18d2b1b9bdf6e4d74e003cf5247e5c1bcaf1221eb8d70320aa9cb6c
+    image: quay.io/open-cluster-management/thanos@sha256:303783c6eef1631e070397a6fa72db43f32c81305fd9e6138743aa56d1ac6b51
   - name: volsync
     image: quay.io/backube/volsync@sha256:b2e380c116949e11140ef793b774cae2f70efc6f5b02e027382d1b60d28c3447
   - name: volsync_mover_rclone
