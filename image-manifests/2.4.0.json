@@ -2,12 +2,12 @@
   {
     "image-name": "application-ui",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-dc27ae71c90fa4f085627f05769e163c52c45ea3",
-    "git-sha256": "dc27ae71c90fa4f085627f05769e163c52c45ea3",
+    "image-tag": "2.4.0-99828d8f451c20ad8d3608b2b7e5cfb32cadcdfc",
+    "git-sha256": "99828d8f451c20ad8d3608b2b7e5cfb32cadcdfc",
     "git-repository": "open-cluster-management/application-ui",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:d514e908a27ed01b9ec136bec342f59e8c443895485f35aa9e071763e05075fd",
+    "image-digest": "sha256:99a2b56d6108c764849ddaab625c47f054fa2b12acad04efd3b5eb38487b1ba1",
     "image-key": "application_ui"
   },
   {
@@ -859,7 +859,7 @@
     "git-sha256": "f5276e8673f988e7af49f1a7cd8080547ad48799",
     "git-repository": "backube/volsync",
     "image-remote": "quay.io/backube",
-    "image-digest": "sha256:b2e380c116949e11140ef793b774cae2f70efc6f5b02e027382d1b60d28c3447",
+    "image-digest": "sha256:d900c7928f0cd30f4a0dc798ac7873a4e821ca3cd1501541ab49f82d7edab641",
     "image-key": "volsync"
   },
   {
@@ -869,7 +869,7 @@
     "git-sha256": "f5276e8673f988e7af49f1a7cd8080547ad48799",
     "git-repository": "backube/volsync",
     "image-remote": "quay.io/backube",
-    "image-digest": "sha256:a578e765041eac29d41aebbdb8488b07bb05dd76249b480c6bc5e7dc421062ff",
+    "image-digest": "sha256:de3f338da186c84d3874072f9e6e41ca729edd6516dd22a62f90f3d2cb287a0d",
     "image-key": "volsync_mover_rclone"
   },
   {
@@ -879,7 +879,7 @@
     "git-sha256": "f5276e8673f988e7af49f1a7cd8080547ad48799",
     "git-repository": "backube/volsync",
     "image-remote": "quay.io/backube",
-    "image-digest": "sha256:2cd14cd84f9d85fe814a76ae035ab56e2231b26c153a379325257427c14b1320",
+    "image-digest": "sha256:b0f01ee1ebc41e68420e464f4565908ceee2b8e5df21b2740b0ce13cec972789",
     "image-key": "volsync_mover_restic"
   },
   {
@@ -889,7 +889,7 @@
     "git-sha256": "f5276e8673f988e7af49f1a7cd8080547ad48799",
     "git-repository": "backube/volsync",
     "image-remote": "quay.io/backube",
-    "image-digest": "sha256:f3f6cb9307284a0d4146bf3b66d3d3426859b50807aae11776750eced2492b8f",
+    "image-digest": "sha256:f7bace24e5830325211a8a384f3fb8ecadaa12118bcf232c058bf4e1494acc29",
     "image-key": "volsync_mover_rsync"
   },
   {
