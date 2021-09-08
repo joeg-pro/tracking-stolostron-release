@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-08T19:18:30Z'
+    createdAt: '2021-09-08T20:18:39Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1214,9 +1214,9 @@ spec:
                     fieldRef:
                       fieldPath: metadata.namespace
                 - name: OPERAND_IMAGE_APPLICATION_UI
-                  value: quay.io/open-cluster-management/application-ui@sha256:99a2b56d6108c764849ddaab625c47f054fa2b12acad04efd3b5eb38487b1ba1
+                  value: quay.io/open-cluster-management/application-ui@sha256:5e56dde545ce24c8bc5b0e7918b0739dd9f6619f611dae42795c89d5875d1ae7
                 - name: OPERAND_IMAGE_APPLICATION_UI_TESTS
-                  value: quay.io/open-cluster-management/application-ui-tests@sha256:3f0315e4faf2772358e962ade920696387bbbe6ea1a9dc1532640d4207f0d458
+                  value: quay.io/open-cluster-management/application-ui-tests@sha256:c802ee121ee9daf055ab80a58734d5d8b52ca92fa003d745b014043f62e5ca5e
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
                   value: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:fee14e5a803fb72ada1b8d3b583c985c9c2358817c319e99c75e5e322cedc9ba
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER
@@ -1292,7 +1292,7 @@ spec:
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_CONTROLLER
                   value: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:330d4e090ca0a200166ac5724186c990af504283559b3a833dba6a16023682ac
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_OPERATOR
-                  value: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:8461ae8251e744f9504ccb866abfdb45c59158665efcc6f298106ff60fa751d2
+                  value: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:a0c8b05d0fd514e096f138b22caa4411baa12656e96e19b269ce4b301a87064b
                 - name: OPERAND_IMAGE_KUBE_RBAC_PROXY
                   value: quay.io/open-cluster-management/kube-rbac-proxy@sha256:548805136c5b03834f130de09e227a6ecfc983c973778cbddedaedc583a7a2e6
                 - name: OPERAND_IMAGE_KUBE_STATE_METRICS
@@ -1593,9 +1593,9 @@ spec:
               serviceAccountName: submariner-addon
   relatedImages:
   - name: application_ui
-    image: quay.io/open-cluster-management/application-ui@sha256:99a2b56d6108c764849ddaab625c47f054fa2b12acad04efd3b5eb38487b1ba1
+    image: quay.io/open-cluster-management/application-ui@sha256:5e56dde545ce24c8bc5b0e7918b0739dd9f6619f611dae42795c89d5875d1ae7
   - name: application_ui_tests
-    image: quay.io/open-cluster-management/application-ui-tests@sha256:3f0315e4faf2772358e962ade920696387bbbe6ea1a9dc1532640d4207f0d458
+    image: quay.io/open-cluster-management/application-ui-tests@sha256:c802ee121ee9daf055ab80a58734d5d8b52ca92fa003d745b014043f62e5ca5e
   - name: applifecycle_backend_e2e
     image: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:fee14e5a803fb72ada1b8d3b583c985c9c2358817c319e99c75e5e322cedc9ba
   - name: assisted_installer
@@ -1671,7 +1671,7 @@ spec:
   - name: klusterlet_addon_controller
     image: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:330d4e090ca0a200166ac5724186c990af504283559b3a833dba6a16023682ac
   - name: klusterlet_addon_operator
-    image: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:8461ae8251e744f9504ccb866abfdb45c59158665efcc6f298106ff60fa751d2
+    image: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:a0c8b05d0fd514e096f138b22caa4411baa12656e96e19b269ce4b301a87064b
   - name: kube_rbac_proxy
     image: quay.io/open-cluster-management/kube-rbac-proxy@sha256:548805136c5b03834f130de09e227a6ecfc983c973778cbddedaedc583a7a2e6
   - name: kube_state_metrics
