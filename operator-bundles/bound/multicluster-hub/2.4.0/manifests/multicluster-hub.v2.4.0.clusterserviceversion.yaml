@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-08T19:07:45Z'
+    createdAt: '2021-09-08T19:13:45Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1215,7 +1215,7 @@ spec:
                 - name: OPERAND_IMAGE_APPLICATION_UI
                   value: quay.io/open-cluster-management/application-ui@sha256:99a2b56d6108c764849ddaab625c47f054fa2b12acad04efd3b5eb38487b1ba1
                 - name: OPERAND_IMAGE_APPLICATION_UI_TESTS
-                  value: quay.io/open-cluster-management/application-ui-tests@sha256:09287f4f1f42a713c90b3aeb9f6eaf9d7d59a99c0e0b7c1648cefa005e7b12f6
+                  value: quay.io/open-cluster-management/application-ui-tests@sha256:3f0315e4faf2772358e962ade920696387bbbe6ea1a9dc1532640d4207f0d458
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
                   value: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:fee14e5a803fb72ada1b8d3b583c985c9c2358817c319e99c75e5e322cedc9ba
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER
@@ -1594,7 +1594,7 @@ spec:
   - name: application_ui
     image: quay.io/open-cluster-management/application-ui@sha256:99a2b56d6108c764849ddaab625c47f054fa2b12acad04efd3b5eb38487b1ba1
   - name: application_ui_tests
-    image: quay.io/open-cluster-management/application-ui-tests@sha256:09287f4f1f42a713c90b3aeb9f6eaf9d7d59a99c0e0b7c1648cefa005e7b12f6
+    image: quay.io/open-cluster-management/application-ui-tests@sha256:3f0315e4faf2772358e962ade920696387bbbe6ea1a9dc1532640d4207f0d458
   - name: applifecycle_backend_e2e
     image: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:fee14e5a803fb72ada1b8d3b583c985c9c2358817c319e99c75e5e322cedc9ba
   - name: assisted_installer
