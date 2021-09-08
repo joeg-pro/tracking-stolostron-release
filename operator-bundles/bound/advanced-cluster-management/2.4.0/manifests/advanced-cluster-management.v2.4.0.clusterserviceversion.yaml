@@ -27,18 +27,18 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-09-08T07:04:46Z'
+    createdAt: '2021-09-08T08:34:20Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware"]'
-    operators.operatorframework.io/internal-objects: '["clustersyncleases.hiveinternal.openshift.io",
-      "machinepoolnameleases.hive.openshift.io", "observatoria.core.observatorium.io", "clusterstates.hive.openshift.io",
-      "clustersyncs.hiveinternal.openshift.io", "checkpoints.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "clusterprovisions.hive.openshift.io",
-      "clusterdeprovisions.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["fakeclusterinstalls.hiveinternal.openshift.io",
+      "clusterprovisions.hive.openshift.io", "clusterdeprovisions.hive.openshift.io", "clusterstates.hive.openshift.io",
+      "machinepoolnameleases.hive.openshift.io", "observatoria.core.observatorium.io", "clustersyncleases.hiveinternal.openshift.io",
+      "observabilityaddons.observability.open-cluster-management.io", "clustersyncs.hiveinternal.openshift.io",
+      "checkpoints.hive.openshift.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1807,7 +1807,7 @@ spec:
                 - name: OPERAND_IMAGE_REGISTRATION
                   value: quay.io/open-cluster-management/registration@sha256:6e3c9ea6f8207a8a2e522b980afc1e98a308402da07a0bc978532820b14b6256
                 - name: OPERAND_IMAGE_REGISTRATION_OPERATOR
-                  value: quay.io/open-cluster-management/registration-operator@sha256:475bb7039f0d9fbde00b9bd50c310262e89585340a62db82564c6b2630f12a40
+                  value: quay.io/open-cluster-management/registration-operator@sha256:3c2186b7b4873236e13b5237988f0fa48c9ff9acb1cef7626a2adb5fd773ef0c
                 - name: OPERAND_IMAGE_SEARCH_AGGREGATOR
                   value: quay.io/open-cluster-management/search-aggregator@sha256:245eaef56cfe6ab733227d277b413c25aefaa3fe0bb10180451035e0d0f90670
                 - name: OPERAND_IMAGE_SEARCH_API
@@ -1899,7 +1899,7 @@ spec:
               - args:
                 - /registration-operator
                 - hub
-                image: quay.io/open-cluster-management/registration-operator@sha256:475bb7039f0d9fbde00b9bd50c310262e89585340a62db82564c6b2630f12a40
+                image: quay.io/open-cluster-management/registration-operator@sha256:3c2186b7b4873236e13b5237988f0fa48c9ff9acb1cef7626a2adb5fd773ef0c
                 livenessProbe:
                   httpGet:
                     path: /healthz
