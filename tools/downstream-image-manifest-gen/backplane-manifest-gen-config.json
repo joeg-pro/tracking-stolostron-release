@@ -5,7 +5,7 @@
 
         "image-list": [
             {"acm-component-name": "multicloud_manager",               "build-info-env-var": "MULTICLOUD_MANAGER"},
-            {"acm-component-name": "managedcluster-import-controller", "build-info-env-var": "MANAGEDCLUSTER_IMPORT_CONTROLLER"},
+            {"acm-component-name": "managedcluster_import_controller", "build-info-env-var": "MANAGEDCLUSTER_IMPORT_CONTROLLER"},
             {"acm-component-name": "openshift_hive",                   "build-info-env-var": "OPENSHIFT_HIVE_OPERATOR"},
             {"acm-component-name": "placement",                        "build-info-env-var": "PLACEMENT"},
             {"acm-component-name": "registration",                     "build-info-env-var": "REGISTRATION"},
