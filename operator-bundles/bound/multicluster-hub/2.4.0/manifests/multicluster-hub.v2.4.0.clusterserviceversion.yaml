@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-09T01:51:41Z'
+    createdAt: '2021-09-09T06:19:05Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1269,7 +1269,7 @@ spec:
                 - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
                   value: quay.io/open-cluster-management/grafana-dashboard-loader@sha256:2c774f42f3d1a93140b0b30e50d069aeced596cf1c19a30c133a1521da580ab7
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
-                  value: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:32f64dd32153ec7a2bea5d630254b01a1045bc2863d49838c3fcd6d956dabb0e
+                  value: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:d90e56c5280b96cdecbb80411bb221c621d6ee88c78b3c16c63632945a9fb646
                 - name: OPERAND_IMAGE_GRC_UI
                   value: quay.io/open-cluster-management/grc-ui@sha256:74ef359d56c39ce89d143b7a7c41e7fb56205bbafaa78886dd30c2799c65aa79
                 - name: OPERAND_IMAGE_GRC_UI_API
@@ -1295,7 +1295,7 @@ spec:
                 - name: OPERAND_IMAGE_KUBE_RBAC_PROXY
                   value: quay.io/open-cluster-management/kube-rbac-proxy@sha256:0fc996806a869c0fcd8f5cc2b17055a06eb3c84dc9bd7176839fc634af659cdc
                 - name: OPERAND_IMAGE_KUBE_STATE_METRICS
-                  value: quay.io/open-cluster-management/kube-state-metrics@sha256:47cb7bb81d85b7dae8370c54df36947dae587a6591f05d4c3118d82fa596c04c
+                  value: quay.io/open-cluster-management/kube-state-metrics@sha256:1663eeb958ed9b54fc550461c07b7c49a12b9a627aa15bba838f05766d0909a9
                 - name: OPERAND_IMAGE_MANAGEDCLUSTER_IMPORT_CONTROLLER
                   value: quay.io/open-cluster-management/managedcluster-import-controller@sha256:26fdbbba3606c483bcab14eba33a961eaca398121be1afaf435140bbd49a027a
                 - name: OPERAND_IMAGE_MANAGEMENT_INGRESS
@@ -1327,11 +1327,11 @@ spec:
                 - name: OPERAND_IMAGE_MUST_GATHER
                   value: quay.io/open-cluster-management/must-gather@sha256:4d5441585666d51adec487c24eeb8a9dc380c9d81daa06933f83f23a9ed02b8b
                 - name: OPERAND_IMAGE_NODE_EXPORTER
-                  value: quay.io/open-cluster-management/node-exporter@sha256:fa2dede7e52505fc8c3fdaecf126b3aa0d8587830a6502e56c880582e716333e
+                  value: quay.io/open-cluster-management/node-exporter@sha256:227d7fe8ce6f1d7c5ecba7b8e6e8f7a0117fc78b75fd61f2663b57ba1d30c97f
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
                   value: quay.io/open-cluster-management/observability-e2e-test@sha256:ed32a2df90b7f9aa224f9ba0edbd18f8ab99972aad589f1852afdd5d61cef817
                 - name: OPERAND_IMAGE_OBSERVATORIUM
-                  value: quay.io/open-cluster-management/observatorium@sha256:e81ac588b36d2d469f881ef823822f63afff33e7b1f059569e8403132f918e63
+                  value: quay.io/open-cluster-management/observatorium@sha256:6007aef97ff32d0b586c32a7e77464f594a7b573308a3c2452f746c777f7bd5d
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
                   value: quay.io/open-cluster-management/observatorium-operator@sha256:a66e028f9dd514b0a593f78a3a035379e0445002aa7c7c7fe3832db7bc14b5c9
                 - name: OPERAND_IMAGE_OAUTH_PROXY
@@ -1341,9 +1341,9 @@ spec:
                 - name: OPERAND_IMAGE_POSTGRESQL_12
                   value: quay.io/ocpmetal/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
                 - name: OPERAND_IMAGE_PROMETHEUS
-                  value: quay.io/open-cluster-management/prometheus@sha256:5f2b766d575f09586b4844dee6eca62c29483cbc8e93e3a328e6226d52e40de5
+                  value: quay.io/open-cluster-management/prometheus@sha256:23ee04eb970367eea23407f46597f29514bb93e90aa516d342b6b264e194b13d
                 - name: OPERAND_IMAGE_PROMETHEUS_ALERTMANAGER
-                  value: quay.io/open-cluster-management/prometheus-alertmanager@sha256:ac646a2dad67a680c1cecccc48fc81d4dd5b4d4197dc1e4e80acef8e5024107f
+                  value: quay.io/open-cluster-management/prometheus-alertmanager@sha256:5cff725d1263494daa68f4ddc7af9ebc407bf70e7a1578fdcc3fd3d70bd1a254
                 - name: OPERAND_IMAGE_PROVIDER_CREDENTIAL_CONTROLLER
                   value: quay.io/open-cluster-management/provider-credential-controller@sha256:7f6666ce2b001e5b19bdc99276b83d9c7f17980428224fd4344239e88aff1432
                 - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
@@ -1648,7 +1648,7 @@ spec:
   - name: grafana_dashboard_loader
     image: quay.io/open-cluster-management/grafana-dashboard-loader@sha256:2c774f42f3d1a93140b0b30e50d069aeced596cf1c19a30c133a1521da580ab7
   - name: grc_policy_framework_tests
-    image: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:32f64dd32153ec7a2bea5d630254b01a1045bc2863d49838c3fcd6d956dabb0e
+    image: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:d90e56c5280b96cdecbb80411bb221c621d6ee88c78b3c16c63632945a9fb646
   - name: grc_ui
     image: quay.io/open-cluster-management/grc-ui@sha256:74ef359d56c39ce89d143b7a7c41e7fb56205bbafaa78886dd30c2799c65aa79
   - name: grc_ui_api
@@ -1674,7 +1674,7 @@ spec:
   - name: kube_rbac_proxy
     image: quay.io/open-cluster-management/kube-rbac-proxy@sha256:0fc996806a869c0fcd8f5cc2b17055a06eb3c84dc9bd7176839fc634af659cdc
   - name: kube_state_metrics
-    image: quay.io/open-cluster-management/kube-state-metrics@sha256:47cb7bb81d85b7dae8370c54df36947dae587a6591f05d4c3118d82fa596c04c
+    image: quay.io/open-cluster-management/kube-state-metrics@sha256:1663eeb958ed9b54fc550461c07b7c49a12b9a627aa15bba838f05766d0909a9
   - name: managedcluster_import_controller
     image: quay.io/open-cluster-management/managedcluster-import-controller@sha256:26fdbbba3606c483bcab14eba33a961eaca398121be1afaf435140bbd49a027a
   - name: management_ingress
@@ -1702,11 +1702,11 @@ spec:
   - name: must_gather
     image: quay.io/open-cluster-management/must-gather@sha256:4d5441585666d51adec487c24eeb8a9dc380c9d81daa06933f83f23a9ed02b8b
   - name: node_exporter
-    image: quay.io/open-cluster-management/node-exporter@sha256:fa2dede7e52505fc8c3fdaecf126b3aa0d8587830a6502e56c880582e716333e
+    image: quay.io/open-cluster-management/node-exporter@sha256:227d7fe8ce6f1d7c5ecba7b8e6e8f7a0117fc78b75fd61f2663b57ba1d30c97f
   - name: observability_e2e_test
     image: quay.io/open-cluster-management/observability-e2e-test@sha256:ed32a2df90b7f9aa224f9ba0edbd18f8ab99972aad589f1852afdd5d61cef817
   - name: observatorium
-    image: quay.io/open-cluster-management/observatorium@sha256:e81ac588b36d2d469f881ef823822f63afff33e7b1f059569e8403132f918e63
+    image: quay.io/open-cluster-management/observatorium@sha256:6007aef97ff32d0b586c32a7e77464f594a7b573308a3c2452f746c777f7bd5d
   - name: observatorium_operator
     image: quay.io/open-cluster-management/observatorium-operator@sha256:a66e028f9dd514b0a593f78a3a035379e0445002aa7c7c7fe3832db7bc14b5c9
   - name: oauth_proxy
@@ -1716,9 +1716,9 @@ spec:
   - name: postgresql_12
     image: quay.io/ocpmetal/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
   - name: prometheus
-    image: quay.io/open-cluster-management/prometheus@sha256:5f2b766d575f09586b4844dee6eca62c29483cbc8e93e3a328e6226d52e40de5
+    image: quay.io/open-cluster-management/prometheus@sha256:23ee04eb970367eea23407f46597f29514bb93e90aa516d342b6b264e194b13d
   - name: prometheus_alertmanager
-    image: quay.io/open-cluster-management/prometheus-alertmanager@sha256:ac646a2dad67a680c1cecccc48fc81d4dd5b4d4197dc1e4e80acef8e5024107f
+    image: quay.io/open-cluster-management/prometheus-alertmanager@sha256:5cff725d1263494daa68f4ddc7af9ebc407bf70e7a1578fdcc3fd3d70bd1a254
   - name: provider_credential_controller
     image: quay.io/open-cluster-management/provider-credential-controller@sha256:7f6666ce2b001e5b19bdc99276b83d9c7f17980428224fd4344239e88aff1432
   - name: rbac_query_proxy
