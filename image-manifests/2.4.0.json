@@ -282,13 +282,13 @@
   },
   {
     "image-name": "grafana",
-    "image-version": "2.3",
-    "image-tag": "2.3-88374e014cbe7a2a707e132c94c9d9b9c6f45fbd",
-    "git-sha256": "88374e014cbe7a2a707e132c94c9d9b9c6f45fbd",
+    "image-version": "2.4",
+    "image-tag": "2.4-7dfc8aca467edeadb31e274d31ef224e335a2e9c",
+    "git-sha256": "7dfc8aca467edeadb31e274d31ef224e335a2e9c",
     "git-repository": "open-cluster-management/grafana",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:a52371dc5794f9172c9ea03685da3064b9c1303c1ebf6390a24dad285ad9422b",
+    "image-digest": "sha256:5c23cd73359db6577f96938f08e9e34ed77775df6fb97dceefb1f1dcf4955ff3",
     "image-key": "grafana"
   },
   {
@@ -433,12 +433,12 @@
   {
     "image-name": "kube-rbac-proxy",
     "image-version": "2.4",
-    "image-tag": "2.4-9627ffdcf13dcbd24615b42b07745fa7f59697b1",
-    "git-sha256": "9627ffdcf13dcbd24615b42b07745fa7f59697b1",
+    "image-tag": "2.4-2bcb78ffd8da3bf0ccb15333bef24736ac9f4a5d",
+    "git-sha256": "2bcb78ffd8da3bf0ccb15333bef24736ac9f4a5d",
     "git-repository": "open-cluster-management/kube-rbac-proxy",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:548805136c5b03834f130de09e227a6ecfc983c973778cbddedaedc583a7a2e6",
+    "image-digest": "sha256:0fc996806a869c0fcd8f5cc2b17055a06eb3c84dc9bd7176839fc634af659cdc",
     "image-key": "kube_rbac_proxy"
   },
   {
@@ -652,12 +652,12 @@
   {
     "image-name": "observatorium-operator",
     "image-version": "2.3",
-    "image-tag": "2.3-3b39cb0b61807318b6ee10be773c1ce01e7e87c1",
-    "git-sha256": "3b39cb0b61807318b6ee10be773c1ce01e7e87c1",
+    "image-tag": "2.3-bfcd3a88766f991501c7cc451b558b1449e74274",
+    "git-sha256": "bfcd3a88766f991501c7cc451b558b1449e74274",
     "git-repository": "open-cluster-management/observatorium-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:fcfdefbafbe61c9c93eaf9ee6ee1f04a7ee3feefd532c0d6abd63a10ffe429ae",
+    "image-digest": "sha256:a66e028f9dd514b0a593f78a3a035379e0445002aa7c7c7fe3832db7bc14b5c9",
     "image-key": "observatorium_operator"
   },
   {
@@ -844,12 +844,12 @@
   {
     "image-name": "thanos",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-4173fa02b31ce07ede4b0e6cb78101d34b7ecbba",
-    "git-sha256": "4173fa02b31ce07ede4b0e6cb78101d34b7ecbba",
+    "image-tag": "2.4.0-635803c7a3f6da670d38dad1bc7b2b208e954e11",
+    "git-sha256": "635803c7a3f6da670d38dad1bc7b2b208e954e11",
     "git-repository": "open-cluster-management/thanos",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:303783c6eef1631e070397a6fa72db43f32c81305fd9e6138743aa56d1ac6b51",
+    "image-digest": "sha256:68da4e5f45aef70c402181fcb6965b8726af0be38e0a7b8b9bc8d16c18aa7430",
     "image-key": "thanos"
   },
   {
