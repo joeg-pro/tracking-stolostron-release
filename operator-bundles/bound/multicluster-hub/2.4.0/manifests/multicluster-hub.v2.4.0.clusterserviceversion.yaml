@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-09T08:50:02Z'
+    createdAt: '2021-09-09T12:40:32Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1337,7 +1338,7 @@ spec:
                 - name: OPERAND_IMAGE_OAUTH_PROXY
                   value: quay.io/open-cluster-management/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
                 - name: OPERAND_IMAGE_PLACEMENT
-                  value: quay.io/open-cluster-management/placement@sha256:c69461711b073da1f2ece087ec6a208db027c66b34eb7df38c8fde274b098f5d
+                  value: quay.io/open-cluster-management/placement@sha256:be0b03db248300eb18993deed67de0f591c4172d028d2fa3c8bd9f52da6c14b8
                 - name: OPERAND_IMAGE_POSTGRESQL_12
                   value: quay.io/ocpmetal/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
                 - name: OPERAND_IMAGE_PROMETHEUS
@@ -1351,7 +1352,7 @@ spec:
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
                   value: quay.io/open-cluster-management/redisgraph-tls@sha256:5b36bdf168c5ec005e75e2d36ab8f66111811df7b49c37cf321232d46993a9e2
                 - name: OPERAND_IMAGE_REGISTRATION
-                  value: quay.io/open-cluster-management/registration@sha256:6e3c9ea6f8207a8a2e522b980afc1e98a308402da07a0bc978532820b14b6256
+                  value: quay.io/open-cluster-management/registration@sha256:a781606ad33b2362b0e39c6809b8e4d908ed9a00b5d5551962f93e94ca0b6348
                 - name: OPERAND_IMAGE_REGISTRATION_OPERATOR
                   value: quay.io/open-cluster-management/registration-operator@sha256:6d4a35263ec4376d41fa4805c1c28b828b60c456df739b8e0db36e4d8b698d84
                 - name: OPERAND_IMAGE_SEARCH_AGGREGATOR
@@ -1367,7 +1368,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_UI
                   value: quay.io/open-cluster-management/search-ui@sha256:415d0df20a85c803c8dcabae4c42c609df68835fdf53f27526f20349175f3fb0
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
-                  value: quay.io/open-cluster-management/submariner-addon@sha256:7a14a86ec48c0b2866b2f7f85bc4e3d768b8b5f133dbdb43025b1a7324527b19
+                  value: quay.io/open-cluster-management/submariner-addon@sha256:436993238aba4cec7ded898c38b45442b0dfa6271ac4bea2181e38eab06d194c
                 - name: OPERAND_IMAGE_THANOS
                   value: quay.io/open-cluster-management/thanos@sha256:68da4e5f45aef70c402181fcb6965b8726af0be38e0a7b8b9bc8d16c18aa7430
                 - name: OPERAND_IMAGE_VOLSYNC
@@ -1570,7 +1571,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.name
-                image: quay.io/open-cluster-management/submariner-addon@sha256:7a14a86ec48c0b2866b2f7f85bc4e3d768b8b5f133dbdb43025b1a7324527b19
+                image: quay.io/open-cluster-management/submariner-addon@sha256:436993238aba4cec7ded898c38b45442b0dfa6271ac4bea2181e38eab06d194c
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -1712,7 +1713,7 @@ spec:
   - name: oauth_proxy
     image: quay.io/open-cluster-management/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
   - name: placement
-    image: quay.io/open-cluster-management/placement@sha256:c69461711b073da1f2ece087ec6a208db027c66b34eb7df38c8fde274b098f5d
+    image: quay.io/open-cluster-management/placement@sha256:be0b03db248300eb18993deed67de0f591c4172d028d2fa3c8bd9f52da6c14b8
   - name: postgresql_12
     image: quay.io/ocpmetal/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
   - name: prometheus
@@ -1726,7 +1727,7 @@ spec:
   - name: redisgraph_tls
     image: quay.io/open-cluster-management/redisgraph-tls@sha256:5b36bdf168c5ec005e75e2d36ab8f66111811df7b49c37cf321232d46993a9e2
   - name: registration
-    image: quay.io/open-cluster-management/registration@sha256:6e3c9ea6f8207a8a2e522b980afc1e98a308402da07a0bc978532820b14b6256
+    image: quay.io/open-cluster-management/registration@sha256:a781606ad33b2362b0e39c6809b8e4d908ed9a00b5d5551962f93e94ca0b6348
   - name: search_aggregator
     image: quay.io/open-cluster-management/search-aggregator@sha256:245eaef56cfe6ab733227d277b413c25aefaa3fe0bb10180451035e0d0f90670
   - name: search_api
