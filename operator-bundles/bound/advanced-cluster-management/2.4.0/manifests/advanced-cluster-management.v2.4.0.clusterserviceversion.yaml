@@ -27,18 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-09-09T22:13:48Z'
+    createdAt: '2021-09-09T23:15:33Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware"]'
-    operators.operatorframework.io/internal-objects: '["machinepoolnameleases.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io",
-      "clusterstates.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
-      "fakeclusterinstalls.hiveinternal.openshift.io", "clustersyncleases.hiveinternal.openshift.io",
-      "checkpoints.hive.openshift.io", "clusterprovisions.hive.openshift.io", "observatoria.core.observatorium.io",
-      "clusterdeprovisions.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["machinepoolnameleases.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
+      "checkpoints.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "clustersyncleases.hiveinternal.openshift.io",
+      "clusterprovisions.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "clusterdeprovisions.hive.openshift.io", "clusterstates.hive.openshift.io", "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1667,7 +1666,7 @@ spec:
                     fieldRef:
                       fieldPath: metadata.namespace
                 - name: OPERAND_IMAGE_APPLICATION_UI
-                  value: quay.io/open-cluster-management/application-ui@sha256:5e56dde545ce24c8bc5b0e7918b0739dd9f6619f611dae42795c89d5875d1ae7
+                  value: quay.io/open-cluster-management/application-ui@sha256:43dbca45d5ff3e4cf8b5d5c64cbb9bfd588ea12d53b25f6c533705cbc9ffb73c
                 - name: OPERAND_IMAGE_APPLICATION_UI_TESTS
                   value: quay.io/open-cluster-management/application-ui-tests@sha256:c802ee121ee9daf055ab80a58734d5d8b52ca92fa003d745b014043f62e5ca5e
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
@@ -2590,7 +2589,7 @@ spec:
                 name: kubectl-cache
   relatedImages:
   - name: application_ui
-    image: quay.io/open-cluster-management/application-ui@sha256:5e56dde545ce24c8bc5b0e7918b0739dd9f6619f611dae42795c89d5875d1ae7
+    image: quay.io/open-cluster-management/application-ui@sha256:43dbca45d5ff3e4cf8b5d5c64cbb9bfd588ea12d53b25f6c533705cbc9ffb73c
   - name: application_ui_tests
     image: quay.io/open-cluster-management/application-ui-tests@sha256:c802ee121ee9daf055ab80a58734d5d8b52ca92fa003d745b014043f62e5ca5e
   - name: applifecycle_backend_e2e
