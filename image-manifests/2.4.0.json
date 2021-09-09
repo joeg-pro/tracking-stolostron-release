@@ -305,11 +305,11 @@
   {
     "image-name": "grc-policy-framework-tests",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-460b0946fd5fe4ec9d4dfb6fe7fda1d1dddbd78a",
-    "git-sha256": "460b0946fd5fe4ec9d4dfb6fe7fda1d1dddbd78a",
+    "image-tag": "1.0.0-80547e823c343a5bd7f334302685c8da7830f4a8",
+    "git-sha256": "80547e823c343a5bd7f334302685c8da7830f4a8",
     "git-repository": "open-cluster-management/governance-policy-framework",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:32f64dd32153ec7a2bea5d630254b01a1045bc2863d49838c3fcd6d956dabb0e",
+    "image-digest": "sha256:d90e56c5280b96cdecbb80411bb221c621d6ee88c78b3c16c63632945a9fb646",
     "image-key": "grc_policy_framework_tests"
   },
   {
@@ -444,12 +444,12 @@
   {
     "image-name": "kube-state-metrics",
     "image-version": "2.4",
-    "image-tag": "2.4-40470caa62c218f019c964b9555d8ccd3c54bfb3",
-    "git-sha256": "40470caa62c218f019c964b9555d8ccd3c54bfb3",
+    "image-tag": "2.4-b64e4f03221e9a87e990993892fffaa7d3e966f0",
+    "git-sha256": "b64e4f03221e9a87e990993892fffaa7d3e966f0",
     "git-repository": "open-cluster-management/kube-state-metrics",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:47cb7bb81d85b7dae8370c54df36947dae587a6591f05d4c3118d82fa596c04c",
+    "image-digest": "sha256:1663eeb958ed9b54fc550461c07b7c49a12b9a627aa15bba838f05766d0909a9",
     "image-key": "kube_state_metrics"
   },
   {
@@ -619,12 +619,12 @@
   {
     "image-name": "node-exporter",
     "image-version": "2.4",
-    "image-tag": "2.4-60ff608f1b651ffc5858a99b2fbd7c5262e3bf01",
-    "git-sha256": "60ff608f1b651ffc5858a99b2fbd7c5262e3bf01",
+    "image-tag": "2.4-047635bee0744132dcd6b98d35d293904f564e65",
+    "git-sha256": "047635bee0744132dcd6b98d35d293904f564e65",
     "git-repository": "open-cluster-management/node-exporter",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:fa2dede7e52505fc8c3fdaecf126b3aa0d8587830a6502e56c880582e716333e",
+    "image-digest": "sha256:227d7fe8ce6f1d7c5ecba7b8e6e8f7a0117fc78b75fd61f2663b57ba1d30c97f",
     "image-key": "node_exporter"
   },
   {
@@ -641,12 +641,12 @@
   {
     "image-name": "observatorium",
     "image-version": "2.4",
-    "image-tag": "2.4-9b22947f3eed3a6c0e3aaed998c2fd3463686764",
-    "git-sha256": "9b22947f3eed3a6c0e3aaed998c2fd3463686764",
+    "image-tag": "2.4-4e61cfaa3cbc23edaf1402c51902a62d6a950d13",
+    "git-sha256": "4e61cfaa3cbc23edaf1402c51902a62d6a950d13",
     "git-repository": "open-cluster-management/observatorium",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:e81ac588b36d2d469f881ef823822f63afff33e7b1f059569e8403132f918e63",
+    "image-digest": "sha256:6007aef97ff32d0b586c32a7e77464f594a7b573308a3c2452f746c777f7bd5d",
     "image-key": "observatorium"
   },
   {
@@ -694,23 +694,23 @@
   {
     "image-name": "prometheus",
     "image-version": "2.4",
-    "image-tag": "2.4-564e44878ae6451ad120ad10524906580a991995",
-    "git-sha256": "564e44878ae6451ad120ad10524906580a991995",
+    "image-tag": "2.4-53d00a35e6a2193bfa84bcf5fec78480b94a91ae",
+    "git-sha256": "53d00a35e6a2193bfa84bcf5fec78480b94a91ae",
     "git-repository": "open-cluster-management/prometheus",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:5f2b766d575f09586b4844dee6eca62c29483cbc8e93e3a328e6226d52e40de5",
+    "image-digest": "sha256:23ee04eb970367eea23407f46597f29514bb93e90aa516d342b6b264e194b13d",
     "image-key": "prometheus"
   },
   {
     "image-name": "prometheus-alertmanager",
     "image-version": "2.4",
-    "image-tag": "2.4-298f06775d8187307ed795d13a6da973c0c59111",
-    "git-sha256": "298f06775d8187307ed795d13a6da973c0c59111",
+    "image-tag": "2.4-06bd1f678c26f4eac961e08546b40c5711292b6b",
+    "git-sha256": "06bd1f678c26f4eac961e08546b40c5711292b6b",
     "git-repository": "open-cluster-management/prometheus-alertmanager",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:ac646a2dad67a680c1cecccc48fc81d4dd5b4d4197dc1e4e80acef8e5024107f",
+    "image-digest": "sha256:5cff725d1263494daa68f4ddc7af9ebc407bf70e7a1578fdcc3fd3d70bd1a254",
     "image-key": "prometheus_alertmanager"
   },
   {
