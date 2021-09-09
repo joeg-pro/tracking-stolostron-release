@@ -27,18 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-09-09T06:18:35Z'
+    createdAt: '2021-09-09T07:30:02Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware"]'
-    operators.operatorframework.io/internal-objects: '["clustersyncleases.hiveinternal.openshift.io",
-      "clusterprovisions.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io", "observatoria.core.observatorium.io",
-      "observabilityaddons.observability.open-cluster-management.io", "checkpoints.hive.openshift.io",
-      "clustersyncs.hiveinternal.openshift.io", "clusterdeprovisions.hive.openshift.io", "clusterstates.hive.openshift.io",
-      "machinepoolnameleases.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["clusterdeprovisions.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
+      "observabilityaddons.observability.open-cluster-management.io", "machinepoolnameleases.hive.openshift.io",
+      "clustersyncs.hiveinternal.openshift.io", "clusterstates.hive.openshift.io", "observatoria.core.observatorium.io",
+      "clustersyncleases.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io", "checkpoints.hive.openshift.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1749,7 +1748,7 @@ spec:
                 - name: OPERAND_IMAGE_KUBE_RBAC_PROXY
                   value: quay.io/open-cluster-management/kube-rbac-proxy@sha256:0fc996806a869c0fcd8f5cc2b17055a06eb3c84dc9bd7176839fc634af659cdc
                 - name: OPERAND_IMAGE_KUBE_STATE_METRICS
-                  value: quay.io/open-cluster-management/kube-state-metrics@sha256:1663eeb958ed9b54fc550461c07b7c49a12b9a627aa15bba838f05766d0909a9
+                  value: quay.io/open-cluster-management/kube-state-metrics@sha256:6d3440cff66d727e8047673e84a648039758a9aff7e594cb8e771a900be33c11
                 - name: OPERAND_IMAGE_MANAGEDCLUSTER_IMPORT_CONTROLLER
                   value: quay.io/open-cluster-management/managedcluster-import-controller@sha256:26fdbbba3606c483bcab14eba33a961eaca398121be1afaf435140bbd49a027a
                 - name: OPERAND_IMAGE_MANAGEMENT_INGRESS
@@ -2670,7 +2669,7 @@ spec:
   - name: kube_rbac_proxy
     image: quay.io/open-cluster-management/kube-rbac-proxy@sha256:0fc996806a869c0fcd8f5cc2b17055a06eb3c84dc9bd7176839fc634af659cdc
   - name: kube_state_metrics
-    image: quay.io/open-cluster-management/kube-state-metrics@sha256:1663eeb958ed9b54fc550461c07b7c49a12b9a627aa15bba838f05766d0909a9
+    image: quay.io/open-cluster-management/kube-state-metrics@sha256:6d3440cff66d727e8047673e84a648039758a9aff7e594cb8e771a900be33c11
   - name: managedcluster_import_controller
     image: quay.io/open-cluster-management/managedcluster-import-controller@sha256:26fdbbba3606c483bcab14eba33a961eaca398121be1afaf435140bbd49a027a
   - name: management_ingress

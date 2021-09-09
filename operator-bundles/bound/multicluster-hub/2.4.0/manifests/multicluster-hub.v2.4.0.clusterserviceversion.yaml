@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-09T06:19:05Z'
+    createdAt: '2021-09-09T07:30:35Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1295,7 +1296,7 @@ spec:
                 - name: OPERAND_IMAGE_KUBE_RBAC_PROXY
                   value: quay.io/open-cluster-management/kube-rbac-proxy@sha256:0fc996806a869c0fcd8f5cc2b17055a06eb3c84dc9bd7176839fc634af659cdc
                 - name: OPERAND_IMAGE_KUBE_STATE_METRICS
-                  value: quay.io/open-cluster-management/kube-state-metrics@sha256:1663eeb958ed9b54fc550461c07b7c49a12b9a627aa15bba838f05766d0909a9
+                  value: quay.io/open-cluster-management/kube-state-metrics@sha256:6d3440cff66d727e8047673e84a648039758a9aff7e594cb8e771a900be33c11
                 - name: OPERAND_IMAGE_MANAGEDCLUSTER_IMPORT_CONTROLLER
                   value: quay.io/open-cluster-management/managedcluster-import-controller@sha256:26fdbbba3606c483bcab14eba33a961eaca398121be1afaf435140bbd49a027a
                 - name: OPERAND_IMAGE_MANAGEMENT_INGRESS
@@ -1674,7 +1675,7 @@ spec:
   - name: kube_rbac_proxy
     image: quay.io/open-cluster-management/kube-rbac-proxy@sha256:0fc996806a869c0fcd8f5cc2b17055a06eb3c84dc9bd7176839fc634af659cdc
   - name: kube_state_metrics
-    image: quay.io/open-cluster-management/kube-state-metrics@sha256:1663eeb958ed9b54fc550461c07b7c49a12b9a627aa15bba838f05766d0909a9
+    image: quay.io/open-cluster-management/kube-state-metrics@sha256:6d3440cff66d727e8047673e84a648039758a9aff7e594cb8e771a900be33c11
   - name: managedcluster_import_controller
     image: quay.io/open-cluster-management/managedcluster-import-controller@sha256:26fdbbba3606c483bcab14eba33a961eaca398121be1afaf435140bbd49a027a
   - name: management_ingress
