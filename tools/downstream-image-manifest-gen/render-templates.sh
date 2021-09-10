@@ -14,19 +14,29 @@
 # - SCRIPT_CLONE_URL, SCRIPT_CLONE_SHA
 # - CPAAS_PRODUCT_VERSION
 #
-# And we expect there to be a script fragment packge_config_vars that we
-# can source to have other needed script variables set:
+# And we expect there to be a script fragment config_vars that we can source to
+# boostrap our product-specific config.
 #
-# - script_target_dir
-# - package
+# We depned on config_vars to define $script_target_dir and $bundle_gen_config_file
+# which we tack together to source another file that will define:
+#
+# - olm_package
 # - manifest_gen_config_file
 # - gen_bound_bundle_script
+# - ocp_versoins_file
 
-if [[ ! -f package_config_vars ]]; then
-  echo "ERROR: Required package_config_vars config file not found."
+if [[ ! -f config_vars ]]; then
+  echo "ERROR: Required config_vars config file does not exist."
   exit 3
 fi
-source package_config_vars
+source config_vars
+
+config_in_scripts_repo="./$script_target_dir/$bundle_gen_config_file"
+if [[ ! -f "$config_in_scripts_repo" ]]; then
+  echo "ERROR: Expected $config_in_scripts_repo config file does not exist."
+  exit 3
+fi
+source "$config_in_scripts_repo"
 
 if [[ -z "$CPAAS_PRODUCT_VERSION" ]]; then
    echo "ERROR: Environment variable CPAAS_PRODUCT_VERSION not defined."
@@ -46,12 +56,12 @@ set -x
 #     Range (v4.5-v4.7)
 #     A specific version (=v4.6)
 
-ocp_versions_file="./ocp-versions"
-if [[ ! -f "$ocp_versions_file" ]]; then
-   echo "ERROR: OCP versions file is not found."
+ocp_vers_in_scripts_repo="./$script_target_dir/$ocp_versions_file"
+if [[ ! -f "$ocp_vers_in_scripts_repo" ]]; then
+   echo "ERROR: OCP versions file ($ocp_vers_in_scripts_repo) does not exist."
    exit 2
 fi
-ocp_versions=$(cat "$ocp_versions_file")
+ocp_versions=$(cat "$ocp_vers_in_scripts_repoe")
 
 # Make sure there are no remnants from previous runs.  This also gets rid of any
 # dummy/placehoders in the repo needed to make change-set verificaton pass.
@@ -88,14 +98,14 @@ rm -f $script_target_dir/image-manifests/*.json
 
 python3 -m pip install pyyaml
 
-generate_manifests="./$script_target_dir/tools/downstream-image-manifest-gen/generate_manifest.py"
+generate_manifests="./$script_target_dir/$manifest_gen_script"
 if [[ ! -f "$generate_manifests" ]]; then
    echo "ERROR: Upstream release repo doesn't have generate_manifests.py"
    echo "Maybe the upstream_sources git SHA is wrong?"
    pwd
    exit 2
 fi
-$generate_manifests $this_rel_nr "." $manifest_gen_config_file
+$generate_manifests $this_rel_nr "." "$manifest_gen_config_file"
 if [[ $? -ne 0 ]]; then
    echo "ERROR: Could not generate downstream image manifest."
    exit 2
@@ -111,12 +121,29 @@ fi
 
 # Run our "pinning" script that takes the unbound operator bundle we build upstream
 # and pins image references using the just-built image manifest.  It create a directory
-# of operator bundle material at release/operator-bundles/bound/advanced-cluster-management.
+# of operator bundle material at release/operator-bundles/bound/$olm_package.
 # The stuff here is in an inteional mix of app-registry and bundle-image format studd.
 
-$script_target_dir/tools/bundle-manifests-gen/$gen_bound_bundle_script $this_rel_nr "auto"
+unbound_bundle_top="$script_target_dir/operator-bundles/unbound"
+bound_bundle_top="$script_target_dir/operator-bundles/bound"
+
+unbound_bundle_dir="$unbound_bundle_top/$olm_package/$this_rel_nr"
+bound_bundle_dir="$bound_bundle_top/$olm_package/$this_rel_nr"
+
+if [[ ! -d "$unbound_bundle_dir" ]]; then
+   echo "ERROR: Input unbound-bundle direcotry for $olm_package/$this_rel_nr does not exist"
+   exit 2
+fi
+rm -rf "$bound_bundle_top"   # Ensure we don't accidentally use some remanents
+mkdir "$bound_bundle_top"
+
+$script_target_dir/$gen_bound_bundle_script $this_rel_nr "auto"
 if [[ $? -ne 0 ]]; then
    echo "ERROR: Generating bound operator manifests failed."
+   exit 2
+fi
+if [[ ! -d "$bound_bundle_dir" ]]; then
+   echo "ERROR: Bound-bundle gen didn't produce output bound-bundle directory for $olm_package/$this_rel_nr."
    exit 2
 fi
 
@@ -148,8 +175,18 @@ fi
 cp $stashed_df $df
 
 rm -rf ./manifests ./metadata
-mv $script_target_dir/operator-bundles/bound/$package/$this_rel_nr/manifests .
-mv $script_target_dir/operator-bundles/bound/$package/$this_rel_nr/metadata  .
+
+if [[ ! -d "$bound_bundle_dir/manifests" ]]; then
+   echo "ERROR: Bound-bundle manifests directory does not exist."
+   exit 2
+fi
+mv $bound_bundle_dir/manifests .
+
+if [[ ! -d "$bound_bundle_dir/metadata" ]]; then
+   echo "ERROR: Bound-bundle metadata directory does not exist."
+   exit 2
+fi
+mv $bound_bundle_dir/metadata  .
 
 # Start with a set of RH release pipeline labels for bundle-image format:
 
