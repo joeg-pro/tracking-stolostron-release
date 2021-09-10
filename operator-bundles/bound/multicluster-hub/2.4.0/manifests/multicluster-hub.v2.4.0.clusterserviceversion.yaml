@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-10T04:23:29Z'
+    createdAt: '2021-09-10T06:55:50Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1238,7 +1237,7 @@ spec:
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
                   value: quay.io/open-cluster-management/cluster-lifecycle-e2e@sha256:60368d835be99206b5e831fdbf8acab4922d35ee228058b88a730b407317adcd
                 - name: OPERAND_IMAGE_CLUSTER_PROXY_ADDON
-                  value: quay.io/open-cluster-management/cluster-proxy-addon@sha256:da2ea8c8d85712665a6d9f10b250072e255a79e6c70734bf0ed0449939a6d25e
+                  value: quay.io/open-cluster-management/cluster-proxy-addon@sha256:d43df217abba2c8465134309a114766fe487da0308481818c1893d4a5fe3c386
                 - name: OPERAND_IMAGE_CLUSTERCLAIMS_CONTROLLER
                   value: quay.io/open-cluster-management/clusterclaims-controller@sha256:10871097a00ff6c742e77af2ec68a500a11ce20e04d2e14fa7f6664db4015328
                 - name: OPERAND_IMAGE_CLUSTERLIFECYCLE_STATE_METRICS
@@ -1324,7 +1323,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
                   value: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:75b2cb2766ec474babd03376d602bb1e4f9e3e6e9fa4c315f3c11de29746e721
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
-                  value: quay.io/open-cluster-management/multiclusterhub-repo@sha256:be139833d513d6c49b7aab7753b7f70b86a0be104b2dc4d03631d5c0a2e3834d
+                  value: quay.io/open-cluster-management/multiclusterhub-repo@sha256:7356bdfc1576b9f157c7cb1db2700c7535f7459bb11c0b4c0e2ed8be77170710
                 - name: OPERAND_IMAGE_MUST_GATHER
                   value: quay.io/open-cluster-management/must-gather@sha256:4d5441585666d51adec487c24eeb8a9dc380c9d81daa06933f83f23a9ed02b8b
                 - name: OPERAND_IMAGE_NODE_EXPORTER
@@ -1617,7 +1616,7 @@ spec:
   - name: cluster_lifecycle_e2e
     image: quay.io/open-cluster-management/cluster-lifecycle-e2e@sha256:60368d835be99206b5e831fdbf8acab4922d35ee228058b88a730b407317adcd
   - name: cluster_proxy_addon
-    image: quay.io/open-cluster-management/cluster-proxy-addon@sha256:da2ea8c8d85712665a6d9f10b250072e255a79e6c70734bf0ed0449939a6d25e
+    image: quay.io/open-cluster-management/cluster-proxy-addon@sha256:d43df217abba2c8465134309a114766fe487da0308481818c1893d4a5fe3c386
   - name: clusterclaims_controller
     image: quay.io/open-cluster-management/clusterclaims-controller@sha256:10871097a00ff6c742e77af2ec68a500a11ce20e04d2e14fa7f6664db4015328
   - name: clusterlifecycle_state_metrics
@@ -1699,7 +1698,7 @@ spec:
   - name: multiclusterhub_operator_tests
     image: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:75b2cb2766ec474babd03376d602bb1e4f9e3e6e9fa4c315f3c11de29746e721
   - name: multiclusterhub_repo
-    image: quay.io/open-cluster-management/multiclusterhub-repo@sha256:be139833d513d6c49b7aab7753b7f70b86a0be104b2dc4d03631d5c0a2e3834d
+    image: quay.io/open-cluster-management/multiclusterhub-repo@sha256:7356bdfc1576b9f157c7cb1db2700c7535f7459bb11c0b4c0e2ed8be77170710
   - name: must_gather
     image: quay.io/open-cluster-management/must-gather@sha256:4d5441585666d51adec487c24eeb8a9dc380c9d81daa06933f83f23a9ed02b8b
   - name: node_exporter
