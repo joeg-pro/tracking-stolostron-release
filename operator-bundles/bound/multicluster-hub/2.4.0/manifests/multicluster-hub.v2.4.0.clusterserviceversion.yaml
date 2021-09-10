@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-10T09:50:03Z'
+    createdAt: '2021-09-10T10:01:27Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1344,7 +1343,7 @@ spec:
                 - name: OPERAND_IMAGE_PROMETHEUS
                   value: quay.io/open-cluster-management/prometheus@sha256:23ee04eb970367eea23407f46597f29514bb93e90aa516d342b6b264e194b13d
                 - name: OPERAND_IMAGE_PROMETHEUS_ALERTMANAGER
-                  value: quay.io/open-cluster-management/prometheus-alertmanager@sha256:5cff725d1263494daa68f4ddc7af9ebc407bf70e7a1578fdcc3fd3d70bd1a254
+                  value: quay.io/open-cluster-management/prometheus-alertmanager@sha256:5e1bc0488eee53b46dccbeec82b7e3d76015a7eda8fe6c1060dcf46cdacf9f44
                 - name: OPERAND_IMAGE_PROVIDER_CREDENTIAL_CONTROLLER
                   value: quay.io/open-cluster-management/provider-credential-controller@sha256:7f6666ce2b001e5b19bdc99276b83d9c7f17980428224fd4344239e88aff1432
                 - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
@@ -1719,7 +1718,7 @@ spec:
   - name: prometheus
     image: quay.io/open-cluster-management/prometheus@sha256:23ee04eb970367eea23407f46597f29514bb93e90aa516d342b6b264e194b13d
   - name: prometheus_alertmanager
-    image: quay.io/open-cluster-management/prometheus-alertmanager@sha256:5cff725d1263494daa68f4ddc7af9ebc407bf70e7a1578fdcc3fd3d70bd1a254
+    image: quay.io/open-cluster-management/prometheus-alertmanager@sha256:5e1bc0488eee53b46dccbeec82b7e3d76015a7eda8fe6c1060dcf46cdacf9f44
   - name: provider_credential_controller
     image: quay.io/open-cluster-management/provider-credential-controller@sha256:7f6666ce2b001e5b19bdc99276b83d9c7f17980428224fd4344239e88aff1432
   - name: rbac_query_proxy
