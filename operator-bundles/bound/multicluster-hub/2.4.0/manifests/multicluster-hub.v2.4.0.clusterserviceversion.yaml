@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-10T01:22:28Z'
+    createdAt: '2021-09-10T01:37:51Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1277,7 +1278,7 @@ spec:
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
                   value: quay.io/open-cluster-management/grc-ui-tests@sha256:44594dabd26d2fdcd4ecf807fa5879bc2ef220861137638f1725ed206c4d6ad3
                 - name: OPERAND_IMAGE_HELLOPROW_GO
-                  value: quay.io/open-cluster-management/helloprow-go@sha256:3d79bf6936c57c2efaf8be88c75baea5b8e64fe9f5855ef64294682e4d3b15b6
+                  value: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
                 - name: OPERAND_IMAGE_HELLOWORLD
                   value: quay.io/open-cluster-management/helloworld@sha256:38612080f2705724bc207f5c4476f880d0bd9cc10f4189095908042e5574ea8d
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
@@ -1656,7 +1657,7 @@ spec:
   - name: grc_ui_tests
     image: quay.io/open-cluster-management/grc-ui-tests@sha256:44594dabd26d2fdcd4ecf807fa5879bc2ef220861137638f1725ed206c4d6ad3
   - name: helloprow_go
-    image: quay.io/open-cluster-management/helloprow-go@sha256:3d79bf6936c57c2efaf8be88c75baea5b8e64fe9f5855ef64294682e4d3b15b6
+    image: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
   - name: helloworld
     image: quay.io/open-cluster-management/helloworld@sha256:38612080f2705724bc207f5c4476f880d0bd9cc10f4189095908042e5574ea8d
   - name: openshift_hive
