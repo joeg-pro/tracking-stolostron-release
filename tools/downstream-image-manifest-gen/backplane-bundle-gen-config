@@ -1,0 +1,7 @@
+common_render_templates_script="tools/downstream-image-manifest-gen/render-templates.sh"
+olm_package="multicluster-engine"
+manifest_gen_config_file="backplane-manifest-gen-config.json"
+gen_bound_bundle_script="gen-bound-cmb-bundle.sh"
+ocp_versoins_file="bundle_gen_config_file="tools/downstream-image-manifest-gen/backplane-ocp-versions"
+#
+package="multicluster-engine"
