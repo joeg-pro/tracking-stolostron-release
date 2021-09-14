@@ -2,12 +2,12 @@
   {
     "image-name": "application-ui",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-d18a10b429226c0e29ac9fda29c0146cd729bad9",
-    "git-sha256": "d18a10b429226c0e29ac9fda29c0146cd729bad9",
+    "image-tag": "2.4.0-5b07c2fb8d78ce09df1aa32237c07ca6ee719c48",
+    "git-sha256": "5b07c2fb8d78ce09df1aa32237c07ca6ee719c48",
     "git-repository": "open-cluster-management/application-ui",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:87964bed965431e4dcfd715859e7f2bb720abc0f10f2165fd40a927d85bfd78a",
+    "image-digest": "sha256:c9dc49af0f561653cf79cdb446185a046df3d5093cbd63b5f7aaec62d667291e",
     "image-key": "application_ui"
   },
   {
@@ -401,11 +401,12 @@
   {
     "image-name": "insights-metrics",
     "image-version": "2.3.0",
-    "image-tag": "2.3.0-027d56c0f2de45b9ce4c06db1b55935557377a82",
-    "git-sha256": "027d56c0f2de45b9ce4c06db1b55935557377a82",
+    "image-tag": "2.3.0-f5a9c57aa9c450d708fd4b32a5404f3768a6b216",
+    "git-sha256": "f5a9c57aa9c450d708fd4b32a5404f3768a6b216",
     "git-repository": "open-cluster-management/insights-metrics",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:40c189fd0fb6e620832b4b912421dcddd3195ca74f1367e2a36f7fe51f98c20c",
+    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
+    "image-digest": "sha256:6f62f36a6c86211d8e9394a2b729172d8787c12c54f187dae7fdb3f0bdfba7c6",
     "image-key": "insights_metrics"
   },
   {
