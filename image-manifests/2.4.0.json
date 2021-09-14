@@ -97,12 +97,12 @@
   {
     "image-name": "cluster-backup-controller",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-783d4950655ee19ca03186c7d7f359a4369061b4",
-    "git-sha256": "783d4950655ee19ca03186c7d7f359a4369061b4",
+    "image-tag": "2.4.0-6acef034aca43ebe93eb58f8b5f51e0a7aa8d05e",
+    "git-sha256": "6acef034aca43ebe93eb58f8b5f51e0a7aa8d05e",
     "git-repository": "open-cluster-management/cluster-backup-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:c61996e90205d203b6e7c8daa77f198fa999c64bf6e5175a44a6ba59c33743c4",
+    "image-digest": "sha256:b36ab30841e0756afd86a8eeb02eba28eee0fa00d467228695443adcec51d392",
     "image-key": "cluster_backup_controller"
   },
   {
@@ -363,7 +363,7 @@
     "git-sha256": "a99e58bdcee79530b9c6c92483b07a7c866a7369",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:b2e9b63bfa23ce8cd2e85598a866f716b53858e3f0d7f2af96bb315cb2fefa99",
+    "image-digest": "sha256:fa6442c264453428154389be9b980e7d46c1f3eec7d79afee7a5ebcb920bdb32",
     "image-key": "helloworld"
   },
   {
