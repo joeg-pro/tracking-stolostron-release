@@ -97,12 +97,12 @@
   {
     "image-name": "cluster-backup-controller",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-6acef034aca43ebe93eb58f8b5f51e0a7aa8d05e",
-    "git-sha256": "6acef034aca43ebe93eb58f8b5f51e0a7aa8d05e",
+    "image-tag": "2.4.0-1fd7d1be24a034fae666eb1381aebbe1228b4bba",
+    "git-sha256": "1fd7d1be24a034fae666eb1381aebbe1228b4bba",
     "git-repository": "open-cluster-management/cluster-backup-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:b36ab30841e0756afd86a8eeb02eba28eee0fa00d467228695443adcec51d392",
+    "image-digest": "sha256:358aeb70370323e52677a366217f841c4f3d8fca2e9e4300ee08dae7032b45b7",
     "image-key": "cluster_backup_controller"
   },
   {
@@ -359,11 +359,11 @@
   {
     "image-name": "helloworld",
     "image-version": "1.0.1",
-    "image-tag": "1.0.1-a99e58bdcee79530b9c6c92483b07a7c866a7369",
-    "git-sha256": "a99e58bdcee79530b9c6c92483b07a7c866a7369",
+    "image-tag": "1.0.1-05ebacab3488695949a0774c81e32606002bd9a0",
+    "git-sha256": "05ebacab3488695949a0774c81e32606002bd9a0",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:fa6442c264453428154389be9b980e7d46c1f3eec7d79afee7a5ebcb920bdb32",
+    "image-digest": "sha256:a4b22d3a69fe80011107123f891be4b916f0c7c35d62418d5955f6f4c0c7d1b2",
     "image-key": "helloworld"
   },
   {
@@ -598,12 +598,12 @@
   {
     "image-name": "multiclusterhub-repo",
     "image-version": "2.4",
-    "image-tag": "2.4-911f2a6dec82e45716f3fc78bebc55495ab70401",
-    "git-sha256": "911f2a6dec82e45716f3fc78bebc55495ab70401",
+    "image-tag": "2.4-1f7b0eb06579895b0b214f98092bdba35890eff7",
+    "git-sha256": "1f7b0eb06579895b0b214f98092bdba35890eff7",
     "git-repository": "open-cluster-management/multiclusterhub-repo",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:e7be48b31b0e746e98f77b2c03f695af391287216001068a05462f0cb8dcf147",
+    "image-digest": "sha256:a608b8e286d50fcecc50d1ffe0bdc6086113fe8f9db69f19de9cfb21700fdd98",
     "image-key": "multiclusterhub_repo"
   },
   {
