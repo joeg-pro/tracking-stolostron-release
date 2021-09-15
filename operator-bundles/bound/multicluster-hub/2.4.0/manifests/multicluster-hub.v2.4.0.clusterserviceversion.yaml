@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-14T23:06:07Z'
+    createdAt: '2021-09-15T00:08:46Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1305,7 +1306,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
                   value: quay.io/open-cluster-management/multicloud-manager@sha256:40997abd8e5c0182aa01b6375e79032eb4711f86a0f7d3a5485d43347f1bab30
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
-                  value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:0d7bfaaa1b1960d88c67c26a6a27a99ddfcec5ad0e5d18581e3ccf058a991b77
+                  value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:eb14bcb1d3c2ebda2ff9d1cac3fafa0938576042a022f55445d123196c00f676
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
                   value: quay.io/open-cluster-management/multicluster-operators-application@sha256:663f95e5d2e5a76cf6496c13748634cc8e68fc67ee1fa935272bb0f0632342c7
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
@@ -1508,7 +1509,7 @@ spec:
                   value: /usr/local/manifests
                 - name: SPOKE_NAMESPACE
                   value: open-cluster-management-addon-observability
-                image: quay.io/open-cluster-management/multicluster-observability-operator@sha256:0d7bfaaa1b1960d88c67c26a6a27a99ddfcec5ad0e5d18581e3ccf058a991b77
+                image: quay.io/open-cluster-management/multicluster-observability-operator@sha256:eb14bcb1d3c2ebda2ff9d1cac3fafa0938576042a022f55445d123196c00f676
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
