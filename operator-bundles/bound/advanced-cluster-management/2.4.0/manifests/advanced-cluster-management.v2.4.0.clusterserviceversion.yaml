@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-09-15T18:38:58Z'
+    createdAt: '2021-09-15T20:07:38Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware"]'
-    operators.operatorframework.io/internal-objects: '["clusterstates.hive.openshift.io", "checkpoints.hive.openshift.io",
-      "observatoria.core.observatorium.io", "clusterdeprovisions.hive.openshift.io", "clusterprovisions.hive.openshift.io",
-      "machinepoolnameleases.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "clustersyncs.hiveinternal.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["clustersyncs.hiveinternal.openshift.io", "clusterstates.hive.openshift.io",
+      "observabilityaddons.observability.open-cluster-management.io", "machinepoolnameleases.hive.openshift.io",
+      "clusterdeprovisions.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
+      "observatoria.core.observatorium.io", "clusterprovisions.hive.openshift.io", "checkpoints.hive.openshift.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1706,7 +1706,7 @@ spec:
                 - name: OPERAND_IMAGE_CONSOLE
                   value: quay.io/open-cluster-management/console@sha256:ca6ad88bd7d36ab029f3ef9162652c1abaa93fc52a30853991e164926aec9327
                 - name: OPERAND_IMAGE_CONSOLE_API
-                  value: quay.io/open-cluster-management/console-api@sha256:ab9c6877f6405cbda0d99ed6dd52e1b53d79c10286d4fce7c6ca3bce9e6e3b23
+                  value: quay.io/open-cluster-management/console-api@sha256:493c03dca3aa8202452edd2726eb742bf0e2b176e3e0750c9296def15b5d8e41
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
                   value: quay.io/open-cluster-management/discovery-operator@sha256:43f78d9895e0e3cd9b8f1156b5ce18bdb2979b8db17dbeb65001666f081ca338
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR_TESTS
@@ -1746,7 +1746,7 @@ spec:
                 - name: OPERAND_IMAGE_INSIGHTS_CLIENT
                   value: quay.io/open-cluster-management/insights-client@sha256:e16aa1851654c686483a6b985d00b5e9bb63d665a1de014e7ea92cda1e04dbc5
                 - name: OPERAND_IMAGE_INSIGHTS_METRICS
-                  value: quay.io/open-cluster-management/insights-metrics@sha256:6f62f36a6c86211d8e9394a2b729172d8787c12c54f187dae7fdb3f0bdfba7c6
+                  value: quay.io/open-cluster-management/insights-metrics@sha256:a91c95b829e5bef93415bb571c3b0ee4f92c164f3f77e9b71143bfec7ac4f8d9
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_CONTROLLER
                   value: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:330d4e090ca0a200166ac5724186c990af504283559b3a833dba6a16023682ac
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_OPERATOR
@@ -2629,7 +2629,7 @@ spec:
   - name: console
     image: quay.io/open-cluster-management/console@sha256:ca6ad88bd7d36ab029f3ef9162652c1abaa93fc52a30853991e164926aec9327
   - name: console_api
-    image: quay.io/open-cluster-management/console-api@sha256:ab9c6877f6405cbda0d99ed6dd52e1b53d79c10286d4fce7c6ca3bce9e6e3b23
+    image: quay.io/open-cluster-management/console-api@sha256:493c03dca3aa8202452edd2726eb742bf0e2b176e3e0750c9296def15b5d8e41
   - name: discovery_operator
     image: quay.io/open-cluster-management/discovery-operator@sha256:43f78d9895e0e3cd9b8f1156b5ce18bdb2979b8db17dbeb65001666f081ca338
   - name: discovery_operator_tests
@@ -2667,7 +2667,7 @@ spec:
   - name: insights_client
     image: quay.io/open-cluster-management/insights-client@sha256:e16aa1851654c686483a6b985d00b5e9bb63d665a1de014e7ea92cda1e04dbc5
   - name: insights_metrics
-    image: quay.io/open-cluster-management/insights-metrics@sha256:6f62f36a6c86211d8e9394a2b729172d8787c12c54f187dae7fdb3f0bdfba7c6
+    image: quay.io/open-cluster-management/insights-metrics@sha256:a91c95b829e5bef93415bb571c3b0ee4f92c164f3f77e9b71143bfec7ac4f8d9
   - name: klusterlet_addon_controller
     image: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:330d4e090ca0a200166ac5724186c990af504283559b3a833dba6a16023682ac
   - name: klusterlet_addon_operator
