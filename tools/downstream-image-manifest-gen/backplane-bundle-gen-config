@@ -1,18 +1,1 @@
-# Probably are different for each product:
-
-olm_package="multicluster-engine"
-ocp_versions_file="tools/downstream-image-manifest-gen/backplane-ocp-versions"
-gen_bound_bundle_script="tools/bundle-manifests-gen/gen-bound-cmb-bundle.sh"
-
-# Note: Currently, $manifest_gen_config_file is interpreted as being relative to
-# the directory in which $mainfest_gen_script is found.  This probably wasn't a
-# great choice, and perhaps it should be relative to CWD.  We'll carry this as
-# a TODO to fix once we have all of our bundle bundling using the new approach
-# of having config and render_templates be sourced from this repo.
-
-manifest_gen_config_file="backplane-manifest-gen-config.json"
-
-# Probablly are the same for all product bundle building:
-
-common_render_templates_script="tools/downstream-image-manifest-gen/render-templates.sh"
-manifest_gen_script="tools/downstream-image-manifest-gen/generate_manifest.py"
+mce-bundle-gen-config
