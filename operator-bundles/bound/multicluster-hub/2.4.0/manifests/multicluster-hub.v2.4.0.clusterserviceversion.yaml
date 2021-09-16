@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-15T21:09:35Z'
+    createdAt: '2021-09-16T03:06:37Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1285,7 +1285,7 @@ spec:
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/open-cluster-management/helloworld@sha256:71442557f9b12b826b2f5d989f25a5bebde8b8e3a48f61f51503dd198f651d43
+                  value: quay.io/open-cluster-management/helloworld@sha256:a099968e1d696031ab8b8911e315148221707ee11b6f9e99c2b7b099739fe403
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
                   value: quay.io/openshift-hive/hive@sha256:c7848c5244d93c0da0dc9a4f7223eb95346fbdad3863619c050d458875c8a7dd
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
@@ -1311,7 +1311,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
                   value: quay.io/open-cluster-management/multicloud-manager@sha256:f97ae80f7f10fbd5f929d4ba309b7ac5c25635815584a76cc4bb13f8ea9452ca
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
-                  value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:95ba20a4f91265a894eefbc255b663bf72e4991c99b49f3d098c8f88d273c7db
+                  value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:6b02c5c3e842e722086224c66d5330785e1f1c7cf8fe91ba56522b9ecedc610b
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
                   value: quay.io/open-cluster-management/multicluster-operators-application@sha256:dbd50b889ce6a23c5581064ae2b2d1c37a4cd33a3d2a8398c4584cccf24772e5
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
@@ -1514,7 +1514,7 @@ spec:
                   value: /usr/local/manifests
                 - name: SPOKE_NAMESPACE
                   value: open-cluster-management-addon-observability
-                image: quay.io/open-cluster-management/multicluster-observability-operator@sha256:95ba20a4f91265a894eefbc255b663bf72e4991c99b49f3d098c8f88d273c7db
+                image: quay.io/open-cluster-management/multicluster-observability-operator@sha256:6b02c5c3e842e722086224c66d5330785e1f1c7cf8fe91ba56522b9ecedc610b
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -1664,7 +1664,7 @@ spec:
   - name: helloprow_go
     image: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
   - name: helloworld
-    image: quay.io/open-cluster-management/helloworld@sha256:71442557f9b12b826b2f5d989f25a5bebde8b8e3a48f61f51503dd198f651d43
+    image: quay.io/open-cluster-management/helloworld@sha256:a099968e1d696031ab8b8911e315148221707ee11b6f9e99c2b7b099739fe403
   - name: openshift_hive
     image: quay.io/openshift-hive/hive@sha256:c7848c5244d93c0da0dc9a4f7223eb95346fbdad3863619c050d458875c8a7dd
   - name: iam_policy_controller
