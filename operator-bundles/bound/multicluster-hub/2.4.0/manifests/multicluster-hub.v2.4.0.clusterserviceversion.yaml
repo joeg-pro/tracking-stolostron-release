@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-16T20:54:05Z'
+    createdAt: '2021-09-16T21:21:25Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1376,7 +1375,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_E2E
                   value: quay.io/open-cluster-management/search-e2e@sha256:eca6b1f8aa6e4d44c4f6236b68d4b143d527759b1364862073b839a940b38717
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
-                  value: quay.io/open-cluster-management/search-operator@sha256:99719d266ccbe923771bad7dc4448680c19c0d2d2e8a158c728e51fa51417945
+                  value: quay.io/open-cluster-management/search-operator@sha256:3d0e9a1cb547008968174139fd72253a8202ab2566ff5d2465fb96f79750f44c
                 - name: OPERAND_IMAGE_SEARCH_UI
                   value: quay.io/open-cluster-management/search-ui@sha256:be99805831f4b1ff7f1878e57c40f642e58bf27b08c9572a29b7064847121fb1
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
@@ -1749,7 +1748,7 @@ spec:
   - name: search_e2e
     image: quay.io/open-cluster-management/search-e2e@sha256:eca6b1f8aa6e4d44c4f6236b68d4b143d527759b1364862073b839a940b38717
   - name: search_operator
-    image: quay.io/open-cluster-management/search-operator@sha256:99719d266ccbe923771bad7dc4448680c19c0d2d2e8a158c728e51fa51417945
+    image: quay.io/open-cluster-management/search-operator@sha256:3d0e9a1cb547008968174139fd72253a8202ab2566ff5d2465fb96f79750f44c
   - name: search_ui
     image: quay.io/open-cluster-management/search-ui@sha256:be99805831f4b1ff7f1878e57c40f642e58bf27b08c9572a29b7064847121fb1
   - name: thanos
