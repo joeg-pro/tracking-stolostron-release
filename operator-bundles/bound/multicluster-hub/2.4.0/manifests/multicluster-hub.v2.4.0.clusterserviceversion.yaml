@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-16T16:09:56Z'
+    createdAt: '2021-09-16T16:21:55Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1220,9 +1219,9 @@ spec:
                     fieldRef:
                       fieldPath: metadata.namespace
                 - name: OPERAND_IMAGE_APPLICATION_UI
-                  value: quay.io/open-cluster-management/application-ui@sha256:8caf9230bf5197a1697a455e61d4e08b2240514e85504c69959a8ae706d3806b
+                  value: quay.io/open-cluster-management/application-ui@sha256:b94fcdd3b02e25d3a496a57525da7e86933b33742c7d016772abe1dfe4c0cd19
                 - name: OPERAND_IMAGE_APPLICATION_UI_TESTS
-                  value: quay.io/open-cluster-management/application-ui-tests@sha256:a78ff4483b45d66371744fc5c0c1c05b2512d075a9bb4aaf6ad7c5e7907af218
+                  value: quay.io/open-cluster-management/application-ui-tests@sha256:36a21ffc8bf75a64dc9cfe26036874fcef099a49cf5f7aee983d0aff647177fb
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
                   value: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:fee14e5a803fb72ada1b8d3b583c985c9c2358817c319e99c75e5e322cedc9ba
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER
@@ -1599,9 +1598,9 @@ spec:
               serviceAccountName: submariner-addon
   relatedImages:
   - name: application_ui
-    image: quay.io/open-cluster-management/application-ui@sha256:8caf9230bf5197a1697a455e61d4e08b2240514e85504c69959a8ae706d3806b
+    image: quay.io/open-cluster-management/application-ui@sha256:b94fcdd3b02e25d3a496a57525da7e86933b33742c7d016772abe1dfe4c0cd19
   - name: application_ui_tests
-    image: quay.io/open-cluster-management/application-ui-tests@sha256:a78ff4483b45d66371744fc5c0c1c05b2512d075a9bb4aaf6ad7c5e7907af218
+    image: quay.io/open-cluster-management/application-ui-tests@sha256:36a21ffc8bf75a64dc9cfe26036874fcef099a49cf5f7aee983d0aff647177fb
   - name: applifecycle_backend_e2e
     image: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:fee14e5a803fb72ada1b8d3b583c985c9c2358817c319e99c75e5e322cedc9ba
   - name: assisted_installer
