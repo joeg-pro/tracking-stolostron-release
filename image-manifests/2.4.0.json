@@ -412,12 +412,12 @@
   {
     "image-name": "klusterlet-addon-controller",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-8e8113ffa655bb0228b60d596a2c2bde63811620",
-    "git-sha256": "8e8113ffa655bb0228b60d596a2c2bde63811620",
+    "image-tag": "2.4.0-a8932f8a42ba896987508b63532ad9d61e1cfb85",
+    "git-sha256": "a8932f8a42ba896987508b63532ad9d61e1cfb85",
     "git-repository": "open-cluster-management/klusterlet-addon-controller",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:330d4e090ca0a200166ac5724186c990af504283559b3a833dba6a16023682ac",
+    "image-digest": "sha256:57deec54cfa59ac2d8c00640237782af6a675eff5ff46afd21a1ab3d35d12fb4",
     "image-key": "klusterlet_addon_controller"
   },
   {
@@ -500,12 +500,12 @@
   {
     "image-name": "multicluster-observability-operator",
     "image-version": "2.4",
-    "image-tag": "2.4-0533f04fa8f697b3898a3dae76d35dd61c2cd021",
-    "git-sha256": "0533f04fa8f697b3898a3dae76d35dd61c2cd021",
+    "image-tag": "2.4-37c298ae92a7bce4d494514979dcc8c8e95b345f",
+    "git-sha256": "37c298ae92a7bce4d494514979dcc8c8e95b345f",
     "git-repository": "open-cluster-management/multicluster-observability-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:6b02c5c3e842e722086224c66d5330785e1f1c7cf8fe91ba56522b9ecedc610b",
+    "image-digest": "sha256:85babb46612772900fc67739b682b66509312a4b1886be7544c7d0251a8bd5b9",
     "image-key": "multicluster_observability_operator"
   },
   {
