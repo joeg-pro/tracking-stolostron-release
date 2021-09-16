@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-16T13:50:05Z'
+    createdAt: '2021-09-16T14:17:15Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1252,7 +1252,7 @@ spec:
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/open-cluster-management/config-policy-controller@sha256:1dba46d303584cb47e7ad4e14e2807f53be35b190f1ee9287989f7fe90b2d509
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/open-cluster-management/console@sha256:c62027843f0a47626ee169a910e443d1e63e8b206decafcf60dccfba4cd57738
+                  value: quay.io/open-cluster-management/console@sha256:041142762a99f6d3042fcb303cbe568a077073f3c437c766529a27da8c959673
                 - name: OPERAND_IMAGE_CONSOLE_API
                   value: quay.io/open-cluster-management/console-api@sha256:493c03dca3aa8202452edd2726eb742bf0e2b176e3e0750c9296def15b5d8e41
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
@@ -1286,7 +1286,7 @@ spec:
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/open-cluster-management/helloworld@sha256:23c2311e3a0a31c0f2d5f22054f08b12356b53dc1054f80697b445f138af335d
+                  value: quay.io/open-cluster-management/helloworld@sha256:9acec5456323f44c477f1f0ee32f903fcd464359dc9d9e9ca0a90b8070d98d2e
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
                   value: quay.io/openshift-hive/hive@sha256:c7848c5244d93c0da0dc9a4f7223eb95346fbdad3863619c050d458875c8a7dd
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
@@ -1631,7 +1631,7 @@ spec:
   - name: config_policy_controller
     image: quay.io/open-cluster-management/config-policy-controller@sha256:1dba46d303584cb47e7ad4e14e2807f53be35b190f1ee9287989f7fe90b2d509
   - name: console
-    image: quay.io/open-cluster-management/console@sha256:c62027843f0a47626ee169a910e443d1e63e8b206decafcf60dccfba4cd57738
+    image: quay.io/open-cluster-management/console@sha256:041142762a99f6d3042fcb303cbe568a077073f3c437c766529a27da8c959673
   - name: console_api
     image: quay.io/open-cluster-management/console-api@sha256:493c03dca3aa8202452edd2726eb742bf0e2b176e3e0750c9296def15b5d8e41
   - name: discovery_operator
@@ -1665,7 +1665,7 @@ spec:
   - name: helloprow_go
     image: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
   - name: helloworld
-    image: quay.io/open-cluster-management/helloworld@sha256:23c2311e3a0a31c0f2d5f22054f08b12356b53dc1054f80697b445f138af335d
+    image: quay.io/open-cluster-management/helloworld@sha256:9acec5456323f44c477f1f0ee32f903fcd464359dc9d9e9ca0a90b8070d98d2e
   - name: openshift_hive
     image: quay.io/openshift-hive/hive@sha256:c7848c5244d93c0da0dc9a4f7223eb95346fbdad3863619c050d458875c8a7dd
   - name: iam_policy_controller
