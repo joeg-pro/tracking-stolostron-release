@@ -500,12 +500,12 @@
   {
     "image-name": "multicluster-observability-operator",
     "image-version": "2.4",
-    "image-tag": "2.4-7e86594160e048217a9665b5e695c447d16a0a22",
-    "git-sha256": "7e86594160e048217a9665b5e695c447d16a0a22",
+    "image-tag": "2.4-86e6b02e117559f7e8e085346ca731200b658196",
+    "git-sha256": "86e6b02e117559f7e8e085346ca731200b658196",
     "git-repository": "open-cluster-management/multicluster-observability-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:7b473f6edbe096d7b26bbd3c69207a83927a718a85d6748ee869de30763d9c17",
+    "image-digest": "sha256:9ae728d2cc8820f9fcee0e4741ebf1a13771ac1b6ebfd037714f563f89318abe",
     "image-key": "multicluster_observability_operator"
   },
   {
@@ -631,12 +631,12 @@
   {
     "image-name": "observability-e2e-test",
     "image-version": "2.4",
-    "image-tag": "2.4-bfb0541a1786f4ee2845f031b5c666c8304c69f3",
-    "git-sha256": "bfb0541a1786f4ee2845f031b5c666c8304c69f3",
+    "image-tag": "2.4-86e6b02e117559f7e8e085346ca731200b658196",
+    "git-sha256": "86e6b02e117559f7e8e085346ca731200b658196",
     "git-repository": "open-cluster-management/multicluster-observability-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:3ca46f5c28cbdc0cabea03f34ef4dc152639f9a1fcec2e2de3c645852f1704b4",
+    "image-digest": "sha256:2524f68f09a47c2ba67b8cd0861f001fd3c5fc415b8d1881dd3b1669aa975b6c",
     "image-key": "observability_e2e_test"
   },
   {
