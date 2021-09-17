@@ -27,18 +27,18 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-09-17T20:21:08Z'
+    createdAt: '2021-09-17T20:48:30Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware"]'
-    operators.operatorframework.io/internal-objects: '["clustersyncleases.hiveinternal.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "fakeclusterinstalls.hiveinternal.openshift.io",
-      "clusterprovisions.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "observatoria.core.observatorium.io",
-      "clusterstates.hive.openshift.io", "machinepoolnameleases.hive.openshift.io", "checkpoints.hive.openshift.io",
-      "clusterdeprovisions.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["fakeclusterinstalls.hiveinternal.openshift.io",
+      "clusterstates.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "clustersyncs.hiveinternal.openshift.io", "machinepoolnameleases.hive.openshift.io", "observatoria.core.observatorium.io",
+      "clusterprovisions.hive.openshift.io", "clusterdeprovisions.hive.openshift.io", "checkpoints.hive.openshift.io",
+      "clustersyncleases.hiveinternal.openshift.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1836,7 +1836,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_AGGREGATOR
                   value: quay.io/open-cluster-management/search-aggregator@sha256:245eaef56cfe6ab733227d277b413c25aefaa3fe0bb10180451035e0d0f90670
                 - name: OPERAND_IMAGE_SEARCH_API
-                  value: quay.io/open-cluster-management/search-api@sha256:37b0b8556ade3f282d942daf83ebc7487f5710691dbe92d187c14859c27a2169
+                  value: quay.io/open-cluster-management/search-api@sha256:3fea723a5180cd9d346410106604a401c82ee270f85261f7488e8cb6b43c6a4c
                 - name: OPERAND_IMAGE_SEARCH_COLLECTOR
                   value: quay.io/open-cluster-management/search-collector@sha256:ffeb9b481d5f402fbece189798d9a438490654faa34ab958f3a5e470ab19f74c
                 - name: OPERAND_IMAGE_SEARCH_E2E
@@ -2741,7 +2741,7 @@ spec:
   - name: search_aggregator
     image: quay.io/open-cluster-management/search-aggregator@sha256:245eaef56cfe6ab733227d277b413c25aefaa3fe0bb10180451035e0d0f90670
   - name: search_api
-    image: quay.io/open-cluster-management/search-api@sha256:37b0b8556ade3f282d942daf83ebc7487f5710691dbe92d187c14859c27a2169
+    image: quay.io/open-cluster-management/search-api@sha256:3fea723a5180cd9d346410106604a401c82ee270f85261f7488e8cb6b43c6a4c
   - name: search_collector
     image: quay.io/open-cluster-management/search-collector@sha256:ffeb9b481d5f402fbece189798d9a438490654faa34ab958f3a5e470ab19f74c
   - name: search_e2e
