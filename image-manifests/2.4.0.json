@@ -228,12 +228,12 @@
   {
     "image-name": "endpoint-monitoring-operator",
     "image-version": "2.4",
-    "image-tag": "2.4-bfb0541a1786f4ee2845f031b5c666c8304c69f3",
-    "git-sha256": "bfb0541a1786f4ee2845f031b5c666c8304c69f3",
+    "image-tag": "2.4-7e86594160e048217a9665b5e695c447d16a0a22",
+    "git-sha256": "7e86594160e048217a9665b5e695c447d16a0a22",
     "git-repository": "open-cluster-management/multicluster-observability-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:e660cf726dce5cabbf08f7a0e48589f1903e0b337a027121885c356040d6c6aa",
+    "image-digest": "sha256:f6f9be7b8baf1965b06fc65fc9d95c0cde2c39d2a5a607625d61c64072a35e3e",
     "image-key": "endpoint_monitoring_operator"
   },
   {
@@ -283,12 +283,12 @@
   {
     "image-name": "grafana",
     "image-version": "2.4",
-    "image-tag": "2.4-f8431e168f9b9592bed278320860a9818f85e6a3",
-    "git-sha256": "f8431e168f9b9592bed278320860a9818f85e6a3",
+    "image-tag": "2.4-dff8adc6b5efe07210ba3f00a2c2e16f11d9177b",
+    "git-sha256": "dff8adc6b5efe07210ba3f00a2c2e16f11d9177b",
     "git-repository": "open-cluster-management/grafana",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:2ae4337f552b4b30afe568a15f09ec288a5cb0c4ef6482193cd8133f9cbb9182",
+    "image-digest": "sha256:5f8c050098f4afef11946637a2ba2615bcb779efaba32ba4f4fe5c1f141a05ac",
     "image-key": "grafana"
   },
   {
@@ -363,7 +363,7 @@
     "git-sha256": "b816b84e980cd67c69d68904b484e71f29f2822c",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:af580021173016991fcce6a6194078b6f3ed7d8f985dd83582b6d9a40163598f",
+    "image-digest": "sha256:8bb9de459fdc3afd7b511298f8ae2bc16b85547810a160d206d5c92e694cdaae",
     "image-key": "helloworld"
   },
   {
