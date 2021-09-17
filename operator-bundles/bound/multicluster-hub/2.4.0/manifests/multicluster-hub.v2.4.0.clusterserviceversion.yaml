@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-17T16:59:53Z'
+    createdAt: '2021-09-17T17:07:46Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1289,7 +1289,7 @@ spec:
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_STATUS_SYNC
                   value: quay.io/open-cluster-management/governance-policy-status-sync@sha256:d84d3fa72a5935fb8ede384c0c38aae32e47978fda85a3c76bb6fa82c2e3840f
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_TEMPLATE_SYNC
-                  value: quay.io/open-cluster-management/governance-policy-template-sync@sha256:eba8bb10449c78c00c2b4e3a970331dea210507d8ac113a6ba1379c5630277f3
+                  value: quay.io/open-cluster-management/governance-policy-template-sync@sha256:28b8da2f1789e682ba010f858ce62775023284e4805eb379c8d0ced57983a2dd
                 - name: OPERAND_IMAGE_GRAFANA
                   value: quay.io/open-cluster-management/grafana@sha256:5f8c050098f4afef11946637a2ba2615bcb779efaba32ba4f4fe5c1f141a05ac
                 - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
@@ -1668,7 +1668,7 @@ spec:
   - name: governance_policy_status_sync
     image: quay.io/open-cluster-management/governance-policy-status-sync@sha256:d84d3fa72a5935fb8ede384c0c38aae32e47978fda85a3c76bb6fa82c2e3840f
   - name: governance_policy_template_sync
-    image: quay.io/open-cluster-management/governance-policy-template-sync@sha256:eba8bb10449c78c00c2b4e3a970331dea210507d8ac113a6ba1379c5630277f3
+    image: quay.io/open-cluster-management/governance-policy-template-sync@sha256:28b8da2f1789e682ba010f858ce62775023284e4805eb379c8d0ced57983a2dd
   - name: grafana
     image: quay.io/open-cluster-management/grafana@sha256:5f8c050098f4afef11946637a2ba2615bcb779efaba32ba4f4fe5c1f141a05ac
   - name: grafana_dashboard_loader
