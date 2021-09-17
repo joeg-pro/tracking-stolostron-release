@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-17T16:15:00Z'
+    createdAt: '2021-09-17T16:20:09Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1257,7 +1257,7 @@ spec:
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
                   value: quay.io/open-cluster-management/cert-policy-controller@sha256:7770bc107c14f858786a20b11baf7bb1c79f1729fe951f2741dc958dea530689
                 - name: OPERAND_IMAGE_CLUSTER_BACKUP_CONTROLLER
-                  value: quay.io/open-cluster-management/cluster-backup-controller@sha256:c4085476ae252635d50e12cf7122e11983c1ec4710423cbd6ce54f258d965753
+                  value: quay.io/open-cluster-management/cluster-backup-controller@sha256:b9a9d8443f302a7256b7eea3525d55c75d799020d1636e2bd94021b8c830c131
                 - name: OPERAND_IMAGE_CLUSTER_CURATOR_CONTROLLER
                   value: quay.io/open-cluster-management/cluster-curator-controller@sha256:b2df28d0480d03b36fd69a6433d6b4a64df96a6c87e4bc7b30f8505cfc4bf2a1
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
@@ -1285,11 +1285,11 @@ spec:
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
                   value: quay.io/open-cluster-management/governance-policy-propagator@sha256:309d9409ba3e0087f849fdf60b0de495c1008758bd473be73104215d3e4edec5
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
-                  value: quay.io/open-cluster-management/governance-policy-spec-sync@sha256:ff329817f5777f5ea7aa35bad3d65c96ef2563f005e7878ce075fd9459c72159
+                  value: quay.io/open-cluster-management/governance-policy-spec-sync@sha256:ec6c6d59e235ce9ed7e5eb58146a7fbb4fce5f792c869c2168ab939bce6e83d1
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_STATUS_SYNC
                   value: quay.io/open-cluster-management/governance-policy-status-sync@sha256:d84d3fa72a5935fb8ede384c0c38aae32e47978fda85a3c76bb6fa82c2e3840f
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_TEMPLATE_SYNC
-                  value: quay.io/open-cluster-management/governance-policy-template-sync@sha256:eba8bb10449c78c00c2b4e3a970331dea210507d8ac113a6ba1379c5630277f3
+                  value: quay.io/open-cluster-management/governance-policy-template-sync@sha256:28b8da2f1789e682ba010f858ce62775023284e4805eb379c8d0ced57983a2dd
                 - name: OPERAND_IMAGE_GRAFANA
                   value: quay.io/open-cluster-management/grafana@sha256:5f8c050098f4afef11946637a2ba2615bcb779efaba32ba4f4fe5c1f141a05ac
                 - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
@@ -1305,13 +1305,13 @@ spec:
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/open-cluster-management/helloworld@sha256:c0b75c00e5569305c212c2c4429a62f49795d5732c0614b6ae810b46016f4af9
+                  value: quay.io/open-cluster-management/helloworld@sha256:1db0d8fa748179fcca4606c86dbb4eab3fd21db015c7427795df5f0704d76e54
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
                   value: quay.io/openshift-hive/hive@sha256:c7848c5244d93c0da0dc9a4f7223eb95346fbdad3863619c050d458875c8a7dd
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
                   value: quay.io/open-cluster-management/iam-policy-controller@sha256:e717766dea3ae770ba4b7ec5e5f10fae60cb2eeba555c16fef4f49137dae2456
                 - name: OPERAND_IMAGE_INSIGHTS_CLIENT
-                  value: quay.io/open-cluster-management/insights-client@sha256:e16aa1851654c686483a6b985d00b5e9bb63d665a1de014e7ea92cda1e04dbc5
+                  value: quay.io/open-cluster-management/insights-client@sha256:6a6d532a36e2a21bf4b0b376b5247cf19180e21d361821752525bbc1af2276cd
                 - name: OPERAND_IMAGE_INSIGHTS_METRICS
                   value: quay.io/open-cluster-management/insights-metrics@sha256:e632070f87c882ea6bdfb81b881dcf13e9de2e97559ebf405a7797dcee5f5876
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_CONTROLLER
@@ -1349,7 +1349,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
                   value: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:75b2cb2766ec474babd03376d602bb1e4f9e3e6e9fa4c315f3c11de29746e721
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
-                  value: quay.io/open-cluster-management/multiclusterhub-repo@sha256:1145868557b881a1996d3da1e4c61b57755ff722b32ea6770e5cd0bcd4f606c7
+                  value: quay.io/open-cluster-management/multiclusterhub-repo@sha256:00a853f57d44ccef440f722e9f61a83b7d0fa8823221cadd157f94d3ae805d24
                 - name: OPERAND_IMAGE_MUST_GATHER
                   value: quay.io/open-cluster-management/must-gather@sha256:4d5441585666d51adec487c24eeb8a9dc380c9d81daa06933f83f23a9ed02b8b
                 - name: OPERAND_IMAGE_NODE_EXPORTER
@@ -1393,7 +1393,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_UI
                   value: quay.io/open-cluster-management/search-ui@sha256:be99805831f4b1ff7f1878e57c40f642e58bf27b08c9572a29b7064847121fb1
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
-                  value: quay.io/open-cluster-management/submariner-addon@sha256:a4d9db6f07e9b283b1540b45955e81e1e90b7be98cc244b2f4ba6bcbe25038a0
+                  value: quay.io/open-cluster-management/submariner-addon@sha256:e90d4df1178f7490ede6e8288d5bb8cc8d8a3e5e1ead55d3d8d60c8e42e955a0
                 - name: OPERAND_IMAGE_THANOS
                   value: quay.io/open-cluster-management/thanos@sha256:68da4e5f45aef70c402181fcb6965b8726af0be38e0a7b8b9bc8d16c18aa7430
                 - name: OPERAND_IMAGE_VOLSYNC
@@ -1596,7 +1596,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.name
-                image: quay.io/open-cluster-management/submariner-addon@sha256:a4d9db6f07e9b283b1540b45955e81e1e90b7be98cc244b2f4ba6bcbe25038a0
+                image: quay.io/open-cluster-management/submariner-addon@sha256:e90d4df1178f7490ede6e8288d5bb8cc8d8a3e5e1ead55d3d8d60c8e42e955a0
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -1636,7 +1636,7 @@ spec:
   - name: cert_policy_controller
     image: quay.io/open-cluster-management/cert-policy-controller@sha256:7770bc107c14f858786a20b11baf7bb1c79f1729fe951f2741dc958dea530689
   - name: cluster_backup_controller
-    image: quay.io/open-cluster-management/cluster-backup-controller@sha256:c4085476ae252635d50e12cf7122e11983c1ec4710423cbd6ce54f258d965753
+    image: quay.io/open-cluster-management/cluster-backup-controller@sha256:b9a9d8443f302a7256b7eea3525d55c75d799020d1636e2bd94021b8c830c131
   - name: cluster_curator_controller
     image: quay.io/open-cluster-management/cluster-curator-controller@sha256:b2df28d0480d03b36fd69a6433d6b4a64df96a6c87e4bc7b30f8505cfc4bf2a1
   - name: cluster_lifecycle_e2e
@@ -1664,11 +1664,11 @@ spec:
   - name: governance_policy_propagator
     image: quay.io/open-cluster-management/governance-policy-propagator@sha256:309d9409ba3e0087f849fdf60b0de495c1008758bd473be73104215d3e4edec5
   - name: governance_policy_spec_sync
-    image: quay.io/open-cluster-management/governance-policy-spec-sync@sha256:ff329817f5777f5ea7aa35bad3d65c96ef2563f005e7878ce075fd9459c72159
+    image: quay.io/open-cluster-management/governance-policy-spec-sync@sha256:ec6c6d59e235ce9ed7e5eb58146a7fbb4fce5f792c869c2168ab939bce6e83d1
   - name: governance_policy_status_sync
     image: quay.io/open-cluster-management/governance-policy-status-sync@sha256:d84d3fa72a5935fb8ede384c0c38aae32e47978fda85a3c76bb6fa82c2e3840f
   - name: governance_policy_template_sync
-    image: quay.io/open-cluster-management/governance-policy-template-sync@sha256:eba8bb10449c78c00c2b4e3a970331dea210507d8ac113a6ba1379c5630277f3
+    image: quay.io/open-cluster-management/governance-policy-template-sync@sha256:28b8da2f1789e682ba010f858ce62775023284e4805eb379c8d0ced57983a2dd
   - name: grafana
     image: quay.io/open-cluster-management/grafana@sha256:5f8c050098f4afef11946637a2ba2615bcb779efaba32ba4f4fe5c1f141a05ac
   - name: grafana_dashboard_loader
@@ -1684,13 +1684,13 @@ spec:
   - name: helloprow_go
     image: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
   - name: helloworld
-    image: quay.io/open-cluster-management/helloworld@sha256:c0b75c00e5569305c212c2c4429a62f49795d5732c0614b6ae810b46016f4af9
+    image: quay.io/open-cluster-management/helloworld@sha256:1db0d8fa748179fcca4606c86dbb4eab3fd21db015c7427795df5f0704d76e54
   - name: openshift_hive
     image: quay.io/openshift-hive/hive@sha256:c7848c5244d93c0da0dc9a4f7223eb95346fbdad3863619c050d458875c8a7dd
   - name: iam_policy_controller
     image: quay.io/open-cluster-management/iam-policy-controller@sha256:e717766dea3ae770ba4b7ec5e5f10fae60cb2eeba555c16fef4f49137dae2456
   - name: insights_client
-    image: quay.io/open-cluster-management/insights-client@sha256:e16aa1851654c686483a6b985d00b5e9bb63d665a1de014e7ea92cda1e04dbc5
+    image: quay.io/open-cluster-management/insights-client@sha256:6a6d532a36e2a21bf4b0b376b5247cf19180e21d361821752525bbc1af2276cd
   - name: insights_metrics
     image: quay.io/open-cluster-management/insights-metrics@sha256:e632070f87c882ea6bdfb81b881dcf13e9de2e97559ebf405a7797dcee5f5876
   - name: klusterlet_addon_controller
@@ -1724,7 +1724,7 @@ spec:
   - name: multiclusterhub_operator_tests
     image: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:75b2cb2766ec474babd03376d602bb1e4f9e3e6e9fa4c315f3c11de29746e721
   - name: multiclusterhub_repo
-    image: quay.io/open-cluster-management/multiclusterhub-repo@sha256:1145868557b881a1996d3da1e4c61b57755ff722b32ea6770e5cd0bcd4f606c7
+    image: quay.io/open-cluster-management/multiclusterhub-repo@sha256:00a853f57d44ccef440f722e9f61a83b7d0fa8823221cadd157f94d3ae805d24
   - name: must_gather
     image: quay.io/open-cluster-management/must-gather@sha256:4d5441585666d51adec487c24eeb8a9dc380c9d81daa06933f83f23a9ed02b8b
   - name: node_exporter
