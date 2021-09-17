@@ -97,12 +97,12 @@
   {
     "image-name": "cluster-backup-controller",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-a6825ad294d4207530a933059954d897c8bbdae4",
-    "git-sha256": "a6825ad294d4207530a933059954d897c8bbdae4",
+    "image-tag": "2.4.0-12078723d8af7ef39dba4972841ca63aab1a5319",
+    "git-sha256": "12078723d8af7ef39dba4972841ca63aab1a5319",
     "git-repository": "open-cluster-management/cluster-backup-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:c4085476ae252635d50e12cf7122e11983c1ec4710423cbd6ce54f258d965753",
+    "image-digest": "sha256:0af1807d9a87e9f7faa8743b7e9512fe32444eb1ca39ec865a5f898e39a65a1a",
     "image-key": "cluster_backup_controller"
   },
   {
@@ -390,12 +390,12 @@
   {
     "image-name": "insights-client",
     "image-version": "2.3.0",
-    "image-tag": "2.3.0-29236eb19cedc11bdaca91676755b31317ff57fd",
-    "git-sha256": "29236eb19cedc11bdaca91676755b31317ff57fd",
+    "image-tag": "2.3.0-8905ba9ec69131d562687a9166aeac73a5629655",
+    "git-sha256": "8905ba9ec69131d562687a9166aeac73a5629655",
     "git-repository": "open-cluster-management/insights-client",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:e16aa1851654c686483a6b985d00b5e9bb63d665a1de014e7ea92cda1e04dbc5",
+    "image-digest": "sha256:6a6d532a36e2a21bf4b0b376b5247cf19180e21d361821752525bbc1af2276cd",
     "image-key": "insights_client"
   },
   {
@@ -599,12 +599,12 @@
   {
     "image-name": "multiclusterhub-repo",
     "image-version": "2.4",
-    "image-tag": "2.4-ea00baccb3e30b7e42f73d0dabfd1128abbd06e4",
-    "git-sha256": "ea00baccb3e30b7e42f73d0dabfd1128abbd06e4",
+    "image-tag": "2.4-9e019de7f765f9b101f0b428067161c92148355c",
+    "git-sha256": "9e019de7f765f9b101f0b428067161c92148355c",
     "git-repository": "open-cluster-management/multiclusterhub-repo",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:1145868557b881a1996d3da1e4c61b57755ff722b32ea6770e5cd0bcd4f606c7",
+    "image-digest": "sha256:00a853f57d44ccef440f722e9f61a83b7d0fa8823221cadd157f94d3ae805d24",
     "image-key": "multiclusterhub_repo"
   },
   {
@@ -836,12 +836,12 @@
   {
     "image-name": "submariner-addon",
     "image-version": "0.5.0",
-    "image-tag": "0.5.0-f996800fc72061be436bfc9b84a411ec2ca35102",
-    "git-sha256": "f996800fc72061be436bfc9b84a411ec2ca35102",
+    "image-tag": "0.5.0-dc63d1737410aa18ffe21fa7e1a805bae90603f5",
+    "git-sha256": "dc63d1737410aa18ffe21fa7e1a805bae90603f5",
     "git-repository": "open-cluster-management/submariner-addon",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:a4d9db6f07e9b283b1540b45955e81e1e90b7be98cc244b2f4ba6bcbe25038a0",
+    "image-digest": "sha256:e90d4df1178f7490ede6e8288d5bb8cc8d8a3e5e1ead55d3d8d60c8e42e955a0",
     "image-key": "submariner_addon"
   },
   {
