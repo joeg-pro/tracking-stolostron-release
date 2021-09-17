@@ -9,8 +9,8 @@
 # $1 Bundle version for this bundle (Format: x.y.z[-iter]).  (Required)
 #
 # -r remote Registry server/namespace. (Default: quay.io/open-cluster-management)
-# -b Budnle repository name (default: acm-operator-bundle)
-# -c Custom catalog repository Name (Default: acm-custom-registry)
+# -b Budnle repository name (default: cmb-operator-bundle)
+# -c Custom catalog repository Name (Default: cmb-custom-registry)
 # -t image Tag for bundle/catalog (Default: use bundle version)
 # -P Push the bundle image and catalogs to remote registry after producing it (switch)
 #
