@@ -363,7 +363,7 @@
     "git-sha256": "b816b84e980cd67c69d68904b484e71f29f2822c",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:8bb9de459fdc3afd7b511298f8ae2bc16b85547810a160d206d5c92e694cdaae",
+    "image-digest": "sha256:b48197209c1a0c6e2d3d21481d106ba47fb8007fd0387e14c14da8a340b42b29",
     "image-key": "helloworld"
   },
   {
@@ -500,12 +500,12 @@
   {
     "image-name": "multicluster-observability-operator",
     "image-version": "2.4",
-    "image-tag": "2.4-15e2c5cab49d06148f731d2878a5afd6190a9cc1",
-    "git-sha256": "15e2c5cab49d06148f731d2878a5afd6190a9cc1",
+    "image-tag": "2.4-c6b6fc953c128dd6f078dcb9377796cdbbe86ee5",
+    "git-sha256": "c6b6fc953c128dd6f078dcb9377796cdbbe86ee5",
     "git-repository": "open-cluster-management/multicluster-observability-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:089a838063f9bddf6951e248f87004de42a86fd329229d8e26f097291857a269",
+    "image-digest": "sha256:0bdd885606f859068d3d7d008880051598313688ca76c477d988817c76dfadf0",
     "image-key": "multicluster_observability_operator"
   },
   {
