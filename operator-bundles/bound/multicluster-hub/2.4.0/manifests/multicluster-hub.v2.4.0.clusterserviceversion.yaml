@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-18T02:46:18Z'
+    createdAt: '2021-09-18T03:09:21Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1315,7 +1314,7 @@ spec:
                 - name: OPERAND_IMAGE_INSIGHTS_METRICS
                   value: quay.io/open-cluster-management/insights-metrics@sha256:e632070f87c882ea6bdfb81b881dcf13e9de2e97559ebf405a7797dcee5f5876
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_CONTROLLER
-                  value: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:d8bce041e77a8aefff01791710b9ebb17a37b4a31d84428dcde55990533e9ad6
+                  value: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:97fc1c541941ce1157e38bc0ab3ba34c98f233042009d4cca80b1f35dfe61c90
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_OPERATOR
                   value: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:51cda687830fd99e5c4c1ad71000578d663a8fa01dbd08e6e725a56a2d7819b3
                 - name: OPERAND_IMAGE_KUBE_RBAC_PROXY
@@ -1694,7 +1693,7 @@ spec:
   - name: insights_metrics
     image: quay.io/open-cluster-management/insights-metrics@sha256:e632070f87c882ea6bdfb81b881dcf13e9de2e97559ebf405a7797dcee5f5876
   - name: klusterlet_addon_controller
-    image: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:d8bce041e77a8aefff01791710b9ebb17a37b4a31d84428dcde55990533e9ad6
+    image: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:97fc1c541941ce1157e38bc0ab3ba34c98f233042009d4cca80b1f35dfe61c90
   - name: klusterlet_addon_operator
     image: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:51cda687830fd99e5c4c1ad71000578d663a8fa01dbd08e6e725a56a2d7819b3
   - name: kube_rbac_proxy
