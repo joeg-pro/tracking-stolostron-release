@@ -412,12 +412,12 @@
   {
     "image-name": "klusterlet-addon-controller",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-884a5aa7d3482b2df3a9c5848d3a8b9a6fa3f93e",
-    "git-sha256": "884a5aa7d3482b2df3a9c5848d3a8b9a6fa3f93e",
+    "image-tag": "2.4.0-225be1d7eb279d95edcc1f72126e534d94413911",
+    "git-sha256": "225be1d7eb279d95edcc1f72126e534d94413911",
     "git-repository": "open-cluster-management/klusterlet-addon-controller",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:37643d7145789c7383521406b79640457189f8e61768e426dde2c27a0fc1ded8",
+    "image-digest": "sha256:9f1ab263d525dde4754d0957c5a17d892e4f60aef0a2b55bef4115d7dd5d903b",
     "image-key": "klusterlet_addon_controller"
   },
   {
@@ -749,12 +749,12 @@
   {
     "image-name": "registration",
     "image-version": "0.5.0",
-    "image-tag": "0.5.0-3722e2b996154ea078eee77c793b11a5aa728293",
-    "git-sha256": "3722e2b996154ea078eee77c793b11a5aa728293",
+    "image-tag": "0.5.0-a5462670342aad9c45b84d561361760c09518c23",
+    "git-sha256": "a5462670342aad9c45b84d561361760c09518c23",
     "git-repository": "open-cluster-management/registration",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:a781606ad33b2362b0e39c6809b8e4d908ed9a00b5d5551962f93e94ca0b6348",
+    "image-digest": "sha256:c66e1de56093172aa3f25a1a9308884fc5402b2421b0812dfd1cdeebf9cdf638",
     "image-key": "registration"
   },
   {
@@ -898,12 +898,12 @@
   {
     "image-name": "work",
     "image-version": "0.5.0",
-    "image-tag": "0.5.0-f260e0b135a6bfa58ccf3ebf5803e8a576095488",
-    "git-sha256": "f260e0b135a6bfa58ccf3ebf5803e8a576095488",
+    "image-tag": "0.5.0-a1ca4f2f99341f1c1caf379d172aefce068f2464",
+    "git-sha256": "a1ca4f2f99341f1c1caf379d172aefce068f2464",
     "git-repository": "open-cluster-management/work",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:20a7af0f1d4b18686f9d478ac772a08fae7cd91e1fb15e20bc3cb3c721691031",
+    "image-digest": "sha256:fa8c8aa4a1c6252c1d75c2f3616429a574a383969bb001df379a4a27f590c5cd",
     "image-key": "work"
   }
 ]
