@@ -487,6 +487,17 @@
     "image-key": "metrics_collector"
   },
   {
+    "image-name": "multicloud-integrations",
+    "image-version": "2.4.0",
+    "image-tag": "2.4.0-aa2f85812819f5a2d098a423a58b555f16c9a931",
+    "git-sha256": "aa2f85812819f5a2d098a423a58b555f16c9a931",
+    "git-repository": "open-cluster-management/multicloud-integrations",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
+    "image-digest": "sha256:a452b4f9c754f9c9ca32e8f8e985001cd0a2636742b573133957eb8b49204e21",
+    "image-key": "multicloud_integrations"
+  },
+  {
     "image-name": "multicloud-manager",
     "image-version": "0.5.0",
     "image-tag": "0.5.0-5373a6b17085a3d5868bf8add5a6ac6f908231ae",
