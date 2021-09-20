@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-20T18:42:42Z'
+    createdAt: '2021-09-20T19:22:46Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1275,7 +1274,7 @@ spec:
                 - name: OPERAND_IMAGE_CONSOLE_API
                   value: quay.io/open-cluster-management/console-api@sha256:493c03dca3aa8202452edd2726eb742bf0e2b176e3e0750c9296def15b5d8e41
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
-                  value: quay.io/open-cluster-management/discovery-operator@sha256:43f78d9895e0e3cd9b8f1156b5ce18bdb2979b8db17dbeb65001666f081ca338
+                  value: quay.io/open-cluster-management/discovery-operator@sha256:02846be0344f8baa18fc8bd62ed4ff77a2904dc730f19a0ed547ed9dd496b7cc
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR_TESTS
                   value: quay.io/open-cluster-management/discovery-operator-tests@sha256:661c161514cb8dbfd9635114d2e865274e0b0ae463f12cc48e5f5c57a71f22ee
                 - name: OPERAND_IMAGE_DISCOVERY-TESTSERVER
@@ -1656,7 +1655,7 @@ spec:
   - name: console_api
     image: quay.io/open-cluster-management/console-api@sha256:493c03dca3aa8202452edd2726eb742bf0e2b176e3e0750c9296def15b5d8e41
   - name: discovery_operator
-    image: quay.io/open-cluster-management/discovery-operator@sha256:43f78d9895e0e3cd9b8f1156b5ce18bdb2979b8db17dbeb65001666f081ca338
+    image: quay.io/open-cluster-management/discovery-operator@sha256:02846be0344f8baa18fc8bd62ed4ff77a2904dc730f19a0ed547ed9dd496b7cc
   - name: discovery_operator_tests
     image: quay.io/open-cluster-management/discovery-operator-tests@sha256:661c161514cb8dbfd9635114d2e865274e0b0ae463f12cc48e5f5c57a71f22ee
   - name: discovery-testserver
