@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-20T21:21:59Z'
+    createdAt: '2021-09-20T21:49:39Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1278,7 +1278,7 @@ spec:
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR_TESTS
                   value: quay.io/open-cluster-management/discovery-operator-tests@sha256:661c161514cb8dbfd9635114d2e865274e0b0ae463f12cc48e5f5c57a71f22ee
                 - name: OPERAND_IMAGE_DISCOVERY-TESTSERVER
-                  value: quay.io/open-cluster-management/discovery-testserver@sha256:a7222a290896d6c3b711f3754329ee125f7d58822bcd3fb4b8ea51b6c44eee90
+                  value: quay.io/open-cluster-management/discovery-testserver@sha256:c68d7e36cc66fbb4d6c7a1e90474639d0fcb493aa53d1d9244fc6cc25a02f0e6
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
                   value: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:f6f9be7b8baf1965b06fc65fc9d95c0cde2c39d2a5a607625d61c64072a35e3e
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
@@ -1659,7 +1659,7 @@ spec:
   - name: discovery_operator_tests
     image: quay.io/open-cluster-management/discovery-operator-tests@sha256:661c161514cb8dbfd9635114d2e865274e0b0ae463f12cc48e5f5c57a71f22ee
   - name: discovery-testserver
-    image: quay.io/open-cluster-management/discovery-testserver@sha256:a7222a290896d6c3b711f3754329ee125f7d58822bcd3fb4b8ea51b6c44eee90
+    image: quay.io/open-cluster-management/discovery-testserver@sha256:c68d7e36cc66fbb4d6c7a1e90474639d0fcb493aa53d1d9244fc6cc25a02f0e6
   - name: endpoint_monitoring_operator
     image: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:f6f9be7b8baf1965b06fc65fc9d95c0cde2c39d2a5a607625d61c64072a35e3e
   - name: governance_policy_propagator
