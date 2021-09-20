@@ -6,7 +6,18 @@
 # requires:
 # jq (no reasonably involvd script can live without it).
 
-opm_vers="v1.17.5"
+opm_vers="v1.13.3"
+
+# NOTE:  We are currently marooned on an old version of OPM because using more recent versions,
+# such as v1.17.5, results in failures in the Travis build jobs that do catalog-building stuff.
+# Typical failure symptoms are the following:
+#
+# Adding bundle: quay.io/open-cluster-management/cmb-operator-bundle:1.0.0-BACKPLANE-2021-09-16-15-59-07
+# ./opm: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.28' not found (required by ./opm)
+#
+# Do not be so foolish as to attempt an upgrade of opm level until you've confirmed that our
+# Travis infrastructure can tolerate the new version (or that we have gotten rid of that Travis
+# infrastrccure!).
 
 operator_rgy_repo_url="https://github.com/operator-framework/operator-registry"
 opm_download_url="$operator_rgy_repo_url/releases/download/$opm_vers/linux-amd64-opm"
