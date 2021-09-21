@@ -92,6 +92,12 @@ if [[ "$rel_x" -ge 2 ]]; then
    if [[ "$rel_y" -ge 3 ]]; then
       image_key_mappings+=("discovery-operator:discovery_operator")
   fi
+
+   # Since ACM 2.4:
+   if [[ "$rel_y" -ge 4 ]]; then
+       # Added to AppSub operator
+      image_key_mappings+=("multicloud-integrations:multicloud_integrations")
+  fi
 fi
 
 # Define the list of CSV deployment containers that are to have image-ref
