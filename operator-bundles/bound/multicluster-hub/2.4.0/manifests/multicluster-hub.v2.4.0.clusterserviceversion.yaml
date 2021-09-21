@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-20T21:49:39Z'
+    createdAt: '2021-09-21T02:50:35Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1242,7 +1243,7 @@ spec:
                 - name: OPERAND_IMAGE_APPLICATION_UI_TESTS
                   value: quay.io/open-cluster-management/application-ui-tests@sha256:36a21ffc8bf75a64dc9cfe26036874fcef099a49cf5f7aee983d0aff647177fb
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
-                  value: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:fee14e5a803fb72ada1b8d3b583c985c9c2358817c319e99c75e5e322cedc9ba
+                  value: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:9b423cb247a7261fec822fa08b09231502342868c10b9bd5c733b17b25c5f9ee
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER
                   value: quay.io/ocpmetal/assisted-installer@sha256:6c7a2ee01972ab503e6e7a812e8f10e7713624c27258440349fdf6d97ff0b6c1
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_AGENT
@@ -1274,9 +1275,9 @@ spec:
                 - name: OPERAND_IMAGE_CONSOLE_API
                   value: quay.io/open-cluster-management/console-api@sha256:493c03dca3aa8202452edd2726eb742bf0e2b176e3e0750c9296def15b5d8e41
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
-                  value: quay.io/open-cluster-management/discovery-operator@sha256:02846be0344f8baa18fc8bd62ed4ff77a2904dc730f19a0ed547ed9dd496b7cc
+                  value: quay.io/open-cluster-management/discovery-operator@sha256:659c8c827fa373fbcf2574b250f3f824147b959432aea6e4f2b6104cdd652099
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR_TESTS
-                  value: quay.io/open-cluster-management/discovery-operator-tests@sha256:661c161514cb8dbfd9635114d2e865274e0b0ae463f12cc48e5f5c57a71f22ee
+                  value: quay.io/open-cluster-management/discovery-operator-tests@sha256:7c5c725adc90a2fbc45216bff29822fb895c7115ccdc5dcfe70637c3188f0cad
                 - name: OPERAND_IMAGE_DISCOVERY-TESTSERVER
                   value: quay.io/open-cluster-management/discovery-testserver@sha256:c68d7e36cc66fbb4d6c7a1e90474639d0fcb493aa53d1d9244fc6cc25a02f0e6
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
@@ -1336,7 +1337,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
                   value: quay.io/open-cluster-management/multicluster-operators-application@sha256:dbd50b889ce6a23c5581064ae2b2d1c37a4cd33a3d2a8398c4584cccf24772e5
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
-                  value: quay.io/open-cluster-management/multicluster-operators-channel@sha256:9657c89105b5db8d25036bc9d693783dd9c87164586827b51ba3d0d1324b9c0a
+                  value: quay.io/open-cluster-management/multicluster-operators-channel@sha256:eaf685a6ca1fbb5bdeeafcfef299c7d95c5dc99cab10a023a620f1cec0165d05
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_DEPLOYABLE
                   value: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:cb1ee8e00297fa3fbef97a24c69f5b0d6eb99178292511d2bd593f28e3769ae6
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_PLACEMENTRULE
@@ -1623,7 +1624,7 @@ spec:
   - name: application_ui_tests
     image: quay.io/open-cluster-management/application-ui-tests@sha256:36a21ffc8bf75a64dc9cfe26036874fcef099a49cf5f7aee983d0aff647177fb
   - name: applifecycle_backend_e2e
-    image: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:fee14e5a803fb72ada1b8d3b583c985c9c2358817c319e99c75e5e322cedc9ba
+    image: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:9b423cb247a7261fec822fa08b09231502342868c10b9bd5c733b17b25c5f9ee
   - name: assisted_installer
     image: quay.io/ocpmetal/assisted-installer@sha256:6c7a2ee01972ab503e6e7a812e8f10e7713624c27258440349fdf6d97ff0b6c1
   - name: assisted_installer_agent
@@ -1655,9 +1656,9 @@ spec:
   - name: console_api
     image: quay.io/open-cluster-management/console-api@sha256:493c03dca3aa8202452edd2726eb742bf0e2b176e3e0750c9296def15b5d8e41
   - name: discovery_operator
-    image: quay.io/open-cluster-management/discovery-operator@sha256:02846be0344f8baa18fc8bd62ed4ff77a2904dc730f19a0ed547ed9dd496b7cc
+    image: quay.io/open-cluster-management/discovery-operator@sha256:659c8c827fa373fbcf2574b250f3f824147b959432aea6e4f2b6104cdd652099
   - name: discovery_operator_tests
-    image: quay.io/open-cluster-management/discovery-operator-tests@sha256:661c161514cb8dbfd9635114d2e865274e0b0ae463f12cc48e5f5c57a71f22ee
+    image: quay.io/open-cluster-management/discovery-operator-tests@sha256:7c5c725adc90a2fbc45216bff29822fb895c7115ccdc5dcfe70637c3188f0cad
   - name: discovery-testserver
     image: quay.io/open-cluster-management/discovery-testserver@sha256:c68d7e36cc66fbb4d6c7a1e90474639d0fcb493aa53d1d9244fc6cc25a02f0e6
   - name: endpoint_monitoring_operator
@@ -1715,7 +1716,7 @@ spec:
   - name: multicluster_operators_application
     image: quay.io/open-cluster-management/multicluster-operators-application@sha256:dbd50b889ce6a23c5581064ae2b2d1c37a4cd33a3d2a8398c4584cccf24772e5
   - name: multicluster_operators_channel
-    image: quay.io/open-cluster-management/multicluster-operators-channel@sha256:9657c89105b5db8d25036bc9d693783dd9c87164586827b51ba3d0d1324b9c0a
+    image: quay.io/open-cluster-management/multicluster-operators-channel@sha256:eaf685a6ca1fbb5bdeeafcfef299c7d95c5dc99cab10a023a620f1cec0165d05
   - name: multicluster_operators_deployable
     image: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:cb1ee8e00297fa3fbef97a24c69f5b0d6eb99178292511d2bd593f28e3769ae6
   - name: multicluster_operators_placementrule
