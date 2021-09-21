@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-21T16:32:30Z'
+    createdAt: '2021-09-21T17:55:23Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1239,7 +1238,7 @@ spec:
                     fieldRef:
                       fieldPath: metadata.namespace
                 - name: OPERAND_IMAGE_APPLICATION_UI
-                  value: quay.io/open-cluster-management/application-ui@sha256:b94fcdd3b02e25d3a496a57525da7e86933b33742c7d016772abe1dfe4c0cd19
+                  value: quay.io/open-cluster-management/application-ui@sha256:59c84dc3d5b93b0e4a955d89d7e0242686ad0bb00317d32071cea4f9f21e1b03
                 - name: OPERAND_IMAGE_APPLICATION_UI_TESTS
                   value: quay.io/open-cluster-management/application-ui-tests@sha256:36a21ffc8bf75a64dc9cfe26036874fcef099a49cf5f7aee983d0aff647177fb
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
@@ -1620,7 +1619,7 @@ spec:
               serviceAccountName: submariner-addon
   relatedImages:
   - name: application_ui
-    image: quay.io/open-cluster-management/application-ui@sha256:b94fcdd3b02e25d3a496a57525da7e86933b33742c7d016772abe1dfe4c0cd19
+    image: quay.io/open-cluster-management/application-ui@sha256:59c84dc3d5b93b0e4a955d89d7e0242686ad0bb00317d32071cea4f9f21e1b03
   - name: application_ui_tests
     image: quay.io/open-cluster-management/application-ui-tests@sha256:36a21ffc8bf75a64dc9cfe26036874fcef099a49cf5f7aee983d0aff647177fb
   - name: applifecycle_backend_e2e
