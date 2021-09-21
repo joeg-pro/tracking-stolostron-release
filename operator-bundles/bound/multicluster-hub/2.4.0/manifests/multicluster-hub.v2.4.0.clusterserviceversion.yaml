@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-21T05:51:23Z'
+    createdAt: '2021-09-21T06:08:32Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1284,7 +1285,7 @@ spec:
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
                   value: quay.io/open-cluster-management/governance-policy-propagator@sha256:3e4ac154cda155b0ef81ea2d6b3d657e7b6022a112d48da7c9589149108a8526
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
-                  value: quay.io/open-cluster-management/governance-policy-spec-sync@sha256:ec6c6d59e235ce9ed7e5eb58146a7fbb4fce5f792c869c2168ab939bce6e83d1
+                  value: quay.io/open-cluster-management/governance-policy-spec-sync@sha256:bd95e1d66c93393c58b1986c9a1b04e0efe5c1113b889778f643e6592501dc94
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_STATUS_SYNC
                   value: quay.io/open-cluster-management/governance-policy-status-sync@sha256:d84d3fa72a5935fb8ede384c0c38aae32e47978fda85a3c76bb6fa82c2e3840f
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_TEMPLATE_SYNC
@@ -1665,7 +1666,7 @@ spec:
   - name: governance_policy_propagator
     image: quay.io/open-cluster-management/governance-policy-propagator@sha256:3e4ac154cda155b0ef81ea2d6b3d657e7b6022a112d48da7c9589149108a8526
   - name: governance_policy_spec_sync
-    image: quay.io/open-cluster-management/governance-policy-spec-sync@sha256:ec6c6d59e235ce9ed7e5eb58146a7fbb4fce5f792c869c2168ab939bce6e83d1
+    image: quay.io/open-cluster-management/governance-policy-spec-sync@sha256:bd95e1d66c93393c58b1986c9a1b04e0efe5c1113b889778f643e6592501dc94
   - name: governance_policy_status_sync
     image: quay.io/open-cluster-management/governance-policy-status-sync@sha256:d84d3fa72a5935fb8ede384c0c38aae32e47978fda85a3c76bb6fa82c2e3840f
   - name: governance_policy_template_sync
