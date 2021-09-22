@@ -1,6 +1,7 @@
 #
 # Run our release rebuild job
 #
+dist: focal
 os:
   - linux
 
@@ -14,6 +15,9 @@ env:
     # Required
     - OS=linux
     - COMPONENT_TAG_EXTENSION="-${TRAVIS_COMMIT}"
+    - PROJECT=release
+    - ICON=rhacm4kube
+    - SNAPSHOT=SNAPSHOT
 
 stages:
   - bundle
@@ -29,11 +33,9 @@ jobs:
           # Need a copy of opm - and it needs to be in /home/travis/bin/opm
           cp build-harness/vendor/opm /home/travis/bin/opm
           cp image-manifests/`cat Z_RELEASE_VERSION`.json image-manifests/`cat Z_RELEASE_VERSION`.json
-          SNAPSHOT_TAG=`cat Z_RELEASE_VERSION`-SNAPSHOT-`cat TAG`
-          tools/build/build-acm-bundle-image-and-catalog.sh -P -t $SNAPSHOT_TAG `cat Z_RELEASE_VERSION` ||  make simple-slack/send SLACK_MESSAGE="\`release\` acm catalog failed for `cat Z_RELEASE_VERSION`: :red_circle: $TRAVIS_BUILD_WEB_URL \`$TRAVIS_COMMIT_MESSAGE\`"
-          tools/build/build-ocm-hub-bundle-image-and-catalog.sh -P -t $SNAPSHOT_TAG `cat Z_RELEASE_VERSION` ||  make simple-slack/send SLACK_MESSAGE="\`release\` ocm catalog failed for `cat Z_RELEASE_VERSION`: :red_circle: $TRAVIS_BUILD_WEB_URL \`$TRAVIS_COMMIT_MESSAGE\`"
-          # Create tgz of build artifacts
-          # tar -cvzf CURRENT-SNAPSHOT.tgz operator-bundles/* tools/* image-manifests/`cat Z_RELEASE_VERSION`.json
+          SNAPSHOT_TAG=`cat Z_RELEASE_VERSION`-$SNAPSHOT-`cat TAG`
+          tools/build/build-acm-bundle-image-and-catalog.sh -P -t $SNAPSHOT_TAG `cat Z_RELEASE_VERSION` ||  make simple-slack/send SLACK_MESSAGE=":$ICON: \`release\` acm catalog failed for `cat Z_RELEASE_VERSION`: :red_circle: $TRAVIS_BUILD_WEB_URL \`$TRAVIS_COMMIT_MESSAGE\`"
+          tools/build/build-ocm-hub-bundle-image-and-catalog.sh -P -t $SNAPSHOT_TAG `cat Z_RELEASE_VERSION` ||  make simple-slack/send SLACK_MESSAGE=":$ICON: \`release\` ocm catalog failed for `cat Z_RELEASE_VERSION`: :red_circle: $TRAVIS_BUILD_WEB_URL \`$TRAVIS_COMMIT_MESSAGE\`"
           # Clone the release repo at the designated release version so we can commit our generated build artifacts at this snapshot level
           git clone -b release-`cat RELEASE_VERSION` https://${GITHUB_USER}:${GITHUB_TOKEN}@github.com/open-cluster-management/release.git snapshot
           cd snapshot
@@ -41,7 +43,7 @@ jobs:
           mkdir ./operator-bundles
           cp -R ../operator-bundles/* ./operator-bundles/
           git add operator-bundles
-          git commit -am "Add snapshot `cat ../TAG` to release `cat ../Z_RELEASE_VERSION` [skip ci]"
+          git commit -am "Add snapshot `cat ../TAG` to $PROJECT `cat ../Z_RELEASE_VERSION` [skip ci]"
           git push
           cd ..
 
