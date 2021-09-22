@@ -621,11 +621,12 @@
   {
     "image-name": "must-gather",
     "image-version": "0.1.0",
-    "image-tag": "0.1.0-3898fdb77979b2da65ee1520854b8b1871294bd0",
-    "git-sha256": "3898fdb77979b2da65ee1520854b8b1871294bd0",
+    "image-tag": "0.1.0-c23f5832f0457ca68a8e5f9005d729edfaa72e2f",
+    "git-sha256": "c23f5832f0457ca68a8e5f9005d729edfaa72e2f",
     "git-repository": "open-cluster-management/must-gather",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:4d5441585666d51adec487c24eeb8a9dc380c9d81daa06933f83f23a9ed02b8b",
+    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
+    "image-digest": "sha256:24221dfbb48e61db27272cd1d5c7dba7da812a40e1107b80f9d97e09c55d2b6a",
     "image-key": "must_gather"
   },
   {
