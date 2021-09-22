@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-21T22:14:11Z'
+    createdAt: '2021-09-22T02:28:21Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1361,7 +1360,7 @@ spec:
                 - name: OPERAND_IMAGE_OBSERVATORIUM
                   value: quay.io/open-cluster-management/observatorium@sha256:fa9040c563abdc1a34542421ff7b4907858c7bfb55bcd76962816a446900940b
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
-                  value: quay.io/open-cluster-management/observatorium-operator@sha256:0f0ed43a18a47d97dfb29912d6fa9c2487b94b30b56fb62fbf941a6fae2f197a
+                  value: quay.io/open-cluster-management/observatorium-operator@sha256:91c7ebd6850b08fe688f766271432d513c9b18f4a204aecc13026e0bcc4297d7
                 - name: OPERAND_IMAGE_OAUTH_PROXY
                   value: quay.io/open-cluster-management/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
                 - name: OPERAND_IMAGE_PLACEMENT
@@ -1738,7 +1737,7 @@ spec:
   - name: observatorium
     image: quay.io/open-cluster-management/observatorium@sha256:fa9040c563abdc1a34542421ff7b4907858c7bfb55bcd76962816a446900940b
   - name: observatorium_operator
-    image: quay.io/open-cluster-management/observatorium-operator@sha256:0f0ed43a18a47d97dfb29912d6fa9c2487b94b30b56fb62fbf941a6fae2f197a
+    image: quay.io/open-cluster-management/observatorium-operator@sha256:91c7ebd6850b08fe688f766271432d513c9b18f4a204aecc13026e0bcc4297d7
   - name: oauth_proxy
     image: quay.io/open-cluster-management/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
   - name: placement
