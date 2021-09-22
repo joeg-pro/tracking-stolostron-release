@@ -2,23 +2,23 @@
   {
     "image-name": "application-ui",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-420367b79a6d4cf0f73bcd9f53d60949fd8f23f0",
-    "git-sha256": "420367b79a6d4cf0f73bcd9f53d60949fd8f23f0",
+    "image-tag": "2.4.0-69798d16129f596a46f85e0a2aeeee2a61cd615d",
+    "git-sha256": "69798d16129f596a46f85e0a2aeeee2a61cd615d",
     "git-repository": "open-cluster-management/application-ui",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:031b2fc7211e9597c3e74c724b98e255f4a9531d9b0e44747b380c8defadbe2e",
+    "image-digest": "sha256:dc7eca36aaf85c6193d650f2aecd601d8250d9a18bd13ac745f6b72b8ec1b3b1",
     "image-key": "application_ui"
   },
   {
     "image-name": "application-ui-tests",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-420367b79a6d4cf0f73bcd9f53d60949fd8f23f0",
-    "git-sha256": "420367b79a6d4cf0f73bcd9f53d60949fd8f23f0",
+    "image-tag": "2.4.0-69798d16129f596a46f85e0a2aeeee2a61cd615d",
+    "git-sha256": "69798d16129f596a46f85e0a2aeeee2a61cd615d",
     "git-repository": "open-cluster-management/application-ui",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:6742ec8cde13ca44717f29b3fb1b58dcf20f5b1017d9e362e2407020cb5d4d7b",
+    "image-digest": "sha256:f7f559c4e1a32611182f5eb2348ae21ac844e2cb7857a1a89117fbbd71d085d8",
     "image-key": "application_ui_tests"
   },
   {
@@ -173,12 +173,12 @@
   {
     "image-name": "console",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-8d55ee5d45fce161c875d9c059b46fcf84017381",
-    "git-sha256": "8d55ee5d45fce161c875d9c059b46fcf84017381",
+    "image-tag": "2.4.0-82d4baed5faa6c88cd3cab73d9ab92d715db862a",
+    "git-sha256": "82d4baed5faa6c88cd3cab73d9ab92d715db862a",
     "git-repository": "open-cluster-management/console",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:5a8bb1c48a6e254e9df609fd91d7cabb2270a751573a8dec14df2cebf0636dbd",
+    "image-digest": "sha256:e9d950ecf3109b63ede2e4b4367230ddb893dba72c3f88fc5396ad630c26121b",
     "image-key": "console"
   },
   {
