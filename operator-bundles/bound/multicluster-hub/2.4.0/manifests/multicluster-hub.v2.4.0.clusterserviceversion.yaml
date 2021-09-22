@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-22T19:34:57Z'
+    createdAt: '2021-09-22T21:33:49Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1320,7 +1320,7 @@ spec:
                 - name: OPERAND_IMAGE_INSIGHTS_CLIENT
                   value: quay.io/open-cluster-management/insights-client@sha256:6a6d532a36e2a21bf4b0b376b5247cf19180e21d361821752525bbc1af2276cd
                 - name: OPERAND_IMAGE_INSIGHTS_METRICS
-                  value: quay.io/open-cluster-management/insights-metrics@sha256:e632070f87c882ea6bdfb81b881dcf13e9de2e97559ebf405a7797dcee5f5876
+                  value: quay.io/open-cluster-management/insights-metrics@sha256:78b888f985da69866a06bd734ac3b27c2fa588e89b5f9fe2b68d891c26810bbd
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_CONTROLLER
                   value: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:9f1ab263d525dde4754d0957c5a17d892e4f60aef0a2b55bef4115d7dd5d903b
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_OPERATOR
@@ -1394,7 +1394,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_API
                   value: quay.io/open-cluster-management/search-api@sha256:9b34b2be8f40faf359b75a503a1b91fd2d3b48f9d6894881bbdb0e1fdf5458c4
                 - name: OPERAND_IMAGE_SEARCH_COLLECTOR
-                  value: quay.io/open-cluster-management/search-collector@sha256:ffeb9b481d5f402fbece189798d9a438490654faa34ab958f3a5e470ab19f74c
+                  value: quay.io/open-cluster-management/search-collector@sha256:46dc6762a100d804ad6e3f56fae55946f2d3a89551af8de60f98cda9af326349
                 - name: OPERAND_IMAGE_SEARCH_E2E
                   value: quay.io/open-cluster-management/search-e2e@sha256:eca6b1f8aa6e4d44c4f6236b68d4b143d527759b1364862073b839a940b38717
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
@@ -1701,7 +1701,7 @@ spec:
   - name: insights_client
     image: quay.io/open-cluster-management/insights-client@sha256:6a6d532a36e2a21bf4b0b376b5247cf19180e21d361821752525bbc1af2276cd
   - name: insights_metrics
-    image: quay.io/open-cluster-management/insights-metrics@sha256:e632070f87c882ea6bdfb81b881dcf13e9de2e97559ebf405a7797dcee5f5876
+    image: quay.io/open-cluster-management/insights-metrics@sha256:78b888f985da69866a06bd734ac3b27c2fa588e89b5f9fe2b68d891c26810bbd
   - name: klusterlet_addon_controller
     image: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:9f1ab263d525dde4754d0957c5a17d892e4f60aef0a2b55bef4115d7dd5d903b
   - name: klusterlet_addon_operator
@@ -1769,7 +1769,7 @@ spec:
   - name: search_api
     image: quay.io/open-cluster-management/search-api@sha256:9b34b2be8f40faf359b75a503a1b91fd2d3b48f9d6894881bbdb0e1fdf5458c4
   - name: search_collector
-    image: quay.io/open-cluster-management/search-collector@sha256:ffeb9b481d5f402fbece189798d9a438490654faa34ab958f3a5e470ab19f74c
+    image: quay.io/open-cluster-management/search-collector@sha256:46dc6762a100d804ad6e3f56fae55946f2d3a89551af8de60f98cda9af326349
   - name: search_e2e
     image: quay.io/open-cluster-management/search-e2e@sha256:eca6b1f8aa6e4d44c4f6236b68d4b143d527759b1364862073b839a940b38717
   - name: search_operator
