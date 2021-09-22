@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-22T07:08:17Z'
+    createdAt: '2021-09-22T11:39:13Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1352,7 +1353,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
                   value: quay.io/open-cluster-management/multiclusterhub-repo@sha256:5a943b8f8596c1f86b0c436c48aec6717e16b69d36b9ca3a622b088f8fb58e5f
                 - name: OPERAND_IMAGE_MUST_GATHER
-                  value: quay.io/open-cluster-management/must-gather@sha256:4d5441585666d51adec487c24eeb8a9dc380c9d81daa06933f83f23a9ed02b8b
+                  value: quay.io/open-cluster-management/must-gather@sha256:24221dfbb48e61db27272cd1d5c7dba7da812a40e1107b80f9d97e09c55d2b6a
                 - name: OPERAND_IMAGE_NODE_EXPORTER
                   value: quay.io/open-cluster-management/node-exporter@sha256:227d7fe8ce6f1d7c5ecba7b8e6e8f7a0117fc78b75fd61f2663b57ba1d30c97f
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
@@ -1729,7 +1730,7 @@ spec:
   - name: multiclusterhub_repo
     image: quay.io/open-cluster-management/multiclusterhub-repo@sha256:5a943b8f8596c1f86b0c436c48aec6717e16b69d36b9ca3a622b088f8fb58e5f
   - name: must_gather
-    image: quay.io/open-cluster-management/must-gather@sha256:4d5441585666d51adec487c24eeb8a9dc380c9d81daa06933f83f23a9ed02b8b
+    image: quay.io/open-cluster-management/must-gather@sha256:24221dfbb48e61db27272cd1d5c7dba7da812a40e1107b80f9d97e09c55d2b6a
   - name: node_exporter
     image: quay.io/open-cluster-management/node-exporter@sha256:227d7fe8ce6f1d7c5ecba7b8e6e8f7a0117fc78b75fd61f2663b57ba1d30c97f
   - name: observability_e2e_test
