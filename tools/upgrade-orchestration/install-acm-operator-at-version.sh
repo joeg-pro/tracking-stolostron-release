@@ -75,7 +75,7 @@ fi
 
 # --- Arg Defaulting ---
 
-if [[ -z "$garget_ns" ]]; then
+if [[ -z "$target_ns" ]]; then
    target_ns=$(oc_get_default_namespace)
    echo "Using default project namespace: $target_ns"
 fi
