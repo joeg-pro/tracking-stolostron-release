@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-22T16:09:40Z'
+    createdAt: '2021-09-22T16:25:49Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1341,7 +1341,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
                   value: quay.io/open-cluster-management/multicloud-manager@sha256:07b6f126bd14d77b0c94563ae3206b7cdbff12cf970b45f26139f8753f2cd110
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
-                  value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:d0a17a7e6ec2ceb7a48ed9b06e9af1af81535e4374964ee528acdc7d47464b93
+                  value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:047dc2db73ca0265826c4a4344fb000cc9ae113043a776f87cba817634ce7a26
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
                   value: quay.io/open-cluster-management/multicluster-operators-application@sha256:dbd50b889ce6a23c5581064ae2b2d1c37a4cd33a3d2a8398c4584cccf24772e5
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
@@ -1544,7 +1544,7 @@ spec:
                   value: /usr/local/manifests
                 - name: SPOKE_NAMESPACE
                   value: open-cluster-management-addon-observability
-                image: quay.io/open-cluster-management/multicluster-observability-operator@sha256:d0a17a7e6ec2ceb7a48ed9b06e9af1af81535e4374964ee528acdc7d47464b93
+                image: quay.io/open-cluster-management/multicluster-observability-operator@sha256:047dc2db73ca0265826c4a4344fb000cc9ae113043a776f87cba817634ce7a26
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
