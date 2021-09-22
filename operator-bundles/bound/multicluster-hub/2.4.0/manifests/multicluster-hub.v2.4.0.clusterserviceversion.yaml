@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-22T15:44:01Z'
+    createdAt: '2021-09-22T15:51:30Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1251,7 +1250,7 @@ spec:
                 - name: OPERAND_IMAGE_APPLICATION_UI_TESTS
                   value: quay.io/open-cluster-management/application-ui-tests@sha256:2812730287988a205396ea81e5f8064b2372caad1b7cbd233271f056a577b50e
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
-                  value: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:9b423cb247a7261fec822fa08b09231502342868c10b9bd5c733b17b25c5f9ee
+                  value: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:b1760f57ffe4a20ea697e717103c1a37e7e280a03002b847a4d724a3266c181b
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER
                   value: quay.io/ocpmetal/assisted-installer@sha256:c0750ea121e25bcd9c7b04b9fe3d0e1a5be9fba926d5205b4df6240395ad9ce2
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_AGENT
@@ -1632,7 +1631,7 @@ spec:
   - name: application_ui_tests
     image: quay.io/open-cluster-management/application-ui-tests@sha256:2812730287988a205396ea81e5f8064b2372caad1b7cbd233271f056a577b50e
   - name: applifecycle_backend_e2e
-    image: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:9b423cb247a7261fec822fa08b09231502342868c10b9bd5c733b17b25c5f9ee
+    image: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:b1760f57ffe4a20ea697e717103c1a37e7e280a03002b847a4d724a3266c181b
   - name: assisted_installer
     image: quay.io/ocpmetal/assisted-installer@sha256:c0750ea121e25bcd9c7b04b9fe3d0e1a5be9fba926d5205b4df6240395ad9ce2
   - name: assisted_installer_agent
