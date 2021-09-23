@@ -60,6 +60,8 @@ def main():
    parser.add_argument("--supported-arch", dest="supported_archs", action="append")
    parser.add_argument("--supported-os  ", dest="supported_op_syss", action="append")
 
+   parser.add_argument("--x-allow-webhook-defs", dest="allow_webhook_defs", action="store_true")
+
    args = parser.parse_args()
 
    csv_template_pathn = args.csv_template_pathn
@@ -68,6 +70,8 @@ def main():
    pkg_name      = args.pkg_name
    pkg_dir_pathn = args.pkg_dir_pathn
    for_channels  = args.for_channels
+
+   allow_webhook_defs = args.allow_webhook_defs
 
    supported_archs   = args.supported_archs
    supported_op_syss = args.supported_op_syss
@@ -78,7 +82,6 @@ def main():
    source_bundle_pathns = args.source_bundle_pathns
 
    merge_categories = False
-
 
    vers_parts = csv_vers.split(".")
    if len(vers_parts) != 3:
@@ -137,6 +140,7 @@ def main():
    m_deployments       = dict()
    m_cluster_perms     = dict()
    m_ns_perms          = dict()
+   m_webhook_defs      = list()
 
    bundle_fns = set() # Used to ensure no dups/overlays iin file names added to buundle
 
@@ -307,6 +311,20 @@ def main():
       else:
          wmsg("CSV has no install deployments. (???)")
 
+      # EXPERIMENTAL:
+      s_webhook_defs = get_seq(s_spec, "webhookdefinitions")
+      if s_webhook_defs:
+         if allow_webhook_defs:
+            accumulate_list("webhook definition", s_webhook_defs, m_webhook_defs,
+                             lambda e: "%s-%s" % (e["type"], e["generateName"]))
+         else:
+            wmsg("CSV contains web-hook definitions which are being ignored")
+      else:
+         if allow_webhook_defs:
+            print("   Note: CSV has no webhook definitions.")
+      # Future: Cross check that deploymentName mentioned in a WEbhhook-def is
+      # in fact a deployment we've found in the CSV.
+
       #--- Copy the source budnle's non-CSV manifests to the output bundle ---
 
       print("\nHandling non-CSV manifests in the budnle.")
@@ -376,7 +394,7 @@ def main():
             copy_file(fn, s_bundle_pathn, bundle_pathn)
             bundle_fns.add(fn)
          else:
-            emsg("Duplicate mainfest filename: %s." % t_manifest_fn)
+            emsg("Duplicate mainfest filename: %s." % fn)
       #
 
       # Check that we found manifests for all CRDs owned by this source bundle
@@ -478,7 +496,11 @@ def main():
    plug_in_things("naemspace permission", o_install_spec, "permissions",        m_ns_perms)
 
    print("Plugging in install deployments...")
-   plug_in_things("deployment",           o_install_spec, "deployments",        m_deployments, True)
+   plug_in_things("deployment",  o_install_spec, "deployments", m_deployments, True)
+
+   if allow_webhook_defs:
+      print("Plugging in webhook definitions...")
+      plug_in_things("webhook definition", o_spec, "webhookdefinitions", m_webhook_defs, False)
 
    # --- Write out the resutling merged CSV ---
 

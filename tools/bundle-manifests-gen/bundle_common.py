@@ -56,6 +56,7 @@ def accumulate_set(thing_kind, thing_kind_pl, thing_list, thing_set):
 
 
 # Accumulates a collection of keyed things, optionally aborting on dup keys.
+# If duplicates are allowed, only the last one survives in the resulting collection.
 def accumulate_keyed(thing_kind, thing_list, thing_map, key_getter, dups_ok=False, another_thing_map=None):
 
    # Capitalize just first char of first word.
@@ -70,19 +71,35 @@ def accumulate_keyed(thing_kind, thing_list, thing_map, key_getter, dups_ok=Fals
          if not dups_ok:
             emsg("Duplicate %s: %s." % (thing_kind, key))
 
-      # Also accomulate into a second map in passed, eg. a per-source-bundle map rather
+      # Also accomulate into a second map if passed, eg. a per-source-bundle map rather
       # than one that is accumulating over all source bundles.
       if another_thing_map is not None:
          another_thing_map[key] = thing
    #
    return
 
+# Accumulates a collection of named but not keyed things.
+def accumulate_list(thing_kind, thing_list, accumulated_list, name_getter):
+
+   # Capitalize just first char of first word.
+   capitalized_thing_kind = thing_kind[0:1].upper() + thing_kind[1:]
+
+   for thing in thing_list:
+      name = name_getter(thing)
+      print("   %s: %s" % (capitalized_thing_kind, name))
+      accumulated_list.append(thing)
+   return
 
 # Plugs a list of things into into a base stanza, deleting anchoring property if list is empty.
-def plug_in_things_quietly(base_map, prop_name, things_map):
+def plug_in_things_quietly(base_map, prop_name, things_collection):
 
-   if things_map:
-      base_map[prop_name] = list(things_map.values())
+   if things_collection:
+      if isinstance(things_collection, dict):
+         base_map[prop_name] = list(things_collection.values())
+      elif isinstance(things_collection, list):
+         base_map[prop_name] = things_collection
+      else:
+         raise Exception("Logic error: Cannot handle collection of type %s" % type(things_collection))
    else:
       try:
          del base_map[prop_name]
