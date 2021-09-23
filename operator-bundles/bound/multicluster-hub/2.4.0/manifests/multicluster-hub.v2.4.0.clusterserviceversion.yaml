@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-23T15:43:40Z'
+    createdAt: '2021-09-23T16:39:03Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1415,7 +1415,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_UI
                   value: quay.io/open-cluster-management/search-ui@sha256:8b26825fa9ed79292919d5d6cf2ad7a39086faeac2f4e4e5e710a5893003d95f
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
-                  value: quay.io/open-cluster-management/submariner-addon@sha256:110516e5170ead5fb02dcc285255d3935cdeecb429bd63fb4964fd4ab792d1ca
+                  value: quay.io/open-cluster-management/submariner-addon@sha256:8c858ad21ba48dc5897edcf00f2ba17984ea4128342ed892ef4c8c6f5e961057
                 - name: OPERAND_IMAGE_THANOS
                   value: quay.io/open-cluster-management/thanos@sha256:68da4e5f45aef70c402181fcb6965b8726af0be38e0a7b8b9bc8d16c18aa7430
                 - name: OPERAND_IMAGE_VOLSYNC
@@ -1618,7 +1618,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.name
-                image: quay.io/open-cluster-management/submariner-addon@sha256:110516e5170ead5fb02dcc285255d3935cdeecb429bd63fb4964fd4ab792d1ca
+                image: quay.io/open-cluster-management/submariner-addon@sha256:8c858ad21ba48dc5897edcf00f2ba17984ea4128342ed892ef4c8c6f5e961057
                 livenessProbe:
                   httpGet:
                     path: /healthz
