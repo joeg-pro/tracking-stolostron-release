@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-23T08:45:22Z'
+    createdAt: '2021-09-23T10:40:33Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1350,7 +1350,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLOUD_INTEGRATIONS
                   value: quay.io/open-cluster-management/multicloud-integrations@sha256:a452b4f9c754f9c9ca32e8f8e985001cd0a2636742b573133957eb8b49204e21
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
-                  value: quay.io/open-cluster-management/multicloud-manager@sha256:07b6f126bd14d77b0c94563ae3206b7cdbff12cf970b45f26139f8753f2cd110
+                  value: quay.io/open-cluster-management/multicloud-manager@sha256:c669ff4de2f7f6b8dc219ea2e4af2fa45eb45b007a8668d1d3ba12c79e2717ef
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
                   value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:a393fb8fd82d1e2fd788cb1a802dc589e74da0359bde1325b056ee067282b372
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
@@ -1731,7 +1731,7 @@ spec:
   - name: multicloud_integrations
     image: quay.io/open-cluster-management/multicloud-integrations@sha256:a452b4f9c754f9c9ca32e8f8e985001cd0a2636742b573133957eb8b49204e21
   - name: multicloud_manager
-    image: quay.io/open-cluster-management/multicloud-manager@sha256:07b6f126bd14d77b0c94563ae3206b7cdbff12cf970b45f26139f8753f2cd110
+    image: quay.io/open-cluster-management/multicloud-manager@sha256:c669ff4de2f7f6b8dc219ea2e4af2fa45eb45b007a8668d1d3ba12c79e2717ef
   - name: multicluster_operators_application
     image: quay.io/open-cluster-management/multicluster-operators-application@sha256:dbd50b889ce6a23c5581064ae2b2d1c37a4cd33a3d2a8398c4584cccf24772e5
   - name: multicluster_operators_channel
