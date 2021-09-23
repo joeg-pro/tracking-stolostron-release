@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-23T14:08:39Z'
+    createdAt: '2021-09-23T15:35:26Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1413,7 +1412,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
                   value: quay.io/open-cluster-management/search-operator@sha256:3d0e9a1cb547008968174139fd72253a8202ab2566ff5d2465fb96f79750f44c
                 - name: OPERAND_IMAGE_SEARCH_UI
-                  value: quay.io/open-cluster-management/search-ui@sha256:45da2c23803635dbf48835b526200be84a6888350e192516ff3209a8de8b3ece
+                  value: quay.io/open-cluster-management/search-ui@sha256:8b26825fa9ed79292919d5d6cf2ad7a39086faeac2f4e4e5e710a5893003d95f
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
                   value: quay.io/open-cluster-management/submariner-addon@sha256:110516e5170ead5fb02dcc285255d3935cdeecb429bd63fb4964fd4ab792d1ca
                 - name: OPERAND_IMAGE_THANOS
@@ -1788,7 +1787,7 @@ spec:
   - name: search_operator
     image: quay.io/open-cluster-management/search-operator@sha256:3d0e9a1cb547008968174139fd72253a8202ab2566ff5d2465fb96f79750f44c
   - name: search_ui
-    image: quay.io/open-cluster-management/search-ui@sha256:45da2c23803635dbf48835b526200be84a6888350e192516ff3209a8de8b3ece
+    image: quay.io/open-cluster-management/search-ui@sha256:8b26825fa9ed79292919d5d6cf2ad7a39086faeac2f4e4e5e710a5893003d95f
   - name: thanos
     image: quay.io/open-cluster-management/thanos@sha256:68da4e5f45aef70c402181fcb6965b8726af0be38e0a7b8b9bc8d16c18aa7430
   - name: volsync
