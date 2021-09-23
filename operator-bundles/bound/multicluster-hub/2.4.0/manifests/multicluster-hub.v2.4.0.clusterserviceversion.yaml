@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-23T20:45:03Z'
+    createdAt: '2021-09-23T20:53:23Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1371,7 +1371,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR
                   value: quay.io/open-cluster-management/multiclusterhub-operator@sha256:4ad4729f31f7ed942bb006d709f244c147a650f10f1f81eb914041afab31c4b4
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
-                  value: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:75b2cb2766ec474babd03376d602bb1e4f9e3e6e9fa4c315f3c11de29746e721
+                  value: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:293d5d9a3c80378330a2704aeb099587ae4b7bfb96a2428de63bd8fbaf684001
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
                   value: quay.io/open-cluster-management/multiclusterhub-repo@sha256:d4c5986d1d7340ce4a7edb658178fdeb39f49c54ed5f5b360f23f212c3aab49a
                 - name: OPERAND_IMAGE_MUST_GATHER
@@ -1748,7 +1748,7 @@ spec:
   - name: multicluster_operators_subscription_release
     image: quay.io/open-cluster-management/multicluster-operators-subscription-release@sha256:e3f3aaf60219d38fcf7d3d999df954ec4cc02b85948b4d26253c19a52be54e83
   - name: multiclusterhub_operator_tests
-    image: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:75b2cb2766ec474babd03376d602bb1e4f9e3e6e9fa4c315f3c11de29746e721
+    image: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:293d5d9a3c80378330a2704aeb099587ae4b7bfb96a2428de63bd8fbaf684001
   - name: multiclusterhub_repo
     image: quay.io/open-cluster-management/multiclusterhub-repo@sha256:d4c5986d1d7340ce4a7edb658178fdeb39f49c54ed5f5b360f23f212c3aab49a
   - name: must_gather
