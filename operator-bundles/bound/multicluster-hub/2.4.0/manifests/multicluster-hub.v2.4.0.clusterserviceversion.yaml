@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-23T05:17:28Z'
+    createdAt: '2021-09-23T05:48:34Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1343,7 +1343,7 @@ spec:
                 - name: OPERAND_IMAGE_KUBE_STATE_METRICS
                   value: quay.io/open-cluster-management/kube-state-metrics@sha256:64f2e1aa250d4eed9315cb3bbb3984949a67f4725c2644ecdf22fc0a263c39cd
                 - name: OPERAND_IMAGE_MANAGEDCLUSTER_IMPORT_CONTROLLER
-                  value: quay.io/open-cluster-management/managedcluster-import-controller@sha256:0cc7e460bea1ab319727f4ffa52e49066912130f9114de7ec77ab66a5c195229
+                  value: quay.io/open-cluster-management/managedcluster-import-controller@sha256:f3bcbd8a9c42fdc7456efee0c413f9a4785e09462cc6807853bb1f45a887ec1b
                 - name: OPERAND_IMAGE_MANAGEMENT_INGRESS
                   value: quay.io/open-cluster-management/management-ingress@sha256:68a30793d2ba72e8257012df24f9458bf93d5a2d0e41e974c04599eadea79d2e
                 - name: OPERAND_IMAGE_METRICS_COLLECTOR
@@ -1724,7 +1724,7 @@ spec:
   - name: kube_state_metrics
     image: quay.io/open-cluster-management/kube-state-metrics@sha256:64f2e1aa250d4eed9315cb3bbb3984949a67f4725c2644ecdf22fc0a263c39cd
   - name: managedcluster_import_controller
-    image: quay.io/open-cluster-management/managedcluster-import-controller@sha256:0cc7e460bea1ab319727f4ffa52e49066912130f9114de7ec77ab66a5c195229
+    image: quay.io/open-cluster-management/managedcluster-import-controller@sha256:f3bcbd8a9c42fdc7456efee0c413f9a4785e09462cc6807853bb1f45a887ec1b
   - name: management_ingress
     image: quay.io/open-cluster-management/management-ingress@sha256:68a30793d2ba72e8257012df24f9458bf93d5a2d0e41e974c04599eadea79d2e
   - name: metrics_collector
