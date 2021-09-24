@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-24T08:56:17Z'
+    createdAt: '2021-09-24T09:01:04Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1429,7 +1428,7 @@ spec:
                 - name: OPERAND_IMAGE_VOLSYNC_MOVER_RSYNC
                   value: quay.io/backube/volsync-mover-rsync@sha256:f7bace24e5830325211a8a384f3fb8ecadaa12118bcf232c058bf4e1494acc29
                 - name: OPERAND_IMAGE_WORK
-                  value: quay.io/open-cluster-management/work@sha256:a36b89687164f47c82589f989cdc666f7d204a8a2e6b94dd88ec9b5321084a05
+                  value: quay.io/open-cluster-management/work@sha256:c258ca73ede98ee09f94de30cd551086353fb99810a7ab3cb5da8ac8a7d79eba
                 image: quay.io/open-cluster-management/multiclusterhub-operator@sha256:4ad4729f31f7ed942bb006d709f244c147a650f10f1f81eb914041afab31c4b4
                 imagePullPolicy: Always
                 livenessProbe:
@@ -1802,4 +1801,4 @@ spec:
   - name: volsync_mover_rsync
     image: quay.io/backube/volsync-mover-rsync@sha256:f7bace24e5830325211a8a384f3fb8ecadaa12118bcf232c058bf4e1494acc29
   - name: work
-    image: quay.io/open-cluster-management/work@sha256:a36b89687164f47c82589f989cdc666f7d204a8a2e6b94dd88ec9b5321084a05
+    image: quay.io/open-cluster-management/work@sha256:c258ca73ede98ee09f94de30cd551086353fb99810a7ab3cb5da8ac8a7d79eba
