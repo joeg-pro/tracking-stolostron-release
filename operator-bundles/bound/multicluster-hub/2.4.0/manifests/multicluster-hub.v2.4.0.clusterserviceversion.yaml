@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-24T09:14:34Z'
+    createdAt: '2021-09-24T09:19:24Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1381,7 +1380,7 @@ spec:
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
                   value: quay.io/open-cluster-management/observability-e2e-test@sha256:0b363b78282c8520ae01f033b49eb67ebaebccf8589e09ff2525af008ed86ad1
                 - name: OPERAND_IMAGE_OBSERVATORIUM
-                  value: quay.io/open-cluster-management/observatorium@sha256:fa9040c563abdc1a34542421ff7b4907858c7bfb55bcd76962816a446900940b
+                  value: quay.io/open-cluster-management/observatorium@sha256:6f879748c67f3edb3ed4155379cfde0f4397f352817586e2d8e52fcdfbd823bd
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
                   value: quay.io/open-cluster-management/observatorium-operator@sha256:91c7ebd6850b08fe688f766271432d513c9b18f4a204aecc13026e0bcc4297d7
                 - name: OPERAND_IMAGE_OAUTH_PROXY
@@ -1391,7 +1390,7 @@ spec:
                 - name: OPERAND_IMAGE_POSTGRESQL_12
                   value: quay.io/ocpmetal/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
                 - name: OPERAND_IMAGE_PROMETHEUS
-                  value: quay.io/open-cluster-management/prometheus@sha256:23ee04eb970367eea23407f46597f29514bb93e90aa516d342b6b264e194b13d
+                  value: quay.io/open-cluster-management/prometheus@sha256:a755396332ffe7cfd3e13108c23738222d3933ee541d4014edc2c918c28f18b0
                 - name: OPERAND_IMAGE_PROMETHEUS_ALERTMANAGER
                   value: quay.io/open-cluster-management/prometheus-alertmanager@sha256:1935ce90e763396f7cf03afa8066f26e2bd23aaf1e70186a07a59df612a5a44f
                 - name: OPERAND_IMAGE_PROVIDER_CREDENTIAL_CONTROLLER
@@ -1758,7 +1757,7 @@ spec:
   - name: observability_e2e_test
     image: quay.io/open-cluster-management/observability-e2e-test@sha256:0b363b78282c8520ae01f033b49eb67ebaebccf8589e09ff2525af008ed86ad1
   - name: observatorium
-    image: quay.io/open-cluster-management/observatorium@sha256:fa9040c563abdc1a34542421ff7b4907858c7bfb55bcd76962816a446900940b
+    image: quay.io/open-cluster-management/observatorium@sha256:6f879748c67f3edb3ed4155379cfde0f4397f352817586e2d8e52fcdfbd823bd
   - name: observatorium_operator
     image: quay.io/open-cluster-management/observatorium-operator@sha256:91c7ebd6850b08fe688f766271432d513c9b18f4a204aecc13026e0bcc4297d7
   - name: oauth_proxy
@@ -1768,7 +1767,7 @@ spec:
   - name: postgresql_12
     image: quay.io/ocpmetal/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
   - name: prometheus
-    image: quay.io/open-cluster-management/prometheus@sha256:23ee04eb970367eea23407f46597f29514bb93e90aa516d342b6b264e194b13d
+    image: quay.io/open-cluster-management/prometheus@sha256:a755396332ffe7cfd3e13108c23738222d3933ee541d4014edc2c918c28f18b0
   - name: prometheus_alertmanager
     image: quay.io/open-cluster-management/prometheus-alertmanager@sha256:1935ce90e763396f7cf03afa8066f26e2bd23aaf1e70186a07a59df612a5a44f
   - name: provider_credential_controller
