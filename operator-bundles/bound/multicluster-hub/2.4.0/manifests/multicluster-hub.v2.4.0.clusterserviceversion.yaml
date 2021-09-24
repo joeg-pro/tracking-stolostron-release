@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-24T07:34:10Z'
+    createdAt: '2021-09-24T07:57:23Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1387,7 +1387,7 @@ spec:
                 - name: OPERAND_IMAGE_OAUTH_PROXY
                   value: quay.io/open-cluster-management/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
                 - name: OPERAND_IMAGE_PLACEMENT
-                  value: quay.io/open-cluster-management/placement@sha256:2cd65dc88646e5b1b81e0e4c95618eb79d93d63f495e15376461ceed4b012a41
+                  value: quay.io/open-cluster-management/placement@sha256:a895d0a894e4be44bedb5775f78a8d5fa48d248dd1b9d0cd35f8d9e1240fb7a3
                 - name: OPERAND_IMAGE_POSTGRESQL_12
                   value: quay.io/ocpmetal/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
                 - name: OPERAND_IMAGE_PROMETHEUS
@@ -1417,7 +1417,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_UI
                   value: quay.io/open-cluster-management/search-ui@sha256:8b26825fa9ed79292919d5d6cf2ad7a39086faeac2f4e4e5e710a5893003d95f
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
-                  value: quay.io/open-cluster-management/submariner-addon@sha256:19b74af769c30ee3b8154183c52a94c62cee59987c1c4ff0e96414ec80c9dac1
+                  value: quay.io/open-cluster-management/submariner-addon@sha256:358abf09f3da3d39d024202f649a63d8bec586e49ed092c3635f06dc00187cc8
                 - name: OPERAND_IMAGE_THANOS
                   value: quay.io/open-cluster-management/thanos@sha256:68da4e5f45aef70c402181fcb6965b8726af0be38e0a7b8b9bc8d16c18aa7430
                 - name: OPERAND_IMAGE_VOLSYNC
@@ -1620,7 +1620,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.name
-                image: quay.io/open-cluster-management/submariner-addon@sha256:19b74af769c30ee3b8154183c52a94c62cee59987c1c4ff0e96414ec80c9dac1
+                image: quay.io/open-cluster-management/submariner-addon@sha256:358abf09f3da3d39d024202f649a63d8bec586e49ed092c3635f06dc00187cc8
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -1764,7 +1764,7 @@ spec:
   - name: oauth_proxy
     image: quay.io/open-cluster-management/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
   - name: placement
-    image: quay.io/open-cluster-management/placement@sha256:2cd65dc88646e5b1b81e0e4c95618eb79d93d63f495e15376461ceed4b012a41
+    image: quay.io/open-cluster-management/placement@sha256:a895d0a894e4be44bedb5775f78a8d5fa48d248dd1b9d0cd35f8d9e1240fb7a3
   - name: postgresql_12
     image: quay.io/ocpmetal/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
   - name: prometheus
