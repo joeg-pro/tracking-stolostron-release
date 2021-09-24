@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-24T17:06:11Z'
+    createdAt: '2021-09-24T17:49:03Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1278,7 +1279,7 @@ spec:
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
                   value: quay.io/open-cluster-management/cert-policy-controller@sha256:347e111334fc14c62ce89369c5ebf798808fa6990c8322fdd18ae430f4a773e5
                 - name: OPERAND_IMAGE_CLUSTER_BACKUP_CONTROLLER
-                  value: quay.io/open-cluster-management/cluster-backup-controller@sha256:47a6aff2e7e13a7702430aa1862cb5246c658a4ab67a3231d0712cf50ad540f1
+                  value: quay.io/open-cluster-management/cluster-backup-controller@sha256:833171846539c47fe270ea539fb3ee68f8beb623a5f7b8a8bfa51010080aa74d
                 - name: OPERAND_IMAGE_CLUSTER_CURATOR_CONTROLLER
                   value: quay.io/open-cluster-management/cluster-curator-controller@sha256:acff43d00276f97f327eeb676262f51137ce1fe3f5860a1d722d8290638783df
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
@@ -1298,7 +1299,7 @@ spec:
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
                   value: quay.io/open-cluster-management/discovery-operator@sha256:d14caa4be4e77598d29f7ca80d13ece839da621944a2f146897f720d9b0a913b
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR_TESTS
-                  value: quay.io/open-cluster-management/discovery-operator-tests@sha256:7c5c725adc90a2fbc45216bff29822fb895c7115ccdc5dcfe70637c3188f0cad
+                  value: quay.io/open-cluster-management/discovery-operator-tests@sha256:0519ec8727a391920373bcddb1cebeeaf7a6db04d830296da007a43f2ea6e47b
                 - name: OPERAND_IMAGE_DISCOVERY-TESTSERVER
                   value: quay.io/open-cluster-management/discovery-testserver@sha256:241d4e9fe2d06b539f5ef3001f7aee6118a7f30779e55d7c5aa14b23d21e956e
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
@@ -1659,7 +1660,7 @@ spec:
   - name: cert_policy_controller
     image: quay.io/open-cluster-management/cert-policy-controller@sha256:347e111334fc14c62ce89369c5ebf798808fa6990c8322fdd18ae430f4a773e5
   - name: cluster_backup_controller
-    image: quay.io/open-cluster-management/cluster-backup-controller@sha256:47a6aff2e7e13a7702430aa1862cb5246c658a4ab67a3231d0712cf50ad540f1
+    image: quay.io/open-cluster-management/cluster-backup-controller@sha256:833171846539c47fe270ea539fb3ee68f8beb623a5f7b8a8bfa51010080aa74d
   - name: cluster_curator_controller
     image: quay.io/open-cluster-management/cluster-curator-controller@sha256:acff43d00276f97f327eeb676262f51137ce1fe3f5860a1d722d8290638783df
   - name: cluster_lifecycle_e2e
@@ -1679,7 +1680,7 @@ spec:
   - name: discovery_operator
     image: quay.io/open-cluster-management/discovery-operator@sha256:d14caa4be4e77598d29f7ca80d13ece839da621944a2f146897f720d9b0a913b
   - name: discovery_operator_tests
-    image: quay.io/open-cluster-management/discovery-operator-tests@sha256:7c5c725adc90a2fbc45216bff29822fb895c7115ccdc5dcfe70637c3188f0cad
+    image: quay.io/open-cluster-management/discovery-operator-tests@sha256:0519ec8727a391920373bcddb1cebeeaf7a6db04d830296da007a43f2ea6e47b
   - name: discovery-testserver
     image: quay.io/open-cluster-management/discovery-testserver@sha256:241d4e9fe2d06b539f5ef3001f7aee6118a7f30779e55d7c5aa14b23d21e956e
   - name: endpoint_monitoring_operator
