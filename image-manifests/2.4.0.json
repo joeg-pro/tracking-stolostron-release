@@ -445,12 +445,12 @@
   {
     "image-name": "kube-state-metrics",
     "image-version": "2.4",
-    "image-tag": "2.4-d7da0dfce2330b3b91831606e4a762b7a14acff8",
-    "git-sha256": "d7da0dfce2330b3b91831606e4a762b7a14acff8",
+    "image-tag": "2.4-89878a47a6e708f983d1430c9d2a3be9349b87a0",
+    "git-sha256": "89878a47a6e708f983d1430c9d2a3be9349b87a0",
     "git-repository": "open-cluster-management/kube-state-metrics",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:64f2e1aa250d4eed9315cb3bbb3984949a67f4725c2644ecdf22fc0a263c39cd",
+    "image-digest": "sha256:a065ac0d2aa101dbd40157b7e011622e1b12c2b1ba539cc885c3846b6386f6d8",
     "image-key": "kube_state_metrics"
   },
   {
@@ -718,12 +718,12 @@
   {
     "image-name": "prometheus-alertmanager",
     "image-version": "2.4",
-    "image-tag": "2.4-140938f7416d80068acfacac2cae990e6bc43fcf",
-    "git-sha256": "140938f7416d80068acfacac2cae990e6bc43fcf",
+    "image-tag": "2.4-3fad37264bf7b2ede5b4671ead9e4a51fd4bebce",
+    "git-sha256": "3fad37264bf7b2ede5b4671ead9e4a51fd4bebce",
     "git-repository": "open-cluster-management/prometheus-alertmanager",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:5e1bc0488eee53b46dccbeec82b7e3d76015a7eda8fe6c1060dcf46cdacf9f44",
+    "image-digest": "sha256:1935ce90e763396f7cf03afa8066f26e2bd23aaf1e70186a07a59df612a5a44f",
     "image-key": "prometheus_alertmanager"
   },
   {
@@ -859,12 +859,12 @@
   {
     "image-name": "thanos",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-635803c7a3f6da670d38dad1bc7b2b208e954e11",
-    "git-sha256": "635803c7a3f6da670d38dad1bc7b2b208e954e11",
+    "image-tag": "2.4.0-01bd6cea2a57b18e9b3b4254094baad4a16836e6",
+    "git-sha256": "01bd6cea2a57b18e9b3b4254094baad4a16836e6",
     "git-repository": "open-cluster-management/thanos",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:68da4e5f45aef70c402181fcb6965b8726af0be38e0a7b8b9bc8d16c18aa7430",
+    "image-digest": "sha256:d746a0ea0dd0258190868bf7a4d4683782c063586ac8c0e853708d1f5e9ccb2a",
     "image-key": "thanos"
   },
   {
