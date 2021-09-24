@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-24T07:17:35Z'
+    createdAt: '2021-09-24T07:34:10Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1280,7 +1281,7 @@ spec:
                 - name: OPERAND_IMAGE_CLUSTER_BACKUP_CONTROLLER
                   value: quay.io/open-cluster-management/cluster-backup-controller@sha256:c433fd7db0e0b6cf343f217cb8a11c0130bd80ca4ba588e8eff2c8deef083917
                 - name: OPERAND_IMAGE_CLUSTER_CURATOR_CONTROLLER
-                  value: quay.io/open-cluster-management/cluster-curator-controller@sha256:b2df28d0480d03b36fd69a6433d6b4a64df96a6c87e4bc7b30f8505cfc4bf2a1
+                  value: quay.io/open-cluster-management/cluster-curator-controller@sha256:acff43d00276f97f327eeb676262f51137ce1fe3f5860a1d722d8290638783df
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
                   value: quay.io/open-cluster-management/cluster-lifecycle-e2e@sha256:d11fecffb1f639f36aa20c5dcd68fb1fac22d3b959b9cf1cf1f92ff60066125d
                 - name: OPERAND_IMAGE_CLUSTER_PROXY_ADDON
@@ -1661,7 +1662,7 @@ spec:
   - name: cluster_backup_controller
     image: quay.io/open-cluster-management/cluster-backup-controller@sha256:c433fd7db0e0b6cf343f217cb8a11c0130bd80ca4ba588e8eff2c8deef083917
   - name: cluster_curator_controller
-    image: quay.io/open-cluster-management/cluster-curator-controller@sha256:b2df28d0480d03b36fd69a6433d6b4a64df96a6c87e4bc7b30f8505cfc4bf2a1
+    image: quay.io/open-cluster-management/cluster-curator-controller@sha256:acff43d00276f97f327eeb676262f51137ce1fe3f5860a1d722d8290638783df
   - name: cluster_lifecycle_e2e
     image: quay.io/open-cluster-management/cluster-lifecycle-e2e@sha256:d11fecffb1f639f36aa20c5dcd68fb1fac22d3b959b9cf1cf1f92ff60066125d
   - name: cluster_proxy_addon
