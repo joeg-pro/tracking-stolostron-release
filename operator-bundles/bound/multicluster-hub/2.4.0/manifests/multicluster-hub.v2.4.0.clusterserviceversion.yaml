@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-24T21:23:38Z'
+    createdAt: '2021-09-24T21:48:48Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1398,7 +1398,7 @@ spec:
                 - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
                   value: quay.io/open-cluster-management/rbac-query-proxy@sha256:6f9e8e4b666491effdc70e453a28d2c6a7e505a60a8836def4d091d79d46af02
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
-                  value: quay.io/open-cluster-management/redisgraph-tls@sha256:7d89eb2b65fd9088116088c115bc3d1d10cbdefcfd3061323496c7e12ef2f52b
+                  value: quay.io/open-cluster-management/redisgraph-tls@sha256:2a0d14c003ce554b37c89b8665d7915f363d20fe2cf5657ffad8bea8cb067e03
                 - name: OPERAND_IMAGE_REGISTRATION
                   value: quay.io/open-cluster-management/registration@sha256:c66e1de56093172aa3f25a1a9308884fc5402b2421b0812dfd1cdeebf9cdf638
                 - name: OPERAND_IMAGE_REGISTRATION_OPERATOR
@@ -1775,7 +1775,7 @@ spec:
   - name: rbac_query_proxy
     image: quay.io/open-cluster-management/rbac-query-proxy@sha256:6f9e8e4b666491effdc70e453a28d2c6a7e505a60a8836def4d091d79d46af02
   - name: redisgraph_tls
-    image: quay.io/open-cluster-management/redisgraph-tls@sha256:7d89eb2b65fd9088116088c115bc3d1d10cbdefcfd3061323496c7e12ef2f52b
+    image: quay.io/open-cluster-management/redisgraph-tls@sha256:2a0d14c003ce554b37c89b8665d7915f363d20fe2cf5657ffad8bea8cb067e03
   - name: registration
     image: quay.io/open-cluster-management/registration@sha256:c66e1de56093172aa3f25a1a9308884fc5402b2421b0812dfd1cdeebf9cdf638
   - name: search_aggregator
