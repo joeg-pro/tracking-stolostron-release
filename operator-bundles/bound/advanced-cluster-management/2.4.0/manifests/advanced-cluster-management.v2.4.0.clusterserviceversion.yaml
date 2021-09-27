@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-09-27T15:04:24Z'
+    createdAt: '2021-09-27T15:22:46Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware"]'
-    operators.operatorframework.io/internal-objects: '["checkpoints.hive.openshift.io", "observatoria.core.observatorium.io",
-      "machinepoolnameleases.hive.openshift.io", "clusterstates.hive.openshift.io", "clusterdeprovisions.hive.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "fakeclusterinstalls.hiveinternal.openshift.io",
-      "clustersyncs.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["clusterstates.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io",
+      "clusterdeprovisions.hive.openshift.io", "clusterprovisions.hive.openshift.io", "checkpoints.hive.openshift.io",
+      "machinepoolnameleases.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io", "observatoria.core.observatorium.io",
+      "clustersyncleases.hiveinternal.openshift.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1771,7 +1771,7 @@ spec:
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
                   value: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:d9f7c3bf933243e5ce0774a48a78dccc3176350b4c66bd0153d4da1f2ea46e97
                 - name: OPERAND_IMAGE_GRC_UI
-                  value: quay.io/open-cluster-management/grc-ui@sha256:f517430971224f9eea09c73fb08ed3f6a55ba6175cb2c72017a7c480e453fc16
+                  value: quay.io/open-cluster-management/grc-ui@sha256:a59a4af460211c0a61d303aa503753fa1335d7820c20b16fb250f389328dfbb2
                 - name: OPERAND_IMAGE_GRC_UI_API
                   value: quay.io/open-cluster-management/grc-ui-api@sha256:a17daea16a60c5542c21dbd262a22df91109175c27c0094019ab51598e418490
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
@@ -2696,7 +2696,7 @@ spec:
   - name: grc_policy_framework_tests
     image: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:d9f7c3bf933243e5ce0774a48a78dccc3176350b4c66bd0153d4da1f2ea46e97
   - name: grc_ui
-    image: quay.io/open-cluster-management/grc-ui@sha256:f517430971224f9eea09c73fb08ed3f6a55ba6175cb2c72017a7c480e453fc16
+    image: quay.io/open-cluster-management/grc-ui@sha256:a59a4af460211c0a61d303aa503753fa1335d7820c20b16fb250f389328dfbb2
   - name: grc_ui_api
     image: quay.io/open-cluster-management/grc-ui-api@sha256:a17daea16a60c5542c21dbd262a22df91109175c27c0094019ab51598e418490
   - name: grc_ui_tests
