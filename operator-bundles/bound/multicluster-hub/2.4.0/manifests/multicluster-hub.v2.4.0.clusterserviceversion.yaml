@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-27T10:31:50Z'
+    createdAt: '2021-09-27T12:30:10Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1287,7 +1286,7 @@ spec:
                 - name: OPERAND_IMAGE_CLUSTER_PROXY_ADDON
                   value: quay.io/open-cluster-management/cluster-proxy-addon@sha256:63f7b662c08a2749a1ab92253b339f6f8f6dc0f3076fb97325b01285bccdcffa
                 - name: OPERAND_IMAGE_CLUSTERCLAIMS_CONTROLLER
-                  value: quay.io/open-cluster-management/clusterclaims-controller@sha256:013d911097c1906eb4644b4e2118e7e04b49bc2f16280021f734a9dbf4c443a7
+                  value: quay.io/open-cluster-management/clusterclaims-controller@sha256:3d19c2b1a6002b1b3eac7f507e4e8266d4f8f0c9348ce116b4322774785339bd
                 - name: OPERAND_IMAGE_CLUSTERLIFECYCLE_STATE_METRICS
                   value: quay.io/open-cluster-management/clusterlifecycle-state-metrics@sha256:4d1e79f3a9acb99358fc6f94e69cf0676c7781ed828a28e85b29f6b1e67f9943
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
@@ -1668,7 +1667,7 @@ spec:
   - name: cluster_proxy_addon
     image: quay.io/open-cluster-management/cluster-proxy-addon@sha256:63f7b662c08a2749a1ab92253b339f6f8f6dc0f3076fb97325b01285bccdcffa
   - name: clusterclaims_controller
-    image: quay.io/open-cluster-management/clusterclaims-controller@sha256:013d911097c1906eb4644b4e2118e7e04b49bc2f16280021f734a9dbf4c443a7
+    image: quay.io/open-cluster-management/clusterclaims-controller@sha256:3d19c2b1a6002b1b3eac7f507e4e8266d4f8f0c9348ce116b4322774785339bd
   - name: clusterlifecycle_state_metrics
     image: quay.io/open-cluster-management/clusterlifecycle-state-metrics@sha256:4d1e79f3a9acb99358fc6f94e69cf0676c7781ed828a28e85b29f6b1e67f9943
   - name: config_policy_controller
