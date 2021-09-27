@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-27T21:05:45Z'
+    createdAt: '2021-09-27T21:57:24Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1354,7 +1354,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
                   value: quay.io/open-cluster-management/multicloud-manager@sha256:c669ff4de2f7f6b8dc219ea2e4af2fa45eb45b007a8668d1d3ba12c79e2717ef
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
-                  value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:bbdf1d905a25742599635aecdaf432cedab1e7e6b0885359efe2e980ecaada54
+                  value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:163f2a1b67528089a3a9bd1e74fe281eb5e74e4ce0309d79938a9b09aab303ac
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
                   value: quay.io/open-cluster-management/multicluster-operators-application@sha256:dbd50b889ce6a23c5581064ae2b2d1c37a4cd33a3d2a8398c4584cccf24772e5
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
@@ -1557,7 +1557,7 @@ spec:
                   value: /usr/local/manifests
                 - name: SPOKE_NAMESPACE
                   value: open-cluster-management-addon-observability
-                image: quay.io/open-cluster-management/multicluster-observability-operator@sha256:bbdf1d905a25742599635aecdaf432cedab1e7e6b0885359efe2e980ecaada54
+                image: quay.io/open-cluster-management/multicluster-observability-operator@sha256:163f2a1b67528089a3a9bd1e74fe281eb5e74e4ce0309d79938a9b09aab303ac
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
