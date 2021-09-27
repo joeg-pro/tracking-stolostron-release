@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-09-27T21:56:51Z'
+    createdAt: '2021-09-27T23:24:51Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware"]'
-    operators.operatorframework.io/internal-objects: '["clusterstates.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
-      "observatoria.core.observatorium.io", "machinepoolnameleases.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
-      "clustersyncleases.hiveinternal.openshift.io", "clustersyncs.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io",
-      "clusterdeprovisions.hive.openshift.io", "checkpoints.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["checkpoints.hive.openshift.io", "machinepoolnameleases.hive.openshift.io",
+      "clustersyncleases.hiveinternal.openshift.io", "clusterstates.hive.openshift.io", "observatoria.core.observatorium.io",
+      "clustersyncs.hiveinternal.openshift.io", "clusterdeprovisions.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "fakeclusterinstalls.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1757,7 +1757,7 @@ spec:
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
                   value: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:517982936045fd5390ffd55067e606dd4d8b74dd1aff47e0db2e9d9cdad5bc11
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
-                  value: quay.io/open-cluster-management/governance-policy-propagator@sha256:b39d2407ee49c8535a8e33a09911db3498135394d5c00af5bc3e293c657c6120
+                  value: quay.io/open-cluster-management/governance-policy-propagator@sha256:b6da494e8e8de3fdf84aabbcd62366cfdc71aa41365f460b19e80f27ae541946
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
                   value: quay.io/open-cluster-management/governance-policy-spec-sync@sha256:a9f5f7a6deb84a3e7999b001a336f97630028f2209d53fc945acca05737512ec
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_STATUS_SYNC
@@ -2682,7 +2682,7 @@ spec:
   - name: endpoint_monitoring_operator
     image: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:517982936045fd5390ffd55067e606dd4d8b74dd1aff47e0db2e9d9cdad5bc11
   - name: governance_policy_propagator
-    image: quay.io/open-cluster-management/governance-policy-propagator@sha256:b39d2407ee49c8535a8e33a09911db3498135394d5c00af5bc3e293c657c6120
+    image: quay.io/open-cluster-management/governance-policy-propagator@sha256:b6da494e8e8de3fdf84aabbcd62366cfdc71aa41365f460b19e80f27ae541946
   - name: governance_policy_spec_sync
     image: quay.io/open-cluster-management/governance-policy-spec-sync@sha256:a9f5f7a6deb84a3e7999b001a336f97630028f2209d53fc945acca05737512ec
   - name: governance_policy_status_sync
