@@ -16,7 +16,7 @@ metadata:
   name: "*Insert* eg: multicluster-engine.v1.0.0"
   namespace: placeholder
 spec:
-  displayName: Multicluster Engine for Kubernetes
+  displayName: multicluster engine for Kubernetes
   version: "*Insert* eg: 1.0.0"
   replaces: "*Insert* eg: multicluster-engine.v1.0.0"
   provider:
@@ -25,21 +25,21 @@ spec:
   - email: acm-contact@redhat.com
     name: Red Hat
   maturity: stable
-  description: 'Multicluster Engine for Kubernetes provides the foundational
+  description: 'Multicluster engine for Kubernetes provides the foundational
     components necessary for managing multiple Kubernetes-based clusters
-    across data centers, public clouds, and private clouds. You can use the Engine
+    across data centers, public clouds, and private clouds. You can use the engine
     to create Red Hat OpenShift Container Platform clusters on selected providers,
     or import existing Kubernetes-based clusters. After the clusters are managed,
-    you can use the APIs provided by the Engine to distribute configuration to the
+    you can use the APIs provided by the engine to distribute configuration to the
     clusters based on placement policy to select the applicable clusters, as a key
     part of creating sophisticated multi-cluster management applications.
 
     ## How to Install
 
-    Install the Multicluster Engine for Kubernetes operator by following
+    Install the multicluster engine for Kubernetes operator by following
     instructions presented when you click the `Install` button.
     After installing the operator, create an instance of the `MultiClusterEngine` resource
-    to install the Engine components that provide the management APIs.
+    to install the engine components that provide the management APIs.
     Note that if you will be using the engine to manage non-OpenShift 4.x clusters,
     you will need to create a Kubernetes `Secret` resource containing your OpenShift
     pull secret and specify this `Secret` in the `MultiClusterEngine` resource, as described
