@@ -315,12 +315,12 @@
   {
     "image-name": "grc-ui",
     "image-version": "3.6.0",
-    "image-tag": "3.6.0-a7c74fc5b56ce53c075549f22194e4ed2e680a18",
-    "git-sha256": "a7c74fc5b56ce53c075549f22194e4ed2e680a18",
+    "image-tag": "3.6.0-d57edf953ac658a96909894b62ff3c2ddbdba927",
+    "git-sha256": "d57edf953ac658a96909894b62ff3c2ddbdba927",
     "git-repository": "open-cluster-management/grc-ui",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:f58dc2627d54f3e10055b901bfa4e03f2447e047d1fd9bfbc901c6e397ff83c8",
+    "image-digest": "sha256:6e642edaae2623ab0862b4b91fcd391170ba1de6b2c57c518c8cf34bc7d3cbd7",
     "image-key": "grc_ui"
   },
   {
@@ -522,12 +522,12 @@
   {
     "image-name": "multicluster-operators-application",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-ee04303ef6a49b8ff363fe17e7f0f92f8eb355a8",
-    "git-sha256": "ee04303ef6a49b8ff363fe17e7f0f92f8eb355a8",
+    "image-tag": "2.4.0-fd3326abc7ec384d00f982f7f58668f91af7e030",
+    "git-sha256": "fd3326abc7ec384d00f982f7f58668f91af7e030",
     "git-repository": "open-cluster-management/multicloud-operators-application",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:dbd50b889ce6a23c5581064ae2b2d1c37a4cd33a3d2a8398c4584cccf24772e5",
+    "image-digest": "sha256:932d8058fbafe7651f9e019a3be108f3cb8970a18d822d596f4814951bfb3d63",
     "image-key": "multicluster_operators_application"
   },
   {
