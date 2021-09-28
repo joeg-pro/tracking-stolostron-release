@@ -489,12 +489,12 @@
   {
     "image-name": "multicloud-integrations",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-1d4c3aa241d3916754bac504421c61ae2ca04404",
-    "git-sha256": "1d4c3aa241d3916754bac504421c61ae2ca04404",
+    "image-tag": "2.4.0-6505659d2f68c6cac05e7ed3242d9f1d8f57820a",
+    "git-sha256": "6505659d2f68c6cac05e7ed3242d9f1d8f57820a",
     "git-repository": "open-cluster-management/multicloud-integrations",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:e89256d37a004440348ebcc436ece7e2c329a3a6a0851c721e1dc34f7d5d15ec",
+    "image-digest": "sha256:4f8d9367291583084606e7764f86bffbfd24625a7aea1beca87278f977dae829",
     "image-key": "multicloud_integrations"
   },
   {
@@ -544,23 +544,23 @@
   {
     "image-name": "multicluster-operators-deployable",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-2e5ed03ad048a2fbba0309b8d05b5658580e8ad4",
-    "git-sha256": "2e5ed03ad048a2fbba0309b8d05b5658580e8ad4",
+    "image-tag": "2.4.0-b81c3948a213875751370db4723ad85a723691d2",
+    "git-sha256": "b81c3948a213875751370db4723ad85a723691d2",
     "git-repository": "open-cluster-management/multicloud-operators-deployable",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:cb1ee8e00297fa3fbef97a24c69f5b0d6eb99178292511d2bd593f28e3769ae6",
+    "image-digest": "sha256:ba32819b44e54a71d812b0682b778f1a0365fac1ab6ee872216f85aadab2e719",
     "image-key": "multicluster_operators_deployable"
   },
   {
     "image-name": "multicluster-operators-placementrule",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-95e830fdea41382aa9d710b5cee83e6c3ae847ab",
-    "git-sha256": "95e830fdea41382aa9d710b5cee83e6c3ae847ab",
+    "image-tag": "2.4.0-31def0ba838f63cff3496957214af3bb60479607",
+    "git-sha256": "31def0ba838f63cff3496957214af3bb60479607",
     "git-repository": "open-cluster-management/multicloud-operators-placementrule",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:4b89ce8c3aea9a4963fb30feb38add16eed72d3bb0f4ca9a391fc7e72e80220d",
+    "image-digest": "sha256:9a37c23ff3e19261cd50fc2121c21241ea3c9bdbfe472a0fabe82ba037f0b474",
     "image-key": "multicluster_operators_placementrule"
   },
   {
