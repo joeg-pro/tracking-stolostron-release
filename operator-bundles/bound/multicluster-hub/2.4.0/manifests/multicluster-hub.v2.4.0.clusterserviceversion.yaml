@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-28T19:11:22Z'
+    createdAt: '2021-09-28T19:38:16Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1359,7 +1359,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
                   value: quay.io/open-cluster-management/multicluster-operators-application@sha256:932d8058fbafe7651f9e019a3be108f3cb8970a18d822d596f4814951bfb3d63
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
-                  value: quay.io/open-cluster-management/multicluster-operators-channel@sha256:eaf685a6ca1fbb5bdeeafcfef299c7d95c5dc99cab10a023a620f1cec0165d05
+                  value: quay.io/open-cluster-management/multicluster-operators-channel@sha256:3801b01193ba2430649fed0b2a6d7e0b1d05faec93f4fabb5a4c321df64e0f62
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_DEPLOYABLE
                   value: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:ba32819b44e54a71d812b0682b778f1a0365fac1ab6ee872216f85aadab2e719
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_PLACEMENTRULE
@@ -1738,7 +1738,7 @@ spec:
   - name: multicluster_operators_application
     image: quay.io/open-cluster-management/multicluster-operators-application@sha256:932d8058fbafe7651f9e019a3be108f3cb8970a18d822d596f4814951bfb3d63
   - name: multicluster_operators_channel
-    image: quay.io/open-cluster-management/multicluster-operators-channel@sha256:eaf685a6ca1fbb5bdeeafcfef299c7d95c5dc99cab10a023a620f1cec0165d05
+    image: quay.io/open-cluster-management/multicluster-operators-channel@sha256:3801b01193ba2430649fed0b2a6d7e0b1d05faec93f4fabb5a4c321df64e0f62
   - name: multicluster_operators_deployable
     image: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:ba32819b44e54a71d812b0682b778f1a0365fac1ab6ee872216f85aadab2e719
   - name: multicluster_operators_placementrule
