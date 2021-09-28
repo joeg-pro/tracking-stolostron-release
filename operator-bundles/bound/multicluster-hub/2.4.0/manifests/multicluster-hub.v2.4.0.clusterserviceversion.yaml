@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-28T17:32:53Z'
+    createdAt: '2021-09-28T17:34:10Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1318,7 +1318,7 @@ spec:
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
                   value: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:caf62c8882689fe2029b769e7e79a08f16ca53ae36324dced7c7a0796ea31508
                 - name: OPERAND_IMAGE_GRC_UI
-                  value: quay.io/open-cluster-management/grc-ui@sha256:f58dc2627d54f3e10055b901bfa4e03f2447e047d1fd9bfbc901c6e397ff83c8
+                  value: quay.io/open-cluster-management/grc-ui@sha256:6e642edaae2623ab0862b4b91fcd391170ba1de6b2c57c518c8cf34bc7d3cbd7
                 - name: OPERAND_IMAGE_GRC_UI_API
                   value: quay.io/open-cluster-management/grc-ui-api@sha256:a17daea16a60c5542c21dbd262a22df91109175c27c0094019ab51598e418490
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
@@ -1356,7 +1356,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
                   value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:a08d92310496f5b738bb867cbdab17279ac5e1dfcfa2950ab90247993a26fa45
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
-                  value: quay.io/open-cluster-management/multicluster-operators-application@sha256:dbd50b889ce6a23c5581064ae2b2d1c37a4cd33a3d2a8398c4584cccf24772e5
+                  value: quay.io/open-cluster-management/multicluster-operators-application@sha256:932d8058fbafe7651f9e019a3be108f3cb8970a18d822d596f4814951bfb3d63
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
                   value: quay.io/open-cluster-management/multicluster-operators-channel@sha256:eaf685a6ca1fbb5bdeeafcfef299c7d95c5dc99cab10a023a620f1cec0165d05
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_DEPLOYABLE
@@ -1699,7 +1699,7 @@ spec:
   - name: grc_policy_framework_tests
     image: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:caf62c8882689fe2029b769e7e79a08f16ca53ae36324dced7c7a0796ea31508
   - name: grc_ui
-    image: quay.io/open-cluster-management/grc-ui@sha256:f58dc2627d54f3e10055b901bfa4e03f2447e047d1fd9bfbc901c6e397ff83c8
+    image: quay.io/open-cluster-management/grc-ui@sha256:6e642edaae2623ab0862b4b91fcd391170ba1de6b2c57c518c8cf34bc7d3cbd7
   - name: grc_ui_api
     image: quay.io/open-cluster-management/grc-ui-api@sha256:a17daea16a60c5542c21dbd262a22df91109175c27c0094019ab51598e418490
   - name: grc_ui_tests
@@ -1735,7 +1735,7 @@ spec:
   - name: multicloud_manager
     image: quay.io/open-cluster-management/multicloud-manager@sha256:511d9b24f2d0f0d1b1a56daf1ea858e98999837956f8f3f2df0ab9d7a12801f3
   - name: multicluster_operators_application
-    image: quay.io/open-cluster-management/multicluster-operators-application@sha256:dbd50b889ce6a23c5581064ae2b2d1c37a4cd33a3d2a8398c4584cccf24772e5
+    image: quay.io/open-cluster-management/multicluster-operators-application@sha256:932d8058fbafe7651f9e019a3be108f3cb8970a18d822d596f4814951bfb3d63
   - name: multicluster_operators_channel
     image: quay.io/open-cluster-management/multicluster-operators-channel@sha256:eaf685a6ca1fbb5bdeeafcfef299c7d95c5dc99cab10a023a620f1cec0165d05
   - name: multicluster_operators_deployable
