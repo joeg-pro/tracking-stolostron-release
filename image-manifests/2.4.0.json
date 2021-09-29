@@ -118,12 +118,13 @@
   },
   {
     "image-name": "cluster-lifecycle-e2e",
-    "image-version": "2.4.0",
-    "image-tag": "2.4.0-1cbfd6d0cb8c593f1a822abe2262d76bc0eeb24b",
-    "git-sha256": "1cbfd6d0cb8c593f1a822abe2262d76bc0eeb24b",
+    "image-version": "0.4.0",
+    "image-tag": "0.4.0-42a25e43461c21a38479edea528b40736840b35d",
+    "git-sha256": "42a25e43461c21a38479edea528b40736840b35d",
     "git-repository": "open-cluster-management/cluster-lifecycle-e2e",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:d11fecffb1f639f36aa20c5dcd68fb1fac22d3b959b9cf1cf1f92ff60066125d",
+    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
+    "image-digest": "sha256:5abc5dce074cf10adb32c061d8c70306c91c66b4ed7f27924e3b58b7288a8787",
     "image-key": "cluster_lifecycle_e2e"
   },
   {
