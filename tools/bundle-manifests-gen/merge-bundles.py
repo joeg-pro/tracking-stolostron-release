@@ -340,8 +340,8 @@ def main():
                   if all_gvks_are_expected:
                      # First error.  Mention the manifest file.
                      print("   ERROR: CRD manifest file contains unlisted CRD GVKs: %s" % fn)
-                  print("          CRD GVK is not listed as owned in CSV: %s" % this_gvk)
-                  all_gvks_are_expected = False
+                     print("          CRD GVK is not listed as owned in CSV: %s" % this_gvk)
+                     all_gvks_are_expected = False
             #
             if all_gvks_are_expected:
                print("   Copying Owned-CRD manifest file: %s" % fn)
@@ -355,9 +355,11 @@ def main():
 
                if csv_vers_xy == "2.0":
                   wmsg("Tolerating/skipping CRD manifest file with unlisted CRDs rather than aborting.")
+                  continue
+               elif csv_vers_xy == "2.4":
+                  wmsg("Tolerating/copying CRD manifest file with unlisted CRDs rather than aborting.")
                else:
                   die_due_to_unlisted_crds = True
-               continue
          elif kind in must_be_in_csv:
             emsg("%s must be defined via permissions in CSV, not in bundle file %s" % (kind, fn))
 
