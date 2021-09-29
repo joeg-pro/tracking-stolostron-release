@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-28T19:38:16Z'
+    createdAt: '2021-09-29T01:11:55Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1287,7 +1287,7 @@ spec:
                 - name: OPERAND_IMAGE_CLUSTER_PROXY_ADDON
                   value: quay.io/open-cluster-management/cluster-proxy-addon@sha256:63f7b662c08a2749a1ab92253b339f6f8f6dc0f3076fb97325b01285bccdcffa
                 - name: OPERAND_IMAGE_CLUSTERCLAIMS_CONTROLLER
-                  value: quay.io/open-cluster-management/clusterclaims-controller@sha256:3d19c2b1a6002b1b3eac7f507e4e8266d4f8f0c9348ce116b4322774785339bd
+                  value: quay.io/open-cluster-management/clusterclaims-controller@sha256:1e71347e9163a1fb8b001dc34b967f2de3829a2ec6ac3e4b4ff8f4c4d81f9173
                 - name: OPERAND_IMAGE_CLUSTERLIFECYCLE_STATE_METRICS
                   value: quay.io/open-cluster-management/clusterlifecycle-state-metrics@sha256:4d1e79f3a9acb99358fc6f94e69cf0676c7781ed828a28e85b29f6b1e67f9943
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
@@ -1668,7 +1668,7 @@ spec:
   - name: cluster_proxy_addon
     image: quay.io/open-cluster-management/cluster-proxy-addon@sha256:63f7b662c08a2749a1ab92253b339f6f8f6dc0f3076fb97325b01285bccdcffa
   - name: clusterclaims_controller
-    image: quay.io/open-cluster-management/clusterclaims-controller@sha256:3d19c2b1a6002b1b3eac7f507e4e8266d4f8f0c9348ce116b4322774785339bd
+    image: quay.io/open-cluster-management/clusterclaims-controller@sha256:1e71347e9163a1fb8b001dc34b967f2de3829a2ec6ac3e4b4ff8f4c4d81f9173
   - name: clusterlifecycle_state_metrics
     image: quay.io/open-cluster-management/clusterlifecycle-state-metrics@sha256:4d1e79f3a9acb99358fc6f94e69cf0676c7781ed828a28e85b29f6b1e67f9943
   - name: config_policy_controller
