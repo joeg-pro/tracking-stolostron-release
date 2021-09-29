@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-29T05:36:45Z'
+    createdAt: '2021-09-29T07:18:17Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1338,7 +1338,7 @@ spec:
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_CONTROLLER
                   value: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:9f1ab263d525dde4754d0957c5a17d892e4f60aef0a2b55bef4115d7dd5d903b
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_OPERATOR
-                  value: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:51cda687830fd99e5c4c1ad71000578d663a8fa01dbd08e6e725a56a2d7819b3
+                  value: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:53eccd65487725fbf5c41920f112c6021ed01e4e212e411a062a4ee7efa24a07
                 - name: OPERAND_IMAGE_KUBE_RBAC_PROXY
                   value: quay.io/open-cluster-management/kube-rbac-proxy@sha256:536421e3ec9a786a8c82d8bacea36d7df35ba521b110cc6f0afb6dbfac8b7ef3
                 - name: OPERAND_IMAGE_KUBE_STATE_METRICS
@@ -1719,7 +1719,7 @@ spec:
   - name: klusterlet_addon_controller
     image: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:9f1ab263d525dde4754d0957c5a17d892e4f60aef0a2b55bef4115d7dd5d903b
   - name: klusterlet_addon_operator
-    image: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:51cda687830fd99e5c4c1ad71000578d663a8fa01dbd08e6e725a56a2d7819b3
+    image: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:53eccd65487725fbf5c41920f112c6021ed01e4e212e411a062a4ee7efa24a07
   - name: kube_rbac_proxy
     image: quay.io/open-cluster-management/kube-rbac-proxy@sha256:536421e3ec9a786a8c82d8bacea36d7df35ba521b110cc6f0afb6dbfac8b7ef3
   - name: kube_state_metrics
