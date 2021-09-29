@@ -27,18 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-09-29T14:36:38Z'
+    createdAt: '2021-09-29T19:35:14Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware"]'
-    operators.operatorframework.io/internal-objects: '["fakeclusterinstalls.hiveinternal.openshift.io",
-      "clustersyncs.hiveinternal.openshift.io", "clusterstates.hive.openshift.io", "observatoria.core.observatorium.io",
-      "clusterprovisions.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "machinepoolnameleases.hive.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "checkpoints.hive.openshift.io",
-      "clusterdeprovisions.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["clusterdeprovisions.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "clusterstates.hive.openshift.io", "observatoria.core.observatorium.io", "checkpoints.hive.openshift.io",
+      "clustersyncs.hiveinternal.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "machinepoolnameleases.hive.openshift.io",
+      "clusterprovisions.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1719,14 +1718,16 @@ spec:
                   value: quay.io/open-cluster-management/application-ui-tests@sha256:7ce4f4571e9c3d86fc3d655c4bda964c5f7a1fe56d110c58fd0b152e8e710499
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
                   value: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:b1760f57ffe4a20ea697e717103c1a37e7e280a03002b847a4d724a3266c181b
+                - name: OPERAND_IMAGE_ASSISTED_IMAGE_SERVICE
+                  value: quay.io/edge-infrastructure/assisted-image-service@sha256:ecad1bd7505ebd9944fd1bd466ee83334677f7e8d7022091c078a7359dadb976
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER
-                  value: quay.io/ocpmetal/assisted-installer@sha256:c0750ea121e25bcd9c7b04b9fe3d0e1a5be9fba926d5205b4df6240395ad9ce2
+                  value: quay.io/edge-infrastructure/assisted-installer@sha256:4b14eeb1f1f34771077df8c9cad375620c6a968eb6e327692aac80c33cd4be8f
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_AGENT
-                  value: quay.io/ocpmetal/assisted-installer-agent@sha256:e44b1b48e66be5ede6b91078a167e9e7b538060fde2ea287a3462f7bc2d8b3f2
+                  value: quay.io/edge-infrastructure/assisted-installer-agent@sha256:e2bbfb6c37bc332b9fc1a5a3c47c763ca29897863f277af690d3667173748d87
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_CONTROLLER
-                  value: quay.io/ocpmetal/assisted-installer-controller@sha256:b3d1c10c2ae287c0bbc05a4c9563ec41e6bb01907bbe88511c38c9ebce2c06ec
+                  value: quay.io/edge-infrastructure/assisted-installer-controller@sha256:12f1b92ee48dc54fa44d04ff2666256321a3e2ff3c1523e47fb43a1d45113935
                 - name: OPERAND_IMAGE_ASSISTED_SERVICE
-                  value: quay.io/ocpmetal/assisted-service@sha256:83dbc6e36dc62e20228bb6d3b946c43331085635d4e5d403d79ca1b5764a4ab4
+                  value: quay.io/edge-infrastructure/assisted-service@sha256:27e9afc7e51e7b1eaaadf44afca0bdfd3afaaff12d44d1c396541c899f61ad9f
                 - name: OPERAND_IMAGE_BAILER
                   value: quay.io/open-cluster-management/bailer@sha256:49ed8f260a05eda10149534770e5a454317e0e6d60af954141973fcea0f4ec76
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
@@ -1864,7 +1865,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_COLLECTOR
                   value: quay.io/open-cluster-management/search-collector@sha256:46dc6762a100d804ad6e3f56fae55946f2d3a89551af8de60f98cda9af326349
                 - name: OPERAND_IMAGE_SEARCH_E2E
-                  value: quay.io/open-cluster-management/search-e2e@sha256:eca6b1f8aa6e4d44c4f6236b68d4b143d527759b1364862073b839a940b38717
+                  value: quay.io/open-cluster-management/search-e2e@sha256:783d999001568e6198c2814aa2e0d8fe8a3a21722587558401ecf3b2bd13fed7
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
                   value: quay.io/open-cluster-management/search-operator@sha256:3dcd5e018f976437da313dcc36846e86c841edd36975051afdc67f448cbf3117
                 - name: OPERAND_IMAGE_SEARCH_UI
@@ -2644,14 +2645,16 @@ spec:
     image: quay.io/open-cluster-management/application-ui-tests@sha256:7ce4f4571e9c3d86fc3d655c4bda964c5f7a1fe56d110c58fd0b152e8e710499
   - name: applifecycle_backend_e2e
     image: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:b1760f57ffe4a20ea697e717103c1a37e7e280a03002b847a4d724a3266c181b
+  - name: assisted_image_service
+    image: quay.io/edge-infrastructure/assisted-image-service@sha256:ecad1bd7505ebd9944fd1bd466ee83334677f7e8d7022091c078a7359dadb976
   - name: assisted_installer
-    image: quay.io/ocpmetal/assisted-installer@sha256:c0750ea121e25bcd9c7b04b9fe3d0e1a5be9fba926d5205b4df6240395ad9ce2
+    image: quay.io/edge-infrastructure/assisted-installer@sha256:4b14eeb1f1f34771077df8c9cad375620c6a968eb6e327692aac80c33cd4be8f
   - name: assisted_installer_agent
-    image: quay.io/ocpmetal/assisted-installer-agent@sha256:e44b1b48e66be5ede6b91078a167e9e7b538060fde2ea287a3462f7bc2d8b3f2
+    image: quay.io/edge-infrastructure/assisted-installer-agent@sha256:e2bbfb6c37bc332b9fc1a5a3c47c763ca29897863f277af690d3667173748d87
   - name: assisted_installer_controller
-    image: quay.io/ocpmetal/assisted-installer-controller@sha256:b3d1c10c2ae287c0bbc05a4c9563ec41e6bb01907bbe88511c38c9ebce2c06ec
+    image: quay.io/edge-infrastructure/assisted-installer-controller@sha256:12f1b92ee48dc54fa44d04ff2666256321a3e2ff3c1523e47fb43a1d45113935
   - name: assisted_service
-    image: quay.io/ocpmetal/assisted-service@sha256:83dbc6e36dc62e20228bb6d3b946c43331085635d4e5d403d79ca1b5764a4ab4
+    image: quay.io/edge-infrastructure/assisted-service@sha256:27e9afc7e51e7b1eaaadf44afca0bdfd3afaaff12d44d1c396541c899f61ad9f
   - name: bailer
     image: quay.io/open-cluster-management/bailer@sha256:49ed8f260a05eda10149534770e5a454317e0e6d60af954141973fcea0f4ec76
   - name: cert_policy_controller
@@ -2769,7 +2772,7 @@ spec:
   - name: search_collector
     image: quay.io/open-cluster-management/search-collector@sha256:46dc6762a100d804ad6e3f56fae55946f2d3a89551af8de60f98cda9af326349
   - name: search_e2e
-    image: quay.io/open-cluster-management/search-e2e@sha256:eca6b1f8aa6e4d44c4f6236b68d4b143d527759b1364862073b839a940b38717
+    image: quay.io/open-cluster-management/search-e2e@sha256:783d999001568e6198c2814aa2e0d8fe8a3a21722587558401ecf3b2bd13fed7
   - name: search_operator
     image: quay.io/open-cluster-management/search-operator@sha256:3dcd5e018f976437da313dcc36846e86c841edd36975051afdc67f448cbf3117
   - name: search_ui
