@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-30T15:43:27Z'
+    createdAt: '2021-09-30T17:56:48Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1274,7 +1274,7 @@ spec:
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_CONTROLLER
                   value: quay.io/edge-infrastructure/assisted-installer-controller@sha256:31123dae1f7caa519714eb2461431cbaaa5b180ff10d9031aa03f81b92b15eec
                 - name: OPERAND_IMAGE_ASSISTED_SERVICE
-                  value: quay.io/edge-infrastructure/assisted-service@sha256:0a16800a086c9fbe8133cb229d3adcf3f39a9441f93669ce08dbdf1ef40be6c4
+                  value: quay.io/edge-infrastructure/assisted-service@sha256:14ad1636ad3cc93974768202d4946d90d41087ec55f89d79989f3ab67fc89e78
                 - name: OPERAND_IMAGE_BAILER
                   value: quay.io/open-cluster-management/bailer@sha256:49ed8f260a05eda10149534770e5a454317e0e6d60af954141973fcea0f4ec76
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
@@ -1366,7 +1366,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_PLACEMENTRULE
                   value: quay.io/open-cluster-management/multicluster-operators-placementrule@sha256:9a37c23ff3e19261cd50fc2121c21241ea3c9bdbfe472a0fabe82ba037f0b474
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION
-                  value: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:068194d889eb25bc9d31b205606b02584598d5ce1e0065c52e0528063ca9d0d6
+                  value: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:3881b6f769a0c5f76a3dcfd8476603c6c14b383c3629fe9a43946ab65de898f3
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION_RELEASE
                   value: quay.io/open-cluster-management/multicluster-operators-subscription-release@sha256:e3f3aaf60219d38fcf7d3d999df954ec4cc02b85948b4d26253c19a52be54e83
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR
@@ -1657,7 +1657,7 @@ spec:
   - name: assisted_installer_controller
     image: quay.io/edge-infrastructure/assisted-installer-controller@sha256:31123dae1f7caa519714eb2461431cbaaa5b180ff10d9031aa03f81b92b15eec
   - name: assisted_service
-    image: quay.io/edge-infrastructure/assisted-service@sha256:0a16800a086c9fbe8133cb229d3adcf3f39a9441f93669ce08dbdf1ef40be6c4
+    image: quay.io/edge-infrastructure/assisted-service@sha256:14ad1636ad3cc93974768202d4946d90d41087ec55f89d79989f3ab67fc89e78
   - name: bailer
     image: quay.io/open-cluster-management/bailer@sha256:49ed8f260a05eda10149534770e5a454317e0e6d60af954141973fcea0f4ec76
   - name: cert_policy_controller
@@ -1747,7 +1747,7 @@ spec:
   - name: multicluster_operators_placementrule
     image: quay.io/open-cluster-management/multicluster-operators-placementrule@sha256:9a37c23ff3e19261cd50fc2121c21241ea3c9bdbfe472a0fabe82ba037f0b474
   - name: multicluster_operators_subscription
-    image: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:068194d889eb25bc9d31b205606b02584598d5ce1e0065c52e0528063ca9d0d6
+    image: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:3881b6f769a0c5f76a3dcfd8476603c6c14b383c3629fe9a43946ab65de898f3
   - name: multicluster_operators_subscription_release
     image: quay.io/open-cluster-management/multicluster-operators-subscription-release@sha256:e3f3aaf60219d38fcf7d3d999df954ec4cc02b85948b4d26253c19a52be54e83
   - name: multiclusterhub_operator_tests
