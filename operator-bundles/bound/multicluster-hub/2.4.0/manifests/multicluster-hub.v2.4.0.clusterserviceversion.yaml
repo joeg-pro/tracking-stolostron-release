@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-09-30T11:37:35Z'
+    createdAt: '2021-09-30T12:30:46Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1338,7 +1339,7 @@ spec:
                 - name: OPERAND_IMAGE_INSIGHTS_METRICS
                   value: quay.io/open-cluster-management/insights-metrics@sha256:78b888f985da69866a06bd734ac3b27c2fa588e89b5f9fe2b68d891c26810bbd
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_CONTROLLER
-                  value: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:9583a055182bd3dd2c342c151345b0e0d0eace395374796d4165a3d554f2af2d
+                  value: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:98c21c82276111f341e1677d652bdd70d4b7e11129ee9cc34094564c53a3472c
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_OPERATOR
                   value: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:53eccd65487725fbf5c41920f112c6021ed01e4e212e411a062a4ee7efa24a07
                 - name: OPERAND_IMAGE_KUBE_RBAC_PROXY
@@ -1356,7 +1357,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
                   value: quay.io/open-cluster-management/multicloud-manager@sha256:511d9b24f2d0f0d1b1a56daf1ea858e98999837956f8f3f2df0ab9d7a12801f3
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
-                  value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:55743d9b4d2e57f8ad85bc6a0bc8adf92b1fa53bc3e5dcb89813441d2f8b7c67
+                  value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:1204286d2ca33ce838428682dbaa20a8010e1efb3d86042c8f451a9276fe6288
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
                   value: quay.io/open-cluster-management/multicluster-operators-application@sha256:932d8058fbafe7651f9e019a3be108f3cb8970a18d822d596f4814951bfb3d63
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
@@ -1559,7 +1560,7 @@ spec:
                   value: /usr/local/manifests
                 - name: SPOKE_NAMESPACE
                   value: open-cluster-management-addon-observability
-                image: quay.io/open-cluster-management/multicluster-observability-operator@sha256:55743d9b4d2e57f8ad85bc6a0bc8adf92b1fa53bc3e5dcb89813441d2f8b7c67
+                image: quay.io/open-cluster-management/multicluster-observability-operator@sha256:1204286d2ca33ce838428682dbaa20a8010e1efb3d86042c8f451a9276fe6288
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -1721,7 +1722,7 @@ spec:
   - name: insights_metrics
     image: quay.io/open-cluster-management/insights-metrics@sha256:78b888f985da69866a06bd734ac3b27c2fa588e89b5f9fe2b68d891c26810bbd
   - name: klusterlet_addon_controller
-    image: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:9583a055182bd3dd2c342c151345b0e0d0eace395374796d4165a3d554f2af2d
+    image: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:98c21c82276111f341e1677d652bdd70d4b7e11129ee9cc34094564c53a3472c
   - name: klusterlet_addon_operator
     image: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:53eccd65487725fbf5c41920f112c6021ed01e4e212e411a062a4ee7efa24a07
   - name: kube_rbac_proxy
