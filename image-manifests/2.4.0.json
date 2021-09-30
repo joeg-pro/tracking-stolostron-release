@@ -49,7 +49,7 @@
     "git-sha256": "6f4c2222f36983578bbbb57502c8e09e12600ef6",
     "git-repository": "openshift/assisted-installer",
     "image-remote": "quay.io/edge-infrastructure",
-    "image-digest": "sha256:4b14eeb1f1f34771077df8c9cad375620c6a968eb6e327692aac80c33cd4be8f",
+    "image-digest": "sha256:83023ecf08d2e16c75c75a0fb2cfd2f7c3401fddff95d29003c9995fe2e83e93",
     "image-key": "assisted_installer"
   },
   {
@@ -59,7 +59,7 @@
     "git-sha256": "14870a7501549fa77bb04480d7c70caa036caee5",
     "git-repository": "openshift/assisted-installer-agent",
     "image-remote": "quay.io/edge-infrastructure",
-    "image-digest": "sha256:e2bbfb6c37bc332b9fc1a5a3c47c763ca29897863f277af690d3667173748d87",
+    "image-digest": "sha256:27f0ae760486314e1b1871614d3ef882b16272afd409c7f4b55b4bf592bd8c0b",
     "image-key": "assisted_installer_agent"
   },
   {
@@ -69,7 +69,7 @@
     "git-sha256": "6f4c2222f36983578bbbb57502c8e09e12600ef6",
     "git-repository": "openshift/assisted-installer",
     "image-remote": "quay.io/edge-infrastructure",
-    "image-digest": "sha256:12f1b92ee48dc54fa44d04ff2666256321a3e2ff3c1523e47fb43a1d45113935",
+    "image-digest": "sha256:31123dae1f7caa519714eb2461431cbaaa5b180ff10d9031aa03f81b92b15eec",
     "image-key": "assisted_installer_controller"
   },
   {
@@ -79,7 +79,7 @@
     "git-sha256": "72700cdbd08860ff883883a35f2ee68844e4c376",
     "git-repository": "openshift/assisted-service",
     "image-remote": "quay.io/edge-infrastructure",
-    "image-digest": "sha256:27e9afc7e51e7b1eaaadf44afca0bdfd3afaaff12d44d1c396541c899f61ad9f",
+    "image-digest": "sha256:0a16800a086c9fbe8133cb229d3adcf3f39a9441f93669ce08dbdf1ef40be6c4",
     "image-key": "assisted_service"
   },
   {
@@ -294,8 +294,8 @@
   {
     "image-name": "grafana",
     "image-version": "2.4",
-    "image-tag": "2.4-4ae7e723b9376301ee034324db11e6a1ed0b8977",
-    "git-sha256": "4ae7e723b9376301ee034324db11e6a1ed0b8977",
+    "image-tag": "2.4-bb7a80393ce80a0bb204e8e16c069e81e4efb9cd",
+    "git-sha256": "bb7a80393ce80a0bb204e8e16c069e81e4efb9cd",
     "git-repository": "open-cluster-management/grafana",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
