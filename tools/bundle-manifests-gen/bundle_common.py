@@ -185,7 +185,7 @@ def get_avk(a_map):
    gvk = "%s/%s" % (group_version, kind)
    return gvk
 
-# Forms a group/version/kind string from a CRD resource:
+# Forms a list of group/version/kind string from a CRD resource:
 def get_gvks_for_crd(crd_map):
 
    crd_api_gv = crd_map["apiVersion"]

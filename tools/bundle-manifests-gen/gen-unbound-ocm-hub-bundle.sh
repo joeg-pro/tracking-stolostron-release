@@ -143,6 +143,12 @@ fi
 gen_unbound_bundle pkg_name new_csv_vers prev_csv_ver \
   csv_template unbound_pkg_dir bundle_names bundle_dirs \
   supported_archs supported_op_syss
+rc="$?"
 
 rm -rf "$tmp_dir"
+
+if [[ $rc -ne 0 ]]; then
+   >&2 echo "Error: Generation of unbound OCM bundle encountered errors."
+fi
+exit $rc
 

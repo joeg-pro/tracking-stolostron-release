@@ -108,7 +108,8 @@ fi
 
 $my_dir/gen-unbound-ocm-hub-bundle.sh "$new_csv_vers"
 if [[ $? -ne 0 ]]; then
-   >&2 echo "Error: Could not generate OCM Hub source bundle."
+   # gen-unbound-ocm-hub-bundle will have reported a summary emsg on errors.
+   # so we just report that we're quitting here.
    >&2 echo "Aborting."
    exit 2
 fi
@@ -179,6 +180,12 @@ fi
 gen_unbound_bundle pkg_name new_csv_vers prev_csv_ver \
   csv_template unbound_pkg_dir bundle_names bundle_dirs \
   supported_archs supported_op_syss
+rc="$?"
 
 rm -rf "$tmp_dir"
+
+if [[ $rc -ne 0 ]]; then
+   >&2 echo "Error: Generation of unbound ACM bundle encountered errors."
+fi
+exit $rc
 
