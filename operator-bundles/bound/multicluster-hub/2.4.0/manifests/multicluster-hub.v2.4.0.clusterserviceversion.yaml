@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-10-01T17:29:35Z'
+    createdAt: '2021-10-01T17:40:11Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1321,7 +1320,7 @@ spec:
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
                   value: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:610cbf5abf109bca07f16e815a4674a79ebf88a224f07b1cc5ba93afa23184aa
                 - name: OPERAND_IMAGE_GRC_UI
-                  value: quay.io/open-cluster-management/grc-ui@sha256:5b3bfb860360613cc7be21fe4a30de18ef5fddf9a95f5f78c6940839e1035c96
+                  value: quay.io/open-cluster-management/grc-ui@sha256:d1cf0aa0910e7100fff81bf07f9a2fc53e2d9ec6eddb9aa1c2bd019607b13be8
                 - name: OPERAND_IMAGE_GRC_UI_API
                   value: quay.io/open-cluster-management/grc-ui-api@sha256:a17daea16a60c5542c21dbd262a22df91109175c27c0094019ab51598e418490
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
@@ -1375,7 +1374,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
                   value: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:485f79457dc92b2fa0963a4142a7417a2f20c8047980531e1938471cde177700
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
-                  value: quay.io/open-cluster-management/multiclusterhub-repo@sha256:2ad77394e20e279a8f976a24fde5afc3304f5f82b204ff5383147478074f6a00
+                  value: quay.io/open-cluster-management/multiclusterhub-repo@sha256:e3f2a39138c29177907f4f0c864b50ed74f9702d0c95f9f9e32879ef93a7aa5e
                 - name: OPERAND_IMAGE_MUST_GATHER
                   value: quay.io/open-cluster-management/must-gather@sha256:be98e746c427cfad9a0a938497fc924aa72049f55f7b08c747c4805cd1a2e27c
                 - name: OPERAND_IMAGE_NODE_EXPORTER
@@ -1704,7 +1703,7 @@ spec:
   - name: grc_policy_framework_tests
     image: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:610cbf5abf109bca07f16e815a4674a79ebf88a224f07b1cc5ba93afa23184aa
   - name: grc_ui
-    image: quay.io/open-cluster-management/grc-ui@sha256:5b3bfb860360613cc7be21fe4a30de18ef5fddf9a95f5f78c6940839e1035c96
+    image: quay.io/open-cluster-management/grc-ui@sha256:d1cf0aa0910e7100fff81bf07f9a2fc53e2d9ec6eddb9aa1c2bd019607b13be8
   - name: grc_ui_api
     image: quay.io/open-cluster-management/grc-ui-api@sha256:a17daea16a60c5542c21dbd262a22df91109175c27c0094019ab51598e418490
   - name: grc_ui_tests
@@ -1754,7 +1753,7 @@ spec:
   - name: multiclusterhub_operator_tests
     image: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:485f79457dc92b2fa0963a4142a7417a2f20c8047980531e1938471cde177700
   - name: multiclusterhub_repo
-    image: quay.io/open-cluster-management/multiclusterhub-repo@sha256:2ad77394e20e279a8f976a24fde5afc3304f5f82b204ff5383147478074f6a00
+    image: quay.io/open-cluster-management/multiclusterhub-repo@sha256:e3f2a39138c29177907f4f0c864b50ed74f9702d0c95f9f9e32879ef93a7aa5e
   - name: must_gather
     image: quay.io/open-cluster-management/must-gather@sha256:be98e746c427cfad9a0a938497fc924aa72049f55f7b08c747c4805cd1a2e27c
   - name: node_exporter
