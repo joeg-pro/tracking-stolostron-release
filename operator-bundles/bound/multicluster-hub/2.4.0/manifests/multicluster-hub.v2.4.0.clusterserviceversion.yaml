@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-10-01T23:36:49Z'
+    createdAt: '2021-10-02T11:20:14Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1310,7 +1310,7 @@ spec:
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
                   value: quay.io/open-cluster-management/governance-policy-spec-sync@sha256:a9f5f7a6deb84a3e7999b001a336f97630028f2209d53fc945acca05737512ec
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_STATUS_SYNC
-                  value: quay.io/open-cluster-management/governance-policy-status-sync@sha256:e278adc3439ea58cf479970ebb1d007c6462b9cc506da763afdb27fd74ab4154
+                  value: quay.io/open-cluster-management/governance-policy-status-sync@sha256:026c8ed8f09fef25e8c2895de91187c0fd80c17832473462509ffa5fedff341c
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_TEMPLATE_SYNC
                   value: quay.io/open-cluster-management/governance-policy-template-sync@sha256:d896e13cb3bf8ffff5a4fed8246c51b737087eb68219f981c8a4535c6e4ecf27
                 - name: OPERAND_IMAGE_GRAFANA
@@ -1693,7 +1693,7 @@ spec:
   - name: governance_policy_spec_sync
     image: quay.io/open-cluster-management/governance-policy-spec-sync@sha256:a9f5f7a6deb84a3e7999b001a336f97630028f2209d53fc945acca05737512ec
   - name: governance_policy_status_sync
-    image: quay.io/open-cluster-management/governance-policy-status-sync@sha256:e278adc3439ea58cf479970ebb1d007c6462b9cc506da763afdb27fd74ab4154
+    image: quay.io/open-cluster-management/governance-policy-status-sync@sha256:026c8ed8f09fef25e8c2895de91187c0fd80c17832473462509ffa5fedff341c
   - name: governance_policy_template_sync
     image: quay.io/open-cluster-management/governance-policy-template-sync@sha256:d896e13cb3bf8ffff5a4fed8246c51b737087eb68219f981c8a4535c6e4ecf27
   - name: grafana
