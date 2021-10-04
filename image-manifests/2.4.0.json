@@ -370,21 +370,21 @@
   {
     "image-name": "helloworld",
     "image-version": "1.0.1",
-    "image-tag": "1.0.1-9c45416dae87202e74ddf37d4f96ed9b3d2e90c0",
-    "git-sha256": "9c45416dae87202e74ddf37d4f96ed9b3d2e90c0",
+    "image-tag": "1.0.1-10e26770fa655b391645e8189590b47741802cf5",
+    "git-sha256": "10e26770fa655b391645e8189590b47741802cf5",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:f711c499de9d364b182d0571f8d539344998b852138448fb8fabbf675ee0d0cc",
+    "image-digest": "sha256:55494042ae466202dc46fb5a73536841b368a663beb2f86d852cb1b9061e829d",
     "image-key": "helloworld"
   },
   {
     "image-name": "hive",
-    "image-version": "v1.2.3179-0756b70e6",
-    "image-tag": "v1.2.3179-0756b70e6",
-    "git-sha256": "0756b70e6db4f5a92d7eebbff7be45b4e79aa033",
+    "image-version": "v2.4.3180-7299056",
+    "image-tag": "v2.4.3180-7299056",
+    "git-sha256": "7299056bbfb7b23ea5a5e6055b7ab22a9e4ca691",
     "git-repository": "openshift/hive",
     "image-remote": "quay.io/openshift-hive",
-    "image-digest": "sha256:c7848c5244d93c0da0dc9a4f7223eb95346fbdad3863619c050d458875c8a7dd",
+    "image-digest": "sha256:2bf7f3a2866d6a0a55e321cebc116729339c74e1be6614d7896bb077f6b6584a",
     "image-key": "openshift_hive"
   },
   {
