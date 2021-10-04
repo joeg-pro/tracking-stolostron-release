@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-10-04T20:34:46Z'
+    createdAt: '2021-10-04T20:44:09Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1294,7 +1294,7 @@ spec:
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/open-cluster-management/config-policy-controller@sha256:1a7eec1ca4467da1ad9ce38941e945bc5ed9ab203d851bd0219afe9598f4b40d
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/open-cluster-management/console@sha256:ecdd3fdf0a5868d022d36ae894966f19085f6244663c2189aa7cc023c9943c35
+                  value: quay.io/open-cluster-management/console@sha256:19708e7ed5a41320a00fced76df4763d98c5d61b47fddfea8cd594b5ad517569
                 - name: OPERAND_IMAGE_CONSOLE_API
                   value: quay.io/open-cluster-management/console-api@sha256:241d052521f7cc54b215ae50c614a30f3dd0397636c10ebeb6a7eb89d79278c4
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
@@ -1318,7 +1318,7 @@ spec:
                 - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
                   value: quay.io/open-cluster-management/grafana-dashboard-loader@sha256:d10598e3293b910f040ef9678084505b6bb8ea7b96f1ad2d72b03baa6cc99a85
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
-                  value: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:610cbf5abf109bca07f16e815a4674a79ebf88a224f07b1cc5ba93afa23184aa
+                  value: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:cd0faf796a051b436b126aa291c6731d8389f1910566547480f644a0a4b16a09
                 - name: OPERAND_IMAGE_GRC_UI
                   value: quay.io/open-cluster-management/grc-ui@sha256:0493bc2653f88b9ce20b29a917add1aadb852960a04c6a62c0f4395dff795fb7
                 - name: OPERAND_IMAGE_GRC_UI_API
@@ -1677,7 +1677,7 @@ spec:
   - name: config_policy_controller
     image: quay.io/open-cluster-management/config-policy-controller@sha256:1a7eec1ca4467da1ad9ce38941e945bc5ed9ab203d851bd0219afe9598f4b40d
   - name: console
-    image: quay.io/open-cluster-management/console@sha256:ecdd3fdf0a5868d022d36ae894966f19085f6244663c2189aa7cc023c9943c35
+    image: quay.io/open-cluster-management/console@sha256:19708e7ed5a41320a00fced76df4763d98c5d61b47fddfea8cd594b5ad517569
   - name: console_api
     image: quay.io/open-cluster-management/console-api@sha256:241d052521f7cc54b215ae50c614a30f3dd0397636c10ebeb6a7eb89d79278c4
   - name: discovery_operator
@@ -1701,7 +1701,7 @@ spec:
   - name: grafana_dashboard_loader
     image: quay.io/open-cluster-management/grafana-dashboard-loader@sha256:d10598e3293b910f040ef9678084505b6bb8ea7b96f1ad2d72b03baa6cc99a85
   - name: grc_policy_framework_tests
-    image: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:610cbf5abf109bca07f16e815a4674a79ebf88a224f07b1cc5ba93afa23184aa
+    image: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:cd0faf796a051b436b126aa291c6731d8389f1910566547480f644a0a4b16a09
   - name: grc_ui
     image: quay.io/open-cluster-management/grc-ui@sha256:0493bc2653f88b9ce20b29a917add1aadb852960a04c6a62c0f4395dff795fb7
   - name: grc_ui_api
