@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-10-05T16:32:08Z'
+    createdAt: '2021-10-05T17:12:36Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1260,9 +1261,9 @@ spec:
                     fieldRef:
                       fieldPath: metadata.namespace
                 - name: OPERAND_IMAGE_APPLICATION_UI
-                  value: quay.io/open-cluster-management/application-ui@sha256:dfae0142b70ff313aa05f026d219c862fa9e382cfc0d7d7f2e5f913f5dc6b550
+                  value: quay.io/open-cluster-management/application-ui@sha256:6590ebb99a67595d29c0e6b7f31e3710f69f8a915cb10c282b4abb57e8ea5d6d
                 - name: OPERAND_IMAGE_APPLICATION_UI_TESTS
-                  value: quay.io/open-cluster-management/application-ui-tests@sha256:cadeff13b0e56a514b060f6f75691ee518277c5343ae9eb38311eb134ed2136e
+                  value: quay.io/open-cluster-management/application-ui-tests@sha256:49fc567ec0cec15daf1d761e82217259a124f388fd5d9b3637ccb7c81d07d59c
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
                   value: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:b1760f57ffe4a20ea697e717103c1a37e7e280a03002b847a4d724a3266c181b
                 - name: OPERAND_IMAGE_ASSISTED_IMAGE_SERVICE
@@ -1292,7 +1293,7 @@ spec:
                 - name: OPERAND_IMAGE_CLUSTERLIFECYCLE_STATE_METRICS
                   value: quay.io/open-cluster-management/clusterlifecycle-state-metrics@sha256:4d1e79f3a9acb99358fc6f94e69cf0676c7781ed828a28e85b29f6b1e67f9943
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
-                  value: quay.io/open-cluster-management/config-policy-controller@sha256:1a7eec1ca4467da1ad9ce38941e945bc5ed9ab203d851bd0219afe9598f4b40d
+                  value: quay.io/open-cluster-management/config-policy-controller@sha256:a8b14ccc51e49033074ec6bf62cf6edacac6b610aed2469f9cc54b3b50837ba8
                 - name: OPERAND_IMAGE_CONSOLE
                   value: quay.io/open-cluster-management/console@sha256:19708e7ed5a41320a00fced76df4763d98c5d61b47fddfea8cd594b5ad517569
                 - name: OPERAND_IMAGE_CONSOLE_API
@@ -1643,9 +1644,9 @@ spec:
               serviceAccountName: submariner-addon
   relatedImages:
   - name: application_ui
-    image: quay.io/open-cluster-management/application-ui@sha256:dfae0142b70ff313aa05f026d219c862fa9e382cfc0d7d7f2e5f913f5dc6b550
+    image: quay.io/open-cluster-management/application-ui@sha256:6590ebb99a67595d29c0e6b7f31e3710f69f8a915cb10c282b4abb57e8ea5d6d
   - name: application_ui_tests
-    image: quay.io/open-cluster-management/application-ui-tests@sha256:cadeff13b0e56a514b060f6f75691ee518277c5343ae9eb38311eb134ed2136e
+    image: quay.io/open-cluster-management/application-ui-tests@sha256:49fc567ec0cec15daf1d761e82217259a124f388fd5d9b3637ccb7c81d07d59c
   - name: applifecycle_backend_e2e
     image: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:b1760f57ffe4a20ea697e717103c1a37e7e280a03002b847a4d724a3266c181b
   - name: assisted_image_service
@@ -1675,7 +1676,7 @@ spec:
   - name: clusterlifecycle_state_metrics
     image: quay.io/open-cluster-management/clusterlifecycle-state-metrics@sha256:4d1e79f3a9acb99358fc6f94e69cf0676c7781ed828a28e85b29f6b1e67f9943
   - name: config_policy_controller
-    image: quay.io/open-cluster-management/config-policy-controller@sha256:1a7eec1ca4467da1ad9ce38941e945bc5ed9ab203d851bd0219afe9598f4b40d
+    image: quay.io/open-cluster-management/config-policy-controller@sha256:a8b14ccc51e49033074ec6bf62cf6edacac6b610aed2469f9cc54b3b50837ba8
   - name: console
     image: quay.io/open-cluster-management/console@sha256:19708e7ed5a41320a00fced76df4763d98c5d61b47fddfea8cd594b5ad517569
   - name: console_api
