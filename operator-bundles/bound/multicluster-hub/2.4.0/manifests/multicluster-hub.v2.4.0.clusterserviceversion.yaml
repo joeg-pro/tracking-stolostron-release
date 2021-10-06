@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-10-06T15:09:21Z'
+    createdAt: '2021-10-06T15:42:26Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1275,7 +1275,7 @@ spec:
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_CONTROLLER
                   value: quay.io/edge-infrastructure/assisted-installer-controller@sha256:31123dae1f7caa519714eb2461431cbaaa5b180ff10d9031aa03f81b92b15eec
                 - name: OPERAND_IMAGE_ASSISTED_SERVICE
-                  value: quay.io/edge-infrastructure/assisted-service@sha256:424a37e131efe010f735b08ae94f2922dc454dcd8364561454f442b5ba35390f
+                  value: quay.io/edge-infrastructure/assisted-service@sha256:ad88afa41bcdcc17540e329d7e7c21acff1e1374b9945e14fc80badcee7d159a
                 - name: OPERAND_IMAGE_BAILER
                   value: quay.io/open-cluster-management/bailer@sha256:49ed8f260a05eda10149534770e5a454317e0e6d60af954141973fcea0f4ec76
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
@@ -1295,7 +1295,7 @@ spec:
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/open-cluster-management/config-policy-controller@sha256:a8b14ccc51e49033074ec6bf62cf6edacac6b610aed2469f9cc54b3b50837ba8
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/open-cluster-management/console@sha256:438236f0012f45cd7d16e9e3936e0931282ac437af826669bc00888baa5beeef
+                  value: quay.io/open-cluster-management/console@sha256:4ea242a369ad0ed2624e99268f1d7683083c4ee1975b8109fdfcf8ca24996b0d
                 - name: OPERAND_IMAGE_CONSOLE_API
                   value: quay.io/open-cluster-management/console-api@sha256:241d052521f7cc54b215ae50c614a30f3dd0397636c10ebeb6a7eb89d79278c4
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
@@ -1658,7 +1658,7 @@ spec:
   - name: assisted_installer_controller
     image: quay.io/edge-infrastructure/assisted-installer-controller@sha256:31123dae1f7caa519714eb2461431cbaaa5b180ff10d9031aa03f81b92b15eec
   - name: assisted_service
-    image: quay.io/edge-infrastructure/assisted-service@sha256:424a37e131efe010f735b08ae94f2922dc454dcd8364561454f442b5ba35390f
+    image: quay.io/edge-infrastructure/assisted-service@sha256:ad88afa41bcdcc17540e329d7e7c21acff1e1374b9945e14fc80badcee7d159a
   - name: bailer
     image: quay.io/open-cluster-management/bailer@sha256:49ed8f260a05eda10149534770e5a454317e0e6d60af954141973fcea0f4ec76
   - name: cert_policy_controller
@@ -1678,7 +1678,7 @@ spec:
   - name: config_policy_controller
     image: quay.io/open-cluster-management/config-policy-controller@sha256:a8b14ccc51e49033074ec6bf62cf6edacac6b610aed2469f9cc54b3b50837ba8
   - name: console
-    image: quay.io/open-cluster-management/console@sha256:438236f0012f45cd7d16e9e3936e0931282ac437af826669bc00888baa5beeef
+    image: quay.io/open-cluster-management/console@sha256:4ea242a369ad0ed2624e99268f1d7683083c4ee1975b8109fdfcf8ca24996b0d
   - name: console_api
     image: quay.io/open-cluster-management/console-api@sha256:241d052521f7cc54b215ae50c614a30f3dd0397636c10ebeb6a7eb89d79278c4
   - name: discovery_operator
