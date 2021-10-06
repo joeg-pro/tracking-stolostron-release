@@ -38,7 +38,7 @@
     "image-tag": "ocm-2.4",
     "git-sha256": "5a574a41f4388b253f4c8b2e84fd58e0b24b84bc",
     "git-repository": "openshift/assisted-image-service",
-    "image-remote": "quay.io/edge-infrastructure",
+    "image-remote": "quay.io/open-cluster-management",
     "image-digest": "sha256:b0dc56f4dedfc3294252839d31c79929ca681d95cec53f8c79e897bf3ac4bfaa",
     "image-key": "assisted_image_service"
   },
@@ -48,7 +48,7 @@
     "image-tag": "ocm-2.4",
     "git-sha256": "6f4c2222f36983578bbbb57502c8e09e12600ef6",
     "git-repository": "openshift/assisted-installer",
-    "image-remote": "quay.io/edge-infrastructure",
+    "image-remote": "quay.io/open-cluster-management",
     "image-digest": "sha256:83023ecf08d2e16c75c75a0fb2cfd2f7c3401fddff95d29003c9995fe2e83e93",
     "image-key": "assisted_installer"
   },
@@ -58,7 +58,7 @@
     "image-tag": "ocm-2.4",
     "git-sha256": "14870a7501549fa77bb04480d7c70caa036caee5",
     "git-repository": "openshift/assisted-installer-agent",
-    "image-remote": "quay.io/edge-infrastructure",
+    "image-remote": "quay.io/open-cluster-management",
     "image-digest": "sha256:27f0ae760486314e1b1871614d3ef882b16272afd409c7f4b55b4bf592bd8c0b",
     "image-key": "assisted_installer_agent"
   },
@@ -68,7 +68,7 @@
     "image-tag": "ocm-2.4",
     "git-sha256": "6f4c2222f36983578bbbb57502c8e09e12600ef6",
     "git-repository": "openshift/assisted-installer",
-    "image-remote": "quay.io/edge-infrastructure",
+    "image-remote": "quay.io/open-cluster-management",
     "image-digest": "sha256:31123dae1f7caa519714eb2461431cbaaa5b180ff10d9031aa03f81b92b15eec",
     "image-key": "assisted_installer_controller"
   },
@@ -78,8 +78,8 @@
     "image-tag": "ocm-2.4",
     "git-sha256": "72700cdbd08860ff883883a35f2ee68844e4c376",
     "git-repository": "openshift/assisted-service",
-    "image-remote": "quay.io/edge-infrastructure",
-    "image-digest": "sha256:a9cff90b11cee269c488407f908c3ce0546beb6ad098ee86ce3700dfc3b2e18d",
+    "image-remote": "quay.io/open-cluster-management",
+    "image-digest": "sha256:c86c74bbb427ef42c9de9d69d902ee9f319ade1f90d5e03f5bb55b7d752d9cf3",
     "image-key": "assisted_service"
   },
   {
@@ -370,11 +370,11 @@
   {
     "image-name": "helloworld",
     "image-version": "1.0.1",
-    "image-tag": "1.0.1-88069393ac61e1309abc43e4018c39aab608c9ea",
-    "git-sha256": "88069393ac61e1309abc43e4018c39aab608c9ea",
+    "image-tag": "1.0.1-606f551114568fdc93e581bae7a7594d17e8e4b2",
+    "git-sha256": "606f551114568fdc93e581bae7a7594d17e8e4b2",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:b16b087123ba52c3c18d8d0d16f5b51ec9ac2df3f2dac0487f8b30cbe9f43f53",
+    "image-digest": "sha256:bf892dd2840fb7add95086cc90083aa55592b14f3ff815c584d8a2d6d963160f",
     "image-key": "helloworld"
   },
   {
@@ -383,7 +383,7 @@
     "image-tag": "v2.4.3180-7299056",
     "git-sha256": "7299056bbfb7b23ea5a5e6055b7ab22a9e4ca691",
     "git-repository": "openshift/hive",
-    "image-remote": "quay.io/openshift-hive",
+    "image-remote": "quay.io/open-cluster-management",
     "image-digest": "sha256:2bf7f3a2866d6a0a55e321cebc116729339c74e1be6614d7896bb077f6b6584a",
     "image-key": "openshift_hive"
   },
@@ -711,7 +711,7 @@
     "image-tag": "latest",
     "git-sha256": "ffffffffffffffffffffffffffffffffffffffff",
     "git-repository": "openshift/unknown",
-    "image-remote": "quay.io/ocpmetal",
+    "image-remote": "quay.io/open-cluster-management",
     "image-digest": "sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1",
     "image-key": "postgresql_12"
   },
@@ -884,7 +884,7 @@
     "image-tag": "ocm-2.4",
     "git-sha256": "613c9fa00f2a2c0a7adbc56d09ea6331d5100c32",
     "git-repository": "backube/volsync",
-    "image-remote": "quay.io/backube",
+    "image-remote": "quay.io/open-cluster-management",
     "image-digest": "sha256:d900c7928f0cd30f4a0dc798ac7873a4e821ca3cd1501541ab49f82d7edab641",
     "image-key": "volsync"
   },
@@ -894,7 +894,7 @@
     "image-tag": "ocm-2.4",
     "git-sha256": "613c9fa00f2a2c0a7adbc56d09ea6331d5100c32",
     "git-repository": "backube/volsync",
-    "image-remote": "quay.io/backube",
+    "image-remote": "quay.io/open-cluster-management",
     "image-digest": "sha256:de3f338da186c84d3874072f9e6e41ca729edd6516dd22a62f90f3d2cb287a0d",
     "image-key": "volsync_mover_rclone"
   },
@@ -904,7 +904,7 @@
     "image-tag": "ocm-2.4",
     "git-sha256": "613c9fa00f2a2c0a7adbc56d09ea6331d5100c32",
     "git-repository": "backube/volsync",
-    "image-remote": "quay.io/backube",
+    "image-remote": "quay.io/open-cluster-management",
     "image-digest": "sha256:b0f01ee1ebc41e68420e464f4565908ceee2b8e5df21b2740b0ce13cec972789",
     "image-key": "volsync_mover_restic"
   },
@@ -914,7 +914,7 @@
     "image-tag": "ocm-2.4",
     "git-sha256": "613c9fa00f2a2c0a7adbc56d09ea6331d5100c32",
     "git-repository": "backube/volsync",
-    "image-remote": "quay.io/backube",
+    "image-remote": "quay.io/open-cluster-management",
     "image-digest": "sha256:f7bace24e5830325211a8a384f3fb8ecadaa12118bcf232c058bf4e1494acc29",
     "image-key": "volsync_mover_rsync"
   },
