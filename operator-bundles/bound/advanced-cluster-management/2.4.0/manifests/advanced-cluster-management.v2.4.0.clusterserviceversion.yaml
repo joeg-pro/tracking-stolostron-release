@@ -27,18 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-10-06T15:41:50Z'
+    createdAt: '2021-10-06T17:39:57Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware"]'
-    operators.operatorframework.io/internal-objects: '["fakeclusterinstalls.hiveinternal.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "observatoria.core.observatorium.io",
-      "checkpoints.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "clustersyncs.hiveinternal.openshift.io",
-      "machinepoolnameleases.hive.openshift.io", "clusterprovisions.hive.openshift.io", "clusterstates.hive.openshift.io",
-      "clusterdeprovisions.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "clustersyncs.hiveinternal.openshift.io",
+      "clusterprovisions.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "machinepoolnameleases.hive.openshift.io", "checkpoints.hive.openshift.io", "clusterdeprovisions.hive.openshift.io",
+      "clusterstates.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1727,7 +1726,7 @@ spec:
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
                   value: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:b1760f57ffe4a20ea697e717103c1a37e7e280a03002b847a4d724a3266c181b
                 - name: OPERAND_IMAGE_ASSISTED_IMAGE_SERVICE
-                  value: quay.io/edge-infrastructure/assisted-image-service@sha256:ecad1bd7505ebd9944fd1bd466ee83334677f7e8d7022091c078a7359dadb976
+                  value: quay.io/edge-infrastructure/assisted-image-service@sha256:b0dc56f4dedfc3294252839d31c79929ca681d95cec53f8c79e897bf3ac4bfaa
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER
                   value: quay.io/edge-infrastructure/assisted-installer@sha256:83023ecf08d2e16c75c75a0fb2cfd2f7c3401fddff95d29003c9995fe2e83e93
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_AGENT
@@ -1735,7 +1734,7 @@ spec:
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_CONTROLLER
                   value: quay.io/edge-infrastructure/assisted-installer-controller@sha256:31123dae1f7caa519714eb2461431cbaaa5b180ff10d9031aa03f81b92b15eec
                 - name: OPERAND_IMAGE_ASSISTED_SERVICE
-                  value: quay.io/edge-infrastructure/assisted-service@sha256:ad88afa41bcdcc17540e329d7e7c21acff1e1374b9945e14fc80badcee7d159a
+                  value: quay.io/edge-infrastructure/assisted-service@sha256:a9cff90b11cee269c488407f908c3ce0546beb6ad098ee86ce3700dfc3b2e18d
                 - name: OPERAND_IMAGE_BAILER
                   value: quay.io/open-cluster-management/bailer@sha256:49ed8f260a05eda10149534770e5a454317e0e6d60af954141973fcea0f4ec76
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
@@ -1801,7 +1800,7 @@ spec:
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_CONTROLLER
                   value: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:98c21c82276111f341e1677d652bdd70d4b7e11129ee9cc34094564c53a3472c
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_OPERATOR
-                  value: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:53eccd65487725fbf5c41920f112c6021ed01e4e212e411a062a4ee7efa24a07
+                  value: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:02baad13fd65822a8705f529d5f326b6705dab36f375688a40050461f7024020
                 - name: OPERAND_IMAGE_KUBE_RBAC_PROXY
                   value: quay.io/open-cluster-management/kube-rbac-proxy@sha256:536421e3ec9a786a8c82d8bacea36d7df35ba521b110cc6f0afb6dbfac8b7ef3
                 - name: OPERAND_IMAGE_KUBE_STATE_METRICS
@@ -2654,7 +2653,7 @@ spec:
   - name: applifecycle_backend_e2e
     image: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:b1760f57ffe4a20ea697e717103c1a37e7e280a03002b847a4d724a3266c181b
   - name: assisted_image_service
-    image: quay.io/edge-infrastructure/assisted-image-service@sha256:ecad1bd7505ebd9944fd1bd466ee83334677f7e8d7022091c078a7359dadb976
+    image: quay.io/edge-infrastructure/assisted-image-service@sha256:b0dc56f4dedfc3294252839d31c79929ca681d95cec53f8c79e897bf3ac4bfaa
   - name: assisted_installer
     image: quay.io/edge-infrastructure/assisted-installer@sha256:83023ecf08d2e16c75c75a0fb2cfd2f7c3401fddff95d29003c9995fe2e83e93
   - name: assisted_installer_agent
@@ -2662,7 +2661,7 @@ spec:
   - name: assisted_installer_controller
     image: quay.io/edge-infrastructure/assisted-installer-controller@sha256:31123dae1f7caa519714eb2461431cbaaa5b180ff10d9031aa03f81b92b15eec
   - name: assisted_service
-    image: quay.io/edge-infrastructure/assisted-service@sha256:ad88afa41bcdcc17540e329d7e7c21acff1e1374b9945e14fc80badcee7d159a
+    image: quay.io/edge-infrastructure/assisted-service@sha256:a9cff90b11cee269c488407f908c3ce0546beb6ad098ee86ce3700dfc3b2e18d
   - name: bailer
     image: quay.io/open-cluster-management/bailer@sha256:49ed8f260a05eda10149534770e5a454317e0e6d60af954141973fcea0f4ec76
   - name: cert_policy_controller
@@ -2726,7 +2725,7 @@ spec:
   - name: klusterlet_addon_controller
     image: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:98c21c82276111f341e1677d652bdd70d4b7e11129ee9cc34094564c53a3472c
   - name: klusterlet_addon_operator
-    image: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:53eccd65487725fbf5c41920f112c6021ed01e4e212e411a062a4ee7efa24a07
+    image: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:02baad13fd65822a8705f529d5f326b6705dab36f375688a40050461f7024020
   - name: kube_rbac_proxy
     image: quay.io/open-cluster-management/kube-rbac-proxy@sha256:536421e3ec9a786a8c82d8bacea36d7df35ba521b110cc6f0afb6dbfac8b7ef3
   - name: kube_state_metrics
