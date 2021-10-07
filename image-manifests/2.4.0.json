@@ -79,7 +79,7 @@
     "git-sha256": "72700cdbd08860ff883883a35f2ee68844e4c376",
     "git-repository": "openshift/assisted-service",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:c86c74bbb427ef42c9de9d69d902ee9f319ade1f90d5e03f5bb55b7d752d9cf3",
+    "image-digest": "sha256:aed20f334cd2ed14368bf4760f2ac1275d92d54e024638ecb0f14981b75ed47f",
     "image-key": "assisted_service"
   },
   {
@@ -522,12 +522,12 @@
   {
     "image-name": "multicluster-observability-operator",
     "image-version": "2.4",
-    "image-tag": "2.4-c3b1d53f95072843c702efb1d3415e0f559407c0",
-    "git-sha256": "c3b1d53f95072843c702efb1d3415e0f559407c0",
+    "image-tag": "2.4-c9fc4ca32a5ee54f3521fe59b4a1629e1a960ff5",
+    "git-sha256": "c9fc4ca32a5ee54f3521fe59b4a1629e1a960ff5",
     "git-repository": "open-cluster-management/multicluster-observability-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:13d44c160f199a78e3dfc38089eef68b043b395edef097de1f23ed2a259cb85b",
+    "image-digest": "sha256:5ce5e4eaa2be2005670d6ca2ca488599d6aa67e5dbb8f3fd953f5419e5e7544f",
     "image-key": "multicluster_observability_operator"
   },
   {
@@ -577,12 +577,12 @@
   {
     "image-name": "multicluster-operators-subscription",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-a9787de6e626b20f8da426c040da4aae88ab1b29",
-    "git-sha256": "a9787de6e626b20f8da426c040da4aae88ab1b29",
+    "image-tag": "2.4.0-08367b42181d359d59abded48ef783f81d9bc4d3",
+    "git-sha256": "08367b42181d359d59abded48ef783f81d9bc4d3",
     "git-repository": "open-cluster-management/multicloud-operators-subscription",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:fccd99c47db16e91e7baaa7b7fb9027758b3be0bc5d83b6ceee3b93f903d469c",
+    "image-digest": "sha256:161267340b18632118aa5b1b6ca95a81959f4dd0fce7f4d67a13f6d6da40787f",
     "image-key": "multicluster_operators_subscription"
   },
   {
