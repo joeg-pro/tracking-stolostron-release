@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-10-07T22:04:41Z'
+    createdAt: '2021-10-07T22:09:52Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "clusterstates.hive.openshift.io", "clusterdeprovisions.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
-      "observatoria.core.observatorium.io", "machinepoolnameleases.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io",
-      "checkpoints.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["machinepoolnameleases.hive.openshift.io", "clusterprovisions.hive.openshift.io",
+      "observabilityaddons.observability.open-cluster-management.io", "clustersyncleases.hiveinternal.openshift.io",
+      "clusterdeprovisions.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
+      "clusterstates.hive.openshift.io", "checkpoints.hive.openshift.io", "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1722,11 +1722,11 @@ spec:
                 - name: OPERAND_IMAGE_APPLICATION_UI
                   value: quay.io/open-cluster-management/application-ui@sha256:d9262ec1e5647e091e2c396901ba02d3defe09d6f3bb0d54f96c4380185f10ce
                 - name: OPERAND_IMAGE_APPLICATION_UI_TESTS
-                  value: quay.io/open-cluster-management/application-ui-tests@sha256:df1b555c95e42fc8dd058f1bdbf1944fe59ea439ec799eddf066a0d5f9be6a2a
+                  value: quay.io/open-cluster-management/application-ui-tests@sha256:295dc467eb2e66cdb6f11f62d477cea3a594d3546f7067db95afb05c149c923d
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
                   value: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:b1760f57ffe4a20ea697e717103c1a37e7e280a03002b847a4d724a3266c181b
                 - name: OPERAND_IMAGE_ASSISTED_IMAGE_SERVICE
-                  value: quay.io/open-cluster-management/assisted-image-service@sha256:a7d59c8f7070d1f9f58c5452b9fc214bcb4c2b8ff28fec41d61da3a512dfae98
+                  value: quay.io/open-cluster-management/assisted-image-service@sha256:e034005e31b3d4b1972e7973f0f88e59e0375a215a3e6ba8a150fd4e99badff4
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER
                   value: quay.io/open-cluster-management/assisted-installer@sha256:b542ab9665d5f1b3f26d49d80e3cd847db2fb312a9fd99c2aa2a9292008332a2
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_AGENT
@@ -2649,11 +2649,11 @@ spec:
   - name: application_ui
     image: quay.io/open-cluster-management/application-ui@sha256:d9262ec1e5647e091e2c396901ba02d3defe09d6f3bb0d54f96c4380185f10ce
   - name: application_ui_tests
-    image: quay.io/open-cluster-management/application-ui-tests@sha256:df1b555c95e42fc8dd058f1bdbf1944fe59ea439ec799eddf066a0d5f9be6a2a
+    image: quay.io/open-cluster-management/application-ui-tests@sha256:295dc467eb2e66cdb6f11f62d477cea3a594d3546f7067db95afb05c149c923d
   - name: applifecycle_backend_e2e
     image: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:b1760f57ffe4a20ea697e717103c1a37e7e280a03002b847a4d724a3266c181b
   - name: assisted_image_service
-    image: quay.io/open-cluster-management/assisted-image-service@sha256:a7d59c8f7070d1f9f58c5452b9fc214bcb4c2b8ff28fec41d61da3a512dfae98
+    image: quay.io/open-cluster-management/assisted-image-service@sha256:e034005e31b3d4b1972e7973f0f88e59e0375a215a3e6ba8a150fd4e99badff4
   - name: assisted_installer
     image: quay.io/open-cluster-management/assisted-installer@sha256:b542ab9665d5f1b3f26d49d80e3cd847db2fb312a9fd99c2aa2a9292008332a2
   - name: assisted_installer_agent
