@@ -59,7 +59,7 @@
     "git-sha256": "14870a7501549fa77bb04480d7c70caa036caee5",
     "git-repository": "openshift/assisted-installer-agent",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:27f0ae760486314e1b1871614d3ef882b16272afd409c7f4b55b4bf592bd8c0b",
+    "image-digest": "sha256:4d98df86a96f8898820810d9da4bef9118c74072628fad8fbe428db84ce92889",
     "image-key": "assisted_installer_agent"
   },
   {
@@ -239,12 +239,12 @@
   {
     "image-name": "endpoint-monitoring-operator",
     "image-version": "2.4",
-    "image-tag": "2.4-73204ab0efa7028cd0b6417a637f72a751ec2bd8",
-    "git-sha256": "73204ab0efa7028cd0b6417a637f72a751ec2bd8",
+    "image-tag": "2.4-c9fc4ca32a5ee54f3521fe59b4a1629e1a960ff5",
+    "git-sha256": "c9fc4ca32a5ee54f3521fe59b4a1629e1a960ff5",
     "git-repository": "open-cluster-management/multicluster-observability-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:517982936045fd5390ffd55067e606dd4d8b74dd1aff47e0db2e9d9cdad5bc11",
+    "image-digest": "sha256:3d3c4fbdf36de7e160f9a6a5ce52e7dadb2762500dd4fbb8baa7aed3b04e47f7",
     "image-key": "endpoint_monitoring_operator"
   },
   {
