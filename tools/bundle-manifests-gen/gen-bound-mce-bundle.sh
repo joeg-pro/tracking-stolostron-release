@@ -69,7 +69,7 @@ image_key_mappings+=("backplane-operator:backplane_operator")
 # Define the list of CSV deployment containers that are to have image-ref
 # environment variables injected for the bundle's related images.
 
-image_ref_containers+=("backplane-operator/backplane-operator")
+image_ref_containers+=("multicluster-operator/multicluster-engine-operator")
 
 # Specify specific version skips we need to bypass bad releases:
 
