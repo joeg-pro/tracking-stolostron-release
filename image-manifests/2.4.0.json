@@ -13,12 +13,12 @@
   {
     "image-name": "application-ui-tests",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-b22135f7519ae6f3c5d7c240fc3e632c68ec1030",
-    "git-sha256": "b22135f7519ae6f3c5d7c240fc3e632c68ec1030",
+    "image-tag": "2.4.0-456b11f162ce757215d67f8204667d4cbeccf27e",
+    "git-sha256": "456b11f162ce757215d67f8204667d4cbeccf27e",
     "git-repository": "open-cluster-management/application-ui",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:08e7da9bf2aa082707e2c8843ae40cd268cafdb8b4b08d7466d3c8baeec3c205",
+    "image-digest": "sha256:a08f61e4e57f390fd8215d83a5005a8bba16e67540f0ff2059f98fb1493be666",
     "image-key": "application_ui_tests"
   },
   {
@@ -599,23 +599,23 @@
   {
     "image-name": "multiclusterhub-operator",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-d1feba10d4b0d92b461e8e5d5b1e293ae51aa37a",
-    "git-sha256": "d1feba10d4b0d92b461e8e5d5b1e293ae51aa37a",
+    "image-tag": "2.4.0-5d6091d8189e78dbbe403c68e426e463220639cd",
+    "git-sha256": "5d6091d8189e78dbbe403c68e426e463220639cd",
     "git-repository": "open-cluster-management/multiclusterhub-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:fb133d9061edd8aff5a1e1a397c5fb206519585a5a5f2ec5acc8652b6f0fca4b",
+    "image-digest": "sha256:4bbe3128ccc124698efed2b1a2e15c4684685f8a367b6c4039518c54e6491d5d",
     "image-key": "multiclusterhub_operator"
   },
   {
     "image-name": "multiclusterhub-operator-tests",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-d1feba10d4b0d92b461e8e5d5b1e293ae51aa37a",
-    "git-sha256": "d1feba10d4b0d92b461e8e5d5b1e293ae51aa37a",
+    "image-tag": "2.4.0-5d6091d8189e78dbbe403c68e426e463220639cd",
+    "git-sha256": "5d6091d8189e78dbbe403c68e426e463220639cd",
     "git-repository": "open-cluster-management/multiclusterhub-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:fee17407d85c7565bda8e80531fa64fea58f4552a7c93f8b43dcd80a41247ca4",
+    "image-digest": "sha256:93987a7c33e06cbb90dd75bf0a243e7fd1e0bbbfca75a17bb073bdb6f15b59f5",
     "image-key": "multiclusterhub_operator_tests"
   },
   {
