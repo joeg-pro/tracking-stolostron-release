@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-10-08T15:10:13Z'
+    createdAt: '2021-10-08T16:10:24Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1410,7 +1411,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_API
                   value: quay.io/open-cluster-management/search-api@sha256:f44b8d179dee1ca2ae6d3cf933e46a80e22ee572d8b0263b52141a7c68e39763
                 - name: OPERAND_IMAGE_SEARCH_COLLECTOR
-                  value: quay.io/open-cluster-management/search-collector@sha256:46dc6762a100d804ad6e3f56fae55946f2d3a89551af8de60f98cda9af326349
+                  value: quay.io/open-cluster-management/search-collector@sha256:ecb4c54937380dd4d00a0c18a91ef73d374596817bec8a64d4eda8ef0845be23
                 - name: OPERAND_IMAGE_SEARCH_E2E
                   value: quay.io/open-cluster-management/search-e2e@sha256:c750749b3bb3d068894db11adaabe8efb8c9cc896c3b723e958daa4c34518690
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
@@ -1787,7 +1788,7 @@ spec:
   - name: search_api
     image: quay.io/open-cluster-management/search-api@sha256:f44b8d179dee1ca2ae6d3cf933e46a80e22ee572d8b0263b52141a7c68e39763
   - name: search_collector
-    image: quay.io/open-cluster-management/search-collector@sha256:46dc6762a100d804ad6e3f56fae55946f2d3a89551af8de60f98cda9af326349
+    image: quay.io/open-cluster-management/search-collector@sha256:ecb4c54937380dd4d00a0c18a91ef73d374596817bec8a64d4eda8ef0845be23
   - name: search_e2e
     image: quay.io/open-cluster-management/search-e2e@sha256:c750749b3bb3d068894db11adaabe8efb8c9cc896c3b723e958daa4c34518690
   - name: search_operator
