@@ -39,7 +39,7 @@
     "git-sha256": "5a574a41f4388b253f4c8b2e84fd58e0b24b84bc",
     "git-repository": "openshift/assisted-image-service",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:e034005e31b3d4b1972e7973f0f88e59e0375a215a3e6ba8a150fd4e99badff4",
+    "image-digest": "sha256:f955a75b477bb1b441c50cbaf1dab884a33fc40bb3179806cccc3b86376679cf",
     "image-key": "assisted_image_service"
   },
   {
@@ -49,7 +49,7 @@
     "git-sha256": "6f4c2222f36983578bbbb57502c8e09e12600ef6",
     "git-repository": "openshift/assisted-installer",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:b542ab9665d5f1b3f26d49d80e3cd847db2fb312a9fd99c2aa2a9292008332a2",
+    "image-digest": "sha256:706616213a0224064de126b3eb5723d0616caf1cd9dcde457aa24febd15f8a65",
     "image-key": "assisted_installer"
   },
   {
@@ -59,7 +59,7 @@
     "git-sha256": "14870a7501549fa77bb04480d7c70caa036caee5",
     "git-repository": "openshift/assisted-installer-agent",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:5ff90f31b3279e26af6664b12bcb8d76b2f8687a0461c2341ef0c5de13f61532",
+    "image-digest": "sha256:5ab38d2e86b81d212a5743fdff86370baf6ebd083b038bae24b4bcdc00a839ea",
     "image-key": "assisted_installer_agent"
   },
   {
@@ -69,7 +69,7 @@
     "git-sha256": "6f4c2222f36983578bbbb57502c8e09e12600ef6",
     "git-repository": "openshift/assisted-installer",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:63b7eadd6d0fba8edf2244bb30e4f768c838c4c92094dd06f27eec5fcf29918c",
+    "image-digest": "sha256:c605c9a0af20ad6bdf00880223b94959b29a0d27949527c8f3b8e066f30ec3c2",
     "image-key": "assisted_installer_controller"
   },
   {
@@ -827,11 +827,11 @@
   {
     "image-name": "search-e2e",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-54b19d6922a7855b03a764a5690ed61bbef6ae06",
-    "git-sha256": "54b19d6922a7855b03a764a5690ed61bbef6ae06",
+    "image-tag": "2.4.0-0c879e3a3e0ecab965ef155c90cf4b55f57b4c0e",
+    "git-sha256": "0c879e3a3e0ecab965ef155c90cf4b55f57b4c0e",
     "git-repository": "open-cluster-management/search-e2e-test",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:78dde24d1ab1cd7e19c72a579a98b0c3fae9ecef4867c254cd1858d0cb213189",
+    "image-digest": "sha256:d49dcb9d93a1782719dc4715d333f7392f8916f2c9f83f7efc8440960afe0c7e",
     "image-key": "search_e2e"
   },
   {
