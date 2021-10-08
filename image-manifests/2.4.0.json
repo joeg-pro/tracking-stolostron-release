@@ -59,7 +59,7 @@
     "git-sha256": "14870a7501549fa77bb04480d7c70caa036caee5",
     "git-repository": "openshift/assisted-installer-agent",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:5ab38d2e86b81d212a5743fdff86370baf6ebd083b038bae24b4bcdc00a839ea",
+    "image-digest": "sha256:8273bb4b271670dd2d85d342f82d4e2ed5280bb77097eaf26ddbb67c88a406e9",
     "image-key": "assisted_installer_agent"
   },
   {
@@ -326,12 +326,12 @@
   {
     "image-name": "grc-ui",
     "image-version": "3.6.0",
-    "image-tag": "3.6.0-4c6b070416cc3c491f7ec615306a86a8a8035a64",
-    "git-sha256": "4c6b070416cc3c491f7ec615306a86a8a8035a64",
+    "image-tag": "3.6.0-7abb1a701a220a1fe72810ad1c9641ea69e8f9f7",
+    "git-sha256": "7abb1a701a220a1fe72810ad1c9641ea69e8f9f7",
     "git-repository": "open-cluster-management/grc-ui",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:d5d273f595eeddcfce6fd621aadd6fa20e4b9d714967c9ee3fe6ccd8a819a58c",
+    "image-digest": "sha256:03f38799e4a0f632912f27dcf54ac53f3879598e5f9ee085b2de6412406b0f52",
     "image-key": "grc_ui"
   },
   {
@@ -654,12 +654,12 @@
   {
     "image-name": "observability-e2e-test",
     "image-version": "2.4",
-    "image-tag": "2.4-2a6fdf96d9b9c7c73d2031cdf4467dc57462fe7a",
-    "git-sha256": "2a6fdf96d9b9c7c73d2031cdf4467dc57462fe7a",
+    "image-tag": "2.4-75e7b13d327cad1f8a3eafd6c2fa0fd9446efdd2",
+    "git-sha256": "75e7b13d327cad1f8a3eafd6c2fa0fd9446efdd2",
     "git-repository": "open-cluster-management/multicluster-observability-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:d8d4b5762c4ab599681779a26cb8ebecf664d08122cc2e05529e433c2b91ddc4",
+    "image-digest": "sha256:0800c06c883c9f733728a7bfc18e1d61f9f6e6dbe14ec3f5ca684dd4a2cde395",
     "image-key": "observability_e2e_test"
   },
   {
