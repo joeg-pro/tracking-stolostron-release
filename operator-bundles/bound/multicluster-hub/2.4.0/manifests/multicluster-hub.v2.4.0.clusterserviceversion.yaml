@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-10-08T18:26:57Z'
+    createdAt: '2021-10-08T18:33:58Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1262,7 +1262,7 @@ spec:
                 - name: OPERAND_IMAGE_APPLICATION_UI
                   value: quay.io/open-cluster-management/application-ui@sha256:11b3d88331085f0cae1807cc2e031ed547ba5ac0883d054b2e55393813321253
                 - name: OPERAND_IMAGE_APPLICATION_UI_TESTS
-                  value: quay.io/open-cluster-management/application-ui-tests@sha256:339cf0c88cd94b2cc701ed9ce2d87817cf241458b7d18f6e6a1bddc7b717a585
+                  value: quay.io/open-cluster-management/application-ui-tests@sha256:03239a8e3601b40ec49aaf0d0a512aee57f96cedbe1ee49fc949af80d494300d
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
                   value: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:b1760f57ffe4a20ea697e717103c1a37e7e280a03002b847a4d724a3266c181b
                 - name: OPERAND_IMAGE_ASSISTED_IMAGE_SERVICE
@@ -1645,7 +1645,7 @@ spec:
   - name: application_ui
     image: quay.io/open-cluster-management/application-ui@sha256:11b3d88331085f0cae1807cc2e031ed547ba5ac0883d054b2e55393813321253
   - name: application_ui_tests
-    image: quay.io/open-cluster-management/application-ui-tests@sha256:339cf0c88cd94b2cc701ed9ce2d87817cf241458b7d18f6e6a1bddc7b717a585
+    image: quay.io/open-cluster-management/application-ui-tests@sha256:03239a8e3601b40ec49aaf0d0a512aee57f96cedbe1ee49fc949af80d494300d
   - name: applifecycle_backend_e2e
     image: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:b1760f57ffe4a20ea697e717103c1a37e7e280a03002b847a4d724a3266c181b
   - name: assisted_image_service
