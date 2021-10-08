@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-10-08T19:05:35Z'
+    createdAt: '2021-10-08T20:35:41Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1261,7 +1261,7 @@ spec:
                     fieldRef:
                       fieldPath: metadata.namespace
                 - name: OPERAND_IMAGE_APPLICATION_UI
-                  value: quay.io/open-cluster-management/application-ui@sha256:c81a8b8d262f6ddc4910a5e8c13b5cdfb63c2122e2b9d10f42ac1e12b6f616bd
+                  value: quay.io/open-cluster-management/application-ui@sha256:11c628c6319a8da17fcf071dabccb3e88e5cb170842ad541a70ef0b61b23a4a1
                 - name: OPERAND_IMAGE_APPLICATION_UI_TESTS
                   value: quay.io/open-cluster-management/application-ui-tests@sha256:95dd2d2497dce3d301bad25b66ebb3832c266e00c6044b970ce54c950fcdbfde
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
@@ -1329,7 +1329,7 @@ spec:
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/open-cluster-management/helloworld@sha256:de2c144ee6ec9aa22570d59d9ba09baa03beee32ea0d41e6508e0af5e0b9254b
+                  value: quay.io/open-cluster-management/helloworld@sha256:0b5ee2a775a91f646c48ce75391cb24592976c1e80dd2209f94bb7df14be74b7
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
                   value: quay.io/open-cluster-management/hive@sha256:2bf7f3a2866d6a0a55e321cebc116729339c74e1be6614d7896bb077f6b6584a
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
@@ -1644,7 +1644,7 @@ spec:
               serviceAccountName: submariner-addon
   relatedImages:
   - name: application_ui
-    image: quay.io/open-cluster-management/application-ui@sha256:c81a8b8d262f6ddc4910a5e8c13b5cdfb63c2122e2b9d10f42ac1e12b6f616bd
+    image: quay.io/open-cluster-management/application-ui@sha256:11c628c6319a8da17fcf071dabccb3e88e5cb170842ad541a70ef0b61b23a4a1
   - name: application_ui_tests
     image: quay.io/open-cluster-management/application-ui-tests@sha256:95dd2d2497dce3d301bad25b66ebb3832c266e00c6044b970ce54c950fcdbfde
   - name: applifecycle_backend_e2e
@@ -1712,7 +1712,7 @@ spec:
   - name: helloprow_go
     image: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
   - name: helloworld
-    image: quay.io/open-cluster-management/helloworld@sha256:de2c144ee6ec9aa22570d59d9ba09baa03beee32ea0d41e6508e0af5e0b9254b
+    image: quay.io/open-cluster-management/helloworld@sha256:0b5ee2a775a91f646c48ce75391cb24592976c1e80dd2209f94bb7df14be74b7
   - name: openshift_hive
     image: quay.io/open-cluster-management/hive@sha256:2bf7f3a2866d6a0a55e321cebc116729339c74e1be6614d7896bb077f6b6584a
   - name: iam_policy_controller
