@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-10-09T08:14:30Z'
+    createdAt: '2021-10-09T10:08:04Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1346,7 +1346,7 @@ spec:
                 - name: OPERAND_IMAGE_KUBE_STATE_METRICS
                   value: quay.io/open-cluster-management/kube-state-metrics@sha256:a065ac0d2aa101dbd40157b7e011622e1b12c2b1ba539cc885c3846b6386f6d8
                 - name: OPERAND_IMAGE_MANAGEDCLUSTER_IMPORT_CONTROLLER
-                  value: quay.io/open-cluster-management/managedcluster-import-controller@sha256:c47efab5dc3a8f907277a77d5839fca62aa290a99aa3cee365f3b5b9f4e6b511
+                  value: quay.io/open-cluster-management/managedcluster-import-controller@sha256:804dca0bb688f08f30e2a8b49f4f7b46e80acf6e3ac65729937b37b6bdf4b005
                 - name: OPERAND_IMAGE_MANAGEMENT_INGRESS
                   value: quay.io/open-cluster-management/management-ingress@sha256:69fc35acd59fbbd1cb168841405d72cb12d366a58864cea7db81490fbca15ac7
                 - name: OPERAND_IMAGE_METRICS_COLLECTOR
@@ -1729,7 +1729,7 @@ spec:
   - name: kube_state_metrics
     image: quay.io/open-cluster-management/kube-state-metrics@sha256:a065ac0d2aa101dbd40157b7e011622e1b12c2b1ba539cc885c3846b6386f6d8
   - name: managedcluster_import_controller
-    image: quay.io/open-cluster-management/managedcluster-import-controller@sha256:c47efab5dc3a8f907277a77d5839fca62aa290a99aa3cee365f3b5b9f4e6b511
+    image: quay.io/open-cluster-management/managedcluster-import-controller@sha256:804dca0bb688f08f30e2a8b49f4f7b46e80acf6e3ac65729937b37b6bdf4b005
   - name: management_ingress
     image: quay.io/open-cluster-management/management-ingress@sha256:69fc35acd59fbbd1cb168841405d72cb12d366a58864cea7db81490fbca15ac7
   - name: metrics_collector
