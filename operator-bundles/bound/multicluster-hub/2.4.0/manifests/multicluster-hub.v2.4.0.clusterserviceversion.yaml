@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-10-09T10:08:04Z'
+    createdAt: '2021-10-09T10:31:51Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1374,7 +1374,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
                   value: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:93987a7c33e06cbb90dd75bf0a243e7fd1e0bbbfca75a17bb073bdb6f15b59f5
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
-                  value: quay.io/open-cluster-management/multiclusterhub-repo@sha256:242d761a9a6a7283062fa979ed1823beaa7c4d93b493819241f1c7eb2d5132ba
+                  value: quay.io/open-cluster-management/multiclusterhub-repo@sha256:87051b74408bc88a59a8ffa7da34d1bf8ef199fc6d3ff5d4bf8b78c7e0c182e5
                 - name: OPERAND_IMAGE_MUST_GATHER
                   value: quay.io/open-cluster-management/must-gather@sha256:be98e746c427cfad9a0a938497fc924aa72049f55f7b08c747c4805cd1a2e27c
                 - name: OPERAND_IMAGE_NODE_EXPORTER
@@ -1753,7 +1753,7 @@ spec:
   - name: multiclusterhub_operator_tests
     image: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:93987a7c33e06cbb90dd75bf0a243e7fd1e0bbbfca75a17bb073bdb6f15b59f5
   - name: multiclusterhub_repo
-    image: quay.io/open-cluster-management/multiclusterhub-repo@sha256:242d761a9a6a7283062fa979ed1823beaa7c4d93b493819241f1c7eb2d5132ba
+    image: quay.io/open-cluster-management/multiclusterhub-repo@sha256:87051b74408bc88a59a8ffa7da34d1bf8ef199fc6d3ff5d4bf8b78c7e0c182e5
   - name: must_gather
     image: quay.io/open-cluster-management/must-gather@sha256:be98e746c427cfad9a0a938497fc924aa72049f55f7b08c747c4805cd1a2e27c
   - name: node_exporter
