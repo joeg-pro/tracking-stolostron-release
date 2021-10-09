@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-10-09T05:49:42Z'
+    createdAt: '2021-10-09T07:51:13Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1374,7 +1375,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
                   value: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:93987a7c33e06cbb90dd75bf0a243e7fd1e0bbbfca75a17bb073bdb6f15b59f5
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
-                  value: quay.io/open-cluster-management/multiclusterhub-repo@sha256:163397181e53ae346d9312d7ec2f00b1a622cb2957f88bd015c28016159def52
+                  value: quay.io/open-cluster-management/multiclusterhub-repo@sha256:242d761a9a6a7283062fa979ed1823beaa7c4d93b493819241f1c7eb2d5132ba
                 - name: OPERAND_IMAGE_MUST_GATHER
                   value: quay.io/open-cluster-management/must-gather@sha256:be98e746c427cfad9a0a938497fc924aa72049f55f7b08c747c4805cd1a2e27c
                 - name: OPERAND_IMAGE_NODE_EXPORTER
@@ -1753,7 +1754,7 @@ spec:
   - name: multiclusterhub_operator_tests
     image: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:93987a7c33e06cbb90dd75bf0a243e7fd1e0bbbfca75a17bb073bdb6f15b59f5
   - name: multiclusterhub_repo
-    image: quay.io/open-cluster-management/multiclusterhub-repo@sha256:163397181e53ae346d9312d7ec2f00b1a622cb2957f88bd015c28016159def52
+    image: quay.io/open-cluster-management/multiclusterhub-repo@sha256:242d761a9a6a7283062fa979ed1823beaa7c4d93b493819241f1c7eb2d5132ba
   - name: must_gather
     image: quay.io/open-cluster-management/must-gather@sha256:be98e746c427cfad9a0a938497fc924aa72049f55f7b08c747c4805cd1a2e27c
   - name: node_exporter
