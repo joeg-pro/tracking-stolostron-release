@@ -379,12 +379,12 @@
   },
   {
     "image-name": "hive",
-    "image-version": "v2.4.3180-7299056",
-    "image-tag": "v2.4.3180-7299056",
-    "git-sha256": "7299056bbfb7b23ea5a5e6055b7ab22a9e4ca691",
+    "image-version": "v2.4.3189-026033b",
+    "image-tag": "v2.4.3189-026033b",
+    "git-sha256": "026033b15d450bf6447338b3154ad67cd0fc957b",
     "git-repository": "openshift/hive",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:2bf7f3a2866d6a0a55e321cebc116729339c74e1be6614d7896bb077f6b6584a",
+    "image-digest": "sha256:c145d3ed317d767dda1a382bfeb1ede751651ef7621464357f730f2df9d3f5f9",
     "image-key": "openshift_hive"
   },
   {
@@ -621,12 +621,12 @@
   {
     "image-name": "multiclusterhub-repo",
     "image-version": "2.4",
-    "image-tag": "2.4-401065006dcb0dce2c7cd783b21663d1b5c331cb",
-    "git-sha256": "401065006dcb0dce2c7cd783b21663d1b5c331cb",
+    "image-tag": "2.4-7c5800155b6f80ea3a7029f30b306c7898fec767",
+    "git-sha256": "7c5800155b6f80ea3a7029f30b306c7898fec767",
     "git-repository": "open-cluster-management/multiclusterhub-repo",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:87051b74408bc88a59a8ffa7da34d1bf8ef199fc6d3ff5d4bf8b78c7e0c182e5",
+    "image-digest": "sha256:927080030d07432907eff73a5778565f500f56db8244f1ee8aed12e3289b2d2a",
     "image-key": "multiclusterhub_repo"
   },
   {
