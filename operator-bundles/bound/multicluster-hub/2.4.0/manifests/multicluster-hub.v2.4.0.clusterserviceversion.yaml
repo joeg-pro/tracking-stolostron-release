@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-10-09T07:51:13Z'
+    createdAt: '2021-10-09T08:14:30Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1285,7 +1284,7 @@ spec:
                 - name: OPERAND_IMAGE_CLUSTER_CURATOR_CONTROLLER
                   value: quay.io/open-cluster-management/cluster-curator-controller@sha256:80c3331cda4879aacdd201aed284564d51fbb148a0d892bf0c8e5680b0aaa371
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
-                  value: quay.io/open-cluster-management/cluster-lifecycle-e2e@sha256:16791aab022017748226fb2033ebb4c72adfc0b3b911a9cb5d462771fadff8e0
+                  value: quay.io/open-cluster-management/cluster-lifecycle-e2e@sha256:4ec69be46ee0c8c2806e326382b1bff8a8e1bf21f0d1d7534ad3144463e38190
                 - name: OPERAND_IMAGE_CLUSTER_PROXY_ADDON
                   value: quay.io/open-cluster-management/cluster-proxy-addon@sha256:63f7b662c08a2749a1ab92253b339f6f8f6dc0f3076fb97325b01285bccdcffa
                 - name: OPERAND_IMAGE_CLUSTERCLAIMS_CONTROLLER
@@ -1347,7 +1346,7 @@ spec:
                 - name: OPERAND_IMAGE_KUBE_STATE_METRICS
                   value: quay.io/open-cluster-management/kube-state-metrics@sha256:a065ac0d2aa101dbd40157b7e011622e1b12c2b1ba539cc885c3846b6386f6d8
                 - name: OPERAND_IMAGE_MANAGEDCLUSTER_IMPORT_CONTROLLER
-                  value: quay.io/open-cluster-management/managedcluster-import-controller@sha256:619804a48fec90830b14e661644b29cd5c28491fedf4a073d3145e2de8ff7fd1
+                  value: quay.io/open-cluster-management/managedcluster-import-controller@sha256:c47efab5dc3a8f907277a77d5839fca62aa290a99aa3cee365f3b5b9f4e6b511
                 - name: OPERAND_IMAGE_MANAGEMENT_INGRESS
                   value: quay.io/open-cluster-management/management-ingress@sha256:69fc35acd59fbbd1cb168841405d72cb12d366a58864cea7db81490fbca15ac7
                 - name: OPERAND_IMAGE_METRICS_COLLECTOR
@@ -1668,7 +1667,7 @@ spec:
   - name: cluster_curator_controller
     image: quay.io/open-cluster-management/cluster-curator-controller@sha256:80c3331cda4879aacdd201aed284564d51fbb148a0d892bf0c8e5680b0aaa371
   - name: cluster_lifecycle_e2e
-    image: quay.io/open-cluster-management/cluster-lifecycle-e2e@sha256:16791aab022017748226fb2033ebb4c72adfc0b3b911a9cb5d462771fadff8e0
+    image: quay.io/open-cluster-management/cluster-lifecycle-e2e@sha256:4ec69be46ee0c8c2806e326382b1bff8a8e1bf21f0d1d7534ad3144463e38190
   - name: cluster_proxy_addon
     image: quay.io/open-cluster-management/cluster-proxy-addon@sha256:63f7b662c08a2749a1ab92253b339f6f8f6dc0f3076fb97325b01285bccdcffa
   - name: clusterclaims_controller
@@ -1730,7 +1729,7 @@ spec:
   - name: kube_state_metrics
     image: quay.io/open-cluster-management/kube-state-metrics@sha256:a065ac0d2aa101dbd40157b7e011622e1b12c2b1ba539cc885c3846b6386f6d8
   - name: managedcluster_import_controller
-    image: quay.io/open-cluster-management/managedcluster-import-controller@sha256:619804a48fec90830b14e661644b29cd5c28491fedf4a073d3145e2de8ff7fd1
+    image: quay.io/open-cluster-management/managedcluster-import-controller@sha256:c47efab5dc3a8f907277a77d5839fca62aa290a99aa3cee365f3b5b9f4e6b511
   - name: management_ingress
     image: quay.io/open-cluster-management/management-ingress@sha256:69fc35acd59fbbd1cb168841405d72cb12d366a58864cea7db81490fbca15ac7
   - name: metrics_collector
