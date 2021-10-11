@@ -49,7 +49,7 @@
     "git-sha256": "6f4c2222f36983578bbbb57502c8e09e12600ef6",
     "git-repository": "openshift/assisted-installer",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:706616213a0224064de126b3eb5723d0616caf1cd9dcde457aa24febd15f8a65",
+    "image-digest": "sha256:a08f770ee364121e6525f03e548d41b82ee17a5a7f4fc917a7b78e8a5af7dafd",
     "image-key": "assisted_installer"
   },
   {
@@ -59,7 +59,7 @@
     "git-sha256": "14870a7501549fa77bb04480d7c70caa036caee5",
     "git-repository": "openshift/assisted-installer-agent",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:8273bb4b271670dd2d85d342f82d4e2ed5280bb77097eaf26ddbb67c88a406e9",
+    "image-digest": "sha256:398da0b7bc00fa95fdfe3bac6f49ddf2789eb253beb1a8210ed8e4fcd0a31bcb",
     "image-key": "assisted_installer_agent"
   },
   {
@@ -69,7 +69,7 @@
     "git-sha256": "6f4c2222f36983578bbbb57502c8e09e12600ef6",
     "git-repository": "openshift/assisted-installer",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:c605c9a0af20ad6bdf00880223b94959b29a0d27949527c8f3b8e066f30ec3c2",
+    "image-digest": "sha256:44cb8e8378443c755b7cb00da3ac5c6d44298fe4a90de471383f34c452208347",
     "image-key": "assisted_installer_controller"
   },
   {
@@ -79,7 +79,7 @@
     "git-sha256": "72700cdbd08860ff883883a35f2ee68844e4c376",
     "git-repository": "openshift/assisted-service",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:cc128514101628e67a80bc00047df100a3490bb0abcf8d8a8d24b4182208090e",
+    "image-digest": "sha256:8607fed18a572b16e6d1efd1a24793e18a409504329a9e3ae68fa8c22930659d",
     "image-key": "assisted_service"
   },
   {
@@ -374,7 +374,7 @@
     "git-sha256": "fd94fea9bc463ed1ff7aaeac127ae7a4c6bb5cbf",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:1d42f1ccd83b25cf0bb82dc485138f369780fafc010db004143d15f11d8d6f8a",
+    "image-digest": "sha256:da1f2bb67ef4574742324325739d0a456c8d40db250a3f76369317ad75ac1cf2",
     "image-key": "helloworld"
   },
   {
@@ -467,12 +467,12 @@
   {
     "image-name": "managedcluster-import-controller",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-2f67172b940f8f1f56f9b350c84a733393f382ad",
-    "git-sha256": "2f67172b940f8f1f56f9b350c84a733393f382ad",
+    "image-tag": "2.4.0-db83a60d68cfc0e6e2bc22ed93db62c9edd9c8dc",
+    "git-sha256": "db83a60d68cfc0e6e2bc22ed93db62c9edd9c8dc",
     "git-repository": "open-cluster-management/managedcluster-import-controller",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:804dca0bb688f08f30e2a8b49f4f7b46e80acf6e3ac65729937b37b6bdf4b005",
+    "image-digest": "sha256:3dc4be196306bfe6a41ecf94f76b348b5320a03fdb14b69f0997b4e3148b5f8e",
     "image-key": "managedcluster_import_controller"
   },
   {
