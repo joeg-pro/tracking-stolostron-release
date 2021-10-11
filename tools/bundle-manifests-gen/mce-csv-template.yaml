@@ -13,6 +13,7 @@ metadata:
     operatorframework.io/initialization-resource: '{"apiVersion":"multicluster.openshift.io/v1alpha1",
        "kind":"MultiClusterEngine","metadata":{"name":"engine","namespace":"multicluster-engine"},
        "spec": {}}'
+    operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
   name: "*Insert* eg: multicluster-engine.v1.0.0"
   namespace: placeholder
 spec:
@@ -56,7 +57,7 @@ spec:
     app: multicluster-engine
   links:
   - name: Documentation
-    url: https://access.redhat.com/documentation/en-us/multicluster-engine/1.0/
+    url: https://open-cluster-management.github.io/mce-docs/
   selector:
     matchLabels:
       app: multicluster-engine
