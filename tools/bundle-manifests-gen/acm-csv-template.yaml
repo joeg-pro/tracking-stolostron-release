@@ -13,7 +13,7 @@ metadata:
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
        "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
        "spec": {}}'
-    operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware"]'
+    operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
   name: "*Insert* eg: advanced-cluster-management.v2.0.1"
   namespace: placeholder
 spec:
