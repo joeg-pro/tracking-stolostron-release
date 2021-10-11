@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-10-11T02:36:55Z'
+    createdAt: '2021-10-11T09:09:35Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1329,7 +1329,7 @@ spec:
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/open-cluster-management/helloworld@sha256:a64b24fa5b3f1627a23822c467736feb11073d57dfe2834245a0b19b82c4db20
+                  value: quay.io/open-cluster-management/helloworld@sha256:1d42f1ccd83b25cf0bb82dc485138f369780fafc010db004143d15f11d8d6f8a
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
                   value: quay.io/open-cluster-management/hive@sha256:c145d3ed317d767dda1a382bfeb1ede751651ef7621464357f730f2df9d3f5f9
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
@@ -1403,7 +1403,7 @@ spec:
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
                   value: quay.io/open-cluster-management/redisgraph-tls@sha256:2a0d14c003ce554b37c89b8665d7915f363d20fe2cf5657ffad8bea8cb067e03
                 - name: OPERAND_IMAGE_REGISTRATION
-                  value: quay.io/open-cluster-management/registration@sha256:85d93f585ca1091ce79919b48821bb299911a8b2f24cc793bae8d8f1240d18f8
+                  value: quay.io/open-cluster-management/registration@sha256:4e496cf4c5c0a6f11b66a617a37d29081a82234b83b98060b2a3992706674b3c
                 - name: OPERAND_IMAGE_REGISTRATION_OPERATOR
                   value: quay.io/open-cluster-management/registration-operator@sha256:db5cb669d4913f334ec131d5670472f8496285b43f07348ae72a3b48e695885c
                 - name: OPERAND_IMAGE_SEARCH_AGGREGATOR
@@ -1712,7 +1712,7 @@ spec:
   - name: helloprow_go
     image: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
   - name: helloworld
-    image: quay.io/open-cluster-management/helloworld@sha256:a64b24fa5b3f1627a23822c467736feb11073d57dfe2834245a0b19b82c4db20
+    image: quay.io/open-cluster-management/helloworld@sha256:1d42f1ccd83b25cf0bb82dc485138f369780fafc010db004143d15f11d8d6f8a
   - name: openshift_hive
     image: quay.io/open-cluster-management/hive@sha256:c145d3ed317d767dda1a382bfeb1ede751651ef7621464357f730f2df9d3f5f9
   - name: iam_policy_controller
@@ -1782,7 +1782,7 @@ spec:
   - name: redisgraph_tls
     image: quay.io/open-cluster-management/redisgraph-tls@sha256:2a0d14c003ce554b37c89b8665d7915f363d20fe2cf5657ffad8bea8cb067e03
   - name: registration
-    image: quay.io/open-cluster-management/registration@sha256:85d93f585ca1091ce79919b48821bb299911a8b2f24cc793bae8d8f1240d18f8
+    image: quay.io/open-cluster-management/registration@sha256:4e496cf4c5c0a6f11b66a617a37d29081a82234b83b98060b2a3992706674b3c
   - name: search_aggregator
     image: quay.io/open-cluster-management/search-aggregator@sha256:0620588541f029b6d537ec4c76eb74e495a431b29d205706ca4b078b2472f497
   - name: search_api
