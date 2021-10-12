@@ -184,12 +184,12 @@
   {
     "image-name": "console",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-3e10a1b54482f1675a28d874e977e2567a20c21f",
-    "git-sha256": "3e10a1b54482f1675a28d874e977e2567a20c21f",
+    "image-tag": "2.4.0-f12e799a603ccf56a107bcb9117f7507031fc3a7",
+    "git-sha256": "f12e799a603ccf56a107bcb9117f7507031fc3a7",
     "git-repository": "open-cluster-management/console",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:9a3c4fccf4b8f3fcaf65c67b062f67ec79f8572c0aba9821fa3a058306d9417b",
+    "image-digest": "sha256:fdc824ee7665ac9b8377a2a1de426e98e26d01e31988fd3d2a2f1b87fc4efdad",
     "image-key": "console"
   },
   {
@@ -886,7 +886,7 @@
     "git-sha256": "613c9fa00f2a2c0a7adbc56d09ea6331d5100c32",
     "git-repository": "backube/volsync",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:d900c7928f0cd30f4a0dc798ac7873a4e821ca3cd1501541ab49f82d7edab641",
+    "image-digest": "sha256:c5b490399998fbed56814ad8438741b233533884e4168b0b9dd0f4ff8da80087",
     "image-key": "volsync"
   },
   {
@@ -896,7 +896,7 @@
     "git-sha256": "613c9fa00f2a2c0a7adbc56d09ea6331d5100c32",
     "git-repository": "backube/volsync",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:de3f338da186c84d3874072f9e6e41ca729edd6516dd22a62f90f3d2cb287a0d",
+    "image-digest": "sha256:1d51d11b50b2247bc40aa14ff6c4eb06237514936299c370a3439724de61ff62",
     "image-key": "volsync_mover_rclone"
   },
   {
@@ -906,7 +906,7 @@
     "git-sha256": "613c9fa00f2a2c0a7adbc56d09ea6331d5100c32",
     "git-repository": "backube/volsync",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:b0f01ee1ebc41e68420e464f4565908ceee2b8e5df21b2740b0ce13cec972789",
+    "image-digest": "sha256:e0d36f1e322ea5dd103b3e29aa91395c5c0eed5a8938bfe30351a3648eb294cf",
     "image-key": "volsync_mover_restic"
   },
   {
@@ -916,7 +916,7 @@
     "git-sha256": "613c9fa00f2a2c0a7adbc56d09ea6331d5100c32",
     "git-repository": "backube/volsync",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:f7bace24e5830325211a8a384f3fb8ecadaa12118bcf232c058bf4e1494acc29",
+    "image-digest": "sha256:ff296e3dc3b20841d4533676f49c2811e7acb8c08c522cd2cd9dade542c05741",
     "image-key": "volsync_mover_rsync"
   },
   {
