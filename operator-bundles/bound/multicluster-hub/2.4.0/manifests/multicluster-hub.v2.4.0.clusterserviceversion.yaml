@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-10-12T03:24:40Z'
+    createdAt: '2021-10-12T13:41:04Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1275,7 +1275,7 @@ spec:
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_CONTROLLER
                   value: quay.io/open-cluster-management/assisted-installer-controller@sha256:44cb8e8378443c755b7cb00da3ac5c6d44298fe4a90de471383f34c452208347
                 - name: OPERAND_IMAGE_ASSISTED_SERVICE
-                  value: quay.io/open-cluster-management/assisted-service@sha256:8607fed18a572b16e6d1efd1a24793e18a409504329a9e3ae68fa8c22930659d
+                  value: quay.io/open-cluster-management/assisted-service@sha256:3bae01e91753f513a56e16494ddde0fb5e4ab05b5039bf77392d3f6338fd96d3
                 - name: OPERAND_IMAGE_BAILER
                   value: quay.io/open-cluster-management/bailer@sha256:49ed8f260a05eda10149534770e5a454317e0e6d60af954141973fcea0f4ec76
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
@@ -1295,7 +1295,7 @@ spec:
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/open-cluster-management/config-policy-controller@sha256:79881ac24f37ee66d91f82541d1ac1b4837556ccc2360d20211a75746322ba08
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/open-cluster-management/console@sha256:1414d0c08c11de1c54e4e333a6ac41a3f3343bab233dd1012dc642525a363bdc
+                  value: quay.io/open-cluster-management/console@sha256:9a3c4fccf4b8f3fcaf65c67b062f67ec79f8572c0aba9821fa3a058306d9417b
                 - name: OPERAND_IMAGE_CONSOLE_API
                   value: quay.io/open-cluster-management/console-api@sha256:c4da6a435523826a1e564ae950ddbe9ee14f9e6364bbe7a3a45e4e71638225c0
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
@@ -1355,7 +1355,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLOUD_INTEGRATIONS
                   value: quay.io/open-cluster-management/multicloud-integrations@sha256:4f8d9367291583084606e7764f86bffbfd24625a7aea1beca87278f977dae829
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
-                  value: quay.io/open-cluster-management/multicloud-manager@sha256:0bd774863462bb95e656d9cd45b568093ebcc8eab19d64a9e44502ba6eb92759
+                  value: quay.io/open-cluster-management/multicloud-manager@sha256:6ad8e12cff2c07ffe8bc31e4edf3e2ce930769d8e56b7cfa43e99acdf75d9c6d
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
                   value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:dd4b472b24cd8f7bd058ef3143ddb4231af6173111e62d1a1d1b4104e604cedc
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
@@ -1417,7 +1417,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
                   value: quay.io/open-cluster-management/search-operator@sha256:b43d7852693c625398c8220a3cdd5952613faa6e27f7fd97ec7590a0dfcf5165
                 - name: OPERAND_IMAGE_SEARCH_UI
-                  value: quay.io/open-cluster-management/search-ui@sha256:f17d7dce71e5a8aa299b90d9d9f3c92c541811e7b031deb8bde5c06f9d73eb47
+                  value: quay.io/open-cluster-management/search-ui@sha256:ced722b90dca41ed67596bb4642e88a22504fbbded80086062fd1e0261c4ff6a
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
                   value: quay.io/open-cluster-management/submariner-addon@sha256:c7df86683a4d8569cd80a83156a98259f76706767e5984a9fac9bb91125f2cad
                 - name: OPERAND_IMAGE_THANOS
@@ -1658,7 +1658,7 @@ spec:
   - name: assisted_installer_controller
     image: quay.io/open-cluster-management/assisted-installer-controller@sha256:44cb8e8378443c755b7cb00da3ac5c6d44298fe4a90de471383f34c452208347
   - name: assisted_service
-    image: quay.io/open-cluster-management/assisted-service@sha256:8607fed18a572b16e6d1efd1a24793e18a409504329a9e3ae68fa8c22930659d
+    image: quay.io/open-cluster-management/assisted-service@sha256:3bae01e91753f513a56e16494ddde0fb5e4ab05b5039bf77392d3f6338fd96d3
   - name: bailer
     image: quay.io/open-cluster-management/bailer@sha256:49ed8f260a05eda10149534770e5a454317e0e6d60af954141973fcea0f4ec76
   - name: cert_policy_controller
@@ -1678,7 +1678,7 @@ spec:
   - name: config_policy_controller
     image: quay.io/open-cluster-management/config-policy-controller@sha256:79881ac24f37ee66d91f82541d1ac1b4837556ccc2360d20211a75746322ba08
   - name: console
-    image: quay.io/open-cluster-management/console@sha256:1414d0c08c11de1c54e4e333a6ac41a3f3343bab233dd1012dc642525a363bdc
+    image: quay.io/open-cluster-management/console@sha256:9a3c4fccf4b8f3fcaf65c67b062f67ec79f8572c0aba9821fa3a058306d9417b
   - name: console_api
     image: quay.io/open-cluster-management/console-api@sha256:c4da6a435523826a1e564ae950ddbe9ee14f9e6364bbe7a3a45e4e71638225c0
   - name: discovery_operator
@@ -1738,7 +1738,7 @@ spec:
   - name: multicloud_integrations
     image: quay.io/open-cluster-management/multicloud-integrations@sha256:4f8d9367291583084606e7764f86bffbfd24625a7aea1beca87278f977dae829
   - name: multicloud_manager
-    image: quay.io/open-cluster-management/multicloud-manager@sha256:0bd774863462bb95e656d9cd45b568093ebcc8eab19d64a9e44502ba6eb92759
+    image: quay.io/open-cluster-management/multicloud-manager@sha256:6ad8e12cff2c07ffe8bc31e4edf3e2ce930769d8e56b7cfa43e99acdf75d9c6d
   - name: multicluster_operators_application
     image: quay.io/open-cluster-management/multicluster-operators-application@sha256:932d8058fbafe7651f9e019a3be108f3cb8970a18d822d596f4814951bfb3d63
   - name: multicluster_operators_channel
@@ -1794,7 +1794,7 @@ spec:
   - name: search_operator
     image: quay.io/open-cluster-management/search-operator@sha256:b43d7852693c625398c8220a3cdd5952613faa6e27f7fd97ec7590a0dfcf5165
   - name: search_ui
-    image: quay.io/open-cluster-management/search-ui@sha256:f17d7dce71e5a8aa299b90d9d9f3c92c541811e7b031deb8bde5c06f9d73eb47
+    image: quay.io/open-cluster-management/search-ui@sha256:ced722b90dca41ed67596bb4642e88a22504fbbded80086062fd1e0261c4ff6a
   - name: thanos
     image: quay.io/open-cluster-management/thanos@sha256:d746a0ea0dd0258190868bf7a4d4683782c063586ac8c0e853708d1f5e9ccb2a
   - name: volsync
