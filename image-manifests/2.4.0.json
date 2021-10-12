@@ -375,7 +375,7 @@
     "git-sha256": "fd94fea9bc463ed1ff7aaeac127ae7a4c6bb5cbf",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:03ddb8ad1a45115de6a77996dc5e325d1c6a3b5b6bd8c6ffd97689c28d4c71b3",
+    "image-digest": "sha256:2b752c148ebdeac9d020c1c0d4ae153b933e859b7ce9322f9d7d62528db4ca88",
     "image-key": "helloworld"
   },
   {
@@ -806,12 +806,12 @@
   {
     "image-name": "search-api",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-569dd70a305daab4bee800e28ace9049f878e03b",
-    "git-sha256": "569dd70a305daab4bee800e28ace9049f878e03b",
+    "image-tag": "2.4.0-ef6347acfd475a0cdcd1519a2afc3695f0b3012d",
+    "git-sha256": "ef6347acfd475a0cdcd1519a2afc3695f0b3012d",
     "git-repository": "open-cluster-management/search-api",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:f44b8d179dee1ca2ae6d3cf933e46a80e22ee572d8b0263b52141a7c68e39763",
+    "image-digest": "sha256:c76703e9a1895723462b539cc66ec7263faf451653406856a1f8fabc02d3dbf4",
     "image-key": "search_api"
   },
   {
