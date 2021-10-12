@@ -19,10 +19,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-10-12T13:41:04Z'
+    createdAt: '2021-10-12T14:29:25Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1295,7 +1294,7 @@ spec:
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/open-cluster-management/config-policy-controller@sha256:79881ac24f37ee66d91f82541d1ac1b4837556ccc2360d20211a75746322ba08
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/open-cluster-management/console@sha256:9a3c4fccf4b8f3fcaf65c67b062f67ec79f8572c0aba9821fa3a058306d9417b
+                  value: quay.io/open-cluster-management/console@sha256:fdc824ee7665ac9b8377a2a1de426e98e26d01e31988fd3d2a2f1b87fc4efdad
                 - name: OPERAND_IMAGE_CONSOLE_API
                   value: quay.io/open-cluster-management/console-api@sha256:c4da6a435523826a1e564ae950ddbe9ee14f9e6364bbe7a3a45e4e71638225c0
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
@@ -1423,13 +1422,13 @@ spec:
                 - name: OPERAND_IMAGE_THANOS
                   value: quay.io/open-cluster-management/thanos@sha256:d746a0ea0dd0258190868bf7a4d4683782c063586ac8c0e853708d1f5e9ccb2a
                 - name: OPERAND_IMAGE_VOLSYNC
-                  value: quay.io/open-cluster-management/volsync@sha256:d900c7928f0cd30f4a0dc798ac7873a4e821ca3cd1501541ab49f82d7edab641
+                  value: quay.io/open-cluster-management/volsync@sha256:c5b490399998fbed56814ad8438741b233533884e4168b0b9dd0f4ff8da80087
                 - name: OPERAND_IMAGE_VOLSYNC_MOVER_RCLONE
-                  value: quay.io/open-cluster-management/volsync-mover-rclone@sha256:de3f338da186c84d3874072f9e6e41ca729edd6516dd22a62f90f3d2cb287a0d
+                  value: quay.io/open-cluster-management/volsync-mover-rclone@sha256:1d51d11b50b2247bc40aa14ff6c4eb06237514936299c370a3439724de61ff62
                 - name: OPERAND_IMAGE_VOLSYNC_MOVER_RESTIC
-                  value: quay.io/open-cluster-management/volsync-mover-restic@sha256:b0f01ee1ebc41e68420e464f4565908ceee2b8e5df21b2740b0ce13cec972789
+                  value: quay.io/open-cluster-management/volsync-mover-restic@sha256:e0d36f1e322ea5dd103b3e29aa91395c5c0eed5a8938bfe30351a3648eb294cf
                 - name: OPERAND_IMAGE_VOLSYNC_MOVER_RSYNC
-                  value: quay.io/open-cluster-management/volsync-mover-rsync@sha256:f7bace24e5830325211a8a384f3fb8ecadaa12118bcf232c058bf4e1494acc29
+                  value: quay.io/open-cluster-management/volsync-mover-rsync@sha256:ff296e3dc3b20841d4533676f49c2811e7acb8c08c522cd2cd9dade542c05741
                 - name: OPERAND_IMAGE_WORK
                   value: quay.io/open-cluster-management/work@sha256:c258ca73ede98ee09f94de30cd551086353fb99810a7ab3cb5da8ac8a7d79eba
                 image: quay.io/open-cluster-management/multiclusterhub-operator@sha256:6c07f760919c4275b74fe4356e19066befea191a92ce3f91e796384232a1f309
@@ -1678,7 +1677,7 @@ spec:
   - name: config_policy_controller
     image: quay.io/open-cluster-management/config-policy-controller@sha256:79881ac24f37ee66d91f82541d1ac1b4837556ccc2360d20211a75746322ba08
   - name: console
-    image: quay.io/open-cluster-management/console@sha256:9a3c4fccf4b8f3fcaf65c67b062f67ec79f8572c0aba9821fa3a058306d9417b
+    image: quay.io/open-cluster-management/console@sha256:fdc824ee7665ac9b8377a2a1de426e98e26d01e31988fd3d2a2f1b87fc4efdad
   - name: console_api
     image: quay.io/open-cluster-management/console-api@sha256:c4da6a435523826a1e564ae950ddbe9ee14f9e6364bbe7a3a45e4e71638225c0
   - name: discovery_operator
@@ -1798,12 +1797,12 @@ spec:
   - name: thanos
     image: quay.io/open-cluster-management/thanos@sha256:d746a0ea0dd0258190868bf7a4d4683782c063586ac8c0e853708d1f5e9ccb2a
   - name: volsync
-    image: quay.io/open-cluster-management/volsync@sha256:d900c7928f0cd30f4a0dc798ac7873a4e821ca3cd1501541ab49f82d7edab641
+    image: quay.io/open-cluster-management/volsync@sha256:c5b490399998fbed56814ad8438741b233533884e4168b0b9dd0f4ff8da80087
   - name: volsync_mover_rclone
-    image: quay.io/open-cluster-management/volsync-mover-rclone@sha256:de3f338da186c84d3874072f9e6e41ca729edd6516dd22a62f90f3d2cb287a0d
+    image: quay.io/open-cluster-management/volsync-mover-rclone@sha256:1d51d11b50b2247bc40aa14ff6c4eb06237514936299c370a3439724de61ff62
   - name: volsync_mover_restic
-    image: quay.io/open-cluster-management/volsync-mover-restic@sha256:b0f01ee1ebc41e68420e464f4565908ceee2b8e5df21b2740b0ce13cec972789
+    image: quay.io/open-cluster-management/volsync-mover-restic@sha256:e0d36f1e322ea5dd103b3e29aa91395c5c0eed5a8938bfe30351a3648eb294cf
   - name: volsync_mover_rsync
-    image: quay.io/open-cluster-management/volsync-mover-rsync@sha256:f7bace24e5830325211a8a384f3fb8ecadaa12118bcf232c058bf4e1494acc29
+    image: quay.io/open-cluster-management/volsync-mover-rsync@sha256:ff296e3dc3b20841d4533676f49c2811e7acb8c08c522cd2cd9dade542c05741
   - name: work
     image: quay.io/open-cluster-management/work@sha256:c258ca73ede98ee09f94de30cd551086353fb99810a7ab3cb5da8ac8a7d79eba
