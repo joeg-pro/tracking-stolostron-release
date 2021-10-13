@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-10-12T21:19:33Z'
+    createdAt: '2021-10-13T01:20:59Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1412,7 +1412,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_COLLECTOR
                   value: quay.io/open-cluster-management/search-collector@sha256:e32d7a37ca5bb99169c47cf523407ec1ca49fd77f7034e54b963cc6c6042e172
                 - name: OPERAND_IMAGE_SEARCH_E2E
-                  value: quay.io/open-cluster-management/search-e2e@sha256:d49dcb9d93a1782719dc4715d333f7392f8916f2c9f83f7efc8440960afe0c7e
+                  value: quay.io/open-cluster-management/search-e2e@sha256:eb10f5b8be1cb947591a1ef5fed8415c53f288d330ad80d91c960e24bf170de2
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
                   value: quay.io/open-cluster-management/search-operator@sha256:b43d7852693c625398c8220a3cdd5952613faa6e27f7fd97ec7590a0dfcf5165
                 - name: OPERAND_IMAGE_SEARCH_UI
@@ -1789,7 +1789,7 @@ spec:
   - name: search_collector
     image: quay.io/open-cluster-management/search-collector@sha256:e32d7a37ca5bb99169c47cf523407ec1ca49fd77f7034e54b963cc6c6042e172
   - name: search_e2e
-    image: quay.io/open-cluster-management/search-e2e@sha256:d49dcb9d93a1782719dc4715d333f7392f8916f2c9f83f7efc8440960afe0c7e
+    image: quay.io/open-cluster-management/search-e2e@sha256:eb10f5b8be1cb947591a1ef5fed8415c53f288d330ad80d91c960e24bf170de2
   - name: search_operator
     image: quay.io/open-cluster-management/search-operator@sha256:b43d7852693c625398c8220a3cdd5952613faa6e27f7fd97ec7590a0dfcf5165
   - name: search_ui
