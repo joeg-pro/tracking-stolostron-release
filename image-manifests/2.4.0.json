@@ -239,12 +239,12 @@
   {
     "image-name": "endpoint-monitoring-operator",
     "image-version": "2.4",
-    "image-tag": "2.4-c9fc4ca32a5ee54f3521fe59b4a1629e1a960ff5",
-    "git-sha256": "c9fc4ca32a5ee54f3521fe59b4a1629e1a960ff5",
+    "image-tag": "2.4-ca4e1931f22e708641bbddc0dc3d8146b6b16186",
+    "git-sha256": "ca4e1931f22e708641bbddc0dc3d8146b6b16186",
     "git-repository": "open-cluster-management/multicluster-observability-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:3d3c4fbdf36de7e160f9a6a5ce52e7dadb2762500dd4fbb8baa7aed3b04e47f7",
+    "image-digest": "sha256:63022de5dd75bfe8d75ab41f5ff97dd80cde88bbcec17374d0be3645f15410e0",
     "image-key": "endpoint_monitoring_operator"
   },
   {
@@ -375,7 +375,7 @@
     "git-sha256": "fd94fea9bc463ed1ff7aaeac127ae7a4c6bb5cbf",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:0bf2fb6a7be7d42410800a7ae4f8e0959f021c3e01eedfebd3c0d0eaa11b800f",
+    "image-digest": "sha256:7aa9e15c33d4020efc8c7bb9a803a62be8dcceaedb0cd287cdc0a05194227970",
     "image-key": "helloworld"
   },
   {
@@ -523,12 +523,12 @@
   {
     "image-name": "multicluster-observability-operator",
     "image-version": "2.4",
-    "image-tag": "2.4-ca4e1931f22e708641bbddc0dc3d8146b6b16186",
-    "git-sha256": "ca4e1931f22e708641bbddc0dc3d8146b6b16186",
+    "image-tag": "2.4-8bf3cfdb272eaf1c1c4033e82dd224ce5584c651",
+    "git-sha256": "8bf3cfdb272eaf1c1c4033e82dd224ce5584c651",
     "git-repository": "open-cluster-management/multicluster-observability-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:affb0293b84183d115fec2bf937a5a3b995e9a10429d420643419b58c04a2837",
+    "image-digest": "sha256:979ae1231c8b530edfc683669c08ff40ff950c5044ebb7265c21a9392178f80e",
     "image-key": "multicluster_observability_operator"
   },
   {
