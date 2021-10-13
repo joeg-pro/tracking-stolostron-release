@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-10-13T10:19:54Z'
+    createdAt: '2021-10-13T12:52:49Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1275,7 +1275,7 @@ spec:
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_CONTROLLER
                   value: quay.io/open-cluster-management/assisted-installer-controller@sha256:44cb8e8378443c755b7cb00da3ac5c6d44298fe4a90de471383f34c452208347
                 - name: OPERAND_IMAGE_ASSISTED_SERVICE
-                  value: quay.io/open-cluster-management/assisted-service@sha256:61c59939cfd147c2d28fea3efcc660ba77ffbb81f2adcc2c1f144b02db2b3c05
+                  value: quay.io/open-cluster-management/assisted-service@sha256:5ef49421c3136e09dfb170311792a65e5f8b4165b56332864d2b1f8895de91dd
                 - name: OPERAND_IMAGE_BAILER
                   value: quay.io/open-cluster-management/bailer@sha256:49ed8f260a05eda10149534770e5a454317e0e6d60af954141973fcea0f4ec76
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
@@ -1355,7 +1355,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLOUD_INTEGRATIONS
                   value: quay.io/open-cluster-management/multicloud-integrations@sha256:4f8d9367291583084606e7764f86bffbfd24625a7aea1beca87278f977dae829
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
-                  value: quay.io/open-cluster-management/multicloud-manager@sha256:6ad8e12cff2c07ffe8bc31e4edf3e2ce930769d8e56b7cfa43e99acdf75d9c6d
+                  value: quay.io/open-cluster-management/multicloud-manager@sha256:51fb3cfceb216e5e18c58d00647c2ebe871541ce8c3f8bb49be1b99bd5d7497e
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
                   value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:979ae1231c8b530edfc683669c08ff40ff950c5044ebb7265c21a9392178f80e
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
@@ -1658,7 +1658,7 @@ spec:
   - name: assisted_installer_controller
     image: quay.io/open-cluster-management/assisted-installer-controller@sha256:44cb8e8378443c755b7cb00da3ac5c6d44298fe4a90de471383f34c452208347
   - name: assisted_service
-    image: quay.io/open-cluster-management/assisted-service@sha256:61c59939cfd147c2d28fea3efcc660ba77ffbb81f2adcc2c1f144b02db2b3c05
+    image: quay.io/open-cluster-management/assisted-service@sha256:5ef49421c3136e09dfb170311792a65e5f8b4165b56332864d2b1f8895de91dd
   - name: bailer
     image: quay.io/open-cluster-management/bailer@sha256:49ed8f260a05eda10149534770e5a454317e0e6d60af954141973fcea0f4ec76
   - name: cert_policy_controller
@@ -1738,7 +1738,7 @@ spec:
   - name: multicloud_integrations
     image: quay.io/open-cluster-management/multicloud-integrations@sha256:4f8d9367291583084606e7764f86bffbfd24625a7aea1beca87278f977dae829
   - name: multicloud_manager
-    image: quay.io/open-cluster-management/multicloud-manager@sha256:6ad8e12cff2c07ffe8bc31e4edf3e2ce930769d8e56b7cfa43e99acdf75d9c6d
+    image: quay.io/open-cluster-management/multicloud-manager@sha256:51fb3cfceb216e5e18c58d00647c2ebe871541ce8c3f8bb49be1b99bd5d7497e
   - name: multicluster_operators_application
     image: quay.io/open-cluster-management/multicluster-operators-application@sha256:932d8058fbafe7651f9e019a3be108f3cb8970a18d822d596f4814951bfb3d63
   - name: multicluster_operators_channel
