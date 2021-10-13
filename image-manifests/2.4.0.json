@@ -2,23 +2,23 @@
   {
     "image-name": "application-ui",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-73873064103fc95e1dcc3ee9b9d58bf60494549e",
-    "git-sha256": "73873064103fc95e1dcc3ee9b9d58bf60494549e",
+    "image-tag": "2.4.0-9fdb2f9c55ac230381f41dafc42c5dfc41028191",
+    "git-sha256": "9fdb2f9c55ac230381f41dafc42c5dfc41028191",
     "git-repository": "open-cluster-management/application-ui",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:e30293c140bda4ca9235e3015f13c57a6ca00403e4f2e50c7a31fed134a7688a",
+    "image-digest": "sha256:947c5cb545938a86150f2e60a0612297a80da7159bb29d15f7dc377401c025a5",
     "image-key": "application_ui"
   },
   {
     "image-name": "application-ui-tests",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-73873064103fc95e1dcc3ee9b9d58bf60494549e",
-    "git-sha256": "73873064103fc95e1dcc3ee9b9d58bf60494549e",
+    "image-tag": "2.4.0-9fdb2f9c55ac230381f41dafc42c5dfc41028191",
+    "git-sha256": "9fdb2f9c55ac230381f41dafc42c5dfc41028191",
     "git-repository": "open-cluster-management/application-ui",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:f3417570558430cd53fcc288b0079c664c34da63b429702f4802e9b09a54ea4c",
+    "image-digest": "sha256:610b9ea8d076663b33a41edacc8ca33f979db7959a0f3c16dd8cb2708d2693cf",
     "image-key": "application_ui_tests"
   },
   {
@@ -828,11 +828,11 @@
   {
     "image-name": "search-e2e",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-31be9d53bfffffd6300e9d6764453c94211d39a7",
-    "git-sha256": "31be9d53bfffffd6300e9d6764453c94211d39a7",
+    "image-tag": "2.4.0-3ce0c09125389739a87b4948cab0288e776b0ccb",
+    "git-sha256": "3ce0c09125389739a87b4948cab0288e776b0ccb",
     "git-repository": "open-cluster-management/search-e2e-test",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:eb10f5b8be1cb947591a1ef5fed8415c53f288d330ad80d91c960e24bf170de2",
+    "image-digest": "sha256:685f57dd59b21a2b8a67ba19a3fee623c25bf8ba74ba98a7671fc77841947458",
     "image-key": "search_e2e"
   },
   {
