@@ -49,7 +49,7 @@
     "git-sha256": "6f4c2222f36983578bbbb57502c8e09e12600ef6",
     "git-repository": "openshift/assisted-installer",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:a08f770ee364121e6525f03e548d41b82ee17a5a7f4fc917a7b78e8a5af7dafd",
+    "image-digest": "sha256:330694077319d6bc9d591a5312547696afb1318f65a53c1e308117a5a2ecd181",
     "image-key": "assisted_installer"
   },
   {
@@ -69,7 +69,7 @@
     "git-sha256": "6f4c2222f36983578bbbb57502c8e09e12600ef6",
     "git-repository": "openshift/assisted-installer",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:44cb8e8378443c755b7cb00da3ac5c6d44298fe4a90de471383f34c452208347",
+    "image-digest": "sha256:d8a352d0e8cb04201c6e609e5a93c2840eb51fc2f629f897ffec179c2e3e3d57",
     "image-key": "assisted_installer_controller"
   },
   {
@@ -828,11 +828,11 @@
   {
     "image-name": "search-e2e",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-3ce0c09125389739a87b4948cab0288e776b0ccb",
-    "git-sha256": "3ce0c09125389739a87b4948cab0288e776b0ccb",
+    "image-tag": "2.4.0-81f5a418f38f0bbbbcdd571e3188b317e42fd881",
+    "git-sha256": "81f5a418f38f0bbbbcdd571e3188b317e42fd881",
     "git-repository": "open-cluster-management/search-e2e-test",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:685f57dd59b21a2b8a67ba19a3fee623c25bf8ba74ba98a7671fc77841947458",
+    "image-digest": "sha256:d7607860bedd0c40cb81dd3a4f4375177f9bf3651d72cf10f3ff42aa0ad8aabe",
     "image-key": "search_e2e"
   },
   {
