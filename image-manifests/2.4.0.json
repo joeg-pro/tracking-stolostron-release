@@ -375,7 +375,7 @@
     "git-sha256": "43201f87e12e8093f1b16a3603446c6fffa5ef66",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:26f8209feea06fa4f3d4530da92b61922f0c5481e02c42e36f9e4c2d9209f745",
+    "image-digest": "sha256:daf33712bdce69860c030de16bc4625dfa0d15472696218da8b75cde5778a2c0",
     "image-key": "helloworld"
   },
   {
@@ -512,12 +512,12 @@
   {
     "image-name": "multicloud-manager",
     "image-version": "0.5.0",
-    "image-tag": "0.5.0-b7edddc313c9d346ec761b01b17ebd6f73eb1098",
-    "git-sha256": "b7edddc313c9d346ec761b01b17ebd6f73eb1098",
+    "image-tag": "0.5.0-1db488072a852269a1499f48c1132a846c868797",
+    "git-sha256": "1db488072a852269a1499f48c1132a846c868797",
     "git-repository": "open-cluster-management/multicloud-operators-foundation",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:d464aa7d13d1dc4bfc70559b1e7c35ce75a3fd7125bfd8884dd417e3c65269e0",
+    "image-digest": "sha256:c6c852b52c7f5d4d38e958c12055d7d9c4963a026a5d74805aaf262bab3cfc99",
     "image-key": "multicloud_manager"
   },
   {
