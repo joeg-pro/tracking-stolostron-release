@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-10-15T13:52:50Z'
+    createdAt: '2021-10-15T18:01:23Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clustersyncs.hiveinternal.openshift.io", "machinepoolnameleases.hive.openshift.io",
-      "clusterprovisions.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io", "checkpoints.hive.openshift.io",
-      "clusterdeprovisions.hive.openshift.io", "clusterstates.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["clusterstates.hive.openshift.io", "machinepoolnameleases.hive.openshift.io",
+      "clustersyncleases.hiveinternal.openshift.io", "clustersyncs.hiveinternal.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io", "checkpoints.hive.openshift.io", "clusterprovisions.hive.openshift.io",
+      "fakeclusterinstalls.hiveinternal.openshift.io", "clusterdeprovisions.hive.openshift.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1726,13 +1726,13 @@ spec:
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
                   value: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:bed081a95808e589a0d503f2cbc7049ad739b0f56af95a3b7ec87692ce6bbbf9
                 - name: OPERAND_IMAGE_ASSISTED_IMAGE_SERVICE
-                  value: quay.io/open-cluster-management/assisted-image-service@sha256:23a68fc62fbbbf2da2ca5d50ac5d372a776f29cb23559ad0a88033bb7c45543f
+                  value: quay.io/open-cluster-management/assisted-image-service@sha256:f3ee1c39cb2657e78f49f03105171146e4e9f24027dfa703d1b03a79109dcdd9
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER
-                  value: quay.io/open-cluster-management/assisted-installer@sha256:3e83f216e89a5ba1acce4e2862677e12bac99282a9cd9a44e2ad40d2338026d1
+                  value: quay.io/open-cluster-management/assisted-installer@sha256:330694077319d6bc9d591a5312547696afb1318f65a53c1e308117a5a2ecd181
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_AGENT
-                  value: quay.io/open-cluster-management/assisted-installer-agent@sha256:180e94cd89a8e1836908cf02221d02d54552c27785f3931718a0fc39ccc4690b
+                  value: quay.io/open-cluster-management/assisted-installer-agent@sha256:dd80ccb7e3526316a13095181928ab85e862cfd50a6f1ee2a22c0602052ba7ef
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_CONTROLLER
-                  value: quay.io/open-cluster-management/assisted-installer-controller@sha256:51aadffa391f1a4e329dff94637ad070e388123c56ba1c9bc6506bfe82fc3968
+                  value: quay.io/open-cluster-management/assisted-installer-controller@sha256:d8a352d0e8cb04201c6e609e5a93c2840eb51fc2f629f897ffec179c2e3e3d57
                 - name: OPERAND_IMAGE_ASSISTED_SERVICE
                   value: quay.io/open-cluster-management/assisted-service@sha256:8f13c93e6de9e37942f849c997eacf94bd2527a80eeeab6085591c29aee68373
                 - name: OPERAND_IMAGE_BAILER
@@ -1780,7 +1780,7 @@ spec:
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
                   value: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:f6706e698495bdba38b8f58ccc4e90fc457cbcfef376345fe8f00ddec6f1e058
                 - name: OPERAND_IMAGE_GRC_UI
-                  value: quay.io/open-cluster-management/grc-ui@sha256:01e2066e18088b6353f44b08fe90840e32c35864d669f8d5bb46fe38b49505cd
+                  value: quay.io/open-cluster-management/grc-ui@sha256:fa8868cbf046963b71b6429d9e95388ad0f7ba7badf49505e53ff744b6a9f531
                 - name: OPERAND_IMAGE_GRC_UI_API
                   value: quay.io/open-cluster-management/grc-ui-api@sha256:794b220e60bc0937784706e5fe8325b251574b0acdc2731d02a7aac9d9172e78
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
@@ -1788,7 +1788,7 @@ spec:
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/open-cluster-management/helloworld@sha256:daf33712bdce69860c030de16bc4625dfa0d15472696218da8b75cde5778a2c0
+                  value: quay.io/open-cluster-management/helloworld@sha256:af0b8f6bb78158e1ba21a4995458dae9f58878089909dc6806fc68e076fa6d06
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
                   value: quay.io/open-cluster-management/hive@sha256:c145d3ed317d767dda1a382bfeb1ede751651ef7621464357f730f2df9d3f5f9
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
@@ -2660,13 +2660,13 @@ spec:
   - name: applifecycle_backend_e2e
     image: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:bed081a95808e589a0d503f2cbc7049ad739b0f56af95a3b7ec87692ce6bbbf9
   - name: assisted_image_service
-    image: quay.io/open-cluster-management/assisted-image-service@sha256:23a68fc62fbbbf2da2ca5d50ac5d372a776f29cb23559ad0a88033bb7c45543f
+    image: quay.io/open-cluster-management/assisted-image-service@sha256:f3ee1c39cb2657e78f49f03105171146e4e9f24027dfa703d1b03a79109dcdd9
   - name: assisted_installer
-    image: quay.io/open-cluster-management/assisted-installer@sha256:3e83f216e89a5ba1acce4e2862677e12bac99282a9cd9a44e2ad40d2338026d1
+    image: quay.io/open-cluster-management/assisted-installer@sha256:330694077319d6bc9d591a5312547696afb1318f65a53c1e308117a5a2ecd181
   - name: assisted_installer_agent
-    image: quay.io/open-cluster-management/assisted-installer-agent@sha256:180e94cd89a8e1836908cf02221d02d54552c27785f3931718a0fc39ccc4690b
+    image: quay.io/open-cluster-management/assisted-installer-agent@sha256:dd80ccb7e3526316a13095181928ab85e862cfd50a6f1ee2a22c0602052ba7ef
   - name: assisted_installer_controller
-    image: quay.io/open-cluster-management/assisted-installer-controller@sha256:51aadffa391f1a4e329dff94637ad070e388123c56ba1c9bc6506bfe82fc3968
+    image: quay.io/open-cluster-management/assisted-installer-controller@sha256:d8a352d0e8cb04201c6e609e5a93c2840eb51fc2f629f897ffec179c2e3e3d57
   - name: assisted_service
     image: quay.io/open-cluster-management/assisted-service@sha256:8f13c93e6de9e37942f849c997eacf94bd2527a80eeeab6085591c29aee68373
   - name: bailer
@@ -2714,7 +2714,7 @@ spec:
   - name: grc_policy_framework_tests
     image: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:f6706e698495bdba38b8f58ccc4e90fc457cbcfef376345fe8f00ddec6f1e058
   - name: grc_ui
-    image: quay.io/open-cluster-management/grc-ui@sha256:01e2066e18088b6353f44b08fe90840e32c35864d669f8d5bb46fe38b49505cd
+    image: quay.io/open-cluster-management/grc-ui@sha256:fa8868cbf046963b71b6429d9e95388ad0f7ba7badf49505e53ff744b6a9f531
   - name: grc_ui_api
     image: quay.io/open-cluster-management/grc-ui-api@sha256:794b220e60bc0937784706e5fe8325b251574b0acdc2731d02a7aac9d9172e78
   - name: grc_ui_tests
@@ -2722,7 +2722,7 @@ spec:
   - name: helloprow_go
     image: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
   - name: helloworld
-    image: quay.io/open-cluster-management/helloworld@sha256:daf33712bdce69860c030de16bc4625dfa0d15472696218da8b75cde5778a2c0
+    image: quay.io/open-cluster-management/helloworld@sha256:af0b8f6bb78158e1ba21a4995458dae9f58878089909dc6806fc68e076fa6d06
   - name: iam_policy_controller
     image: quay.io/open-cluster-management/iam-policy-controller@sha256:22967bfed725755a36fd423c756c6257bb88f36eb3f425d0186998e2961bb2da
   - name: insights_client
