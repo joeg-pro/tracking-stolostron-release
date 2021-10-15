@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-10-15T11:25:34Z'
+    createdAt: '2021-10-15T13:28:16Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
@@ -1260,7 +1260,7 @@ spec:
                     fieldRef:
                       fieldPath: metadata.namespace
                 - name: OPERAND_IMAGE_APPLICATION_UI
-                  value: quay.io/open-cluster-management/application-ui@sha256:fe9c3631b2adf15b16a9db70b47d51fd65d10c878707966a9646951ca018e78e
+                  value: quay.io/open-cluster-management/application-ui@sha256:d25f3b04ef9dd9df43608fd0e4f9ece3d92d29481024986d976648009551783e
                 - name: OPERAND_IMAGE_APPLICATION_UI_TESTS
                   value: quay.io/open-cluster-management/application-ui-tests@sha256:c2c3e9500ef3f7ce6183386fcb7e4cdf83e4fe53ad7a35fa3c8057e5527dca2a
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
@@ -1274,7 +1274,7 @@ spec:
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_CONTROLLER
                   value: quay.io/open-cluster-management/assisted-installer-controller@sha256:51aadffa391f1a4e329dff94637ad070e388123c56ba1c9bc6506bfe82fc3968
                 - name: OPERAND_IMAGE_ASSISTED_SERVICE
-                  value: quay.io/open-cluster-management/assisted-service@sha256:265fb70d407c6b110cb661a041419bb613fcd6c8834248d55c04677f22c29276
+                  value: quay.io/open-cluster-management/assisted-service@sha256:8f13c93e6de9e37942f849c997eacf94bd2527a80eeeab6085591c29aee68373
                 - name: OPERAND_IMAGE_BAILER
                   value: quay.io/open-cluster-management/bailer@sha256:49ed8f260a05eda10149534770e5a454317e0e6d60af954141973fcea0f4ec76
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
@@ -1650,7 +1650,7 @@ spec:
               serviceAccountName: submariner-addon
   relatedImages:
   - name: application_ui
-    image: quay.io/open-cluster-management/application-ui@sha256:fe9c3631b2adf15b16a9db70b47d51fd65d10c878707966a9646951ca018e78e
+    image: quay.io/open-cluster-management/application-ui@sha256:d25f3b04ef9dd9df43608fd0e4f9ece3d92d29481024986d976648009551783e
   - name: application_ui_tests
     image: quay.io/open-cluster-management/application-ui-tests@sha256:c2c3e9500ef3f7ce6183386fcb7e4cdf83e4fe53ad7a35fa3c8057e5527dca2a
   - name: applifecycle_backend_e2e
@@ -1664,7 +1664,7 @@ spec:
   - name: assisted_installer_controller
     image: quay.io/open-cluster-management/assisted-installer-controller@sha256:51aadffa391f1a4e329dff94637ad070e388123c56ba1c9bc6506bfe82fc3968
   - name: assisted_service
-    image: quay.io/open-cluster-management/assisted-service@sha256:265fb70d407c6b110cb661a041419bb613fcd6c8834248d55c04677f22c29276
+    image: quay.io/open-cluster-management/assisted-service@sha256:8f13c93e6de9e37942f849c997eacf94bd2527a80eeeab6085591c29aee68373
   - name: bailer
     image: quay.io/open-cluster-management/bailer@sha256:49ed8f260a05eda10149534770e5a454317e0e6d60af954141973fcea0f4ec76
   - name: cert_policy_controller
