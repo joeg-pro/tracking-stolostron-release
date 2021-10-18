@@ -795,23 +795,23 @@
   {
     "image-name": "search-aggregator",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-d6f8534687249dd6ffb289f0c3c4095b26b4cfd9",
-    "git-sha256": "d6f8534687249dd6ffb289f0c3c4095b26b4cfd9",
+    "image-tag": "2.4.0-3cceecb5b46d1e8aa002e1d426689e4f0a7c410f",
+    "git-sha256": "3cceecb5b46d1e8aa002e1d426689e4f0a7c410f",
     "git-repository": "open-cluster-management/search-aggregator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:7dd4a0677d5ca2aa992dfc6dc3ec2b0c0d421c019186dfd21fc5891ef6d5e552",
+    "image-digest": "sha256:ec89f47254bbf3487328dade639fede0adf2160d04dd9f4a8406d1ba7ca6088d",
     "image-key": "search_aggregator"
   },
   {
     "image-name": "search-api",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-ef6347acfd475a0cdcd1519a2afc3695f0b3012d",
-    "git-sha256": "ef6347acfd475a0cdcd1519a2afc3695f0b3012d",
+    "image-tag": "2.4.0-02d88c8a058b4276f93f801b0d26c333dfb9ac5c",
+    "git-sha256": "02d88c8a058b4276f93f801b0d26c333dfb9ac5c",
     "git-repository": "open-cluster-management/search-api",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:c76703e9a1895723462b539cc66ec7263faf451653406856a1f8fabc02d3dbf4",
+    "image-digest": "sha256:0e6a6f6cf3cc94a83b6b8cd6b2ccd52fe0a05d4c0e80fa499824d83e50febcd9",
     "image-key": "search_api"
   },
   {
