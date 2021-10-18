@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-10-15T20:11:52Z'
+    createdAt: '2021-10-18T15:13:18Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["machinepoolnameleases.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "clusterdeprovisions.hive.openshift.io",
-      "clustersyncleases.hiveinternal.openshift.io", "observatoria.core.observatorium.io", "clusterprovisions.hive.openshift.io",
-      "fakeclusterinstalls.hiveinternal.openshift.io", "clusterstates.hive.openshift.io", "checkpoints.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "clusterstates.hive.openshift.io", "clusterdeprovisions.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io",
+      "machinepoolnameleases.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io",
+      "checkpoints.hive.openshift.io", "observatoria.core.observatorium.io", "fakeclusterinstalls.hiveinternal.openshift.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1788,7 +1788,7 @@ spec:
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/open-cluster-management/helloworld@sha256:8e7be24f0daf137e924cc06bee6678280ae37650d6eeaa1dc5db57d8d74c3548
+                  value: quay.io/open-cluster-management/helloworld@sha256:ff66b0fb0146fa30758924939996852769a5d76c4862a7ecab37ccfb75f56b6a
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
                   value: quay.io/open-cluster-management/hive@sha256:c145d3ed317d767dda1a382bfeb1ede751651ef7621464357f730f2df9d3f5f9
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
@@ -1848,7 +1848,7 @@ spec:
                 - name: OPERAND_IMAGE_OAUTH_PROXY
                   value: quay.io/open-cluster-management/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
                 - name: OPERAND_IMAGE_PLACEMENT
-                  value: quay.io/open-cluster-management/placement@sha256:e60396e6585b5c530c124be72fceb1562fc2c88e6700b1bddfe882a57d3d0e89
+                  value: quay.io/open-cluster-management/placement@sha256:f7dda937a400d33ae954725397680e2784c5e19bb9749133e7f801f11edba6e9
                 - name: OPERAND_IMAGE_POSTGRESQL_12
                   value: quay.io/open-cluster-management/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
                 - name: OPERAND_IMAGE_PROMETHEUS
@@ -2722,7 +2722,7 @@ spec:
   - name: helloprow_go
     image: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
   - name: helloworld
-    image: quay.io/open-cluster-management/helloworld@sha256:8e7be24f0daf137e924cc06bee6678280ae37650d6eeaa1dc5db57d8d74c3548
+    image: quay.io/open-cluster-management/helloworld@sha256:ff66b0fb0146fa30758924939996852769a5d76c4862a7ecab37ccfb75f56b6a
   - name: iam_policy_controller
     image: quay.io/open-cluster-management/iam-policy-controller@sha256:22967bfed725755a36fd423c756c6257bb88f36eb3f425d0186998e2961bb2da
   - name: insights_client
@@ -2764,7 +2764,7 @@ spec:
   - name: oauth_proxy
     image: quay.io/open-cluster-management/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
   - name: placement
-    image: quay.io/open-cluster-management/placement@sha256:e60396e6585b5c530c124be72fceb1562fc2c88e6700b1bddfe882a57d3d0e89
+    image: quay.io/open-cluster-management/placement@sha256:f7dda937a400d33ae954725397680e2784c5e19bb9749133e7f801f11edba6e9
   - name: postgresql_12
     image: quay.io/open-cluster-management/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
   - name: prometheus
