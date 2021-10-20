@@ -19,7 +19,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-10-20T06:06:09Z'
+    createdAt: '2021-10-20T08:42:02Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
@@ -1285,7 +1285,7 @@ spec:
                 - name: OPERAND_IMAGE_CLUSTER_CURATOR_CONTROLLER
                   value: quay.io/open-cluster-management/cluster-curator-controller@sha256:80c3331cda4879aacdd201aed284564d51fbb148a0d892bf0c8e5680b0aaa371
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
-                  value: quay.io/open-cluster-management/cluster-lifecycle-e2e@sha256:4ec69be46ee0c8c2806e326382b1bff8a8e1bf21f0d1d7534ad3144463e38190
+                  value: quay.io/open-cluster-management/cluster-lifecycle-e2e@sha256:05984e3e5555ae09d6477f808e772b5cdc8bedbc789e1b5bf35a62d4d2738fd6
                 - name: OPERAND_IMAGE_CLUSTER_PROXY_ADDON
                   value: quay.io/open-cluster-management/cluster-proxy-addon@sha256:79e368a8a8b4cdcb7b585b2c9b7495291baa079b757a38e4f538911c4e48429b
                 - name: OPERAND_IMAGE_CLUSTERCLAIMS_CONTROLLER
@@ -1675,7 +1675,7 @@ spec:
   - name: cluster_curator_controller
     image: quay.io/open-cluster-management/cluster-curator-controller@sha256:80c3331cda4879aacdd201aed284564d51fbb148a0d892bf0c8e5680b0aaa371
   - name: cluster_lifecycle_e2e
-    image: quay.io/open-cluster-management/cluster-lifecycle-e2e@sha256:4ec69be46ee0c8c2806e326382b1bff8a8e1bf21f0d1d7534ad3144463e38190
+    image: quay.io/open-cluster-management/cluster-lifecycle-e2e@sha256:05984e3e5555ae09d6477f808e772b5cdc8bedbc789e1b5bf35a62d4d2738fd6
   - name: cluster_proxy_addon
     image: quay.io/open-cluster-management/cluster-proxy-addon@sha256:79e368a8a8b4cdcb7b585b2c9b7495291baa079b757a38e4f538911c4e48429b
   - name: clusterclaims_controller
