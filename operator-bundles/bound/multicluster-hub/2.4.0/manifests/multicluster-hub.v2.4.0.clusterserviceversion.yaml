@@ -19,9 +19,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-10-20T15:19:12Z'
+    createdAt: '2021-10-20T15:49:01Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: multicluster-hub.v2.4.0
   namespace: placeholder
@@ -1294,7 +1295,7 @@ spec:
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/open-cluster-management/config-policy-controller@sha256:79881ac24f37ee66d91f82541d1ac1b4837556ccc2360d20211a75746322ba08
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/open-cluster-management/console@sha256:537f4b55671effc84f00d27587afba1bad10d535398e0d95875f8a24172bad3f
+                  value: quay.io/open-cluster-management/console@sha256:0bd17663950bc960be422d2c70bbb60d4bd5bd11ac16195b1ad6197810720855
                 - name: OPERAND_IMAGE_CONSOLE_API
                   value: quay.io/open-cluster-management/console-api@sha256:c4da6a435523826a1e564ae950ddbe9ee14f9e6364bbe7a3a45e4e71638225c0
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
@@ -1684,7 +1685,7 @@ spec:
   - name: config_policy_controller
     image: quay.io/open-cluster-management/config-policy-controller@sha256:79881ac24f37ee66d91f82541d1ac1b4837556ccc2360d20211a75746322ba08
   - name: console
-    image: quay.io/open-cluster-management/console@sha256:537f4b55671effc84f00d27587afba1bad10d535398e0d95875f8a24172bad3f
+    image: quay.io/open-cluster-management/console@sha256:0bd17663950bc960be422d2c70bbb60d4bd5bd11ac16195b1ad6197810720855
   - name: console_api
     image: quay.io/open-cluster-management/console-api@sha256:c4da6a435523826a1e564ae950ddbe9ee14f9e6364bbe7a3a45e4e71638225c0
   - name: discovery_operator
