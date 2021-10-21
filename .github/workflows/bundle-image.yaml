@@ -1,0 +1,57 @@
+name: Release processing
+on:
+  push:
+    branches: [ '*', '!master' ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    env:
+      COMPONENT_TAG_EXTENSION: "-${{ github.sha }}"
+      BUILD_HARNESS_EXTENSIONS_BRANCH: master
+      DOCKER_USER: "open-cluster-management+cicdwrite"
+      DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD_CICDWRITE_ROBOT }}
+      QUAY_TOKEN: ${{ secrets.QUAY_API_TOKEN }}
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+
+    - name: Add Python requirements
+      run: |
+        python -m pip install --upgrade pip
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    - name: Create bundle image
+      env:
+        GITHUB_USER: "acm-cicd-prow-bot"
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN_ACM_CICD_PROW_BOT }}
+      run: |
+        git config --global user.email "$(git log --format='%ae' HEAD^!)"
+        git config --global user.name "$(git log --format='%an' HEAD^!)"
+        make
+        make opm/install
+        PROJECT=`echo ${GITHUB_REF##*/} | awk -F "-" '{print $1}'`
+        if [[ "$PROJECT" == "backplane" ]]; then SNAPSHOT="BACKPLANE"; WHAT_TOOL="mce";
+        else SNAPSHOT="SNAPSHOT"; WHAT_TOOL="acm"; fi
+        SNAPSHOT_TAG=`cat Z_RELEASE_VERSION`-$SNAPSHOT-`cat TAG`
+        tools/build/build-$WHAT_TOOL-bundle-image-and-catalog.sh -P -t $SNAPSHOT_TAG `cat Z_RELEASE_VERSION` ||  make simple-slack/send SLACK_MESSAGE=":$ICON: \`$PROJECT\` $WHAT_TOOL catalog failed for `cat Z_RELEASE_VERSION`: :red_circle: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID \`$COMMIT_MESSAGE\`"
+        # Clone the release repo at the designated release version so we can commit our generated build artifacts at this snapshot level
+        git clone -b $PROJECT-`cat RELEASE_VERSION` https://${GITHUB_USER}:${GITHUB_TOKEN}@github.com/open-cluster-management/release.git snapshot
+        cd snapshot
+        rm -rf ./operator-bundles
+        mkdir ./operator-bundles
+        cp -R ../operator-bundles/* ./operator-bundles/
+        git add operator-bundles
+        git commit -am "Add snapshot `cat ../TAG` to $PROJECT-`cat RELEASE_VERSION` `cat ../Z_RELEASE_VERSION` [skip ci]"
+        git push
+
