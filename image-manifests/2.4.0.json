@@ -375,7 +375,7 @@
     "git-sha256": "0ed36ff93e95ba5706d174467eaf7a88d7ff80c7",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:36e9e82afe680b5ec840bebee2fabd25f3f58738edda7dcb8409f4539730c2ba",
+    "image-digest": "sha256:9434daadb3421edd0ca4fadd759e6ff83d90fbdee32daadee1355afd7168fd50",
     "image-key": "helloworld"
   },
   {
@@ -622,12 +622,12 @@
   {
     "image-name": "multiclusterhub-repo",
     "image-version": "2.4",
-    "image-tag": "2.4-1b0986336acc8ed40a540add6d990d205c212b6a",
-    "git-sha256": "1b0986336acc8ed40a540add6d990d205c212b6a",
+    "image-tag": "2.4-b0b9bd659f1d7132e949365ada8e0214b429e30b",
+    "git-sha256": "b0b9bd659f1d7132e949365ada8e0214b429e30b",
     "git-repository": "open-cluster-management/multiclusterhub-repo",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:b55484eb56e6ea0837bc27c22e509a5d7f845b6ddf8ffcc92b8887fdc258f76e",
+    "image-digest": "sha256:7c1dbf98c73d7945262699547446ad237b5b36e98db533d259dc6d04847fb232",
     "image-key": "multiclusterhub_repo"
   },
   {
