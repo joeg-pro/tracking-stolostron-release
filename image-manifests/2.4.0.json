@@ -375,7 +375,7 @@
     "git-sha256": "0ed36ff93e95ba5706d174467eaf7a88d7ff80c7",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:9434daadb3421edd0ca4fadd759e6ff83d90fbdee32daadee1355afd7168fd50",
+    "image-digest": "sha256:085c4e549157f0c78686da4326fe3fc1f37eece816280741cf7693e5501597ac",
     "image-key": "helloworld"
   },
   {
@@ -424,12 +424,12 @@
   {
     "image-name": "klusterlet-addon-controller",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-48c75d186cce79c6adb171802aac0df5d8dd77c9",
-    "git-sha256": "48c75d186cce79c6adb171802aac0df5d8dd77c9",
+    "image-tag": "2.4.0-5136fdeaf218e2afacb1a8d1e9bb198e122c225d",
+    "git-sha256": "5136fdeaf218e2afacb1a8d1e9bb198e122c225d",
     "git-repository": "open-cluster-management/klusterlet-addon-controller",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:dad60b1955da695667374f2debf81bd250eb14ec8afbae60758d38b07b8c1092",
+    "image-digest": "sha256:fd4d12bd8ca870c2596c44f0660a6d1d5b608399d1383b6e40dd32d11d445bc8",
     "image-key": "klusterlet_addon_controller"
   },
   {
