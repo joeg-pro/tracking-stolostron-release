@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-10-23T00:23:43Z'
+    createdAt: '2021-10-25T06:36:51Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clusterprovisions.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
-      "clusterdeprovisions.hive.openshift.io", "clusterstates.hive.openshift.io", "checkpoints.hive.openshift.io",
-      "machinepoolnameleases.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "clustersyncleases.hiveinternal.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["checkpoints.hive.openshift.io", "clusterdeprovisions.hive.openshift.io",
+      "clustersyncleases.hiveinternal.openshift.io", "observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io",
+      "machinepoolnameleases.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io",
+      "fakeclusterinstalls.hiveinternal.openshift.io", "clusterstates.hive.openshift.io"]'
     olm.skipRange: '>=2.3.0 <2.4.0'
   name: advanced-cluster-management.v2.4.0
   namespace: placeholder
@@ -1788,7 +1788,7 @@ spec:
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/open-cluster-management/helloworld@sha256:9434daadb3421edd0ca4fadd759e6ff83d90fbdee32daadee1355afd7168fd50
+                  value: quay.io/open-cluster-management/helloworld@sha256:085c4e549157f0c78686da4326fe3fc1f37eece816280741cf7693e5501597ac
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
                   value: quay.io/open-cluster-management/hive@sha256:c145d3ed317d767dda1a382bfeb1ede751651ef7621464357f730f2df9d3f5f9
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
@@ -1798,7 +1798,7 @@ spec:
                 - name: OPERAND_IMAGE_INSIGHTS_METRICS
                   value: quay.io/open-cluster-management/insights-metrics@sha256:e81351a5b06b41ef338357ddcc51f731591aa6ad52e8a9d7df34c80b5d4438b6
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_CONTROLLER
-                  value: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:dad60b1955da695667374f2debf81bd250eb14ec8afbae60758d38b07b8c1092
+                  value: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:fd4d12bd8ca870c2596c44f0660a6d1d5b608399d1383b6e40dd32d11d445bc8
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_OPERATOR
                   value: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:02baad13fd65822a8705f529d5f326b6705dab36f375688a40050461f7024020
                 - name: OPERAND_IMAGE_KUBE_RBAC_PROXY
@@ -2722,7 +2722,7 @@ spec:
   - name: helloprow_go
     image: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
   - name: helloworld
-    image: quay.io/open-cluster-management/helloworld@sha256:9434daadb3421edd0ca4fadd759e6ff83d90fbdee32daadee1355afd7168fd50
+    image: quay.io/open-cluster-management/helloworld@sha256:085c4e549157f0c78686da4326fe3fc1f37eece816280741cf7693e5501597ac
   - name: iam_policy_controller
     image: quay.io/open-cluster-management/iam-policy-controller@sha256:22967bfed725755a36fd423c756c6257bb88f36eb3f425d0186998e2961bb2da
   - name: insights_client
@@ -2730,7 +2730,7 @@ spec:
   - name: insights_metrics
     image: quay.io/open-cluster-management/insights-metrics@sha256:e81351a5b06b41ef338357ddcc51f731591aa6ad52e8a9d7df34c80b5d4438b6
   - name: klusterlet_addon_controller
-    image: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:dad60b1955da695667374f2debf81bd250eb14ec8afbae60758d38b07b8c1092
+    image: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:fd4d12bd8ca870c2596c44f0660a6d1d5b608399d1383b6e40dd32d11d445bc8
   - name: klusterlet_addon_operator
     image: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:02baad13fd65822a8705f529d5f326b6705dab36f375688a40050461f7024020
   - name: kube_rbac_proxy
