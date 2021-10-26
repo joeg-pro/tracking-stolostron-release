@@ -61,7 +61,7 @@ if [[ ! -f "$ocp_vers_in_scripts_repo" ]]; then
    echo "ERROR: OCP versions file ($ocp_vers_in_scripts_repo) does not exist."
    exit 2
 fi
-ocp_versions=$(cat "$ocp_vers_in_scripts_repoe")
+ocp_versions=$(cat "$ocp_vers_in_scripts_repo")
 
 # Make sure there are no remnants from previous runs.  This also gets rid of any
 # dummy/placehoders in the repo needed to make change-set verificaton pass.
