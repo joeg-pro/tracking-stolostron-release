@@ -96,12 +96,12 @@
   {
     "image-name": "cert-policy-controller",
     "image-version": "3.8.0",
-    "image-tag": "3.8.0-c7fd506b39f8c66f95e6ab69b26c9fdaae4c04d0",
-    "git-sha256": "c7fd506b39f8c66f95e6ab69b26c9fdaae4c04d0",
+    "image-tag": "3.8.0-f712a30096681aa1ab248f06bece9d507e16b8a2",
+    "git-sha256": "f712a30096681aa1ab248f06bece9d507e16b8a2",
     "git-repository": "open-cluster-management/cert-policy-controller",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:347e111334fc14c62ce89369c5ebf798808fa6990c8322fdd18ae430f4a773e5",
+    "image-digest": "sha256:5cd6262d61db22aea406e980c7fb1e0e78a20ac9791e0cbfb1c0026002db1117",
     "image-key": "cert_policy_controller"
   },
   {
@@ -375,7 +375,7 @@
     "git-sha256": "0ed36ff93e95ba5706d174467eaf7a88d7ff80c7",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:86c0bb1fb5f55560481f6717b103acdd4a99229dda82bee9da75d9a2fd2f645a",
+    "image-digest": "sha256:4ba25d5f6a68577de0183eea004efd2830725621ff999510a3a30576ae93b69d",
     "image-key": "helloworld"
   },
   {
