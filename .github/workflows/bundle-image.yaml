@@ -16,6 +16,7 @@ jobs:
       QUAY_TOKEN: ${{ secrets.QUAY_API_TOKEN }}
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+      ICON: rhacm4kube
 
     steps:
     - name: Check out code
