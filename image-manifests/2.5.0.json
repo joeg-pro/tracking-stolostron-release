@@ -217,12 +217,12 @@
   {
     "image-name": "discovery-operator-tests",
     "image-version": "0.2",
-    "image-tag": "0.2-c51bd18d1836343a9b7430e7de7cb9ebc9a85cec",
-    "git-sha256": "c51bd18d1836343a9b7430e7de7cb9ebc9a85cec",
+    "image-tag": "0.2-74c6f43c409be12695cfb685e773d1c6274b56b1",
+    "git-sha256": "74c6f43c409be12695cfb685e773d1c6274b56b1",
     "git-repository": "open-cluster-management/discovery",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:0519ec8727a391920373bcddb1cebeeaf7a6db04d830296da007a43f2ea6e47b",
+    "image-digest": "sha256:06ff74b5b61e8ddd488e47f2444ddcb6cbefd6a9a086eeb04ddba8c1ed25380d",
     "image-key": "discovery_operator_tests"
   },
   {
@@ -599,13 +599,13 @@
   },
   {
     "image-name": "multiclusterhub-operator",
-    "image-version": "2.4.0",
-    "image-tag": "2.4.0-453735fd38c494f48d1d9ac5191ba8cab9b34f7b",
-    "git-sha256": "453735fd38c494f48d1d9ac5191ba8cab9b34f7b",
+    "image-version": "2.5.0",
+    "image-tag": "2.5.0-b6cba4255f17416c62b889e9efc87b95e7474f35",
+    "git-sha256": "b6cba4255f17416c62b889e9efc87b95e7474f35",
     "git-repository": "open-cluster-management/multiclusterhub-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:6c07f760919c4275b74fe4356e19066befea191a92ce3f91e796384232a1f309",
+    "image-digest": "sha256:38572bd3087010560d4f4f72ed2cba5489ff825e82e78f75ed7823f37588ac5b",
     "image-key": "multiclusterhub_operator"
   },
   {
