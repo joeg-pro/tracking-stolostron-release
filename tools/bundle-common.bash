@@ -359,8 +359,14 @@ function gen_bound_bundle {
    local -nr l_explicit_default_channel="$7"
    local -nr l_explicit_prev_csv_vers="$8"
    local -nr l_skip_list="$9"
-   local -nr l_suppress_all_repl_graph_properties="$10"
-   local -nr l_red_hat_downstream="$11"
+
+   # Since Bash only allows "$n" notation for args 1-9, shift those out so
+   # we can get to the remaining ones.
+
+   shift 9
+
+   local -nr l_suppress_all_repl_graph_properties="$1"
+   local -nr l_red_hat_downstream="$2"
 
    #--- Input variable validation ---
 
