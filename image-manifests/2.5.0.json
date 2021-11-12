@@ -239,12 +239,12 @@
   {
     "image-name": "endpoint-monitoring-operator",
     "image-version": "2.5",
-    "image-tag": "2.5-ec6fd16d00196b01cb1b3f5f3f4b450a31d0864c",
-    "git-sha256": "ec6fd16d00196b01cb1b3f5f3f4b450a31d0864c",
+    "image-tag": "2.5-ce10231ab4e65d42ac4ce274b69dabf0a8a9ceda",
+    "git-sha256": "ce10231ab4e65d42ac4ce274b69dabf0a8a9ceda",
     "git-repository": "open-cluster-management/multicluster-observability-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:2f3745c4ceaaee7d85a5945818b3d7e80cdd736f26f53a0e0b5e3dd9e5e1c52b",
+    "image-digest": "sha256:5c6afd1631f3b167c1ee1ab86761765e2ad62d28dc550328a5e07af0df75121d",
     "image-key": "endpoint_monitoring_operator"
   },
   {
@@ -272,12 +272,12 @@
   {
     "image-name": "governance-policy-status-sync",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-fd82192f7a3f01d2e6b2b4430a19a0fe97f10eb0",
-    "git-sha256": "fd82192f7a3f01d2e6b2b4430a19a0fe97f10eb0",
+    "image-tag": "1.0.0-d450428e8a07a03d18ff9ac973544809f9e9d551",
+    "git-sha256": "d450428e8a07a03d18ff9ac973544809f9e9d551",
     "git-repository": "open-cluster-management/governance-policy-status-sync",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:026c8ed8f09fef25e8c2895de91187c0fd80c17832473462509ffa5fedff341c",
+    "image-digest": "sha256:daadfa37f7a0c7445d2ce7e52129f92e69865aec04b571d863d4d7fd6265d9ae",
     "image-key": "governance_policy_status_sync"
   },
   {
