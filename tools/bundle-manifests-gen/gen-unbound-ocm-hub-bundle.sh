@@ -134,6 +134,7 @@ if [[ "$rel_x" -ge 2 ]]; then
       supported_op_syss+=("linux")
       supported_archs+=("amd64")
       supported_archs+=("ppc64le")
+      supported_archs+=("s390x")
    fi
 fi
 
