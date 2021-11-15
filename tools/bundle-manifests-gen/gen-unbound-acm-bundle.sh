@@ -171,6 +171,8 @@ if [[ "$rel_x" -ge 2 ]]; then
       supported_op_syss+=("linux")
       supported_archs+=("amd64")
       supported_archs+=("ppc64le")
+   fi
+   if [[ "$rel_y" -ge 4 ]]; then
       supported_archs+=("s390x")
    fi
 fi
