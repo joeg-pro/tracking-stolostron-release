@@ -3,42 +3,41 @@ kind: ClusterServiceVersion
 metadata:
   annotations:
     alm-examples: '[{"apiVersion": "operator.open-cluster-management.io/v1", "kind": "MultiClusterHub",
-      "metadata": {"name": "multiclusterhub", "namespace": "open-cluster-management"}, "spec": {"imagePullSecret":
-      "multiclusterhub-operator-pull-secret"}}, {"apiVersion": "operator.open-cluster-management.io/v1",
-      "kind": "ClusterManager", "metadata": {"name": "cluster-manager"}, "spec": {"placementImagePullSpec":
-      "quay.io/open-cluster-management/placement", "registrationImagePullSpec": "quay.io/open-cluster-management/registration",
-      "workImagePullSpec": "quay.io/open-cluster-management/work"}}, {"apiVersion": "observability.open-cluster-management.io/v1beta1",
+      "metadata": {"name": "multiclusterhub", "namespace": "open-cluster-management"}, "spec": {}}, {"apiVersion":
+      "operator.open-cluster-management.io/v1", "kind": "ClusterManager", "metadata": {"name": "cluster-manager"},
+      "spec": {"placementImagePullSpec": "quay.io/open-cluster-management/placement", "registrationImagePullSpec":
+      "quay.io/open-cluster-management/registration", "workImagePullSpec": "quay.io/open-cluster-management/work"}},
+      {"apiVersion": "observability.open-cluster-management.io/v1beta1", "kind": "MultiClusterObservability",
+      "metadata": {"name": "observability"}, "spec": {"observabilityAddonSpec": {}, "storageConfigObject":
+      {"metricObjectStorage": {"key": "thanos.yaml", "name": "thanos-object-storage"}}}}, {"apiVersion":
+      "observability.open-cluster-management.io/v1beta1", "kind": "ObservabilityAddon", "metadata": {"name":
+      "observability-addon"}, "spec": {"enableMetrics": true, "interval": 30}}, {"apiVersion": "observability.open-cluster-management.io/v1beta2",
       "kind": "MultiClusterObservability", "metadata": {"name": "observability"}, "spec": {"observabilityAddonSpec":
-      {}, "storageConfigObject": {"metricObjectStorage": {"key": "thanos.yaml", "name": "thanos-object-storage"}}}},
-      {"apiVersion": "observability.open-cluster-management.io/v1beta1", "kind": "ObservabilityAddon",
-      "metadata": {"name": "observability-addon"}, "spec": {"enableMetrics": true, "interval": 30}}, {"apiVersion":
-      "observability.open-cluster-management.io/v1beta2", "kind": "MultiClusterObservability", "metadata":
-      {"name": "observability"}, "spec": {"observabilityAddonSpec": {}, "storageConfig": {"metricObjectStorage":
-      {"key": "thanos.yaml", "name": "thanos-object-storage"}}}}, {"apiVersion": "apps.open-cluster-management.io/v1",
-      "kind": "Channel", "metadata": {"name": "dev-helmrepo"}, "spec": {"type": "HelmRepo", "pathname":
-      "http://kubernetes-charts.storage.googleapis.com/"}, "status": {"state": "N/A"}}, {"apiVersion":
-      "apps.open-cluster-management.io/v1", "kind": "Subscription", "metadata": {"name": "sub-nginx"},
-      "spec": {"channel": "ns-ch/predev-ch", "name": "nginx-ingress", "packageFilter": {"version": "=1.26.1"},
-      "packageOverrides": [{"packageAlias": "nginx-ingress", "packageName": "nginx-ingress", "packageOverrides":
-      [{"path": "spec", "value": {"defaultBackend": {"replicaCount": 3}}}]}], "placement": {"local": true}}},
-      {"apiVersion": "hive.openshift.io/v1", "kind": "HiveConfig", "metadata": {"name": "hive"}, "spec":
-      {"managedDomains": [{"aws": {"credentialsSecretRef": {"name": "my-route53-creds"}}, "domains": ["my-base-domain.example.com"]}]}}]'
+      {}, "storageConfig": {"metricObjectStorage": {"key": "thanos.yaml", "name": "thanos-object-storage"}}}},
+      {"apiVersion": "apps.open-cluster-management.io/v1", "kind": "Channel", "metadata": {"name": "dev-helmrepo"},
+      "spec": {"type": "HelmRepo", "pathname": "http://kubernetes-charts.storage.googleapis.com/"}, "status":
+      {"state": "N/A"}}, {"apiVersion": "apps.open-cluster-management.io/v1", "kind": "Subscription",
+      "metadata": {"name": "sub-nginx"}, "spec": {"channel": "ns-ch/predev-ch", "name": "nginx-ingress",
+      "packageFilter": {"version": "=1.26.1"}, "packageOverrides": [{"packageAlias": "nginx-ingress",
+      "packageName": "nginx-ingress", "packageOverrides": [{"path": "spec", "value": {"defaultBackend":
+      {"replicaCount": 3}}}]}], "placement": {"local": true}}}, {"apiVersion": "hive.openshift.io/v1",
+      "kind": "HiveConfig", "metadata": {"name": "hive"}, "spec": {"managedDomains": [{"aws": {"credentialsSecretRef":
+      {"name": "my-route53-creds"}}, "domains": ["my-base-domain.example.com"]}]}}]'
     capabilities: Seamless Upgrades
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-11-15T17:10:39Z'
+    createdAt: '2021-11-15T18:59:25Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["fakeclusterinstalls.hiveinternal.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "clustersyncleases.hiveinternal.openshift.io",
-      "checkpoints.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "clusterdeprovisions.hive.openshift.io",
-      "clusterprovisions.hive.openshift.io", "clusterstates.hive.openshift.io", "observatoria.core.observatorium.io",
-      "machinepoolnameleases.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["clusterprovisions.hive.openshift.io", "machinepoolnameleases.hive.openshift.io",
+      "observabilityaddons.observability.open-cluster-management.io", "observatoria.core.observatorium.io",
+      "checkpoints.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "clusterstates.hive.openshift.io",
+      "clusterdeprovisions.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:

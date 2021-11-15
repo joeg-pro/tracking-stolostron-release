@@ -3,42 +3,41 @@ kind: ClusterServiceVersion
 metadata:
   annotations:
     alm-examples: '[{"apiVersion": "operator.open-cluster-management.io/v1", "kind": "MultiClusterHub",
-      "metadata": {"name": "multiclusterhub", "namespace": "open-cluster-management"}, "spec": {"imagePullSecret":
-      "multiclusterhub-operator-pull-secret"}}, {"apiVersion": "operator.open-cluster-management.io/v1",
-      "kind": "ClusterManager", "metadata": {"name": "cluster-manager"}, "spec": {"placementImagePullSpec":
-      "quay.io/open-cluster-management/placement", "registrationImagePullSpec": "quay.io/open-cluster-management/registration",
-      "workImagePullSpec": "quay.io/open-cluster-management/work"}}, {"apiVersion": "observability.open-cluster-management.io/v1beta1",
+      "metadata": {"name": "multiclusterhub", "namespace": "open-cluster-management"}, "spec": {}}, {"apiVersion":
+      "operator.open-cluster-management.io/v1", "kind": "ClusterManager", "metadata": {"name": "cluster-manager"},
+      "spec": {"placementImagePullSpec": "quay.io/open-cluster-management/placement", "registrationImagePullSpec":
+      "quay.io/open-cluster-management/registration", "workImagePullSpec": "quay.io/open-cluster-management/work"}},
+      {"apiVersion": "observability.open-cluster-management.io/v1beta1", "kind": "MultiClusterObservability",
+      "metadata": {"name": "observability"}, "spec": {"observabilityAddonSpec": {}, "storageConfigObject":
+      {"metricObjectStorage": {"key": "thanos.yaml", "name": "thanos-object-storage"}}}}, {"apiVersion":
+      "observability.open-cluster-management.io/v1beta1", "kind": "ObservabilityAddon", "metadata": {"name":
+      "observability-addon"}, "spec": {"enableMetrics": true, "interval": 30}}, {"apiVersion": "observability.open-cluster-management.io/v1beta2",
       "kind": "MultiClusterObservability", "metadata": {"name": "observability"}, "spec": {"observabilityAddonSpec":
-      {}, "storageConfigObject": {"metricObjectStorage": {"key": "thanos.yaml", "name": "thanos-object-storage"}}}},
-      {"apiVersion": "observability.open-cluster-management.io/v1beta1", "kind": "ObservabilityAddon",
-      "metadata": {"name": "observability-addon"}, "spec": {"enableMetrics": true, "interval": 30}}, {"apiVersion":
-      "observability.open-cluster-management.io/v1beta2", "kind": "MultiClusterObservability", "metadata":
-      {"name": "observability"}, "spec": {"observabilityAddonSpec": {}, "storageConfig": {"metricObjectStorage":
-      {"key": "thanos.yaml", "name": "thanos-object-storage"}}}}, {"apiVersion": "apps.open-cluster-management.io/v1",
-      "kind": "Channel", "metadata": {"name": "dev-helmrepo"}, "spec": {"type": "HelmRepo", "pathname":
-      "http://kubernetes-charts.storage.googleapis.com/"}, "status": {"state": "N/A"}}, {"apiVersion":
-      "apps.open-cluster-management.io/v1", "kind": "Subscription", "metadata": {"name": "sub-nginx"},
-      "spec": {"channel": "ns-ch/predev-ch", "name": "nginx-ingress", "packageFilter": {"version": "=1.26.1"},
-      "packageOverrides": [{"packageAlias": "nginx-ingress", "packageName": "nginx-ingress", "packageOverrides":
-      [{"path": "spec", "value": {"defaultBackend": {"replicaCount": 3}}}]}], "placement": {"local": true}}},
-      {"apiVersion": "hive.openshift.io/v1", "kind": "HiveConfig", "metadata": {"name": "hive"}, "spec":
-      {"managedDomains": [{"aws": {"credentialsSecretRef": {"name": "my-route53-creds"}}, "domains": ["my-base-domain.example.com"]}]}}]'
+      {}, "storageConfig": {"metricObjectStorage": {"key": "thanos.yaml", "name": "thanos-object-storage"}}}},
+      {"apiVersion": "apps.open-cluster-management.io/v1", "kind": "Channel", "metadata": {"name": "dev-helmrepo"},
+      "spec": {"type": "HelmRepo", "pathname": "http://kubernetes-charts.storage.googleapis.com/"}, "status":
+      {"state": "N/A"}}, {"apiVersion": "apps.open-cluster-management.io/v1", "kind": "Subscription",
+      "metadata": {"name": "sub-nginx"}, "spec": {"channel": "ns-ch/predev-ch", "name": "nginx-ingress",
+      "packageFilter": {"version": "=1.26.1"}, "packageOverrides": [{"packageAlias": "nginx-ingress",
+      "packageName": "nginx-ingress", "packageOverrides": [{"path": "spec", "value": {"defaultBackend":
+      {"replicaCount": 3}}}]}], "placement": {"local": true}}}, {"apiVersion": "hive.openshift.io/v1",
+      "kind": "HiveConfig", "metadata": {"name": "hive"}, "spec": {"managedDomains": [{"aws": {"credentialsSecretRef":
+      {"name": "my-route53-creds"}}, "domains": ["my-base-domain.example.com"]}]}}]'
     capabilities: Seamless Upgrades
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-11-15T17:10:42Z'
+    createdAt: '2021-11-15T18:59:27Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["fakeclusterinstalls.hiveinternal.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "clustersyncleases.hiveinternal.openshift.io",
-      "checkpoints.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "clusterdeprovisions.hive.openshift.io",
-      "clusterprovisions.hive.openshift.io", "clusterstates.hive.openshift.io", "observatoria.core.observatorium.io",
-      "machinepoolnameleases.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["clusterprovisions.hive.openshift.io", "machinepoolnameleases.hive.openshift.io",
+      "observabilityaddons.observability.open-cluster-management.io", "observatoria.core.observatorium.io",
+      "checkpoints.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "clusterstates.hive.openshift.io",
+      "clusterdeprovisions.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1831,9 +1830,9 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION_RELEASE
                   value: quay.io/open-cluster-management/multicluster-operators-subscription-release@sha256:e3f3aaf60219d38fcf7d3d999df954ec4cc02b85948b4d26253c19a52be54e83
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR
-                  value: quay.io/open-cluster-management/multiclusterhub-operator@sha256:cd590bb26285163dd0ab2bd72e8146c8a3ca1fea1f6c385967d7e9fee0b30313
+                  value: quay.io/open-cluster-management/multiclusterhub-operator@sha256:a0d607ec1ec9b6502374ef43a059438074b72e6be0ea751a44640b21ad5ac604
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
-                  value: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:d4990245b89cd7a49178a9042953c79dc71782e8c71b37cc11bf3c7012bec68c
+                  value: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:5382f30de9322b0fba6a168a2be25854627944ec3f406a67466aeae9f9b77a27
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
                   value: quay.io/open-cluster-management/multiclusterhub-repo@sha256:d3427d9b12b909abc5297fac8fee53368bd9f9eb3f3602e62a7fe55b265ca890
                 - name: OPERAND_IMAGE_MUST_GATHER
@@ -1892,7 +1891,7 @@ spec:
                   value: quay.io/open-cluster-management/volsync-mover-rsync@sha256:ff296e3dc3b20841d4533676f49c2811e7acb8c08c522cd2cd9dade542c05741
                 - name: OPERAND_IMAGE_WORK
                   value: quay.io/open-cluster-management/work@sha256:c258ca73ede98ee09f94de30cd551086353fb99810a7ab3cb5da8ac8a7d79eba
-                image: quay.io/open-cluster-management/multiclusterhub-operator@sha256:cd590bb26285163dd0ab2bd72e8146c8a3ca1fea1f6c385967d7e9fee0b30313
+                image: quay.io/open-cluster-management/multiclusterhub-operator@sha256:a0d607ec1ec9b6502374ef43a059438074b72e6be0ea751a44640b21ad5ac604
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -2749,7 +2748,7 @@ spec:
   - name: multicluster_operators_subscription_release
     image: quay.io/open-cluster-management/multicluster-operators-subscription-release@sha256:e3f3aaf60219d38fcf7d3d999df954ec4cc02b85948b4d26253c19a52be54e83
   - name: multiclusterhub_operator_tests
-    image: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:d4990245b89cd7a49178a9042953c79dc71782e8c71b37cc11bf3c7012bec68c
+    image: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:5382f30de9322b0fba6a168a2be25854627944ec3f406a67466aeae9f9b77a27
   - name: multiclusterhub_repo
     image: quay.io/open-cluster-management/multiclusterhub-repo@sha256:d3427d9b12b909abc5297fac8fee53368bd9f9eb3f3602e62a7fe55b265ca890
   - name: must_gather
