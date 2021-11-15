@@ -3,23 +3,22 @@ kind: ClusterServiceVersion
 metadata:
   annotations:
     alm-examples: '[{"apiVersion": "operator.open-cluster-management.io/v1", "kind": "MultiClusterHub",
-      "metadata": {"name": "multiclusterhub", "namespace": "open-cluster-management"}, "spec": {"imagePullSecret":
-      "multiclusterhub-operator-pull-secret"}}, {"apiVersion": "operator.open-cluster-management.io/v1",
-      "kind": "ClusterManager", "metadata": {"name": "cluster-manager"}, "spec": {"placementImagePullSpec":
-      "quay.io/open-cluster-management/placement", "registrationImagePullSpec": "quay.io/open-cluster-management/registration",
-      "workImagePullSpec": "quay.io/open-cluster-management/work"}}, {"apiVersion": "observability.open-cluster-management.io/v1beta1",
+      "metadata": {"name": "multiclusterhub", "namespace": "open-cluster-management"}, "spec": {}}, {"apiVersion":
+      "operator.open-cluster-management.io/v1", "kind": "ClusterManager", "metadata": {"name": "cluster-manager"},
+      "spec": {"placementImagePullSpec": "quay.io/open-cluster-management/placement", "registrationImagePullSpec":
+      "quay.io/open-cluster-management/registration", "workImagePullSpec": "quay.io/open-cluster-management/work"}},
+      {"apiVersion": "observability.open-cluster-management.io/v1beta1", "kind": "MultiClusterObservability",
+      "metadata": {"name": "observability"}, "spec": {"observabilityAddonSpec": {}, "storageConfigObject":
+      {"metricObjectStorage": {"key": "thanos.yaml", "name": "thanos-object-storage"}}}}, {"apiVersion":
+      "observability.open-cluster-management.io/v1beta1", "kind": "ObservabilityAddon", "metadata": {"name":
+      "observability-addon"}, "spec": {"enableMetrics": true, "interval": 30}}, {"apiVersion": "observability.open-cluster-management.io/v1beta2",
       "kind": "MultiClusterObservability", "metadata": {"name": "observability"}, "spec": {"observabilityAddonSpec":
-      {}, "storageConfigObject": {"metricObjectStorage": {"key": "thanos.yaml", "name": "thanos-object-storage"}}}},
-      {"apiVersion": "observability.open-cluster-management.io/v1beta1", "kind": "ObservabilityAddon",
-      "metadata": {"name": "observability-addon"}, "spec": {"enableMetrics": true, "interval": 30}}, {"apiVersion":
-      "observability.open-cluster-management.io/v1beta2", "kind": "MultiClusterObservability", "metadata":
-      {"name": "observability"}, "spec": {"observabilityAddonSpec": {}, "storageConfig": {"metricObjectStorage":
-      {"key": "thanos.yaml", "name": "thanos-object-storage"}}}}]'
+      {}, "storageConfig": {"metricObjectStorage": {"key": "thanos.yaml", "name": "thanos-object-storage"}}}}]'
     capabilities: Basic Install
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-11-15T18:06:25Z'
+    createdAt: '2021-11-15T21:22:38Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
       "observatoria.core.observatorium.io"]'
