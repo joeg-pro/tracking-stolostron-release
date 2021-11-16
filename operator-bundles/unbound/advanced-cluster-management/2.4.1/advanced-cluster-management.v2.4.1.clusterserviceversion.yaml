@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-11-16T14:19:10Z'
+    createdAt: '2021-11-16T14:29:00Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clustersyncs.hiveinternal.openshift.io", "machinepoolnameleases.hive.openshift.io",
-      "clusterdeprovisions.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "clusterstates.hive.openshift.io",
-      "observatoria.core.observatorium.io", "checkpoints.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
-      "fakeclusterinstalls.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["clusterdeprovisions.hive.openshift.io", "observatoria.core.observatorium.io",
+      "clusterstates.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io", "checkpoints.hive.openshift.io",
+      "clusterprovisions.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "machinepoolnameleases.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "clustersyncleases.hiveinternal.openshift.io"]'
   name: advanced-cluster-management.v2.4.1
   namespace: placeholder
   labels:
