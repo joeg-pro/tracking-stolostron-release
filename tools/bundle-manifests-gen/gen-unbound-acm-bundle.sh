@@ -50,14 +50,27 @@ prev_csv_vers="$2"
 # just hacked in a temporary bypass, but this is getting to be a theme so we make
 # this a bit fancier.
 
-appsub_use_previous_release_channel_override=1
-hive_use_previous_release_channel_override=1
-# if [[ "$new_csv_vers" == "99.99.99" ]]; then
-#    appsub_use_previous_release_channel_override=1
-# fi
+appsub_use_previous_release_channel_override=0
+hive_use_previous_release_channel_override=0
+if [[ "$new_csv_vers" == "2.5.0" ]]; then
+   appsub_use_previous_release_channel_override=1
+   hive_use_previous_release_channel_override=0
+fi
 
 parse_release_nr "$new_csv_vers"
 # Sets rel_x, rel_y, etc.
+
+# Starting with ACM 2.5, ACM reliese on MCE so we drop from ACM those
+# components that are now provided by MCE.
+
+using_mce=1
+if [[ $rel_x -le 2 ]] && [[ $rel_y -lt 5 ]]; then
+   using_mce=0
+fi
+# TEMPORARY:
+if [[ "$ACM_BUILDING_99_BRANCH" != "1" ]]; then
+   using_mce=0
+fi
 
 ## Not currently pinned: app_sub_source_csv_vers="x.y.z"
 ## Not currently pinned: hive_source_csv_vers="x.y.z"
@@ -146,17 +159,21 @@ fi
 # up the bundle the stashed-bundles directory in this repo rather than from the
 # community operators repo.
 
-if [[ "$rel_xy" == "2.0" ]]; then
-   echo "WARN: Using a stashed copy of the Hive 1.0.5 bundle."
-   bundle_names+=("Hive")
-   bundle_dirs["Hive"]="$top_of_repo/stashed-bundles/hive-1.0.5"
-else
-   locate_community_operator "Hive" "hive-operator" "ocm" "$rel_xy" \
-      "${hive_source_csv_vers:-none}" "${hive_use_previous_release_channel_override:-0}"
-   rc=$?
-   if [[ $rc -ne 0 ]]; then
-      # locate_community_operator has already blurted an error msg.
-      exit $rc
+# From ACM 1.0 to 2.4:
+if [[ $using_mce -eq 0 ]]; then
+   if [[ "$rel_xy" == "2.0" ]]; then
+      echo "WARN: Using a stashed copy of the Hive 1.0.5 bundle."
+      bundle_names+=("Hive")
+      bundle_dirs["Hive"]="$top_of_repo/stashed-bundles/hive-1.0.5"
+   else
+
+      locate_community_operator "Hive" "hive-operator" "ocm" "$rel_xy" \
+         "${hive_source_csv_vers:-none}" "${hive_use_previous_release_channel_override:-0}"
+      rc=$?
+      if [[ $rc -ne 0 ]]; then
+         # locate_community_operator has already blurted an error msg.
+         exit $rc
+      fi
    fi
 fi
 

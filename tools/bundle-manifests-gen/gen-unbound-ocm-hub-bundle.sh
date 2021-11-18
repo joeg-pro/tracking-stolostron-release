@@ -58,6 +58,18 @@ parse_release_nr "$new_csv_vers"
 
 rel_xy_branch="release-$rel_xy"
 
+# Starting with ACM 2.5, ACM reliese on MCE so we drop from ACM those
+# components that are now provided by MCE.
+
+using_mce=1
+if [[ $rel_x -le 2 ]] && [[ $rel_y -lt 5 ]]; then
+   using_mce=0
+fi
+# TEMPORARY:
+if [[ "$ACM_BUILDING_99_BRANCH" != "1" ]]; then
+   using_mce=0
+fi
+
 # Manage our temp directories
 
 rm -rf "$tmp_dir"
@@ -77,7 +89,6 @@ declare -A bundle_dirs
 
 # Since ACM 1.0:
 
-
  # Bundle moved to new standard location in ACM 2.4:
 if [[ "$rel_x" -ge 2 ]] && [[ "$rel_y" -ge 4 ]]; then
    hub_bundle_path="bundle/manifests"
@@ -91,9 +102,12 @@ locate_repo_operator "Base Hub" "open-cluster-management/multiclusterhub-operato
 
 if [[ "$rel_x" -ge 2 ]]; then
 
-   # Registration operator
-   locate_repo_operator "Cluster Manager" "open-cluster-management/registration-operator" \
-      "$rel_xy_branch" "deploy/cluster-manager/olm-catalog/cluster-manager/manifests"
+   # From ACM 2.0 to 2.4:
+   if [[ $using_mce -eq 0 ]]; then
+      # Registration operator
+      locate_repo_operator "Cluster Manager" "open-cluster-management/registration-operator" \
+         "$rel_xy_branch" "deploy/cluster-manager/olm-catalog/cluster-manager/manifests"
+   fi
 
    # Since ACM 2.1:
    if [[ "$rel_y" -ge 1 ]]; then

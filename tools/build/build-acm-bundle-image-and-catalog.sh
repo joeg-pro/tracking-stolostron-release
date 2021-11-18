@@ -26,6 +26,17 @@
 me=$(basename $0)
 my_dir=$(dirname $(readlink -f $0))
 
+# TEMPORARY
+starting_cwd="$PWD"
+cd "$my_dir"
+branch_name=$(git rev-parse --abbrev-ref HEAD)
+cd "$startubg_cwd"
+if [[ "$branch_name" == "release-9.9" ]]; then
+   export ACM_BUILDING_99_BRANCH=1
+   echo "NOTE: Configuring for build of special release-9.9 branch."
+fi
+# END TEMPORARY
+
 default_bundle_repo="acm-operator-bundle"
 default_catalog_repo="acm-custom-registry"
 

@@ -54,6 +54,18 @@ fi
 
 explicit_default_channel="$3"
 
+# Starting with ACM 2.5, ACM reliese on MCE so we drop from ACM those
+# components that are now provided by MCE.
+
+using_mce=1
+if [[ $rel_x -le 2 ]] && [[ $rel_y -lt 5 ]]; then
+   using_mce=0
+fi
+# TEMPORARY:
+if [[ "$ACM_BUILDING_99_BRANCH" != "1" ]]; then
+   using_mce=0
+fi
+
 # Define the list of image-key mappings for use in image pinning.
 
 # We add mappings to the list based on the release for which the components were added
@@ -70,13 +82,19 @@ image_key_mappings+=("multicluster-operators-subscription:multicluster_operators
 image_key_mappings+=("multicluster-operators-deployable:multicluster_operators_deployable")
 image_key_mappings+=("multicluster-operators-channel:multicluster_operators_channel")
 image_key_mappings+=("multicluster-operators-application:multicluster_operators_application")
-image_key_mappings+=("hive:openshift_hive")
+
+# From ACM 1.0 to 2.4:
+if [[ $using_mce -eq 0 ]]; then
+   image_key_mappings+=("hive:openshift_hive")
+fi
 
 # Since ACM 2.x:
 if [[ "$rel_x" -ge 2 ]]; then
 
-   # Since ACM 2.0:
-   image_key_mappings+=("registration-operator:registration_operator")
+   # From ACM 2.0 to 2.4:
+   if [[ $using_mce -eq 0 ]]; then
+      image_key_mappings+=("registration-operator:registration_operator")
+   fi
 
    # Since ACM 2.1:
    if [[ "$rel_y" -ge 1 ]]; then
