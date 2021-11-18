@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-11-17T22:36:49Z'
+    createdAt: '2021-11-18T03:52:49Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clusterdeprovisions.hive.openshift.io", "clusterstates.hive.openshift.io",
-      "clustersyncs.hiveinternal.openshift.io", "checkpoints.hive.openshift.io", "machinepoolnameleases.hive.openshift.io",
-      "fakeclusterinstalls.hiveinternal.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
-      "clustersyncleases.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io", "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["clusterprovisions.hive.openshift.io", "checkpoints.hive.openshift.io",
+      "observatoria.core.observatorium.io", "clustersyncs.hiveinternal.openshift.io", "clusterdeprovisions.hive.openshift.io",
+      "fakeclusterinstalls.hiveinternal.openshift.io", "machinepoolnameleases.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io",
+      "clusterstates.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: advanced-cluster-management.v2.4.1
   namespace: placeholder
   labels:
@@ -1788,9 +1788,9 @@ spec:
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/open-cluster-management/helloworld@sha256:1c2e6362f337a34e9f7a1a16be39d8b306db1ae45a8aea0c6a5662b8ca82ad91
+                  value: quay.io/open-cluster-management/helloworld@sha256:010ee7c1bd0781e1acac958f07fdaf03a3219b0f583f6322f234de8c6d01ad39
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
-                  value: quay.io/open-cluster-management/hive@sha256:c145d3ed317d767dda1a382bfeb1ede751651ef7621464357f730f2df9d3f5f9
+                  value: quay.io/open-cluster-management/hive@sha256:8ac21aa3a049fcf4e30d4136cac546e04567cee1531e4d5e86085752c4e9543e
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
                   value: quay.io/open-cluster-management/iam-policy-controller@sha256:22967bfed725755a36fd423c756c6257bb88f36eb3f425d0186998e2961bb2da
                 - name: OPERAND_IMAGE_INSIGHTS_CLIENT
@@ -2625,7 +2625,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.namespace
-                image: quay.io/open-cluster-management/hive@sha256:c145d3ed317d767dda1a382bfeb1ede751651ef7621464357f730f2df9d3f5f9
+                image: quay.io/open-cluster-management/hive@sha256:8ac21aa3a049fcf4e30d4136cac546e04567cee1531e4d5e86085752c4e9543e
                 imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
@@ -2722,7 +2722,7 @@ spec:
   - name: helloprow_go
     image: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
   - name: helloworld
-    image: quay.io/open-cluster-management/helloworld@sha256:1c2e6362f337a34e9f7a1a16be39d8b306db1ae45a8aea0c6a5662b8ca82ad91
+    image: quay.io/open-cluster-management/helloworld@sha256:010ee7c1bd0781e1acac958f07fdaf03a3219b0f583f6322f234de8c6d01ad39
   - name: iam_policy_controller
     image: quay.io/open-cluster-management/iam-policy-controller@sha256:22967bfed725755a36fd423c756c6257bb88f36eb3f425d0186998e2961bb2da
   - name: insights_client
