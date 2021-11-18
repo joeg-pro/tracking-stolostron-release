@@ -52,9 +52,6 @@ prev_csv_vers="$2"
 
 appsub_use_previous_release_channel_override=0
 hive_use_previous_release_channel_override=0
-if [[ "$new_csv_vers" == "2.5.0" ]]; then
-   hive_use_previous_release_channel_override=1
-fi
 
 parse_release_nr "$new_csv_vers"
 # Sets rel_x, rel_y, etc.
