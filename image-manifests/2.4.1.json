@@ -375,7 +375,7 @@
     "git-sha256": "79e97cd7e196f0ac6114e0cbed14f68b3c912231",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:3e54178547843cbee18ec2d57f44a477e8128861f7c6b0967fdcd29d2c23b1da",
+    "image-digest": "sha256:3f07fa94cd55ecc9c73bad7f7f4387afd40faa26d82e65e816a20ab552402e69",
     "image-key": "helloworld"
   },
   {
@@ -589,12 +589,12 @@
   {
     "image-name": "multicluster-operators-subscription-release",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-a494067c0da83e50a1c7f8eb0b3844b1de4e2deb",
-    "git-sha256": "a494067c0da83e50a1c7f8eb0b3844b1de4e2deb",
+    "image-tag": "2.4.0-e7d2b014bf94323a45505b6ef44922422eb30d9a",
+    "git-sha256": "e7d2b014bf94323a45505b6ef44922422eb30d9a",
     "git-repository": "open-cluster-management/multicloud-operators-subscription-release",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:e3f3aaf60219d38fcf7d3d999df954ec4cc02b85948b4d26253c19a52be54e83",
+    "image-digest": "sha256:b53092030be8dc65633b28fe3bbcbcdf0d5d543817eb41617171230f179e268a",
     "image-key": "multicluster_operators_subscription_release"
   },
   {
