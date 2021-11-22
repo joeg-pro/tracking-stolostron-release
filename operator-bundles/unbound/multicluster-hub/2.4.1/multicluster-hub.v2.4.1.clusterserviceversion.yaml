@@ -18,10 +18,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2021-11-22T19:01:20Z'
+    createdAt: '2021-11-22T19:55:54Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: multicluster-hub.v2.4.1
   namespace: placeholder
   labels:
@@ -1260,7 +1259,7 @@ spec:
                     fieldRef:
                       fieldPath: metadata.namespace
                 image: quay.io/open-cluster-management/multiclusterhub-operator:2.4.0
-                imagePullPolicy: Always
+                imagePullPolicy: IfNotPresent
                 livenessProbe:
                   httpGet:
                     path: /healthz
