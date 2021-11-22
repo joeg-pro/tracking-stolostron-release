@@ -375,7 +375,7 @@
     "git-sha256": "79e97cd7e196f0ac6114e0cbed14f68b3c912231",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:f20674935415ee222259f2b922a70aa078d997b3d02e24de49127592639f65ba",
+    "image-digest": "sha256:3e54178547843cbee18ec2d57f44a477e8128861f7c6b0967fdcd29d2c23b1da",
     "image-key": "helloworld"
   },
   {
@@ -567,12 +567,12 @@
   {
     "image-name": "multicluster-operators-placementrule",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-5fac6c25d2f6bbbdf691df8a9c28c189cb5abc20",
-    "git-sha256": "5fac6c25d2f6bbbdf691df8a9c28c189cb5abc20",
+    "image-tag": "2.4.0-be034e3a07533e04e4f59ba75e8b12804385db70",
+    "git-sha256": "be034e3a07533e04e4f59ba75e8b12804385db70",
     "git-repository": "open-cluster-management/multicloud-operators-placementrule",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:1348fd0c15b6b12dfe2449d38f87c11607a60d74e76b08693d1d50e7fe9718a0",
+    "image-digest": "sha256:3cd1daecef857fba9e13e01643156016b76910e8ac75b2fc492481afa6672435",
     "image-key": "multicluster_operators_placementrule"
   },
   {
