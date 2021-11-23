@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-11-23T14:41:02Z'
+    createdAt: '2021-11-23T14:45:44Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -35,9 +35,9 @@ metadata:
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
     operators.operatorframework.io/internal-objects: '["clustersyncleases.hiveinternal.openshift.io",
-      "clusterstates.hive.openshift.io", "clusterprovisions.hive.openshift.io", "clusterdeprovisions.hive.openshift.io",
-      "observatoria.core.observatorium.io", "fakeclusterinstalls.hiveinternal.openshift.io", "checkpoints.hive.openshift.io",
+      "observatoria.core.observatorium.io", "clusterprovisions.hive.openshift.io", "checkpoints.hive.openshift.io",
       "clustersyncs.hiveinternal.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "clusterdeprovisions.hive.openshift.io", "clusterstates.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
       "machinepoolnameleases.hive.openshift.io"]'
   name: advanced-cluster-management.v2.4.1
   namespace: placeholder
@@ -1863,7 +1863,7 @@ spec:
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
                   value: quay.io/open-cluster-management/redisgraph-tls@sha256:0c602f277c3ae5151b1c43d5ea5850e913d550c82383388f5e237c27f4514e96
                 - name: OPERAND_IMAGE_REGISTRATION
-                  value: quay.io/open-cluster-management/registration@sha256:4e496cf4c5c0a6f11b66a617a37d29081a82234b83b98060b2a3992706674b3c
+                  value: quay.io/open-cluster-management/registration@sha256:3032cf9975ea7b1f8b3f814ac758e622e6c3d52c64945a09f54cd971c3495f3f
                 - name: OPERAND_IMAGE_REGISTRATION_OPERATOR
                   value: quay.io/open-cluster-management/registration-operator@sha256:c309a669171f73b3fb62de9b52d19b864b5bdb47867d332cda1be9a29d700331
                 - name: OPERAND_IMAGE_SEARCH_AGGREGATOR
@@ -2779,7 +2779,7 @@ spec:
   - name: redisgraph_tls
     image: quay.io/open-cluster-management/redisgraph-tls@sha256:0c602f277c3ae5151b1c43d5ea5850e913d550c82383388f5e237c27f4514e96
   - name: registration
-    image: quay.io/open-cluster-management/registration@sha256:4e496cf4c5c0a6f11b66a617a37d29081a82234b83b98060b2a3992706674b3c
+    image: quay.io/open-cluster-management/registration@sha256:3032cf9975ea7b1f8b3f814ac758e622e6c3d52c64945a09f54cd971c3495f3f
   - name: search_aggregator
     image: quay.io/open-cluster-management/search-aggregator@sha256:ec89f47254bbf3487328dade639fede0adf2160d04dd9f4a8406d1ba7ca6088d
   - name: search_api
