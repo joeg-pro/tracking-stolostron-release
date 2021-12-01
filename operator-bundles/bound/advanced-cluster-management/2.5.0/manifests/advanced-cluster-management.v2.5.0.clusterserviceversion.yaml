@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-11-30T23:20:29Z'
+    createdAt: '2021-12-01T03:18:45Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clusterprovisions.hive.openshift.io", "checkpoints.hive.openshift.io",
-      "clusterstates.hive.openshift.io", "machinepoolnameleases.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
-      "clustersyncleases.hiveinternal.openshift.io", "observatoria.core.observatorium.io", "clustersyncs.hiveinternal.openshift.io",
-      "clusterdeprovisions.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["clustersyncleases.hiveinternal.openshift.io",
+      "clusterprovisions.hive.openshift.io", "observatoria.core.observatorium.io", "machinepoolnameleases.hive.openshift.io",
+      "clustersyncs.hiveinternal.openshift.io", "clusterdeprovisions.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
+      "clusterstates.hive.openshift.io", "checkpoints.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1840,7 +1840,7 @@ spec:
                 - name: OPERAND_IMAGE_NODE_EXPORTER
                   value: quay.io/open-cluster-management/node-exporter@sha256:1f89b54eac9a54d3d149562652f0e98761ab5512d1807ff5a0bcf3c6db1288a8
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
-                  value: quay.io/open-cluster-management/observability-e2e-test@sha256:8cf7f86a68ae056214d991c1b7aff7e9d749408187e5ab36f0caba2401e43ffd
+                  value: quay.io/open-cluster-management/observability-e2e-test@sha256:693156f92bcb1461f6024004b79e5300ec84a32cf0cf1f00f5ae92c886d1e4ab
                 - name: OPERAND_IMAGE_OBSERVATORIUM
                   value: quay.io/open-cluster-management/observatorium@sha256:6f879748c67f3edb3ed4155379cfde0f4397f352817586e2d8e52fcdfbd823bd
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
@@ -2756,7 +2756,7 @@ spec:
   - name: node_exporter
     image: quay.io/open-cluster-management/node-exporter@sha256:1f89b54eac9a54d3d149562652f0e98761ab5512d1807ff5a0bcf3c6db1288a8
   - name: observability_e2e_test
-    image: quay.io/open-cluster-management/observability-e2e-test@sha256:8cf7f86a68ae056214d991c1b7aff7e9d749408187e5ab36f0caba2401e43ffd
+    image: quay.io/open-cluster-management/observability-e2e-test@sha256:693156f92bcb1461f6024004b79e5300ec84a32cf0cf1f00f5ae92c886d1e4ab
   - name: observatorium
     image: quay.io/open-cluster-management/observatorium@sha256:6f879748c67f3edb3ed4155379cfde0f4397f352817586e2d8e52fcdfbd823bd
   - name: observatorium_operator
