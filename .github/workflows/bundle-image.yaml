@@ -42,8 +42,8 @@ jobs:
         make
         make opm/install
         PROJECT=`echo ${GITHUB_REF##*/} | awk -F "-" '{print $1}'`
-        if [[ "$PROJECT" == "backplane" ]]; then SNAPSHOT="BACKPLANE"; WHAT_TOOL="mce";
-        else SNAPSHOT="SNAPSHOT"; WHAT_TOOL="acm"; fi
+        if [[ "$PROJECT" == "backplane" ]]; then SNAPSHOT="BACKPLANE"; WHAT_TOOL="mce"; ICON=backplane;
+        else SNAPSHOT="SNAPSHOT"; WHAT_TOOL="acm"; ICON=rhacm4kube; fi
         SNAPSHOT_TAG=`cat Z_RELEASE_VERSION`-$SNAPSHOT-`cat TAG`
         tools/build/build-$WHAT_TOOL-bundle-image-and-catalog.sh -P -t $SNAPSHOT_TAG `cat Z_RELEASE_VERSION` ||  make simple-slack/send SLACK_MESSAGE=":$ICON: \`$PROJECT\` $WHAT_TOOL catalog failed for `cat Z_RELEASE_VERSION`: :red_circle: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID \`$COMMIT_MESSAGE\`"
         # Clone the release repo at the designated release version so we can commit our generated build artifacts at this snapshot level
