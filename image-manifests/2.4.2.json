@@ -371,11 +371,11 @@
   {
     "image-name": "helloworld",
     "image-version": "1.0.1",
-    "image-tag": "1.0.1-41c50e889a0858f16518e47033230ae54f538673",
-    "git-sha256": "41c50e889a0858f16518e47033230ae54f538673",
+    "image-tag": "1.0.1-d00582060783456873d97282a245fc7c8da65b03",
+    "git-sha256": "d00582060783456873d97282a245fc7c8da65b03",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:b3da7d7e879623b53cf3e19add09034a0a6fd623a2acca872d38d8764ea1a026",
+    "image-digest": "sha256:77c1fe89b4505a4340f9262397ef2ba3b265dc614c6d8c500178a410576b48bb",
     "image-key": "helloworld"
   },
   {
@@ -610,9 +610,9 @@
   },
   {
     "image-name": "multiclusterhub-operator-tests",
-    "image-version": "2.4.1",
-    "image-tag": "2.4.1-d009d82886b0deae42546230d9b23858c6cd2a70",
-    "git-sha256": "d009d82886b0deae42546230d9b23858c6cd2a70",
+    "image-version": "2.4.2",
+    "image-tag": "2.4.2-0a4b6a6e0723957429256b0240d931a4dd91c182",
+    "git-sha256": "0a4b6a6e0723957429256b0240d931a4dd91c182",
     "git-repository": "open-cluster-management/multiclusterhub-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
@@ -622,12 +622,12 @@
   {
     "image-name": "multiclusterhub-repo",
     "image-version": "2.4",
-    "image-tag": "2.4-bd4a6a0ba2ea98001ead3416ac51bf45abe17230",
-    "git-sha256": "bd4a6a0ba2ea98001ead3416ac51bf45abe17230",
+    "image-tag": "2.4-2b7b82379a38f392e089659e28b9ce4c3e31a6ea",
+    "git-sha256": "2b7b82379a38f392e089659e28b9ce4c3e31a6ea",
     "git-repository": "open-cluster-management/multiclusterhub-repo",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:6b225713bb4ff1599bdad4e3aa02d45315aba979a7d13ac082be0af5b4bdf2b5",
+    "image-digest": "sha256:823641ff032cf4d75c584b3c7cad41ba770d521b67b0f00fe9af5c32b835183c",
     "image-key": "multiclusterhub_repo"
   },
   {
