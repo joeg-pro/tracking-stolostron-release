@@ -184,12 +184,12 @@
   {
     "image-name": "console",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-7d9a9cf9efd6c3e4312c987025e4837153fe1627",
-    "git-sha256": "7d9a9cf9efd6c3e4312c987025e4837153fe1627",
+    "image-tag": "2.4.0-a35c7948d533efc377923c5e45527d0ecaee157f",
+    "git-sha256": "a35c7948d533efc377923c5e45527d0ecaee157f",
     "git-repository": "open-cluster-management/console",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:100ada93185673cbecc25a1f7b123d196c6f43be36072a74bb058d1af9c85395",
+    "image-digest": "sha256:36cbee7ae9cdee64d9bdbd6e9c2bfa97427ad9e4c3ae99f1855cd1568b765dcd",
     "image-key": "console"
   },
   {
@@ -239,12 +239,12 @@
   {
     "image-name": "endpoint-monitoring-operator",
     "image-version": "2.4",
-    "image-tag": "2.4-404e22db5d42a886709eef58088f58784e81dddf",
-    "git-sha256": "404e22db5d42a886709eef58088f58784e81dddf",
+    "image-tag": "2.4-bd238b1218af3dff53bbaebdca35f9e917516eaf",
+    "git-sha256": "bd238b1218af3dff53bbaebdca35f9e917516eaf",
     "git-repository": "open-cluster-management/multicluster-observability-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:38853442f1f6549ffc71d9d79be8f75683c3ec5e2ffddaf532f710e4e0b6fc98",
+    "image-digest": "sha256:b320d7e88d82fbf797e62dbcaf5381e38fea5f9f30f4814f69a3aa337e9acce2",
     "image-key": "endpoint_monitoring_operator"
   },
   {
@@ -753,7 +753,7 @@
     "image-name": "rbac-query-proxy",
     "image-version": "2.4",
     "image-tag": "2.4-73204ab0efa7028cd0b6417a637f72a751ec2bd8",
-    "git-sha256": "73204ab0efa7028cd0b6417a637f72a751ec2bd8",
+    "git-sha256": "bd238b1218af3dff53bbaebdca35f9e917516eaf",
     "git-repository": "open-cluster-management/multicluster-observability-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
