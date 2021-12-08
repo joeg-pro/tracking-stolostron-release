@@ -96,12 +96,12 @@
   {
     "image-name": "cert-policy-controller",
     "image-version": "3.8.0",
-    "image-tag": "3.8.0-f712a30096681aa1ab248f06bece9d507e16b8a2",
-    "git-sha256": "f712a30096681aa1ab248f06bece9d507e16b8a2",
+    "image-tag": "3.8.0-90cde1f1dfc8faf5f1ea04b40f2241cdce0f6915",
+    "git-sha256": "90cde1f1dfc8faf5f1ea04b40f2241cdce0f6915",
     "git-repository": "open-cluster-management/cert-policy-controller",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:5cd6262d61db22aea406e980c7fb1e0e78a20ac9791e0cbfb1c0026002db1117",
+    "image-digest": "sha256:af72db353e43bceafcac0c2f6da43ced9d283edb3bad3abfd2d7d8860c76b4d7",
     "image-key": "cert_policy_controller"
   },
   {
@@ -375,7 +375,7 @@
     "git-sha256": "1bb6bd87c3e56318e6c8fd66e24770178f7d4eb9",
     "git-repository": "open-cluster-management/example-cicd-component",
     "image-remote": "quay.io/open-cluster-management",
-    "image-digest": "sha256:8bae53eb753cad8ffacbcf8be5fe5b09bcee62358aff85d00b17dc5f4080933a",
+    "image-digest": "sha256:475327ba90d198bdefa7f0bb59d37fc2a66203559c00bb7929f6a53ba0763ddf",
     "image-key": "helloworld"
   },
   {
@@ -578,12 +578,12 @@
   {
     "image-name": "multicluster-operators-subscription",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-f0530bec14d8f390632b9d09bb29ca8525b58509",
-    "git-sha256": "f0530bec14d8f390632b9d09bb29ca8525b58509",
+    "image-tag": "2.4.0-734c649402f8b3cbaa0804f39f6e9b39201c6c83",
+    "git-sha256": "734c649402f8b3cbaa0804f39f6e9b39201c6c83",
     "git-repository": "open-cluster-management/multicloud-operators-subscription",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:fd0048ef5b83660b0abce5c60db646487656d949e91d71297eeb280e3297c429",
+    "image-digest": "sha256:2ac7bf9c389f0cc9b636dc5e6b187bbff5802c0dc07f224861f7debe1e2b67e2",
     "image-key": "multicluster_operators_subscription"
   },
   {
