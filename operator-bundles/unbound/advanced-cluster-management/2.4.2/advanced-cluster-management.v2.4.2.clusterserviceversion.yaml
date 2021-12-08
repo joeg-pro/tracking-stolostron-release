@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-12-08T18:04:48Z'
+    createdAt: '2021-12-08T19:08:25Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["checkpoints.hive.openshift.io", "clusterstates.hive.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "clustersyncs.hiveinternal.openshift.io",
-      "clustersyncleases.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io", "observatoria.core.observatorium.io",
-      "fakeclusterinstalls.hiveinternal.openshift.io", "machinepoolnameleases.hive.openshift.io", "clusterdeprovisions.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["clusterstates.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io",
+      "observatoria.core.observatorium.io", "clustersyncleases.hiveinternal.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "checkpoints.hive.openshift.io", "clusterdeprovisions.hive.openshift.io", "clusterprovisions.hive.openshift.io",
+      "machinepoolnameleases.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io"]'
   name: advanced-cluster-management.v2.4.2
   namespace: placeholder
   labels:
@@ -150,25 +150,25 @@ spec:
         path: disableHubSelfManagement
         x-descriptors:
         - urn:alm:descriptor:com.tectonic.ui:advanced
-        - urn:alm:descriptor:io.kubernetes:booleanSwitch
+        - urn:alm:descriptor:com.tectonic.ui:booleanSwitch
       - description: Disable automatic update of ClusterImageSets
         displayName: Disable Update ClusterImageSets
         path: disableUpdateClusterImageSets
         x-descriptors:
         - urn:alm:descriptor:com.tectonic.ui:advanced
-        - urn:alm:descriptor:io.kubernetes:booleanSwitch
+        - urn:alm:descriptor:com.tectonic.ui:booleanSwitch
       - description: Enable cluster backup
         displayName: Enable Cluster Backup
         path: enableClusterBackup
         x-descriptors:
         - urn:alm:descriptor:com.tectonic.ui:advanced
-        - urn:alm:descriptor:io.kubernetes:booleanSwitch
+        - urn:alm:descriptor:com.tectonic.ui:booleanSwitch
       - description: Enable cluster proxy addon
         displayName: Enable Cluster Proxy Addon
         path: enableClusterProxyAddon
         x-descriptors:
         - urn:alm:descriptor:com.tectonic.ui:advanced
-        - urn:alm:descriptor:io.kubernetes:booleanSwitch
+        - urn:alm:descriptor:com.tectonic.ui:booleanSwitch
       - description: (Deprecated) Overrides for the default HiveConfig spec
         displayName: Hive Config
         path: hive
@@ -1719,7 +1719,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.namespace
-                image: quay.io/open-cluster-management/multiclusterhub-operator:2.4.0
+                image: quay.io/open-cluster-management/multiclusterhub-operator:2.4.2
                 imagePullPolicy: IfNotPresent
                 livenessProbe:
                   httpGet:
