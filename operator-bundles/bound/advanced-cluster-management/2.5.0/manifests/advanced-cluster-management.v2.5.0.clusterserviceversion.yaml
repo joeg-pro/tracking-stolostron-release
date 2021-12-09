@@ -27,18 +27,18 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-12-09T16:36:52Z'
+    createdAt: '2021-12-09T19:47:01Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clustersyncleases.hiveinternal.openshift.io",
-      "fakeclusterinstalls.hiveinternal.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
-      "clustersyncs.hiveinternal.openshift.io", "machinepoolnameleases.hive.openshift.io", "clusterstates.hive.openshift.io",
-      "clusterprovisions.hive.openshift.io", "clusterdeprovisions.hive.openshift.io", "observatoria.core.observatorium.io",
-      "checkpoints.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "machinepoolnameleases.hive.openshift.io", "clusterprovisions.hive.openshift.io", "clusterstates.hive.openshift.io",
+      "clustersyncleases.hiveinternal.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
+      "clusterdeprovisions.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "checkpoints.hive.openshift.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1759,11 +1759,11 @@ spec:
                 - name: OPERAND_IMAGE_CONSOLE_API
                   value: quay.io/open-cluster-management/console-api@sha256:c4da6a435523826a1e564ae950ddbe9ee14f9e6364bbe7a3a45e4e71638225c0
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
-                  value: quay.io/open-cluster-management/discovery-operator@sha256:c31123732fb67becc13deb518338bb5178bcdeade1f3a7f8ffa3d39c0bbfae21
+                  value: quay.io/open-cluster-management/discovery-operator@sha256:363b2be06e024d215600ecedcc1f4d7b8a00a5948e1756bd1877ed8529382474
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR_TESTS
-                  value: quay.io/open-cluster-management/discovery-operator-tests@sha256:06ff74b5b61e8ddd488e47f2444ddcb6cbefd6a9a086eeb04ddba8c1ed25380d
+                  value: quay.io/open-cluster-management/discovery-operator-tests@sha256:3e9fab57a6f092df9c0afb2e8a7b40b94d49afdee443a0106959791af709da9f
                 - name: OPERAND_IMAGE_DISCOVERY-TESTSERVER
-                  value: quay.io/open-cluster-management/discovery-testserver@sha256:eafa8c8542a5edbf423b9cb210076ca76c7303726da4bdd0d7f493e109bfc138
+                  value: quay.io/open-cluster-management/discovery-testserver@sha256:5e7bdc4efc0727ff9ac89c216a207ec055af33bd3691ada0dc3a27b4c93bb08e
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
                   value: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:586429691aa381c3e5877cbb01586b7191e9068ddbae690d5205e3d4ebe2c953
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
@@ -2693,11 +2693,11 @@ spec:
   - name: console_api
     image: quay.io/open-cluster-management/console-api@sha256:c4da6a435523826a1e564ae950ddbe9ee14f9e6364bbe7a3a45e4e71638225c0
   - name: discovery_operator
-    image: quay.io/open-cluster-management/discovery-operator@sha256:c31123732fb67becc13deb518338bb5178bcdeade1f3a7f8ffa3d39c0bbfae21
+    image: quay.io/open-cluster-management/discovery-operator@sha256:363b2be06e024d215600ecedcc1f4d7b8a00a5948e1756bd1877ed8529382474
   - name: discovery_operator_tests
-    image: quay.io/open-cluster-management/discovery-operator-tests@sha256:06ff74b5b61e8ddd488e47f2444ddcb6cbefd6a9a086eeb04ddba8c1ed25380d
+    image: quay.io/open-cluster-management/discovery-operator-tests@sha256:3e9fab57a6f092df9c0afb2e8a7b40b94d49afdee443a0106959791af709da9f
   - name: discovery-testserver
-    image: quay.io/open-cluster-management/discovery-testserver@sha256:eafa8c8542a5edbf423b9cb210076ca76c7303726da4bdd0d7f493e109bfc138
+    image: quay.io/open-cluster-management/discovery-testserver@sha256:5e7bdc4efc0727ff9ac89c216a207ec055af33bd3691ada0dc3a27b4c93bb08e
   - name: endpoint_monitoring_operator
     image: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:586429691aa381c3e5877cbb01586b7191e9068ddbae690d5205e3d4ebe2c953
   - name: governance_policy_propagator
