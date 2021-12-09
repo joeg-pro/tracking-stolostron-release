@@ -206,34 +206,34 @@
   {
     "image-name": "discovery-operator",
     "image-version": "0.2",
-    "image-tag": "0.2-74c6f43c409be12695cfb685e773d1c6274b56b1",
-    "git-sha256": "74c6f43c409be12695cfb685e773d1c6274b56b1",
+    "image-tag": "0.2-cacaf9212b5c5f389fd7fb97b65f5575ca761813",
+    "git-sha256": "cacaf9212b5c5f389fd7fb97b65f5575ca761813",
     "git-repository": "open-cluster-management/discovery",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:c31123732fb67becc13deb518338bb5178bcdeade1f3a7f8ffa3d39c0bbfae21",
+    "image-digest": "sha256:363b2be06e024d215600ecedcc1f4d7b8a00a5948e1756bd1877ed8529382474",
     "image-key": "discovery_operator"
   },
   {
     "image-name": "discovery-operator-tests",
     "image-version": "0.2",
-    "image-tag": "0.2-74c6f43c409be12695cfb685e773d1c6274b56b1",
-    "git-sha256": "74c6f43c409be12695cfb685e773d1c6274b56b1",
+    "image-tag": "0.2-cacaf9212b5c5f389fd7fb97b65f5575ca761813",
+    "git-sha256": "cacaf9212b5c5f389fd7fb97b65f5575ca761813",
     "git-repository": "open-cluster-management/discovery",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:06ff74b5b61e8ddd488e47f2444ddcb6cbefd6a9a086eeb04ddba8c1ed25380d",
+    "image-digest": "sha256:3e9fab57a6f092df9c0afb2e8a7b40b94d49afdee443a0106959791af709da9f",
     "image-key": "discovery_operator_tests"
   },
   {
     "image-name": "discovery-testserver",
     "image-version": "0.2",
-    "image-tag": "0.2-74c6f43c409be12695cfb685e773d1c6274b56b1",
-    "git-sha256": "74c6f43c409be12695cfb685e773d1c6274b56b1",
+    "image-tag": "0.2-cacaf9212b5c5f389fd7fb97b65f5575ca761813",
+    "git-sha256": "cacaf9212b5c5f389fd7fb97b65f5575ca761813",
     "git-repository": "open-cluster-management/discovery",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:eafa8c8542a5edbf423b9cb210076ca76c7303726da4bdd0d7f493e109bfc138",
+    "image-digest": "sha256:5e7bdc4efc0727ff9ac89c216a207ec055af33bd3691ada0dc3a27b4c93bb08e",
     "image-key": "discovery-testserver"
   },
   {
