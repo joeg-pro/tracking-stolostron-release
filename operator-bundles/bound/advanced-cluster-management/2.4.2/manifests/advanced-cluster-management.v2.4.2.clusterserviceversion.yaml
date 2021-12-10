@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-12-10T01:48:46Z'
+    createdAt: '2021-12-10T02:27:38Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -35,10 +35,10 @@ metadata:
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
     operators.operatorframework.io/internal-objects: '["clustersyncleases.hiveinternal.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "fakeclusterinstalls.hiveinternal.openshift.io",
-      "clustersyncs.hiveinternal.openshift.io", "machinepoolnameleases.hive.openshift.io", "clusterstates.hive.openshift.io",
-      "observatoria.core.observatorium.io", "checkpoints.hive.openshift.io", "clusterdeprovisions.hive.openshift.io",
-      "clusterprovisions.hive.openshift.io"]'
+      "clustersyncs.hiveinternal.openshift.io", "observatoria.core.observatorium.io", "checkpoints.hive.openshift.io",
+      "clusterstates.hive.openshift.io", "machinepoolnameleases.hive.openshift.io", "clusterprovisions.hive.openshift.io",
+      "clusterdeprovisions.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "fakeclusterinstalls.hiveinternal.openshift.io"]'
   name: advanced-cluster-management.v2.4.2
   namespace: placeholder
   labels:
@@ -1845,7 +1845,7 @@ spec:
                 - name: OPERAND_IMAGE_OBSERVATORIUM
                   value: quay.io/open-cluster-management/observatorium@sha256:eaa57046557e84b0da4c7350cb69be4f2c5e67c0397529e461710f914e481e31
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
-                  value: quay.io/open-cluster-management/observatorium-operator@sha256:91c7ebd6850b08fe688f766271432d513c9b18f4a204aecc13026e0bcc4297d7
+                  value: quay.io/open-cluster-management/observatorium-operator@sha256:a8d5b8a5f9519620a57bd7ff52a8f39962f6d846d1f05e4edd23d859934fc7b9
                 - name: OPERAND_IMAGE_OAUTH_PROXY
                   value: quay.io/open-cluster-management/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
                 - name: OPERAND_IMAGE_PLACEMENT
@@ -2761,7 +2761,7 @@ spec:
   - name: observatorium
     image: quay.io/open-cluster-management/observatorium@sha256:eaa57046557e84b0da4c7350cb69be4f2c5e67c0397529e461710f914e481e31
   - name: observatorium_operator
-    image: quay.io/open-cluster-management/observatorium-operator@sha256:91c7ebd6850b08fe688f766271432d513c9b18f4a204aecc13026e0bcc4297d7
+    image: quay.io/open-cluster-management/observatorium-operator@sha256:a8d5b8a5f9519620a57bd7ff52a8f39962f6d846d1f05e4edd23d859934fc7b9
   - name: oauth_proxy
     image: quay.io/open-cluster-management/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
   - name: placement
