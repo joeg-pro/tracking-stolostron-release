@@ -96,23 +96,23 @@
   {
     "image-name": "cert-policy-controller",
     "image-version": "3.8.0",
-    "image-tag": "3.8.0-e83d6edd1eca159cbb7fc71f68a4b02c38b82922",
-    "git-sha256": "e83d6edd1eca159cbb7fc71f68a4b02c38b82922",
+    "image-tag": "3.8.0-494f04c695e19246b3e5bca9ed463a31d7690e04",
+    "git-sha256": "494f04c695e19246b3e5bca9ed463a31d7690e04",
     "git-repository": "open-cluster-management/cert-policy-controller",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:14da003fa7e38a2a7b79fdea4ddf22cc610883014fac6f13ede2d84c709b765c",
+    "image-digest": "sha256:0353f31bfe66714cbd0ff5d03646e4a014220e73f0f42cf52c3a411929f657fb",
     "image-key": "cert_policy_controller"
   },
   {
     "image-name": "cluster-backup-controller",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-03c44b117075509e429c03d7ea085738925e616a",
-    "git-sha256": "03c44b117075509e429c03d7ea085738925e616a",
+    "image-tag": "2.4.0-7432e8e0c58bcf1ec759d4d718a5f6677b6f4d18",
+    "git-sha256": "7432e8e0c58bcf1ec759d4d718a5f6677b6f4d18",
     "git-repository": "open-cluster-management/cluster-backup-operator",
     "image-remote": "quay.io/open-cluster-management",
     "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:b59d0244a3f378e8c84412d71fd7415129843d0b5bad293d2d5dfe0fb24362dd",
+    "image-digest": "sha256:592f975ee8eddd9e32f11cf5cd570ad1d515d85fb34a6aa78b41521184da71a9",
     "image-key": "cluster_backup_controller"
   },
   {
