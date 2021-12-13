@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-12-13T16:42:28Z'
+    createdAt: '2021-12-13T19:28:37Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io",
-      "checkpoints.hive.openshift.io", "clusterprovisions.hive.openshift.io", "machinepoolnameleases.hive.openshift.io",
-      "clustersyncs.hiveinternal.openshift.io", "clusterstates.hive.openshift.io", "clusterdeprovisions.hive.openshift.io",
-      "clustersyncleases.hiveinternal.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "clusterdeprovisions.hive.openshift.io",
+      "clusterprovisions.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "clustersyncleases.hiveinternal.openshift.io",
+      "observabilityaddons.observability.open-cluster-management.io", "machinepoolnameleases.hive.openshift.io",
+      "fakeclusterinstalls.hiveinternal.openshift.io", "clusterstates.hive.openshift.io", "checkpoints.hive.openshift.io"]'
   name: advanced-cluster-management.v2.4.2
   namespace: placeholder
   labels:
@@ -1788,7 +1788,7 @@ spec:
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/open-cluster-management/helloworld@sha256:8be247c32b24fa882189b5bbc3b9617abd7627fbe76ba339db8bb33c736286cc
+                  value: quay.io/open-cluster-management/helloworld@sha256:66bd0c507f0f328c48e1c66d072806c11e6dd5658763a7e5dd4a864d2637ff04
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
                   value: quay.io/open-cluster-management/hive@sha256:9404c1df3e2401b09883d985eae13d13e05a0fe083dc7e10456a68478759faa3
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
@@ -1820,7 +1820,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
                   value: quay.io/open-cluster-management/multicluster-operators-application@sha256:dfff4d7a6941a8527507177510023ce371ab673fde3a02799879c52215cf7cd0
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
-                  value: quay.io/open-cluster-management/multicluster-operators-channel@sha256:51412d93eb4c46a1c3a7931fd295fa679372a6a6a1765de4a3cf09dfffac471b
+                  value: quay.io/open-cluster-management/multicluster-operators-channel@sha256:cd2028d9139ff3fa8983223488e263a389615277b1e7a38be20711ad78e52d9c
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_DEPLOYABLE
                   value: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:3ae666a0f9d75283710ee7a7507c1cae3cd72f86efb977360320c353d097a36c
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_PLACEMENTRULE
@@ -2389,7 +2389,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-channel@sha256:51412d93eb4c46a1c3a7931fd295fa679372a6a6a1765de4a3cf09dfffac471b
+                image: quay.io/open-cluster-management/multicluster-operators-channel@sha256:cd2028d9139ff3fa8983223488e263a389615277b1e7a38be20711ad78e52d9c
                 imagePullPolicy: Always
                 name: multicluster-operators-channel
                 resources:
@@ -2722,7 +2722,7 @@ spec:
   - name: helloprow_go
     image: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
   - name: helloworld
-    image: quay.io/open-cluster-management/helloworld@sha256:8be247c32b24fa882189b5bbc3b9617abd7627fbe76ba339db8bb33c736286cc
+    image: quay.io/open-cluster-management/helloworld@sha256:66bd0c507f0f328c48e1c66d072806c11e6dd5658763a7e5dd4a864d2637ff04
   - name: iam_policy_controller
     image: quay.io/open-cluster-management/iam-policy-controller@sha256:f50c87304e7f5edff8fa72a5e204829a762a95aefe839839155eae7bf9fab791
   - name: insights_client
