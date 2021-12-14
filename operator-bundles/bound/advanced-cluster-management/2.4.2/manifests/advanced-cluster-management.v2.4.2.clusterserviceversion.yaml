@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-12-14T07:06:49Z'
+    createdAt: '2021-12-14T07:41:50Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "checkpoints.hive.openshift.io", "clusterprovisions.hive.openshift.io", "clusterstates.hive.openshift.io",
-      "clustersyncs.hiveinternal.openshift.io", "machinepoolnameleases.hive.openshift.io", "observatoria.core.observatorium.io",
-      "clustersyncleases.hiveinternal.openshift.io", "clusterdeprovisions.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["checkpoints.hive.openshift.io", "clusterstates.hive.openshift.io",
+      "clustersyncleases.hiveinternal.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
+      "machinepoolnameleases.hive.openshift.io", "clusterdeprovisions.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "clusterprovisions.hive.openshift.io", "observatoria.core.observatorium.io", "clustersyncs.hiveinternal.openshift.io"]'
   name: advanced-cluster-management.v2.4.2
   namespace: placeholder
   labels:
@@ -1788,7 +1788,7 @@ spec:
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/open-cluster-management/helloworld@sha256:e7e6740ba5053d6d5f54474bcedbeb37cbb6b7f32df150e8c5e281a0423cce2e
+                  value: quay.io/open-cluster-management/helloworld@sha256:b01a314917a121d900890f659d823db6ace2de4e95e1b8479dd4c2bf3f7b0249
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
                   value: quay.io/open-cluster-management/hive@sha256:9404c1df3e2401b09883d985eae13d13e05a0fe083dc7e10456a68478759faa3
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
@@ -1814,7 +1814,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLOUD_INTEGRATIONS
                   value: quay.io/open-cluster-management/multicloud-integrations@sha256:08562da16d810aac89da3fc0ec9cc6c8565e051e944fa6081d7b64747e6974e2
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
-                  value: quay.io/open-cluster-management/multicloud-manager@sha256:e13a98ef2f4cfa1be822eb2b78e4d9dde394b3060b3931d5bf91ccae6af860bd
+                  value: quay.io/open-cluster-management/multicloud-manager@sha256:b18a71095b8e53df81f46c1788c01d19e050e8eab5fe5de4d8d01d15f462969b
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
                   value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:c032223455428b3adbe1be1c458845fe369b2ced06c249540b7186e5aefb0ec0
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
@@ -2722,7 +2722,7 @@ spec:
   - name: helloprow_go
     image: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
   - name: helloworld
-    image: quay.io/open-cluster-management/helloworld@sha256:e7e6740ba5053d6d5f54474bcedbeb37cbb6b7f32df150e8c5e281a0423cce2e
+    image: quay.io/open-cluster-management/helloworld@sha256:b01a314917a121d900890f659d823db6ace2de4e95e1b8479dd4c2bf3f7b0249
   - name: iam_policy_controller
     image: quay.io/open-cluster-management/iam-policy-controller@sha256:f50c87304e7f5edff8fa72a5e204829a762a95aefe839839155eae7bf9fab791
   - name: insights_client
@@ -2744,7 +2744,7 @@ spec:
   - name: metrics_collector
     image: quay.io/open-cluster-management/metrics-collector@sha256:24fda89c8661fb21fcf6850bafee6f43f329251b24dfbf36f6fd7e6e619ab3d0
   - name: multicloud_manager
-    image: quay.io/open-cluster-management/multicloud-manager@sha256:e13a98ef2f4cfa1be822eb2b78e4d9dde394b3060b3931d5bf91ccae6af860bd
+    image: quay.io/open-cluster-management/multicloud-manager@sha256:b18a71095b8e53df81f46c1788c01d19e050e8eab5fe5de4d8d01d15f462969b
   - name: multicluster_operators_subscription_release
     image: quay.io/open-cluster-management/multicluster-operators-subscription-release@sha256:b53092030be8dc65633b28fe3bbcbcdf0d5d543817eb41617171230f179e268a
   - name: multiclusterhub_operator_tests
