@@ -183,6 +183,13 @@ def update_image_refs_in_deployment(deployment, image_key_mapping, image_manifes
       manifest_entry["used-in-csv-deployment"] = True
       print("   Image override:  %s" % new_image_ref)
 
+      # Remove any imagePullPolicy so it defaults to IfNotPresent:
+
+      image_pull_policy = container["imagePullPolicy"]
+      if image_pull_policy:
+         del container["imagePullPolicy"]
+         print("   NOTE: Removed imagePullPolicy from %s deployment" % deployment_name) 
+
    # Remove any pull secrets left over from dev env practices:
 
    image_pull_secrets = get_seq(pod_spec, "imagePullSecrets")
