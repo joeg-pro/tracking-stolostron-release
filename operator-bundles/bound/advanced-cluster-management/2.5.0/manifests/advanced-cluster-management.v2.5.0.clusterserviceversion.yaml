@@ -27,7 +27,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-12-15T04:23:05Z'
+    createdAt: '2021-12-15T05:11:12Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -35,9 +35,10 @@ metadata:
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
     operators.operatorframework.io/internal-objects: '["clustersyncleases.hiveinternal.openshift.io",
-      "machinepoolnameleases.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io", "clusterprovisions.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
-      "clusterdeprovisions.hive.openshift.io", "clusterstates.hive.openshift.io", "checkpoints.hive.openshift.io"]'
+      "clustersyncs.hiveinternal.openshift.io", "observatoria.core.observatorium.io", "checkpoints.hive.openshift.io",
+      "observabilityaddons.observability.open-cluster-management.io", "machinepoolnameleases.hive.openshift.io",
+      "clusterdeprovisions.hive.openshift.io", "clusterstates.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
+      "clusterprovisions.hive.openshift.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1738,7 +1739,7 @@ spec:
                 - name: OPERAND_IMAGE_BAILER
                   value: quay.io/open-cluster-management/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
-                  value: quay.io/open-cluster-management/cert-policy-controller@sha256:0353f31bfe66714cbd0ff5d03646e4a014220e73f0f42cf52c3a411929f657fb
+                  value: quay.io/open-cluster-management/cert-policy-controller@sha256:976ea668a73714955c84c2581929201bef125a48d11714aebcaa46d7c56ca848
                 - name: OPERAND_IMAGE_CLUSTER_BACKUP_CONTROLLER
                   value: quay.io/open-cluster-management/cluster-backup-controller@sha256:9cde30d71c5813faf906eb00ab9258fa8d4df97b82e9a26d21a6827b17fefbae
                 - name: OPERAND_IMAGE_CLUSTER_CURATOR_CONTROLLER
@@ -2672,7 +2673,7 @@ spec:
   - name: bailer
     image: quay.io/open-cluster-management/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
   - name: cert_policy_controller
-    image: quay.io/open-cluster-management/cert-policy-controller@sha256:0353f31bfe66714cbd0ff5d03646e4a014220e73f0f42cf52c3a411929f657fb
+    image: quay.io/open-cluster-management/cert-policy-controller@sha256:976ea668a73714955c84c2581929201bef125a48d11714aebcaa46d7c56ca848
   - name: cluster_backup_controller
     image: quay.io/open-cluster-management/cluster-backup-controller@sha256:9cde30d71c5813faf906eb00ab9258fa8d4df97b82e9a26d21a6827b17fefbae
   - name: cluster_curator_controller
