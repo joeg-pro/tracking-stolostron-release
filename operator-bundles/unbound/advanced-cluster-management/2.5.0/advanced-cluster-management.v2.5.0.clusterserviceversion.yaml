@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-12-15T15:35:54Z'
+    createdAt: '2021-12-15T18:30:20Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clustersyncleases.hiveinternal.openshift.io",
-      "clusterdeprovisions.hive.openshift.io", "clusterprovisions.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
-      "clustersyncs.hiveinternal.openshift.io", "observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io",
-      "clusterstates.hive.openshift.io", "checkpoints.hive.openshift.io", "machinepoolnameleases.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["clusterdeprovisions.hive.openshift.io", "clusterprovisions.hive.openshift.io",
+      "fakeclusterinstalls.hiveinternal.openshift.io", "machinepoolnameleases.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io",
+      "observabilityaddons.observability.open-cluster-management.io", "observatoria.core.observatorium.io",
+      "clusterstates.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "checkpoints.hive.openshift.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -289,6 +289,18 @@ spec:
         path: statuses
         x-descriptors:
         - urn:alm:descriptor:text
+    - description: subscription status per cluster per app
+      displayName: App Subscription Report
+      group: apps.open-cluster-management.io
+      kind: SubscriptionReport
+      name: subscriptionreports.apps.open-cluster-management.io
+      version: v1alpha1
+    - description: subscription status per package
+      displayName: App Subscription Status
+      group: apps.open-cluster-management.io
+      kind: SubscriptionStatus
+      name: subscriptionstatuses.apps.open-cluster-management.io
+      version: v1alpha1
     - description: Represent a helm chart repository
       displayName: Channel
       group: apps.open-cluster-management.io
@@ -1986,9 +1998,9 @@ spec:
                     fieldRef:
                       fieldPath: metadata.namespace
                 - name: DEPLOYMENT_LABEL
-                  value: multicluster-operators-application
-                - name: OPERATOR_NAME
                   value: multicluster-operators-placementrule
+                - name: OPERATOR_NAME
+                  value: multicluster-operators-application
                 livenessProbe:
                   exec:
                     command:
@@ -2001,8 +2013,8 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-placementrule:2.4.0
-                imagePullPolicy: Always
+                image: quay.io/open-cluster-management/multicluster-operators-subscription:2.5.0
+                imagePullPolicy: IfNotPresent
                 name: multicluster-operators-placementrule
                 resources:
                   limits:
@@ -2028,9 +2040,9 @@ spec:
                     fieldRef:
                       fieldPath: metadata.namespace
                 - name: DEPLOYMENT_LABEL
-                  value: multicluster-operators-application
-                - name: OPERATOR_NAME
                   value: multicluster-operators-gitopscluster
+                - name: OPERATOR_NAME
+                  value: multicluster-operators-application
                 livenessProbe:
                   exec:
                     command:
@@ -2043,8 +2055,8 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicloud-integrations:2.4.0
-                imagePullPolicy: Always
+                image: quay.io/open-cluster-management/multicloud-integrations:2.5.0
+                imagePullPolicy: IfNotPresent
                 name: multicluster-operators-gitopscluster
                 resources:
                   limits:
@@ -2052,48 +2064,6 @@ spec:
                     memory: 512Mi
                   requests:
                     cpu: 25m
-                    memory: 64Mi
-                volumeMounts:
-                - name: tmp
-                  mountPath: /tmp
-              - command:
-                - /usr/local/bin/multicluster-operators-deployable
-                - --alsologtostderr
-                env:
-                - name: WATCH_NAMESPACE
-                - name: POD_NAME
-                  valueFrom:
-                    fieldRef:
-                      fieldPath: metadata.name
-                - name: POD_NAMESPACE
-                  valueFrom:
-                    fieldRef:
-                      fieldPath: metadata.namespace
-                - name: DEPLOYMENT_LABEL
-                  value: multicluster-operators-application
-                - name: OPERATOR_NAME
-                  value: multicluster-operators-deployable
-                livenessProbe:
-                  exec:
-                    command:
-                    - ls
-                  initialDelaySeconds: 15
-                  periodSeconds: 15
-                readinessProbe:
-                  exec:
-                    command:
-                    - ls
-                  initialDelaySeconds: 15
-                  periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-deployable:2.4.0
-                imagePullPolicy: Always
-                name: multicluster-operators-deployable
-                resources:
-                  limits:
-                    cpu: 500m
-                    memory: 512Mi
-                  requests:
-                    cpu: 100m
                     memory: 64Mi
                 volumeMounts:
                 - name: tmp
@@ -2131,8 +2101,8 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-application:2.4.0
-                imagePullPolicy: Always
+                image: quay.io/open-cluster-management/multicluster-operators-application:2.5.0
+                imagePullPolicy: IfNotPresent
                 name: multicluster-operators-application
                 resources:
                   limits:
@@ -2217,13 +2187,94 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-channel:2.4.0
-                imagePullPolicy: Always
+                image: quay.io/open-cluster-management/multicluster-operators-channel:2.5.0
+                imagePullPolicy: IfNotPresent
                 name: multicluster-operators-channel
                 resources:
                   limits:
+                    cpu: 100m
+                    memory: 512Mi
+                  requests:
+                    cpu: 25m
+                    memory: 64Mi
+                volumeMounts:
+                - name: tmp
+                  mountPath: /tmp
+              volumes:
+              - name: tmp
+                emptyDir: {}
+              serviceAccountName: multicluster-operators
+      - name: multicluster-operators-subscription-report
+        spec:
+          replicas: 1
+          selector:
+            matchLabels:
+              app: multicluster-operators-subscription-report
+          strategy: {}
+          template:
+            metadata:
+              labels:
+                app: multicluster-operators-subscription-report
+            spec:
+              securityContext:
+                runAsNonRoot: true
+              affinity:
+                podAntiAffinity:
+                  preferredDuringSchedulingIgnoredDuringExecution:
+                  - weight: 70
+                    podAffinityTerm:
+                      topologyKey: failure-domain.beta.kubernetes.io/zone
+                      labelSelector:
+                        matchExpressions:
+                        - key: app
+                          operator: In
+                          values:
+                          - multicluster-operators-subscription-report
+                  - weight: 35
+                    podAffinityTerm:
+                      topologyKey: kubernetes.io/hostname
+                      labelSelector:
+                        matchExpressions:
+                        - key: app
+                          operator: In
+                          values:
+                          - multicluster-operators-subscription-report
+              containers:
+              - command:
+                - /usr/local/bin/appsubsummary
+                env:
+                - name: WATCH_NAMESPACE
+                - name: POD_NAME
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.name
+                - name: POD_NAMESPACE
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.namespace
+                - name: DEPLOYMENT_LABEL
+                  value: multicluster-operators-subscription-report
+                - name: OPERATOR_NAME
+                  value: multicluster-operators-subscription-report
+                livenessProbe:
+                  exec:
+                    command:
+                    - ls
+                  initialDelaySeconds: 15
+                  periodSeconds: 15
+                readinessProbe:
+                  exec:
+                    command:
+                    - ls
+                  initialDelaySeconds: 15
+                  periodSeconds: 15
+                image: quay.io/open-cluster-management/multicluster-operators-subscription:2.5.0
+                imagePullPolicy: IfNotPresent
+                name: multicluster-operators-subscription-report
+                resources:
+                  limits:
                     cpu: 750m
-                    memory: 1Gi
+                    memory: 2Gi
                   requests:
                     cpu: 150m
                     memory: 128Mi
@@ -2300,8 +2351,8 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-subscription:2.4.0
-                imagePullPolicy: Always
+                image: quay.io/open-cluster-management/multicluster-operators-subscription:2.5.0
+                imagePullPolicy: IfNotPresent
                 name: multicluster-operators-standalone-subscription
                 resources:
                   limits:
@@ -2396,8 +2447,8 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-subscription:2.4.0
-                imagePullPolicy: Always
+                image: quay.io/open-cluster-management/multicluster-operators-subscription:2.5.0
+                imagePullPolicy: IfNotPresent
                 name: multicluster-operators-hub-subscription
                 resources:
                   limits:

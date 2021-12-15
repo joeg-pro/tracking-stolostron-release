@@ -49,38 +49,6 @@ spec:
             properties:
               channel:
                 type: string
-              allow:
-                description: To allow deployment of listed resources
-                items:
-                  description: Set of kubernetes group resources allowed to be deployed
-                  properties:
-                    apiVersion:
-                      type: string
-                    kinds:
-                      items:
-                        type: string
-                      type: array
-                  required:
-                  - apiVersion
-                  - kinds
-                  type: object
-                type: array
-              deny:
-                description: To deny deployment of listed resources
-                items:
-                  description: Set of kubernetes group resources not allowed to be deployed
-                  properties:
-                    apiVersion:
-                      type: string
-                    kinds:
-                      items:
-                        type: string
-                      type: array
-                  required:
-                  - apiVersion
-                  - kinds
-                  type: object
-                type: array
               secondaryChannel:
                 type: string
               hooksecretref:
@@ -248,6 +216,38 @@ spec:
                       type: array
                   required:
                   - packageName
+                  type: object
+                type: array
+              allow:
+                description: To allow deployment of listed resources
+                items:
+                  description: Set of kubernetes group resources allowed to be deployed
+                  properties:
+                    apiVersion:
+                      type: string
+                    kinds:
+                      items:
+                        type: string
+                      type: array
+                  required:
+                  - apiVersion
+                  - kinds
+                  type: object
+                type: array
+              deny:
+                description: To deny deployment of listed resources
+                items:
+                  description: Set of kubernetes group resources not allowed to be deployed
+                  properties:
+                    apiVersion:
+                      type: string
+                    kinds:
+                      items:
+                        type: string
+                      type: array
+                  required:
+                  - apiVersion
+                  - kinds
                   type: object
                 type: array
               placement:
