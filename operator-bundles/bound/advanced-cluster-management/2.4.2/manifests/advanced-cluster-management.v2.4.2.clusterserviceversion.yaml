@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-12-15T17:05:06Z'
+    createdAt: '2021-12-15T18:47:05Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clusterstates.hive.openshift.io", "machinepoolnameleases.hive.openshift.io",
-      "clustersyncs.hiveinternal.openshift.io", "observatoria.core.observatorium.io", "clusterdeprovisions.hive.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "clusterprovisions.hive.openshift.io",
-      "fakeclusterinstalls.hiveinternal.openshift.io", "checkpoints.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["clustersyncs.hiveinternal.openshift.io", "clusterstates.hive.openshift.io",
+      "clusterdeprovisions.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "machinepoolnameleases.hive.openshift.io",
+      "checkpoints.hive.openshift.io", "clusterprovisions.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io", "fakeclusterinstalls.hiveinternal.openshift.io"]'
   name: advanced-cluster-management.v2.4.2
   namespace: placeholder
   labels:
@@ -1892,7 +1892,6 @@ spec:
                 - name: OPERAND_IMAGE_WORK
                   value: quay.io/open-cluster-management/work@sha256:d37ea3e463fa25c15fc203eefe2e3259f95674000e4fcc50fe49874d607eed5b
                 image: quay.io/open-cluster-management/multiclusterhub-operator@sha256:01db7feea4080de8814b98beab3bd2fa223f3c548c70b85a3805359ed341f174
-                imagePullPolicy: IfNotPresent
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -2020,7 +2019,6 @@ spec:
                 - name: SPOKE_NAMESPACE
                   value: open-cluster-management-addon-observability
                 image: quay.io/open-cluster-management/multicluster-observability-operator@sha256:c032223455428b3adbe1be1c458845fe369b2ced06c249540b7186e5aefb0ec0
-                imagePullPolicy: Always
                 lifecycle:
                   preStop:
                     exec:
@@ -2174,7 +2172,6 @@ spec:
                   initialDelaySeconds: 15
                   periodSeconds: 15
                 image: quay.io/open-cluster-management/multicluster-operators-placementrule@sha256:3cd1daecef857fba9e13e01643156016b76910e8ac75b2fc492481afa6672435
-                imagePullPolicy: Always
                 name: multicluster-operators-placementrule
                 resources:
                   limits:
@@ -2216,7 +2213,6 @@ spec:
                   initialDelaySeconds: 15
                   periodSeconds: 15
                 image: quay.io/open-cluster-management/multicloud-integrations@sha256:08562da16d810aac89da3fc0ec9cc6c8565e051e944fa6081d7b64747e6974e2
-                imagePullPolicy: Always
                 name: multicluster-operators-gitopscluster
                 resources:
                   limits:
@@ -2258,7 +2254,6 @@ spec:
                   initialDelaySeconds: 15
                   periodSeconds: 15
                 image: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:3ae666a0f9d75283710ee7a7507c1cae3cd72f86efb977360320c353d097a36c
-                imagePullPolicy: Always
                 name: multicluster-operators-deployable
                 resources:
                   limits:
@@ -2304,7 +2299,6 @@ spec:
                   initialDelaySeconds: 15
                   periodSeconds: 15
                 image: quay.io/open-cluster-management/multicluster-operators-application@sha256:dfff4d7a6941a8527507177510023ce371ab673fde3a02799879c52215cf7cd0
-                imagePullPolicy: Always
                 name: multicluster-operators-application
                 resources:
                   limits:
@@ -2390,7 +2384,6 @@ spec:
                   initialDelaySeconds: 15
                   periodSeconds: 15
                 image: quay.io/open-cluster-management/multicluster-operators-channel@sha256:864de082c20ef39f16c1f713b47d0ac21280c84675aa60f3cf88051c9e2d192b
-                imagePullPolicy: Always
                 name: multicluster-operators-channel
                 resources:
                   limits:
@@ -2473,7 +2466,6 @@ spec:
                   initialDelaySeconds: 15
                   periodSeconds: 15
                 image: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:a7fda011bdf313aa5437af6dab0f0755bfe43b57ccdebab93c14ca1e00874f4d
-                imagePullPolicy: Always
                 name: multicluster-operators-standalone-subscription
                 resources:
                   limits:
@@ -2569,7 +2561,6 @@ spec:
                   initialDelaySeconds: 15
                   periodSeconds: 15
                 image: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:a7fda011bdf313aa5437af6dab0f0755bfe43b57ccdebab93c14ca1e00874f4d
-                imagePullPolicy: Always
                 name: multicluster-operators-hub-subscription
                 resources:
                   limits:
@@ -2626,7 +2617,6 @@ spec:
                     fieldRef:
                       fieldPath: metadata.namespace
                 image: quay.io/open-cluster-management/hive@sha256:9404c1df3e2401b09883d985eae13d13e05a0fe083dc7e10456a68478759faa3
-                imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
                     path: /healthz
