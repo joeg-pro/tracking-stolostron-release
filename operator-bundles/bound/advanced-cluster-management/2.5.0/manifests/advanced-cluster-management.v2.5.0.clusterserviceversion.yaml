@@ -27,17 +27,18 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2021-12-15T23:14:22Z'
+    createdAt: '2021-12-15T23:19:07Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clustersyncs.hiveinternal.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "clustersyncleases.hiveinternal.openshift.io",
-      "clusterdeprovisions.hive.openshift.io", "clusterstates.hive.openshift.io", "machinepoolnameleases.hive.openshift.io",
-      "observatoria.core.observatorium.io", "clusterprovisions.hive.openshift.io", "checkpoints.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["fakeclusterinstalls.hiveinternal.openshift.io",
+      "observabilityaddons.observability.open-cluster-management.io", "machinepoolnameleases.hive.openshift.io",
+      "observatoria.core.observatorium.io", "clusterdeprovisions.hive.openshift.io", "clusterprovisions.hive.openshift.io",
+      "checkpoints.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "clustersyncs.hiveinternal.openshift.io",
+      "clusterstates.hive.openshift.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1794,11 +1795,11 @@ spec:
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
                   value: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:6e606b060ef6bd63b3dc66f48ca831474fb5a43fc6f9289099b7f49919a634a3
                 - name: OPERAND_IMAGE_GRC_UI
-                  value: quay.io/open-cluster-management/grc-ui@sha256:b585a707198ed01696b3608b43ddc4bdc7e992de2c62faaacceeaec024edd23f
+                  value: quay.io/open-cluster-management/grc-ui@sha256:c19568b533c5e4d060d2a428e36138d969086fc622b17c9ae6ad11a6c73d293c
                 - name: OPERAND_IMAGE_GRC_UI_API
                   value: quay.io/open-cluster-management/grc-ui-api@sha256:549ebfe1825f026330359e55d162c9ce26576e54fa259a63ee4f22732222019f
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
-                  value: quay.io/open-cluster-management/grc-ui-tests@sha256:a90d4d8ab0c7add62c2f2712833ab0e7c0fca1458a3d14b58e066135e9ecf3b9
+                  value: quay.io/open-cluster-management/grc-ui-tests@sha256:eca2b852243f5669a6ca9cf1a1ad1a5e1a7664a974bace4d0835a872eb636551
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
                 - name: OPERAND_IMAGE_HELLOWORLD
@@ -2759,11 +2760,11 @@ spec:
   - name: grc_policy_framework_tests
     image: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:6e606b060ef6bd63b3dc66f48ca831474fb5a43fc6f9289099b7f49919a634a3
   - name: grc_ui
-    image: quay.io/open-cluster-management/grc-ui@sha256:b585a707198ed01696b3608b43ddc4bdc7e992de2c62faaacceeaec024edd23f
+    image: quay.io/open-cluster-management/grc-ui@sha256:c19568b533c5e4d060d2a428e36138d969086fc622b17c9ae6ad11a6c73d293c
   - name: grc_ui_api
     image: quay.io/open-cluster-management/grc-ui-api@sha256:549ebfe1825f026330359e55d162c9ce26576e54fa259a63ee4f22732222019f
   - name: grc_ui_tests
-    image: quay.io/open-cluster-management/grc-ui-tests@sha256:a90d4d8ab0c7add62c2f2712833ab0e7c0fca1458a3d14b58e066135e9ecf3b9
+    image: quay.io/open-cluster-management/grc-ui-tests@sha256:eca2b852243f5669a6ca9cf1a1ad1a5e1a7664a974bace4d0835a872eb636551
   - name: helloprow_go
     image: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
   - name: helloworld
