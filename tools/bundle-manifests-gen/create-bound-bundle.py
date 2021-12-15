@@ -185,10 +185,11 @@ def update_image_refs_in_deployment(deployment, image_key_mapping, image_manifes
 
       # Remove any imagePullPolicy so it defaults to IfNotPresent:
 
-      image_pull_policy = container["imagePullPolicy"]
-      if image_pull_policy:
+      try:
          del container["imagePullPolicy"]
-         print("   NOTE: Removed imagePullPolicy from %s deployment" % deployment_name) 
+         print("   NOTE: Removed imagePullPolicy from %s deployment" % deployment_name)
+      except KeyError:
+         pass # No imagePullPolicy specified.
 
    # Remove any pull secrets left over from dev env practices:
 
