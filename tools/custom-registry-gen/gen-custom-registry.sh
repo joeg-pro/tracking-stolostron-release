@@ -12,7 +12,7 @@ opm_vers="v1.13.3"
 # such as v1.17.5, results in failures in the Travis build jobs that do catalog-building stuff.
 # Typical failure symptoms are the following:
 #
-# Adding bundle: quay.io/open-cluster-management/cmb-operator-bundle:1.0.0-BACKPLANE-2021-09-16-15-59-07
+# Adding bundle: quay.io/stolostron/cmb-operator-bundle:1.0.0-BACKPLANE-2021-09-16-15-59-07
 # ./opm: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.28' not found (required by ./opm)
 #
 # Do not be so foolish as to attempt an upgrade of opm level until you've confirmed that our

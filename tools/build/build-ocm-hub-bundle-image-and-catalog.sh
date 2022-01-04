@@ -7,7 +7,7 @@
 #
 # $1 Bundle version for this bundle (Format: x.y.z[-iter]).  (Required)
 #
-# -r remote Registry server/namespace. (Default: quay.io/open-cluster-management)
+# -r remote Registry server/namespace. (Default: quay.io/stolostron)
 # -b Budnle repository name (default: multicluster-hub-operator-bundle)
 # -c Custom catalog repository Name (Default: multicluster-hub-custom-registry)
 # -t image Tag for bundle/catalog (Default: use bundle version)
@@ -42,7 +42,7 @@ fi
 default_bundle_repo="multicluster-hub-operator-bundle"
 default_catalog_repo="multicluster-hub-custom-registry"
 
-default_image_rgy_and_ns=${OCM_BUILD_IMAGE_RGY_AND_NS:-quay.io/open-cluster-management}
+default_image_rgy_and_ns=${OCM_BUILD_IMAGE_RGY_AND_NS:-quay.io/stolostron}
 
 opt_flags="r:b:c:t:PJ:w:W:"
 

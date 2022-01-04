@@ -15,7 +15,7 @@
 #       are added to the catalog in the order in which the tags are listed.
 #       Last tag is also used as tag of output bundle image (for compatibility).
 #
-# -r Remote registry server/namespace.  (Default: quay.io/open-cluster-management)
+# -r Remote registry server/namespace.  (Default: quay.io/stolostron)
 # -b bundle image Name (repo).  (Default: multicluster-hub-operator-bundle)
 # -c catalog image Name (repo). (Default: multicluster-hub-custom-registry)
 # -P Push image (switch)
@@ -32,7 +32,7 @@ my_dir=$(dirname $(readlink -f $0))
 default_bundle_repo="multicluster-hub-operator-bundle"
 default_catalog_repo="multicluster-hub-custom-registry"
 
-default_image_rgy_and_ns=${OCM_BUILD_IMAGE_RGY_AND_NS:-quay.io/open-cluster-management}
+default_image_rgy_and_ns=${OCM_BUILD_IMAGE_RGY_AND_NS:-quay.io/stolostron}
 
 opt_flags="r:b:c:PJ:"
 

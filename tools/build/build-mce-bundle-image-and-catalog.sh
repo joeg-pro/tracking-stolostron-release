@@ -8,7 +8,7 @@
 #
 # $1 Bundle version for this bundle (Format: x.y.z[-iter]).  (Required)
 #
-# -r remote Registry server/namespace. (Default: quay.io/open-cluster-management)
+# -r remote Registry server/namespace. (Default: quay.io/stolostron)
 # -b Budnle repository name (default: cmb-operator-bundle)
 # -c Custom catalog repository Name (Default: cmb-custom-registry)
 # -t image Tag for bundle/catalog (Default: use bundle version)

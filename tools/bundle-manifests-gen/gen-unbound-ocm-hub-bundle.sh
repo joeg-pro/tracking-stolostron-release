@@ -95,7 +95,7 @@ if [[ "$rel_x" -ge 2 ]] && [[ "$rel_y" -ge 4 ]]; then
 else
    hub_bundle_path="deploy/olm-catalog/multiclusterhub-operator/manifests"
 fi
-locate_repo_operator "Base Hub" "open-cluster-management/multiclusterhub-operator" \
+locate_repo_operator "Base Hub" "stolostron/multiclusterhub-operator" \
    "$rel_xy_branch" "$hub_bundle_path"
 
 # Since ACM 2.0:
@@ -105,7 +105,7 @@ if [[ "$rel_x" -ge 2 ]]; then
    # From ACM 2.0 to 2.4:
    if [[ $using_mce -eq 0 ]]; then
       # Registration operator
-      locate_repo_operator "Cluster Manager" "open-cluster-management/registration-operator" \
+      locate_repo_operator "Cluster Manager" "stolostron/registration-operator" \
          "$rel_xy_branch" "deploy/cluster-manager/olm-catalog/cluster-manager/manifests"
    fi
 
@@ -124,7 +124,7 @@ if [[ "$rel_x" -ge 2 ]]; then
          op_bundle_path="deploy/olm-catalog/multicluster-observability-operator/manifests"
       fi
 
-      locate_repo_operator "Monitoring" "open-cluster-management/multicluster-observability-operator" \
+      locate_repo_operator "Monitoring" "stolostron/multicluster-observability-operator" \
          "$rel_xy_branch" "$op_bundle_path"
    fi
 
@@ -132,7 +132,7 @@ if [[ "$rel_x" -ge 2 ]]; then
    if [[ "$rel_y" -ge 2 ]]; then
 
       # Submariner add-on
-      locate_repo_operator "Submariner Addon" "open-cluster-management/submariner-addon" \
+      locate_repo_operator "Submariner Addon" "stolostron/submariner-addon" \
          "$rel_xy_branch" "deploy/olm-catalog/manifests"
    fi
 fi
