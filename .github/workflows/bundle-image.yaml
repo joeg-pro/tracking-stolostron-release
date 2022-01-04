@@ -10,7 +10,7 @@ jobs:
 
     env:
       COMPONENT_TAG_EXTENSION: "-${{ github.sha }}"
-      BUILD_HARNESS_EXTENSIONS_BRANCH: master
+      BUILD_HARNESS_EXTENSIONS_BRANCH: main
       DOCKER_USER: "stolostron+pushall"
       DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD_PUSHALL_ROBOT }}
       QUAY_TOKEN: ${{ secrets.QUAY_API_TOKEN }}
