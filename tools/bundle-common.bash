@@ -736,9 +736,9 @@ function gen_bound_bundle {
 
    local dash_lower_r_opts=()
    if [[ -n "$rgy_and_ns_override" ]]; then
-      # Assume the image manifest will be using quay.io/open-cluster-management
+      # Assume the image manifest will be using quay.io/stolostron
       # and map from tha tto what is mentioned in the env var.
-      dash_lower_r_opts+=("-r" "quay.io/open-cluster-management:$rgy_and_ns_override")
+      dash_lower_r_opts+=("-r" "quay.io/stolostron:$rgy_and_ns_override")
    fi
    local dash_lower_t_opt=()
    if [[ -n "$pin_using_tag_override" ]]; then

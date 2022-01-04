@@ -69,7 +69,7 @@ declare -A bundle_dirs
 
 cmb_operator_branch="$rel_xy_branch"
 
-locate_repo_operator "Backplane Installer" "open-cluster-management/backplane-operator" \
+locate_repo_operator "Backplane Installer" "stolostron/backplane-operator" \
    "$cmb_operator_branch" "bundle/manifests"
 
 # -- Done finding source bundles --

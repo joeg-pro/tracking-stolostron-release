@@ -22,7 +22,7 @@ source "$my_dir/bundle-common.bash"
 
 default_bundle_repo="acm-operator-bundle"
 input_bundle_manifests_spot="$top_of_repo/operator-bundles/bound/advanced-cluster-management"
-default_image_rgy_and_ns=${OCM_BUILD_IMAGE_RGY_AND_NS:-quay.io/open-cluster-management}
+default_image_rgy_and_ns=${OCM_BUILD_IMAGE_RGY_AND_NS:-quay.io/stolostron}
 
 $my_dir/gen-bundle-image.sh \
    -n "$default_bundle_repo" -r "$default_image_rgy_and_ns" \
