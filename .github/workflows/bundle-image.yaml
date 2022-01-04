@@ -11,8 +11,8 @@ jobs:
     env:
       COMPONENT_TAG_EXTENSION: "-${{ github.sha }}"
       BUILD_HARNESS_EXTENSIONS_BRANCH: master
-      DOCKER_USER: "open-cluster-management+cicdwrite"
-      DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD_CICDWRITE_ROBOT }}
+      DOCKER_USER: "stolostron+pushall"
+      DOCKER_PASS: ${{ secrets.DOCKER_PASSWORD_PUSHALL_ROBOT }}
       QUAY_TOKEN: ${{ secrets.QUAY_API_TOKEN }}
       SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
@@ -47,7 +47,7 @@ jobs:
         SNAPSHOT_TAG=`cat Z_RELEASE_VERSION`-$SNAPSHOT-`cat TAG`
         tools/build/build-$WHAT_TOOL-bundle-image-and-catalog.sh -P -t $SNAPSHOT_TAG `cat Z_RELEASE_VERSION` ||  make simple-slack/send SLACK_MESSAGE=":$ICON: \`$PROJECT\` $WHAT_TOOL catalog failed for `cat Z_RELEASE_VERSION`: :red_circle: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID \`$COMMIT_MESSAGE\`"
         # Clone the release repo at the designated release version so we can commit our generated build artifacts at this snapshot level
-        git clone -b $PROJECT-`cat RELEASE_VERSION` https://${GITHUB_USER}:${GITHUB_TOKEN}@github.com/open-cluster-management/release.git snapshot
+        git clone -b $PROJECT-`cat RELEASE_VERSION` https://${GITHUB_USER}:${GITHUB_TOKEN}@github.com/stolostron/release.git --single-branch snapshot
         cd snapshot
         rm -rf ./operator-bundles
         mkdir ./operator-bundles
