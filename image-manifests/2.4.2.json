@@ -217,23 +217,23 @@
   {
     "image-name": "discovery-operator-tests",
     "image-version": "0.2",
-    "image-tag": "0.2-c51bd18d1836343a9b7430e7de7cb9ebc9a85cec",
-    "git-sha256": "c51bd18d1836343a9b7430e7de7cb9ebc9a85cec",
+    "image-tag": "0.2-e3c69a2a3fa70bdf8014b67a4179002ebb2ead16",
+    "git-sha256": "e3c69a2a3fa70bdf8014b67a4179002ebb2ead16",
     "git-repository": "stolostron/discovery",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:0519ec8727a391920373bcddb1cebeeaf7a6db04d830296da007a43f2ea6e47b",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:b335de5ccfe2d9a5de14f524db2cb214fbb557ae6b6392e95cafea79c1d8a211",
     "image-key": "discovery_operator_tests"
   },
   {
     "image-name": "discovery-testserver",
     "image-version": "0.2",
-    "image-tag": "0.2-c51bd18d1836343a9b7430e7de7cb9ebc9a85cec",
-    "git-sha256": "c51bd18d1836343a9b7430e7de7cb9ebc9a85cec",
+    "image-tag": "0.2-e3c69a2a3fa70bdf8014b67a4179002ebb2ead16",
+    "git-sha256": "e3c69a2a3fa70bdf8014b67a4179002ebb2ead16",
     "git-repository": "stolostron/discovery",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:241d4e9fe2d06b539f5ef3001f7aee6118a7f30779e55d7c5aa14b23d21e956e",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:1e41fba2a01ebdd97315b95efcadefce283ee5c384ef25586a0ad7974c086e0a",
     "image-key": "discovery-testserver"
   },
   {
@@ -316,12 +316,12 @@
   {
     "image-name": "grc-policy-framework-tests",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-4c709d099eee8af0748a2626959b63eb64f5be28",
-    "git-sha256": "4c709d099eee8af0748a2626959b63eb64f5be28",
+    "image-tag": "1.0.0-3a5ba11858aaea84a39575bb937d026d50a9df3e",
+    "git-sha256": "3a5ba11858aaea84a39575bb937d026d50a9df3e",
     "git-repository": "stolostron/governance-policy-framework",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:654be634b7c9ab81864471625ff413fdf2dbf3e06e1c912b05a082dc20b3cd74",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:a18fcd9ab5c4774fe4bf527189bbf047c7278cf41adf4d6c7e809c06472ad843",
     "image-key": "grc_policy_framework_tests"
   },
   {
