@@ -27,18 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-04T13:52:47Z'
+    createdAt: '2022-01-06T20:10:00Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["fakeclusterinstalls.hiveinternal.openshift.io",
-      "clustersyncs.hiveinternal.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
-      "clusterdeprovisions.hive.openshift.io", "clusterprovisions.hive.openshift.io", "checkpoints.hive.openshift.io",
-      "machinepoolnameleases.hive.openshift.io", "clusterstates.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["clustersyncleases.hiveinternal.openshift.io",
+      "fakeclusterinstalls.hiveinternal.openshift.io", "observatoria.core.observatorium.io", "checkpoints.hive.openshift.io",
+      "clusterprovisions.hive.openshift.io", "clusterdeprovisions.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "clusterstates.hive.openshift.io", "machinepoolnameleases.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -151,25 +150,25 @@ spec:
         path: disableHubSelfManagement
         x-descriptors:
         - urn:alm:descriptor:com.tectonic.ui:advanced
-        - urn:alm:descriptor:io.kubernetes:booleanSwitch
+        - urn:alm:descriptor:com.tectonic.ui:booleanSwitch
       - description: Disable automatic update of ClusterImageSets
         displayName: Disable Update ClusterImageSets
         path: disableUpdateClusterImageSets
         x-descriptors:
         - urn:alm:descriptor:com.tectonic.ui:advanced
-        - urn:alm:descriptor:io.kubernetes:booleanSwitch
+        - urn:alm:descriptor:com.tectonic.ui:booleanSwitch
       - description: Enable cluster backup
         displayName: Enable Cluster Backup
         path: enableClusterBackup
         x-descriptors:
         - urn:alm:descriptor:com.tectonic.ui:advanced
-        - urn:alm:descriptor:io.kubernetes:booleanSwitch
+        - urn:alm:descriptor:com.tectonic.ui:booleanSwitch
       - description: Enable cluster proxy addon
         displayName: Enable Cluster Proxy Addon
         path: enableClusterProxyAddon
         x-descriptors:
         - urn:alm:descriptor:com.tectonic.ui:advanced
-        - urn:alm:descriptor:io.kubernetes:booleanSwitch
+        - urn:alm:descriptor:com.tectonic.ui:booleanSwitch
       - description: (Deprecated) Overrides for the default HiveConfig spec
         displayName: Hive Config
         path: hive
@@ -806,7 +805,27 @@ spec:
           resources:
           - multiclusterengines
           verbs:
+          - create
+          - delete
+          - get
           - list
+          - patch
+          - update
+          - watch
+        - apiGroups:
+          - operators.coreos.com
+          resources:
+          - clusterserviceversions
+          - operatorgroups
+          - subscriptions
+          verbs:
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
         serviceAccountName: multiclusterhub-operator
       - rules:
         - apiGroups:
@@ -1733,180 +1752,180 @@ spec:
                     fieldRef:
                       fieldPath: metadata.namespace
                 - name: OPERAND_IMAGE_APPLICATION_UI
-                  value: quay.io/open-cluster-management/application-ui@sha256:120fa21abb4116a56d9020cfa574541dd9ddf9f16bb94514d7f90f777dae9ac7
+                  value: quay.io/stolostron/application-ui@sha256:120fa21abb4116a56d9020cfa574541dd9ddf9f16bb94514d7f90f777dae9ac7
                 - name: OPERAND_IMAGE_APPLICATION_UI_TESTS
-                  value: quay.io/open-cluster-management/application-ui-tests@sha256:5fcbf5e5c8a8eca464aecc772171e6c242fea6d0d3afcdf458e94e073a4c8910
+                  value: quay.io/stolostron/application-ui-tests@sha256:5fcbf5e5c8a8eca464aecc772171e6c242fea6d0d3afcdf458e94e073a4c8910
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
-                  value: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:d2a460cbc5694165d2beb30f5a61b3e66507e1bec8962ab070c1bf85be4b2542
+                  value: quay.io/stolostron/applifecycle-backend-e2e@sha256:d2a460cbc5694165d2beb30f5a61b3e66507e1bec8962ab070c1bf85be4b2542
                 - name: OPERAND_IMAGE_ASSISTED_IMAGE_SERVICE
-                  value: quay.io/open-cluster-management/assisted-image-service@sha256:f3ee1c39cb2657e78f49f03105171146e4e9f24027dfa703d1b03a79109dcdd9
+                  value: quay.io/stolostron/assisted-image-service@sha256:f3ee1c39cb2657e78f49f03105171146e4e9f24027dfa703d1b03a79109dcdd9
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER
-                  value: quay.io/open-cluster-management/assisted-installer@sha256:330694077319d6bc9d591a5312547696afb1318f65a53c1e308117a5a2ecd181
+                  value: quay.io/stolostron/assisted-installer@sha256:330694077319d6bc9d591a5312547696afb1318f65a53c1e308117a5a2ecd181
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_AGENT
-                  value: quay.io/open-cluster-management/assisted-installer-agent@sha256:dd80ccb7e3526316a13095181928ab85e862cfd50a6f1ee2a22c0602052ba7ef
+                  value: quay.io/stolostron/assisted-installer-agent@sha256:dd80ccb7e3526316a13095181928ab85e862cfd50a6f1ee2a22c0602052ba7ef
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_CONTROLLER
-                  value: quay.io/open-cluster-management/assisted-installer-controller@sha256:d8a352d0e8cb04201c6e609e5a93c2840eb51fc2f629f897ffec179c2e3e3d57
+                  value: quay.io/stolostron/assisted-installer-controller@sha256:d8a352d0e8cb04201c6e609e5a93c2840eb51fc2f629f897ffec179c2e3e3d57
                 - name: OPERAND_IMAGE_ASSISTED_SERVICE
-                  value: quay.io/open-cluster-management/assisted-service@sha256:365e081052004614e9be5737a8f07cf27a2804de89c43340380f288cd1c966a8
+                  value: quay.io/stolostron/assisted-service@sha256:365e081052004614e9be5737a8f07cf27a2804de89c43340380f288cd1c966a8
                 - name: OPERAND_IMAGE_BAILER
-                  value: quay.io/open-cluster-management/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
+                  value: quay.io/stolostron/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
-                  value: quay.io/open-cluster-management/cert-policy-controller@sha256:976ea668a73714955c84c2581929201bef125a48d11714aebcaa46d7c56ca848
+                  value: quay.io/stolostron/cert-policy-controller@sha256:976ea668a73714955c84c2581929201bef125a48d11714aebcaa46d7c56ca848
                 - name: OPERAND_IMAGE_CLUSTER_BACKUP_CONTROLLER
-                  value: quay.io/open-cluster-management/cluster-backup-controller@sha256:b5b09370e7b5508195cd535d96fa439c4ae710ff7cd3644357ac84423220855f
+                  value: quay.io/stolostron/cluster-backup-controller@sha256:b5b09370e7b5508195cd535d96fa439c4ae710ff7cd3644357ac84423220855f
                 - name: OPERAND_IMAGE_CLUSTER_CURATOR_CONTROLLER
-                  value: quay.io/open-cluster-management/cluster-curator-controller@sha256:80c3331cda4879aacdd201aed284564d51fbb148a0d892bf0c8e5680b0aaa371
+                  value: quay.io/stolostron/cluster-curator-controller@sha256:80c3331cda4879aacdd201aed284564d51fbb148a0d892bf0c8e5680b0aaa371
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
-                  value: quay.io/open-cluster-management/cluster-lifecycle-e2e@sha256:6bb6083282eb30b22c2120fca2f64b379aabb71610744e5f211c52522081c87f
+                  value: quay.io/stolostron/cluster-lifecycle-e2e@sha256:6bb6083282eb30b22c2120fca2f64b379aabb71610744e5f211c52522081c87f
                 - name: OPERAND_IMAGE_CLUSTER_PROXY_ADDON
-                  value: quay.io/open-cluster-management/cluster-proxy-addon@sha256:a8bd5e6babde763cfa0384b4faa462e98fe5751d56d8e9cfb3ebfda0b1f3e577
+                  value: quay.io/stolostron/cluster-proxy-addon@sha256:a8bd5e6babde763cfa0384b4faa462e98fe5751d56d8e9cfb3ebfda0b1f3e577
                 - name: OPERAND_IMAGE_CLUSTERCLAIMS_CONTROLLER
-                  value: quay.io/open-cluster-management/clusterclaims-controller@sha256:3682a323b0a28e387698183f33a8180870b9f4ada09cd35853cbab258c7785ee
+                  value: quay.io/stolostron/clusterclaims-controller@sha256:3682a323b0a28e387698183f33a8180870b9f4ada09cd35853cbab258c7785ee
                 - name: OPERAND_IMAGE_CLUSTERLIFECYCLE_STATE_METRICS
-                  value: quay.io/open-cluster-management/clusterlifecycle-state-metrics@sha256:091cc3cb37e44d8def372d5866fce750ada85240b04c50e4db6bbd1c95850a56
+                  value: quay.io/stolostron/clusterlifecycle-state-metrics@sha256:091cc3cb37e44d8def372d5866fce750ada85240b04c50e4db6bbd1c95850a56
                 - name: OPERAND_IMAGE_CMB_CUSTOM_REGISTRY
-                  value: quay.io/open-cluster-management/cmb-custom-registry@sha256:ad893b3b8d7b9200650250e9014b3479ce37fdd8bbf1f275e4e386e78c65daf8
+                  value: quay.io/stolostron/cmb-custom-registry@sha256:ad893b3b8d7b9200650250e9014b3479ce37fdd8bbf1f275e4e386e78c65daf8
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
-                  value: quay.io/open-cluster-management/config-policy-controller@sha256:2503df28fc7016b5c1d3ba1e9300ea4533b0c78342c32a33f420939dc2dedb6a
+                  value: quay.io/stolostron/config-policy-controller@sha256:2503df28fc7016b5c1d3ba1e9300ea4533b0c78342c32a33f420939dc2dedb6a
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/open-cluster-management/console@sha256:cc94625f63c9edc1ba828f61b0effc826a634128f4f369c7f5f8b2bd990d4313
+                  value: quay.io/stolostron/console@sha256:0629731a10355872810e95238faa58239c4d192da1042d128c0028b7240c3a61
                 - name: OPERAND_IMAGE_CONSOLE_API
-                  value: quay.io/open-cluster-management/console-api@sha256:c4da6a435523826a1e564ae950ddbe9ee14f9e6364bbe7a3a45e4e71638225c0
+                  value: quay.io/stolostron/console-api@sha256:c4da6a435523826a1e564ae950ddbe9ee14f9e6364bbe7a3a45e4e71638225c0
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
-                  value: quay.io/open-cluster-management/discovery-operator@sha256:363b2be06e024d215600ecedcc1f4d7b8a00a5948e1756bd1877ed8529382474
+                  value: quay.io/stolostron/discovery-operator@sha256:363b2be06e024d215600ecedcc1f4d7b8a00a5948e1756bd1877ed8529382474
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR_TESTS
-                  value: quay.io/open-cluster-management/discovery-operator-tests@sha256:3e9fab57a6f092df9c0afb2e8a7b40b94d49afdee443a0106959791af709da9f
+                  value: quay.io/stolostron/discovery-operator-tests@sha256:3e9fab57a6f092df9c0afb2e8a7b40b94d49afdee443a0106959791af709da9f
                 - name: OPERAND_IMAGE_DISCOVERY-TESTSERVER
-                  value: quay.io/open-cluster-management/discovery-testserver@sha256:5e7bdc4efc0727ff9ac89c216a207ec055af33bd3691ada0dc3a27b4c93bb08e
+                  value: quay.io/stolostron/discovery-testserver@sha256:5e7bdc4efc0727ff9ac89c216a207ec055af33bd3691ada0dc3a27b4c93bb08e
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
-                  value: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:586429691aa381c3e5877cbb01586b7191e9068ddbae690d5205e3d4ebe2c953
+                  value: quay.io/stolostron/endpoint-monitoring-operator@sha256:586429691aa381c3e5877cbb01586b7191e9068ddbae690d5205e3d4ebe2c953
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
-                  value: quay.io/open-cluster-management/governance-policy-propagator@sha256:6e42bc4d167a305175404ea6bf65d337cb4b2b0e32d5aaa6b340cec96deb004b
+                  value: quay.io/stolostron/governance-policy-propagator@sha256:6e42bc4d167a305175404ea6bf65d337cb4b2b0e32d5aaa6b340cec96deb004b
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
-                  value: quay.io/open-cluster-management/governance-policy-spec-sync@sha256:8e6501c78712a15ebefff946ca2df4d26c18a97fab35ab6b19a55aef2c297e37
+                  value: quay.io/stolostron/governance-policy-spec-sync@sha256:8e6501c78712a15ebefff946ca2df4d26c18a97fab35ab6b19a55aef2c297e37
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_STATUS_SYNC
-                  value: quay.io/open-cluster-management/governance-policy-status-sync@sha256:5a43630acc4241cb613cec1bfb66356f18d148a624bbaec448579e83ce235928
+                  value: quay.io/stolostron/governance-policy-status-sync@sha256:5a43630acc4241cb613cec1bfb66356f18d148a624bbaec448579e83ce235928
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_TEMPLATE_SYNC
-                  value: quay.io/open-cluster-management/governance-policy-template-sync@sha256:2c4d97eda661cf040005b3505a845c628d1c7dc137c0efdf7b34efeb3003976a
+                  value: quay.io/stolostron/governance-policy-template-sync@sha256:2c4d97eda661cf040005b3505a845c628d1c7dc137c0efdf7b34efeb3003976a
                 - name: OPERAND_IMAGE_GRAFANA
-                  value: quay.io/open-cluster-management/grafana@sha256:e321d0d07877690dab33d5bbd407608ea11f3a7842ad950de48492ed9cd96dcb
+                  value: quay.io/stolostron/grafana@sha256:e321d0d07877690dab33d5bbd407608ea11f3a7842ad950de48492ed9cd96dcb
                 - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
-                  value: quay.io/open-cluster-management/grafana-dashboard-loader@sha256:bbaf74e5247086ac2ee38d04db0c9e5a8bd44c2088d76e623bd8f30d673c0f1c
+                  value: quay.io/stolostron/grafana-dashboard-loader@sha256:bbaf74e5247086ac2ee38d04db0c9e5a8bd44c2088d76e623bd8f30d673c0f1c
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
-                  value: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:2f94f2db65880a2683c1ca99a684361c4e110855a675820b60817abd1bb8708c
+                  value: quay.io/stolostron/grc-policy-framework-tests@sha256:2f94f2db65880a2683c1ca99a684361c4e110855a675820b60817abd1bb8708c
                 - name: OPERAND_IMAGE_GRC_UI
-                  value: quay.io/open-cluster-management/grc-ui@sha256:c19568b533c5e4d060d2a428e36138d969086fc622b17c9ae6ad11a6c73d293c
+                  value: quay.io/stolostron/grc-ui@sha256:c19568b533c5e4d060d2a428e36138d969086fc622b17c9ae6ad11a6c73d293c
                 - name: OPERAND_IMAGE_GRC_UI_API
-                  value: quay.io/open-cluster-management/grc-ui-api@sha256:549ebfe1825f026330359e55d162c9ce26576e54fa259a63ee4f22732222019f
+                  value: quay.io/stolostron/grc-ui-api@sha256:549ebfe1825f026330359e55d162c9ce26576e54fa259a63ee4f22732222019f
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
-                  value: quay.io/open-cluster-management/grc-ui-tests@sha256:eca2b852243f5669a6ca9cf1a1ad1a5e1a7664a974bace4d0835a872eb636551
+                  value: quay.io/stolostron/grc-ui-tests@sha256:eca2b852243f5669a6ca9cf1a1ad1a5e1a7664a974bace4d0835a872eb636551
                 - name: OPERAND_IMAGE_HELLOPROW_GO
-                  value: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
+                  value: quay.io/stolostron/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/open-cluster-management/helloworld@sha256:d1a0754cf3c59232d74c37716402bd37576e71194cf1fb7bb7376dd5730401a0
+                  value: quay.io/stolostron/helloworld@sha256:d1a0754cf3c59232d74c37716402bd37576e71194cf1fb7bb7376dd5730401a0
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
-                  value: quay.io/open-cluster-management/hive@sha256:c145d3ed317d767dda1a382bfeb1ede751651ef7621464357f730f2df9d3f5f9
+                  value: quay.io/stolostron/hive@sha256:c145d3ed317d767dda1a382bfeb1ede751651ef7621464357f730f2df9d3f5f9
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
-                  value: quay.io/open-cluster-management/iam-policy-controller@sha256:db979ac19d09b57595f09d36e5fa21933a86428b469b256d09474d70994efe2b
+                  value: quay.io/stolostron/iam-policy-controller@sha256:db979ac19d09b57595f09d36e5fa21933a86428b469b256d09474d70994efe2b
                 - name: OPERAND_IMAGE_INSIGHTS_CLIENT
-                  value: quay.io/open-cluster-management/insights-client@sha256:dcd341172da0c47a222422a574a22a4d7fa8675cc7f5c6a99659b40a7f393310
+                  value: quay.io/stolostron/insights-client@sha256:dcd341172da0c47a222422a574a22a4d7fa8675cc7f5c6a99659b40a7f393310
                 - name: OPERAND_IMAGE_INSIGHTS_METRICS
-                  value: quay.io/open-cluster-management/insights-metrics@sha256:396adc71a9bdddfc70f4336d3e510ecdf3d3a50869eee5262cf9057a3b1cef6f
+                  value: quay.io/stolostron/insights-metrics@sha256:396adc71a9bdddfc70f4336d3e510ecdf3d3a50869eee5262cf9057a3b1cef6f
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_CONTROLLER
-                  value: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:e0f09724e3732185de15a72ecfc54154956412ac7adb3b14096cf055f1460584
+                  value: quay.io/stolostron/klusterlet-addon-controller@sha256:e0f09724e3732185de15a72ecfc54154956412ac7adb3b14096cf055f1460584
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_OPERATOR
-                  value: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:f572a51a2cffd3c84d169dd61e8a2afa3788fe350958d0c5c3c811e21bfec83a
+                  value: quay.io/stolostron/klusterlet-addon-operator@sha256:f572a51a2cffd3c84d169dd61e8a2afa3788fe350958d0c5c3c811e21bfec83a
                 - name: OPERAND_IMAGE_KUBE_RBAC_PROXY
-                  value: quay.io/open-cluster-management/kube-rbac-proxy@sha256:536421e3ec9a786a8c82d8bacea36d7df35ba521b110cc6f0afb6dbfac8b7ef3
+                  value: quay.io/stolostron/kube-rbac-proxy@sha256:536421e3ec9a786a8c82d8bacea36d7df35ba521b110cc6f0afb6dbfac8b7ef3
                 - name: OPERAND_IMAGE_KUBE_STATE_METRICS
-                  value: quay.io/open-cluster-management/kube-state-metrics@sha256:a065ac0d2aa101dbd40157b7e011622e1b12c2b1ba539cc885c3846b6386f6d8
+                  value: quay.io/stolostron/kube-state-metrics@sha256:a065ac0d2aa101dbd40157b7e011622e1b12c2b1ba539cc885c3846b6386f6d8
                 - name: OPERAND_IMAGE_MANAGEDCLUSTER_IMPORT_CONTROLLER
-                  value: quay.io/open-cluster-management/managedcluster-import-controller@sha256:c1cc27d358383075b71c6bbd58818d049965c4fd6928b95dd6485eec8259278a
+                  value: quay.io/stolostron/managedcluster-import-controller@sha256:c1cc27d358383075b71c6bbd58818d049965c4fd6928b95dd6485eec8259278a
                 - name: OPERAND_IMAGE_MANAGEMENT_INGRESS
-                  value: quay.io/open-cluster-management/management-ingress@sha256:69fc35acd59fbbd1cb168841405d72cb12d366a58864cea7db81490fbca15ac7
+                  value: quay.io/stolostron/management-ingress@sha256:69fc35acd59fbbd1cb168841405d72cb12d366a58864cea7db81490fbca15ac7
                 - name: OPERAND_IMAGE_METRICS_COLLECTOR
-                  value: quay.io/open-cluster-management/metrics-collector@sha256:45cd4e6f31f61e2b731cb78db0a08e6f2b6810363aad91d06813cd90c02167cd
+                  value: quay.io/stolostron/metrics-collector@sha256:45cd4e6f31f61e2b731cb78db0a08e6f2b6810363aad91d06813cd90c02167cd
                 - name: OPERAND_IMAGE_MULTICLOUD_INTEGRATIONS
-                  value: quay.io/open-cluster-management/multicloud-integrations@sha256:12c9d8a7aa57e4971536a29280fdfa50fb01b24a2265707680b1598558da1bff
+                  value: quay.io/stolostron/multicloud-integrations@sha256:12c9d8a7aa57e4971536a29280fdfa50fb01b24a2265707680b1598558da1bff
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
-                  value: quay.io/open-cluster-management/multicloud-manager@sha256:6a1cf0207c89f31dcaae3cc67f996f8fcc68207ca2ca764c8c19c58b082cdfde
+                  value: quay.io/stolostron/multicloud-manager@sha256:6a1cf0207c89f31dcaae3cc67f996f8fcc68207ca2ca764c8c19c58b082cdfde
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
-                  value: quay.io/open-cluster-management/multicluster-observability-operator@sha256:3c021b5d773fff4a9dd998271e4cb4d4bd6356171e609bd156284facebe23990
+                  value: quay.io/stolostron/multicluster-observability-operator@sha256:3c021b5d773fff4a9dd998271e4cb4d4bd6356171e609bd156284facebe23990
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
-                  value: quay.io/open-cluster-management/multicluster-operators-application@sha256:33ebd176d7bbab4ee91f44ecc062b0b90dafab0a22da35e762a0821a40b8202c
+                  value: quay.io/stolostron/multicluster-operators-application@sha256:33ebd176d7bbab4ee91f44ecc062b0b90dafab0a22da35e762a0821a40b8202c
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
-                  value: quay.io/open-cluster-management/multicluster-operators-channel@sha256:ec3dfe9e656011d0bc2ce9d574655dbf67705bb550dd260ec506daad6a2cf6ae
+                  value: quay.io/stolostron/multicluster-operators-channel@sha256:ec3dfe9e656011d0bc2ce9d574655dbf67705bb550dd260ec506daad6a2cf6ae
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_DEPLOYABLE
-                  value: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:ba32819b44e54a71d812b0682b778f1a0365fac1ab6ee872216f85aadab2e719
+                  value: quay.io/stolostron/multicluster-operators-deployable@sha256:ba32819b44e54a71d812b0682b778f1a0365fac1ab6ee872216f85aadab2e719
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_PLACEMENTRULE
-                  value: quay.io/open-cluster-management/multicluster-operators-placementrule@sha256:1348fd0c15b6b12dfe2449d38f87c11607a60d74e76b08693d1d50e7fe9718a0
+                  value: quay.io/stolostron/multicluster-operators-placementrule@sha256:1348fd0c15b6b12dfe2449d38f87c11607a60d74e76b08693d1d50e7fe9718a0
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION
-                  value: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:443840e8160e1f67793ce9065257476b5a8fada490159fae0298e32b117bfd92
+                  value: quay.io/stolostron/multicluster-operators-subscription@sha256:443840e8160e1f67793ce9065257476b5a8fada490159fae0298e32b117bfd92
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION_RELEASE
-                  value: quay.io/open-cluster-management/multicluster-operators-subscription-release@sha256:e3f3aaf60219d38fcf7d3d999df954ec4cc02b85948b4d26253c19a52be54e83
+                  value: quay.io/stolostron/multicluster-operators-subscription-release@sha256:e3f3aaf60219d38fcf7d3d999df954ec4cc02b85948b4d26253c19a52be54e83
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR
-                  value: quay.io/open-cluster-management/multiclusterhub-operator@sha256:a0d607ec1ec9b6502374ef43a059438074b72e6be0ea751a44640b21ad5ac604
+                  value: quay.io/stolostron/multiclusterhub-operator@sha256:a0d607ec1ec9b6502374ef43a059438074b72e6be0ea751a44640b21ad5ac604
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
-                  value: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:b8cc567eb5712eed2925661b6d0720be9e4d1618ff180988edd93bd08710965d
+                  value: quay.io/stolostron/multiclusterhub-operator-tests@sha256:b8cc567eb5712eed2925661b6d0720be9e4d1618ff180988edd93bd08710965d
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
-                  value: quay.io/open-cluster-management/multiclusterhub-repo@sha256:fa97985c0d8b5fcbfc7ab4925237938d9056a075015ef921ad4422afaf5df5dd
+                  value: quay.io/stolostron/multiclusterhub-repo@sha256:fa97985c0d8b5fcbfc7ab4925237938d9056a075015ef921ad4422afaf5df5dd
                 - name: OPERAND_IMAGE_MUST_GATHER
-                  value: quay.io/open-cluster-management/must-gather@sha256:6419e3989266ac3b2975af96bf0a1aa284f283c112ccc695ca9bc95be091571c
+                  value: quay.io/stolostron/must-gather@sha256:6419e3989266ac3b2975af96bf0a1aa284f283c112ccc695ca9bc95be091571c
                 - name: OPERAND_IMAGE_NODE_EXPORTER
-                  value: quay.io/open-cluster-management/node-exporter@sha256:1f89b54eac9a54d3d149562652f0e98761ab5512d1807ff5a0bcf3c6db1288a8
+                  value: quay.io/stolostron/node-exporter@sha256:1f89b54eac9a54d3d149562652f0e98761ab5512d1807ff5a0bcf3c6db1288a8
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
-                  value: quay.io/open-cluster-management/observability-e2e-test@sha256:89cca68e9ee95cf1fef26bce31158e9dd8af7cba8f73b8eb3e5a9087a727a0fc
+                  value: quay.io/stolostron/observability-e2e-test@sha256:89cca68e9ee95cf1fef26bce31158e9dd8af7cba8f73b8eb3e5a9087a727a0fc
                 - name: OPERAND_IMAGE_OBSERVATORIUM
-                  value: quay.io/open-cluster-management/observatorium@sha256:6f879748c67f3edb3ed4155379cfde0f4397f352817586e2d8e52fcdfbd823bd
+                  value: quay.io/stolostron/observatorium@sha256:6f879748c67f3edb3ed4155379cfde0f4397f352817586e2d8e52fcdfbd823bd
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
-                  value: quay.io/open-cluster-management/observatorium-operator@sha256:91c7ebd6850b08fe688f766271432d513c9b18f4a204aecc13026e0bcc4297d7
+                  value: quay.io/stolostron/observatorium-operator@sha256:91c7ebd6850b08fe688f766271432d513c9b18f4a204aecc13026e0bcc4297d7
                 - name: OPERAND_IMAGE_OAUTH_PROXY
-                  value: quay.io/open-cluster-management/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
+                  value: quay.io/stolostron/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
                 - name: OPERAND_IMAGE_PLACEMENT
-                  value: quay.io/open-cluster-management/placement@sha256:f7dda937a400d33ae954725397680e2784c5e19bb9749133e7f801f11edba6e9
+                  value: quay.io/stolostron/placement@sha256:f7dda937a400d33ae954725397680e2784c5e19bb9749133e7f801f11edba6e9
                 - name: OPERAND_IMAGE_POSTGRESQL_12
-                  value: quay.io/open-cluster-management/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
+                  value: quay.io/stolostron/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
                 - name: OPERAND_IMAGE_PROMETHEUS
-                  value: quay.io/open-cluster-management/prometheus@sha256:a755396332ffe7cfd3e13108c23738222d3933ee541d4014edc2c918c28f18b0
+                  value: quay.io/stolostron/prometheus@sha256:a755396332ffe7cfd3e13108c23738222d3933ee541d4014edc2c918c28f18b0
                 - name: OPERAND_IMAGE_PROMETHEUS_ALERTMANAGER
-                  value: quay.io/open-cluster-management/prometheus-alertmanager@sha256:1935ce90e763396f7cf03afa8066f26e2bd23aaf1e70186a07a59df612a5a44f
+                  value: quay.io/stolostron/prometheus-alertmanager@sha256:1935ce90e763396f7cf03afa8066f26e2bd23aaf1e70186a07a59df612a5a44f
                 - name: OPERAND_IMAGE_PROVIDER_CREDENTIAL_CONTROLLER
-                  value: quay.io/open-cluster-management/provider-credential-controller@sha256:6613383495edb4114dacefb4844d293d24febaa0cefaaf806b6027fd979b30ff
+                  value: quay.io/stolostron/provider-credential-controller@sha256:6613383495edb4114dacefb4844d293d24febaa0cefaaf806b6027fd979b30ff
                 - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
-                  value: quay.io/open-cluster-management/rbac-query-proxy@sha256:5f941f52c182c633b1548170e53e0effd19f3714312f0a2471bfe36b400421a5
+                  value: quay.io/stolostron/rbac-query-proxy@sha256:5f941f52c182c633b1548170e53e0effd19f3714312f0a2471bfe36b400421a5
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
-                  value: quay.io/open-cluster-management/redisgraph-tls@sha256:cc1dbc4073011ab5abcf0bb1a69c088ad1444968e906cfbd34e01a683c48f115
+                  value: quay.io/stolostron/redisgraph-tls@sha256:cc1dbc4073011ab5abcf0bb1a69c088ad1444968e906cfbd34e01a683c48f115
                 - name: OPERAND_IMAGE_REGISTRATION
-                  value: quay.io/open-cluster-management/registration@sha256:4e496cf4c5c0a6f11b66a617a37d29081a82234b83b98060b2a3992706674b3c
+                  value: quay.io/stolostron/registration@sha256:4e496cf4c5c0a6f11b66a617a37d29081a82234b83b98060b2a3992706674b3c
                 - name: OPERAND_IMAGE_REGISTRATION_OPERATOR
-                  value: quay.io/open-cluster-management/registration-operator@sha256:c309a669171f73b3fb62de9b52d19b864b5bdb47867d332cda1be9a29d700331
+                  value: quay.io/stolostron/registration-operator@sha256:c309a669171f73b3fb62de9b52d19b864b5bdb47867d332cda1be9a29d700331
                 - name: OPERAND_IMAGE_SEARCH_AGGREGATOR
-                  value: quay.io/open-cluster-management/search-aggregator@sha256:f96bbd8663574dbe3ca5d096dd2cf86f4614b7b4f23f69f52f63fb386b76a1d6
+                  value: quay.io/stolostron/search-aggregator@sha256:f96bbd8663574dbe3ca5d096dd2cf86f4614b7b4f23f69f52f63fb386b76a1d6
                 - name: OPERAND_IMAGE_SEARCH_API
-                  value: quay.io/open-cluster-management/search-api@sha256:9fab68ed03b8ad2c29d34db6a8bd044aa88bd746e0d273e83e43e5734b40577e
+                  value: quay.io/stolostron/search-api@sha256:9fab68ed03b8ad2c29d34db6a8bd044aa88bd746e0d273e83e43e5734b40577e
                 - name: OPERAND_IMAGE_SEARCH_COLLECTOR
-                  value: quay.io/open-cluster-management/search-collector@sha256:2daf9eef53545553a1e4086651748f10ad44ac8c546320a2e5ad7bf1ab1512fd
+                  value: quay.io/stolostron/search-collector@sha256:2daf9eef53545553a1e4086651748f10ad44ac8c546320a2e5ad7bf1ab1512fd
                 - name: OPERAND_IMAGE_SEARCH_E2E
-                  value: quay.io/open-cluster-management/search-e2e@sha256:d7607860bedd0c40cb81dd3a4f4375177f9bf3651d72cf10f3ff42aa0ad8aabe
+                  value: quay.io/stolostron/search-e2e@sha256:d7607860bedd0c40cb81dd3a4f4375177f9bf3651d72cf10f3ff42aa0ad8aabe
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
-                  value: quay.io/open-cluster-management/search-operator@sha256:2192d0060d8e9ad411e85d7c0f722d741963cd2c5a2f27468e8c6840e01d04a9
+                  value: quay.io/stolostron/search-operator@sha256:2192d0060d8e9ad411e85d7c0f722d741963cd2c5a2f27468e8c6840e01d04a9
                 - name: OPERAND_IMAGE_SEARCH_UI
-                  value: quay.io/open-cluster-management/search-ui@sha256:84106b7bc0851c40474fe728502eee07839cd974d3c3acc1cc952ebb8ec75b63
+                  value: quay.io/stolostron/search-ui@sha256:84106b7bc0851c40474fe728502eee07839cd974d3c3acc1cc952ebb8ec75b63
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
-                  value: quay.io/open-cluster-management/submariner-addon@sha256:c7df86683a4d8569cd80a83156a98259f76706767e5984a9fac9bb91125f2cad
+                  value: quay.io/stolostron/submariner-addon@sha256:c7df86683a4d8569cd80a83156a98259f76706767e5984a9fac9bb91125f2cad
                 - name: OPERAND_IMAGE_THANOS
-                  value: quay.io/open-cluster-management/thanos@sha256:d746a0ea0dd0258190868bf7a4d4683782c063586ac8c0e853708d1f5e9ccb2a
+                  value: quay.io/stolostron/thanos@sha256:d746a0ea0dd0258190868bf7a4d4683782c063586ac8c0e853708d1f5e9ccb2a
                 - name: OPERAND_IMAGE_VOLSYNC
-                  value: quay.io/open-cluster-management/volsync@sha256:c5b490399998fbed56814ad8438741b233533884e4168b0b9dd0f4ff8da80087
+                  value: quay.io/stolostron/volsync@sha256:c5b490399998fbed56814ad8438741b233533884e4168b0b9dd0f4ff8da80087
                 - name: OPERAND_IMAGE_VOLSYNC_MOVER_RCLONE
-                  value: quay.io/open-cluster-management/volsync-mover-rclone@sha256:1d51d11b50b2247bc40aa14ff6c4eb06237514936299c370a3439724de61ff62
+                  value: quay.io/stolostron/volsync-mover-rclone@sha256:1d51d11b50b2247bc40aa14ff6c4eb06237514936299c370a3439724de61ff62
                 - name: OPERAND_IMAGE_VOLSYNC_MOVER_RESTIC
-                  value: quay.io/open-cluster-management/volsync-mover-restic@sha256:e0d36f1e322ea5dd103b3e29aa91395c5c0eed5a8938bfe30351a3648eb294cf
+                  value: quay.io/stolostron/volsync-mover-restic@sha256:e0d36f1e322ea5dd103b3e29aa91395c5c0eed5a8938bfe30351a3648eb294cf
                 - name: OPERAND_IMAGE_VOLSYNC_MOVER_RSYNC
-                  value: quay.io/open-cluster-management/volsync-mover-rsync@sha256:ff296e3dc3b20841d4533676f49c2811e7acb8c08c522cd2cd9dade542c05741
+                  value: quay.io/stolostron/volsync-mover-rsync@sha256:ff296e3dc3b20841d4533676f49c2811e7acb8c08c522cd2cd9dade542c05741
                 - name: OPERAND_IMAGE_WORK
-                  value: quay.io/open-cluster-management/work@sha256:c258ca73ede98ee09f94de30cd551086353fb99810a7ab3cb5da8ac8a7d79eba
-                image: quay.io/open-cluster-management/multiclusterhub-operator@sha256:a0d607ec1ec9b6502374ef43a059438074b72e6be0ea751a44640b21ad5ac604
+                  value: quay.io/stolostron/work@sha256:c258ca73ede98ee09f94de30cd551086353fb99810a7ab3cb5da8ac8a7d79eba
+                image: quay.io/stolostron/multiclusterhub-operator@sha256:a0d607ec1ec9b6502374ef43a059438074b72e6be0ea751a44640b21ad5ac604
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -1970,7 +1989,7 @@ spec:
               - args:
                 - /registration-operator
                 - hub
-                image: quay.io/open-cluster-management/registration-operator@sha256:c309a669171f73b3fb62de9b52d19b864b5bdb47867d332cda1be9a29d700331
+                image: quay.io/stolostron/registration-operator@sha256:c309a669171f73b3fb62de9b52d19b864b5bdb47867d332cda1be9a29d700331
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -2033,7 +2052,7 @@ spec:
                   value: /usr/local/manifests
                 - name: SPOKE_NAMESPACE
                   value: open-cluster-management-addon-observability
-                image: quay.io/open-cluster-management/multicluster-observability-operator@sha256:3c021b5d773fff4a9dd998271e4cb4d4bd6356171e609bd156284facebe23990
+                image: quay.io/stolostron/multicluster-observability-operator@sha256:3c021b5d773fff4a9dd998271e4cb4d4bd6356171e609bd156284facebe23990
                 lifecycle:
                   preStop:
                     exec:
@@ -2101,7 +2120,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.name
-                image: quay.io/open-cluster-management/submariner-addon@sha256:c7df86683a4d8569cd80a83156a98259f76706767e5984a9fac9bb91125f2cad
+                image: quay.io/stolostron/submariner-addon@sha256:c7df86683a4d8569cd80a83156a98259f76706767e5984a9fac9bb91125f2cad
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -2186,7 +2205,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:443840e8160e1f67793ce9065257476b5a8fada490159fae0298e32b117bfd92
+                image: quay.io/stolostron/multicluster-operators-subscription@sha256:443840e8160e1f67793ce9065257476b5a8fada490159fae0298e32b117bfd92
                 name: multicluster-operators-placementrule
                 resources:
                   limits:
@@ -2227,7 +2246,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicloud-integrations@sha256:12c9d8a7aa57e4971536a29280fdfa50fb01b24a2265707680b1598558da1bff
+                image: quay.io/stolostron/multicloud-integrations@sha256:12c9d8a7aa57e4971536a29280fdfa50fb01b24a2265707680b1598558da1bff
                 name: multicluster-operators-gitopscluster
                 resources:
                   limits:
@@ -2272,7 +2291,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-application@sha256:33ebd176d7bbab4ee91f44ecc062b0b90dafab0a22da35e762a0821a40b8202c
+                image: quay.io/stolostron/multicluster-operators-application@sha256:33ebd176d7bbab4ee91f44ecc062b0b90dafab0a22da35e762a0821a40b8202c
                 name: multicluster-operators-application
                 resources:
                   limits:
@@ -2357,7 +2376,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-channel@sha256:ec3dfe9e656011d0bc2ce9d574655dbf67705bb550dd260ec506daad6a2cf6ae
+                image: quay.io/stolostron/multicluster-operators-channel@sha256:ec3dfe9e656011d0bc2ce9d574655dbf67705bb550dd260ec506daad6a2cf6ae
                 name: multicluster-operators-channel
                 resources:
                   limits:
@@ -2437,7 +2456,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:443840e8160e1f67793ce9065257476b5a8fada490159fae0298e32b117bfd92
+                image: quay.io/stolostron/multicluster-operators-subscription@sha256:443840e8160e1f67793ce9065257476b5a8fada490159fae0298e32b117bfd92
                 name: multicluster-operators-subscription-report
                 resources:
                   limits:
@@ -2519,7 +2538,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:443840e8160e1f67793ce9065257476b5a8fada490159fae0298e32b117bfd92
+                image: quay.io/stolostron/multicluster-operators-subscription@sha256:443840e8160e1f67793ce9065257476b5a8fada490159fae0298e32b117bfd92
                 name: multicluster-operators-standalone-subscription
                 resources:
                   limits:
@@ -2614,7 +2633,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/open-cluster-management/multicluster-operators-subscription@sha256:443840e8160e1f67793ce9065257476b5a8fada490159fae0298e32b117bfd92
+                image: quay.io/stolostron/multicluster-operators-subscription@sha256:443840e8160e1f67793ce9065257476b5a8fada490159fae0298e32b117bfd92
                 name: multicluster-operators-hub-subscription
                 resources:
                   limits:
@@ -2670,7 +2689,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.namespace
-                image: quay.io/open-cluster-management/hive@sha256:c145d3ed317d767dda1a382bfeb1ede751651ef7621464357f730f2df9d3f5f9
+                image: quay.io/stolostron/hive@sha256:c145d3ed317d767dda1a382bfeb1ede751651ef7621464357f730f2df9d3f5f9
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -2698,158 +2717,158 @@ spec:
                 name: kubectl-cache
   relatedImages:
   - name: application_ui
-    image: quay.io/open-cluster-management/application-ui@sha256:120fa21abb4116a56d9020cfa574541dd9ddf9f16bb94514d7f90f777dae9ac7
+    image: quay.io/stolostron/application-ui@sha256:120fa21abb4116a56d9020cfa574541dd9ddf9f16bb94514d7f90f777dae9ac7
   - name: application_ui_tests
-    image: quay.io/open-cluster-management/application-ui-tests@sha256:5fcbf5e5c8a8eca464aecc772171e6c242fea6d0d3afcdf458e94e073a4c8910
+    image: quay.io/stolostron/application-ui-tests@sha256:5fcbf5e5c8a8eca464aecc772171e6c242fea6d0d3afcdf458e94e073a4c8910
   - name: applifecycle_backend_e2e
-    image: quay.io/open-cluster-management/applifecycle-backend-e2e@sha256:d2a460cbc5694165d2beb30f5a61b3e66507e1bec8962ab070c1bf85be4b2542
+    image: quay.io/stolostron/applifecycle-backend-e2e@sha256:d2a460cbc5694165d2beb30f5a61b3e66507e1bec8962ab070c1bf85be4b2542
   - name: assisted_image_service
-    image: quay.io/open-cluster-management/assisted-image-service@sha256:f3ee1c39cb2657e78f49f03105171146e4e9f24027dfa703d1b03a79109dcdd9
+    image: quay.io/stolostron/assisted-image-service@sha256:f3ee1c39cb2657e78f49f03105171146e4e9f24027dfa703d1b03a79109dcdd9
   - name: assisted_installer
-    image: quay.io/open-cluster-management/assisted-installer@sha256:330694077319d6bc9d591a5312547696afb1318f65a53c1e308117a5a2ecd181
+    image: quay.io/stolostron/assisted-installer@sha256:330694077319d6bc9d591a5312547696afb1318f65a53c1e308117a5a2ecd181
   - name: assisted_installer_agent
-    image: quay.io/open-cluster-management/assisted-installer-agent@sha256:dd80ccb7e3526316a13095181928ab85e862cfd50a6f1ee2a22c0602052ba7ef
+    image: quay.io/stolostron/assisted-installer-agent@sha256:dd80ccb7e3526316a13095181928ab85e862cfd50a6f1ee2a22c0602052ba7ef
   - name: assisted_installer_controller
-    image: quay.io/open-cluster-management/assisted-installer-controller@sha256:d8a352d0e8cb04201c6e609e5a93c2840eb51fc2f629f897ffec179c2e3e3d57
+    image: quay.io/stolostron/assisted-installer-controller@sha256:d8a352d0e8cb04201c6e609e5a93c2840eb51fc2f629f897ffec179c2e3e3d57
   - name: assisted_service
-    image: quay.io/open-cluster-management/assisted-service@sha256:365e081052004614e9be5737a8f07cf27a2804de89c43340380f288cd1c966a8
+    image: quay.io/stolostron/assisted-service@sha256:365e081052004614e9be5737a8f07cf27a2804de89c43340380f288cd1c966a8
   - name: bailer
-    image: quay.io/open-cluster-management/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
+    image: quay.io/stolostron/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
   - name: cert_policy_controller
-    image: quay.io/open-cluster-management/cert-policy-controller@sha256:976ea668a73714955c84c2581929201bef125a48d11714aebcaa46d7c56ca848
+    image: quay.io/stolostron/cert-policy-controller@sha256:976ea668a73714955c84c2581929201bef125a48d11714aebcaa46d7c56ca848
   - name: cluster_backup_controller
-    image: quay.io/open-cluster-management/cluster-backup-controller@sha256:b5b09370e7b5508195cd535d96fa439c4ae710ff7cd3644357ac84423220855f
+    image: quay.io/stolostron/cluster-backup-controller@sha256:b5b09370e7b5508195cd535d96fa439c4ae710ff7cd3644357ac84423220855f
   - name: cluster_curator_controller
-    image: quay.io/open-cluster-management/cluster-curator-controller@sha256:80c3331cda4879aacdd201aed284564d51fbb148a0d892bf0c8e5680b0aaa371
+    image: quay.io/stolostron/cluster-curator-controller@sha256:80c3331cda4879aacdd201aed284564d51fbb148a0d892bf0c8e5680b0aaa371
   - name: cluster_lifecycle_e2e
-    image: quay.io/open-cluster-management/cluster-lifecycle-e2e@sha256:6bb6083282eb30b22c2120fca2f64b379aabb71610744e5f211c52522081c87f
+    image: quay.io/stolostron/cluster-lifecycle-e2e@sha256:6bb6083282eb30b22c2120fca2f64b379aabb71610744e5f211c52522081c87f
   - name: cluster_proxy_addon
-    image: quay.io/open-cluster-management/cluster-proxy-addon@sha256:a8bd5e6babde763cfa0384b4faa462e98fe5751d56d8e9cfb3ebfda0b1f3e577
+    image: quay.io/stolostron/cluster-proxy-addon@sha256:a8bd5e6babde763cfa0384b4faa462e98fe5751d56d8e9cfb3ebfda0b1f3e577
   - name: clusterclaims_controller
-    image: quay.io/open-cluster-management/clusterclaims-controller@sha256:3682a323b0a28e387698183f33a8180870b9f4ada09cd35853cbab258c7785ee
+    image: quay.io/stolostron/clusterclaims-controller@sha256:3682a323b0a28e387698183f33a8180870b9f4ada09cd35853cbab258c7785ee
   - name: clusterlifecycle_state_metrics
-    image: quay.io/open-cluster-management/clusterlifecycle-state-metrics@sha256:091cc3cb37e44d8def372d5866fce750ada85240b04c50e4db6bbd1c95850a56
+    image: quay.io/stolostron/clusterlifecycle-state-metrics@sha256:091cc3cb37e44d8def372d5866fce750ada85240b04c50e4db6bbd1c95850a56
   - name: cmb_custom_registry
-    image: quay.io/open-cluster-management/cmb-custom-registry@sha256:ad893b3b8d7b9200650250e9014b3479ce37fdd8bbf1f275e4e386e78c65daf8
+    image: quay.io/stolostron/cmb-custom-registry@sha256:ad893b3b8d7b9200650250e9014b3479ce37fdd8bbf1f275e4e386e78c65daf8
   - name: config_policy_controller
-    image: quay.io/open-cluster-management/config-policy-controller@sha256:2503df28fc7016b5c1d3ba1e9300ea4533b0c78342c32a33f420939dc2dedb6a
+    image: quay.io/stolostron/config-policy-controller@sha256:2503df28fc7016b5c1d3ba1e9300ea4533b0c78342c32a33f420939dc2dedb6a
   - name: console
-    image: quay.io/open-cluster-management/console@sha256:cc94625f63c9edc1ba828f61b0effc826a634128f4f369c7f5f8b2bd990d4313
+    image: quay.io/stolostron/console@sha256:0629731a10355872810e95238faa58239c4d192da1042d128c0028b7240c3a61
   - name: console_api
-    image: quay.io/open-cluster-management/console-api@sha256:c4da6a435523826a1e564ae950ddbe9ee14f9e6364bbe7a3a45e4e71638225c0
+    image: quay.io/stolostron/console-api@sha256:c4da6a435523826a1e564ae950ddbe9ee14f9e6364bbe7a3a45e4e71638225c0
   - name: discovery_operator
-    image: quay.io/open-cluster-management/discovery-operator@sha256:363b2be06e024d215600ecedcc1f4d7b8a00a5948e1756bd1877ed8529382474
+    image: quay.io/stolostron/discovery-operator@sha256:363b2be06e024d215600ecedcc1f4d7b8a00a5948e1756bd1877ed8529382474
   - name: discovery_operator_tests
-    image: quay.io/open-cluster-management/discovery-operator-tests@sha256:3e9fab57a6f092df9c0afb2e8a7b40b94d49afdee443a0106959791af709da9f
+    image: quay.io/stolostron/discovery-operator-tests@sha256:3e9fab57a6f092df9c0afb2e8a7b40b94d49afdee443a0106959791af709da9f
   - name: discovery-testserver
-    image: quay.io/open-cluster-management/discovery-testserver@sha256:5e7bdc4efc0727ff9ac89c216a207ec055af33bd3691ada0dc3a27b4c93bb08e
+    image: quay.io/stolostron/discovery-testserver@sha256:5e7bdc4efc0727ff9ac89c216a207ec055af33bd3691ada0dc3a27b4c93bb08e
   - name: endpoint_monitoring_operator
-    image: quay.io/open-cluster-management/endpoint-monitoring-operator@sha256:586429691aa381c3e5877cbb01586b7191e9068ddbae690d5205e3d4ebe2c953
+    image: quay.io/stolostron/endpoint-monitoring-operator@sha256:586429691aa381c3e5877cbb01586b7191e9068ddbae690d5205e3d4ebe2c953
   - name: governance_policy_propagator
-    image: quay.io/open-cluster-management/governance-policy-propagator@sha256:6e42bc4d167a305175404ea6bf65d337cb4b2b0e32d5aaa6b340cec96deb004b
+    image: quay.io/stolostron/governance-policy-propagator@sha256:6e42bc4d167a305175404ea6bf65d337cb4b2b0e32d5aaa6b340cec96deb004b
   - name: governance_policy_spec_sync
-    image: quay.io/open-cluster-management/governance-policy-spec-sync@sha256:8e6501c78712a15ebefff946ca2df4d26c18a97fab35ab6b19a55aef2c297e37
+    image: quay.io/stolostron/governance-policy-spec-sync@sha256:8e6501c78712a15ebefff946ca2df4d26c18a97fab35ab6b19a55aef2c297e37
   - name: governance_policy_status_sync
-    image: quay.io/open-cluster-management/governance-policy-status-sync@sha256:5a43630acc4241cb613cec1bfb66356f18d148a624bbaec448579e83ce235928
+    image: quay.io/stolostron/governance-policy-status-sync@sha256:5a43630acc4241cb613cec1bfb66356f18d148a624bbaec448579e83ce235928
   - name: governance_policy_template_sync
-    image: quay.io/open-cluster-management/governance-policy-template-sync@sha256:2c4d97eda661cf040005b3505a845c628d1c7dc137c0efdf7b34efeb3003976a
+    image: quay.io/stolostron/governance-policy-template-sync@sha256:2c4d97eda661cf040005b3505a845c628d1c7dc137c0efdf7b34efeb3003976a
   - name: grafana
-    image: quay.io/open-cluster-management/grafana@sha256:e321d0d07877690dab33d5bbd407608ea11f3a7842ad950de48492ed9cd96dcb
+    image: quay.io/stolostron/grafana@sha256:e321d0d07877690dab33d5bbd407608ea11f3a7842ad950de48492ed9cd96dcb
   - name: grafana_dashboard_loader
-    image: quay.io/open-cluster-management/grafana-dashboard-loader@sha256:bbaf74e5247086ac2ee38d04db0c9e5a8bd44c2088d76e623bd8f30d673c0f1c
+    image: quay.io/stolostron/grafana-dashboard-loader@sha256:bbaf74e5247086ac2ee38d04db0c9e5a8bd44c2088d76e623bd8f30d673c0f1c
   - name: grc_policy_framework_tests
-    image: quay.io/open-cluster-management/grc-policy-framework-tests@sha256:2f94f2db65880a2683c1ca99a684361c4e110855a675820b60817abd1bb8708c
+    image: quay.io/stolostron/grc-policy-framework-tests@sha256:2f94f2db65880a2683c1ca99a684361c4e110855a675820b60817abd1bb8708c
   - name: grc_ui
-    image: quay.io/open-cluster-management/grc-ui@sha256:c19568b533c5e4d060d2a428e36138d969086fc622b17c9ae6ad11a6c73d293c
+    image: quay.io/stolostron/grc-ui@sha256:c19568b533c5e4d060d2a428e36138d969086fc622b17c9ae6ad11a6c73d293c
   - name: grc_ui_api
-    image: quay.io/open-cluster-management/grc-ui-api@sha256:549ebfe1825f026330359e55d162c9ce26576e54fa259a63ee4f22732222019f
+    image: quay.io/stolostron/grc-ui-api@sha256:549ebfe1825f026330359e55d162c9ce26576e54fa259a63ee4f22732222019f
   - name: grc_ui_tests
-    image: quay.io/open-cluster-management/grc-ui-tests@sha256:eca2b852243f5669a6ca9cf1a1ad1a5e1a7664a974bace4d0835a872eb636551
+    image: quay.io/stolostron/grc-ui-tests@sha256:eca2b852243f5669a6ca9cf1a1ad1a5e1a7664a974bace4d0835a872eb636551
   - name: helloprow_go
-    image: quay.io/open-cluster-management/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
+    image: quay.io/stolostron/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
   - name: helloworld
-    image: quay.io/open-cluster-management/helloworld@sha256:d1a0754cf3c59232d74c37716402bd37576e71194cf1fb7bb7376dd5730401a0
+    image: quay.io/stolostron/helloworld@sha256:d1a0754cf3c59232d74c37716402bd37576e71194cf1fb7bb7376dd5730401a0
   - name: iam_policy_controller
-    image: quay.io/open-cluster-management/iam-policy-controller@sha256:db979ac19d09b57595f09d36e5fa21933a86428b469b256d09474d70994efe2b
+    image: quay.io/stolostron/iam-policy-controller@sha256:db979ac19d09b57595f09d36e5fa21933a86428b469b256d09474d70994efe2b
   - name: insights_client
-    image: quay.io/open-cluster-management/insights-client@sha256:dcd341172da0c47a222422a574a22a4d7fa8675cc7f5c6a99659b40a7f393310
+    image: quay.io/stolostron/insights-client@sha256:dcd341172da0c47a222422a574a22a4d7fa8675cc7f5c6a99659b40a7f393310
   - name: insights_metrics
-    image: quay.io/open-cluster-management/insights-metrics@sha256:396adc71a9bdddfc70f4336d3e510ecdf3d3a50869eee5262cf9057a3b1cef6f
+    image: quay.io/stolostron/insights-metrics@sha256:396adc71a9bdddfc70f4336d3e510ecdf3d3a50869eee5262cf9057a3b1cef6f
   - name: klusterlet_addon_controller
-    image: quay.io/open-cluster-management/klusterlet-addon-controller@sha256:e0f09724e3732185de15a72ecfc54154956412ac7adb3b14096cf055f1460584
+    image: quay.io/stolostron/klusterlet-addon-controller@sha256:e0f09724e3732185de15a72ecfc54154956412ac7adb3b14096cf055f1460584
   - name: klusterlet_addon_operator
-    image: quay.io/open-cluster-management/klusterlet-addon-operator@sha256:f572a51a2cffd3c84d169dd61e8a2afa3788fe350958d0c5c3c811e21bfec83a
+    image: quay.io/stolostron/klusterlet-addon-operator@sha256:f572a51a2cffd3c84d169dd61e8a2afa3788fe350958d0c5c3c811e21bfec83a
   - name: kube_rbac_proxy
-    image: quay.io/open-cluster-management/kube-rbac-proxy@sha256:536421e3ec9a786a8c82d8bacea36d7df35ba521b110cc6f0afb6dbfac8b7ef3
+    image: quay.io/stolostron/kube-rbac-proxy@sha256:536421e3ec9a786a8c82d8bacea36d7df35ba521b110cc6f0afb6dbfac8b7ef3
   - name: kube_state_metrics
-    image: quay.io/open-cluster-management/kube-state-metrics@sha256:a065ac0d2aa101dbd40157b7e011622e1b12c2b1ba539cc885c3846b6386f6d8
+    image: quay.io/stolostron/kube-state-metrics@sha256:a065ac0d2aa101dbd40157b7e011622e1b12c2b1ba539cc885c3846b6386f6d8
   - name: managedcluster_import_controller
-    image: quay.io/open-cluster-management/managedcluster-import-controller@sha256:c1cc27d358383075b71c6bbd58818d049965c4fd6928b95dd6485eec8259278a
+    image: quay.io/stolostron/managedcluster-import-controller@sha256:c1cc27d358383075b71c6bbd58818d049965c4fd6928b95dd6485eec8259278a
   - name: management_ingress
-    image: quay.io/open-cluster-management/management-ingress@sha256:69fc35acd59fbbd1cb168841405d72cb12d366a58864cea7db81490fbca15ac7
+    image: quay.io/stolostron/management-ingress@sha256:69fc35acd59fbbd1cb168841405d72cb12d366a58864cea7db81490fbca15ac7
   - name: metrics_collector
-    image: quay.io/open-cluster-management/metrics-collector@sha256:45cd4e6f31f61e2b731cb78db0a08e6f2b6810363aad91d06813cd90c02167cd
+    image: quay.io/stolostron/metrics-collector@sha256:45cd4e6f31f61e2b731cb78db0a08e6f2b6810363aad91d06813cd90c02167cd
   - name: multicloud_manager
-    image: quay.io/open-cluster-management/multicloud-manager@sha256:6a1cf0207c89f31dcaae3cc67f996f8fcc68207ca2ca764c8c19c58b082cdfde
+    image: quay.io/stolostron/multicloud-manager@sha256:6a1cf0207c89f31dcaae3cc67f996f8fcc68207ca2ca764c8c19c58b082cdfde
   - name: multicluster_operators_deployable
-    image: quay.io/open-cluster-management/multicluster-operators-deployable@sha256:ba32819b44e54a71d812b0682b778f1a0365fac1ab6ee872216f85aadab2e719
+    image: quay.io/stolostron/multicluster-operators-deployable@sha256:ba32819b44e54a71d812b0682b778f1a0365fac1ab6ee872216f85aadab2e719
   - name: multicluster_operators_placementrule
-    image: quay.io/open-cluster-management/multicluster-operators-placementrule@sha256:1348fd0c15b6b12dfe2449d38f87c11607a60d74e76b08693d1d50e7fe9718a0
+    image: quay.io/stolostron/multicluster-operators-placementrule@sha256:1348fd0c15b6b12dfe2449d38f87c11607a60d74e76b08693d1d50e7fe9718a0
   - name: multicluster_operators_subscription_release
-    image: quay.io/open-cluster-management/multicluster-operators-subscription-release@sha256:e3f3aaf60219d38fcf7d3d999df954ec4cc02b85948b4d26253c19a52be54e83
+    image: quay.io/stolostron/multicluster-operators-subscription-release@sha256:e3f3aaf60219d38fcf7d3d999df954ec4cc02b85948b4d26253c19a52be54e83
   - name: multiclusterhub_operator_tests
-    image: quay.io/open-cluster-management/multiclusterhub-operator-tests@sha256:b8cc567eb5712eed2925661b6d0720be9e4d1618ff180988edd93bd08710965d
+    image: quay.io/stolostron/multiclusterhub-operator-tests@sha256:b8cc567eb5712eed2925661b6d0720be9e4d1618ff180988edd93bd08710965d
   - name: multiclusterhub_repo
-    image: quay.io/open-cluster-management/multiclusterhub-repo@sha256:fa97985c0d8b5fcbfc7ab4925237938d9056a075015ef921ad4422afaf5df5dd
+    image: quay.io/stolostron/multiclusterhub-repo@sha256:fa97985c0d8b5fcbfc7ab4925237938d9056a075015ef921ad4422afaf5df5dd
   - name: must_gather
-    image: quay.io/open-cluster-management/must-gather@sha256:6419e3989266ac3b2975af96bf0a1aa284f283c112ccc695ca9bc95be091571c
+    image: quay.io/stolostron/must-gather@sha256:6419e3989266ac3b2975af96bf0a1aa284f283c112ccc695ca9bc95be091571c
   - name: node_exporter
-    image: quay.io/open-cluster-management/node-exporter@sha256:1f89b54eac9a54d3d149562652f0e98761ab5512d1807ff5a0bcf3c6db1288a8
+    image: quay.io/stolostron/node-exporter@sha256:1f89b54eac9a54d3d149562652f0e98761ab5512d1807ff5a0bcf3c6db1288a8
   - name: observability_e2e_test
-    image: quay.io/open-cluster-management/observability-e2e-test@sha256:89cca68e9ee95cf1fef26bce31158e9dd8af7cba8f73b8eb3e5a9087a727a0fc
+    image: quay.io/stolostron/observability-e2e-test@sha256:89cca68e9ee95cf1fef26bce31158e9dd8af7cba8f73b8eb3e5a9087a727a0fc
   - name: observatorium
-    image: quay.io/open-cluster-management/observatorium@sha256:6f879748c67f3edb3ed4155379cfde0f4397f352817586e2d8e52fcdfbd823bd
+    image: quay.io/stolostron/observatorium@sha256:6f879748c67f3edb3ed4155379cfde0f4397f352817586e2d8e52fcdfbd823bd
   - name: observatorium_operator
-    image: quay.io/open-cluster-management/observatorium-operator@sha256:91c7ebd6850b08fe688f766271432d513c9b18f4a204aecc13026e0bcc4297d7
+    image: quay.io/stolostron/observatorium-operator@sha256:91c7ebd6850b08fe688f766271432d513c9b18f4a204aecc13026e0bcc4297d7
   - name: oauth_proxy
-    image: quay.io/open-cluster-management/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
+    image: quay.io/stolostron/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
   - name: placement
-    image: quay.io/open-cluster-management/placement@sha256:f7dda937a400d33ae954725397680e2784c5e19bb9749133e7f801f11edba6e9
+    image: quay.io/stolostron/placement@sha256:f7dda937a400d33ae954725397680e2784c5e19bb9749133e7f801f11edba6e9
   - name: postgresql_12
-    image: quay.io/open-cluster-management/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
+    image: quay.io/stolostron/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
   - name: prometheus
-    image: quay.io/open-cluster-management/prometheus@sha256:a755396332ffe7cfd3e13108c23738222d3933ee541d4014edc2c918c28f18b0
+    image: quay.io/stolostron/prometheus@sha256:a755396332ffe7cfd3e13108c23738222d3933ee541d4014edc2c918c28f18b0
   - name: prometheus_alertmanager
-    image: quay.io/open-cluster-management/prometheus-alertmanager@sha256:1935ce90e763396f7cf03afa8066f26e2bd23aaf1e70186a07a59df612a5a44f
+    image: quay.io/stolostron/prometheus-alertmanager@sha256:1935ce90e763396f7cf03afa8066f26e2bd23aaf1e70186a07a59df612a5a44f
   - name: provider_credential_controller
-    image: quay.io/open-cluster-management/provider-credential-controller@sha256:6613383495edb4114dacefb4844d293d24febaa0cefaaf806b6027fd979b30ff
+    image: quay.io/stolostron/provider-credential-controller@sha256:6613383495edb4114dacefb4844d293d24febaa0cefaaf806b6027fd979b30ff
   - name: rbac_query_proxy
-    image: quay.io/open-cluster-management/rbac-query-proxy@sha256:5f941f52c182c633b1548170e53e0effd19f3714312f0a2471bfe36b400421a5
+    image: quay.io/stolostron/rbac-query-proxy@sha256:5f941f52c182c633b1548170e53e0effd19f3714312f0a2471bfe36b400421a5
   - name: redisgraph_tls
-    image: quay.io/open-cluster-management/redisgraph-tls@sha256:cc1dbc4073011ab5abcf0bb1a69c088ad1444968e906cfbd34e01a683c48f115
+    image: quay.io/stolostron/redisgraph-tls@sha256:cc1dbc4073011ab5abcf0bb1a69c088ad1444968e906cfbd34e01a683c48f115
   - name: registration
-    image: quay.io/open-cluster-management/registration@sha256:4e496cf4c5c0a6f11b66a617a37d29081a82234b83b98060b2a3992706674b3c
+    image: quay.io/stolostron/registration@sha256:4e496cf4c5c0a6f11b66a617a37d29081a82234b83b98060b2a3992706674b3c
   - name: search_aggregator
-    image: quay.io/open-cluster-management/search-aggregator@sha256:f96bbd8663574dbe3ca5d096dd2cf86f4614b7b4f23f69f52f63fb386b76a1d6
+    image: quay.io/stolostron/search-aggregator@sha256:f96bbd8663574dbe3ca5d096dd2cf86f4614b7b4f23f69f52f63fb386b76a1d6
   - name: search_api
-    image: quay.io/open-cluster-management/search-api@sha256:9fab68ed03b8ad2c29d34db6a8bd044aa88bd746e0d273e83e43e5734b40577e
+    image: quay.io/stolostron/search-api@sha256:9fab68ed03b8ad2c29d34db6a8bd044aa88bd746e0d273e83e43e5734b40577e
   - name: search_collector
-    image: quay.io/open-cluster-management/search-collector@sha256:2daf9eef53545553a1e4086651748f10ad44ac8c546320a2e5ad7bf1ab1512fd
+    image: quay.io/stolostron/search-collector@sha256:2daf9eef53545553a1e4086651748f10ad44ac8c546320a2e5ad7bf1ab1512fd
   - name: search_e2e
-    image: quay.io/open-cluster-management/search-e2e@sha256:d7607860bedd0c40cb81dd3a4f4375177f9bf3651d72cf10f3ff42aa0ad8aabe
+    image: quay.io/stolostron/search-e2e@sha256:d7607860bedd0c40cb81dd3a4f4375177f9bf3651d72cf10f3ff42aa0ad8aabe
   - name: search_operator
-    image: quay.io/open-cluster-management/search-operator@sha256:2192d0060d8e9ad411e85d7c0f722d741963cd2c5a2f27468e8c6840e01d04a9
+    image: quay.io/stolostron/search-operator@sha256:2192d0060d8e9ad411e85d7c0f722d741963cd2c5a2f27468e8c6840e01d04a9
   - name: search_ui
-    image: quay.io/open-cluster-management/search-ui@sha256:84106b7bc0851c40474fe728502eee07839cd974d3c3acc1cc952ebb8ec75b63
+    image: quay.io/stolostron/search-ui@sha256:84106b7bc0851c40474fe728502eee07839cd974d3c3acc1cc952ebb8ec75b63
   - name: thanos
-    image: quay.io/open-cluster-management/thanos@sha256:d746a0ea0dd0258190868bf7a4d4683782c063586ac8c0e853708d1f5e9ccb2a
+    image: quay.io/stolostron/thanos@sha256:d746a0ea0dd0258190868bf7a4d4683782c063586ac8c0e853708d1f5e9ccb2a
   - name: volsync
-    image: quay.io/open-cluster-management/volsync@sha256:c5b490399998fbed56814ad8438741b233533884e4168b0b9dd0f4ff8da80087
+    image: quay.io/stolostron/volsync@sha256:c5b490399998fbed56814ad8438741b233533884e4168b0b9dd0f4ff8da80087
   - name: volsync_mover_rclone
-    image: quay.io/open-cluster-management/volsync-mover-rclone@sha256:1d51d11b50b2247bc40aa14ff6c4eb06237514936299c370a3439724de61ff62
+    image: quay.io/stolostron/volsync-mover-rclone@sha256:1d51d11b50b2247bc40aa14ff6c4eb06237514936299c370a3439724de61ff62
   - name: volsync_mover_restic
-    image: quay.io/open-cluster-management/volsync-mover-restic@sha256:e0d36f1e322ea5dd103b3e29aa91395c5c0eed5a8938bfe30351a3648eb294cf
+    image: quay.io/stolostron/volsync-mover-restic@sha256:e0d36f1e322ea5dd103b3e29aa91395c5c0eed5a8938bfe30351a3648eb294cf
   - name: volsync_mover_rsync
-    image: quay.io/open-cluster-management/volsync-mover-rsync@sha256:ff296e3dc3b20841d4533676f49c2811e7acb8c08c522cd2cd9dade542c05741
+    image: quay.io/stolostron/volsync-mover-rsync@sha256:ff296e3dc3b20841d4533676f49c2811e7acb8c08c522cd2cd9dade542c05741
   - name: work
-    image: quay.io/open-cluster-management/work@sha256:c258ca73ede98ee09f94de30cd551086353fb99810a7ab3cb5da8ac8a7d79eba
+    image: quay.io/stolostron/work@sha256:c258ca73ede98ee09f94de30cd551086353fb99810a7ab3cb5da8ac8a7d79eba
