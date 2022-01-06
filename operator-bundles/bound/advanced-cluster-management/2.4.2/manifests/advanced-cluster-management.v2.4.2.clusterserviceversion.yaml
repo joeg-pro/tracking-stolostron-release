@@ -27,17 +27,18 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-06T17:06:50Z'
+    createdAt: '2022-01-06T20:42:58Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clusterdeprovisions.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "machinepoolnameleases.hive.openshift.io",
-      "fakeclusterinstalls.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io", "checkpoints.hive.openshift.io",
-      "clustersyncleases.hiveinternal.openshift.io", "clusterstates.hive.openshift.io", "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["clustersyncleases.hiveinternal.openshift.io",
+      "fakeclusterinstalls.hiveinternal.openshift.io", "clusterdeprovisions.hive.openshift.io", "checkpoints.hive.openshift.io",
+      "machinepoolnameleases.hive.openshift.io", "clusterprovisions.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io",
+      "clusterstates.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.4.2
   namespace: placeholder
   labels:
@@ -1760,9 +1761,9 @@ spec:
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
                   value: quay.io/stolostron/discovery-operator@sha256:2483296804d71f5d14290214aab9bf24611fb8c5b28c94539b585bf725322278
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR_TESTS
-                  value: quay.io/stolostron/discovery-operator-tests@sha256:0519ec8727a391920373bcddb1cebeeaf7a6db04d830296da007a43f2ea6e47b
+                  value: quay.io/stolostron/discovery-operator-tests@sha256:b335de5ccfe2d9a5de14f524db2cb214fbb557ae6b6392e95cafea79c1d8a211
                 - name: OPERAND_IMAGE_DISCOVERY-TESTSERVER
-                  value: quay.io/stolostron/discovery-testserver@sha256:241d4e9fe2d06b539f5ef3001f7aee6118a7f30779e55d7c5aa14b23d21e956e
+                  value: quay.io/stolostron/discovery-testserver@sha256:1e41fba2a01ebdd97315b95efcadefce283ee5c384ef25586a0ad7974c086e0a
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
                   value: quay.io/stolostron/endpoint-monitoring-operator@sha256:9262518b7b5e4dc6cf414de4479b48c24ae9c14ac765bf2d10d9b0239a719abd
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
@@ -1778,7 +1779,7 @@ spec:
                 - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
                   value: quay.io/stolostron/grafana-dashboard-loader@sha256:070734fe04b27c5e5d3e3942f9148a6ab004806d4ae4790e5f9d7e9f4fa16490
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
-                  value: quay.io/stolostron/grc-policy-framework-tests@sha256:654be634b7c9ab81864471625ff413fdf2dbf3e06e1c912b05a082dc20b3cd74
+                  value: quay.io/stolostron/grc-policy-framework-tests@sha256:a18fcd9ab5c4774fe4bf527189bbf047c7278cf41adf4d6c7e809c06472ad843
                 - name: OPERAND_IMAGE_GRC_UI
                   value: quay.io/stolostron/grc-ui@sha256:124e9c922b4872cb72bfe72e888941621edf40841538b16bd7256a09044e24e9
                 - name: OPERAND_IMAGE_GRC_UI_API
@@ -2684,9 +2685,9 @@ spec:
   - name: discovery_operator
     image: quay.io/stolostron/discovery-operator@sha256:2483296804d71f5d14290214aab9bf24611fb8c5b28c94539b585bf725322278
   - name: discovery_operator_tests
-    image: quay.io/stolostron/discovery-operator-tests@sha256:0519ec8727a391920373bcddb1cebeeaf7a6db04d830296da007a43f2ea6e47b
+    image: quay.io/stolostron/discovery-operator-tests@sha256:b335de5ccfe2d9a5de14f524db2cb214fbb557ae6b6392e95cafea79c1d8a211
   - name: discovery-testserver
-    image: quay.io/stolostron/discovery-testserver@sha256:241d4e9fe2d06b539f5ef3001f7aee6118a7f30779e55d7c5aa14b23d21e956e
+    image: quay.io/stolostron/discovery-testserver@sha256:1e41fba2a01ebdd97315b95efcadefce283ee5c384ef25586a0ad7974c086e0a
   - name: endpoint_monitoring_operator
     image: quay.io/stolostron/endpoint-monitoring-operator@sha256:9262518b7b5e4dc6cf414de4479b48c24ae9c14ac765bf2d10d9b0239a719abd
   - name: governance_policy_propagator
@@ -2702,7 +2703,7 @@ spec:
   - name: grafana_dashboard_loader
     image: quay.io/stolostron/grafana-dashboard-loader@sha256:070734fe04b27c5e5d3e3942f9148a6ab004806d4ae4790e5f9d7e9f4fa16490
   - name: grc_policy_framework_tests
-    image: quay.io/stolostron/grc-policy-framework-tests@sha256:654be634b7c9ab81864471625ff413fdf2dbf3e06e1c912b05a082dc20b3cd74
+    image: quay.io/stolostron/grc-policy-framework-tests@sha256:a18fcd9ab5c4774fe4bf527189bbf047c7278cf41adf4d6c7e809c06472ad843
   - name: grc_ui
     image: quay.io/stolostron/grc-ui@sha256:124e9c922b4872cb72bfe72e888941621edf40841538b16bd7256a09044e24e9
   - name: grc_ui_api
