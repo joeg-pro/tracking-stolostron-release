@@ -96,12 +96,12 @@
   {
     "image-name": "cert-policy-controller",
     "image-version": "3.8.0",
-    "image-tag": "3.8.0-39d8e17c011edf480d42b5722ad7d9fcd6dbfc20",
-    "git-sha256": "39d8e17c011edf480d42b5722ad7d9fcd6dbfc20",
+    "image-tag": "3.8.0-b530dd84690f91f40a23f9ad9a2b88b5b54cdd57",
+    "git-sha256": "b530dd84690f91f40a23f9ad9a2b88b5b54cdd57",
     "git-repository": "stolostron/cert-policy-controller",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:3dbe426e1f5d173c1c55352070cada54571fc99333173458b184376560a7ef3e",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:cd34db4a4b2dfb892f55b9e45fc117b0693c5796a52374cc7c78253057eb7abf",
     "image-key": "cert_policy_controller"
   },
   {
