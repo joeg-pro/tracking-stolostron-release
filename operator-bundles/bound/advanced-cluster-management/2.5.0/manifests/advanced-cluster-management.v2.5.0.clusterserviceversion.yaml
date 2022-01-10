@@ -22,15 +22,14 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-10T17:07:40Z'
+    createdAt: '2022-01-10T17:20:21Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1328,7 +1327,7 @@ spec:
                 - name: OPERAND_IMAGE_CLUSTERLIFECYCLE_STATE_METRICS
                   value: quay.io/stolostron/clusterlifecycle-state-metrics@sha256:5ea555f2afce8a21634dee671b9926f30695ffe02194b4e24fcaf2ad2bd4c6cc
                 - name: OPERAND_IMAGE_CMB_CUSTOM_REGISTRY
-                  value: quay.io/stolostron/cmb-custom-registry@sha256:ad893b3b8d7b9200650250e9014b3479ce37fdd8bbf1f275e4e386e78c65daf8
+                  value: quay.io/stolostron/cmb-custom-registry@sha256:21a62320cb93482afb11a603ffb483e27999daff7a7e8c43e63788908698f170
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/stolostron/config-policy-controller@sha256:f384c3f0fddf4a7b98f4f0649ff9eb79699848aba5184edd423ce298b19ffffc
                 - name: OPERAND_IMAGE_CONSOLE
@@ -1366,7 +1365,7 @@ spec:
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/stolostron/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/stolostron/helloworld@sha256:19c0fd1e7fce73909d87a81b0416b4d69691f3f552f58919f960c5d810c71b89
+                  value: quay.io/stolostron/helloworld@sha256:9d416e0ac1aae5fc12fac5183c020537bb6650e5323a250d866ec3b43c60c4a4
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
                   value: quay.io/stolostron/hive@sha256:c145d3ed317d767dda1a382bfeb1ede751651ef7621464357f730f2df9d3f5f9
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
@@ -2175,7 +2174,7 @@ spec:
   - name: clusterlifecycle_state_metrics
     image: quay.io/stolostron/clusterlifecycle-state-metrics@sha256:5ea555f2afce8a21634dee671b9926f30695ffe02194b4e24fcaf2ad2bd4c6cc
   - name: cmb_custom_registry
-    image: quay.io/stolostron/cmb-custom-registry@sha256:ad893b3b8d7b9200650250e9014b3479ce37fdd8bbf1f275e4e386e78c65daf8
+    image: quay.io/stolostron/cmb-custom-registry@sha256:21a62320cb93482afb11a603ffb483e27999daff7a7e8c43e63788908698f170
   - name: config_policy_controller
     image: quay.io/stolostron/config-policy-controller@sha256:f384c3f0fddf4a7b98f4f0649ff9eb79699848aba5184edd423ce298b19ffffc
   - name: console
@@ -2213,7 +2212,7 @@ spec:
   - name: helloprow_go
     image: quay.io/stolostron/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
   - name: helloworld
-    image: quay.io/stolostron/helloworld@sha256:19c0fd1e7fce73909d87a81b0416b4d69691f3f552f58919f960c5d810c71b89
+    image: quay.io/stolostron/helloworld@sha256:9d416e0ac1aae5fc12fac5183c020537bb6650e5323a250d866ec3b43c60c4a4
   - name: openshift_hive
     image: quay.io/stolostron/hive@sha256:c145d3ed317d767dda1a382bfeb1ede751651ef7621464357f730f2df9d3f5f9
   - name: iam_policy_controller
