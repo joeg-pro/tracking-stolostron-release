@@ -457,12 +457,12 @@
   {
     "image-name": "kube-state-metrics",
     "image-version": "2.4",
-    "image-tag": "2.4-89878a47a6e708f983d1430c9d2a3be9349b87a0",
-    "git-sha256": "89878a47a6e708f983d1430c9d2a3be9349b87a0",
+    "image-tag": "2.4-c7129b6d03a9aa2a1d28af4118d894b00b74e75e",
+    "git-sha256": "c7129b6d03a9aa2a1d28af4118d894b00b74e75e",
     "git-repository": "stolostron/kube-state-metrics",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:a065ac0d2aa101dbd40157b7e011622e1b12c2b1ba539cc885c3846b6386f6d8",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:8ad20a49e1c0aa735e6c5b31f6d96c030160bb99898cd15d377bfbda446bccf6",
     "image-key": "kube_state_metrics"
   },
   {
@@ -578,12 +578,12 @@
   {
     "image-name": "multicluster-operators-subscription",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-e2b539f04cf45804cd8fd3030e25d020033967e6",
-    "git-sha256": "e2b539f04cf45804cd8fd3030e25d020033967e6",
+    "image-tag": "2.4.0-bbc4163b0f7a4aafb3a993e9de30953d1eba3d8e",
+    "git-sha256": "bbc4163b0f7a4aafb3a993e9de30953d1eba3d8e",
     "git-repository": "stolostron/multicloud-operators-subscription",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:691a73bb8028ccde23d59f09252cfbfec3d602346d2f659f00ff63019df027e8",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:294f925f61c7be1f192b51c5a01184b8850d7df16a85b38d21285ef19ada630a",
     "image-key": "multicluster_operators_subscription"
   },
   {
