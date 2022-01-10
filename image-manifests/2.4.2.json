@@ -96,12 +96,12 @@
   {
     "image-name": "cert-policy-controller",
     "image-version": "3.8.0",
-    "image-tag": "3.8.0-b530dd84690f91f40a23f9ad9a2b88b5b54cdd57",
-    "git-sha256": "b530dd84690f91f40a23f9ad9a2b88b5b54cdd57",
+    "image-tag": "3.8.0-26d6e71f048c103b7961165fb91df1182ac8b676",
+    "git-sha256": "26d6e71f048c103b7961165fb91df1182ac8b676",
     "git-repository": "stolostron/cert-policy-controller",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:cd34db4a4b2dfb892f55b9e45fc117b0693c5796a52374cc7c78253057eb7abf",
+    "image-digest": "sha256:ea3f87a9dd7db5f936b1eaa1b0ef9ea57b13bb87155f8be1c9b8079058a16540",
     "image-key": "cert_policy_controller"
   },
   {
@@ -261,12 +261,12 @@
   {
     "image-name": "governance-policy-spec-sync",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-7c4d49c20249977cc2fbdff3018b0a85489a3449",
-    "git-sha256": "7c4d49c20249977cc2fbdff3018b0a85489a3449",
+    "image-tag": "1.0.0-0b8a85f52e18ce5e8bfc84a360e06518b076847b",
+    "git-sha256": "0b8a85f52e18ce5e8bfc84a360e06518b076847b",
     "git-repository": "stolostron/governance-policy-spec-sync",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:5b1d2f0f7fba923e8004461e7fc6655dcc3b65719055d3a2a3e637037a20fce2",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:6b0503709ab7d37d3b6a25fd3e153b047c2c5381d1d873b3fa316acfe7e0b3c6",
     "image-key": "governance_policy_spec_sync"
   },
   {
