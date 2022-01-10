@@ -27,17 +27,18 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-10T19:43:53Z'
+    createdAt: '2022-01-10T19:47:16Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clustersyncs.hiveinternal.openshift.io", "checkpoints.hive.openshift.io",
-      "clustersyncleases.hiveinternal.openshift.io", "observatoria.core.observatorium.io", "clusterdeprovisions.hive.openshift.io",
-      "clusterstates.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io",
-      "machinepoolnameleases.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["clustersyncleases.hiveinternal.openshift.io",
+      "observabilityaddons.observability.open-cluster-management.io", "clusterdeprovisions.hive.openshift.io",
+      "fakeclusterinstalls.hiveinternal.openshift.io", "clusterstates.hive.openshift.io", "machinepoolnameleases.hive.openshift.io",
+      "clustersyncs.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io", "observatoria.core.observatorium.io",
+      "checkpoints.hive.openshift.io"]'
   name: advanced-cluster-management.v2.4.2
   namespace: placeholder
   labels:
@@ -1772,7 +1773,7 @@ spec:
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_STATUS_SYNC
                   value: quay.io/stolostron/governance-policy-status-sync@sha256:d67449055292316b66ecaab175e4afde1e22fab2e95272867a25ae21c40b1738
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_TEMPLATE_SYNC
-                  value: quay.io/stolostron/governance-policy-template-sync@sha256:ea70bc28b043ba61f7ba8bc15c47d6fa6722945fd5b90b01bc09ad0d1dd4aa19
+                  value: quay.io/stolostron/governance-policy-template-sync@sha256:839c4e473ad1f39d04aea0af230b15f6ff018d009e5ab54f4373bca488f3370f
                 - name: OPERAND_IMAGE_GRAFANA
                   value: quay.io/stolostron/grafana@sha256:72fbce19faacae9cd76a7ebc88b0e3072226a2163635a37b4c358716f15f494d
                 - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
@@ -1872,7 +1873,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_COLLECTOR
                   value: quay.io/stolostron/search-collector@sha256:39da39be55651f845afe871c058c08cffdcbdfe38667f5c0cf79a1837ad38de7
                 - name: OPERAND_IMAGE_SEARCH_E2E
-                  value: quay.io/stolostron/search-e2e@sha256:d7607860bedd0c40cb81dd3a4f4375177f9bf3651d72cf10f3ff42aa0ad8aabe
+                  value: quay.io/stolostron/search-e2e@sha256:1eedb05292d301ee27115069fcf0be26d98f9509fb97182e5c6e7806114e7bd0
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
                   value: quay.io/stolostron/search-operator@sha256:6d6c4cc575cf38f4ddaa88f297976801c726ced6f2c5757f73b9c751e51a857a
                 - name: OPERAND_IMAGE_SEARCH_UI
@@ -2696,7 +2697,7 @@ spec:
   - name: governance_policy_status_sync
     image: quay.io/stolostron/governance-policy-status-sync@sha256:d67449055292316b66ecaab175e4afde1e22fab2e95272867a25ae21c40b1738
   - name: governance_policy_template_sync
-    image: quay.io/stolostron/governance-policy-template-sync@sha256:ea70bc28b043ba61f7ba8bc15c47d6fa6722945fd5b90b01bc09ad0d1dd4aa19
+    image: quay.io/stolostron/governance-policy-template-sync@sha256:839c4e473ad1f39d04aea0af230b15f6ff018d009e5ab54f4373bca488f3370f
   - name: grafana
     image: quay.io/stolostron/grafana@sha256:72fbce19faacae9cd76a7ebc88b0e3072226a2163635a37b4c358716f15f494d
   - name: grafana_dashboard_loader
@@ -2776,7 +2777,7 @@ spec:
   - name: search_collector
     image: quay.io/stolostron/search-collector@sha256:39da39be55651f845afe871c058c08cffdcbdfe38667f5c0cf79a1837ad38de7
   - name: search_e2e
-    image: quay.io/stolostron/search-e2e@sha256:d7607860bedd0c40cb81dd3a4f4375177f9bf3651d72cf10f3ff42aa0ad8aabe
+    image: quay.io/stolostron/search-e2e@sha256:1eedb05292d301ee27115069fcf0be26d98f9509fb97182e5c6e7806114e7bd0
   - name: search_operator
     image: quay.io/stolostron/search-operator@sha256:6d6c4cc575cf38f4ddaa88f297976801c726ced6f2c5757f73b9c751e51a857a
   - name: search_ui
