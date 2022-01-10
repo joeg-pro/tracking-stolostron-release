@@ -653,13 +653,13 @@
   },
   {
     "image-name": "node-exporter",
-    "image-version": "2.4",
-    "image-tag": "2.4-c4cc38b68ebd4a2b050f6cf75ad37066434af176",
-    "git-sha256": "c4cc38b68ebd4a2b050f6cf75ad37066434af176",
+    "image-version": "2.5",
+    "image-tag": "2.5-071518c724d8ac696b5e0e70457bb4a05f5e7b26",
+    "git-sha256": "071518c724d8ac696b5e0e70457bb4a05f5e7b26",
     "git-repository": "stolostron/node-exporter",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:1f89b54eac9a54d3d149562652f0e98761ab5512d1807ff5a0bcf3c6db1288a8",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:351133c65942e94df09bb05139902482b77cdac949e2dc68d22acf9e8a47468d",
     "image-key": "node_exporter"
   },
   {
