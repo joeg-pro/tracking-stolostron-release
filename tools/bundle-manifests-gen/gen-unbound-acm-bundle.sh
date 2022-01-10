@@ -63,10 +63,6 @@ using_mce=1
 if [[ $rel_x -le 2 ]] && [[ $rel_y -lt 5 ]]; then
    using_mce=0
 fi
-# TEMPORARY:
-if [[ "$ACM_BUILDING_99_BRANCH" != "1" ]]; then
-   using_mce=0
-fi
 
 ## Not currently pinned: app_sub_source_csv_vers="x.y.z"
 ## Not currently pinned: hive_source_csv_vers="x.y.z"

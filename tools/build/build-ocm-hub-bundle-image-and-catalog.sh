@@ -28,17 +28,6 @@ my_dir=$(dirname $(readlink -f $0))
 top_of_repo=$(readlink  -f $my_dir/../..)
 tools_dir="$top_of_repo/tools"
 
-# TEMPORARY
-starting_cwd="$PWD"
-cd "$my_dir"
-branch_name=$(git rev-parse --abbrev-ref HEAD)
-cd "$startubg_cwd"
-if [[ "$branch_name" == "release-9.9" ]]; then
-   export ACM_BUILDING_99_BRANCH=1
-   echo "NOTE: Configuring for build of special release-9.9 branch."
-fi
-# END TEMPORARY
-
 default_bundle_repo="multicluster-hub-operator-bundle"
 default_catalog_repo="multicluster-hub-custom-registry"
 
