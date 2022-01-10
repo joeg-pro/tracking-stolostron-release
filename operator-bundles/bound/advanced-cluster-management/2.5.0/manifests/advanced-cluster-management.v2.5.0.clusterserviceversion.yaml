@@ -5,39 +5,39 @@ metadata:
     alm-examples: '[{"apiVersion": "operator.open-cluster-management.io/v1", "kind": "MultiClusterHub",
       "metadata": {"name": "multiclusterhub", "namespace": "open-cluster-management"}, "spec": {}}, {"apiVersion":
       "operator.open-cluster-management.io/v1", "kind": "ClusterManager", "metadata": {"name": "cluster-manager"},
-      "spec": {"placementImagePullSpec": "quay.io/open-cluster-management/placement", "registrationImagePullSpec":
-      "quay.io/open-cluster-management/registration", "workImagePullSpec": "quay.io/open-cluster-management/work"}},
-      {"apiVersion": "observability.open-cluster-management.io/v1beta1", "kind": "MultiClusterObservability",
-      "metadata": {"name": "observability"}, "spec": {"observabilityAddonSpec": {}, "storageConfigObject":
-      {"metricObjectStorage": {"key": "thanos.yaml", "name": "thanos-object-storage"}}}}, {"apiVersion":
-      "observability.open-cluster-management.io/v1beta1", "kind": "ObservabilityAddon", "metadata": {"name":
-      "observability-addon"}, "spec": {"enableMetrics": true, "interval": 30}}, {"apiVersion": "observability.open-cluster-management.io/v1beta2",
+      "spec": {"deployOption": {"mode": "Default"}, "placementImagePullSpec": "quay.io/open-cluster-management/placement",
+      "registrationImagePullSpec": "quay.io/open-cluster-management/registration", "workImagePullSpec":
+      "quay.io/open-cluster-management/work"}}, {"apiVersion": "observability.open-cluster-management.io/v1beta1",
       "kind": "MultiClusterObservability", "metadata": {"name": "observability"}, "spec": {"observabilityAddonSpec":
-      {}, "storageConfig": {"metricObjectStorage": {"key": "thanos.yaml", "name": "thanos-object-storage"}}}},
-      {"apiVersion": "apps.open-cluster-management.io/v1", "kind": "Channel", "metadata": {"name": "dev-helmrepo"},
-      "spec": {"type": "HelmRepo", "pathname": "http://kubernetes-charts.storage.googleapis.com/"}, "status":
-      {"state": "N/A"}}, {"apiVersion": "apps.open-cluster-management.io/v1", "kind": "Subscription",
-      "metadata": {"name": "sub-nginx"}, "spec": {"channel": "ns-ch/predev-ch", "name": "nginx-ingress",
-      "packageFilter": {"version": "=1.26.1"}, "packageOverrides": [{"packageAlias": "nginx-ingress",
-      "packageName": "nginx-ingress", "packageOverrides": [{"path": "spec", "value": {"defaultBackend":
-      {"replicaCount": 3}}}]}], "placement": {"local": true}}}, {"apiVersion": "hive.openshift.io/v1",
-      "kind": "HiveConfig", "metadata": {"name": "hive"}, "spec": {"managedDomains": [{"aws": {"credentialsSecretRef":
-      {"name": "my-route53-creds"}}, "domains": ["my-base-domain.example.com"]}]}}]'
+      {}, "storageConfigObject": {"metricObjectStorage": {"key": "thanos.yaml", "name": "thanos-object-storage"}}}},
+      {"apiVersion": "observability.open-cluster-management.io/v1beta1", "kind": "ObservabilityAddon",
+      "metadata": {"name": "observability-addon"}, "spec": {"enableMetrics": true, "interval": 30}}, {"apiVersion":
+      "observability.open-cluster-management.io/v1beta2", "kind": "MultiClusterObservability", "metadata":
+      {"name": "observability"}, "spec": {"observabilityAddonSpec": {}, "storageConfig": {"metricObjectStorage":
+      {"key": "thanos.yaml", "name": "thanos-object-storage"}}}}, {"apiVersion": "apps.open-cluster-management.io/v1",
+      "kind": "Channel", "metadata": {"name": "dev-helmrepo"}, "spec": {"type": "HelmRepo", "pathname":
+      "http://kubernetes-charts.storage.googleapis.com/"}, "status": {"state": "N/A"}}, {"apiVersion":
+      "apps.open-cluster-management.io/v1", "kind": "Subscription", "metadata": {"name": "sub-nginx"},
+      "spec": {"channel": "ns-ch/predev-ch", "name": "nginx-ingress", "packageFilter": {"version": "=1.26.1"},
+      "packageOverrides": [{"packageAlias": "nginx-ingress", "packageName": "nginx-ingress", "packageOverrides":
+      [{"path": "spec", "value": {"defaultBackend": {"replicaCount": 3}}}]}], "placement": {"local": true}}},
+      {"apiVersion": "hive.openshift.io/v1", "kind": "HiveConfig", "metadata": {"name": "hive"}, "spec":
+      {"managedDomains": [{"aws": {"credentialsSecretRef": {"name": "my-route53-creds"}}, "domains": ["my-base-domain.example.com"]}]}}]'
     capabilities: Seamless Upgrades
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-10T02:47:19Z'
+    createdAt: '2022-01-10T06:21:07Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clusterdeprovisions.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io",
-      "fakeclusterinstalls.hiveinternal.openshift.io", "checkpoints.hive.openshift.io", "clusterstates.hive.openshift.io",
-      "clustersyncs.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io", "machinepoolnameleases.hive.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "clusterprovisions.hive.openshift.io", "clusterstates.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
+      "clustersyncleases.hiveinternal.openshift.io", "clusterdeprovisions.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io",
+      "checkpoints.hive.openshift.io", "machinepoolnameleases.hive.openshift.io", "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1898,7 +1898,7 @@ spec:
                 - name: OPERAND_IMAGE_REGISTRATION
                   value: quay.io/stolostron/registration@sha256:4e496cf4c5c0a6f11b66a617a37d29081a82234b83b98060b2a3992706674b3c
                 - name: OPERAND_IMAGE_REGISTRATION_OPERATOR
-                  value: quay.io/stolostron/registration-operator@sha256:c309a669171f73b3fb62de9b52d19b864b5bdb47867d332cda1be9a29d700331
+                  value: quay.io/stolostron/registration-operator@sha256:674af952727e66ebdbc3c7cacce3f566f97bbc2e2554d29985432c4d5d96021c
                 - name: OPERAND_IMAGE_SEARCH_AGGREGATOR
                   value: quay.io/stolostron/search-aggregator@sha256:f96bbd8663574dbe3ca5d096dd2cf86f4614b7b4f23f69f52f63fb386b76a1d6
                 - name: OPERAND_IMAGE_SEARCH_API
@@ -1989,7 +1989,7 @@ spec:
               - args:
                 - /registration-operator
                 - hub
-                image: quay.io/stolostron/registration-operator@sha256:c309a669171f73b3fb62de9b52d19b864b5bdb47867d332cda1be9a29d700331
+                image: quay.io/stolostron/registration-operator@sha256:674af952727e66ebdbc3c7cacce3f566f97bbc2e2554d29985432c4d5d96021c
                 livenessProbe:
                   httpGet:
                     path: /healthz
