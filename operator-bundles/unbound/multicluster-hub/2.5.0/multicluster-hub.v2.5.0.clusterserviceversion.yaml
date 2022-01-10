@@ -4,22 +4,18 @@ metadata:
   annotations:
     alm-examples: '[{"apiVersion": "operator.open-cluster-management.io/v1", "kind": "MultiClusterHub",
       "metadata": {"name": "multiclusterhub", "namespace": "open-cluster-management"}, "spec": {}}, {"apiVersion":
-      "operator.open-cluster-management.io/v1", "kind": "ClusterManager", "metadata": {"name": "cluster-manager"},
-      "spec": {"deployOption": {"mode": "Default"}, "placementImagePullSpec": "quay.io/open-cluster-management/placement",
-      "registrationImagePullSpec": "quay.io/open-cluster-management/registration", "workImagePullSpec":
-      "quay.io/open-cluster-management/work"}}, {"apiVersion": "observability.open-cluster-management.io/v1beta1",
-      "kind": "MultiClusterObservability", "metadata": {"name": "observability"}, "spec": {"observabilityAddonSpec":
-      {}, "storageConfigObject": {"metricObjectStorage": {"key": "thanos.yaml", "name": "thanos-object-storage"}}}},
-      {"apiVersion": "observability.open-cluster-management.io/v1beta1", "kind": "ObservabilityAddon",
-      "metadata": {"name": "observability-addon"}, "spec": {"enableMetrics": true, "interval": 30}}, {"apiVersion":
-      "observability.open-cluster-management.io/v1beta2", "kind": "MultiClusterObservability", "metadata":
-      {"name": "observability"}, "spec": {"observabilityAddonSpec": {}, "storageConfig": {"metricObjectStorage":
-      {"key": "thanos.yaml", "name": "thanos-object-storage"}}}}]'
+      "observability.open-cluster-management.io/v1beta1", "kind": "MultiClusterObservability", "metadata":
+      {"name": "observability"}, "spec": {"observabilityAddonSpec": {}, "storageConfigObject": {"metricObjectStorage":
+      {"key": "thanos.yaml", "name": "thanos-object-storage"}}}}, {"apiVersion": "observability.open-cluster-management.io/v1beta1",
+      "kind": "ObservabilityAddon", "metadata": {"name": "observability-addon"}, "spec": {"enableMetrics":
+      true, "interval": 30}}, {"apiVersion": "observability.open-cluster-management.io/v1beta2", "kind":
+      "MultiClusterObservability", "metadata": {"name": "observability"}, "spec": {"observabilityAddonSpec":
+      {}, "storageConfig": {"metricObjectStorage": {"key": "thanos.yaml", "name": "thanos-object-storage"}}}}]'
     capabilities: Basic Install
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2022-01-10T16:23:11Z'
+    createdAt: '2022-01-10T17:07:36Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: multicluster-hub.v2.5.0
@@ -49,7 +45,6 @@ spec:
   - base64data: iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABmJLR0QA/wD/AP+gvaeTAAAEDElEQVRoge2ZSWgUQRSGv0lmXKLiAm4RRTAqmCDoUUVBjYKKIMZ49C6auB3Ei548uBy8RNCTSkAwiKAgiDkIKoLoQY1L3EHNwV1jNDGZ8VCvrJ6eXqqT7nEi+aHo7nqvuv6/6/XrVzMwhCEkghSQleNgQgHfsn/BIgmkHeeDbVXy8F+uiEau6CwGhhT85yuiUervTF7keK3IYAstIFjIQUp3VZZ5dWbJXwV9nQPOASOT5xUJdcBPDMe/cAvpk+tvcrwGTCgOx1DsI/9BWwmZD7yW86fA7GIw9UE50CRceoEGIggpAyqBO3L9AVicOOVCjAYuCYefQL30hwrpxQgJulExMBX/B2ktpNzRVw4cxyzt9tgpF6KG4NDulxCNRkzoHSO5ymAF8EXmuQlM9PAJFfIbfyEAmzDp7zxQMSDKhdgC9Mj9W/BP/9ZCgsqXRcB78bsFTOoX5XykgAMOPmErHosQgCpU7OaA58DcCKTdSAMnMO/gVosxoUL0soYJAZgC3Bb/j8BSizFujAEuyz06gXWW40KFdMt1xvKGk4HPmPS8yXIcwAzgvox9ByyMMDZWIbMdRH7JsQ/YYzF2AfBWxjxAiYqC2ISsAT6J72NgHvnp+ST+4VkLfBW/VmBcFAWCUCH6yQ7zuUEZKrtowi2oONdwpuerwCyHrQLYj0kopwLmCcOAhIwDLmKyy1689yyLgA6H3z3gBqai7hNBA9nvWAsZ7hpYA7Rj6p7akIkmosJL30+36/hntwywGWhGpfZO4AcqvTejVluHa6gQHRZOIfXAd+m/C8wMEeFEBarYWw5MC/DbIIRzIe0FsDaqkDRw2OFzmvh3jCngqIPYA2AHUA2MklYN7ATaPISFCpmOyig51EdyW8wCNI7IHN0yh1+Nh9gaMB/tQCFdcv1Gjh3AkrhYu7AeI2Klh70VuODRX4sRs1Z3+gnJoTJNZSyUC5HB7De8Vjstti6f8Y1ifym+vkKa6H+Ot0Ed5p3wCqcwIWngofh4lkU/xBj3PsONszLPDh97mBCAXeLT7GXUQiqB8dKSEPVE5pnnY7cRUiM+z7yMWkixmi5vrgT49KDqOt3OyZgxYu/0Kuo+o7KIE2XA2IAnEweCVj2DigyNKpc9Gz8de+jQqnb0jXc1XZtNcfXr5KBD67HNLjAp3AXmAKtQX2xQ0eCEzqZfUDWbG6vleDt2dhGwEUW0Df+vud6zjPCwpYFHYq9LgqAtMsArIdLg4xMkZKfY2rHflieGdZis5LUtaEXtZdz7llUyJosqc0oChzBiGgn+9SaNWgldZx1MnF0EpMjfKrShvtg1qB/QR8v5bkxJkkWJKMk/c9djfvALau2UUDj5IY0qAM+gvjOdqJ3pQ+mrowRe7CHY4A8ixrhAvKZDJwAAAABJRU5ErkJggg==
     mediatype: image/png
   keywords:
-  - ClusterManager
   - MultiClusterObservability
   - install
   - multiclusterhub
@@ -144,12 +139,6 @@ spec:
         x-descriptors:
         - urn:alm:descriptor:com.tectonic.ui:advanced
         - urn:alm:descriptor:com.tectonic.ui:booleanSwitch
-      version: v1
-    - description: ClusterManager defines the configurations of controllers running hub that govern registration
-        and work distribution for attached Klusterlets
-      displayName: ClusterManager
-      kind: ClusterManager
-      name: clustermanagers.operator.open-cluster-management.io
       version: v1
     - description: MultiClusterObservability defines the configuration for the Observability installation
         on Hub and Managed Clusters all through this one custom resource.
@@ -547,153 +536,6 @@ spec:
           - update
           - watch
         serviceAccountName: multiclusterhub-operator
-      - rules:
-        - apiGroups:
-          - ''
-          resources:
-          - configmaps
-          - namespaces
-          - serviceaccounts
-          - services
-          - secrets
-          verbs:
-          - create
-          - get
-          - list
-          - update
-          - watch
-          - patch
-          - delete
-        - apiGroups:
-          - ''
-          resources:
-          - nodes
-          verbs:
-          - get
-          - list
-          - watch
-        - apiGroups:
-          - authorization.k8s.io
-          resources:
-          - subjectaccessreviews
-          verbs:
-          - create
-        - apiGroups:
-          - ''
-          - events.k8s.io
-          resources:
-          - events
-          verbs:
-          - create
-          - patch
-          - update
-        - apiGroups:
-          - apps
-          resources:
-          - deployments
-          verbs:
-          - create
-          - get
-          - list
-          - update
-          - watch
-          - patch
-          - delete
-        - apiGroups:
-          - rbac.authorization.k8s.io
-          resources:
-          - clusterrolebindings
-          - rolebindings
-          verbs:
-          - create
-          - get
-          - list
-          - update
-          - watch
-          - patch
-          - delete
-        - apiGroups:
-          - rbac.authorization.k8s.io
-          resources:
-          - clusterroles
-          - roles
-          verbs:
-          - create
-          - get
-          - list
-          - update
-          - watch
-          - patch
-          - delete
-          - escalate
-          - bind
-        - apiGroups:
-          - apiextensions.k8s.io
-          resources:
-          - customresourcedefinitions
-          verbs:
-          - create
-          - get
-          - list
-          - update
-          - watch
-          - patch
-          - delete
-        - apiGroups:
-          - apiregistration.k8s.io
-          resources:
-          - apiservices
-          verbs:
-          - create
-          - get
-          - list
-          - update
-          - watch
-          - patch
-          - delete
-        - apiGroups:
-          - admissionregistration.k8s.io
-          resources:
-          - validatingwebhookconfigurations
-          - mutatingwebhookconfigurations
-          verbs:
-          - create
-          - get
-          - list
-          - update
-          - watch
-          - patch
-          - delete
-        - apiGroups:
-          - operator.open-cluster-management.io
-          resources:
-          - clustermanagers
-          verbs:
-          - get
-          - list
-          - watch
-          - update
-          - delete
-        - apiGroups:
-          - operator.open-cluster-management.io
-          resources:
-          - clustermanagers/status
-          verbs:
-          - update
-          - patch
-        - apiGroups:
-          - migration.k8s.io
-          resources:
-          - storageversionmigrations
-          verbs:
-          - create
-          - get
-          - list
-          - update
-          - watch
-          - patch
-          - delete
-        serviceAccountName: cluster-manager
       - rules:
         - apiGroups:
           - ''
@@ -1307,70 +1149,6 @@ spec:
                 runAsNonRoot: true
               serviceAccountName: multiclusterhub-operator
               terminationGracePeriodSeconds: 10
-      - name: cluster-manager
-        spec:
-          replicas: 3
-          selector:
-            matchLabels:
-              app: cluster-manager
-          strategy: {}
-          template:
-            metadata:
-              labels:
-                app: cluster-manager
-            spec:
-              affinity:
-                podAntiAffinity:
-                  preferredDuringSchedulingIgnoredDuringExecution:
-                  - podAffinityTerm:
-                      labelSelector:
-                        matchExpressions:
-                        - key: app
-                          operator: In
-                          values:
-                          - cluster-manager
-                      topologyKey: failure-domain.beta.kubernetes.io/zone
-                    weight: 70
-                  - podAffinityTerm:
-                      labelSelector:
-                        matchExpressions:
-                        - key: app
-                          operator: In
-                          values:
-                          - cluster-manager
-                      topologyKey: kubernetes.io/hostname
-                    weight: 30
-              containers:
-              - args:
-                - /registration-operator
-                - hub
-                image: quay.io/open-cluster-management/registration-operator:latest
-                livenessProbe:
-                  httpGet:
-                    path: /healthz
-                    port: 8443
-                    scheme: HTTPS
-                  initialDelaySeconds: 2
-                  periodSeconds: 10
-                name: registration-operator
-                readinessProbe:
-                  httpGet:
-                    path: /healthz
-                    port: 8443
-                    scheme: HTTPS
-                  initialDelaySeconds: 2
-                resources:
-                  requests:
-                    cpu: 100m
-                    memory: 128Mi
-                securityContext:
-                  allowPrivilegeEscalation: false
-                  capabilities:
-                    drop:
-                    - ALL
-                  privileged: false
-                  runAsNonRoot: true
-              serviceAccountName: cluster-manager
       - name: multicluster-observability-operator
         spec:
           replicas: 1

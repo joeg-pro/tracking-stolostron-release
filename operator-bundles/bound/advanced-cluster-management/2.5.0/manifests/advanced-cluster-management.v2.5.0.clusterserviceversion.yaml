@@ -4,40 +4,33 @@ metadata:
   annotations:
     alm-examples: '[{"apiVersion": "operator.open-cluster-management.io/v1", "kind": "MultiClusterHub",
       "metadata": {"name": "multiclusterhub", "namespace": "open-cluster-management"}, "spec": {}}, {"apiVersion":
-      "operator.open-cluster-management.io/v1", "kind": "ClusterManager", "metadata": {"name": "cluster-manager"},
-      "spec": {"deployOption": {"mode": "Default"}, "placementImagePullSpec": "quay.io/open-cluster-management/placement",
-      "registrationImagePullSpec": "quay.io/open-cluster-management/registration", "workImagePullSpec":
-      "quay.io/open-cluster-management/work"}}, {"apiVersion": "observability.open-cluster-management.io/v1beta1",
-      "kind": "MultiClusterObservability", "metadata": {"name": "observability"}, "spec": {"observabilityAddonSpec":
-      {}, "storageConfigObject": {"metricObjectStorage": {"key": "thanos.yaml", "name": "thanos-object-storage"}}}},
-      {"apiVersion": "observability.open-cluster-management.io/v1beta1", "kind": "ObservabilityAddon",
-      "metadata": {"name": "observability-addon"}, "spec": {"enableMetrics": true, "interval": 30}}, {"apiVersion":
-      "observability.open-cluster-management.io/v1beta2", "kind": "MultiClusterObservability", "metadata":
-      {"name": "observability"}, "spec": {"observabilityAddonSpec": {}, "storageConfig": {"metricObjectStorage":
-      {"key": "thanos.yaml", "name": "thanos-object-storage"}}}}, {"apiVersion": "apps.open-cluster-management.io/v1",
-      "kind": "Channel", "metadata": {"name": "dev-helmrepo"}, "spec": {"type": "HelmRepo", "pathname":
-      "http://kubernetes-charts.storage.googleapis.com/"}, "status": {"state": "N/A"}}, {"apiVersion":
-      "apps.open-cluster-management.io/v1", "kind": "Subscription", "metadata": {"name": "sub-nginx"},
-      "spec": {"channel": "ns-ch/predev-ch", "name": "nginx-ingress", "packageFilter": {"version": "=1.26.1"},
-      "packageOverrides": [{"packageAlias": "nginx-ingress", "packageName": "nginx-ingress", "packageOverrides":
-      [{"path": "spec", "value": {"defaultBackend": {"replicaCount": 3}}}]}], "placement": {"local": true}}},
-      {"apiVersion": "hive.openshift.io/v1", "kind": "HiveConfig", "metadata": {"name": "hive"}, "spec":
-      {"managedDomains": [{"aws": {"credentialsSecretRef": {"name": "my-route53-creds"}}, "domains": ["my-base-domain.example.com"]}]}}]'
+      "observability.open-cluster-management.io/v1beta1", "kind": "MultiClusterObservability", "metadata":
+      {"name": "observability"}, "spec": {"observabilityAddonSpec": {}, "storageConfigObject": {"metricObjectStorage":
+      {"key": "thanos.yaml", "name": "thanos-object-storage"}}}}, {"apiVersion": "observability.open-cluster-management.io/v1beta1",
+      "kind": "ObservabilityAddon", "metadata": {"name": "observability-addon"}, "spec": {"enableMetrics":
+      true, "interval": 30}}, {"apiVersion": "observability.open-cluster-management.io/v1beta2", "kind":
+      "MultiClusterObservability", "metadata": {"name": "observability"}, "spec": {"observabilityAddonSpec":
+      {}, "storageConfig": {"metricObjectStorage": {"key": "thanos.yaml", "name": "thanos-object-storage"}}}},
+      {"apiVersion": "apps.open-cluster-management.io/v1", "kind": "Channel", "metadata": {"name": "dev-helmrepo"},
+      "spec": {"type": "HelmRepo", "pathname": "http://kubernetes-charts.storage.googleapis.com/"}, "status":
+      {"state": "N/A"}}, {"apiVersion": "apps.open-cluster-management.io/v1", "kind": "Subscription",
+      "metadata": {"name": "sub-nginx"}, "spec": {"channel": "ns-ch/predev-ch", "name": "nginx-ingress",
+      "packageFilter": {"version": "=1.26.1"}, "packageOverrides": [{"packageAlias": "nginx-ingress",
+      "packageName": "nginx-ingress", "packageOverrides": [{"path": "spec", "value": {"defaultBackend":
+      {"replicaCount": 3}}}]}], "placement": {"local": true}}}]'
     capabilities: Seamless Upgrades
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-10T16:23:18Z'
+    createdAt: '2022-01-10T17:07:40Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clusterprovisions.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io",
-      "clustersyncs.hiveinternal.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io", "clusterdeprovisions.hive.openshift.io", "machinepoolnameleases.hive.openshift.io",
-      "fakeclusterinstalls.hiveinternal.openshift.io", "clusterstates.hive.openshift.io", "checkpoints.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -93,18 +86,13 @@ spec:
   - base64data: PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MjEuMTUgNzIxLjE1Ij48ZGVmcz48c3R5bGU+LmNscy0xe2ZpbGw6I2RiMzkyNzt9LmNscy0ye2ZpbGw6I2NiMzYyODt9LmNscy0ze2ZpbGw6I2ZmZjt9LmNscy00e2ZpbGw6I2UzZTNlMjt9PC9zdHlsZT48L2RlZnM+PHRpdGxlPlByb2R1Y3RfSWNvbi1SZWRfSGF0QWR2YW5jZWRfQ2x1c3Rlcl9NYW5hZ2VtZW50X2Zvcl9LdWJlcm5ldGVzLVJHQjwvdGl0bGU+PGcgaWQ9IkxheWVyXzEiIGRhdGEtbmFtZT0iTGF5ZXIgMSI+PGNpcmNsZSBjbGFzcz0iY2xzLTEiIGN4PSIzNjAuNTciIGN5PSIzNjAuNTciIHI9IjM1OC41OCIvPjxwYXRoIGNsYXNzPSJjbHMtMiIgZD0iTTYxNC4xMywxMDcsMTA3LDYxNC4xM2MxNDAsMTQwLDM2Ny4wNywxNDAsNTA3LjExLDBTNzU0LjE2LDI0Ny4wNiw2MTQuMTMsMTA3WiIvPjxyZWN0IGNsYXNzPSJjbHMtMyIgeD0iMzMwLjg3IiB5PSIyODAuNiIgd2lkdGg9IjIwMy4xNyIgaGVpZ2h0PSIyMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTc4LjkgMzkwLjUyKSByb3RhdGUoLTQ0Ljk2KSIvPjxyZWN0IGNsYXNzPSJjbHMtMyIgeD0iMzA2LjYzIiB5PSIxNjcuODMiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMDQuNDciIHRyYW5zZm9ybT0idHJhbnNsYXRlKC04NS4zMyAxNjIuMjcpIHJvdGF0ZSgtMjUuNDUpIi8+PHJlY3QgY2xhc3M9ImNscy0zIiB4PSIxNjIuOTgiIHk9IjM2NC4xIiB3aWR0aD0iMTk4LjI4IiBoZWlnaHQ9IjIwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDIuMzkgMzMuNjEpIHJvdGF0ZSgtNi43OSkiLz48cmVjdCBjbGFzcz0iY2xzLTMiIHg9IjI0NS4xIiB5PSI0NTEuNTQiIHdpZHRoPSIyMDAuNjIiIGhlaWdodD0iMjAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xNjMuMDEgNzMzLjI2KSByb3RhdGUoLTgxLjMxKSIvPjxyZWN0IGNsYXNzPSJjbHMtMyIgeD0iNDQzLjg1IiB5PSIzMDMuNzYiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMDcuMDQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMDkuOTcgNjM5LjU4KSByb3RhdGUoLTY0LjMpIi8+PGNpcmNsZSBjbGFzcz0iY2xzLTMiIGN4PSI1MDQuMzQiIGN5PSIyMTguODMiIHI9IjQ0LjA4Ii8+PGNpcmNsZSBjbGFzcz0iY2xzLTMiIGN4PSIyNzIuNyIgY3k9IjE3Ny43NSIgcj0iNDQuMDgiLz48Y2lyY2xlIGNsYXNzPSJjbHMtMyIgY3g9IjU0Ny4xMiIgY3k9IjQ1Mi4xNyIgcj0iNDQuMDgiLz48Y2lyY2xlIGNsYXNzPSJjbHMtMyIgY3g9IjE2My42OCIgY3k9IjM4NS44MiIgcj0iNDQuMDgiLz48Y2lyY2xlIGNsYXNzPSJjbHMtMyIgY3g9IjMzMC4yNiIgY3k9IjU2MC43IiByPSI0NC4wOCIvPjxwYXRoIGNsYXNzPSJjbHMtNCIgZD0iTTQ0NC45NCwyNzkuOTIsMjc2LjE5LDQ0OC42N0ExMTkuMzIsMTE5LjMyLDAsMCwwLDQ0NC45NCwyNzkuOTJaIi8+PHBhdGggY2xhc3M9ImNscy0zIiBkPSJNMzc1LjY4LDI0NS43NmExMTkuMzMsMTE5LjMzLDAsMCwwLTk5LjQ5LDIwMi45MUw0NDQuOTQsMjc5LjkyQTExOC44OSwxMTguODksMCwwLDAsMzc1LjY4LDI0NS43NloiLz48L2c+PC9zdmc+
     mediatype: image/svg+xml
   keywords:
-  - ClusterManager
   - MultiClusterObservability
   - Red Hat
   - channel
-  - cluster
   - install
-  - kubernetes
-  - multi-cluster
   - multicluster
   - multiclusterhub
   - open-cluster-management
-  - openshift
   - submariner-addon
   - subscription
   labels:
@@ -196,12 +184,6 @@ spec:
         x-descriptors:
         - urn:alm:descriptor:com.tectonic.ui:advanced
         - urn:alm:descriptor:com.tectonic.ui:booleanSwitch
-      version: v1
-    - description: ClusterManager defines the configurations of controllers running hub that govern registration
-        and work distribution for attached Klusterlets
-      displayName: ClusterManager
-      kind: ClusterManager
-      name: clustermanagers.operator.open-cluster-management.io
       version: v1
     - description: MultiClusterObservability defines the configuration for the Observability installation
         on Hub and Managed Clusters all through this one custom resource.
@@ -347,113 +329,6 @@ spec:
       kind: Application
       name: applications.app.k8s.io
       version: v1beta1
-    - description: Checkpoint is the Schema for the backup of Hive objects.
-      displayName: Checkpoint
-      kind: Checkpoint
-      name: checkpoints.hive.openshift.io
-      version: v1
-    - description: ClusterClaim represents a claim to a cluster from a cluster pool.
-      displayName: ClusterClaim
-      kind: ClusterClaim
-      name: clusterclaims.hive.openshift.io
-      version: v1
-    - description: ClusterDeployment is the Schema for the clusterdeployments API
-      displayName: ClusterDeployment
-      kind: ClusterDeployment
-      name: clusterdeployments.hive.openshift.io
-      version: v1
-    - description: ClusterDeprovision is the Schema for the clusterdeprovisions API
-      displayName: ClusterDeprovision
-      kind: ClusterDeprovision
-      name: clusterdeprovisions.hive.openshift.io
-      version: v1
-    - description: ClusterImageSet is the Schema for the clusterimagesets API
-      displayName: ClusterImageSet
-      kind: ClusterImageSet
-      name: clusterimagesets.hive.openshift.io
-      version: v1
-    - description: ClusterPool represents a pool of clusters that should be kept ready to be given out
-        to users. Clusters are removed from the pool once claimed and then automatically replaced with
-        a new one.
-      displayName: ClusterPool
-      kind: ClusterPool
-      name: clusterpools.hive.openshift.io
-      version: v1
-    - description: ClusterProvision is the Schema for the clusterprovisions API
-      displayName: ClusterProvision
-      kind: ClusterProvision
-      name: clusterprovisions.hive.openshift.io
-      version: v1
-    - description: ClusterRelocate is the Schema for the ClusterRelocates API
-      displayName: ClusterRelocate
-      kind: ClusterRelocate
-      name: clusterrelocates.hive.openshift.io
-      version: v1
-    - description: ClusterState is the Schema for the clusterstates API
-      displayName: ClusterState
-      kind: ClusterState
-      name: clusterstates.hive.openshift.io
-      version: v1
-    - description: DNSZone is the Schema for the dnszones API
-      displayName: DNSZone
-      kind: DNSZone
-      name: dnszones.hive.openshift.io
-      version: v1
-    - description: HiveConfig is the Schema for the hives API
-      displayName: HiveConfig
-      kind: HiveConfig
-      name: hiveconfigs.hive.openshift.io
-      version: v1
-    - description: MachinePoolNameLease is the Schema for the MachinePoolNameLeases API. This resource
-        is mostly empty as we're primarily relying on the name to determine if a lease is available. Note
-        that not all cloud providers require the use of a lease for naming, at present this is only required
-        for GCP where we're extremely restricted on name lengths.
-      displayName: MachinePoolNameLease
-      kind: MachinePoolNameLease
-      name: machinepoolnameleases.hive.openshift.io
-      version: v1
-    - description: MachinePool is the Schema for the machinepools API
-      displayName: MachinePool
-      kind: MachinePool
-      name: machinepools.hive.openshift.io
-      version: v1
-    - description: SelectorSyncIdentityProvider is the Schema for the SelectorSyncSet API
-      displayName: SelectorSyncIdentityProvider
-      kind: SelectorSyncIdentityProvider
-      name: selectorsyncidentityproviders.hive.openshift.io
-      version: v1
-    - description: SelectorSyncSet is the Schema for the SelectorSyncSet API
-      displayName: SelectorSyncSet
-      kind: SelectorSyncSet
-      name: selectorsyncsets.hive.openshift.io
-      version: v1
-    - description: SyncIdentityProvider is the Schema for the SyncIdentityProvider API
-      displayName: SyncIdentityProvider
-      kind: SyncIdentityProvider
-      name: syncidentityproviders.hive.openshift.io
-      version: v1
-    - description: SyncSet is the Schema for the SyncSet API
-      displayName: SyncSet
-      kind: SyncSet
-      name: syncsets.hive.openshift.io
-      version: v1
-    - description: ClusterSyncLease is a record of the last time that SyncSets and SelectorSyncSets were
-        applied to a cluster.
-      displayName: ClusterSyncLease
-      kind: ClusterSyncLease
-      name: clustersyncleases.hiveinternal.openshift.io
-      version: v1alpha1
-    - description: ClusterSync is the status of all of the SelectorSyncSets and SyncSets that apply to
-        a ClusterDeployment.
-      displayName: ClusterSync
-      kind: ClusterSync
-      name: clustersyncs.hiveinternal.openshift.io
-      version: v1alpha1
-    - description: FakeClusterInstall represents a fake request to provision an agent based cluster.
-      displayName: FakeClusterInstall
-      kind: FakeClusterInstall
-      name: fakeclusterinstalls.hiveinternal.openshift.io
-      version: v1alpha1
   install:
     strategy: deployment
     spec:
@@ -827,153 +702,6 @@ spec:
           - update
           - watch
         serviceAccountName: multiclusterhub-operator
-      - rules:
-        - apiGroups:
-          - ''
-          resources:
-          - configmaps
-          - namespaces
-          - serviceaccounts
-          - services
-          - secrets
-          verbs:
-          - create
-          - get
-          - list
-          - update
-          - watch
-          - patch
-          - delete
-        - apiGroups:
-          - ''
-          resources:
-          - nodes
-          verbs:
-          - get
-          - list
-          - watch
-        - apiGroups:
-          - authorization.k8s.io
-          resources:
-          - subjectaccessreviews
-          verbs:
-          - create
-        - apiGroups:
-          - ''
-          - events.k8s.io
-          resources:
-          - events
-          verbs:
-          - create
-          - patch
-          - update
-        - apiGroups:
-          - apps
-          resources:
-          - deployments
-          verbs:
-          - create
-          - get
-          - list
-          - update
-          - watch
-          - patch
-          - delete
-        - apiGroups:
-          - rbac.authorization.k8s.io
-          resources:
-          - clusterrolebindings
-          - rolebindings
-          verbs:
-          - create
-          - get
-          - list
-          - update
-          - watch
-          - patch
-          - delete
-        - apiGroups:
-          - rbac.authorization.k8s.io
-          resources:
-          - clusterroles
-          - roles
-          verbs:
-          - create
-          - get
-          - list
-          - update
-          - watch
-          - patch
-          - delete
-          - escalate
-          - bind
-        - apiGroups:
-          - apiextensions.k8s.io
-          resources:
-          - customresourcedefinitions
-          verbs:
-          - create
-          - get
-          - list
-          - update
-          - watch
-          - patch
-          - delete
-        - apiGroups:
-          - apiregistration.k8s.io
-          resources:
-          - apiservices
-          verbs:
-          - create
-          - get
-          - list
-          - update
-          - watch
-          - patch
-          - delete
-        - apiGroups:
-          - admissionregistration.k8s.io
-          resources:
-          - validatingwebhookconfigurations
-          - mutatingwebhookconfigurations
-          verbs:
-          - create
-          - get
-          - list
-          - update
-          - watch
-          - patch
-          - delete
-        - apiGroups:
-          - operator.open-cluster-management.io
-          resources:
-          - clustermanagers
-          verbs:
-          - get
-          - list
-          - watch
-          - update
-          - delete
-        - apiGroups:
-          - operator.open-cluster-management.io
-          resources:
-          - clustermanagers/status
-          verbs:
-          - update
-          - patch
-        - apiGroups:
-          - migration.k8s.io
-          resources:
-          - storageversionmigrations
-          verbs:
-          - create
-          - get
-          - list
-          - update
-          - watch
-          - patch
-          - delete
-        serviceAccountName: cluster-manager
       - rules:
         - apiGroups:
           - ''
@@ -1504,190 +1232,6 @@ spec:
           verbs:
           - '*'
         serviceAccountName: multicluster-operators
-      - rules:
-        - apiGroups:
-          - hive.openshift.io
-          resources:
-          - '*'
-          verbs:
-          - '*'
-        - apiGroups:
-          - hiveinternal.openshift.io
-          resources:
-          - '*'
-          verbs:
-          - '*'
-        - apiGroups:
-          - extensions.hive.openshift.io
-          resources:
-          - '*'
-          verbs:
-          - '*'
-        - apiGroups:
-          - velero.io
-          resources:
-          - backups
-          verbs:
-          - create
-        - apiGroups:
-          - ''
-          resources:
-          - serviceaccounts
-          - serviceaccounts/finalizers
-          - secrets
-          - secrets/finalizers
-          - services
-          - services/finalizers
-          - events
-          - configmaps
-          - namespaces
-          - persistentvolumeclaims
-          verbs:
-          - '*'
-        - apiGroups:
-          - apiregistration.k8s.io
-          resources:
-          - apiservices
-          - apiservices/finalizers
-          verbs:
-          - get
-          - list
-          - watch
-          - create
-          - update
-          - patch
-          - delete
-        - apiGroups:
-          - admissionregistration.k8s.io
-          resources:
-          - validatingwebhookconfigurations
-          - mutatingwebhookconfigurations
-          verbs:
-          - get
-          - list
-          - watch
-          - create
-          - update
-          - patch
-          - delete
-        - apiGroups:
-          - apps
-          resources:
-          - deployments
-          - deployments/finalizers
-          - daemonsets
-          - daemonsets/finalizers
-          - statefulsets
-          verbs:
-          - get
-          - list
-          - watch
-          - create
-          - update
-          - patch
-          - delete
-        - apiGroups:
-          - apiextensions.k8s.io
-          resources:
-          - customresourcedefinitions
-          verbs:
-          - get
-          - list
-          - watch
-          - create
-          - update
-          - patch
-          - delete
-        - apiGroups:
-          - rbac.authorization.k8s.io
-          resources:
-          - clusterroles
-          - clusterrolebindings
-          - roles
-          - rolebindings
-          verbs:
-          - get
-          - list
-          - watch
-          - create
-          - update
-          - patch
-          - delete
-        - apiGroups:
-          - apps.openshift.io
-          resources:
-          - deploymentconfigs
-          verbs:
-          - get
-          - list
-          - watch
-        - apiGroups:
-          - authorization.openshift.io
-          resources:
-          - clusterroles
-          - clusterrolebindings
-          verbs:
-          - get
-          - list
-          - watch
-          - create
-          - update
-          - patch
-          - delete
-        - apiGroups:
-          - batch
-          resources:
-          - jobs
-          verbs:
-          - get
-          - list
-          - watch
-          - create
-          - update
-          - patch
-          - delete
-        - apiGroups:
-          - ''
-          resources:
-          - pods
-          - pods/log
-          verbs:
-          - get
-          - list
-          - watch
-        - apiGroups:
-          - admission.hive.openshift.io
-          resources:
-          - dnszones
-          verbs:
-          - get
-          - list
-          - watch
-        - apiGroups:
-          - authorization.k8s.io
-          resources:
-          - subjectaccessreviews
-          verbs:
-          - create
-        - apiGroups:
-          - admission.hive.openshift.io
-          resources:
-          - clusterdeployments
-          - clusterimagesets
-          - clusterprovisions
-          - dnszones
-          - machinepools
-          - selectorsyncsets
-          - syncsets
-          verbs:
-          - get
-          - list
-          - watch
-          - create
-          - update
-          - patch
-          - delete
-        serviceAccountName: hive-operator
       permissions:
       - rules:
         - apiGroups:
@@ -1952,70 +1496,6 @@ spec:
                 runAsNonRoot: true
               serviceAccountName: multiclusterhub-operator
               terminationGracePeriodSeconds: 10
-      - name: cluster-manager
-        spec:
-          replicas: 3
-          selector:
-            matchLabels:
-              app: cluster-manager
-          strategy: {}
-          template:
-            metadata:
-              labels:
-                app: cluster-manager
-            spec:
-              affinity:
-                podAntiAffinity:
-                  preferredDuringSchedulingIgnoredDuringExecution:
-                  - podAffinityTerm:
-                      labelSelector:
-                        matchExpressions:
-                        - key: app
-                          operator: In
-                          values:
-                          - cluster-manager
-                      topologyKey: failure-domain.beta.kubernetes.io/zone
-                    weight: 70
-                  - podAffinityTerm:
-                      labelSelector:
-                        matchExpressions:
-                        - key: app
-                          operator: In
-                          values:
-                          - cluster-manager
-                      topologyKey: kubernetes.io/hostname
-                    weight: 30
-              containers:
-              - args:
-                - /registration-operator
-                - hub
-                image: quay.io/stolostron/registration-operator@sha256:674af952727e66ebdbc3c7cacce3f566f97bbc2e2554d29985432c4d5d96021c
-                livenessProbe:
-                  httpGet:
-                    path: /healthz
-                    port: 8443
-                    scheme: HTTPS
-                  initialDelaySeconds: 2
-                  periodSeconds: 10
-                name: registration-operator
-                readinessProbe:
-                  httpGet:
-                    path: /healthz
-                    port: 8443
-                    scheme: HTTPS
-                  initialDelaySeconds: 2
-                resources:
-                  requests:
-                    cpu: 100m
-                    memory: 128Mi
-                securityContext:
-                  allowPrivilegeEscalation: false
-                  capabilities:
-                    drop:
-                    - ALL
-                  privileged: false
-                  runAsNonRoot: true
-              serviceAccountName: cluster-manager
       - name: multicluster-observability-operator
         spec:
           replicas: 1
@@ -2661,60 +2141,6 @@ spec:
                 - key: tls.key
                   path: tls.key
               serviceAccountName: multicluster-operators
-      - name: hive-operator
-        spec:
-          replicas: 1
-          revisionHistoryLimit: 4
-          selector:
-            matchLabels:
-              control-plane: hive-operator
-              controller-tools.k8s.io: '1.0'
-          strategy:
-            type: Recreate
-          template:
-            metadata:
-              labels:
-                control-plane: hive-operator
-                controller-tools.k8s.io: '1.0'
-            spec:
-              containers:
-              - command:
-                - /opt/services/hive-operator
-                - --log-level
-                - info
-                env:
-                - name: CLI_CACHE_DIR
-                  value: /var/cache/kubectl
-                - name: HIVE_OPERATOR_NS
-                  valueFrom:
-                    fieldRef:
-                      fieldPath: metadata.namespace
-                image: quay.io/stolostron/hive@sha256:c145d3ed317d767dda1a382bfeb1ede751651ef7621464357f730f2df9d3f5f9
-                livenessProbe:
-                  httpGet:
-                    path: /healthz
-                    port: 8080
-                name: hive-operator
-                ports:
-                - containerPort: 2112
-                  name: metrics
-                  protocol: TCP
-                readinessProbe:
-                  httpGet:
-                    path: /readyz
-                    port: 8080
-                resources:
-                  requests:
-                    cpu: 100m
-                    memory: 256Mi
-                volumeMounts:
-                - mountPath: /var/cache/kubectl
-                  name: kubectl-cache
-              serviceAccountName: hive-operator
-              terminationGracePeriodSeconds: 10
-              volumes:
-              - emptyDir: {}
-                name: kubectl-cache
   relatedImages:
   - name: application_ui
     image: quay.io/stolostron/application-ui@sha256:120fa21abb4116a56d9020cfa574541dd9ddf9f16bb94514d7f90f777dae9ac7
@@ -2788,6 +2214,8 @@ spec:
     image: quay.io/stolostron/helloprow-go@sha256:d860b73ce3c448be708db70b4544491a2639fac45075078ce3509e358714ccfc
   - name: helloworld
     image: quay.io/stolostron/helloworld@sha256:19c0fd1e7fce73909d87a81b0416b4d69691f3f552f58919f960c5d810c71b89
+  - name: openshift_hive
+    image: quay.io/stolostron/hive@sha256:c145d3ed317d767dda1a382bfeb1ede751651ef7621464357f730f2df9d3f5f9
   - name: iam_policy_controller
     image: quay.io/stolostron/iam-policy-controller@sha256:4a97fad654bd06c7360c5a276cf63a8deca42176c2187b3cc8f64e7710c386d0
   - name: insights_client
@@ -2848,6 +2276,8 @@ spec:
     image: quay.io/stolostron/redisgraph-tls@sha256:cc1dbc4073011ab5abcf0bb1a69c088ad1444968e906cfbd34e01a683c48f115
   - name: registration
     image: quay.io/stolostron/registration@sha256:4e496cf4c5c0a6f11b66a617a37d29081a82234b83b98060b2a3992706674b3c
+  - name: registration_operator
+    image: quay.io/stolostron/registration-operator@sha256:674af952727e66ebdbc3c7cacce3f566f97bbc2e2554d29985432c4d5d96021c
   - name: search_aggregator
     image: quay.io/stolostron/search-aggregator@sha256:f96bbd8663574dbe3ca5d096dd2cf86f4614b7b4f23f69f52f63fb386b76a1d6
   - name: search_api
