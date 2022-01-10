@@ -446,12 +446,12 @@
   {
     "image-name": "kube-rbac-proxy",
     "image-version": "2.4",
-    "image-tag": "2.4-73bfb767af255cf710c50c88d8f0bac97156d330",
-    "git-sha256": "73bfb767af255cf710c50c88d8f0bac97156d330",
+    "image-tag": "2.4-302f9359055e8e6d34657605397cfc8515bfa93c",
+    "git-sha256": "302f9359055e8e6d34657605397cfc8515bfa93c",
     "git-repository": "stolostron/kube-rbac-proxy",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:536421e3ec9a786a8c82d8bacea36d7df35ba521b110cc6f0afb6dbfac8b7ef3",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:eddd9be999c0dae03c139dbff4e692c68c22645c0d643a7c903e0c3a54097f10",
     "image-key": "kube_rbac_proxy"
   },
   {
