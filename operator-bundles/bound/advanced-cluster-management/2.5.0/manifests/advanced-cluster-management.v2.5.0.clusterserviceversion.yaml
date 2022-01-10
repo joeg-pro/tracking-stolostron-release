@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-10T06:21:07Z'
+    createdAt: '2022-01-10T06:56:21Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "clusterprovisions.hive.openshift.io", "clusterstates.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
-      "clustersyncleases.hiveinternal.openshift.io", "clusterdeprovisions.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io",
-      "checkpoints.hive.openshift.io", "machinepoolnameleases.hive.openshift.io", "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["checkpoints.hive.openshift.io", "machinepoolnameleases.hive.openshift.io",
+      "clustersyncs.hiveinternal.openshift.io", "clusterdeprovisions.hive.openshift.io", "clusterstates.hive.openshift.io",
+      "observatoria.core.observatorium.io", "clustersyncleases.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io",
+      "observabilityaddons.observability.open-cluster-management.io", "fakeclusterinstalls.hiveinternal.openshift.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1868,7 +1868,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
                   value: quay.io/stolostron/multiclusterhub-operator-tests@sha256:047b375d991f32f7eb5255f96c07833983eafed4d3a9d81c226026d02234b4da
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
-                  value: quay.io/stolostron/multiclusterhub-repo@sha256:fa97985c0d8b5fcbfc7ab4925237938d9056a075015ef921ad4422afaf5df5dd
+                  value: quay.io/stolostron/multiclusterhub-repo@sha256:1a4e0ba88ab1f78a348732e708b02c3d708c37fe3a84efbd4a5b5100ada081f9
                 - name: OPERAND_IMAGE_MUST_GATHER
                   value: quay.io/stolostron/must-gather@sha256:6419e3989266ac3b2975af96bf0a1aa284f283c112ccc695ca9bc95be091571c
                 - name: OPERAND_IMAGE_NODE_EXPORTER
@@ -2819,7 +2819,7 @@ spec:
   - name: multiclusterhub_operator_tests
     image: quay.io/stolostron/multiclusterhub-operator-tests@sha256:047b375d991f32f7eb5255f96c07833983eafed4d3a9d81c226026d02234b4da
   - name: multiclusterhub_repo
-    image: quay.io/stolostron/multiclusterhub-repo@sha256:fa97985c0d8b5fcbfc7ab4925237938d9056a075015ef921ad4422afaf5df5dd
+    image: quay.io/stolostron/multiclusterhub-repo@sha256:1a4e0ba88ab1f78a348732e708b02c3d708c37fe3a84efbd4a5b5100ada081f9
   - name: must_gather
     image: quay.io/stolostron/must-gather@sha256:6419e3989266ac3b2975af96bf0a1aa284f283c112ccc695ca9bc95be091571c
   - name: node_exporter
