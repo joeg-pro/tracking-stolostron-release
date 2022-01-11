@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-11T21:13:19Z'
+    createdAt: '2022-01-11T21:37:10Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clusterstates.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io",
-      "clusterdeprovisions.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
-      "clustersyncleases.hiveinternal.openshift.io", "machinepoolnameleases.hive.openshift.io", "observatoria.core.observatorium.io",
-      "clusterprovisions.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io", "checkpoints.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["clustersyncs.hiveinternal.openshift.io", "clusterstates.hive.openshift.io",
+      "machinepoolnameleases.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io", "fakeclusterinstalls.hiveinternal.openshift.io", "clusterdeprovisions.hive.openshift.io",
+      "checkpoints.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io"]'
   name: advanced-cluster-management.v2.4.2
   namespace: placeholder
   labels:
@@ -1768,7 +1768,7 @@ spec:
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
                   value: quay.io/stolostron/governance-policy-propagator@sha256:6f773250be585d8f7ad237978c443c2026e346e257f4823e1cb0c769c1014f96
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
-                  value: quay.io/stolostron/governance-policy-spec-sync@sha256:6b0503709ab7d37d3b6a25fd3e153b047c2c5381d1d873b3fa316acfe7e0b3c6
+                  value: quay.io/stolostron/governance-policy-spec-sync@sha256:3ffa15a0571fc9b4c07b40ff774f015b0ed7a9b9cbc6b8901a0ee538d3b4eeca
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_STATUS_SYNC
                   value: quay.io/stolostron/governance-policy-status-sync@sha256:528c0f0c6dd721c0e63685552036b017ec407000cd0bc40539750a8073c3b4de
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_TEMPLATE_SYNC
@@ -2692,7 +2692,7 @@ spec:
   - name: governance_policy_propagator
     image: quay.io/stolostron/governance-policy-propagator@sha256:6f773250be585d8f7ad237978c443c2026e346e257f4823e1cb0c769c1014f96
   - name: governance_policy_spec_sync
-    image: quay.io/stolostron/governance-policy-spec-sync@sha256:6b0503709ab7d37d3b6a25fd3e153b047c2c5381d1d873b3fa316acfe7e0b3c6
+    image: quay.io/stolostron/governance-policy-spec-sync@sha256:3ffa15a0571fc9b4c07b40ff774f015b0ed7a9b9cbc6b8901a0ee538d3b4eeca
   - name: governance_policy_status_sync
     image: quay.io/stolostron/governance-policy-status-sync@sha256:528c0f0c6dd721c0e63685552036b017ec407000cd0bc40539750a8073c3b4de
   - name: governance_policy_template_sync
