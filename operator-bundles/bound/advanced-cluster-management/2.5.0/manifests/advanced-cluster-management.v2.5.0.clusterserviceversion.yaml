@@ -22,14 +22,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-12T20:33:58Z'
+    createdAt: '2022-01-12T20:46:15Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1411,7 +1412,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
                   value: quay.io/stolostron/multiclusterhub-operator-tests@sha256:0e836202e8593cdf38c59fad9a3d955c61d9d1fd9fa9c350c08b7bfe60426837
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
-                  value: quay.io/stolostron/multiclusterhub-repo@sha256:98549f117f0c6df1b38bc385a4cf6da7603cb58658802009719f242eab8e7c5e
+                  value: quay.io/stolostron/multiclusterhub-repo@sha256:178f30753539acedff8639e4fccf1fd7ae839fce72ace89eb007dbd7913c45e5
                 - name: OPERAND_IMAGE_MUST_GATHER
                   value: quay.io/stolostron/must-gather@sha256:6419e3989266ac3b2975af96bf0a1aa284f283c112ccc695ca9bc95be091571c
                 - name: OPERAND_IMAGE_NODE_EXPORTER
@@ -2246,7 +2247,7 @@ spec:
   - name: multiclusterhub_operator_tests
     image: quay.io/stolostron/multiclusterhub-operator-tests@sha256:0e836202e8593cdf38c59fad9a3d955c61d9d1fd9fa9c350c08b7bfe60426837
   - name: multiclusterhub_repo
-    image: quay.io/stolostron/multiclusterhub-repo@sha256:98549f117f0c6df1b38bc385a4cf6da7603cb58658802009719f242eab8e7c5e
+    image: quay.io/stolostron/multiclusterhub-repo@sha256:178f30753539acedff8639e4fccf1fd7ae839fce72ace89eb007dbd7913c45e5
   - name: must_gather
     image: quay.io/stolostron/must-gather@sha256:6419e3989266ac3b2975af96bf0a1aa284f283c112ccc695ca9bc95be091571c
   - name: node_exporter
