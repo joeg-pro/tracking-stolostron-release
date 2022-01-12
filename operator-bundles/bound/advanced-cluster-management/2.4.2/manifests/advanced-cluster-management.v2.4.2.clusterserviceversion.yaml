@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-11T22:19:55Z'
+    createdAt: '2022-01-12T01:04:40Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clusterprovisions.hive.openshift.io", "checkpoints.hive.openshift.io",
-      "clusterstates.hive.openshift.io", "machinepoolnameleases.hive.openshift.io", "observatoria.core.observatorium.io",
-      "clusterdeprovisions.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "clustersyncs.hiveinternal.openshift.io",
-      "fakeclusterinstalls.hiveinternal.openshift.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "checkpoints.hive.openshift.io",
+      "observabilityaddons.observability.open-cluster-management.io", "machinepoolnameleases.hive.openshift.io",
+      "clusterprovisions.hive.openshift.io", "clusterstates.hive.openshift.io", "clusterdeprovisions.hive.openshift.io",
+      "clustersyncs.hiveinternal.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io", "clustersyncleases.hiveinternal.openshift.io"]'
   name: advanced-cluster-management.v2.4.2
   namespace: placeholder
   labels:
@@ -1814,13 +1814,13 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLOUD_INTEGRATIONS
                   value: quay.io/stolostron/multicloud-integrations@sha256:08562da16d810aac89da3fc0ec9cc6c8565e051e944fa6081d7b64747e6974e2
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
-                  value: quay.io/stolostron/multicloud-manager@sha256:b18a71095b8e53df81f46c1788c01d19e050e8eab5fe5de4d8d01d15f462969b
+                  value: quay.io/stolostron/multicloud-manager@sha256:45e2dc0b444bc3e0aa3474d9fa56629838cb0ab5d594e4c106052947cfcc0576
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
                   value: quay.io/stolostron/multicluster-observability-operator@sha256:c032223455428b3adbe1be1c458845fe369b2ced06c249540b7186e5aefb0ec0
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
                   value: quay.io/stolostron/multicluster-operators-application@sha256:f82e428cf41497a2c64504f44db67fecd901b86f72085a05ed0f2274af0c85b2
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
-                  value: quay.io/stolostron/multicluster-operators-channel@sha256:864de082c20ef39f16c1f713b47d0ac21280c84675aa60f3cf88051c9e2d192b
+                  value: quay.io/stolostron/multicluster-operators-channel@sha256:5424c2966b9257c4fb5b620ed8d1f348355ce60acdfa44919e4bb22a39f3f089
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_DEPLOYABLE
                   value: quay.io/stolostron/multicluster-operators-deployable@sha256:ccae2e6675f824080774fcbb27de39076de8cc51fc5789ab4b41e66a12d53798
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_PLACEMENTRULE
@@ -2383,7 +2383,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/stolostron/multicluster-operators-channel@sha256:864de082c20ef39f16c1f713b47d0ac21280c84675aa60f3cf88051c9e2d192b
+                image: quay.io/stolostron/multicluster-operators-channel@sha256:5424c2966b9257c4fb5b620ed8d1f348355ce60acdfa44919e4bb22a39f3f089
                 name: multicluster-operators-channel
                 resources:
                   limits:
@@ -2734,7 +2734,7 @@ spec:
   - name: metrics_collector
     image: quay.io/stolostron/metrics-collector@sha256:24fda89c8661fb21fcf6850bafee6f43f329251b24dfbf36f6fd7e6e619ab3d0
   - name: multicloud_manager
-    image: quay.io/stolostron/multicloud-manager@sha256:b18a71095b8e53df81f46c1788c01d19e050e8eab5fe5de4d8d01d15f462969b
+    image: quay.io/stolostron/multicloud-manager@sha256:45e2dc0b444bc3e0aa3474d9fa56629838cb0ab5d594e4c106052947cfcc0576
   - name: multicluster_operators_subscription_release
     image: quay.io/stolostron/multicluster-operators-subscription-release@sha256:7062f5441abeb5df195c1df3a87d3d83d9d2d8167f54bd17f5a2551770bcd753
   - name: multiclusterhub_operator_tests
