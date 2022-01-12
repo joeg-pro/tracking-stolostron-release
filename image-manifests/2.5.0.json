@@ -686,13 +686,13 @@
   },
   {
     "image-name": "observatorium-operator",
-    "image-version": "2.3",
-    "image-tag": "2.3-67aa09a88236c9b4a9e40cf033f9c187b5d5a605",
-    "git-sha256": "67aa09a88236c9b4a9e40cf033f9c187b5d5a605",
+    "image-version": "2.5",
+    "image-tag": "2.5-98b3c96aabc6e7c1e5129ce97f0929189cafda88",
+    "git-sha256": "98b3c96aabc6e7c1e5129ce97f0929189cafda88",
     "git-repository": "stolostron/observatorium-operator",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:91c7ebd6850b08fe688f766271432d513c9b18f4a204aecc13026e0bcc4297d7",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:f26e12d5b680952c9b7e9728121b04d2203f71f7f8589fa8e310910a934b35b5",
     "image-key": "observatorium_operator"
   },
   {
