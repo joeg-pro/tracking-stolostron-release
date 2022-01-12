@@ -512,12 +512,12 @@
   {
     "image-name": "multicloud-manager",
     "image-version": "0.5.0",
-    "image-tag": "0.5.0-5241ca0e5f46bef88ffe8d6e7c270cafe20b341b",
-    "git-sha256": "5241ca0e5f46bef88ffe8d6e7c270cafe20b341b",
+    "image-tag": "0.5.0-c7d642306a99d9dcf93d85081bfa9d223cf71d3f",
+    "git-sha256": "c7d642306a99d9dcf93d85081bfa9d223cf71d3f",
     "git-repository": "stolostron/multicloud-operators-foundation",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:b18a71095b8e53df81f46c1788c01d19e050e8eab5fe5de4d8d01d15f462969b",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:45e2dc0b444bc3e0aa3474d9fa56629838cb0ab5d594e4c106052947cfcc0576",
     "image-key": "multicloud_manager"
   },
   {
@@ -545,12 +545,12 @@
   {
     "image-name": "multicluster-operators-channel",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-7bffb62b240221ab7d32be2810307f7caebe039f",
-    "git-sha256": "7bffb62b240221ab7d32be2810307f7caebe039f",
+    "image-tag": "2.4.0-5fae8f7956d315a5ce5d8c00251ca8ec72bcc0b1",
+    "git-sha256": "5fae8f7956d315a5ce5d8c00251ca8ec72bcc0b1",
     "git-repository": "stolostron/multicloud-operators-channel",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:864de082c20ef39f16c1f713b47d0ac21280c84675aa60f3cf88051c9e2d192b",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:5424c2966b9257c4fb5b620ed8d1f348355ce60acdfa44919e4bb22a39f3f089",
     "image-key": "multicluster_operators_channel"
   },
   {
