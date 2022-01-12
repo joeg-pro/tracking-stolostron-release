@@ -381,11 +381,11 @@
   {
     "image-name": "helloworld",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-0add661f6cf5ee6be3a85a3c4a50131a352f0ce3",
-    "git-sha256": "0add661f6cf5ee6be3a85a3c4a50131a352f0ce3",
+    "image-tag": "1.0.0-2aaace05ec94fa6b9f916f45b95fda36d11e592a",
+    "git-sha256": "2aaace05ec94fa6b9f916f45b95fda36d11e592a",
     "git-repository": "stolostron/example-cicd-component",
     "image-remote": "quay.io/stolostron",
-    "image-digest": "sha256:11abd07fa497b1bd192cf8c71c83d2c847f499c3e91d1771ccfcf6511eedaac2",
+    "image-digest": "sha256:ab914f2a0b7dc0e2d8507bcf72bc462f073fefce0f1b2bbeaa8eaaa587b1244b",
     "image-key": "helloworld"
   },
   {
@@ -632,12 +632,12 @@
   {
     "image-name": "multiclusterhub-repo",
     "image-version": "2.5",
-    "image-tag": "2.5-a8eae0058b19fb645578f814779e0457beb5d3ee",
-    "git-sha256": "a8eae0058b19fb645578f814779e0457beb5d3ee",
+    "image-tag": "2.5-666ab02f018ca23ae74816d590958c88146d46cd",
+    "git-sha256": "666ab02f018ca23ae74816d590958c88146d46cd",
     "git-repository": "stolostron/multiclusterhub-repo",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:178f30753539acedff8639e4fccf1fd7ae839fce72ace89eb007dbd7913c45e5",
+    "image-digest": "sha256:c798a20a3d44a6cd82b4517ac9572e448e19a52e31d861e81e405c7acd8a2af6",
     "image-key": "multiclusterhub_repo"
   },
   {
@@ -837,12 +837,13 @@
   },
   {
     "image-name": "search-e2e",
-    "image-version": "2.4.0",
-    "image-tag": "2.4.0-81f5a418f38f0bbbbcdd571e3188b317e42fd881",
+    "image-version": "2.5.0",
+    "image-tag": "2.5.0-81f5a418f38f0bbbbcdd571e3188b317e42fd881",
     "git-sha256": "81f5a418f38f0bbbbcdd571e3188b317e42fd881",
     "git-repository": "stolostron/search-e2e-test",
     "image-remote": "quay.io/stolostron",
-    "image-digest": "sha256:d7607860bedd0c40cb81dd3a4f4375177f9bf3651d72cf10f3ff42aa0ad8aabe",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:cba1427e3a7bc06125b789caffc290036431635bbe2c6f6ced16614ce42bc637",
     "image-key": "search_e2e"
   },
   {
