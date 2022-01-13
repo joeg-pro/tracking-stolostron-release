@@ -444,13 +444,13 @@
   },
   {
     "image-name": "klusterlet-addon-operator",
-    "image-version": "2.4.0",
-    "image-tag": "2.4.0-1a9317de23ccf8791d28c73c26cd345476098ff3",
-    "git-sha256": "1a9317de23ccf8791d28c73c26cd345476098ff3",
+    "image-version": "release-2.5",
+    "image-tag": "release-2.5-290d10b373927bf9d0b7c6e5250f93ac5d28a6ab",
+    "git-sha256": "290d10b373927bf9d0b7c6e5250f93ac5d28a6ab",
     "git-repository": "stolostron/klusterlet-addon-operator",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:f572a51a2cffd3c84d169dd61e8a2afa3788fe350958d0c5c3c811e21bfec83a",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:dd1d268868e4155f98acdaab8ba3115b436f1e5e955f771f2882554253b494fc",
     "image-key": "klusterlet_addon_operator"
   },
   {
