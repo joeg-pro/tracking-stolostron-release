@@ -64,6 +64,12 @@ fi
 
 # Define the list of image-key mappings for use in image pinning.
 
+# These image-key mappings map from the name for an image as it appears in deployments
+# within the input CSV to the image-key for for the image-manifest entry that tracks
+# the current repository/tag/SHA for that image.  Based on our conventions, this is
+# often just a dash-separator-to-understcore-separator conversion, but we define these
+# explicitly nonetheless to allow more flexibility.
+
 # We add mappings to the list based on the release for which the components were added
 # to ACM as compared to the release we're building the bundle for.  Doing it this way
 # lets us keep  this script idential across ACM release branches if we want.
@@ -77,9 +83,15 @@ image_key_mappings+=("multicluster-operators-subscription:multicluster_operators
 image_key_mappings+=("multicluster-operators-channel:multicluster_operators_channel")
 image_key_mappings+=("multicluster-operators-application:multicluster_operators_application")
 
-# From ACM 1.0 to 2.4:
+# From ACM 1.0 to 2.4 (moved to MCE in ACM 2.5):
 if [[ $using_mce -eq 0 ]]; then
    image_key_mappings+=("hive:openshift_hive")
+fi
+
+# From ACM 1.0 to 2.4 (dropped from ACM in 2.5):
+if [[ $rel_x -le 2 ]] && [[ $rel_y -le 4 ]]; then
+   image_key_mappings+=("multicluster-operators-placementrule:multicluster_operators_placementrule")
+   image_key_mappings+=("multicluster-operators-deployable:multicluster_operators_deployable")
 fi
 
 # Since ACM 2.x:
