@@ -433,13 +433,13 @@
   },
   {
     "image-name": "klusterlet-addon-controller",
-    "image-version": "2.4.0",
-    "image-tag": "2.4.0-baf099d37d2a6ab3accb1badb8525b379177afb1",
-    "git-sha256": "baf099d37d2a6ab3accb1badb8525b379177afb1",
+    "image-version": "release-2.5",
+    "image-tag": "release-2.5-09fc2e2e442337d9ad8cea58a47aeb3ab789adb5",
+    "git-sha256": "09fc2e2e442337d9ad8cea58a47aeb3ab789adb5",
     "git-repository": "stolostron/klusterlet-addon-controller",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:e0f09724e3732185de15a72ecfc54154956412ac7adb3b14096cf055f1460584",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:736c7d1c5850540b999f395a56ed02fa79c571b537bfbcd36b1c3f995a979cfd",
     "image-key": "klusterlet_addon_controller"
   },
   {
