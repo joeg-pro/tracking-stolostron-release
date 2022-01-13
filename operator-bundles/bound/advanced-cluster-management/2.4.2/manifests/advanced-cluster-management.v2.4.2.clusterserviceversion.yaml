@@ -27,17 +27,18 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-13T19:42:54Z'
+    createdAt: '2022-01-13T20:03:04Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clustersyncs.hiveinternal.openshift.io", "clusterdeprovisions.hive.openshift.io",
-      "clusterprovisions.hive.openshift.io", "clusterstates.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
-      "machinepoolnameleases.hive.openshift.io", "checkpoints.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
-      "clustersyncleases.hiveinternal.openshift.io", "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["fakeclusterinstalls.hiveinternal.openshift.io",
+      "clusterdeprovisions.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "checkpoints.hive.openshift.io", "clusterstates.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io",
+      "clusterprovisions.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "observatoria.core.observatorium.io",
+      "machinepoolnameleases.hive.openshift.io"]'
   name: advanced-cluster-management.v2.4.2
   namespace: placeholder
   labels:
@@ -1874,7 +1875,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_E2E
                   value: quay.io/stolostron/search-e2e@sha256:1eedb05292d301ee27115069fcf0be26d98f9509fb97182e5c6e7806114e7bd0
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
-                  value: quay.io/stolostron/search-operator@sha256:6d6c4cc575cf38f4ddaa88f297976801c726ced6f2c5757f73b9c751e51a857a
+                  value: quay.io/stolostron/search-operator@sha256:13077e53eb5dcc9265c988f1d0ab9aecd533b5e4b97516f183177ca440996cb6
                 - name: OPERAND_IMAGE_SEARCH_UI
                   value: quay.io/stolostron/search-ui@sha256:4b13b734e73b9210555085c55fc0f0534fd36bfebde1b1d0dec876a7dd025930
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
@@ -2778,7 +2779,7 @@ spec:
   - name: search_e2e
     image: quay.io/stolostron/search-e2e@sha256:1eedb05292d301ee27115069fcf0be26d98f9509fb97182e5c6e7806114e7bd0
   - name: search_operator
-    image: quay.io/stolostron/search-operator@sha256:6d6c4cc575cf38f4ddaa88f297976801c726ced6f2c5757f73b9c751e51a857a
+    image: quay.io/stolostron/search-operator@sha256:13077e53eb5dcc9265c988f1d0ab9aecd533b5e4b97516f183177ca440996cb6
   - name: search_ui
     image: quay.io/stolostron/search-ui@sha256:4b13b734e73b9210555085c55fc0f0534fd36bfebde1b1d0dec876a7dd025930
   - name: thanos
