@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-13T16:27:00Z'
+    createdAt: '2022-01-13T16:34:41Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1314,7 +1314,7 @@ spec:
                 - name: OPERAND_IMAGE_BAILER
                   value: quay.io/stolostron/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
-                  value: quay.io/stolostron/cert-policy-controller@sha256:b590b557b32df356227f0d600bd9039ac6c92273bf848c31f20251d6468d5a87
+                  value: quay.io/stolostron/cert-policy-controller@sha256:bcde612777c9d5b36e4bfb33a455b685a8040e0e779eb659c31f5d76e07d5f34
                 - name: OPERAND_IMAGE_CLUSTER_BACKUP_CONTROLLER
                   value: quay.io/stolostron/cluster-backup-controller@sha256:0262528a28706084b3b286dcc4eadc2bb2d95740edd023e84eae121c6e4ac4e2
                 - name: OPERAND_IMAGE_CLUSTER_CURATOR_CONTROLLER
@@ -1452,7 +1452,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_E2E
                   value: quay.io/stolostron/search-e2e@sha256:cba1427e3a7bc06125b789caffc290036431635bbe2c6f6ced16614ce42bc637
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
-                  value: quay.io/stolostron/search-operator@sha256:2192d0060d8e9ad411e85d7c0f722d741963cd2c5a2f27468e8c6840e01d04a9
+                  value: quay.io/stolostron/search-operator@sha256:35cd84094a12af861681a4edf1add893ba1e144bcd93f28a5bfd3ef528426095
                 - name: OPERAND_IMAGE_SEARCH_UI
                   value: quay.io/stolostron/search-ui@sha256:84106b7bc0851c40474fe728502eee07839cd974d3c3acc1cc952ebb8ec75b63
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
@@ -2161,7 +2161,7 @@ spec:
   - name: bailer
     image: quay.io/stolostron/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
   - name: cert_policy_controller
-    image: quay.io/stolostron/cert-policy-controller@sha256:b590b557b32df356227f0d600bd9039ac6c92273bf848c31f20251d6468d5a87
+    image: quay.io/stolostron/cert-policy-controller@sha256:bcde612777c9d5b36e4bfb33a455b685a8040e0e779eb659c31f5d76e07d5f34
   - name: cluster_backup_controller
     image: quay.io/stolostron/cluster-backup-controller@sha256:0262528a28706084b3b286dcc4eadc2bb2d95740edd023e84eae121c6e4ac4e2
   - name: cluster_curator_controller
@@ -2287,7 +2287,7 @@ spec:
   - name: search_e2e
     image: quay.io/stolostron/search-e2e@sha256:cba1427e3a7bc06125b789caffc290036431635bbe2c6f6ced16614ce42bc637
   - name: search_operator
-    image: quay.io/stolostron/search-operator@sha256:2192d0060d8e9ad411e85d7c0f722d741963cd2c5a2f27468e8c6840e01d04a9
+    image: quay.io/stolostron/search-operator@sha256:35cd84094a12af861681a4edf1add893ba1e144bcd93f28a5bfd3ef528426095
   - name: search_ui
     image: quay.io/stolostron/search-ui@sha256:84106b7bc0851c40474fe728502eee07839cd974d3c3acc1cc952ebb8ec75b63
   - name: thanos
