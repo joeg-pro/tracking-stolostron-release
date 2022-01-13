@@ -107,12 +107,12 @@
   {
     "image-name": "cluster-backup-controller",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-4f6f49ed212c61b73f87d5b23cb0b93a646e8880",
-    "git-sha256": "4f6f49ed212c61b73f87d5b23cb0b93a646e8880",
+    "image-tag": "2.4.0-7664ab87f94c189c60c6e0ef8c1a0022ba99bf97",
+    "git-sha256": "7664ab87f94c189c60c6e0ef8c1a0022ba99bf97",
     "git-repository": "stolostron/cluster-backup-operator",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:b713c7f9286d3e236e532979bf5ec524a8dd8f8b81acee2100cc7c7f8a6884f5",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:a49f5c8a244e3ff9203ebc34066077f3e75046d28bca0ee74e87655dd50527a3",
     "image-key": "cluster_backup_controller"
   },
   {
