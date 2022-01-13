@@ -22,14 +22,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-13T01:08:33Z'
+    createdAt: '2022-01-13T03:29:40Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1319,7 +1320,7 @@ spec:
                 - name: OPERAND_IMAGE_CLUSTER_CURATOR_CONTROLLER
                   value: quay.io/stolostron/cluster-curator-controller@sha256:80c3331cda4879aacdd201aed284564d51fbb148a0d892bf0c8e5680b0aaa371
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
-                  value: quay.io/stolostron/cluster-lifecycle-e2e@sha256:6bb6083282eb30b22c2120fca2f64b379aabb71610744e5f211c52522081c87f
+                  value: quay.io/stolostron/cluster-lifecycle-e2e@sha256:b12f340a43edb19ae09e4a7e5fb44ae6d0783cd38ed7ca803c00f0f5ff87eda1
                 - name: OPERAND_IMAGE_CLUSTER_PROXY_ADDON
                   value: quay.io/stolostron/cluster-proxy-addon@sha256:91681312c63740b4772cd6127b80763ff881cfc89a335a37fb6134427ddf2474
                 - name: OPERAND_IMAGE_CLUSTERCLAIMS_CONTROLLER
@@ -2166,7 +2167,7 @@ spec:
   - name: cluster_curator_controller
     image: quay.io/stolostron/cluster-curator-controller@sha256:80c3331cda4879aacdd201aed284564d51fbb148a0d892bf0c8e5680b0aaa371
   - name: cluster_lifecycle_e2e
-    image: quay.io/stolostron/cluster-lifecycle-e2e@sha256:6bb6083282eb30b22c2120fca2f64b379aabb71610744e5f211c52522081c87f
+    image: quay.io/stolostron/cluster-lifecycle-e2e@sha256:b12f340a43edb19ae09e4a7e5fb44ae6d0783cd38ed7ca803c00f0f5ff87eda1
   - name: cluster_proxy_addon
     image: quay.io/stolostron/cluster-proxy-addon@sha256:91681312c63740b4772cd6127b80763ff881cfc89a335a37fb6134427ddf2474
   - name: clusterclaims_controller
