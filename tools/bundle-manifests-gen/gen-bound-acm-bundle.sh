@@ -73,9 +73,7 @@ image_key_mappings=()
 # Since 1.0:
 
 image_key_mappings+=("multiclusterhub-operator:multiclusterhub_operator")
-image_key_mappings+=("multicluster-operators-placementrule:multicluster_operators_placementrule")
 image_key_mappings+=("multicluster-operators-subscription:multicluster_operators_subscription")
-image_key_mappings+=("multicluster-operators-deployable:multicluster_operators_deployable")
 image_key_mappings+=("multicluster-operators-channel:multicluster_operators_channel")
 image_key_mappings+=("multicluster-operators-application:multicluster_operators_application")
 
