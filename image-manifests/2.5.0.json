@@ -621,12 +621,12 @@
   {
     "image-name": "multiclusterhub-operator-tests",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-0f6b84e322c18f6478baeee868c1cd98dd625671",
-    "git-sha256": "0f6b84e322c18f6478baeee868c1cd98dd625671",
+    "image-tag": "2.5.0-f6eb9a289793d2389a2eb262b37b384fc82b5067",
+    "git-sha256": "f6eb9a289793d2389a2eb262b37b384fc82b5067",
     "git-repository": "stolostron/multiclusterhub-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:eae15ed8bc17c0c8e02ab4ae68b1ff93992227aacb622d44e6e2dc34b50cfc36",
+    "image-digest": "sha256:eb6df594888e21437e4dd351a437fae8e9e9fdc7ca5884e8d04010246ffd79c0",
     "image-key": "multiclusterhub_operator_tests"
   },
   {
@@ -881,13 +881,13 @@
   },
   {
     "image-name": "thanos",
-    "image-version": "2.4.0",
-    "image-tag": "2.4.0-01bd6cea2a57b18e9b3b4254094baad4a16836e6",
-    "git-sha256": "01bd6cea2a57b18e9b3b4254094baad4a16836e6",
+    "image-version": "2.5",
+    "image-tag": "2.5-629885f35fd31daa56c2dd16a581b2911d5af45d",
+    "git-sha256": "629885f35fd31daa56c2dd16a581b2911d5af45d",
     "git-repository": "stolostron/thanos",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:d746a0ea0dd0258190868bf7a4d4683782c063586ac8c0e853708d1f5e9ccb2a",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:008bf28966d6b093d6fa6283daae589a99bebd95cd560c10406069d2b8b02013",
     "image-key": "thanos"
   },
   {
