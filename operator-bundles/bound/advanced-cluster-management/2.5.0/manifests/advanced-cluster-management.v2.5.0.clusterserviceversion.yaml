@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-14T01:32:21Z'
+    createdAt: '2022-01-14T01:45:08Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1429,7 +1429,7 @@ spec:
                 - name: OPERAND_IMAGE_POSTGRESQL_12
                   value: quay.io/stolostron/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
                 - name: OPERAND_IMAGE_PROMETHEUS
-                  value: quay.io/stolostron/prometheus@sha256:a755396332ffe7cfd3e13108c23738222d3933ee541d4014edc2c918c28f18b0
+                  value: quay.io/stolostron/prometheus@sha256:fb5135e2ae57e2ae985b3088bca2b84e23955a30b571e0421143a5ab8f0a3187
                 - name: OPERAND_IMAGE_PROMETHEUS_ALERTMANAGER
                   value: quay.io/stolostron/prometheus-alertmanager@sha256:1935ce90e763396f7cf03afa8066f26e2bd23aaf1e70186a07a59df612a5a44f
                 - name: OPERAND_IMAGE_PROVIDER_CREDENTIAL_CONTROLLER
@@ -2264,7 +2264,7 @@ spec:
   - name: postgresql_12
     image: quay.io/stolostron/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
   - name: prometheus
-    image: quay.io/stolostron/prometheus@sha256:a755396332ffe7cfd3e13108c23738222d3933ee541d4014edc2c918c28f18b0
+    image: quay.io/stolostron/prometheus@sha256:fb5135e2ae57e2ae985b3088bca2b84e23955a30b571e0421143a5ab8f0a3187
   - name: prometheus_alertmanager
     image: quay.io/stolostron/prometheus-alertmanager@sha256:1935ce90e763396f7cf03afa8066f26e2bd23aaf1e70186a07a59df612a5a44f
   - name: provider_credential_controller
