@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-14T16:10:05Z'
+    createdAt: '2022-01-14T16:21:44Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clusterprovisions.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io",
-      "clusterstates.hive.openshift.io", "machinepoolnameleases.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io",
-      "fakeclusterinstalls.hiveinternal.openshift.io", "observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io",
-      "checkpoints.hive.openshift.io", "clusterdeprovisions.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["fakeclusterinstalls.hiveinternal.openshift.io",
+      "machinepoolnameleases.hive.openshift.io", "checkpoints.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io",
+      "clusterdeprovisions.hive.openshift.io", "clusterprovisions.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "clustersyncleases.hiveinternal.openshift.io", "observatoria.core.observatorium.io", "clusterstates.hive.openshift.io"]'
   name: advanced-cluster-management.v2.4.2
   namespace: placeholder
   labels:
@@ -1812,7 +1812,7 @@ spec:
                 - name: OPERAND_IMAGE_METRICS_COLLECTOR
                   value: quay.io/stolostron/metrics-collector@sha256:24fda89c8661fb21fcf6850bafee6f43f329251b24dfbf36f6fd7e6e619ab3d0
                 - name: OPERAND_IMAGE_MULTICLOUD_INTEGRATIONS
-                  value: quay.io/stolostron/multicloud-integrations@sha256:08562da16d810aac89da3fc0ec9cc6c8565e051e944fa6081d7b64747e6974e2
+                  value: quay.io/stolostron/multicloud-integrations@sha256:603a4023764d249eb59a209848709a70dc8513bb4b1e668850e21d4d1ee19f5f
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
                   value: quay.io/stolostron/multicloud-manager@sha256:45e2dc0b444bc3e0aa3474d9fa56629838cb0ab5d594e4c106052947cfcc0576
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
@@ -2212,7 +2212,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/stolostron/multicloud-integrations@sha256:08562da16d810aac89da3fc0ec9cc6c8565e051e944fa6081d7b64747e6974e2
+                image: quay.io/stolostron/multicloud-integrations@sha256:603a4023764d249eb59a209848709a70dc8513bb4b1e668850e21d4d1ee19f5f
                 name: multicluster-operators-gitopscluster
                 resources:
                   limits:
