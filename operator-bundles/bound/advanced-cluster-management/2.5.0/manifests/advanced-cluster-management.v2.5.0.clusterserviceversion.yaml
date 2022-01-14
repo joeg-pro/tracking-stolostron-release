@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-14T08:10:03Z'
+    createdAt: '2022-01-14T08:25:41Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1422,7 +1422,7 @@ spec:
                 - name: OPERAND_IMAGE_OBSERVATORIUM
                   value: quay.io/stolostron/observatorium@sha256:cee16b6474b81542140d3c0460e78ba7906bb2bff504a6cc6563526603f49c83
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
-                  value: quay.io/stolostron/observatorium-operator@sha256:de25b34e9c45b3146275a32c5eb0a07867fbd6044b27639b2320a4aec2b3a8e6
+                  value: quay.io/stolostron/observatorium-operator@sha256:8817bc3fcb93edd9caa396410a0b05594bae56ab1f64beee153d59b93a4a0e4b
                 - name: OPERAND_IMAGE_OAUTH_PROXY
                   value: quay.io/stolostron/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
                 - name: OPERAND_IMAGE_PLACEMENT
@@ -2257,7 +2257,7 @@ spec:
   - name: observatorium
     image: quay.io/stolostron/observatorium@sha256:cee16b6474b81542140d3c0460e78ba7906bb2bff504a6cc6563526603f49c83
   - name: observatorium_operator
-    image: quay.io/stolostron/observatorium-operator@sha256:de25b34e9c45b3146275a32c5eb0a07867fbd6044b27639b2320a4aec2b3a8e6
+    image: quay.io/stolostron/observatorium-operator@sha256:8817bc3fcb93edd9caa396410a0b05594bae56ab1f64beee153d59b93a4a0e4b
   - name: oauth_proxy
     image: quay.io/stolostron/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
   - name: placement
