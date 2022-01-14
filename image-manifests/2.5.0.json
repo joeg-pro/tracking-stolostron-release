@@ -466,13 +466,13 @@
   },
   {
     "image-name": "kube-state-metrics",
-    "image-version": "2.4",
-    "image-tag": "2.4-89878a47a6e708f983d1430c9d2a3be9349b87a0",
-    "git-sha256": "89878a47a6e708f983d1430c9d2a3be9349b87a0",
+    "image-version": "2.5",
+    "image-tag": "2.5-7fbe4ea31a1d94016693402bfe5a30f81461d029",
+    "git-sha256": "7fbe4ea31a1d94016693402bfe5a30f81461d029",
     "git-repository": "stolostron/kube-state-metrics",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:a065ac0d2aa101dbd40157b7e011622e1b12c2b1ba539cc885c3846b6386f6d8",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:81f90db9213fba461407244930f9614762f49dc88b3f09a9a7b929a86a9bb552",
     "image-key": "kube_state_metrics"
   },
   {
