@@ -22,15 +22,14 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-14T11:48:15Z'
+    createdAt: '2022-01-14T12:08:52Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1318,7 +1317,7 @@ spec:
                 - name: OPERAND_IMAGE_CLUSTER_BACKUP_CONTROLLER
                   value: quay.io/stolostron/cluster-backup-controller@sha256:0262528a28706084b3b286dcc4eadc2bb2d95740edd023e84eae121c6e4ac4e2
                 - name: OPERAND_IMAGE_CLUSTER_CURATOR_CONTROLLER
-                  value: quay.io/stolostron/cluster-curator-controller@sha256:80c3331cda4879aacdd201aed284564d51fbb148a0d892bf0c8e5680b0aaa371
+                  value: quay.io/stolostron/cluster-curator-controller@sha256:927fc15487b1d28dcaf05db2b90bea7d215ee996da96d3abb9bc5a44d0574455
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
                   value: quay.io/stolostron/cluster-lifecycle-e2e@sha256:b12f340a43edb19ae09e4a7e5fb44ae6d0783cd38ed7ca803c00f0f5ff87eda1
                 - name: OPERAND_IMAGE_CLUSTER_PROXY_ADDON
@@ -2165,7 +2164,7 @@ spec:
   - name: cluster_backup_controller
     image: quay.io/stolostron/cluster-backup-controller@sha256:0262528a28706084b3b286dcc4eadc2bb2d95740edd023e84eae121c6e4ac4e2
   - name: cluster_curator_controller
-    image: quay.io/stolostron/cluster-curator-controller@sha256:80c3331cda4879aacdd201aed284564d51fbb148a0d892bf0c8e5680b0aaa371
+    image: quay.io/stolostron/cluster-curator-controller@sha256:927fc15487b1d28dcaf05db2b90bea7d215ee996da96d3abb9bc5a44d0574455
   - name: cluster_lifecycle_e2e
     image: quay.io/stolostron/cluster-lifecycle-e2e@sha256:b12f340a43edb19ae09e4a7e5fb44ae6d0783cd38ed7ca803c00f0f5ff87eda1
   - name: cluster_proxy_addon
