@@ -18,7 +18,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2022-01-14T09:44:47Z'
+    createdAt: '2022-01-14T12:18:46Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: multicluster-hub.v2.4.2
@@ -1455,7 +1455,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.name
-                image: quay.io/open-cluster-management/submariner-addon:latest
+                image: quay.io/stolostron/submariner-addon:latest
                 livenessProbe:
                   httpGet:
                     path: /healthz
