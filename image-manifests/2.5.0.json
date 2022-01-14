@@ -739,13 +739,13 @@
   },
   {
     "image-name": "prometheus-alertmanager",
-    "image-version": "2.4",
-    "image-tag": "2.4-3fad37264bf7b2ede5b4671ead9e4a51fd4bebce",
-    "git-sha256": "3fad37264bf7b2ede5b4671ead9e4a51fd4bebce",
+    "image-version": "2.5",
+    "image-tag": "2.5-460d652225c8266369a10de3da63d1b8e032df16",
+    "git-sha256": "460d652225c8266369a10de3da63d1b8e032df16",
     "git-repository": "stolostron/prometheus-alertmanager",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:1935ce90e763396f7cf03afa8066f26e2bd23aaf1e70186a07a59df612a5a44f",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:1790bad56867799310d91430c58f9d293e479fc17da91c7df83f9bf2dbbae3f7",
     "image-key": "prometheus_alertmanager"
   },
   {
