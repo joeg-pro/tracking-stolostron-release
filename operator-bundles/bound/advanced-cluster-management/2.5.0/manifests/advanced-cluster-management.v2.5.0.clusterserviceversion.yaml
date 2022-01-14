@@ -22,14 +22,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-14T01:45:08Z'
+    createdAt: '2022-01-14T01:56:05Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1431,7 +1432,7 @@ spec:
                 - name: OPERAND_IMAGE_PROMETHEUS
                   value: quay.io/stolostron/prometheus@sha256:fb5135e2ae57e2ae985b3088bca2b84e23955a30b571e0421143a5ab8f0a3187
                 - name: OPERAND_IMAGE_PROMETHEUS_ALERTMANAGER
-                  value: quay.io/stolostron/prometheus-alertmanager@sha256:1935ce90e763396f7cf03afa8066f26e2bd23aaf1e70186a07a59df612a5a44f
+                  value: quay.io/stolostron/prometheus-alertmanager@sha256:1790bad56867799310d91430c58f9d293e479fc17da91c7df83f9bf2dbbae3f7
                 - name: OPERAND_IMAGE_PROVIDER_CREDENTIAL_CONTROLLER
                   value: quay.io/stolostron/provider-credential-controller@sha256:6613383495edb4114dacefb4844d293d24febaa0cefaaf806b6027fd979b30ff
                 - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
@@ -2266,7 +2267,7 @@ spec:
   - name: prometheus
     image: quay.io/stolostron/prometheus@sha256:fb5135e2ae57e2ae985b3088bca2b84e23955a30b571e0421143a5ab8f0a3187
   - name: prometheus_alertmanager
-    image: quay.io/stolostron/prometheus-alertmanager@sha256:1935ce90e763396f7cf03afa8066f26e2bd23aaf1e70186a07a59df612a5a44f
+    image: quay.io/stolostron/prometheus-alertmanager@sha256:1790bad56867799310d91430c58f9d293e479fc17da91c7df83f9bf2dbbae3f7
   - name: provider_credential_controller
     image: quay.io/stolostron/provider-credential-controller@sha256:6613383495edb4114dacefb4844d293d24febaa0cefaaf806b6027fd979b30ff
   - name: rbac_query_proxy
