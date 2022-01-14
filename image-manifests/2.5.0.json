@@ -728,13 +728,13 @@
   },
   {
     "image-name": "prometheus",
-    "image-version": "2.4",
-    "image-tag": "2.4-3f35583aeb71c2b06c045292843d3513d6ca9ccb",
-    "git-sha256": "3f35583aeb71c2b06c045292843d3513d6ca9ccb",
+    "image-version": "2.5",
+    "image-tag": "2.5-452accc1922d11b20d1d3daeb58a28d5ee27a66d",
+    "git-sha256": "452accc1922d11b20d1d3daeb58a28d5ee27a66d",
     "git-repository": "stolostron/prometheus",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:a755396332ffe7cfd3e13108c23738222d3933ee541d4014edc2c918c28f18b0",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:fb5135e2ae57e2ae985b3088bca2b84e23955a30b571e0421143a5ab8f0a3187",
     "image-key": "prometheus"
   },
   {
