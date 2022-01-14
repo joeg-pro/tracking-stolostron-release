@@ -117,13 +117,13 @@
   },
   {
     "image-name": "cluster-curator-controller",
-    "image-version": "2.4.0",
-    "image-tag": "2.4.0-9d7aec8e49eb29a2802740dc8415dce1b0541507",
-    "git-sha256": "9d7aec8e49eb29a2802740dc8415dce1b0541507",
+    "image-version": "2.5.0",
+    "image-tag": "2.5.0-a8cd4d08faa1db52c1917ef2403cdcfbefeb80be",
+    "git-sha256": "a8cd4d08faa1db52c1917ef2403cdcfbefeb80be",
     "git-repository": "stolostron/cluster-curator-controller",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:80c3331cda4879aacdd201aed284564d51fbb148a0d892bf0c8e5680b0aaa371",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:927fc15487b1d28dcaf05db2b90bea7d215ee996da96d3abb9bc5a44d0574455",
     "image-key": "cluster_curator_controller"
   },
   {
