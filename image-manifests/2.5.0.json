@@ -326,12 +326,12 @@
   {
     "image-name": "grc-policy-framework-tests",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-8278588c7cdfcd3023adde994b5c5410342cffba",
-    "git-sha256": "8278588c7cdfcd3023adde994b5c5410342cffba",
+    "image-tag": "1.0.0-b31c8d3fc9e79fe7ac47e407f8d419d3ce932f8a",
+    "git-sha256": "b31c8d3fc9e79fe7ac47e407f8d419d3ce932f8a",
     "git-repository": "stolostron/governance-policy-framework",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:04ae5db4917ec4418bda689aaca9fa2ea7c4554adaf7ebb0df34c5f8c0da8587",
+    "image-digest": "sha256:8f3bac57b53d89e56b3b00976c91f6d465f89a2cb20db92d77e46417f1574094",
     "image-key": "grc_policy_framework_tests"
   },
   {
@@ -359,12 +359,12 @@
   {
     "image-name": "grc-ui-tests",
     "image-version": "3.6.0",
-    "image-tag": "3.6.0-14bfe4e7a7449cad6c86fd2838b5dfa7fc33d35d",
-    "git-sha256": "14bfe4e7a7449cad6c86fd2838b5dfa7fc33d35d",
+    "image-tag": "3.6.0-f52f767860a7e9eb9f7a6efd93821995e3831db0",
+    "git-sha256": "f52f767860a7e9eb9f7a6efd93821995e3831db0",
     "git-repository": "stolostron/grc-ui",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:eca2b852243f5669a6ca9cf1a1ad1a5e1a7664a974bace4d0835a872eb636551",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:fd3364a2bf562df97fb6c48220cf6dee805af7824617cb0329d0cd276ad976f9",
     "image-key": "grc_ui_tests"
   },
   {
