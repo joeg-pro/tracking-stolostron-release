@@ -51,7 +51,7 @@ my_dir=$(dirname $(readlink -f "$0"))
 source "$my_dir/bundle-common.bash"
 # Sets top_of_repo
 
-default_ocp_versions="v4.6-v4.9"
+default_ocp_versions="v4.6-v4.11"
 
 opt_flags="I:n:v:r:t:l:P"
 
