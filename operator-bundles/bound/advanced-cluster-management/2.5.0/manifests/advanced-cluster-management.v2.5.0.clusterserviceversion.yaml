@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-14T19:59:40Z'
+    createdAt: '2022-01-17T01:50:38Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1425,7 +1425,7 @@ spec:
                 - name: OPERAND_IMAGE_PROMETHEUS_ALERTMANAGER
                   value: quay.io/stolostron/prometheus-alertmanager@sha256:1790bad56867799310d91430c58f9d293e479fc17da91c7df83f9bf2dbbae3f7
                 - name: OPERAND_IMAGE_PROVIDER_CREDENTIAL_CONTROLLER
-                  value: quay.io/stolostron/provider-credential-controller@sha256:93f0443a878d019e974d1ae397f3571ac5d3bf2f996933fdcff0a9fbd962b862
+                  value: quay.io/stolostron/provider-credential-controller@sha256:24239bd314817e6fe514c3a1c8f469907c5b633cf3d41798e2b4007829e679de
                 - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
                   value: quay.io/stolostron/rbac-query-proxy@sha256:b8a1f03b6792fad32feed258e56e3e4c6db0af377041e577c8a92b45c896655b
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
@@ -2246,7 +2246,7 @@ spec:
   - name: prometheus_alertmanager
     image: quay.io/stolostron/prometheus-alertmanager@sha256:1790bad56867799310d91430c58f9d293e479fc17da91c7df83f9bf2dbbae3f7
   - name: provider_credential_controller
-    image: quay.io/stolostron/provider-credential-controller@sha256:93f0443a878d019e974d1ae397f3571ac5d3bf2f996933fdcff0a9fbd962b862
+    image: quay.io/stolostron/provider-credential-controller@sha256:24239bd314817e6fe514c3a1c8f469907c5b633cf3d41798e2b4007829e679de
   - name: rbac_query_proxy
     image: quay.io/stolostron/rbac-query-proxy@sha256:b8a1f03b6792fad32feed258e56e3e4c6db0af377041e577c8a92b45c896655b
   - name: redisgraph_tls
