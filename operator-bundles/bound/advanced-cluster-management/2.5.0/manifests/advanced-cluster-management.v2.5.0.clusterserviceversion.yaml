@@ -22,14 +22,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-17T03:20:38Z'
+    createdAt: '2022-01-17T03:28:26Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1373,7 +1374,7 @@ spec:
                 - name: OPERAND_IMAGE_INSIGHTS_METRICS
                   value: quay.io/stolostron/insights-metrics@sha256:7d7833aa17d5d0fc6518e02b23ab1b7302f0146bf3523744afa024c2d6e1bfb6
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_CONTROLLER
-                  value: quay.io/stolostron/klusterlet-addon-controller@sha256:d14cda6d143118bfbd70e78db1cc3fe1e3e2cc56564d5c6413aed041b8f2186c
+                  value: quay.io/stolostron/klusterlet-addon-controller@sha256:4be4c2944874effb3cc4d1fe89d0b1351e6dccd8818dbd207dd1fbf18b8f3353
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_OPERATOR
                   value: quay.io/stolostron/klusterlet-addon-operator@sha256:e84e56a5bd7ca23a63aa9d393b6a1a502274b31bd60a1de1b1dfb70dd741229e
                 - name: OPERAND_IMAGE_KUBE_RBAC_PROXY
@@ -2206,7 +2207,7 @@ spec:
   - name: insights_metrics
     image: quay.io/stolostron/insights-metrics@sha256:7d7833aa17d5d0fc6518e02b23ab1b7302f0146bf3523744afa024c2d6e1bfb6
   - name: klusterlet_addon_controller
-    image: quay.io/stolostron/klusterlet-addon-controller@sha256:d14cda6d143118bfbd70e78db1cc3fe1e3e2cc56564d5c6413aed041b8f2186c
+    image: quay.io/stolostron/klusterlet-addon-controller@sha256:4be4c2944874effb3cc4d1fe89d0b1351e6dccd8818dbd207dd1fbf18b8f3353
   - name: klusterlet_addon_operator
     image: quay.io/stolostron/klusterlet-addon-operator@sha256:e84e56a5bd7ca23a63aa9d393b6a1a502274b31bd60a1de1b1dfb70dd741229e
   - name: kube_rbac_proxy
