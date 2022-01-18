@@ -749,6 +749,17 @@
     "image-key": "redisgraph_tls"
   },
   {
+    "image-name": "registration",
+    "image-version": "0.6.0",
+    "image-tag": "0.6.0-4494da664eb8a1bfe62483a16816b49f83cb88f3",
+    "git-sha256": "4494da664eb8a1bfe62483a16816b49f83cb88f3",
+    "git-repository": "stolostron/registration",
+    "image-remote": "quay.io/stolostron",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:f4b5645f703f6047f3f4f95980d1d539bc5a87dde41dfc3d0342ba80c838e825",
+    "image-key": "registration"
+  },
+  {
     "image-name": "registration-operator",
     "image-version": "release-2.5",
     "image-tag": "release-2.5-06c7a7af058224e1bf0dfc87fe7a740ffe02acb7",
