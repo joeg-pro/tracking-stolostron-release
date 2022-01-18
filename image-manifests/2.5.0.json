@@ -897,5 +897,16 @@
     "image-remote": "quay.io/stolostron",
     "image-digest": "sha256:ff296e3dc3b20841d4533676f49c2811e7acb8c08c522cd2cd9dade542c05741",
     "image-key": "volsync_mover_rsync"
+  },
+  {
+    "image-name": "work",
+    "image-version": "release-2.5",
+    "image-tag": "release-2.5-4334762add602df8e02c0be272cc86054b28ef2f",
+    "git-sha256": "4334762add602df8e02c0be272cc86054b28ef2f",
+    "git-repository": "stolostron/work",
+    "image-remote": "quay.io/stolostron",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:c04e95e89652c1672d844839820df0e856c8c65dd91c38a1873dc5516355ea29",
+    "image-key": "work"
   }
 ]
