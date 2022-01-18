@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-18T03:32:44Z'
+    createdAt: '2022-01-18T05:13:21Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1430,7 +1430,7 @@ spec:
                 - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
                   value: quay.io/stolostron/rbac-query-proxy@sha256:b8a1f03b6792fad32feed258e56e3e4c6db0af377041e577c8a92b45c896655b
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
-                  value: quay.io/stolostron/redisgraph-tls@sha256:4a523b6673ac81e1b72fdcef1d599a7dc6ad2584a5b620f7825508322297e4ef
+                  value: quay.io/stolostron/redisgraph-tls@sha256:433df1d1e2945ff7c80491520ecaf3aeda63247653ecfd206adeb578bd420002
                 - name: OPERAND_IMAGE_REGISTRATION_OPERATOR
                   value: quay.io/stolostron/registration-operator@sha256:2cf117cb83da745c837527bc56296e21c1a5bc55e08a0bdb5ee303bb8dbf983e
                 - name: OPERAND_IMAGE_SEARCH_AGGREGATOR
@@ -2253,7 +2253,7 @@ spec:
   - name: rbac_query_proxy
     image: quay.io/stolostron/rbac-query-proxy@sha256:b8a1f03b6792fad32feed258e56e3e4c6db0af377041e577c8a92b45c896655b
   - name: redisgraph_tls
-    image: quay.io/stolostron/redisgraph-tls@sha256:4a523b6673ac81e1b72fdcef1d599a7dc6ad2584a5b620f7825508322297e4ef
+    image: quay.io/stolostron/redisgraph-tls@sha256:433df1d1e2945ff7c80491520ecaf3aeda63247653ecfd206adeb578bd420002
   - name: registration_operator
     image: quay.io/stolostron/registration-operator@sha256:2cf117cb83da745c837527bc56296e21c1a5bc55e08a0bdb5ee303bb8dbf983e
   - name: search_aggregator
