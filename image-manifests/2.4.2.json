@@ -118,23 +118,23 @@
   {
     "image-name": "cluster-curator-controller",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-14f07e44837f67c2ac24896766981695340c308c",
-    "git-sha256": "14f07e44837f67c2ac24896766981695340c308c",
+    "image-tag": "2.4.0-d4b8b834abe925c21a95bfedf05145965298054f",
+    "git-sha256": "d4b8b834abe925c21a95bfedf05145965298054f",
     "git-repository": "stolostron/cluster-curator-controller",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:cffdb3b317d81983b32c14b6c203e602593d37a64feb2c9a3326abc8bc98315e",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:d53d29128751465a5d31fc35f3302838047256bd6011a1d2ff00b5caf2e4feac",
     "image-key": "cluster_curator_controller"
   },
   {
     "image-name": "cluster-lifecycle-e2e",
     "image-version": "0.4.0",
-    "image-tag": "0.4.0-4d5445037287dc25c0fa48f4a36a66a616268478",
-    "git-sha256": "4d5445037287dc25c0fa48f4a36a66a616268478",
+    "image-tag": "0.4.0-45b918e6c78f1d45b709071897aa3e0b3eb58bea",
+    "git-sha256": "45b918e6c78f1d45b709071897aa3e0b3eb58bea",
     "git-repository": "stolostron/cluster-lifecycle-e2e",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:787cef201b17cc908bcaedfa67b7ee7d6406b27fec8ad5a95426f27ccec3d56c",
+    "image-digest": "sha256:24c9124523af276a7727361fb5207847cdec422b10a5a0f113670bd96817d008",
     "image-key": "cluster_lifecycle_e2e"
   },
   {
@@ -151,23 +151,23 @@
   {
     "image-name": "clusterclaims-controller",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-c2cf5f8eb4ec1f60cbef8e56e131da7fc937ea21",
-    "git-sha256": "c2cf5f8eb4ec1f60cbef8e56e131da7fc937ea21",
+    "image-tag": "2.4.0-87c58b3fc0d0b245e3259e8a0c9789f5ead340f4",
+    "git-sha256": "87c58b3fc0d0b245e3259e8a0c9789f5ead340f4",
     "git-repository": "stolostron/clusterclaims-controller",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:5ef97dd0c967a28ec5e306bdb392309823fd84aab80114478935b1e985f23ed9",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:80b5e9b737fc7808cc9b25ee8ae0492c93b2744fd8b055b518f4a6e265616872",
     "image-key": "clusterclaims_controller"
   },
   {
     "image-name": "clusterlifecycle-state-metrics",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-ecb5db7ce4371c2f346d76322cbcbe4b3a071485",
-    "git-sha256": "ecb5db7ce4371c2f346d76322cbcbe4b3a071485",
+    "image-tag": "2.4.0-fb4eb5f66d60f0e2ebfa21899a494dea6312533c",
+    "git-sha256": "fb4eb5f66d60f0e2ebfa21899a494dea6312533c",
     "git-repository": "stolostron/clusterlifecycle-state-metrics",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:fbd10478c2f0e07a29a98a2018daa72e036217ff78da8389278c8ab28f10cf5a",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:6ddafdfaf79a178dd44ac9ceb5fd9d1a2e97446fad4e9b83dabcaee96d759b52",
     "image-key": "clusterlifecycle_state_metrics"
   },
   {
@@ -184,12 +184,12 @@
   {
     "image-name": "console",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-345c60a262a1af142775e7dcbc192dda925aeb95",
-    "git-sha256": "345c60a262a1af142775e7dcbc192dda925aeb95",
+    "image-tag": "2.4.0-193dea37d57f5187e68f61ff7fc09ee0be60f2e1",
+    "git-sha256": "193dea37d57f5187e68f61ff7fc09ee0be60f2e1",
     "git-repository": "stolostron/console",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:c209d4ce0b4b4d63bf0e9081c34adc3965aa90d8e032bfa99c13ce9851d4b66a",
+    "image-digest": "sha256:fffdb03754b012ba56dae2199c67e15c3789f31706e753e7344bf8191e1bed8f",
     "image-key": "console"
   },
   {
@@ -316,12 +316,12 @@
   {
     "image-name": "grc-policy-framework-tests",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-b2059c43457c253d1bd35840e66420269d77c14c",
-    "git-sha256": "b2059c43457c253d1bd35840e66420269d77c14c",
+    "image-tag": "1.0.0-787059fff71c9d9977b4549fbb47d176cc6a0d44",
+    "git-sha256": "787059fff71c9d9977b4549fbb47d176cc6a0d44",
     "git-repository": "stolostron/governance-policy-framework",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:95170063d9e41fffcef593243717df56d6f3cf394ba5a640843d0af7bade1d01",
+    "image-digest": "sha256:2a53259de41c88660e60566d7aa20b2843619ea6974471b74d8945de230d84ac",
     "image-key": "grc_policy_framework_tests"
   },
   {
@@ -424,12 +424,12 @@
   {
     "image-name": "klusterlet-addon-controller",
     "image-version": "2.4.2",
-    "image-tag": "2.4.2-02be544c93fe2968a74e17f10e92fa8a478c1c93",
-    "git-sha256": "02be544c93fe2968a74e17f10e92fa8a478c1c93",
+    "image-tag": "2.4.2-5eac2d5bdcdc66f5df81ae1ba3a75cb3904a6409",
+    "git-sha256": "5eac2d5bdcdc66f5df81ae1ba3a75cb3904a6409",
     "git-repository": "stolostron/klusterlet-addon-controller",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:4afd4a614200e373f28db3a4c8271797e4b9d67f6e1871a117e1b4d2cca7872a",
+    "image-digest": "sha256:e9e6f304041a269d6df2b042748fec59c8fef12e8e3ba5c043ff3fd6a690fbbf",
     "image-key": "klusterlet_addon_controller"
   },
   {
@@ -468,12 +468,12 @@
   {
     "image-name": "managedcluster-import-controller",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-5e4463e76a355edfebef2f78a656b0ffe29bab57",
-    "git-sha256": "5e4463e76a355edfebef2f78a656b0ffe29bab57",
+    "image-tag": "2.4.0-8ace343c07df7fac2c6cfe6c6d954292d03c1923",
+    "git-sha256": "8ace343c07df7fac2c6cfe6c6d954292d03c1923",
     "git-repository": "stolostron/managedcluster-import-controller",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:95f8216b19c20bd753913bf2900facb891063e4c90458703e9497fd1a8456999",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:d64fb3cc4cee2e319ee1584d5e3344e603c0a607faba54635002d77b8d8c847c",
     "image-key": "managedcluster_import_controller"
   },
   {
