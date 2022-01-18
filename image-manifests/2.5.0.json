@@ -466,6 +466,17 @@
     "image-key": "kube_state_metrics"
   },
   {
+    "image-name": "managedcluster-import-controller",
+    "image-version": "2.5.0",
+    "image-tag": "2.5.0-6922f767d2c1836111d0e26029c9f22e78fe04b8",
+    "git-sha256": "6922f767d2c1836111d0e26029c9f22e78fe04b8",
+    "git-repository": "stolostron/managedcluster-import-controller",
+    "image-remote": "quay.io/stolostron",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:b1e9018c02809e864b79a67c10ab2dd5ff13f91f0cd1737f84e6c6653d59b056",
+    "image-key": "managedcluster_import_controller"
+  },
+  {
     "image-name": "management-ingress",
     "image-version": "2.3.0",
     "image-tag": "2.3.0-2c7abb3245cfcc2bac1f743e9436a928f5435a75",
