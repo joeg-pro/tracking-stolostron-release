@@ -22,14 +22,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-18T23:24:33Z'
+    createdAt: '2022-01-19T01:45:12Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1422,6 +1423,8 @@ spec:
                   value: quay.io/stolostron/observatorium-operator@sha256:8817bc3fcb93edd9caa396410a0b05594bae56ab1f64beee153d59b93a4a0e4b
                 - name: OPERAND_IMAGE_OAUTH_PROXY
                   value: quay.io/stolostron/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
+                - name: OPERAND_IMAGE_PLACEMENT
+                  value: quay.io/stolostron/placement@sha256:05c941263031f21ce6c03836e872dbe1fd13d3225a129aa3f2d8dd8f6c66b0c9
                 - name: OPERAND_IMAGE_POSTGRESQL_12
                   value: quay.io/stolostron/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
                 - name: OPERAND_IMAGE_PROMETHEUS
@@ -2251,6 +2254,8 @@ spec:
     image: quay.io/stolostron/observatorium-operator@sha256:8817bc3fcb93edd9caa396410a0b05594bae56ab1f64beee153d59b93a4a0e4b
   - name: oauth_proxy
     image: quay.io/stolostron/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
+  - name: placement
+    image: quay.io/stolostron/placement@sha256:05c941263031f21ce6c03836e872dbe1fd13d3225a129aa3f2d8dd8f6c66b0c9
   - name: postgresql_12
     image: quay.io/stolostron/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
   - name: prometheus
