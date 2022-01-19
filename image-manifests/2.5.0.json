@@ -510,6 +510,17 @@
     "image-key": "multicloud_integrations"
   },
   {
+    "image-name": "multicloud-manager",
+    "image-version": "2.5.0",
+    "image-tag": "2.5.0-cc30cffdf5706cbe8e47b4b17ee9b22fa98cdf7c",
+    "git-sha256": "cc30cffdf5706cbe8e47b4b17ee9b22fa98cdf7c",
+    "git-repository": "stolostron/multicloud-operators-foundation",
+    "image-remote": "quay.io/stolostron",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:937deb3223bf04e80b51a8ae4fbf72e506d569c165bb64ba40585b715550b6d5",
+    "image-key": "multicloud_manager"
+  },
+  {
     "image-name": "multicluster-observability-operator",
     "image-version": "2.5",
     "image-tag": "2.5-6f8f1a022262cbca02a22d0335c25641f08a6f68",
