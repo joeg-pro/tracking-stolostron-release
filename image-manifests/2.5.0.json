@@ -685,6 +685,17 @@
     "image-key": "oauth_proxy"
   },
   {
+    "image-name": "placement",
+    "image-version": "0.3.0",
+    "image-tag": "0.3.0-61e8e4d8b73f36b966c109c53286fdcce95a3112",
+    "git-sha256": "61e8e4d8b73f36b966c109c53286fdcce95a3112",
+    "git-repository": "stolostron/placement",
+    "image-remote": "quay.io/stolostron",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:05c941263031f21ce6c03836e872dbe1fd13d3225a129aa3f2d8dd8f6c66b0c9",
+    "image-key": "placement"
+  },
+  {
     "image-name": "postgresql-12-centos7",
     "image-version": "latest",
     "image-tag": "latest",
