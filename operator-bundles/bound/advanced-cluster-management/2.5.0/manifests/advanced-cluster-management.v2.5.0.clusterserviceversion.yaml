@@ -22,14 +22,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-19T16:41:33Z'
+    createdAt: '2022-01-19T17:20:04Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1455,7 +1456,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_UI
                   value: quay.io/stolostron/search-ui@sha256:84106b7bc0851c40474fe728502eee07839cd974d3c3acc1cc952ebb8ec75b63
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
-                  value: quay.io/stolostron/submariner-addon@sha256:c7df86683a4d8569cd80a83156a98259f76706767e5984a9fac9bb91125f2cad
+                  value: quay.io/stolostron/submariner-addon@sha256:e765e77fac8f1c467883b0fb9e39e27cedc0e44ad3df0e2afe3e1cf53c51f71a
                 - name: OPERAND_IMAGE_THANOS
                   value: quay.io/stolostron/thanos@sha256:008bf28966d6b093d6fa6283daae589a99bebd95cd560c10406069d2b8b02013
                 - name: OPERAND_IMAGE_VOLSYNC
@@ -1599,7 +1600,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.name
-                image: quay.io/stolostron/submariner-addon@sha256:c7df86683a4d8569cd80a83156a98259f76706767e5984a9fac9bb91125f2cad
+                image: quay.io/stolostron/submariner-addon@sha256:e765e77fac8f1c467883b0fb9e39e27cedc0e44ad3df0e2afe3e1cf53c51f71a
                 livenessProbe:
                   httpGet:
                     path: /healthz
