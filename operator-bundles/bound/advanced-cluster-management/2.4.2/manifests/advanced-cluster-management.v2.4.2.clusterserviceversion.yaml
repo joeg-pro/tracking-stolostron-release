@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-20T01:38:04Z'
+    createdAt: '2022-01-20T10:03:46Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clusterstates.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io",
-      "clustersyncs.hiveinternal.openshift.io", "observatoria.core.observatorium.io", "machinepoolnameleases.hive.openshift.io",
-      "fakeclusterinstalls.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io", "checkpoints.hive.openshift.io",
-      "clusterdeprovisions.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["clusterprovisions.hive.openshift.io", "checkpoints.hive.openshift.io",
+      "fakeclusterinstalls.hiveinternal.openshift.io", "clusterdeprovisions.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io",
+      "observabilityaddons.observability.open-cluster-management.io", "machinepoolnameleases.hive.openshift.io",
+      "clusterstates.hive.openshift.io", "observatoria.core.observatorium.io", "clustersyncs.hiveinternal.openshift.io"]'
   name: advanced-cluster-management.v2.4.2
   namespace: placeholder
   labels:
@@ -1806,7 +1806,7 @@ spec:
                 - name: OPERAND_IMAGE_KUBE_STATE_METRICS
                   value: quay.io/stolostron/kube-state-metrics@sha256:8ad20a49e1c0aa735e6c5b31f6d96c030160bb99898cd15d377bfbda446bccf6
                 - name: OPERAND_IMAGE_MANAGEDCLUSTER_IMPORT_CONTROLLER
-                  value: quay.io/stolostron/managedcluster-import-controller@sha256:b1f0a43f5638d072ca96a8947861593bf4d4bf321652dafdcad5d2ce5c93774d
+                  value: quay.io/stolostron/managedcluster-import-controller@sha256:a79aab1e85f448812d2da4ac1622edbe2774c9b156c9b4361d1fbdea3df4224c
                 - name: OPERAND_IMAGE_MANAGEMENT_INGRESS
                   value: quay.io/stolostron/management-ingress@sha256:4e35d934b61f4d110fc472f883a8d569aa0ab854660dd9c2253859f00e40ab81
                 - name: OPERAND_IMAGE_METRICS_COLLECTOR
@@ -2728,7 +2728,7 @@ spec:
   - name: kube_state_metrics
     image: quay.io/stolostron/kube-state-metrics@sha256:8ad20a49e1c0aa735e6c5b31f6d96c030160bb99898cd15d377bfbda446bccf6
   - name: managedcluster_import_controller
-    image: quay.io/stolostron/managedcluster-import-controller@sha256:b1f0a43f5638d072ca96a8947861593bf4d4bf321652dafdcad5d2ce5c93774d
+    image: quay.io/stolostron/managedcluster-import-controller@sha256:a79aab1e85f448812d2da4ac1622edbe2774c9b156c9b4361d1fbdea3df4224c
   - name: management_ingress
     image: quay.io/stolostron/management-ingress@sha256:4e35d934b61f4d110fc472f883a8d569aa0ab854660dd9c2253859f00e40ab81
   - name: metrics_collector
