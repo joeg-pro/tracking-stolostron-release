@@ -783,13 +783,13 @@
   },
   {
     "image-name": "registration-operator",
-    "image-version": "release-2.4",
-    "image-tag": "release-2.4-36d4ce2f9383d4a2a2c26223ebabb879cc4e9416",
-    "git-sha256": "36d4ce2f9383d4a2a2c26223ebabb879cc4e9416",
+    "image-version": "2.4.0",
+    "image-tag": "2.4.0-1f41ca5c4e1280a5461a6955846c796e35957c39",
+    "git-sha256": "1f41ca5c4e1280a5461a6955846c796e35957c39",
     "git-repository": "stolostron/registration-operator",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:43c4b4c3e33df5f54b6650df09ab352f23bc31ce19af0b05c34c779204d064fb",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:0c07fd7b9ae992deab6f399148de4031d0ccc2ab6598ae3d04d68a4472520726",
     "image-key": "registration_operator"
   },
   {
