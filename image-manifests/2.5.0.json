@@ -837,6 +837,17 @@
     "image-key": "search_e2e"
   },
   {
+    "image-name": "search-indexer",
+    "image-version": "2.5",
+    "image-tag": "2.5-debd26a16226d01c950df763de51500aff73439b",
+    "git-sha256": "debd26a16226d01c950df763de51500aff73439b",
+    "git-repository": "stolostron/search-indexer",
+    "image-remote": "quay.io/stolostron",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:b8f01266eb37895c3be3983f227a35a916cd0882ce8ee8c2cd86aef8d08ff8d6",
+    "image-key": "search_indexer"
+  },
+  {
     "image-name": "search-operator",
     "image-version": "2.4.0",
     "image-tag": "2.4.0-3c562a9b6d3d7d9bf7af705342545e892abec614",
