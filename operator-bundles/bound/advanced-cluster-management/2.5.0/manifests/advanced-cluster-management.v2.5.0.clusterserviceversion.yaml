@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-20T23:06:33Z'
+    createdAt: '2022-01-20T23:14:21Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1358,7 +1358,7 @@ spec:
                 - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
                   value: quay.io/stolostron/grafana-dashboard-loader@sha256:1e6da9f4c1906e343b10d7b2b1e943cea32ed3c6c2691a5265bc586155b9a3ef
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
-                  value: quay.io/stolostron/grc-policy-framework-tests@sha256:edd38309fcc82f6ed6ecfac7919c8e3d49694bfcaff6c2e62355c1c0ffc31bc4
+                  value: quay.io/stolostron/grc-policy-framework-tests@sha256:4e2c1216504480b161192e20e99544423d74be371dd0c870d1819991ce926fec
                 - name: OPERAND_IMAGE_GRC_UI
                   value: quay.io/stolostron/grc-ui@sha256:45f4c5d62eafe91775ba01bfb3f2ee7a6c1c60ba948b6f4269b08b11a1151f30
                 - name: OPERAND_IMAGE_GRC_UI_API
@@ -2207,7 +2207,7 @@ spec:
   - name: grafana_dashboard_loader
     image: quay.io/stolostron/grafana-dashboard-loader@sha256:1e6da9f4c1906e343b10d7b2b1e943cea32ed3c6c2691a5265bc586155b9a3ef
   - name: grc_policy_framework_tests
-    image: quay.io/stolostron/grc-policy-framework-tests@sha256:edd38309fcc82f6ed6ecfac7919c8e3d49694bfcaff6c2e62355c1c0ffc31bc4
+    image: quay.io/stolostron/grc-policy-framework-tests@sha256:4e2c1216504480b161192e20e99544423d74be371dd0c870d1819991ce926fec
   - name: grc_ui
     image: quay.io/stolostron/grc-ui@sha256:45f4c5d62eafe91775ba01bfb3f2ee7a6c1c60ba948b6f4269b08b11a1151f30
   - name: grc_ui_api
