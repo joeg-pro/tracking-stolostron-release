@@ -870,6 +870,17 @@
     "image-key": "search_ui"
   },
   {
+    "image-name": "search-v2-api",
+    "image-version": "2.5",
+    "image-tag": "2.5-ddc5edc33edcfa41f4e7fab05a041664d1b26825",
+    "git-sha256": "ddc5edc33edcfa41f4e7fab05a041664d1b26825",
+    "git-repository": "stolostron/search-v2-api",
+    "image-remote": "quay.io/stolostron",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:af8bb3d9638b75161448de1e2221d7120d7a93b0928d15080b54506778a3adb8",
+    "image-key": "search_v2_api"
+  },
+  {
     "image-name": "submariner-addon",
     "image-version": "0.5.0",
     "image-tag": "0.5.0-0f16ced9a9949a69d4de28b10b1ab86c878f1be7",
