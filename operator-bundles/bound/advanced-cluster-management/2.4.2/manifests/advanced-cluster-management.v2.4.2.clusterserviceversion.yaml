@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-21T19:47:14Z'
+    createdAt: '2022-01-21T19:47:53Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "clusterprovisions.hive.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "checkpoints.hive.openshift.io",
-      "clusterstates.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
-      "clusterdeprovisions.hive.openshift.io", "machinepoolnameleases.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["machinepoolnameleases.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io",
+      "clusterstates.hive.openshift.io", "clusterprovisions.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
+      "observabilityaddons.observability.open-cluster-management.io", "observatoria.core.observatorium.io",
+      "checkpoints.hive.openshift.io", "clusterdeprovisions.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io"]'
   name: advanced-cluster-management.v2.4.2
   namespace: placeholder
   labels:
@@ -1722,7 +1722,7 @@ spec:
                 - name: OPERAND_IMAGE_APPLICATION_UI
                   value: quay.io/stolostron/application-ui@sha256:36e6877ee4d22bcd077dc50db3cabb55df286b1f35aafad75bebd4836206dcee
                 - name: OPERAND_IMAGE_APPLICATION_UI_TESTS
-                  value: quay.io/stolostron/application-ui-tests@sha256:41e32c7a6959cded8efc97b9f6b68d6f11b7ca69610c36297a43d60dbf9f0731
+                  value: quay.io/stolostron/application-ui-tests@sha256:9e18a0e13b06411a63c7be96ebd44e2203380343459a4ced5d83ddbec22c9108
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
                   value: quay.io/stolostron/applifecycle-backend-e2e@sha256:5490aad3ac2ab64f1d49a794f899c0c5ada53785837ce9c99b7a8d3127932740
                 - name: OPERAND_IMAGE_ASSISTED_IMAGE_SERVICE
@@ -2646,7 +2646,7 @@ spec:
   - name: application_ui
     image: quay.io/stolostron/application-ui@sha256:36e6877ee4d22bcd077dc50db3cabb55df286b1f35aafad75bebd4836206dcee
   - name: application_ui_tests
-    image: quay.io/stolostron/application-ui-tests@sha256:41e32c7a6959cded8efc97b9f6b68d6f11b7ca69610c36297a43d60dbf9f0731
+    image: quay.io/stolostron/application-ui-tests@sha256:9e18a0e13b06411a63c7be96ebd44e2203380343459a4ced5d83ddbec22c9108
   - name: applifecycle_backend_e2e
     image: quay.io/stolostron/applifecycle-backend-e2e@sha256:5490aad3ac2ab64f1d49a794f899c0c5ada53785837ce9c99b7a8d3127932740
   - name: assisted_image_service
