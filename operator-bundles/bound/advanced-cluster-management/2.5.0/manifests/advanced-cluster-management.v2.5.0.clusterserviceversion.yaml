@@ -22,14 +22,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-21T05:55:17Z'
+    createdAt: '2022-01-21T06:10:39Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1393,7 +1394,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
                   value: quay.io/stolostron/multicloud-manager@sha256:937deb3223bf04e80b51a8ae4fbf72e506d569c165bb64ba40585b715550b6d5
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
-                  value: quay.io/stolostron/multicluster-observability-operator@sha256:e64c84e41ed1b5c94bd084b18667accd56bd3e88401a0c4b8b272aef8d4340de
+                  value: quay.io/stolostron/multicluster-observability-operator@sha256:5cd85581caf1e1696079dde7b43887e5f8534ba6c0c3eaf4339f942bd49292e3
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
                   value: quay.io/stolostron/multicluster-operators-application@sha256:278d253036cf07513d7c0cda4376c5feca6e1830c940409dd248631c9fdd164b
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
@@ -1535,7 +1536,7 @@ spec:
                   value: /usr/local/manifests
                 - name: SPOKE_NAMESPACE
                   value: open-cluster-management-addon-observability
-                image: quay.io/stolostron/multicluster-observability-operator@sha256:e64c84e41ed1b5c94bd084b18667accd56bd3e88401a0c4b8b272aef8d4340de
+                image: quay.io/stolostron/multicluster-observability-operator@sha256:5cd85581caf1e1696079dde7b43887e5f8534ba6c0c3eaf4339f942bd49292e3
                 lifecycle:
                   preStop:
                     exec:
