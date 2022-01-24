@@ -1,6 +1,6 @@
 # release
 
-Release tooling for buiilding the OCM Hub/RH ACM operator bundle manifests (CSV and such) and bundle image
+ Release tooling for buiilding the OCM Hub/RH ACM operator bundle manifests (CSV and such) and bundle image
 that package up an OCM Hub/RH ACM release for install using the Operator Lifecycle Manager (OLM).
 Also contains tools for building a custom OLM catalog (aka registry, aka index) that can serve as 
 an OLM catalog source for testing bundles.
