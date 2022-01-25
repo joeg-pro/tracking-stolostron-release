@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-24T22:17:24Z'
+    createdAt: '2022-01-25T07:22:44Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clustersyncleases.hiveinternal.openshift.io",
-      "clusterdeprovisions.hive.openshift.io", "checkpoints.hive.openshift.io", "clusterstates.hive.openshift.io",
-      "machinepoolnameleases.hive.openshift.io", "clusterprovisions.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io",
-      "fakeclusterinstalls.hiveinternal.openshift.io", "observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "machinepoolnameleases.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io", "observatoria.core.observatorium.io",
+      "clusterstates.hive.openshift.io", "clusterdeprovisions.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io",
+      "clusterprovisions.hive.openshift.io", "checkpoints.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io"]'
   name: advanced-cluster-management.v2.4.2
   namespace: placeholder
   labels:
@@ -1790,7 +1790,7 @@ spec:
                 - name: OPERAND_IMAGE_HELLOWORLD
                   value: quay.io/stolostron/helloworld@sha256:4973f1177a2da73bc8d8e48faf91dce083b80f26894d2c70dccdd5408f1bd033
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
-                  value: quay.io/stolostron/hive@sha256:9fb869bbd2c5d297252d6ab1e99652dc7b13ae9401ac2af1a345ca8caf105b8e
+                  value: quay.io/stolostron/hive@sha256:77893d60f8fe578ea87114d882daf27bab484ce55d221fb17ba77e1c78ad7024
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
                   value: quay.io/stolostron/iam-policy-controller@sha256:ece3a1b680644653f105ea7bb712cb473a94c817909cacf77358825a079745b1
                 - name: OPERAND_IMAGE_INSIGHTS_CLIENT
@@ -1862,7 +1862,7 @@ spec:
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
                   value: quay.io/stolostron/redisgraph-tls@sha256:cc1dbc4073011ab5abcf0bb1a69c088ad1444968e906cfbd34e01a683c48f115
                 - name: OPERAND_IMAGE_REGISTRATION
-                  value: quay.io/stolostron/registration@sha256:f5cc211acffae27948befc959fef238f7415c4a5d6e5a5fd9febf04457ca2d8e
+                  value: quay.io/stolostron/registration@sha256:cd227c017540fc84b157438da636d11912f2b693a0d58fecf7ff4127f001eaaa
                 - name: OPERAND_IMAGE_REGISTRATION_OPERATOR
                   value: quay.io/stolostron/registration-operator@sha256:0c07fd7b9ae992deab6f399148de4031d0ccc2ab6598ae3d04d68a4472520726
                 - name: OPERAND_IMAGE_SEARCH_AGGREGATOR
@@ -2616,7 +2616,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.namespace
-                image: quay.io/stolostron/hive@sha256:9fb869bbd2c5d297252d6ab1e99652dc7b13ae9401ac2af1a345ca8caf105b8e
+                image: quay.io/stolostron/hive@sha256:77893d60f8fe578ea87114d882daf27bab484ce55d221fb17ba77e1c78ad7024
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -2768,7 +2768,7 @@ spec:
   - name: redisgraph_tls
     image: quay.io/stolostron/redisgraph-tls@sha256:cc1dbc4073011ab5abcf0bb1a69c088ad1444968e906cfbd34e01a683c48f115
   - name: registration
-    image: quay.io/stolostron/registration@sha256:f5cc211acffae27948befc959fef238f7415c4a5d6e5a5fd9febf04457ca2d8e
+    image: quay.io/stolostron/registration@sha256:cd227c017540fc84b157438da636d11912f2b693a0d58fecf7ff4127f001eaaa
   - name: search_aggregator
     image: quay.io/stolostron/search-aggregator@sha256:fc769031874f86729059713c2f5e08b1f8cd2731e5d7cd6d6b10d9e2f5e0ea19
   - name: search_api
