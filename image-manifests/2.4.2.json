@@ -380,12 +380,12 @@
   },
   {
     "image-name": "hive",
-    "image-version": "v2.4.3201-8c50440",
-    "image-tag": "v2.4.3201-8c50440",
-    "git-sha256": "8c50440523a807ec16745fdcc5d4231443d9f5da",
+    "image-version": "v2.4.3203-672cfe7",
+    "image-tag": "v2.4.3203-672cfe7",
+    "git-sha256": "672cfe7613607efa3083f91f5f70943aa339416e",
     "git-repository": "openshift/hive",
     "image-remote": "quay.io/stolostron",
-    "image-digest": "sha256:9fb869bbd2c5d297252d6ab1e99652dc7b13ae9401ac2af1a345ca8caf105b8e",
+    "image-digest": "sha256:77893d60f8fe578ea87114d882daf27bab484ce55d221fb17ba77e1c78ad7024",
     "image-key": "openshift_hive"
   },
   {
@@ -772,13 +772,13 @@
   },
   {
     "image-name": "registration",
-    "image-version": "0.5.0",
-    "image-tag": "0.5.0-29d9f2b2102a75091b78d558204d148601fd72b9",
-    "git-sha256": "29d9f2b2102a75091b78d558204d148601fd72b9",
+    "image-version": "2.4.0",
+    "image-tag": "2.4.0-fcea8c97f5cea8ac6e6e186204ff040a955832f9",
+    "git-sha256": "fcea8c97f5cea8ac6e6e186204ff040a955832f9",
     "git-repository": "stolostron/registration",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:f5cc211acffae27948befc959fef238f7415c4a5d6e5a5fd9febf04457ca2d8e",
+    "image-digest": "sha256:cd227c017540fc84b157438da636d11912f2b693a0d58fecf7ff4127f001eaaa",
     "image-key": "registration"
   },
   {
