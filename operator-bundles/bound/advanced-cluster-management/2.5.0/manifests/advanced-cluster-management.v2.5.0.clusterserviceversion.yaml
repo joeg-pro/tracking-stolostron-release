@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-25T19:55:43Z'
+    createdAt: '2022-01-25T21:14:25Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1319,7 +1319,7 @@ spec:
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
                   value: quay.io/stolostron/cert-policy-controller@sha256:bcde612777c9d5b36e4bfb33a455b685a8040e0e779eb659c31f5d76e07d5f34
                 - name: OPERAND_IMAGE_CLUSTER_BACKUP_CONTROLLER
-                  value: quay.io/stolostron/cluster-backup-controller@sha256:a22c5938e7aa5480e3211ca071f4fbabf79b375a485c9309efb4cc5e8759fa10
+                  value: quay.io/stolostron/cluster-backup-controller@sha256:73e5f4799f7ad23a2c11dad72066196eb1b824c86148e52b12886664380de942
                 - name: OPERAND_IMAGE_CLUSTER_CURATOR_CONTROLLER
                   value: quay.io/stolostron/cluster-curator-controller@sha256:ce821f5e66be83e62c907efbf89ef104b990790c330b61ecf4a22c156ecdb2e5
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
@@ -2168,7 +2168,7 @@ spec:
   - name: cert_policy_controller
     image: quay.io/stolostron/cert-policy-controller@sha256:bcde612777c9d5b36e4bfb33a455b685a8040e0e779eb659c31f5d76e07d5f34
   - name: cluster_backup_controller
-    image: quay.io/stolostron/cluster-backup-controller@sha256:a22c5938e7aa5480e3211ca071f4fbabf79b375a485c9309efb4cc5e8759fa10
+    image: quay.io/stolostron/cluster-backup-controller@sha256:73e5f4799f7ad23a2c11dad72066196eb1b824c86148e52b12886664380de942
   - name: cluster_curator_controller
     image: quay.io/stolostron/cluster-curator-controller@sha256:ce821f5e66be83e62c907efbf89ef104b990790c330b61ecf4a22c156ecdb2e5
   - name: cluster_lifecycle_e2e
