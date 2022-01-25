@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-24T22:57:11Z'
+    createdAt: '2022-01-25T02:19:02Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1461,7 +1461,7 @@ spec:
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
                   value: quay.io/stolostron/submariner-addon@sha256:56a58c6abe9145f8707e60c8dc5e427f541fb6f0ad2ad900bd963675fe87e24a
                 - name: OPERAND_IMAGE_THANOS
-                  value: quay.io/stolostron/thanos@sha256:494b8d27ec81fd89feb1dd9dfa18d862c73209234e9486caf61f8a5e1bbe8793
+                  value: quay.io/stolostron/thanos@sha256:87d7947183533db7a5ea809ce88b4b5f26034fe8dcbc48e29135043ef1a4fb83
                 - name: OPERAND_IMAGE_VOLSYNC
                   value: quay.io/stolostron/volsync@sha256:c5b490399998fbed56814ad8438741b233533884e4168b0b9dd0f4ff8da80087
                 - name: OPERAND_IMAGE_VOLSYNC_MOVER_RCLONE
@@ -2296,7 +2296,7 @@ spec:
   - name: search_v2_api
     image: quay.io/stolostron/search-v2-api@sha256:af8bb3d9638b75161448de1e2221d7120d7a93b0928d15080b54506778a3adb8
   - name: thanos
-    image: quay.io/stolostron/thanos@sha256:494b8d27ec81fd89feb1dd9dfa18d862c73209234e9486caf61f8a5e1bbe8793
+    image: quay.io/stolostron/thanos@sha256:87d7947183533db7a5ea809ce88b4b5f26034fe8dcbc48e29135043ef1a4fb83
   - name: volsync
     image: quay.io/stolostron/volsync@sha256:c5b490399998fbed56814ad8438741b233533884e4168b0b9dd0f4ff8da80087
   - name: volsync_mover_rclone
