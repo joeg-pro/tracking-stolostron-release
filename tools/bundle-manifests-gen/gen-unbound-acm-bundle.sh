@@ -184,6 +184,9 @@ if [[ "$rel_x" -ge 2 ]]; then
    if [[ "$rel_y" -ge 4 ]]; then
       supported_archs+=("s390x")
    fi
+   if [[ "$rel_y" -ge 5 ]]; then
+      supported_archs+=("arm64")
+   fi
 fi
 
 # Generate the unbound composite bundle, which will be the source for producing

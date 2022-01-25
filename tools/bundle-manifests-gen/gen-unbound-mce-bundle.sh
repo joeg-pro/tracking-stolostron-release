@@ -84,6 +84,18 @@ supported_op_syss=()
 supported_op_syss+=("linux")
 supported_archs+=("amd64")
 
+if [[ "$rel_x" -ge 1 ]]; then
+   if [[ "$rel_y" -ge 1 ]]; then
+      supported_archs+=("ppc64le")
+      supported_archs+=("s390x")
+   fi
+fi
+if [[ "$rel_x" -ge 2 ]]; then
+   supported_archs+=("ppc64le")
+   supported_archs+=("s390x")
+   supported_archs+=("arm64")
+fi
+
 # Generate the unbound composite bundle, which will be the source for producing
 # the bound one (by replacing image references, version, prev-version)
 
