@@ -22,15 +22,14 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-25T21:14:25Z'
+    createdAt: '2022-01-25T21:30:47Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1373,7 +1372,7 @@ spec:
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
                   value: quay.io/stolostron/iam-policy-controller@sha256:1e9154e72a9732a3152076e9e1d0111caa51b62b3b9247e786f18a2c081b1e80
                 - name: OPERAND_IMAGE_INSIGHTS_CLIENT
-                  value: quay.io/stolostron/insights-client@sha256:ec2015271a1487a5d72d8c64a7b9dcd96e1ffb580a687dd0bb9558cddd839ea4
+                  value: quay.io/stolostron/insights-client@sha256:55bc05caf41dc20817bcfe3f5abc1f68c05928447ad12ca9b8a8c79f0b7ed8f7
                 - name: OPERAND_IMAGE_INSIGHTS_METRICS
                   value: quay.io/stolostron/insights-metrics@sha256:7d7833aa17d5d0fc6518e02b23ab1b7302f0146bf3523744afa024c2d6e1bfb6
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_CONTROLLER
@@ -2222,7 +2221,7 @@ spec:
   - name: iam_policy_controller
     image: quay.io/stolostron/iam-policy-controller@sha256:1e9154e72a9732a3152076e9e1d0111caa51b62b3b9247e786f18a2c081b1e80
   - name: insights_client
-    image: quay.io/stolostron/insights-client@sha256:ec2015271a1487a5d72d8c64a7b9dcd96e1ffb580a687dd0bb9558cddd839ea4
+    image: quay.io/stolostron/insights-client@sha256:55bc05caf41dc20817bcfe3f5abc1f68c05928447ad12ca9b8a8c79f0b7ed8f7
   - name: insights_metrics
     image: quay.io/stolostron/insights-metrics@sha256:7d7833aa17d5d0fc6518e02b23ab1b7302f0146bf3523744afa024c2d6e1bfb6
   - name: klusterlet_addon_controller
