@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-27T12:19:14Z'
+    createdAt: '2022-01-27T22:02:43Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clusterdeprovisions.hive.openshift.io", "clusterstates.hive.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "checkpoints.hive.openshift.io",
-      "clustersyncleases.hiveinternal.openshift.io", "observatoria.core.observatorium.io", "clusterprovisions.hive.openshift.io",
-      "clustersyncs.hiveinternal.openshift.io", "machinepoolnameleases.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["clustersyncleases.hiveinternal.openshift.io",
+      "observatoria.core.observatorium.io", "clustersyncs.hiveinternal.openshift.io", "clusterdeprovisions.hive.openshift.io",
+      "clusterstates.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "clusterprovisions.hive.openshift.io", "checkpoints.hive.openshift.io", "machinepoolnameleases.hive.openshift.io"]'
   name: advanced-cluster-management.v2.4.2
   namespace: placeholder
   labels:
@@ -1870,7 +1870,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_API
                   value: quay.io/stolostron/search-api@sha256:850d1d5ddb3fcf2064449a61a3c1a2787d531690dec03aa75397613def94447e
                 - name: OPERAND_IMAGE_SEARCH_COLLECTOR
-                  value: quay.io/stolostron/search-collector@sha256:50193135ad9b236e99117a45039030d303781205d085b7d0eb40fb5532d240c1
+                  value: quay.io/stolostron/search-collector@sha256:8ca14ea585fbf3fa7f887ef4820ad3af78d5ff4cc3a4e8758579a2e4ddd2cddb
                 - name: OPERAND_IMAGE_SEARCH_E2E
                   value: quay.io/stolostron/search-e2e@sha256:1eedb05292d301ee27115069fcf0be26d98f9509fb97182e5c6e7806114e7bd0
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
@@ -2774,7 +2774,7 @@ spec:
   - name: search_api
     image: quay.io/stolostron/search-api@sha256:850d1d5ddb3fcf2064449a61a3c1a2787d531690dec03aa75397613def94447e
   - name: search_collector
-    image: quay.io/stolostron/search-collector@sha256:50193135ad9b236e99117a45039030d303781205d085b7d0eb40fb5532d240c1
+    image: quay.io/stolostron/search-collector@sha256:8ca14ea585fbf3fa7f887ef4820ad3af78d5ff4cc3a4e8758579a2e4ddd2cddb
   - name: search_e2e
     image: quay.io/stolostron/search-e2e@sha256:1eedb05292d301ee27115069fcf0be26d98f9509fb97182e5c6e7806114e7bd0
   - name: search_operator
