@@ -22,15 +22,14 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-28T17:13:14Z'
+    createdAt: '2022-01-28T17:22:34Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1319,7 +1318,7 @@ spec:
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
                   value: quay.io/stolostron/cert-policy-controller@sha256:bcde612777c9d5b36e4bfb33a455b685a8040e0e779eb659c31f5d76e07d5f34
                 - name: OPERAND_IMAGE_CLUSTER_BACKUP_CONTROLLER
-                  value: quay.io/stolostron/cluster-backup-controller@sha256:73e5f4799f7ad23a2c11dad72066196eb1b824c86148e52b12886664380de942
+                  value: quay.io/stolostron/cluster-backup-controller@sha256:95e1c18cdc71de579c9f1c0627ef6de5ecdca9d21b046d5c71e0346c3a9fd61d
                 - name: OPERAND_IMAGE_CLUSTER_CURATOR_CONTROLLER
                   value: quay.io/stolostron/cluster-curator-controller@sha256:ce821f5e66be83e62c907efbf89ef104b990790c330b61ecf4a22c156ecdb2e5
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
@@ -1395,7 +1394,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
                   value: quay.io/stolostron/multicloud-manager@sha256:937deb3223bf04e80b51a8ae4fbf72e506d569c165bb64ba40585b715550b6d5
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
-                  value: quay.io/stolostron/multicluster-observability-operator@sha256:5cd85581caf1e1696079dde7b43887e5f8534ba6c0c3eaf4339f942bd49292e3
+                  value: quay.io/stolostron/multicluster-observability-operator@sha256:85a3948a783e274672a562f96cd23d1799d060ad2cec3ee06d2fc5025c10a04f
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
                   value: quay.io/stolostron/multicluster-operators-application@sha256:278d253036cf07513d7c0cda4376c5feca6e1830c940409dd248631c9fdd164b
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
@@ -1537,7 +1536,7 @@ spec:
                   value: /usr/local/manifests
                 - name: SPOKE_NAMESPACE
                   value: open-cluster-management-addon-observability
-                image: quay.io/stolostron/multicluster-observability-operator@sha256:5cd85581caf1e1696079dde7b43887e5f8534ba6c0c3eaf4339f942bd49292e3
+                image: quay.io/stolostron/multicluster-observability-operator@sha256:85a3948a783e274672a562f96cd23d1799d060ad2cec3ee06d2fc5025c10a04f
                 lifecycle:
                   preStop:
                     exec:
@@ -2168,7 +2167,7 @@ spec:
   - name: cert_policy_controller
     image: quay.io/stolostron/cert-policy-controller@sha256:bcde612777c9d5b36e4bfb33a455b685a8040e0e779eb659c31f5d76e07d5f34
   - name: cluster_backup_controller
-    image: quay.io/stolostron/cluster-backup-controller@sha256:73e5f4799f7ad23a2c11dad72066196eb1b824c86148e52b12886664380de942
+    image: quay.io/stolostron/cluster-backup-controller@sha256:95e1c18cdc71de579c9f1c0627ef6de5ecdca9d21b046d5c71e0346c3a9fd61d
   - name: cluster_curator_controller
     image: quay.io/stolostron/cluster-curator-controller@sha256:ce821f5e66be83e62c907efbf89ef104b990790c330b61ecf4a22c156ecdb2e5
   - name: cluster_lifecycle_e2e
