@@ -54,12 +54,13 @@
   },
   {
     "image-name": "assisted-installer-agent",
-    "image-version": "2.4.0",
-    "image-tag": "2.4.0-030cf205966c8efa9bdf1ad3c488858c8c4d4a06",
-    "git-sha256": "030cf205966c8efa9bdf1ad3c488858c8c4d4a06",
+    "image-version": "2.5.0",
+    "image-tag": "2.5.0-e4bebc1e7106236a8a3befdaaed0729a49920347",
+    "git-sha256": "e4bebc1e7106236a8a3befdaaed0729a49920347",
     "git-repository": "openshift/assisted-installer-agent",
     "image-remote": "quay.io/stolostron",
-    "image-digest": "sha256:dd80ccb7e3526316a13095181928ab85e862cfd50a6f1ee2a22c0602052ba7ef",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:d02190b5f8ac61551afa6c88cf3d9812899e011778c96007b2d2cdc287724b59",
     "image-key": "assisted_installer_agent"
   },
   {
@@ -113,7 +114,7 @@
     "git-repository": "stolostron/cluster-backup-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:3d9e30234cdfd97df45e791f0a910bfa97ef1c39a319fef02f63a9455d0deb21",
+    "image-digest": "sha256:272788aa303776ab9ae1d6cff8ba1a7d78de1213e9ebd989e7af94c354363aba",
     "image-key": "cluster_backup_controller"
   },
   {
