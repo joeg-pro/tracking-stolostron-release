@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-31T20:38:07Z'
+    createdAt: '2022-01-31T20:50:31Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1410,9 +1410,9 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION_RELEASE
                   value: quay.io/stolostron/multicluster-operators-subscription-release@sha256:e3f3aaf60219d38fcf7d3d999df954ec4cc02b85948b4d26253c19a52be54e83
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR
-                  value: quay.io/stolostron/multiclusterhub-operator@sha256:8d630db71a509be6018cb0694dd266ee6cfcea8cc9ea7815be85025f552f6177
+                  value: quay.io/stolostron/multiclusterhub-operator@sha256:31453fe233eb6b3fbe44e5c674898447cf8b1cf47f5f9ed9b624e847a5f7c8c2
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
-                  value: quay.io/stolostron/multiclusterhub-operator-tests@sha256:55e2f6de755d2e5fc31039c28f61f1150a0e82b18d638f761427c3110cfd6557
+                  value: quay.io/stolostron/multiclusterhub-operator-tests@sha256:34a6a82dc2bcdf8994bb831f8ac4539780c6f38606679c66756b09dcaf2d7af0
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
                   value: quay.io/stolostron/multiclusterhub-repo@sha256:3d25a3bc30119915e27a74e866bd6d636931fbc70b6dc49ae8bd4ef7e49b7c88
                 - name: OPERAND_IMAGE_MUST_GATHER
@@ -1454,7 +1454,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_E2E
                   value: quay.io/stolostron/search-e2e@sha256:cba1427e3a7bc06125b789caffc290036431635bbe2c6f6ced16614ce42bc637
                 - name: OPERAND_IMAGE_SEARCH_INDEXER
-                  value: quay.io/stolostron/search-indexer@sha256:820b36147080b140ebaf2aa912583da4889f57e5b23a7bcfe61487a39b1d8138
+                  value: quay.io/stolostron/search-indexer@sha256:3dd3b11e8ebae6e2993f548ad2e8f3132321ce4a7722d01e91fe970d65392674
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
                   value: quay.io/stolostron/search-operator@sha256:35cd84094a12af861681a4edf1add893ba1e144bcd93f28a5bfd3ef528426095
                 - name: OPERAND_IMAGE_SEARCH_UI
@@ -1475,7 +1475,7 @@ spec:
                   value: quay.io/stolostron/volsync-mover-rsync@sha256:ff296e3dc3b20841d4533676f49c2811e7acb8c08c522cd2cd9dade542c05741
                 - name: OPERAND_IMAGE_WORK
                   value: quay.io/stolostron/work@sha256:c04e95e89652c1672d844839820df0e856c8c65dd91c38a1873dc5516355ea29
-                image: quay.io/stolostron/multiclusterhub-operator@sha256:8d630db71a509be6018cb0694dd266ee6cfcea8cc9ea7815be85025f552f6177
+                image: quay.io/stolostron/multiclusterhub-operator@sha256:31453fe233eb6b3fbe44e5c674898447cf8b1cf47f5f9ed9b624e847a5f7c8c2
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -2249,7 +2249,7 @@ spec:
   - name: multicluster_operators_subscription_release
     image: quay.io/stolostron/multicluster-operators-subscription-release@sha256:e3f3aaf60219d38fcf7d3d999df954ec4cc02b85948b4d26253c19a52be54e83
   - name: multiclusterhub_operator_tests
-    image: quay.io/stolostron/multiclusterhub-operator-tests@sha256:55e2f6de755d2e5fc31039c28f61f1150a0e82b18d638f761427c3110cfd6557
+    image: quay.io/stolostron/multiclusterhub-operator-tests@sha256:34a6a82dc2bcdf8994bb831f8ac4539780c6f38606679c66756b09dcaf2d7af0
   - name: multiclusterhub_repo
     image: quay.io/stolostron/multiclusterhub-repo@sha256:3d25a3bc30119915e27a74e866bd6d636931fbc70b6dc49ae8bd4ef7e49b7c88
   - name: must_gather
@@ -2291,7 +2291,7 @@ spec:
   - name: search_e2e
     image: quay.io/stolostron/search-e2e@sha256:cba1427e3a7bc06125b789caffc290036431635bbe2c6f6ced16614ce42bc637
   - name: search_indexer
-    image: quay.io/stolostron/search-indexer@sha256:820b36147080b140ebaf2aa912583da4889f57e5b23a7bcfe61487a39b1d8138
+    image: quay.io/stolostron/search-indexer@sha256:3dd3b11e8ebae6e2993f548ad2e8f3132321ce4a7722d01e91fe970d65392674
   - name: search_operator
     image: quay.io/stolostron/search-operator@sha256:35cd84094a12af861681a4edf1add893ba1e144bcd93f28a5bfd3ef528426095
   - name: search_ui
