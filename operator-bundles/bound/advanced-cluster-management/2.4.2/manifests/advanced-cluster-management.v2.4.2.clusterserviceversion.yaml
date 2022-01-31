@@ -27,18 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-31T21:19:46Z'
+    createdAt: '2022-01-31T21:34:43Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["fakeclusterinstalls.hiveinternal.openshift.io",
-      "clusterstates.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
-      "clusterprovisions.hive.openshift.io", "clusterdeprovisions.hive.openshift.io", "observatoria.core.observatorium.io",
-      "clustersyncleases.hiveinternal.openshift.io", "checkpoints.hive.openshift.io", "machinepoolnameleases.hive.openshift.io",
-      "clustersyncs.hiveinternal.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["clusterprovisions.hive.openshift.io", "clusterstates.hive.openshift.io",
+      "clustersyncleases.hiveinternal.openshift.io", "checkpoints.hive.openshift.io", "observatoria.core.observatorium.io",
+      "clusterdeprovisions.hive.openshift.io", "machinepoolnameleases.hive.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
+      "clustersyncs.hiveinternal.openshift.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: advanced-cluster-management.v2.4.2
   namespace: placeholder
   labels:
@@ -1861,7 +1860,7 @@ spec:
                 - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
                   value: quay.io/stolostron/rbac-query-proxy@sha256:788790508b3f6267b6ceeb79e8ad2ebb4f5dc4769d01a296aad93e6f8be5652d
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
-                  value: quay.io/stolostron/redisgraph-tls@sha256:cc1dbc4073011ab5abcf0bb1a69c088ad1444968e906cfbd34e01a683c48f115
+                  value: quay.io/stolostron/redisgraph-tls@sha256:9bfcc76e721db7399690e35942b6fd184c8eed1f3a80a0bab6e0d40b28b2eb29
                 - name: OPERAND_IMAGE_REGISTRATION
                   value: quay.io/stolostron/registration@sha256:cd227c017540fc84b157438da636d11912f2b693a0d58fecf7ff4127f001eaaa
                 - name: OPERAND_IMAGE_REGISTRATION_OPERATOR
@@ -2767,7 +2766,7 @@ spec:
   - name: rbac_query_proxy
     image: quay.io/stolostron/rbac-query-proxy@sha256:788790508b3f6267b6ceeb79e8ad2ebb4f5dc4769d01a296aad93e6f8be5652d
   - name: redisgraph_tls
-    image: quay.io/stolostron/redisgraph-tls@sha256:cc1dbc4073011ab5abcf0bb1a69c088ad1444968e906cfbd34e01a683c48f115
+    image: quay.io/stolostron/redisgraph-tls@sha256:9bfcc76e721db7399690e35942b6fd184c8eed1f3a80a0bab6e0d40b28b2eb29
   - name: registration
     image: quay.io/stolostron/registration@sha256:cd227c017540fc84b157438da636d11912f2b693a0d58fecf7ff4127f001eaaa
   - name: search_aggregator
