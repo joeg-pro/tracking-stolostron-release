@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-31T08:25:53Z'
+    createdAt: '2022-01-31T08:46:26Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1460,7 +1460,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_V2_API
                   value: quay.io/stolostron/search-v2-api@sha256:af8bb3d9638b75161448de1e2221d7120d7a93b0928d15080b54506778a3adb8
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
-                  value: quay.io/stolostron/submariner-addon@sha256:2ba6d1346dd133e1ca84f847bf841db52027c12cad6d3d47786128add3aab539
+                  value: quay.io/stolostron/submariner-addon@sha256:f9cff4175c2b55aefe17ada700f5662beffd54c24436f03fefeeecd748eb883a
                 - name: OPERAND_IMAGE_THANOS
                   value: quay.io/stolostron/thanos@sha256:87d7947183533db7a5ea809ce88b4b5f26034fe8dcbc48e29135043ef1a4fb83
                 - name: OPERAND_IMAGE_VOLSYNC
@@ -1604,7 +1604,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.name
-                image: quay.io/stolostron/submariner-addon@sha256:2ba6d1346dd133e1ca84f847bf841db52027c12cad6d3d47786128add3aab539
+                image: quay.io/stolostron/submariner-addon@sha256:f9cff4175c2b55aefe17ada700f5662beffd54c24436f03fefeeecd748eb883a
                 livenessProbe:
                   httpGet:
                     path: /healthz
