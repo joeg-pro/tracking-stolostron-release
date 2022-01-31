@@ -604,23 +604,23 @@
   {
     "image-name": "multiclusterhub-operator",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-ee80bb55f96ef0f31e259ea3b7dfcaa7ddeb09da",
-    "git-sha256": "ee80bb55f96ef0f31e259ea3b7dfcaa7ddeb09da",
+    "image-tag": "2.5.0-8ecb7f3ee6eddf8dcfad79ef45a8effdb1c9e735",
+    "git-sha256": "8ecb7f3ee6eddf8dcfad79ef45a8effdb1c9e735",
     "git-repository": "stolostron/multiclusterhub-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:8d630db71a509be6018cb0694dd266ee6cfcea8cc9ea7815be85025f552f6177",
+    "image-digest": "sha256:31453fe233eb6b3fbe44e5c674898447cf8b1cf47f5f9ed9b624e847a5f7c8c2",
     "image-key": "multiclusterhub_operator"
   },
   {
     "image-name": "multiclusterhub-operator-tests",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-ee80bb55f96ef0f31e259ea3b7dfcaa7ddeb09da",
-    "git-sha256": "ee80bb55f96ef0f31e259ea3b7dfcaa7ddeb09da",
+    "image-tag": "2.5.0-8ecb7f3ee6eddf8dcfad79ef45a8effdb1c9e735",
+    "git-sha256": "8ecb7f3ee6eddf8dcfad79ef45a8effdb1c9e735",
     "git-repository": "stolostron/multiclusterhub-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:55e2f6de755d2e5fc31039c28f61f1150a0e82b18d638f761427c3110cfd6557",
+    "image-digest": "sha256:34a6a82dc2bcdf8994bb831f8ac4539780c6f38606679c66756b09dcaf2d7af0",
     "image-key": "multiclusterhub_operator_tests"
   },
   {
@@ -843,12 +843,12 @@
   {
     "image-name": "search-indexer",
     "image-version": "2.5",
-    "image-tag": "2.5-ec2060f0f386c21b3107ef2f4834a3ce744bcbd6",
-    "git-sha256": "ec2060f0f386c21b3107ef2f4834a3ce744bcbd6",
+    "image-tag": "2.5-42910f8c969d3c37534c50661f455326bd9ca4e0",
+    "git-sha256": "42910f8c969d3c37534c50661f455326bd9ca4e0",
     "git-repository": "stolostron/search-indexer",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:820b36147080b140ebaf2aa912583da4889f57e5b23a7bcfe61487a39b1d8138",
+    "image-digest": "sha256:3dd3b11e8ebae6e2993f548ad2e8f3132321ce4a7722d01e91fe970d65392674",
     "image-key": "search_indexer"
   },
   {
