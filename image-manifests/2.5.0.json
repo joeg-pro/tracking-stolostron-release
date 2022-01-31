@@ -44,12 +44,13 @@
   },
   {
     "image-name": "assisted-installer",
-    "image-version": "2.4.0",
-    "image-tag": "2.4.0-9a9102ad3b82f0340806c81d1f2a79710c19335a",
-    "git-sha256": "9a9102ad3b82f0340806c81d1f2a79710c19335a",
+    "image-version": "2.5.0",
+    "image-tag": "2.5.0-dc92fc190f75f5dc80c2becc2f8d7c37621125ff",
+    "git-sha256": "dc92fc190f75f5dc80c2becc2f8d7c37621125ff",
     "git-repository": "openshift/assisted-installer",
     "image-remote": "quay.io/stolostron",
-    "image-digest": "sha256:330694077319d6bc9d591a5312547696afb1318f65a53c1e308117a5a2ecd181",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:a7d10abd09da3d31296985aa90defdaefb56da1f62cf9c1f40138d16d461cceb",
     "image-key": "assisted_installer"
   },
   {
