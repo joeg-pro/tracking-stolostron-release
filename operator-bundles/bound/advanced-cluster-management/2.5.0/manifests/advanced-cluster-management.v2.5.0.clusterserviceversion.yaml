@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-01-31T20:29:56Z'
+    createdAt: '2022-01-31T20:38:07Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -437,6 +437,8 @@ spec:
           - policies
           - policies/status
           - policyautomations
+          - policysets
+          - policysets/status
           - rolebindings
           - roles
           - searchcustomizations
@@ -1414,7 +1416,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
                   value: quay.io/stolostron/multiclusterhub-repo@sha256:3d25a3bc30119915e27a74e866bd6d636931fbc70b6dc49ae8bd4ef7e49b7c88
                 - name: OPERAND_IMAGE_MUST_GATHER
-                  value: quay.io/stolostron/must-gather@sha256:6419e3989266ac3b2975af96bf0a1aa284f283c112ccc695ca9bc95be091571c
+                  value: quay.io/stolostron/must-gather@sha256:508366532d9ce6c61ef43270d22f0b89ead775fe9f2e2cc7cab428191e59bb55
                 - name: OPERAND_IMAGE_NODE_EXPORTER
                   value: quay.io/stolostron/node-exporter@sha256:351133c65942e94df09bb05139902482b77cdac949e2dc68d22acf9e8a47468d
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
@@ -2251,7 +2253,7 @@ spec:
   - name: multiclusterhub_repo
     image: quay.io/stolostron/multiclusterhub-repo@sha256:3d25a3bc30119915e27a74e866bd6d636931fbc70b6dc49ae8bd4ef7e49b7c88
   - name: must_gather
-    image: quay.io/stolostron/must-gather@sha256:6419e3989266ac3b2975af96bf0a1aa284f283c112ccc695ca9bc95be091571c
+    image: quay.io/stolostron/must-gather@sha256:508366532d9ce6c61ef43270d22f0b89ead775fe9f2e2cc7cab428191e59bb55
   - name: node_exporter
     image: quay.io/stolostron/node-exporter@sha256:351133c65942e94df09bb05139902482b77cdac949e2dc68d22acf9e8a47468d
   - name: observability_e2e_test
