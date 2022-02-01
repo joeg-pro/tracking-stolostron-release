@@ -74,12 +74,13 @@
   },
   {
     "image-name": "assisted-service",
-    "image-version": "2.4.0",
-    "image-tag": "2.4.0-d523badc692c310ccbebf5734587015c48b39163",
-    "git-sha256": "d523badc692c310ccbebf5734587015c48b39163",
+    "image-version": "2.4.2",
+    "image-tag": "2.4.2-9c56629177a02058ae35e5758da5641633b25802",
+    "git-sha256": "9c56629177a02058ae35e5758da5641633b25802",
     "git-repository": "openshift/assisted-service",
     "image-remote": "quay.io/stolostron",
-    "image-digest": "sha256:365e081052004614e9be5737a8f07cf27a2804de89c43340380f288cd1c966a8",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:82271a1d636cb25e452a7e2e896d55194583fd019834df160a87df3204d3efa1",
     "image-key": "assisted_service"
   },
   {
