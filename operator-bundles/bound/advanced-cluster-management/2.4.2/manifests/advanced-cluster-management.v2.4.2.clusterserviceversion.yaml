@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-02T03:29:02Z'
+    createdAt: '2022-02-02T06:48:53Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clusterstates.hive.openshift.io", "checkpoints.hive.openshift.io",
-      "observabilityaddons.observability.open-cluster-management.io", "machinepoolnameleases.hive.openshift.io",
-      "clustersyncleases.hiveinternal.openshift.io", "clustersyncs.hiveinternal.openshift.io", "observatoria.core.observatorium.io",
-      "fakeclusterinstalls.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io", "clusterdeprovisions.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["checkpoints.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io", "clusterstates.hive.openshift.io", "machinepoolnameleases.hive.openshift.io",
+      "clustersyncleases.hiveinternal.openshift.io", "clustersyncs.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io",
+      "fakeclusterinstalls.hiveinternal.openshift.io", "clusterdeprovisions.hive.openshift.io"]'
   name: advanced-cluster-management.v2.4.2
   namespace: placeholder
   labels:
@@ -1734,7 +1734,7 @@ spec:
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_CONTROLLER
                   value: quay.io/stolostron/assisted-installer-controller@sha256:d8a352d0e8cb04201c6e609e5a93c2840eb51fc2f629f897ffec179c2e3e3d57
                 - name: OPERAND_IMAGE_ASSISTED_SERVICE
-                  value: quay.io/stolostron/assisted-service@sha256:c58f2ade4bd04c729d6f5a021f626b576cb22e27d099b50c206cd243a8de46e2
+                  value: quay.io/stolostron/assisted-service@sha256:d05d3db8182288b8722d06dfec713e0bcb26ac5349d7b1221bc8d26fd3d376b6
                 - name: OPERAND_IMAGE_BAILER
                   value: quay.io/stolostron/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
@@ -2658,7 +2658,7 @@ spec:
   - name: assisted_installer_controller
     image: quay.io/stolostron/assisted-installer-controller@sha256:d8a352d0e8cb04201c6e609e5a93c2840eb51fc2f629f897ffec179c2e3e3d57
   - name: assisted_service
-    image: quay.io/stolostron/assisted-service@sha256:c58f2ade4bd04c729d6f5a021f626b576cb22e27d099b50c206cd243a8de46e2
+    image: quay.io/stolostron/assisted-service@sha256:d05d3db8182288b8722d06dfec713e0bcb26ac5349d7b1221bc8d26fd3d376b6
   - name: bailer
     image: quay.io/stolostron/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
   - name: cert_policy_controller
