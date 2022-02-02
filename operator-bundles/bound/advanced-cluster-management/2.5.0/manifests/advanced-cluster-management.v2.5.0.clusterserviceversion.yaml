@@ -22,15 +22,14 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-02T20:39:30Z'
+    createdAt: '2022-02-02T22:50:36Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1320,7 +1319,7 @@ spec:
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_CONTROLLER
                   value: quay.io/stolostron/assisted-installer-controller@sha256:0d3cb4c411a3963feeb21939a256327081b67fc9c41ef56d6c51456ee1f32091
                 - name: OPERAND_IMAGE_ASSISTED_SERVICE
-                  value: quay.io/stolostron/assisted-service@sha256:c7b92ced1cb02438cbee5cfcda2bbbfc50e985d5430f63d5873376e2ef71be1a
+                  value: quay.io/stolostron/assisted-service@sha256:33fb5e77fff476866561caf908dcdb0bd334376b7186a63d57d97488ca391cd6
                 - name: OPERAND_IMAGE_BAILER
                   value: quay.io/stolostron/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
@@ -1416,7 +1415,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION_RELEASE
                   value: quay.io/stolostron/multicluster-operators-subscription-release@sha256:e3f3aaf60219d38fcf7d3d999df954ec4cc02b85948b4d26253c19a52be54e83
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR
-                  value: quay.io/stolostron/multiclusterhub-operator@sha256:4b0f5df95ac880e24e77a81df2f51261be2d5c4e8a01c87de31307a349a430f8
+                  value: quay.io/stolostron/multiclusterhub-operator@sha256:1f2aec3fce374d0eee209be9bdbea7e7559bfbcacba984ee43e08a719ecdde4c
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
                   value: quay.io/stolostron/multiclusterhub-operator-tests@sha256:0766ccd5309743a9b7e263e08eba23637374e22060338c627a9dcf4876b03755
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
@@ -1479,7 +1478,7 @@ spec:
                   value: quay.io/stolostron/volsync-mover-rsync@sha256:ff296e3dc3b20841d4533676f49c2811e7acb8c08c522cd2cd9dade542c05741
                 - name: OPERAND_IMAGE_WORK
                   value: quay.io/stolostron/work@sha256:c04e95e89652c1672d844839820df0e856c8c65dd91c38a1873dc5516355ea29
-                image: quay.io/stolostron/multiclusterhub-operator@sha256:4b0f5df95ac880e24e77a81df2f51261be2d5c4e8a01c87de31307a349a430f8
+                image: quay.io/stolostron/multiclusterhub-operator@sha256:1f2aec3fce374d0eee209be9bdbea7e7559bfbcacba984ee43e08a719ecdde4c
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -2167,7 +2166,7 @@ spec:
   - name: assisted_installer_controller
     image: quay.io/stolostron/assisted-installer-controller@sha256:0d3cb4c411a3963feeb21939a256327081b67fc9c41ef56d6c51456ee1f32091
   - name: assisted_service
-    image: quay.io/stolostron/assisted-service@sha256:c7b92ced1cb02438cbee5cfcda2bbbfc50e985d5430f63d5873376e2ef71be1a
+    image: quay.io/stolostron/assisted-service@sha256:33fb5e77fff476866561caf908dcdb0bd334376b7186a63d57d97488ca391cd6
   - name: bailer
     image: quay.io/stolostron/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
   - name: cert_policy_controller
