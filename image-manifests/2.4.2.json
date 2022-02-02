@@ -34,12 +34,13 @@
   },
   {
     "image-name": "assisted-image-service",
-    "image-version": "2.4.0",
-    "image-tag": "2.4.0-be991c73bffcefd2f1dc30bdd6459b5541dedd3f",
-    "git-sha256": "be991c73bffcefd2f1dc30bdd6459b5541dedd3f",
+    "image-version": "2.4.2",
+    "image-tag": "2.4.2-911f0b8cb3b7c42ab8b839f3b5ad4c135fda39ff",
+    "git-sha256": "911f0b8cb3b7c42ab8b839f3b5ad4c135fda39ff",
     "git-repository": "openshift/assisted-image-service",
     "image-remote": "quay.io/stolostron",
-    "image-digest": "sha256:f3ee1c39cb2657e78f49f03105171146e4e9f24027dfa703d1b03a79109dcdd9",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:49b01237cc66104426e5f7284b4876ca291a887981d1f005ed919b476369bdd6",
     "image-key": "assisted_image_service"
   },
   {
