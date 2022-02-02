@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-02T19:50:31Z'
+    createdAt: '2022-02-02T20:39:28Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -128,6 +128,11 @@ spec:
         - urn:alm:descriptor:com.tectonic.ui:advanced
         - urn:alm:descriptor:com.tectonic.ui:select:High
         - urn:alm:descriptor:com.tectonic.ui:select:Basic
+      - description: Provides optional configuration for components
+        displayName: Component Configuration
+        path: componentConfig
+        x-descriptors:
+        - urn:alm:descriptor:com.tectonic.ui:hidden
       - description: Provide the customized OpenShift default ingress CA certificate to RHACM
         displayName: Custom CA Configmap
         path: customCAConfigmap

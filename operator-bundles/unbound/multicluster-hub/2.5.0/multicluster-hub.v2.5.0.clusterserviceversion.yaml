@@ -15,10 +15,9 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2022-02-02T19:50:27Z'
+    createdAt: '2022-02-02T20:39:25Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: multicluster-hub.v2.5.0
   namespace: placeholder
   labels:
@@ -84,6 +83,11 @@ spec:
         - urn:alm:descriptor:com.tectonic.ui:advanced
         - urn:alm:descriptor:com.tectonic.ui:select:High
         - urn:alm:descriptor:com.tectonic.ui:select:Basic
+      - description: Provides optional configuration for components
+        displayName: Component Configuration
+        path: componentConfig
+        x-descriptors:
+        - urn:alm:descriptor:com.tectonic.ui:hidden
       - description: Provide the customized OpenShift default ingress CA certificate to RHACM
         displayName: Custom CA Configmap
         path: customCAConfigmap
