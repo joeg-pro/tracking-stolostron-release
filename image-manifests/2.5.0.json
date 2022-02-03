@@ -101,12 +101,12 @@
   {
     "image-name": "cert-policy-controller",
     "image-version": "3.8.0",
-    "image-tag": "3.8.0-879cf8188a395ee2d1912ca1ae1830edc3f3a3ab",
-    "git-sha256": "879cf8188a395ee2d1912ca1ae1830edc3f3a3ab",
+    "image-tag": "3.8.0-ae3e28262fb3deb6515942fd860bb9e93d07cb27",
+    "git-sha256": "ae3e28262fb3deb6515942fd860bb9e93d07cb27",
     "git-repository": "stolostron/cert-policy-controller",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:0a961a343be4b3ef82f4ce28e1b0e90e08667d784131b7e03a99f8b442272427",
+    "image-digest": "sha256:ba36338d3836c1085b4160ab711377cd7296e788caed16cf60b8a30a5ad1bf3a",
     "image-key": "cert_policy_controller"
   },
   {
@@ -188,12 +188,12 @@
   {
     "image-name": "config-policy-controller",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-5d85b8b8eec0c0c2bc4993d673d251259f418d9a",
-    "git-sha256": "5d85b8b8eec0c0c2bc4993d673d251259f418d9a",
+    "image-tag": "1.0.0-182759022d48f762f199f9bbc7cd8db54fb9adcd",
+    "git-sha256": "182759022d48f762f199f9bbc7cd8db54fb9adcd",
     "git-repository": "stolostron/config-policy-controller",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:983e1cc9a112bc9db3fc902ece07caa1d54c4ec293250c8a2157ed3b6d1431e3",
+    "image-digest": "sha256:46810dc36d8b02c541bb0d83f4a65ba921162abf17089482612d20a9c16dcc1d",
     "image-key": "config_policy_controller"
   },
   {
@@ -396,12 +396,12 @@
   {
     "image-name": "iam-policy-controller",
     "image-version": "2.0.0",
-    "image-tag": "2.0.0-c689735c0151e546dbb36970ecbd1a43c483d8eb",
-    "git-sha256": "c689735c0151e546dbb36970ecbd1a43c483d8eb",
+    "image-tag": "2.0.0-8f061a246074b47d43a31011c881afbc240549f5",
+    "git-sha256": "8f061a246074b47d43a31011c881afbc240549f5",
     "git-repository": "stolostron/iam-policy-controller",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:9141641ec398eb7744a2ffdbdd05d47eeae64db6b42aeb389896670400572a6a",
+    "image-digest": "sha256:72713bdcbb6fb447acad098656292be27ec3b1e448996e62db019c5c0c568cad",
     "image-key": "iam_policy_controller"
   },
   {
@@ -668,17 +668,6 @@
     "image-key": "oauth_proxy"
   },
   {
-    "image-name": "placement",
-    "image-version": "0.3.0",
-    "image-tag": "0.3.0-61e8e4d8b73f36b966c109c53286fdcce95a3112",
-    "git-sha256": "61e8e4d8b73f36b966c109c53286fdcce95a3112",
-    "git-repository": "stolostron/placement",
-    "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:05c941263031f21ce6c03836e872dbe1fd13d3225a129aa3f2d8dd8f6c66b0c9",
-    "image-key": "placement"
-  },
-  {
     "image-name": "postgresql-12-centos7",
     "image-version": "latest",
     "image-tag": "latest",
@@ -752,28 +741,6 @@
     "image-remote": "quay.io/stolostron",
     "image-digest": "sha256:d6df97ce9b73c19d65aeae5a895cfcf6d01421808bbabc97e8be3d8139e2bbcf",
     "image-key": "redisgraph_tls"
-  },
-  {
-    "image-name": "registration",
-    "image-version": "0.6.0",
-    "image-tag": "0.6.0-4494da664eb8a1bfe62483a16816b49f83cb88f3",
-    "git-sha256": "4494da664eb8a1bfe62483a16816b49f83cb88f3",
-    "git-repository": "stolostron/registration",
-    "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:f4b5645f703f6047f3f4f95980d1d539bc5a87dde41dfc3d0342ba80c838e825",
-    "image-key": "registration"
-  },
-  {
-    "image-name": "registration-operator",
-    "image-version": "release-2.5",
-    "image-tag": "release-2.5-06c7a7af058224e1bf0dfc87fe7a740ffe02acb7",
-    "git-sha256": "06c7a7af058224e1bf0dfc87fe7a740ffe02acb7",
-    "git-repository": "stolostron/registration-operator",
-    "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:2cf117cb83da745c837527bc56296e21c1a5bc55e08a0bdb5ee303bb8dbf983e",
-    "image-key": "registration_operator"
   },
   {
     "image-name": "search-aggregator",
