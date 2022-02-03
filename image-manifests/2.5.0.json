@@ -79,12 +79,12 @@
   {
     "image-name": "assisted-service",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-54cf05edf22f461f6727568c8fa0ed7bb2975e57",
-    "git-sha256": "54cf05edf22f461f6727568c8fa0ed7bb2975e57",
+    "image-tag": "2.5.0-fa67982baa3993e864befb5eed147abbae200184",
+    "git-sha256": "fa67982baa3993e864befb5eed147abbae200184",
     "git-repository": "openshift/assisted-service",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:6f50ec6486793ac21cb55fbdb007b26f07be71802809a5330bf904afb80122da",
+    "image-digest": "sha256:fc548edd8028e4d544dd783cc095c1d1cc206ed1929f0fd6b41b43f35c2ded65",
     "image-key": "assisted_service"
   },
   {
@@ -880,16 +880,5 @@
     "image-remote": "quay.io/stolostron",
     "image-digest": "sha256:ff296e3dc3b20841d4533676f49c2811e7acb8c08c522cd2cd9dade542c05741",
     "image-key": "volsync_mover_rsync"
-  },
-  {
-    "image-name": "work",
-    "image-version": "release-2.5",
-    "image-tag": "release-2.5-4334762add602df8e02c0be272cc86054b28ef2f",
-    "git-sha256": "4334762add602df8e02c0be272cc86054b28ef2f",
-    "git-repository": "stolostron/work",
-    "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:c04e95e89652c1672d844839820df0e856c8c65dd91c38a1873dc5516355ea29",
-    "image-key": "work"
   }
 ]
