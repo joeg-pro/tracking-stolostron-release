@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-03T22:56:35Z'
+    createdAt: '2022-02-03T23:10:16Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1354,7 +1354,7 @@ spec:
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
                   value: quay.io/stolostron/endpoint-monitoring-operator@sha256:5497bb1428974a37e8dcd6461c712a92583af7be27f3bb3c613fb7c01d9a7ba1
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
-                  value: quay.io/stolostron/governance-policy-propagator@sha256:a3fd55ddc431694a653dab66990b7d6cb3ac2d7c6ec4f8c47c9bc1447f091bb8
+                  value: quay.io/stolostron/governance-policy-propagator@sha256:e8d7fb0b63be2bd25500d294f257502fe785751f793e7112e539bac6dd6169a2
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
                   value: quay.io/stolostron/governance-policy-spec-sync@sha256:c2444b4e9b05425168a18b19493ec3cae1951f9176b159c02c925928aab55f32
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_STATUS_SYNC
@@ -2191,7 +2191,7 @@ spec:
   - name: endpoint_monitoring_operator
     image: quay.io/stolostron/endpoint-monitoring-operator@sha256:5497bb1428974a37e8dcd6461c712a92583af7be27f3bb3c613fb7c01d9a7ba1
   - name: governance_policy_propagator
-    image: quay.io/stolostron/governance-policy-propagator@sha256:a3fd55ddc431694a653dab66990b7d6cb3ac2d7c6ec4f8c47c9bc1447f091bb8
+    image: quay.io/stolostron/governance-policy-propagator@sha256:e8d7fb0b63be2bd25500d294f257502fe785751f793e7112e539bac6dd6169a2
   - name: governance_policy_spec_sync
     image: quay.io/stolostron/governance-policy-spec-sync@sha256:c2444b4e9b05425168a18b19493ec3cae1951f9176b159c02c925928aab55f32
   - name: governance_policy_status_sync
