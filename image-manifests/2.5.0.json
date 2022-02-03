@@ -744,6 +744,17 @@
     "image-key": "prometheus_alertmanager"
   },
   {
+    "image-name": "prometheus-operator",
+    "image-version": "2.5",
+    "image-tag": "2.5-8c1ccda4fe595375606dc111d0825ae4546a8c43",
+    "git-sha256": "8c1ccda4fe595375606dc111d0825ae4546a8c43",
+    "git-repository": "stolostron/prometheus-operator",
+    "image-remote": "quay.io/stolostron",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:cec30479533a45510dba05f286ddee955a6a9418937f7d78053826986decaf7a",
+    "image-key": "prometheus_operator"
+  },
+  {
     "image-name": "provider-credential-controller",
     "image-version": "2.5.0",
     "image-tag": "2.5.0-dced83aef314bb697d8a326834144bd0290cf03b",
