@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-03T16:51:03Z'
+    createdAt: '2022-02-03T17:12:40Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1323,7 +1323,7 @@ spec:
                 - name: OPERAND_IMAGE_BAILER
                   value: quay.io/stolostron/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
-                  value: quay.io/stolostron/cert-policy-controller@sha256:0a961a343be4b3ef82f4ce28e1b0e90e08667d784131b7e03a99f8b442272427
+                  value: quay.io/stolostron/cert-policy-controller@sha256:ba36338d3836c1085b4160ab711377cd7296e788caed16cf60b8a30a5ad1bf3a
                 - name: OPERAND_IMAGE_CLUSTER_BACKUP_CONTROLLER
                   value: quay.io/stolostron/cluster-backup-controller@sha256:37efd18084b5c9912d8e755fc327316ac63941cef58334756f1dffaa1e5140b8
                 - name: OPERAND_IMAGE_CLUSTER_CURATOR_CONTROLLER
@@ -1339,7 +1339,7 @@ spec:
                 - name: OPERAND_IMAGE_CMB_CUSTOM_REGISTRY
                   value: quay.io/stolostron/cmb-custom-registry@sha256:21a62320cb93482afb11a603ffb483e27999daff7a7e8c43e63788908698f170
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
-                  value: quay.io/stolostron/config-policy-controller@sha256:983e1cc9a112bc9db3fc902ece07caa1d54c4ec293250c8a2157ed3b6d1431e3
+                  value: quay.io/stolostron/config-policy-controller@sha256:46810dc36d8b02c541bb0d83f4a65ba921162abf17089482612d20a9c16dcc1d
                 - name: OPERAND_IMAGE_CONSOLE
                   value: quay.io/stolostron/console@sha256:4918fb913f5dd2dedd4ba191aafc851f1ab2c0e39683bd984d6f7e97710e0129
                 - name: OPERAND_IMAGE_CONSOLE_API
@@ -1377,7 +1377,7 @@ spec:
                 - name: OPERAND_IMAGE_HELLOWORLD
                   value: quay.io/stolostron/helloworld@sha256:1046e3e340a34adf5557f892f8c51037091d138f72fb8416bf763a8fa84b55dc
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
-                  value: quay.io/stolostron/iam-policy-controller@sha256:9141641ec398eb7744a2ffdbdd05d47eeae64db6b42aeb389896670400572a6a
+                  value: quay.io/stolostron/iam-policy-controller@sha256:72713bdcbb6fb447acad098656292be27ec3b1e448996e62db019c5c0c568cad
                 - name: OPERAND_IMAGE_INSIGHTS_CLIENT
                   value: quay.io/stolostron/insights-client@sha256:b9e796184d84a015b7324d56b17177e81e3234ae41aaed31a5b08630641dca85
                 - name: OPERAND_IMAGE_INSIGHTS_METRICS
@@ -1426,8 +1426,6 @@ spec:
                   value: quay.io/stolostron/observatorium-operator@sha256:26fdaff7213148baa4e57c63f62fdbf70bbd4996d9bf3c9afeccbcd584532567
                 - name: OPERAND_IMAGE_OAUTH_PROXY
                   value: quay.io/stolostron/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
-                - name: OPERAND_IMAGE_PLACEMENT
-                  value: quay.io/stolostron/placement@sha256:05c941263031f21ce6c03836e872dbe1fd13d3225a129aa3f2d8dd8f6c66b0c9
                 - name: OPERAND_IMAGE_POSTGRESQL_12
                   value: quay.io/stolostron/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
                 - name: OPERAND_IMAGE_PROMETHEUS
@@ -1442,10 +1440,6 @@ spec:
                   value: quay.io/stolostron/rbac-query-proxy@sha256:ccc2c4928a808f27db0a77c32b8ba4c75861f124fd1d22d1bc967cdaec40edbf
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
                   value: quay.io/stolostron/redisgraph-tls@sha256:d6df97ce9b73c19d65aeae5a895cfcf6d01421808bbabc97e8be3d8139e2bbcf
-                - name: OPERAND_IMAGE_REGISTRATION
-                  value: quay.io/stolostron/registration@sha256:f4b5645f703f6047f3f4f95980d1d539bc5a87dde41dfc3d0342ba80c838e825
-                - name: OPERAND_IMAGE_REGISTRATION_OPERATOR
-                  value: quay.io/stolostron/registration-operator@sha256:2cf117cb83da745c837527bc56296e21c1a5bc55e08a0bdb5ee303bb8dbf983e
                 - name: OPERAND_IMAGE_SEARCH_AGGREGATOR
                   value: quay.io/stolostron/search-aggregator@sha256:f25162080c852588ae0baa9f045fd67100e0c509c688c23b1c8cabc962111d3a
                 - name: OPERAND_IMAGE_SEARCH_API
@@ -2166,7 +2160,7 @@ spec:
   - name: bailer
     image: quay.io/stolostron/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
   - name: cert_policy_controller
-    image: quay.io/stolostron/cert-policy-controller@sha256:0a961a343be4b3ef82f4ce28e1b0e90e08667d784131b7e03a99f8b442272427
+    image: quay.io/stolostron/cert-policy-controller@sha256:ba36338d3836c1085b4160ab711377cd7296e788caed16cf60b8a30a5ad1bf3a
   - name: cluster_backup_controller
     image: quay.io/stolostron/cluster-backup-controller@sha256:37efd18084b5c9912d8e755fc327316ac63941cef58334756f1dffaa1e5140b8
   - name: cluster_curator_controller
@@ -2182,7 +2176,7 @@ spec:
   - name: cmb_custom_registry
     image: quay.io/stolostron/cmb-custom-registry@sha256:21a62320cb93482afb11a603ffb483e27999daff7a7e8c43e63788908698f170
   - name: config_policy_controller
-    image: quay.io/stolostron/config-policy-controller@sha256:983e1cc9a112bc9db3fc902ece07caa1d54c4ec293250c8a2157ed3b6d1431e3
+    image: quay.io/stolostron/config-policy-controller@sha256:46810dc36d8b02c541bb0d83f4a65ba921162abf17089482612d20a9c16dcc1d
   - name: console
     image: quay.io/stolostron/console@sha256:4918fb913f5dd2dedd4ba191aafc851f1ab2c0e39683bd984d6f7e97710e0129
   - name: console_api
@@ -2220,7 +2214,7 @@ spec:
   - name: helloworld
     image: quay.io/stolostron/helloworld@sha256:1046e3e340a34adf5557f892f8c51037091d138f72fb8416bf763a8fa84b55dc
   - name: iam_policy_controller
-    image: quay.io/stolostron/iam-policy-controller@sha256:9141641ec398eb7744a2ffdbdd05d47eeae64db6b42aeb389896670400572a6a
+    image: quay.io/stolostron/iam-policy-controller@sha256:72713bdcbb6fb447acad098656292be27ec3b1e448996e62db019c5c0c568cad
   - name: insights_client
     image: quay.io/stolostron/insights-client@sha256:b9e796184d84a015b7324d56b17177e81e3234ae41aaed31a5b08630641dca85
   - name: insights_metrics
@@ -2257,8 +2251,6 @@ spec:
     image: quay.io/stolostron/observatorium-operator@sha256:26fdaff7213148baa4e57c63f62fdbf70bbd4996d9bf3c9afeccbcd584532567
   - name: oauth_proxy
     image: quay.io/stolostron/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
-  - name: placement
-    image: quay.io/stolostron/placement@sha256:05c941263031f21ce6c03836e872dbe1fd13d3225a129aa3f2d8dd8f6c66b0c9
   - name: postgresql_12
     image: quay.io/stolostron/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
   - name: prometheus
@@ -2273,10 +2265,6 @@ spec:
     image: quay.io/stolostron/rbac-query-proxy@sha256:ccc2c4928a808f27db0a77c32b8ba4c75861f124fd1d22d1bc967cdaec40edbf
   - name: redisgraph_tls
     image: quay.io/stolostron/redisgraph-tls@sha256:d6df97ce9b73c19d65aeae5a895cfcf6d01421808bbabc97e8be3d8139e2bbcf
-  - name: registration
-    image: quay.io/stolostron/registration@sha256:f4b5645f703f6047f3f4f95980d1d539bc5a87dde41dfc3d0342ba80c838e825
-  - name: registration_operator
-    image: quay.io/stolostron/registration-operator@sha256:2cf117cb83da745c837527bc56296e21c1a5bc55e08a0bdb5ee303bb8dbf983e
   - name: search_aggregator
     image: quay.io/stolostron/search-aggregator@sha256:f25162080c852588ae0baa9f045fd67100e0c509c688c23b1c8cabc962111d3a
   - name: search_api
