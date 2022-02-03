@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-03T16:10:13Z'
+    createdAt: '2022-02-03T16:35:18Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1314,7 +1314,7 @@ spec:
                 - name: OPERAND_IMAGE_ASSISTED_IMAGE_SERVICE
                   value: quay.io/stolostron/assisted-image-service@sha256:28c76197ac9e98a83074facbf2b74e8ae8d015a7a13ba79c4a133ac0886d4e27
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER
-                  value: quay.io/stolostron/assisted-installer@sha256:78870a38970aa47a8b451d41b74a30b4322f3a9b4c878ae0170af3f1e349b497
+                  value: quay.io/stolostron/assisted-installer@sha256:9a8f881efec8e07de147eb3711922f7455999709c4ac4e7b121f52acb8e4a332
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_AGENT
                   value: quay.io/stolostron/assisted-installer-agent@sha256:4d9c6be1aa656afaf3fb18c9054610a3d71ef3d9a21e71ebf1527ade3d569a46
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_CONTROLLER
@@ -1407,14 +1407,8 @@ spec:
                   value: quay.io/stolostron/multicluster-operators-application@sha256:278d253036cf07513d7c0cda4376c5feca6e1830c940409dd248631c9fdd164b
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
                   value: quay.io/stolostron/multicluster-operators-channel@sha256:c86ba00e0ec43b68e9277e45882d59ab872f6b58640fdb37df77d4c9f90c57d4
-                - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_DEPLOYABLE
-                  value: quay.io/stolostron/multicluster-operators-deployable@sha256:ba32819b44e54a71d812b0682b778f1a0365fac1ab6ee872216f85aadab2e719
-                - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_PLACEMENTRULE
-                  value: quay.io/stolostron/multicluster-operators-placementrule@sha256:1348fd0c15b6b12dfe2449d38f87c11607a60d74e76b08693d1d50e7fe9718a0
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION
                   value: quay.io/stolostron/multicluster-operators-subscription@sha256:31140c5266e65962c98869c0a97b414b73af221b2dc75e076705f2f98c9b0e31
-                - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION_RELEASE
-                  value: quay.io/stolostron/multicluster-operators-subscription-release@sha256:e3f3aaf60219d38fcf7d3d999df954ec4cc02b85948b4d26253c19a52be54e83
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR
                   value: quay.io/stolostron/multiclusterhub-operator@sha256:1f2aec3fce374d0eee209be9bdbea7e7559bfbcacba984ee43e08a719ecdde4c
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
@@ -2163,7 +2157,7 @@ spec:
   - name: assisted_image_service
     image: quay.io/stolostron/assisted-image-service@sha256:28c76197ac9e98a83074facbf2b74e8ae8d015a7a13ba79c4a133ac0886d4e27
   - name: assisted_installer
-    image: quay.io/stolostron/assisted-installer@sha256:78870a38970aa47a8b451d41b74a30b4322f3a9b4c878ae0170af3f1e349b497
+    image: quay.io/stolostron/assisted-installer@sha256:9a8f881efec8e07de147eb3711922f7455999709c4ac4e7b121f52acb8e4a332
   - name: assisted_installer_agent
     image: quay.io/stolostron/assisted-installer-agent@sha256:4d9c6be1aa656afaf3fb18c9054610a3d71ef3d9a21e71ebf1527ade3d569a46
   - name: assisted_installer_controller
@@ -2248,12 +2242,6 @@ spec:
     image: quay.io/stolostron/metrics-collector@sha256:e6aeeaa1f87abc59e6720b9852c163e0ae802a9445ec5170446c7de1c7b2c8b9
   - name: multicloud_manager
     image: quay.io/stolostron/multicloud-manager@sha256:937deb3223bf04e80b51a8ae4fbf72e506d569c165bb64ba40585b715550b6d5
-  - name: multicluster_operators_deployable
-    image: quay.io/stolostron/multicluster-operators-deployable@sha256:ba32819b44e54a71d812b0682b778f1a0365fac1ab6ee872216f85aadab2e719
-  - name: multicluster_operators_placementrule
-    image: quay.io/stolostron/multicluster-operators-placementrule@sha256:1348fd0c15b6b12dfe2449d38f87c11607a60d74e76b08693d1d50e7fe9718a0
-  - name: multicluster_operators_subscription_release
-    image: quay.io/stolostron/multicluster-operators-subscription-release@sha256:e3f3aaf60219d38fcf7d3d999df954ec4cc02b85948b4d26253c19a52be54e83
   - name: multiclusterhub_operator_tests
     image: quay.io/stolostron/multiclusterhub-operator-tests@sha256:0766ccd5309743a9b7e263e08eba23637374e22060338c627a9dcf4876b03755
   - name: multiclusterhub_repo
