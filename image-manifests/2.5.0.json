@@ -188,12 +188,12 @@
   {
     "image-name": "config-policy-controller",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-182759022d48f762f199f9bbc7cd8db54fb9adcd",
-    "git-sha256": "182759022d48f762f199f9bbc7cd8db54fb9adcd",
+    "image-tag": "1.0.0-19406ef3bda888f64f856c2c828b4d137d23f5e4",
+    "git-sha256": "19406ef3bda888f64f856c2c828b4d137d23f5e4",
     "git-repository": "stolostron/config-policy-controller",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:46810dc36d8b02c541bb0d83f4a65ba921162abf17089482612d20a9c16dcc1d",
+    "image-digest": "sha256:8f87ec87b883bece206ca567a7da59b83205b66e574aff3e34fa97d07fda58b1",
     "image-key": "config_policy_controller"
   },
   {
@@ -702,23 +702,23 @@
   {
     "image-name": "prometheus-config-reloader",
     "image-version": "2.5",
-    "image-tag": "2.5-d70a804d473466b58db2c31cb0b222e17f140caf",
-    "git-sha256": "d70a804d473466b58db2c31cb0b222e17f140caf",
+    "image-tag": "2.5-54a3f553fe31ba0ab67c00089683986499ce27d2",
+    "git-sha256": "54a3f553fe31ba0ab67c00089683986499ce27d2",
     "git-repository": "stolostron/prometheus-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:9f70633c4d03eafcd1d4223c0afe627658aec3576b797e11ce3dd6ef7bfe9bea",
+    "image-digest": "sha256:694c942f1c4f45fa5d82a187b44fc9973c6c32b9d3d018b3c8c1a8f30510c4fe",
     "image-key": "prometheus_config_reloader"
   },
   {
     "image-name": "prometheus-operator",
     "image-version": "2.5",
-    "image-tag": "2.5-d70a804d473466b58db2c31cb0b222e17f140caf",
-    "git-sha256": "d70a804d473466b58db2c31cb0b222e17f140caf",
+    "image-tag": "2.5-54a3f553fe31ba0ab67c00089683986499ce27d2",
+    "git-sha256": "54a3f553fe31ba0ab67c00089683986499ce27d2",
     "git-repository": "stolostron/prometheus-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:07c9599c2a1b74ece489655fa24e92d6a5ec80c68a7bda5e402acb749c6ea47a",
+    "image-digest": "sha256:cf51f5302998cdd82edeeaf60a01cf11289101fb7e02c7a12a7b765c0c9751ff",
     "image-key": "prometheus_operator"
   },
   {
