@@ -700,6 +700,17 @@
     "image-key": "prometheus_alertmanager"
   },
   {
+    "image-name": "prometheus-config-reloader",
+    "image-version": "2.5",
+    "image-tag": "2.5-d70a804d473466b58db2c31cb0b222e17f140caf",
+    "git-sha256": "d70a804d473466b58db2c31cb0b222e17f140caf",
+    "git-repository": "stolostron/prometheus-operator",
+    "image-remote": "quay.io/stolostron",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:9f70633c4d03eafcd1d4223c0afe627658aec3576b797e11ce3dd6ef7bfe9bea",
+    "image-key": "prometheus_config_reloader"
+  },
+  {
     "image-name": "prometheus-operator",
     "image-version": "2.5",
     "image-tag": "2.5-8c1ccda4fe595375606dc111d0825ae4546a8c43",
