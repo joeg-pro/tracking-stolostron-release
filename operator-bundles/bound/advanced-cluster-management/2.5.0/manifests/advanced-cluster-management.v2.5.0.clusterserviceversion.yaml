@@ -22,14 +22,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-03T22:53:43Z'
+    createdAt: '2022-02-03T22:56:35Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1419,7 +1420,7 @@ spec:
                 - name: OPERAND_IMAGE_NODE_EXPORTER
                   value: quay.io/stolostron/node-exporter@sha256:351133c65942e94df09bb05139902482b77cdac949e2dc68d22acf9e8a47468d
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
-                  value: quay.io/stolostron/observability-e2e-test@sha256:91977bece7dcfe361e3874d71e775d1798a62e86c4bdbaeff4affde11109a791
+                  value: quay.io/stolostron/observability-e2e-test@sha256:c681e6253637bba18a076823bf1155aebf62448d0b6ba6e638a062877d648ff3
                 - name: OPERAND_IMAGE_OBSERVATORIUM
                   value: quay.io/stolostron/observatorium@sha256:cee16b6474b81542140d3c0460e78ba7906bb2bff504a6cc6563526603f49c83
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
@@ -2244,7 +2245,7 @@ spec:
   - name: node_exporter
     image: quay.io/stolostron/node-exporter@sha256:351133c65942e94df09bb05139902482b77cdac949e2dc68d22acf9e8a47468d
   - name: observability_e2e_test
-    image: quay.io/stolostron/observability-e2e-test@sha256:91977bece7dcfe361e3874d71e775d1798a62e86c4bdbaeff4affde11109a791
+    image: quay.io/stolostron/observability-e2e-test@sha256:c681e6253637bba18a076823bf1155aebf62448d0b6ba6e638a062877d648ff3
   - name: observatorium
     image: quay.io/stolostron/observatorium@sha256:cee16b6474b81542140d3c0460e78ba7906bb2bff504a6cc6563526603f49c83
   - name: observatorium_operator
