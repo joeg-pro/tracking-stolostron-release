@@ -68,23 +68,23 @@
   {
     "image-name": "assisted-installer-controller",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-dc92fc190f75f5dc80c2becc2f8d7c37621125ff",
-    "git-sha256": "dc92fc190f75f5dc80c2becc2f8d7c37621125ff",
+    "image-tag": "2.5.0-7d593502b6f2419c63667442c2590ba32ec76c7b",
+    "git-sha256": "7d593502b6f2419c63667442c2590ba32ec76c7b",
     "git-repository": "openshift/assisted-installer",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:0d3cb4c411a3963feeb21939a256327081b67fc9c41ef56d6c51456ee1f32091",
+    "image-digest": "sha256:cc815258607a0ea394ceea3117dd877c4aa9545077bc3a4f0cd9efe8de56b1a2",
     "image-key": "assisted_installer_controller"
   },
   {
     "image-name": "assisted-service",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-3d72ef8f7f8715cb7a7d7918e3b30cf8f257605f",
-    "git-sha256": "3d72ef8f7f8715cb7a7d7918e3b30cf8f257605f",
+    "image-tag": "2.5.0-dcb1833f177b90ab41184d226ee3c073b485853b",
+    "git-sha256": "dcb1833f177b90ab41184d226ee3c073b485853b",
     "git-repository": "openshift/assisted-service",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:d8d7e7da3a61a9565c4bd9b9dee3c707e724da8adede07a506fdab8c3e32ab94",
+    "image-digest": "sha256:6f50ec6486793ac21cb55fbdb007b26f07be71802809a5330bf904afb80122da",
     "image-key": "assisted_service"
   },
   {
