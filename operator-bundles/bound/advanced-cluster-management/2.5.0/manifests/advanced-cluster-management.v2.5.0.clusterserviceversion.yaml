@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-04T15:02:32Z'
+    createdAt: '2022-02-04T15:18:38Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1376,7 +1376,7 @@ spec:
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/stolostron/helloprow-go@sha256:bc760e12606b64096f04aee8c143c611b55da45c03b018557574f5a0c7a9b7be
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/stolostron/helloworld@sha256:0b424277ffa8b57bb097df3512dba24f50f03aaea7fb483abe21ccdc97c46754
+                  value: quay.io/stolostron/helloworld@sha256:35829e028814ed5f5aaf3701b3f9567289b18a781c208a3980f2d945b75474ca
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
                   value: quay.io/stolostron/iam-policy-controller@sha256:72713bdcbb6fb447acad098656292be27ec3b1e448996e62db019c5c0c568cad
                 - name: OPERAND_IMAGE_INSIGHTS_CLIENT
@@ -2213,7 +2213,7 @@ spec:
   - name: helloprow_go
     image: quay.io/stolostron/helloprow-go@sha256:bc760e12606b64096f04aee8c143c611b55da45c03b018557574f5a0c7a9b7be
   - name: helloworld
-    image: quay.io/stolostron/helloworld@sha256:0b424277ffa8b57bb097df3512dba24f50f03aaea7fb483abe21ccdc97c46754
+    image: quay.io/stolostron/helloworld@sha256:35829e028814ed5f5aaf3701b3f9567289b18a781c208a3980f2d945b75474ca
   - name: iam_policy_controller
     image: quay.io/stolostron/iam-policy-controller@sha256:72713bdcbb6fb447acad098656292be27ec3b1e448996e62db019c5c0c568cad
   - name: insights_client
