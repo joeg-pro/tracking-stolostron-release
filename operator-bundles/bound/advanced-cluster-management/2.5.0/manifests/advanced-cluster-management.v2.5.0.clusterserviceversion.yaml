@@ -22,14 +22,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-04T14:50:23Z'
+    createdAt: '2022-02-04T15:02:32Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1375,7 +1376,7 @@ spec:
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/stolostron/helloprow-go@sha256:bc760e12606b64096f04aee8c143c611b55da45c03b018557574f5a0c7a9b7be
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/stolostron/helloworld@sha256:7984d60e2099a564d05d48212b6322c7d9a95bd641d6a8defe5a3ed7e36b1f26
+                  value: quay.io/stolostron/helloworld@sha256:0b424277ffa8b57bb097df3512dba24f50f03aaea7fb483abe21ccdc97c46754
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
                   value: quay.io/stolostron/iam-policy-controller@sha256:72713bdcbb6fb447acad098656292be27ec3b1e448996e62db019c5c0c568cad
                 - name: OPERAND_IMAGE_INSIGHTS_CLIENT
@@ -2212,7 +2213,7 @@ spec:
   - name: helloprow_go
     image: quay.io/stolostron/helloprow-go@sha256:bc760e12606b64096f04aee8c143c611b55da45c03b018557574f5a0c7a9b7be
   - name: helloworld
-    image: quay.io/stolostron/helloworld@sha256:7984d60e2099a564d05d48212b6322c7d9a95bd641d6a8defe5a3ed7e36b1f26
+    image: quay.io/stolostron/helloworld@sha256:0b424277ffa8b57bb097df3512dba24f50f03aaea7fb483abe21ccdc97c46754
   - name: iam_policy_controller
     image: quay.io/stolostron/iam-policy-controller@sha256:72713bdcbb6fb447acad098656292be27ec3b1e448996e62db019c5c0c568cad
   - name: insights_client
