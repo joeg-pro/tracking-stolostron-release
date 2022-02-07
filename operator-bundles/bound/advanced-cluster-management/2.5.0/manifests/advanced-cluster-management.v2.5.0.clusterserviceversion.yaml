@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-07T16:45:13Z'
+    createdAt: '2022-02-07T17:15:57Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1341,7 +1341,7 @@ spec:
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/stolostron/config-policy-controller@sha256:913101e917eeb20e9c673a23a09923599ab7091676b9ef978fa374b9db9f2239
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/stolostron/console@sha256:6c3d6922e66eda79c569d03419d62cde574aca53d1d373ef98c571c0a5406698
+                  value: quay.io/stolostron/console@sha256:24b582f4afe3d0e114470e4eebb6e2db1ddeac8044ac61df1017ee08ca7ad81e
                 - name: OPERAND_IMAGE_CONSOLE_API
                   value: quay.io/stolostron/console-api@sha256:a2685496c2fb72d370ca64ebbcd9b8b0030a9317680eb470018d35e138a5b8ce
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
@@ -1373,7 +1373,7 @@ spec:
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
                   value: quay.io/stolostron/grc-ui-tests@sha256:f2250f65caf56e893d8b512fc47a8a7f39aba84ca9e9254cfd0cec044cedc130
                 - name: OPERAND_IMAGE_HELLOPROW_GO
-                  value: quay.io/stolostron/helloprow-go@sha256:5730a98b1b1b1fba0047fe67db673afc6b72462fc02121949aa0e9741bb3b1f3
+                  value: quay.io/stolostron/helloprow-go@sha256:4b00171a00bf22ce254417ff2fe69aeabc513bc19a209918af906c186ff648f6
                 - name: OPERAND_IMAGE_HELLOWORLD
                   value: quay.io/stolostron/helloworld@sha256:35829e028814ed5f5aaf3701b3f9567289b18a781c208a3980f2d945b75474ca
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
@@ -2178,7 +2178,7 @@ spec:
   - name: config_policy_controller
     image: quay.io/stolostron/config-policy-controller@sha256:913101e917eeb20e9c673a23a09923599ab7091676b9ef978fa374b9db9f2239
   - name: console
-    image: quay.io/stolostron/console@sha256:6c3d6922e66eda79c569d03419d62cde574aca53d1d373ef98c571c0a5406698
+    image: quay.io/stolostron/console@sha256:24b582f4afe3d0e114470e4eebb6e2db1ddeac8044ac61df1017ee08ca7ad81e
   - name: console_api
     image: quay.io/stolostron/console-api@sha256:a2685496c2fb72d370ca64ebbcd9b8b0030a9317680eb470018d35e138a5b8ce
   - name: discovery_operator
@@ -2210,7 +2210,7 @@ spec:
   - name: grc_ui_tests
     image: quay.io/stolostron/grc-ui-tests@sha256:f2250f65caf56e893d8b512fc47a8a7f39aba84ca9e9254cfd0cec044cedc130
   - name: helloprow_go
-    image: quay.io/stolostron/helloprow-go@sha256:5730a98b1b1b1fba0047fe67db673afc6b72462fc02121949aa0e9741bb3b1f3
+    image: quay.io/stolostron/helloprow-go@sha256:4b00171a00bf22ce254417ff2fe69aeabc513bc19a209918af906c186ff648f6
   - name: helloworld
     image: quay.io/stolostron/helloworld@sha256:35829e028814ed5f5aaf3701b3f9567289b18a781c208a3980f2d945b75474ca
   - name: iam_policy_controller
