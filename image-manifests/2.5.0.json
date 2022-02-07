@@ -79,12 +79,12 @@
   {
     "image-name": "assisted-service",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-f594f61e862b3f585d373fa3b4b0fd890b15a268",
-    "git-sha256": "f594f61e862b3f585d373fa3b4b0fd890b15a268",
+    "image-tag": "2.5.0-528bd44f189a377716e335439fabd75dbdbf62a9",
+    "git-sha256": "528bd44f189a377716e335439fabd75dbdbf62a9",
     "git-repository": "openshift/assisted-service",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:414644b35758e50664e556870ebe38c3190c079e062c68daba260f7a1748af1e",
+    "image-digest": "sha256:e57d2eb19ff20a8ce3b764147e0e576e9c6d943e03203a67a3bad653ebbb1568",
     "image-key": "assisted_service"
   },
   {
@@ -221,12 +221,12 @@
   {
     "image-name": "discovery-operator",
     "image-version": "0.2",
-    "image-tag": "0.2-3d3c5401816f2b4d73e9f3a1e8c071e0b2c7e37e",
-    "git-sha256": "3d3c5401816f2b4d73e9f3a1e8c071e0b2c7e37e",
+    "image-tag": "0.2-51b11c5c6aa79a86ae5d8cec0765127ba0a4cb63",
+    "git-sha256": "51b11c5c6aa79a86ae5d8cec0765127ba0a4cb63",
     "git-repository": "stolostron/discovery",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:86facef49c6d1307969f9ed3e2a8863d0237f67630cebb14b5f8b448e9493845",
+    "image-digest": "sha256:aefcda453547880126830f7e039e52f54a8ded6cd2711a81d5fb48935cdf8708",
     "image-key": "discovery_operator"
   },
   {
@@ -243,12 +243,12 @@
   {
     "image-name": "discovery-testserver",
     "image-version": "0.2",
-    "image-tag": "0.2-3d3c5401816f2b4d73e9f3a1e8c071e0b2c7e37e",
-    "git-sha256": "3d3c5401816f2b4d73e9f3a1e8c071e0b2c7e37e",
+    "image-tag": "0.2-51b11c5c6aa79a86ae5d8cec0765127ba0a4cb63",
+    "git-sha256": "51b11c5c6aa79a86ae5d8cec0765127ba0a4cb63",
     "git-repository": "stolostron/discovery",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:c8634c5c577407870eb49b7a57b2689927b240ce8604c560cfb22918f02d9680",
+    "image-digest": "sha256:91d1db92b585d954bb3cf8fbe54dc74ec266db0210541187642e73c616c4401e",
     "image-key": "discovery-testserver"
   },
   {
