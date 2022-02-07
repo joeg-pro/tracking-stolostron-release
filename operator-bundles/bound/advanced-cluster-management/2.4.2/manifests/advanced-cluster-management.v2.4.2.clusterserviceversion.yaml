@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-07T03:54:40Z'
+    createdAt: '2022-02-07T16:16:39Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "clusterdeprovisions.hive.openshift.io",
-      "clusterprovisions.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
-      "checkpoints.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
-      "machinepoolnameleases.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "clusterstates.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["clusterdeprovisions.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "clusterstates.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "fakeclusterinstalls.hiveinternal.openshift.io",
+      "checkpoints.hive.openshift.io", "observatoria.core.observatorium.io", "clusterprovisions.hive.openshift.io",
+      "machinepoolnameleases.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io"]'
   name: advanced-cluster-management.v2.4.2
   namespace: placeholder
   labels:
@@ -1720,9 +1720,9 @@ spec:
                     fieldRef:
                       fieldPath: metadata.namespace
                 - name: OPERAND_IMAGE_APPLICATION_UI
-                  value: quay.io/stolostron/application-ui@sha256:ba747df7858fa979a4677c2df65b4e567e87b379d58ec287e34ae32dfa8e660b
+                  value: quay.io/stolostron/application-ui@sha256:4642a8a434997f3e772e6f38a0243488b87eed3243ea2debb9e52fa83f19c3d9
                 - name: OPERAND_IMAGE_APPLICATION_UI_TESTS
-                  value: quay.io/stolostron/application-ui-tests@sha256:90a080f8d6fb7b321f0424ab3fa795c3e04a48acaf1a05639875b048c4f4ff18
+                  value: quay.io/stolostron/application-ui-tests@sha256:176fedc63cb1f98c1e0fc314f1d66b0e8f6f11675db4bed76416051aaa7a49db
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
                   value: quay.io/stolostron/applifecycle-backend-e2e@sha256:5490aad3ac2ab64f1d49a794f899c0c5ada53785837ce9c99b7a8d3127932740
                 - name: OPERAND_IMAGE_ASSISTED_IMAGE_SERVICE
@@ -1788,7 +1788,7 @@ spec:
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/stolostron/helloprow-go@sha256:3a787364d41781295e6717f16c664ea8de6788928bd34158cde0e58e85f4223c
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/stolostron/helloworld@sha256:351c3c5331f762c098c141f428293832558571330d94cd39df5b0a9925f8a0c1
+                  value: quay.io/stolostron/helloworld@sha256:d9f2993888489a4aaee44497b9365afbd60484e866ba5b6dcb82655348bcdf93
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
                   value: quay.io/stolostron/hive@sha256:77893d60f8fe578ea87114d882daf27bab484ce55d221fb17ba77e1c78ad7024
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
@@ -2644,9 +2644,9 @@ spec:
                 name: kubectl-cache
   relatedImages:
   - name: application_ui
-    image: quay.io/stolostron/application-ui@sha256:ba747df7858fa979a4677c2df65b4e567e87b379d58ec287e34ae32dfa8e660b
+    image: quay.io/stolostron/application-ui@sha256:4642a8a434997f3e772e6f38a0243488b87eed3243ea2debb9e52fa83f19c3d9
   - name: application_ui_tests
-    image: quay.io/stolostron/application-ui-tests@sha256:90a080f8d6fb7b321f0424ab3fa795c3e04a48acaf1a05639875b048c4f4ff18
+    image: quay.io/stolostron/application-ui-tests@sha256:176fedc63cb1f98c1e0fc314f1d66b0e8f6f11675db4bed76416051aaa7a49db
   - name: applifecycle_backend_e2e
     image: quay.io/stolostron/applifecycle-backend-e2e@sha256:5490aad3ac2ab64f1d49a794f899c0c5ada53785837ce9c99b7a8d3127932740
   - name: assisted_image_service
@@ -2712,7 +2712,7 @@ spec:
   - name: helloprow_go
     image: quay.io/stolostron/helloprow-go@sha256:3a787364d41781295e6717f16c664ea8de6788928bd34158cde0e58e85f4223c
   - name: helloworld
-    image: quay.io/stolostron/helloworld@sha256:351c3c5331f762c098c141f428293832558571330d94cd39df5b0a9925f8a0c1
+    image: quay.io/stolostron/helloworld@sha256:d9f2993888489a4aaee44497b9365afbd60484e866ba5b6dcb82655348bcdf93
   - name: iam_policy_controller
     image: quay.io/stolostron/iam-policy-controller@sha256:ece3a1b680644653f105ea7bb712cb473a94c817909cacf77358825a079745b1
   - name: insights_client
