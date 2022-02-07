@@ -13,23 +13,23 @@
   {
     "image-name": "application-ui-tests",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-59b7670d9c30f77d8d911c975006f8dd63444360",
-    "git-sha256": "59b7670d9c30f77d8d911c975006f8dd63444360",
+    "image-tag": "2.4.0-ed7e9b1a99ffb4e03e8c2e3e8861c4e3ff5a70b4",
+    "git-sha256": "ed7e9b1a99ffb4e03e8c2e3e8861c4e3ff5a70b4",
     "git-repository": "stolostron/application-ui",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:176fedc63cb1f98c1e0fc314f1d66b0e8f6f11675db4bed76416051aaa7a49db",
+    "image-digest": "sha256:39fa63efc0e9bf8b491ce399a116d622188258fb2467e5006b410e0a188b0053",
     "image-key": "application_ui_tests"
   },
   {
     "image-name": "applifecycle-backend-e2e",
-    "image-version": "2.4.0",
-    "image-tag": "2.4.0-591ae761b1f7a5082c81fee9f09bd2fe3fcf120c",
-    "git-sha256": "591ae761b1f7a5082c81fee9f09bd2fe3fcf120c",
+    "image-version": "2.5.0",
+    "image-tag": "2.5.0-1a3188fc2b0b71d7ab767971c87955cd6fae252a",
+    "git-sha256": "1a3188fc2b0b71d7ab767971c87955cd6fae252a",
     "git-repository": "stolostron/applifecycle-backend-e2e",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:5490aad3ac2ab64f1d49a794f899c0c5ada53785837ce9c99b7a8d3127932740",
+    "image-digest": "sha256:417828ef738e205a10eb07904d6fec071a611b6a430c00c91f3b9c76e430f887",
     "image-key": "applifecycle_backend_e2e"
   },
   {
