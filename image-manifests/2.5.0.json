@@ -1,13 +1,13 @@
 [
   {
     "image-name": "application-ui",
-    "image-version": "2.4.0",
-    "image-tag": "2.4.0-63040960c07be566ca83f69570c2ee61080c6cce",
-    "git-sha256": "63040960c07be566ca83f69570c2ee61080c6cce",
+    "image-version": "2.5.0",
+    "image-tag": "2.5.0-c0e28273ae413dccbfcde3dca6c61e39dc304c4a",
+    "git-sha256": "c0e28273ae413dccbfcde3dca6c61e39dc304c4a",
     "git-repository": "stolostron/application-ui",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:120fa21abb4116a56d9020cfa574541dd9ddf9f16bb94514d7f90f777dae9ac7",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:706e2a7c2b0c07e298de2f3ec5aba9facfeb17d5c8e65a4e663f347bb0eb24b0",
     "image-key": "application_ui"
   },
   {
@@ -221,23 +221,23 @@
   {
     "image-name": "discovery-operator",
     "image-version": "0.2",
-    "image-tag": "0.2-6c3753bae6b803873fec49717d7b5a0d482644fe",
-    "git-sha256": "6c3753bae6b803873fec49717d7b5a0d482644fe",
+    "image-tag": "0.2-3d3c5401816f2b4d73e9f3a1e8c071e0b2c7e37e",
+    "git-sha256": "3d3c5401816f2b4d73e9f3a1e8c071e0b2c7e37e",
     "git-repository": "stolostron/discovery",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:7b34a554449242118247c12541a8b7b02bc971eb048f43e9910e40247131c1a3",
+    "image-digest": "sha256:86facef49c6d1307969f9ed3e2a8863d0237f67630cebb14b5f8b448e9493845",
     "image-key": "discovery_operator"
   },
   {
     "image-name": "discovery-operator-tests",
     "image-version": "0.2",
-    "image-tag": "0.2-6c3753bae6b803873fec49717d7b5a0d482644fe",
-    "git-sha256": "6c3753bae6b803873fec49717d7b5a0d482644fe",
+    "image-tag": "0.2-3d3c5401816f2b4d73e9f3a1e8c071e0b2c7e37e",
+    "git-sha256": "3d3c5401816f2b4d73e9f3a1e8c071e0b2c7e37e",
     "git-repository": "stolostron/discovery",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:58e56b77e4f3a91b4768e1d76ce305211ad9fc0429950cd65eec0582db72f18b",
+    "image-digest": "sha256:eca7f9d731a61438ffe0ea18213de051a8e0e7126e18583bb20ee7dbf3b2382f",
     "image-key": "discovery_operator_tests"
   },
   {
