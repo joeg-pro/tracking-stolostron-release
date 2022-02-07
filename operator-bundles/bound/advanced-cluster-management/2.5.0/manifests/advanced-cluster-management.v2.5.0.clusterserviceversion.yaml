@@ -22,15 +22,14 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-07T17:41:41Z'
+    createdAt: '2022-02-07T17:42:24Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1346,7 +1345,7 @@ spec:
                 - name: OPERAND_IMAGE_CONSOLE_API
                   value: quay.io/stolostron/console-api@sha256:a2685496c2fb72d370ca64ebbcd9b8b0030a9317680eb470018d35e138a5b8ce
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
-                  value: quay.io/stolostron/discovery-operator@sha256:30dd3f68cc901abd6c03df07619a813097b9e3b7b0c2ca7e752da038184285f7
+                  value: quay.io/stolostron/discovery-operator@sha256:4e5c160464c83b8199df3f05352d9660259f4b196a0a19118d743bb3113371d0
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR_TESTS
                   value: quay.io/stolostron/discovery-operator-tests@sha256:09a0321555237206a0719095008abea461490d4a7d234b3f82c90302ac650700
                 - name: OPERAND_IMAGE_DISCOVERY-TESTSERVER
@@ -2183,7 +2182,7 @@ spec:
   - name: console_api
     image: quay.io/stolostron/console-api@sha256:a2685496c2fb72d370ca64ebbcd9b8b0030a9317680eb470018d35e138a5b8ce
   - name: discovery_operator
-    image: quay.io/stolostron/discovery-operator@sha256:30dd3f68cc901abd6c03df07619a813097b9e3b7b0c2ca7e752da038184285f7
+    image: quay.io/stolostron/discovery-operator@sha256:4e5c160464c83b8199df3f05352d9660259f4b196a0a19118d743bb3113371d0
   - name: discovery_operator_tests
     image: quay.io/stolostron/discovery-operator-tests@sha256:09a0321555237206a0719095008abea461490d4a7d234b3f82c90302ac650700
   - name: discovery-testserver
