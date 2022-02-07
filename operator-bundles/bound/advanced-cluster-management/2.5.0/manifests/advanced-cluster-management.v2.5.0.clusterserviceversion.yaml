@@ -22,14 +22,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-07T17:49:29Z'
+    createdAt: '2022-02-07T18:36:25Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1341,7 +1342,7 @@ spec:
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/stolostron/config-policy-controller@sha256:913101e917eeb20e9c673a23a09923599ab7091676b9ef978fa374b9db9f2239
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/stolostron/console@sha256:24b582f4afe3d0e114470e4eebb6e2db1ddeac8044ac61df1017ee08ca7ad81e
+                  value: quay.io/stolostron/console@sha256:1e1ad19e15b5cec7c848378173cac35e094274e900ffdce6027607d88abcc907
                 - name: OPERAND_IMAGE_CONSOLE_API
                   value: quay.io/stolostron/console-api@sha256:a2685496c2fb72d370ca64ebbcd9b8b0030a9317680eb470018d35e138a5b8ce
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
@@ -2178,7 +2179,7 @@ spec:
   - name: config_policy_controller
     image: quay.io/stolostron/config-policy-controller@sha256:913101e917eeb20e9c673a23a09923599ab7091676b9ef978fa374b9db9f2239
   - name: console
-    image: quay.io/stolostron/console@sha256:24b582f4afe3d0e114470e4eebb6e2db1ddeac8044ac61df1017ee08ca7ad81e
+    image: quay.io/stolostron/console@sha256:1e1ad19e15b5cec7c848378173cac35e094274e900ffdce6027607d88abcc907
   - name: console_api
     image: quay.io/stolostron/console-api@sha256:a2685496c2fb72d370ca64ebbcd9b8b0030a9317680eb470018d35e138a5b8ce
   - name: discovery_operator
