@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-07T08:18:11Z'
+    createdAt: '2022-02-07T09:36:31Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1342,7 +1342,7 @@ spec:
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/stolostron/config-policy-controller@sha256:913101e917eeb20e9c673a23a09923599ab7091676b9ef978fa374b9db9f2239
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/stolostron/console@sha256:0d182fa5c365ee59777e05ffed889e42fffa012c2a26acc0d1a77c3a1fac775e
+                  value: quay.io/stolostron/console@sha256:472a5c04a4843042ab03743aae4a91218acc397b20130628f1d7a5af4a9f23ed
                 - name: OPERAND_IMAGE_CONSOLE_API
                   value: quay.io/stolostron/console-api@sha256:a2685496c2fb72d370ca64ebbcd9b8b0030a9317680eb470018d35e138a5b8ce
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
@@ -1386,7 +1386,7 @@ spec:
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_CONTROLLER
                   value: quay.io/stolostron/klusterlet-addon-controller@sha256:3d9dc54231049b2e7c33ac98f4f6a94ec40a0e75be3d8ae099ad072f89f3302a
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_OPERATOR
-                  value: quay.io/stolostron/klusterlet-addon-operator@sha256:dac8f16b913c928a94b1ff7a4cde5d90592b30c6aad4e1c3532ff253df80b40f
+                  value: quay.io/stolostron/klusterlet-addon-operator@sha256:60f41560e731d71fdd87add30fe5e4beba94ddd2243b317d1449ac8e3f2823f5
                 - name: OPERAND_IMAGE_KUBE_RBAC_PROXY
                   value: quay.io/stolostron/kube-rbac-proxy@sha256:3c52801025c88b79f1b260aaab4cdccd033b69e56ce32affcc53c6dee9179359
                 - name: OPERAND_IMAGE_KUBE_STATE_METRICS
@@ -2179,7 +2179,7 @@ spec:
   - name: config_policy_controller
     image: quay.io/stolostron/config-policy-controller@sha256:913101e917eeb20e9c673a23a09923599ab7091676b9ef978fa374b9db9f2239
   - name: console
-    image: quay.io/stolostron/console@sha256:0d182fa5c365ee59777e05ffed889e42fffa012c2a26acc0d1a77c3a1fac775e
+    image: quay.io/stolostron/console@sha256:472a5c04a4843042ab03743aae4a91218acc397b20130628f1d7a5af4a9f23ed
   - name: console_api
     image: quay.io/stolostron/console-api@sha256:a2685496c2fb72d370ca64ebbcd9b8b0030a9317680eb470018d35e138a5b8ce
   - name: discovery_operator
@@ -2223,7 +2223,7 @@ spec:
   - name: klusterlet_addon_controller
     image: quay.io/stolostron/klusterlet-addon-controller@sha256:3d9dc54231049b2e7c33ac98f4f6a94ec40a0e75be3d8ae099ad072f89f3302a
   - name: klusterlet_addon_operator
-    image: quay.io/stolostron/klusterlet-addon-operator@sha256:dac8f16b913c928a94b1ff7a4cde5d90592b30c6aad4e1c3532ff253df80b40f
+    image: quay.io/stolostron/klusterlet-addon-operator@sha256:60f41560e731d71fdd87add30fe5e4beba94ddd2243b317d1449ac8e3f2823f5
   - name: kube_rbac_proxy
     image: quay.io/stolostron/kube-rbac-proxy@sha256:3c52801025c88b79f1b260aaab4cdccd033b69e56ce32affcc53c6dee9179359
   - name: kube_state_metrics
