@@ -22,15 +22,14 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-07T21:00:18Z'
+    createdAt: '2022-02-07T21:01:23Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1350,7 +1349,7 @@ spec:
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR_TESTS
                   value: quay.io/stolostron/discovery-operator-tests@sha256:eca7f9d731a61438ffe0ea18213de051a8e0e7126e18583bb20ee7dbf3b2382f
                 - name: OPERAND_IMAGE_DISCOVERY-TESTSERVER
-                  value: quay.io/stolostron/discovery-testserver@sha256:989723f782d265fb6f250c4f93dd7ab62e010806220ad8fe7aad08afd7526e02
+                  value: quay.io/stolostron/discovery-testserver@sha256:c8634c5c577407870eb49b7a57b2689927b240ce8604c560cfb22918f02d9680
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
                   value: quay.io/stolostron/endpoint-monitoring-operator@sha256:5497bb1428974a37e8dcd6461c712a92583af7be27f3bb3c613fb7c01d9a7ba1
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
@@ -2187,7 +2186,7 @@ spec:
   - name: discovery_operator_tests
     image: quay.io/stolostron/discovery-operator-tests@sha256:eca7f9d731a61438ffe0ea18213de051a8e0e7126e18583bb20ee7dbf3b2382f
   - name: discovery-testserver
-    image: quay.io/stolostron/discovery-testserver@sha256:989723f782d265fb6f250c4f93dd7ab62e010806220ad8fe7aad08afd7526e02
+    image: quay.io/stolostron/discovery-testserver@sha256:c8634c5c577407870eb49b7a57b2689927b240ce8604c560cfb22918f02d9680
   - name: endpoint_monitoring_operator
     image: quay.io/stolostron/endpoint-monitoring-operator@sha256:5497bb1428974a37e8dcd6461c712a92583af7be27f3bb3c613fb7c01d9a7ba1
   - name: governance_policy_propagator
