@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-08T16:53:25Z'
+    createdAt: '2022-02-08T22:07:04Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["clusterstates.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io",
-      "clusterprovisions.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "observatoria.core.observatorium.io",
-      "fakeclusterinstalls.hiveinternal.openshift.io", "machinepoolnameleases.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
-      "clusterdeprovisions.hive.openshift.io", "checkpoints.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["clusterprovisions.hive.openshift.io", "clusterstates.hive.openshift.io",
+      "machinepoolnameleases.hive.openshift.io", "observatoria.core.observatorium.io", "clustersyncs.hiveinternal.openshift.io",
+      "fakeclusterinstalls.hiveinternal.openshift.io", "observabilityaddons.observability.open-cluster-management.io",
+      "clusterdeprovisions.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "checkpoints.hive.openshift.io"]'
   name: advanced-cluster-management.v2.4.2
   namespace: placeholder
   labels:
@@ -1816,7 +1816,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
                   value: quay.io/stolostron/multicloud-manager@sha256:5f6f6f826db5d7af9920c9ca770c18c0de605e1e3f37279a2063390a78db4282
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
-                  value: quay.io/stolostron/multicluster-observability-operator@sha256:2a770b41ab1496758abb9ba30814f8607ee0a2b85ccf23da1f6d66388b0f1a6d
+                  value: quay.io/stolostron/multicluster-observability-operator@sha256:72f708f3f9554e5cc77e36eb3842a42be163b3d42aca810055b1a52c27799bce
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
                   value: quay.io/stolostron/multicluster-operators-application@sha256:e5c83983e00303af4f2c0114555d0065a2003dac51dd0a8cfc93fbb0b4081b60
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
@@ -1840,7 +1840,7 @@ spec:
                 - name: OPERAND_IMAGE_NODE_EXPORTER
                   value: quay.io/stolostron/node-exporter@sha256:c9284d62fab26bab25e64636cf693940483333d8b4a0ab26ea639be228324e97
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
-                  value: quay.io/stolostron/observability-e2e-test@sha256:3e39f262b7be57b309eef171a5c96b755a9ec7281b652fd9e35ab818fb2c6f61
+                  value: quay.io/stolostron/observability-e2e-test@sha256:eb0f443d1112557c90d7bd9df6ff722e9e5e85dec6310d7237500aa0e24c1d42
                 - name: OPERAND_IMAGE_OBSERVATORIUM
                   value: quay.io/stolostron/observatorium@sha256:a0347f644a15e8ff39f1e931d0b446047164b0a63dba6424ef7bf5f2eba6e2de
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
@@ -1858,7 +1858,7 @@ spec:
                 - name: OPERAND_IMAGE_PROVIDER_CREDENTIAL_CONTROLLER
                   value: quay.io/stolostron/provider-credential-controller@sha256:bb973f10bf6e025e39515c28b7f2fec323073efe04656ca194cc9308e3cb5273
                 - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
-                  value: quay.io/stolostron/rbac-query-proxy@sha256:ed0e00b7633485d59b9e149ccb74c7a12f32d984349c84dd96edfed00bf93357
+                  value: quay.io/stolostron/rbac-query-proxy@sha256:debc849d178053a3e75139cd23f1da9619561fd139f86009a6f6206a7ca29cc3
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
                   value: quay.io/stolostron/redisgraph-tls@sha256:9bfcc76e721db7399690e35942b6fd184c8eed1f3a80a0bab6e0d40b28b2eb29
                 - name: OPERAND_IMAGE_REGISTRATION
@@ -2018,7 +2018,7 @@ spec:
                   value: /usr/local/manifests
                 - name: SPOKE_NAMESPACE
                   value: open-cluster-management-addon-observability
-                image: quay.io/stolostron/multicluster-observability-operator@sha256:2a770b41ab1496758abb9ba30814f8607ee0a2b85ccf23da1f6d66388b0f1a6d
+                image: quay.io/stolostron/multicluster-observability-operator@sha256:72f708f3f9554e5cc77e36eb3842a42be163b3d42aca810055b1a52c27799bce
                 lifecycle:
                   preStop:
                     exec:
@@ -2746,7 +2746,7 @@ spec:
   - name: node_exporter
     image: quay.io/stolostron/node-exporter@sha256:c9284d62fab26bab25e64636cf693940483333d8b4a0ab26ea639be228324e97
   - name: observability_e2e_test
-    image: quay.io/stolostron/observability-e2e-test@sha256:3e39f262b7be57b309eef171a5c96b755a9ec7281b652fd9e35ab818fb2c6f61
+    image: quay.io/stolostron/observability-e2e-test@sha256:eb0f443d1112557c90d7bd9df6ff722e9e5e85dec6310d7237500aa0e24c1d42
   - name: observatorium
     image: quay.io/stolostron/observatorium@sha256:a0347f644a15e8ff39f1e931d0b446047164b0a63dba6424ef7bf5f2eba6e2de
   - name: observatorium_operator
@@ -2764,7 +2764,7 @@ spec:
   - name: provider_credential_controller
     image: quay.io/stolostron/provider-credential-controller@sha256:bb973f10bf6e025e39515c28b7f2fec323073efe04656ca194cc9308e3cb5273
   - name: rbac_query_proxy
-    image: quay.io/stolostron/rbac-query-proxy@sha256:ed0e00b7633485d59b9e149ccb74c7a12f32d984349c84dd96edfed00bf93357
+    image: quay.io/stolostron/rbac-query-proxy@sha256:debc849d178053a3e75139cd23f1da9619561fd139f86009a6f6206a7ca29cc3
   - name: redisgraph_tls
     image: quay.io/stolostron/redisgraph-tls@sha256:9bfcc76e721db7399690e35942b6fd184c8eed1f3a80a0bab6e0d40b28b2eb29
   - name: registration
