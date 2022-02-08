@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-08T20:54:02Z'
+    createdAt: '2022-02-08T20:54:58Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1327,7 +1327,7 @@ spec:
                 - name: OPERAND_IMAGE_CLUSTER_BACKUP_CONTROLLER
                   value: quay.io/stolostron/cluster-backup-controller@sha256:8f745bb77af54e7cebd46468a620df810ecdb7a3f8d28574bd7a015bf949ca34
                 - name: OPERAND_IMAGE_CLUSTER_CURATOR_CONTROLLER
-                  value: quay.io/stolostron/cluster-curator-controller@sha256:ce821f5e66be83e62c907efbf89ef104b990790c330b61ecf4a22c156ecdb2e5
+                  value: quay.io/stolostron/cluster-curator-controller@sha256:7c69f78ae5d0af341d2db17ec05405b88c3e1bc5192844addf0c03f0886e183b
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
                   value: quay.io/stolostron/cluster-lifecycle-e2e@sha256:9c8feb863969986ecd709e2864cb48b03bbe416aa230c8e3682b1a7b9e09410f
                 - name: OPERAND_IMAGE_CLUSTER_PROXY_ADDON
@@ -1437,7 +1437,7 @@ spec:
                 - name: OPERAND_IMAGE_PROMETHEUS_OPERATOR
                   value: quay.io/stolostron/prometheus-operator@sha256:cf51f5302998cdd82edeeaf60a01cf11289101fb7e02c7a12a7b765c0c9751ff
                 - name: OPERAND_IMAGE_PROVIDER_CREDENTIAL_CONTROLLER
-                  value: quay.io/stolostron/provider-credential-controller@sha256:24239bd314817e6fe514c3a1c8f469907c5b633cf3d41798e2b4007829e679de
+                  value: quay.io/stolostron/provider-credential-controller@sha256:9f5bf3e39a867bd32686671dbe62308a44a800a5546072318ac18ba1ca95e06e
                 - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
                   value: quay.io/stolostron/rbac-query-proxy@sha256:65e3ecebb379692dc4338f78f19fe42fc43169c918e5ccce7963ca55a7c5d5de
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
@@ -2164,7 +2164,7 @@ spec:
   - name: cluster_backup_controller
     image: quay.io/stolostron/cluster-backup-controller@sha256:8f745bb77af54e7cebd46468a620df810ecdb7a3f8d28574bd7a015bf949ca34
   - name: cluster_curator_controller
-    image: quay.io/stolostron/cluster-curator-controller@sha256:ce821f5e66be83e62c907efbf89ef104b990790c330b61ecf4a22c156ecdb2e5
+    image: quay.io/stolostron/cluster-curator-controller@sha256:7c69f78ae5d0af341d2db17ec05405b88c3e1bc5192844addf0c03f0886e183b
   - name: cluster_lifecycle_e2e
     image: quay.io/stolostron/cluster-lifecycle-e2e@sha256:9c8feb863969986ecd709e2864cb48b03bbe416aa230c8e3682b1a7b9e09410f
   - name: cluster_proxy_addon
@@ -2262,7 +2262,7 @@ spec:
   - name: prometheus_operator
     image: quay.io/stolostron/prometheus-operator@sha256:cf51f5302998cdd82edeeaf60a01cf11289101fb7e02c7a12a7b765c0c9751ff
   - name: provider_credential_controller
-    image: quay.io/stolostron/provider-credential-controller@sha256:24239bd314817e6fe514c3a1c8f469907c5b633cf3d41798e2b4007829e679de
+    image: quay.io/stolostron/provider-credential-controller@sha256:9f5bf3e39a867bd32686671dbe62308a44a800a5546072318ac18ba1ca95e06e
   - name: rbac_query_proxy
     image: quay.io/stolostron/rbac-query-proxy@sha256:65e3ecebb379692dc4338f78f19fe42fc43169c918e5ccce7963ca55a7c5d5de
   - name: redisgraph_tls
