@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-08T20:11:19Z'
+    createdAt: '2022-02-08T20:15:28Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1335,7 +1335,7 @@ spec:
                 - name: OPERAND_IMAGE_CLUSTERCLAIMS_CONTROLLER
                   value: quay.io/stolostron/clusterclaims-controller@sha256:99ae77c81387993e976c7240309e65b2b4feb6f706856b26e76cd4bc93b7d345
                 - name: OPERAND_IMAGE_CLUSTERLIFECYCLE_STATE_METRICS
-                  value: quay.io/stolostron/clusterlifecycle-state-metrics@sha256:6849ad1bd13b191e58462c5a51cb685866bc2640fbd6cd7d161917d097a81c9e
+                  value: quay.io/stolostron/clusterlifecycle-state-metrics@sha256:ed5c851f3b4c50c575e8b7529744d937d6a39d2f438143a08fb8077fe4679b39
                 - name: OPERAND_IMAGE_CMB_CUSTOM_REGISTRY
                   value: quay.io/stolostron/cmb-custom-registry@sha256:21a62320cb93482afb11a603ffb483e27999daff7a7e8c43e63788908698f170
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
@@ -2172,7 +2172,7 @@ spec:
   - name: clusterclaims_controller
     image: quay.io/stolostron/clusterclaims-controller@sha256:99ae77c81387993e976c7240309e65b2b4feb6f706856b26e76cd4bc93b7d345
   - name: clusterlifecycle_state_metrics
-    image: quay.io/stolostron/clusterlifecycle-state-metrics@sha256:6849ad1bd13b191e58462c5a51cb685866bc2640fbd6cd7d161917d097a81c9e
+    image: quay.io/stolostron/clusterlifecycle-state-metrics@sha256:ed5c851f3b4c50c575e8b7529744d937d6a39d2f438143a08fb8077fe4679b39
   - name: cmb_custom_registry
     image: quay.io/stolostron/cmb-custom-registry@sha256:21a62320cb93482afb11a603ffb483e27999daff7a7e8c43e63788908698f170
   - name: config_policy_controller
