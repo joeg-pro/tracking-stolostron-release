@@ -22,14 +22,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-08T15:20:37Z'
+    createdAt: '2022-02-08T15:30:41Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1407,7 +1408,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
                   value: quay.io/stolostron/multicluster-operators-channel@sha256:c86ba00e0ec43b68e9277e45882d59ab872f6b58640fdb37df77d4c9f90c57d4
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION
-                  value: quay.io/stolostron/multicluster-operators-subscription@sha256:1eee56234b13c3f82835cd873518478e213c0519d8f1facc6797fb46a94369e3
+                  value: quay.io/stolostron/multicluster-operators-subscription@sha256:ef9a2a45d44adafd8004e16f4be3e142c8fcb90d6ddb4fb62bb668b7c248603b
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR
                   value: quay.io/stolostron/multiclusterhub-operator@sha256:c5aa676f8d29e02f7e03e951172ab787226395b9448aa2c07e7c5c0ac1ee357a
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
@@ -1684,7 +1685,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/stolostron/multicluster-operators-subscription@sha256:1eee56234b13c3f82835cd873518478e213c0519d8f1facc6797fb46a94369e3
+                image: quay.io/stolostron/multicluster-operators-subscription@sha256:ef9a2a45d44adafd8004e16f4be3e142c8fcb90d6ddb4fb62bb668b7c248603b
                 name: multicluster-operators-placementrule
                 resources:
                   limits:
@@ -1935,7 +1936,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/stolostron/multicluster-operators-subscription@sha256:1eee56234b13c3f82835cd873518478e213c0519d8f1facc6797fb46a94369e3
+                image: quay.io/stolostron/multicluster-operators-subscription@sha256:ef9a2a45d44adafd8004e16f4be3e142c8fcb90d6ddb4fb62bb668b7c248603b
                 name: multicluster-operators-subscription-report
                 resources:
                   limits:
@@ -2017,7 +2018,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/stolostron/multicluster-operators-subscription@sha256:1eee56234b13c3f82835cd873518478e213c0519d8f1facc6797fb46a94369e3
+                image: quay.io/stolostron/multicluster-operators-subscription@sha256:ef9a2a45d44adafd8004e16f4be3e142c8fcb90d6ddb4fb62bb668b7c248603b
                 name: multicluster-operators-standalone-subscription
                 resources:
                   limits:
@@ -2112,7 +2113,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/stolostron/multicluster-operators-subscription@sha256:1eee56234b13c3f82835cd873518478e213c0519d8f1facc6797fb46a94369e3
+                image: quay.io/stolostron/multicluster-operators-subscription@sha256:ef9a2a45d44adafd8004e16f4be3e142c8fcb90d6ddb4fb62bb668b7c248603b
                 name: multicluster-operators-hub-subscription
                 resources:
                   limits:
