@@ -4,6 +4,12 @@
         "image-namespace": "rhacm2",
 
         "image-list": [
+            {"acm-component-name": "acm_must_gather",                             "build-info-env-var": "ACM_MUST_GATHER"},
+            {"acm-component-name": "acm_prometheus_config_reloader",              "build-info-env-var": "ACM_PROMETHEUS_CONFIG_RELOADER"},
+            {"acm-component-name": "acm_prometheus_operator",                     "build-info-env-var": "ACM_PROMETHEUS_OPERATOR"},
+            {"acm-component-name": "acm_search_indexer",                          "build-info-env-var": "ACM_SEARCH_INDEXER"},
+            {"acm-component-name": "acm_search_v2_api",                           "build-info-env-var": "ACM_SEARCH_V2_API"},
+            {"acm-component-name": "acm_search_v2_operator",                      "build-info-env-var": "ACM_SEARCH_V2_OPERATOR"},
             {"acm-component-name": "application_ui",                              "build-info-env-var": "APPLICATION_UI"},
             {"acm-component-name": "assisted_image_service",                      "build-info-env-var": "ASSISTED_IMAGE_SERVICE"},
             {"acm-component-name": "assisted_installer",                          "build-info-env-var": "ASSISTED_INSTALLER"},
@@ -65,7 +71,6 @@
             {"acm-component-name": "volsync_mover_rclone",                        "build-info-env-var": "VOLSYNC_MOVER_RCLONE"},
             {"acm-component-name": "volsync_mover_restic",                        "build-info-env-var": "VOLSYNC_MOVER_RESTIC"},
             {"acm-component-name": "volsync_mover_rsync",                         "build-info-env-var": "VOLSYNC_MOVER_RSYNC"},
-            {"acm-component-name": "acm_must_gather",                             "build-info-env-var": "ACM_MUST_GATHER"},
             {"acm-component-name": "multiclusterhub_operator",                    "build-info-env-var": "MULTICLUSTERHUB_OPERATOR"}
         ]
     },
