@@ -112,12 +112,12 @@
   {
     "image-name": "cluster-backup-controller",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-2fdf2ff306d8307b4e38345795e79d5fe058c526",
-    "git-sha256": "2fdf2ff306d8307b4e38345795e79d5fe058c526",
+    "image-tag": "2.5.0-e7d108e0e1db0f4d0bb8538a6fd21a8e330a1093",
+    "git-sha256": "e7d108e0e1db0f4d0bb8538a6fd21a8e330a1093",
     "git-repository": "stolostron/cluster-backup-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:f9e37f0d55273a2dab7168d685081b81bcf516bc7e5e2e3c68d27e912ce73bb4",
+    "image-digest": "sha256:8f745bb77af54e7cebd46468a620df810ecdb7a3f8d28574bd7a015bf949ca34",
     "image-key": "cluster_backup_controller"
   },
   {
@@ -789,12 +789,12 @@
   {
     "image-name": "search-e2e",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-81f5a418f38f0bbbbcdd571e3188b317e42fd881",
-    "git-sha256": "81f5a418f38f0bbbbcdd571e3188b317e42fd881",
+    "image-tag": "2.5.0-aec5242237e54145b04a8d770e3a638ddc19c40e",
+    "git-sha256": "aec5242237e54145b04a8d770e3a638ddc19c40e",
     "git-repository": "stolostron/search-e2e-test",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:cba1427e3a7bc06125b789caffc290036431635bbe2c6f6ced16614ce42bc637",
+    "image-digest": "sha256:f26756d773c05c2260a5f13d4c8ee453ecc023b28e9fcdbc0cfc744484949799",
     "image-key": "search_e2e"
   },
   {
