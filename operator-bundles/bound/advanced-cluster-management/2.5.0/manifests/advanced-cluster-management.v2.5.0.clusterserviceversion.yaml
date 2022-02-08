@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-08T20:55:45Z'
+    createdAt: '2022-02-08T21:24:55Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1327,7 +1327,7 @@ spec:
                 - name: OPERAND_IMAGE_CLUSTER_BACKUP_CONTROLLER
                   value: quay.io/stolostron/cluster-backup-controller@sha256:8f745bb77af54e7cebd46468a620df810ecdb7a3f8d28574bd7a015bf949ca34
                 - name: OPERAND_IMAGE_CLUSTER_CURATOR_CONTROLLER
-                  value: quay.io/stolostron/cluster-curator-controller@sha256:ce821f5e66be83e62c907efbf89ef104b990790c330b61ecf4a22c156ecdb2e5
+                  value: quay.io/stolostron/cluster-curator-controller@sha256:7c69f78ae5d0af341d2db17ec05405b88c3e1bc5192844addf0c03f0886e183b
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
                   value: quay.io/stolostron/cluster-lifecycle-e2e@sha256:9c8feb863969986ecd709e2864cb48b03bbe416aa230c8e3682b1a7b9e09410f
                 - name: OPERAND_IMAGE_CLUSTER_PROXY_ADDON
@@ -1341,7 +1341,7 @@ spec:
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/stolostron/config-policy-controller@sha256:c6892867994b7450fd479e37962c6041a7688aa3cc9b858f2a50e7d2ef5fb18c
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/stolostron/console@sha256:b246984858a7b0d67d06b75977bcd7068f6eb846056b3427b6d494bc004bb7c2
+                  value: quay.io/stolostron/console@sha256:2ab4e45e58fc50ab76f29b2e5f3b04a40dd3383d9931d165065c9b43c9ffbe9d
                 - name: OPERAND_IMAGE_CONSOLE_API
                   value: quay.io/stolostron/console-api@sha256:a2685496c2fb72d370ca64ebbcd9b8b0030a9317680eb470018d35e138a5b8ce
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
@@ -2164,7 +2164,7 @@ spec:
   - name: cluster_backup_controller
     image: quay.io/stolostron/cluster-backup-controller@sha256:8f745bb77af54e7cebd46468a620df810ecdb7a3f8d28574bd7a015bf949ca34
   - name: cluster_curator_controller
-    image: quay.io/stolostron/cluster-curator-controller@sha256:ce821f5e66be83e62c907efbf89ef104b990790c330b61ecf4a22c156ecdb2e5
+    image: quay.io/stolostron/cluster-curator-controller@sha256:7c69f78ae5d0af341d2db17ec05405b88c3e1bc5192844addf0c03f0886e183b
   - name: cluster_lifecycle_e2e
     image: quay.io/stolostron/cluster-lifecycle-e2e@sha256:9c8feb863969986ecd709e2864cb48b03bbe416aa230c8e3682b1a7b9e09410f
   - name: cluster_proxy_addon
@@ -2178,7 +2178,7 @@ spec:
   - name: config_policy_controller
     image: quay.io/stolostron/config-policy-controller@sha256:c6892867994b7450fd479e37962c6041a7688aa3cc9b858f2a50e7d2ef5fb18c
   - name: console
-    image: quay.io/stolostron/console@sha256:b246984858a7b0d67d06b75977bcd7068f6eb846056b3427b6d494bc004bb7c2
+    image: quay.io/stolostron/console@sha256:2ab4e45e58fc50ab76f29b2e5f3b04a40dd3383d9931d165065c9b43c9ffbe9d
   - name: console_api
     image: quay.io/stolostron/console-api@sha256:a2685496c2fb72d370ca64ebbcd9b8b0030a9317680eb470018d35e138a5b8ce
   - name: discovery_operator
