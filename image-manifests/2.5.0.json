@@ -161,7 +161,7 @@
     "git-repository": "stolostron/clusterclaims-controller",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:68c940d200825f1b7a9f94a7fa28dd96b25f36183ff01920a0e13a1d7fc0e3d2",
+    "image-digest": "sha256:765e76c470c0e107117db4398a0df2a12472ad0300c084195c891078596144db",
     "image-key": "clusterclaims_controller"
   },
   {
@@ -789,12 +789,12 @@
   {
     "image-name": "search-e2e",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-cb77cfc1699c488e7bc893737170c6dd2b91aa29",
-    "git-sha256": "cb77cfc1699c488e7bc893737170c6dd2b91aa29",
+    "image-tag": "2.5.0-4e89c59781760a1c3870dad75bacbc561a54cc18",
+    "git-sha256": "4e89c59781760a1c3870dad75bacbc561a54cc18",
     "git-repository": "stolostron/search-e2e-test",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:7bc7a0958b83f2089ebb2aae573b1a4cd9b0b61c6b746d52dc7bde8780c07585",
+    "image-digest": "sha256:e99cce25ad0a7b1051fa3c8f1bd15c36ec90fa0f7a44393ab34c5bf135d19185",
     "image-key": "search_e2e"
   },
   {
