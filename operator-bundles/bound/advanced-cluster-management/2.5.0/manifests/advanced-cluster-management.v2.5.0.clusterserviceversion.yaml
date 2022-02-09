@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-09T01:34:20Z'
+    createdAt: '2022-02-09T03:16:18Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1333,7 +1333,7 @@ spec:
                 - name: OPERAND_IMAGE_CLUSTER_PROXY_ADDON
                   value: quay.io/stolostron/cluster-proxy-addon@sha256:fc3bdef678f073ebe6a1dbcc0afa2518e12d4909f3f9742d275c55f3f953032a
                 - name: OPERAND_IMAGE_CLUSTERCLAIMS_CONTROLLER
-                  value: quay.io/stolostron/clusterclaims-controller@sha256:68c940d200825f1b7a9f94a7fa28dd96b25f36183ff01920a0e13a1d7fc0e3d2
+                  value: quay.io/stolostron/clusterclaims-controller@sha256:765e76c470c0e107117db4398a0df2a12472ad0300c084195c891078596144db
                 - name: OPERAND_IMAGE_CLUSTERLIFECYCLE_STATE_METRICS
                   value: quay.io/stolostron/clusterlifecycle-state-metrics@sha256:7cc2bb21d6fcea841385c34ab83d443a1fa648c3b2ec1a8bde3d18b2e77422fe
                 - name: OPERAND_IMAGE_CMB_CUSTOM_REGISTRY
@@ -1449,7 +1449,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_COLLECTOR
                   value: quay.io/stolostron/search-collector@sha256:1f7259af8fd5591744c6477b3c35e1bba6b916458476ec3a0ee27fa1da6bf5b8
                 - name: OPERAND_IMAGE_SEARCH_E2E
-                  value: quay.io/stolostron/search-e2e@sha256:7bc7a0958b83f2089ebb2aae573b1a4cd9b0b61c6b746d52dc7bde8780c07585
+                  value: quay.io/stolostron/search-e2e@sha256:e99cce25ad0a7b1051fa3c8f1bd15c36ec90fa0f7a44393ab34c5bf135d19185
                 - name: OPERAND_IMAGE_SEARCH_INDEXER
                   value: quay.io/stolostron/search-indexer@sha256:f08fb931a2c0bb635825ec30ede6dbff4849b9fe54123826fbace9668a7e7832
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
@@ -2170,7 +2170,7 @@ spec:
   - name: cluster_proxy_addon
     image: quay.io/stolostron/cluster-proxy-addon@sha256:fc3bdef678f073ebe6a1dbcc0afa2518e12d4909f3f9742d275c55f3f953032a
   - name: clusterclaims_controller
-    image: quay.io/stolostron/clusterclaims-controller@sha256:68c940d200825f1b7a9f94a7fa28dd96b25f36183ff01920a0e13a1d7fc0e3d2
+    image: quay.io/stolostron/clusterclaims-controller@sha256:765e76c470c0e107117db4398a0df2a12472ad0300c084195c891078596144db
   - name: clusterlifecycle_state_metrics
     image: quay.io/stolostron/clusterlifecycle-state-metrics@sha256:7cc2bb21d6fcea841385c34ab83d443a1fa648c3b2ec1a8bde3d18b2e77422fe
   - name: cmb_custom_registry
@@ -2274,7 +2274,7 @@ spec:
   - name: search_collector
     image: quay.io/stolostron/search-collector@sha256:1f7259af8fd5591744c6477b3c35e1bba6b916458476ec3a0ee27fa1da6bf5b8
   - name: search_e2e
-    image: quay.io/stolostron/search-e2e@sha256:7bc7a0958b83f2089ebb2aae573b1a4cd9b0b61c6b746d52dc7bde8780c07585
+    image: quay.io/stolostron/search-e2e@sha256:e99cce25ad0a7b1051fa3c8f1bd15c36ec90fa0f7a44393ab34c5bf135d19185
   - name: search_indexer
     image: quay.io/stolostron/search-indexer@sha256:f08fb931a2c0bb635825ec30ede6dbff4849b9fe54123826fbace9668a7e7832
   - name: search_operator
