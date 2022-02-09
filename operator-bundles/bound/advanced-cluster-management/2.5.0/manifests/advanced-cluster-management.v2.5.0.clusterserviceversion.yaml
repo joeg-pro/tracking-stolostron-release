@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-09T06:47:42Z'
+    createdAt: '2022-02-09T06:50:21Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1401,7 +1401,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
                   value: quay.io/stolostron/multicloud-manager@sha256:5b4d10fc5b0799ef906bca7c0b23d1459bb2bdc86684f68a2276a04094b1840f
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
-                  value: quay.io/stolostron/multicluster-observability-operator@sha256:f3ad9cb9642ec73c21b3c7650fda0104b954cdf59aa7ef5ba140af3c8ce60f0f
+                  value: quay.io/stolostron/multicluster-observability-operator@sha256:3e968ef1670930b0b585fc1208378ad8925dbe15a1efc23a5cb47f6a7062c8b4
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
                   value: quay.io/stolostron/multicluster-operators-application@sha256:278d253036cf07513d7c0cda4376c5feca6e1830c940409dd248631c9fdd164b
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
@@ -1419,7 +1419,7 @@ spec:
                 - name: OPERAND_IMAGE_NODE_EXPORTER
                   value: quay.io/stolostron/node-exporter@sha256:351133c65942e94df09bb05139902482b77cdac949e2dc68d22acf9e8a47468d
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
-                  value: quay.io/stolostron/observability-e2e-test@sha256:e8112252e83a1c7e1401ef92c9c446d44f36776d4fa544d696e31cb1c6a37b93
+                  value: quay.io/stolostron/observability-e2e-test@sha256:9fed684bfa3b4957eb5bd6d1886f74c2aeb99d53e2223b5ee0de40f115d65bec
                 - name: OPERAND_IMAGE_OBSERVATORIUM
                   value: quay.io/stolostron/observatorium@sha256:cee16b6474b81542140d3c0460e78ba7906bb2bff504a6cc6563526603f49c83
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
@@ -1531,7 +1531,7 @@ spec:
                   value: /usr/local/manifests
                 - name: SPOKE_NAMESPACE
                   value: open-cluster-management-addon-observability
-                image: quay.io/stolostron/multicluster-observability-operator@sha256:f3ad9cb9642ec73c21b3c7650fda0104b954cdf59aa7ef5ba140af3c8ce60f0f
+                image: quay.io/stolostron/multicluster-observability-operator@sha256:3e968ef1670930b0b585fc1208378ad8925dbe15a1efc23a5cb47f6a7062c8b4
                 lifecycle:
                   preStop:
                     exec:
@@ -2244,7 +2244,7 @@ spec:
   - name: node_exporter
     image: quay.io/stolostron/node-exporter@sha256:351133c65942e94df09bb05139902482b77cdac949e2dc68d22acf9e8a47468d
   - name: observability_e2e_test
-    image: quay.io/stolostron/observability-e2e-test@sha256:e8112252e83a1c7e1401ef92c9c446d44f36776d4fa544d696e31cb1c6a37b93
+    image: quay.io/stolostron/observability-e2e-test@sha256:9fed684bfa3b4957eb5bd6d1886f74c2aeb99d53e2223b5ee0de40f115d65bec
   - name: observatorium
     image: quay.io/stolostron/observatorium@sha256:cee16b6474b81542140d3c0460e78ba7906bb2bff504a6cc6563526603f49c83
   - name: observatorium_operator
