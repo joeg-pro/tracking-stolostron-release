@@ -5,9 +5,14 @@
 
         "image-list": [
             {"acm-component-name": "backplane_must_gather",            "build-info-env-var": "MUST_GATHER"},
+            {"acm-component-name": "clusterclaims_controller",         "build-info-env-var": "CLUSTERCLAIMS_CONTROLLER"},
+            {"acm-component-name": "cluster_curator_controller",       "build-info-env-var": "CLUSTER_CURATOR_CONTROLLER"},
+            {"acm-component-name": "clusterlifecycle_state_metrics",   "build-info-env-var": "CLUSTERLIFECYCLE_STATE_METRICS"},
+            {"acm-component-name": "discovery_operator",               "build-info-env-var": "DISCOVERY_OPERATOR"},
             {"acm-component-name": "multicloud_manager",               "build-info-env-var": "MULTICLOUD_MANAGER"},
             {"acm-component-name": "managedcluster_import_controller", "build-info-env-var": "MANAGEDCLUSTER_IMPORT_CONTROLLER"},
             {"acm-component-name": "openshift_hive",                   "build-info-env-var": "OPENSHIFT_HIVE_OPERATOR"},
+            {"acm-component-name": "provider_credential_controller",   "build-info-env-var": "PROVIDER_CREDENTIAL_CONTROLLER"},
             {"acm-component-name": "placement",                        "build-info-env-var": "PLACEMENT"},
             {"acm-component-name": "registration",                     "build-info-env-var": "REGISTRATION"},
             {"acm-component-name": "registration_operator",            "build-info-env-var": "REGISTRATION_OPERATOR"},
