@@ -68,12 +68,12 @@
   {
     "image-name": "assisted-installer-controller",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-ff32f3b420a4acadd81f0fd600b4441ff3e6ba1e",
-    "git-sha256": "ff32f3b420a4acadd81f0fd600b4441ff3e6ba1e",
+    "image-tag": "2.5.0-c0a868f9bc00644dee925381fcb2a143d7444764",
+    "git-sha256": "c0a868f9bc00644dee925381fcb2a143d7444764",
     "git-repository": "openshift/assisted-installer",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:cb1e4844c8fb0416657662cc979f2c2b0beb962ac15357b12c3b9aa23f25b2da",
+    "image-digest": "sha256:d0fec720d8de516acd7e9343d215dfd0dc099fae762ecded8ee6226f3ec8dfaa",
     "image-key": "assisted_installer_controller"
   },
   {
@@ -833,12 +833,12 @@
   {
     "image-name": "submariner-addon",
     "image-version": "0.5.0",
-    "image-tag": "0.5.0-2721b564cf62326e61872b2bc26cf05f95add35f",
-    "git-sha256": "2721b564cf62326e61872b2bc26cf05f95add35f",
+    "image-tag": "0.5.0-93e7984da33499f67517efd88360f7698b41bd1d",
+    "git-sha256": "93e7984da33499f67517efd88360f7698b41bd1d",
     "git-repository": "stolostron/submariner-addon",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:84c116a2377249fd5a859689293a857441d2eaf1dd7b5e331981e1a430c90729",
+    "image-digest": "sha256:6badf3c48e0f9203d7bbcb8e4788453068cb02e259e954f5c86bd334530f046b",
     "image-key": "submariner_addon"
   },
   {
