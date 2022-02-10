@@ -23,13 +23,13 @@
   },
   {
     "image-name": "applifecycle-backend-e2e",
-    "image-version": "2.4.0",
-    "image-tag": "2.4.0-6908c1c9b4a843578abd75824c55135d29cb05e9",
-    "git-sha256": "6908c1c9b4a843578abd75824c55135d29cb05e9",
+    "image-version": "2.5.0",
+    "image-tag": "2.5.0-aada5389accdc15c2c614a302a9ca37f3bb6cfda",
+    "git-sha256": "aada5389accdc15c2c614a302a9ca37f3bb6cfda",
     "git-repository": "stolostron/applifecycle-backend-e2e",
     "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/open-cluster-management",
-    "image-digest": "sha256:d2a460cbc5694165d2beb30f5a61b3e66507e1bec8962ab070c1bf85be4b2542",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:b326a7e56143447e8b6004536bd8059d939fe20708a31877481879f1ffe6adee",
     "image-key": "applifecycle_backend_e2e"
   },
   {
