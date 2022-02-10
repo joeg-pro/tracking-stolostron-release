@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-10T21:36:53Z'
+    createdAt: '2022-02-10T21:43:06Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1309,7 +1309,7 @@ spec:
                 - name: OPERAND_IMAGE_APPLICATION_UI_TESTS
                   value: quay.io/stolostron/application-ui-tests@sha256:1f3668b2ad06ddb458971c43a1c94df492ae22901c4fa728b5c290689f11a911
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
-                  value: quay.io/stolostron/applifecycle-backend-e2e@sha256:d2a460cbc5694165d2beb30f5a61b3e66507e1bec8962ab070c1bf85be4b2542
+                  value: quay.io/stolostron/applifecycle-backend-e2e@sha256:b326a7e56143447e8b6004536bd8059d939fe20708a31877481879f1ffe6adee
                 - name: OPERAND_IMAGE_ASSISTED_IMAGE_SERVICE
                   value: quay.io/stolostron/assisted-image-service@sha256:922f8b934e44e7ad65a53d90200c9bf579a78086eea3ce2fda80a06f0880a169
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER
@@ -2146,7 +2146,7 @@ spec:
   - name: application_ui_tests
     image: quay.io/stolostron/application-ui-tests@sha256:1f3668b2ad06ddb458971c43a1c94df492ae22901c4fa728b5c290689f11a911
   - name: applifecycle_backend_e2e
-    image: quay.io/stolostron/applifecycle-backend-e2e@sha256:d2a460cbc5694165d2beb30f5a61b3e66507e1bec8962ab070c1bf85be4b2542
+    image: quay.io/stolostron/applifecycle-backend-e2e@sha256:b326a7e56143447e8b6004536bd8059d939fe20708a31877481879f1ffe6adee
   - name: assisted_image_service
     image: quay.io/stolostron/assisted-image-service@sha256:922f8b934e44e7ad65a53d90200c9bf579a78086eea3ce2fda80a06f0880a169
   - name: assisted_installer
