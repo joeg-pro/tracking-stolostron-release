@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-10T05:36:58Z'
+    createdAt: '2022-02-10T06:15:34Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1391,7 +1391,7 @@ spec:
                 - name: OPERAND_IMAGE_KUBE_STATE_METRICS
                   value: quay.io/stolostron/kube-state-metrics@sha256:81f90db9213fba461407244930f9614762f49dc88b3f09a9a7b929a86a9bb552
                 - name: OPERAND_IMAGE_MANAGEDCLUSTER_IMPORT_CONTROLLER
-                  value: quay.io/stolostron/managedcluster-import-controller@sha256:679efbcd55be22bbfeff121c4e607688f93ad9a41db1b39796579cbf0913bc43
+                  value: quay.io/stolostron/managedcluster-import-controller@sha256:822ae018c3619064bcf758295e0db1d33f0168de959ca903abfda33db9821c49
                 - name: OPERAND_IMAGE_MANAGEMENT_INGRESS
                   value: quay.io/stolostron/management-ingress@sha256:b4e2f2a3c7ad4656c11f70153eb05010f9f1039a622d25cc0fba8533ecc726e2
                 - name: OPERAND_IMAGE_METRICS_COLLECTOR
@@ -2228,7 +2228,7 @@ spec:
   - name: kube_state_metrics
     image: quay.io/stolostron/kube-state-metrics@sha256:81f90db9213fba461407244930f9614762f49dc88b3f09a9a7b929a86a9bb552
   - name: managedcluster_import_controller
-    image: quay.io/stolostron/managedcluster-import-controller@sha256:679efbcd55be22bbfeff121c4e607688f93ad9a41db1b39796579cbf0913bc43
+    image: quay.io/stolostron/managedcluster-import-controller@sha256:822ae018c3619064bcf758295e0db1d33f0168de959ca903abfda33db9821c49
   - name: management_ingress
     image: quay.io/stolostron/management-ingress@sha256:b4e2f2a3c7ad4656c11f70153eb05010f9f1039a622d25cc0fba8533ecc726e2
   - name: metrics_collector
