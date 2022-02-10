@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-10T07:37:07Z'
+    createdAt: '2022-02-10T07:37:34Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1317,7 +1317,7 @@ spec:
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_AGENT
                   value: quay.io/stolostron/assisted-installer-agent@sha256:3957025b1a266eeaca9dfc3083e41fe58476432625a2e7ed42dfecdf35d2d0b3
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_CONTROLLER
-                  value: quay.io/stolostron/assisted-installer-controller@sha256:728873b0a168ccb7c11df31e0e175f682ae65f8c47e542dcdb22d5bc83c083f3
+                  value: quay.io/stolostron/assisted-installer-controller@sha256:cb1e4844c8fb0416657662cc979f2c2b0beb962ac15357b12c3b9aa23f25b2da
                 - name: OPERAND_IMAGE_ASSISTED_SERVICE
                   value: quay.io/stolostron/assisted-service@sha256:5174a1d053d954cbc893bedc7d4b516e527ab3b354f6983609e4d2661e73c598
                 - name: OPERAND_IMAGE_BAILER
@@ -2154,7 +2154,7 @@ spec:
   - name: assisted_installer_agent
     image: quay.io/stolostron/assisted-installer-agent@sha256:3957025b1a266eeaca9dfc3083e41fe58476432625a2e7ed42dfecdf35d2d0b3
   - name: assisted_installer_controller
-    image: quay.io/stolostron/assisted-installer-controller@sha256:728873b0a168ccb7c11df31e0e175f682ae65f8c47e542dcdb22d5bc83c083f3
+    image: quay.io/stolostron/assisted-installer-controller@sha256:cb1e4844c8fb0416657662cc979f2c2b0beb962ac15357b12c3b9aa23f25b2da
   - name: assisted_service
     image: quay.io/stolostron/assisted-service@sha256:5174a1d053d954cbc893bedc7d4b516e527ab3b354f6983609e4d2661e73c598
   - name: bailer
