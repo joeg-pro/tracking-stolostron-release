@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-11T14:14:26Z'
+    createdAt: '2022-02-11T14:26:11Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1354,11 +1354,11 @@ spec:
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
                   value: quay.io/stolostron/endpoint-monitoring-operator@sha256:fdf4f0beef9e8eae4f9d63b7d43af0f63b3d2fa5193718c07e382ef7520e64fd
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
-                  value: quay.io/stolostron/governance-policy-propagator@sha256:c498863d3d04dfdc25c200b9171d1e0bba91ce99de77005761cc38023e2dc401
+                  value: quay.io/stolostron/governance-policy-propagator@sha256:823c2ec429e1d601f5614ef3889b54c296bc53a3986cda38f938a85cba77d385
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
                   value: quay.io/stolostron/governance-policy-spec-sync@sha256:bddf3c11f943d8262f9890904123819e93cf8f05a32538e388e4a9472f382a8b
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_STATUS_SYNC
-                  value: quay.io/stolostron/governance-policy-status-sync@sha256:a48eaf37381c630cd7b685d07640f9d292212bf673c8f22b80a462dc37af6e1e
+                  value: quay.io/stolostron/governance-policy-status-sync@sha256:834861b4e913a309f76c1a1b4398d344c594c9faba3a00b65788aa4e3c3af3af
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_TEMPLATE_SYNC
                   value: quay.io/stolostron/governance-policy-template-sync@sha256:05813d92b837c76f34ebfabdd8a8f9b7212cf0d414213f19244271f04918672b
                 - name: OPERAND_IMAGE_GRAFANA
@@ -1414,7 +1414,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
                   value: quay.io/stolostron/multiclusterhub-operator-tests@sha256:d167261ae40f8e85abc5b6e904460a08cb6369df55e54a1bed5ab875673201ff
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
-                  value: quay.io/stolostron/multiclusterhub-repo@sha256:1a26e0cd77ed841fd02278dfb9b842d2ced39e168a8596e87e723988478fb507
+                  value: quay.io/stolostron/multiclusterhub-repo@sha256:f557a96fb5312535ad6c1a083c5f7dc2fc0cb8cad5f6b60f1f382d90e6154127
                 - name: OPERAND_IMAGE_MUST_GATHER
                   value: quay.io/stolostron/must-gather@sha256:508366532d9ce6c61ef43270d22f0b89ead775fe9f2e2cc7cab428191e59bb55
                 - name: OPERAND_IMAGE_NODE_EXPORTER
@@ -2191,11 +2191,11 @@ spec:
   - name: endpoint_monitoring_operator
     image: quay.io/stolostron/endpoint-monitoring-operator@sha256:fdf4f0beef9e8eae4f9d63b7d43af0f63b3d2fa5193718c07e382ef7520e64fd
   - name: governance_policy_propagator
-    image: quay.io/stolostron/governance-policy-propagator@sha256:c498863d3d04dfdc25c200b9171d1e0bba91ce99de77005761cc38023e2dc401
+    image: quay.io/stolostron/governance-policy-propagator@sha256:823c2ec429e1d601f5614ef3889b54c296bc53a3986cda38f938a85cba77d385
   - name: governance_policy_spec_sync
     image: quay.io/stolostron/governance-policy-spec-sync@sha256:bddf3c11f943d8262f9890904123819e93cf8f05a32538e388e4a9472f382a8b
   - name: governance_policy_status_sync
-    image: quay.io/stolostron/governance-policy-status-sync@sha256:a48eaf37381c630cd7b685d07640f9d292212bf673c8f22b80a462dc37af6e1e
+    image: quay.io/stolostron/governance-policy-status-sync@sha256:834861b4e913a309f76c1a1b4398d344c594c9faba3a00b65788aa4e3c3af3af
   - name: governance_policy_template_sync
     image: quay.io/stolostron/governance-policy-template-sync@sha256:05813d92b837c76f34ebfabdd8a8f9b7212cf0d414213f19244271f04918672b
   - name: grafana
@@ -2239,7 +2239,7 @@ spec:
   - name: multiclusterhub_operator_tests
     image: quay.io/stolostron/multiclusterhub-operator-tests@sha256:d167261ae40f8e85abc5b6e904460a08cb6369df55e54a1bed5ab875673201ff
   - name: multiclusterhub_repo
-    image: quay.io/stolostron/multiclusterhub-repo@sha256:1a26e0cd77ed841fd02278dfb9b842d2ced39e168a8596e87e723988478fb507
+    image: quay.io/stolostron/multiclusterhub-repo@sha256:f557a96fb5312535ad6c1a083c5f7dc2fc0cb8cad5f6b60f1f382d90e6154127
   - name: must_gather
     image: quay.io/stolostron/must-gather@sha256:508366532d9ce6c61ef43270d22f0b89ead775fe9f2e2cc7cab428191e59bb55
   - name: node_exporter
