@@ -265,12 +265,12 @@
   {
     "image-name": "governance-policy-propagator",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-4c9bdf5ff7a5de816f40cec8bc35ffb54d5e6870",
-    "git-sha256": "4c9bdf5ff7a5de816f40cec8bc35ffb54d5e6870",
+    "image-tag": "1.0.0-48411188b4eef324a7081fb36cdccd5f6c5d8b49",
+    "git-sha256": "48411188b4eef324a7081fb36cdccd5f6c5d8b49",
     "git-repository": "stolostron/governance-policy-propagator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:c498863d3d04dfdc25c200b9171d1e0bba91ce99de77005761cc38023e2dc401",
+    "image-digest": "sha256:823c2ec429e1d601f5614ef3889b54c296bc53a3986cda38f938a85cba77d385",
     "image-key": "governance_policy_propagator"
   },
   {
@@ -287,12 +287,12 @@
   {
     "image-name": "governance-policy-status-sync",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-d923101eeba33bc5ebd8b6c08adff5290413e5fe",
-    "git-sha256": "d923101eeba33bc5ebd8b6c08adff5290413e5fe",
+    "image-tag": "1.0.0-f457c0ee5f0b14680a18478beeeaaa49affbd1ca",
+    "git-sha256": "f457c0ee5f0b14680a18478beeeaaa49affbd1ca",
     "git-repository": "stolostron/governance-policy-status-sync",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:a48eaf37381c630cd7b685d07640f9d292212bf673c8f22b80a462dc37af6e1e",
+    "image-digest": "sha256:834861b4e913a309f76c1a1b4398d344c594c9faba3a00b65788aa4e3c3af3af",
     "image-key": "governance_policy_status_sync"
   },
   {
@@ -594,12 +594,12 @@
   {
     "image-name": "multiclusterhub-repo",
     "image-version": "2.5",
-    "image-tag": "2.5-701c790a9c67a526ed77cdd7591dbd7b1c4b6342",
-    "git-sha256": "701c790a9c67a526ed77cdd7591dbd7b1c4b6342",
+    "image-tag": "2.5-4c057604a6e6d94a0549f460b1b802c1326d3a0c",
+    "git-sha256": "4c057604a6e6d94a0549f460b1b802c1326d3a0c",
     "git-repository": "stolostron/multiclusterhub-repo",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:1a26e0cd77ed841fd02278dfb9b842d2ced39e168a8596e87e723988478fb507",
+    "image-digest": "sha256:f557a96fb5312535ad6c1a083c5f7dc2fc0cb8cad5f6b60f1f382d90e6154127",
     "image-key": "multiclusterhub_repo"
   },
   {
