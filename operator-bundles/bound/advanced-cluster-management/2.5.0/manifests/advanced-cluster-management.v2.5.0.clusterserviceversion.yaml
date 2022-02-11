@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-11T17:31:17Z'
+    createdAt: '2022-02-11T17:44:56Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1341,7 +1341,7 @@ spec:
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/stolostron/config-policy-controller@sha256:3499f6ff2e1cd02f4b75974d194b6ce699eeb7d357f5fc6065e703bb5da432cb
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/stolostron/console@sha256:9c168fd87b84b0b3c5f4ac68bd7af55ba876b95bb444d54cdbb1dd9688b39c13
+                  value: quay.io/stolostron/console@sha256:cf6bbe86e266b8c44d4750c6a95577a2f5879d0483b29d43797074215032d0b8
                 - name: OPERAND_IMAGE_CONSOLE_API
                   value: quay.io/stolostron/console-api@sha256:a2685496c2fb72d370ca64ebbcd9b8b0030a9317680eb470018d35e138a5b8ce
                 - name: OPERAND_IMAGE_DISCOVERY_OPERATOR
@@ -2178,7 +2178,7 @@ spec:
   - name: config_policy_controller
     image: quay.io/stolostron/config-policy-controller@sha256:3499f6ff2e1cd02f4b75974d194b6ce699eeb7d357f5fc6065e703bb5da432cb
   - name: console
-    image: quay.io/stolostron/console@sha256:9c168fd87b84b0b3c5f4ac68bd7af55ba876b95bb444d54cdbb1dd9688b39c13
+    image: quay.io/stolostron/console@sha256:cf6bbe86e266b8c44d4750c6a95577a2f5879d0483b29d43797074215032d0b8
   - name: console_api
     image: quay.io/stolostron/console-api@sha256:a2685496c2fb72d370ca64ebbcd9b8b0030a9317680eb470018d35e138a5b8ce
   - name: discovery_operator
