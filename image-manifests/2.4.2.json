@@ -833,11 +833,12 @@
   {
     "image-name": "search-e2e",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-11e2f04233a30ed9416ecbf2648de7baf4dbffcc",
-    "git-sha256": "11e2f04233a30ed9416ecbf2648de7baf4dbffcc",
+    "image-tag": "2.4.0-39f280aa48fd1d94d9d47a441fb50ef7cb7c8679",
+    "git-sha256": "39f280aa48fd1d94d9d47a441fb50ef7cb7c8679",
     "git-repository": "stolostron/search-e2e-test",
     "image-remote": "quay.io/stolostron",
-    "image-digest": "sha256:325dad833b1827d17bc450343c6860d588dd6986b5d9acdf826b42cda2a16f30",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:39039de8ccf6b848273846a402ea3bb5948e6979128b777634132f31247e486b",
     "image-key": "search_e2e"
   },
   {
