@@ -22,14 +22,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-13T17:21:39Z'
+    createdAt: '2022-02-13T17:24:44Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1367,7 +1368,7 @@ spec:
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
                   value: quay.io/stolostron/grc-policy-framework-tests@sha256:2e003e378d5ebcd3344dbc059cae766aa6cad700bca0ae3d138d805359f18aca
                 - name: OPERAND_IMAGE_GRC_UI
-                  value: quay.io/stolostron/grc-ui@sha256:45f4c5d62eafe91775ba01bfb3f2ee7a6c1c60ba948b6f4269b08b11a1151f30
+                  value: quay.io/stolostron/grc-ui@sha256:e499c75878cc96636e94eb82470bb5ba33908bf6be131a1911e8ce5e7389d7ab
                 - name: OPERAND_IMAGE_GRC_UI_API
                   value: quay.io/stolostron/grc-ui-api@sha256:385d29d8b6d2d95dae2140ed0ebe1e84d7bcb04ba97ec370a635f96b0e04d30e
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
@@ -2204,7 +2205,7 @@ spec:
   - name: grc_policy_framework_tests
     image: quay.io/stolostron/grc-policy-framework-tests@sha256:2e003e378d5ebcd3344dbc059cae766aa6cad700bca0ae3d138d805359f18aca
   - name: grc_ui
-    image: quay.io/stolostron/grc-ui@sha256:45f4c5d62eafe91775ba01bfb3f2ee7a6c1c60ba948b6f4269b08b11a1151f30
+    image: quay.io/stolostron/grc-ui@sha256:e499c75878cc96636e94eb82470bb5ba33908bf6be131a1911e8ce5e7389d7ab
   - name: grc_ui_api
     image: quay.io/stolostron/grc-ui-api@sha256:385d29d8b6d2d95dae2140ed0ebe1e84d7bcb04ba97ec370a635f96b0e04d30e
   - name: grc_ui_tests
