@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-13T23:15:42Z'
+    createdAt: '2022-02-14T01:08:56Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1367,7 +1367,7 @@ spec:
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
                   value: quay.io/stolostron/grc-policy-framework-tests@sha256:2e003e378d5ebcd3344dbc059cae766aa6cad700bca0ae3d138d805359f18aca
                 - name: OPERAND_IMAGE_GRC_UI
-                  value: quay.io/stolostron/grc-ui@sha256:e499c75878cc96636e94eb82470bb5ba33908bf6be131a1911e8ce5e7389d7ab
+                  value: quay.io/stolostron/grc-ui@sha256:a44b2e2295516987c51eb902e547318e9a4f5afa05af84bfeffa78ccc2bb8250
                 - name: OPERAND_IMAGE_GRC_UI_API
                   value: quay.io/stolostron/grc-ui-api@sha256:385d29d8b6d2d95dae2140ed0ebe1e84d7bcb04ba97ec370a635f96b0e04d30e
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
@@ -1399,7 +1399,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLOUD_INTEGRATIONS
                   value: quay.io/stolostron/multicloud-integrations@sha256:af6baa5f7d9de668c71c6e4eec43d0cbf4902e739890f838978803b016182465
                 - name: OPERAND_IMAGE_MULTICLOUD_MANAGER
-                  value: quay.io/stolostron/multicloud-manager@sha256:5b4d10fc5b0799ef906bca7c0b23d1459bb2bdc86684f68a2276a04094b1840f
+                  value: quay.io/stolostron/multicloud-manager@sha256:45e0839d61d13cda71c81e26710ee6378318008e2d84c4950b0bf00615e03bf3
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
                   value: quay.io/stolostron/multicluster-observability-operator@sha256:51bcceb2c7746fc7a90b164543a1151f38dc9b0f551f194abaaca8907e326131
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
@@ -2204,7 +2204,7 @@ spec:
   - name: grc_policy_framework_tests
     image: quay.io/stolostron/grc-policy-framework-tests@sha256:2e003e378d5ebcd3344dbc059cae766aa6cad700bca0ae3d138d805359f18aca
   - name: grc_ui
-    image: quay.io/stolostron/grc-ui@sha256:e499c75878cc96636e94eb82470bb5ba33908bf6be131a1911e8ce5e7389d7ab
+    image: quay.io/stolostron/grc-ui@sha256:a44b2e2295516987c51eb902e547318e9a4f5afa05af84bfeffa78ccc2bb8250
   - name: grc_ui_api
     image: quay.io/stolostron/grc-ui-api@sha256:385d29d8b6d2d95dae2140ed0ebe1e84d7bcb04ba97ec370a635f96b0e04d30e
   - name: grc_ui_tests
@@ -2234,7 +2234,7 @@ spec:
   - name: metrics_collector
     image: quay.io/stolostron/metrics-collector@sha256:d643481b4f101a3d289d3c440c630c5744402e434972cd477d5e2724abeb4ed5
   - name: multicloud_manager
-    image: quay.io/stolostron/multicloud-manager@sha256:5b4d10fc5b0799ef906bca7c0b23d1459bb2bdc86684f68a2276a04094b1840f
+    image: quay.io/stolostron/multicloud-manager@sha256:45e0839d61d13cda71c81e26710ee6378318008e2d84c4950b0bf00615e03bf3
   - name: multiclusterhub_operator_tests
     image: quay.io/stolostron/multiclusterhub-operator-tests@sha256:b3729ff3b8121322a397d812067a7c9e2acfcff1a921a3a237d8d4a31612c1bc
   - name: multiclusterhub_repo
