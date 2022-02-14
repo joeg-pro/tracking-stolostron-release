@@ -22,15 +22,14 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-14T18:40:28Z'
+    createdAt: '2022-02-14T18:45:35Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1326,7 +1325,7 @@ spec:
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
                   value: quay.io/stolostron/cert-policy-controller@sha256:d57c628fbcfab15d66076cb0479d50368b8557c8e4ef5814d0d4962e86989093
                 - name: OPERAND_IMAGE_CLUSTER_BACKUP_CONTROLLER
-                  value: quay.io/stolostron/cluster-backup-controller@sha256:57c0350adfc888234b639de0cba82f4879377555a6ad3e0cdf52f5a30540937d
+                  value: quay.io/stolostron/cluster-backup-controller@sha256:b4286939a00f554cd5c322467168c29e453918a03af33fa1ff8f015eb97772f8
                 - name: OPERAND_IMAGE_CLUSTER_CURATOR_CONTROLLER
                   value: quay.io/stolostron/cluster-curator-controller@sha256:7c69f78ae5d0af341d2db17ec05405b88c3e1bc5192844addf0c03f0886e183b
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
@@ -2163,7 +2162,7 @@ spec:
   - name: cert_policy_controller
     image: quay.io/stolostron/cert-policy-controller@sha256:d57c628fbcfab15d66076cb0479d50368b8557c8e4ef5814d0d4962e86989093
   - name: cluster_backup_controller
-    image: quay.io/stolostron/cluster-backup-controller@sha256:57c0350adfc888234b639de0cba82f4879377555a6ad3e0cdf52f5a30540937d
+    image: quay.io/stolostron/cluster-backup-controller@sha256:b4286939a00f554cd5c322467168c29e453918a03af33fa1ff8f015eb97772f8
   - name: cluster_curator_controller
     image: quay.io/stolostron/cluster-curator-controller@sha256:7c69f78ae5d0af341d2db17ec05405b88c3e1bc5192844addf0c03f0886e183b
   - name: cluster_lifecycle_e2e
