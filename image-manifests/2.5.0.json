@@ -397,11 +397,11 @@
   {
     "image-name": "helloworld",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-0b46daf7058e8edb5e5bd689c0a84f5f0b92e6c0",
-    "git-sha256": "0b46daf7058e8edb5e5bd689c0a84f5f0b92e6c0",
+    "image-tag": "1.0.0-15d40958a4c3de70e7f807931b15bff5036f24dd",
+    "git-sha256": "15d40958a4c3de70e7f807931b15bff5036f24dd",
     "git-repository": "stolostron/example-cicd-component",
     "image-remote": "quay.io/stolostron",
-    "image-digest": "sha256:d743a1ccf9964e59f09743b769f99304c8e009d8c54125346b3e1f4701a4ed39",
+    "image-digest": "sha256:15d3507bf48713a84e03a897c74ac9fe5677d1bbbfb0ae43d469cbac50c03960",
     "image-key": "helloworld"
   },
   {
@@ -482,17 +482,6 @@
     "image-key": "kube_state_metrics"
   },
   {
-    "image-name": "managedcluster-import-controller",
-    "image-version": "2.5.0",
-    "image-tag": "2.5.0-5ba29c770be3e69083075f3b8ee0a708dd939aa1",
-    "git-sha256": "5ba29c770be3e69083075f3b8ee0a708dd939aa1",
-    "git-repository": "stolostron/managedcluster-import-controller",
-    "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:822ae018c3619064bcf758295e0db1d33f0168de959ca903abfda33db9821c49",
-    "image-key": "managedcluster_import_controller"
-  },
-  {
     "image-name": "management-ingress",
     "image-version": "2.3.0",
     "image-tag": "2.3.0-2c7abb3245cfcc2bac1f743e9436a928f5435a75",
@@ -524,17 +513,6 @@
     "image-remote-src": "registry.ci.openshift.org/stolostron",
     "image-digest": "sha256:a9877489920e2d65c13bf0d19c9697d28e97fa33366ccb5fc0f92b1f54271460",
     "image-key": "multicloud_integrations"
-  },
-  {
-    "image-name": "multicloud-manager",
-    "image-version": "2.5.0",
-    "image-tag": "2.5.0-b01ead83c195e3d43a8b34f2a1f0510c4698694d",
-    "git-sha256": "b01ead83c195e3d43a8b34f2a1f0510c4698694d",
-    "git-repository": "stolostron/multicloud-operators-foundation",
-    "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:45e0839d61d13cda71c81e26710ee6378318008e2d84c4950b0bf00615e03bf3",
-    "image-key": "multicloud_manager"
   },
   {
     "image-name": "multicluster-observability-operator",
