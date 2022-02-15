@@ -22,14 +22,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-14T23:13:22Z'
+    createdAt: '2022-02-15T02:01:29Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1319,7 +1320,7 @@ spec:
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_CONTROLLER
                   value: quay.io/stolostron/assisted-installer-controller@sha256:516c40be7fd3dcab1f4e0e3f11c9f3b91e4cc6227313ddd30f5ea6a094762f00
                 - name: OPERAND_IMAGE_ASSISTED_SERVICE
-                  value: quay.io/stolostron/assisted-service@sha256:a7b9b812793f859c6998b433d42d4ca400218bfc49d1d298e82599dbca3429ac
+                  value: quay.io/stolostron/assisted-service@sha256:fe4159a57258690c8e8854d7df386174962d4721c449a5879ccf8419f7235e8b
                 - name: OPERAND_IMAGE_BAILER
                   value: quay.io/stolostron/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
@@ -2156,7 +2157,7 @@ spec:
   - name: assisted_installer_controller
     image: quay.io/stolostron/assisted-installer-controller@sha256:516c40be7fd3dcab1f4e0e3f11c9f3b91e4cc6227313ddd30f5ea6a094762f00
   - name: assisted_service
-    image: quay.io/stolostron/assisted-service@sha256:a7b9b812793f859c6998b433d42d4ca400218bfc49d1d298e82599dbca3429ac
+    image: quay.io/stolostron/assisted-service@sha256:fe4159a57258690c8e8854d7df386174962d4721c449a5879ccf8419f7235e8b
   - name: bailer
     image: quay.io/stolostron/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
   - name: cert_policy_controller
