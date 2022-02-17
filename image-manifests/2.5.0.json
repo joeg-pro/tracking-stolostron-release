@@ -177,12 +177,12 @@
   {
     "image-name": "console",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-4de544aff44895d618fc6facc26cc0a7f555f050",
-    "git-sha256": "4de544aff44895d618fc6facc26cc0a7f555f050",
+    "image-tag": "2.5.0-346ed4b71e23368ef40b9970ef56d50cbc9741f0",
+    "git-sha256": "346ed4b71e23368ef40b9970ef56d50cbc9741f0",
     "git-repository": "stolostron/console",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:37cd487e01a7079ed792ea389097d9ce6cf295d94724a1210289d29e0c4c69b7",
+    "image-digest": "sha256:b5c9ab6d8cd22cac42a41d68c8061c39cfbe46a96c0d04c6229c106d6aa5ffe2",
     "image-key": "console"
   },
   {
@@ -232,12 +232,12 @@
   {
     "image-name": "governance-policy-spec-sync",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-a02609cc32e8fa78051a4d40c95065e716a9e209",
-    "git-sha256": "a02609cc32e8fa78051a4d40c95065e716a9e209",
+    "image-tag": "1.0.0-fa2e2968059dd5c2f290b9c4775663a7ac1baec5",
+    "git-sha256": "fa2e2968059dd5c2f290b9c4775663a7ac1baec5",
     "git-repository": "stolostron/governance-policy-spec-sync",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:b3456372f18e50e858dab3b71be2273870589ce4cf82ccf4f2a6849f1cb6368a",
+    "image-digest": "sha256:36622775bc03fe04bf7bc74b5203cb8d29ba1013d3c935c0ad725264585fd5f1",
     "image-key": "governance_policy_spec_sync"
   },
   {
@@ -352,12 +352,12 @@
   {
     "image-name": "iam-policy-controller",
     "image-version": "2.0.0",
-    "image-tag": "2.0.0-656b2573af8e0cc45b4d3f7cb6ee09a3919fe513",
-    "git-sha256": "656b2573af8e0cc45b4d3f7cb6ee09a3919fe513",
+    "image-tag": "2.0.0-f66311409580e7a4c7a9ef76e1008a5cdf8d27dc",
+    "git-sha256": "f66311409580e7a4c7a9ef76e1008a5cdf8d27dc",
     "git-repository": "stolostron/iam-policy-controller",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:867628101ca5123d529e8fcb8269e9a6a63099a05935fe5d3aa4dd62f416e62a",
+    "image-digest": "sha256:e465530e75a5a8cba546ab83ef941a2536f92fcf11e7adf4792ced0006794091",
     "image-key": "iam_policy_controller"
   },
   {
