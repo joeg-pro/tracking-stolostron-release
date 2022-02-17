@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-17T00:34:43Z'
+    createdAt: '2022-02-17T00:58:02Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1431,7 +1431,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_API
                   value: quay.io/stolostron/search-api@sha256:1b4b737bd9d7487dc7fe60e09a88e4aadad1e7e5df3abcf4311338874663e6d1
                 - name: OPERAND_IMAGE_SEARCH_COLLECTOR
-                  value: quay.io/stolostron/search-collector@sha256:1f7259af8fd5591744c6477b3c35e1bba6b916458476ec3a0ee27fa1da6bf5b8
+                  value: quay.io/stolostron/search-collector@sha256:e305dda6da8fc87bac8735985508e7cae365fa4e8772bf34f185fb8256013bd2
                 - name: OPERAND_IMAGE_SEARCH_E2E
                   value: quay.io/stolostron/search-e2e@sha256:6d384883836e8dffcd9b674287e429e819ea3052c383c253bafe5cf562068840
                 - name: OPERAND_IMAGE_SEARCH_INDEXER
@@ -2240,7 +2240,7 @@ spec:
   - name: search_api
     image: quay.io/stolostron/search-api@sha256:1b4b737bd9d7487dc7fe60e09a88e4aadad1e7e5df3abcf4311338874663e6d1
   - name: search_collector
-    image: quay.io/stolostron/search-collector@sha256:1f7259af8fd5591744c6477b3c35e1bba6b916458476ec3a0ee27fa1da6bf5b8
+    image: quay.io/stolostron/search-collector@sha256:e305dda6da8fc87bac8735985508e7cae365fa4e8772bf34f185fb8256013bd2
   - name: search_e2e
     image: quay.io/stolostron/search-e2e@sha256:6d384883836e8dffcd9b674287e429e819ea3052c383c253bafe5cf562068840
   - name: search_indexer
