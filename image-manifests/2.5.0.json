@@ -208,6 +208,17 @@
     "image-key": "endpoint_monitoring_operator"
   },
   {
+    "image-name": "governance-policy-addon-controller",
+    "image-version": "1.0.0",
+    "image-tag": "1.0.0-14dcb4721d19f173eb9e52c9ed1c9f75e69a030f",
+    "git-sha256": "14dcb4721d19f173eb9e52c9ed1c9f75e69a030f",
+    "git-repository": "stolostron/governance-policy-addon-controller",
+    "image-remote": "quay.io/stolostron",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:ad42981b0e082e13e718d0f15d3e3bcdc860cf14d7eeee58432942ee6b760b6a",
+    "image-key": "governance_policy_addon_controller"
+  },
+  {
     "image-name": "governance-policy-propagator",
     "image-version": "1.0.0",
     "image-tag": "1.0.0-1a04477f8f3815645684908f33139319d2562291",
