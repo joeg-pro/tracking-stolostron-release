@@ -79,12 +79,12 @@
   {
     "image-name": "assisted-service",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-67e0bc1275f07acf46a2f4531f6984e6f7edb7f3",
-    "git-sha256": "67e0bc1275f07acf46a2f4531f6984e6f7edb7f3",
+    "image-tag": "2.5.0-fe16c558e937d464429fdbb389c1ebe07cef293e",
+    "git-sha256": "fe16c558e937d464429fdbb389c1ebe07cef293e",
     "git-repository": "openshift/assisted-service",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:36f0310f2ff6534f4464330f5344d99911c1e13da831a4650006adca0fd09b26",
+    "image-digest": "sha256:93366aac8b7b8d848ea4f206c16c23b1be6c2a24d23b45c3328fb3e7c87923b8",
     "image-key": "assisted_service"
   },
   {
@@ -177,12 +177,12 @@
   {
     "image-name": "console",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-c3015651b515da9d5da17c242512480c7b1e2ffd",
-    "git-sha256": "c3015651b515da9d5da17c242512480c7b1e2ffd",
+    "image-tag": "2.5.0-b384222a94049f8cd68a62d8b098365921640c60",
+    "git-sha256": "b384222a94049f8cd68a62d8b098365921640c60",
     "git-repository": "stolostron/console",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:db24bd9be9829d7e428f21824fab2777fb2c0dd5159a8ebd98533b9b40be52c6",
+    "image-digest": "sha256:5bbc15137f8dae472efe104bacc097681392563fb3202095954a4ed14ac2539b",
     "image-key": "console"
   },
   {
@@ -331,11 +331,11 @@
   {
     "image-name": "helloworld",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-b4f6bacd28c33667b0cdd094cf175103d6697277",
-    "git-sha256": "b4f6bacd28c33667b0cdd094cf175103d6697277",
+    "image-tag": "1.0.0-c95c8a809f34d80ff451cb42ba6a1cc95902a794",
+    "git-sha256": "c95c8a809f34d80ff451cb42ba6a1cc95902a794",
     "git-repository": "stolostron/example-cicd-component",
     "image-remote": "quay.io/stolostron",
-    "image-digest": "sha256:1c2be96ac301ef59a6d821c09bc38dae4000f8ac931fd8ce09323d63009d5a9d",
+    "image-digest": "sha256:e8b9d437bf89614084d3059e9c4ed1682c78ca24966d1db2aa7b8165fef478c6",
     "image-key": "helloworld"
   },
   {
