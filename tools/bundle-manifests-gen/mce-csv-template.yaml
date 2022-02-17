@@ -10,7 +10,7 @@ metadata:
     createdAt: "*Insert* eg: 2021-07-06T17:00:00Z>"
     description: Foundational components for central management of multiple OpenShift Container Platform and Kubernetes clusters
     operatorframework.io/suggested-namespace: multicluster-engine
-    operatorframework.io/initialization-resource: '{"apiVersion":"multicluster.openshift.io/v1alpha1",
+    operatorframework.io/initialization-resource: '{"apiVersion":"multicluster.openshift.io/v1",
        "kind":"MultiClusterEngine","metadata":{"name":"engine","namespace":"multicluster-engine"},
        "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
