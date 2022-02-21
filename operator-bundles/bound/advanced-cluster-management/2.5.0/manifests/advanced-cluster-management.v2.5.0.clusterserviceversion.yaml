@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-21T16:36:46Z'
+    createdAt: '2022-02-21T16:40:45Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1399,7 +1399,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR
                   value: quay.io/stolostron/multiclusterhub-operator@sha256:a6827970b309d174d7d24f4878919882db0fe9990e39b322e7a91fb75eee02e6
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
-                  value: quay.io/stolostron/multiclusterhub-operator-tests@sha256:a85c30d6f244cbf775a843fa17aefc36c92cbcf204da67582e467dd37bfc4ce2
+                  value: quay.io/stolostron/multiclusterhub-operator-tests@sha256:6c0142089d2b51d9697afa319eede41485c23c3e962c8a03436be161338acf91
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
                   value: quay.io/stolostron/multiclusterhub-repo@sha256:0186ab1368bf318ace57bb520419810d4a4aafc07306d89cfba68e3bfee7b37f
                 - name: OPERAND_IMAGE_MUST_GATHER
@@ -2210,7 +2210,7 @@ spec:
   - name: metrics_collector
     image: quay.io/stolostron/metrics-collector@sha256:d643481b4f101a3d289d3c440c630c5744402e434972cd477d5e2724abeb4ed5
   - name: multiclusterhub_operator_tests
-    image: quay.io/stolostron/multiclusterhub-operator-tests@sha256:a85c30d6f244cbf775a843fa17aefc36c92cbcf204da67582e467dd37bfc4ce2
+    image: quay.io/stolostron/multiclusterhub-operator-tests@sha256:6c0142089d2b51d9697afa319eede41485c23c3e962c8a03436be161338acf91
   - name: multiclusterhub_repo
     image: quay.io/stolostron/multiclusterhub-repo@sha256:0186ab1368bf318ace57bb520419810d4a4aafc07306d89cfba68e3bfee7b37f
   - name: must_gather
