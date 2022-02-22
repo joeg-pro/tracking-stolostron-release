@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-22T11:08:39Z'
+    createdAt: '2022-02-22T15:27:53Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1326,7 +1326,7 @@ spec:
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
                   value: quay.io/stolostron/cert-policy-controller@sha256:268ad20d5326bd7ed1e50c4541caedf0164848841620c5b005a96b1e0af3176f
                 - name: OPERAND_IMAGE_CLUSTER_BACKUP_CONTROLLER
-                  value: quay.io/stolostron/cluster-backup-controller@sha256:4d6e89b6e8cf09aefa24525f04e715606943e5f79a35e87a5c79b3aacee56b72
+                  value: quay.io/stolostron/cluster-backup-controller@sha256:7b73ef1d842a2a4eb211cc7f85f3b50b8a5193981289b4f61797fd036e9de22e
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
                   value: quay.io/stolostron/cluster-lifecycle-e2e@sha256:350585832564739ee8f2eab26b84c07245b5b43b03b5a41e52d4c5fb9678d69d
                 - name: OPERAND_IMAGE_CLUSTER_PROXY
@@ -1368,7 +1368,7 @@ spec:
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/stolostron/helloprow-go@sha256:4b00171a00bf22ce254417ff2fe69aeabc513bc19a209918af906c186ff648f6
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/stolostron/helloworld@sha256:e8b9d437bf89614084d3059e9c4ed1682c78ca24966d1db2aa7b8165fef478c6
+                  value: quay.io/stolostron/helloworld@sha256:00e2ea525fdad1021e52ae442788c1234cf1480d6ba11b4223aaa68222a30ab5
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
                   value: quay.io/stolostron/iam-policy-controller@sha256:6e3280000fcb576bc5d08446d44e6add5add4e0eeceb4e4d32285cdf0584a0b4
                 - name: OPERAND_IMAGE_INSIGHTS_CLIENT
@@ -1402,7 +1402,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
                   value: quay.io/stolostron/multiclusterhub-operator-tests@sha256:6c0142089d2b51d9697afa319eede41485c23c3e962c8a03436be161338acf91
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
-                  value: quay.io/stolostron/multiclusterhub-repo@sha256:838169c29b3aa7fcdd98cb9d1be0d9e9e1de5a6b369e983dcb5b85af41b470cf
+                  value: quay.io/stolostron/multiclusterhub-repo@sha256:77fe911ee887fa7a40e4060d88df566b4ac0c11cfbe8263cac5dccbbe635061c
                 - name: OPERAND_IMAGE_MUST_GATHER
                   value: quay.io/stolostron/must-gather@sha256:758b5afc2fdd0c8c2fc81a31cfe5ace76058aad4eac28251a57b65d8865ca62a
                 - name: OPERAND_IMAGE_NODE_EXPORTER
@@ -1416,7 +1416,7 @@ spec:
                 - name: OPERAND_IMAGE_OAUTH_PROXY
                   value: quay.io/stolostron/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
                 - name: OPERAND_IMAGE_POSTGRESQL_12
-                  value: quay.io/stolostron/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
+                  value: quay.io/stolostron/postgresql-12@sha256:dd2186a953bd831f98e7059b70c3b0b12e23c891f75137f823075222c2290f26
                 - name: OPERAND_IMAGE_PROMETHEUS
                   value: quay.io/stolostron/prometheus@sha256:b652d2dc3a9a12eeec65652ab2e64f0b8ed8f7464db354e3f33d2fc422174d5d
                 - name: OPERAND_IMAGE_PROMETHEUS_ALERTMANAGER
@@ -2149,7 +2149,7 @@ spec:
   - name: cert_policy_controller
     image: quay.io/stolostron/cert-policy-controller@sha256:268ad20d5326bd7ed1e50c4541caedf0164848841620c5b005a96b1e0af3176f
   - name: cluster_backup_controller
-    image: quay.io/stolostron/cluster-backup-controller@sha256:4d6e89b6e8cf09aefa24525f04e715606943e5f79a35e87a5c79b3aacee56b72
+    image: quay.io/stolostron/cluster-backup-controller@sha256:7b73ef1d842a2a4eb211cc7f85f3b50b8a5193981289b4f61797fd036e9de22e
   - name: cluster_lifecycle_e2e
     image: quay.io/stolostron/cluster-lifecycle-e2e@sha256:350585832564739ee8f2eab26b84c07245b5b43b03b5a41e52d4c5fb9678d69d
   - name: cluster_proxy
@@ -2191,7 +2191,7 @@ spec:
   - name: helloprow_go
     image: quay.io/stolostron/helloprow-go@sha256:4b00171a00bf22ce254417ff2fe69aeabc513bc19a209918af906c186ff648f6
   - name: helloworld
-    image: quay.io/stolostron/helloworld@sha256:e8b9d437bf89614084d3059e9c4ed1682c78ca24966d1db2aa7b8165fef478c6
+    image: quay.io/stolostron/helloworld@sha256:00e2ea525fdad1021e52ae442788c1234cf1480d6ba11b4223aaa68222a30ab5
   - name: iam_policy_controller
     image: quay.io/stolostron/iam-policy-controller@sha256:6e3280000fcb576bc5d08446d44e6add5add4e0eeceb4e4d32285cdf0584a0b4
   - name: insights_client
@@ -2213,7 +2213,7 @@ spec:
   - name: multiclusterhub_operator_tests
     image: quay.io/stolostron/multiclusterhub-operator-tests@sha256:6c0142089d2b51d9697afa319eede41485c23c3e962c8a03436be161338acf91
   - name: multiclusterhub_repo
-    image: quay.io/stolostron/multiclusterhub-repo@sha256:838169c29b3aa7fcdd98cb9d1be0d9e9e1de5a6b369e983dcb5b85af41b470cf
+    image: quay.io/stolostron/multiclusterhub-repo@sha256:77fe911ee887fa7a40e4060d88df566b4ac0c11cfbe8263cac5dccbbe635061c
   - name: must_gather
     image: quay.io/stolostron/must-gather@sha256:758b5afc2fdd0c8c2fc81a31cfe5ace76058aad4eac28251a57b65d8865ca62a
   - name: node_exporter
@@ -2227,7 +2227,7 @@ spec:
   - name: oauth_proxy
     image: quay.io/stolostron/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
   - name: postgresql_12
-    image: quay.io/stolostron/postgresql-12-centos7@sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1
+    image: quay.io/stolostron/postgresql-12@sha256:dd2186a953bd831f98e7059b70c3b0b12e23c891f75137f823075222c2290f26
   - name: prometheus
     image: quay.io/stolostron/prometheus@sha256:b652d2dc3a9a12eeec65652ab2e64f0b8ed8f7464db354e3f33d2fc422174d5d
   - name: prometheus_alertmanager
