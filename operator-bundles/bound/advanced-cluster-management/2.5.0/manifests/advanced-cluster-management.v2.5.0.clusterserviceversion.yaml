@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-22T08:37:21Z'
+    createdAt: '2022-02-22T11:04:17Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1345,7 +1345,7 @@ spec:
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_ADDON_CONTROLLER
                   value: quay.io/stolostron/governance-policy-addon-controller@sha256:ad42981b0e082e13e718d0f15d3e3bcdc860cf14d7eeee58432942ee6b760b6a
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
-                  value: quay.io/stolostron/governance-policy-propagator@sha256:087d057ef2273340521e3939d5cd90b7d7c2b16ef10ddc2770bd1bcd09c1b6ac
+                  value: quay.io/stolostron/governance-policy-propagator@sha256:978df2c93f0af6cfee28731c457bf830569a56640e5fbc69d08a792feec57e9a
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
                   value: quay.io/stolostron/governance-policy-spec-sync@sha256:6635a6f98c97a93d6cc81f292e1d07f2c7bc1533251aa62042fee3dc3bd72a5d
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_STATUS_SYNC
@@ -2168,7 +2168,7 @@ spec:
   - name: governance_policy_addon_controller
     image: quay.io/stolostron/governance-policy-addon-controller@sha256:ad42981b0e082e13e718d0f15d3e3bcdc860cf14d7eeee58432942ee6b760b6a
   - name: governance_policy_propagator
-    image: quay.io/stolostron/governance-policy-propagator@sha256:087d057ef2273340521e3939d5cd90b7d7c2b16ef10ddc2770bd1bcd09c1b6ac
+    image: quay.io/stolostron/governance-policy-propagator@sha256:978df2c93f0af6cfee28731c457bf830569a56640e5fbc69d08a792feec57e9a
   - name: governance_policy_spec_sync
     image: quay.io/stolostron/governance-policy-spec-sync@sha256:6635a6f98c97a93d6cc81f292e1d07f2c7bc1533251aa62042fee3dc3bd72a5d
   - name: governance_policy_status_sync
