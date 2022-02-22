@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-22T14:43:12Z'
+    createdAt: '2022-02-22T14:43:37Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "clusterdeprovisions.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io", "observatoria.core.observatorium.io",
-      "fakeclusterinstalls.hiveinternal.openshift.io", "clusterstates.hive.openshift.io", "checkpoints.hive.openshift.io",
-      "clustersyncleases.hiveinternal.openshift.io", "clusterprovisions.hive.openshift.io", "machinepoolnameleases.hive.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["clusterstates.hive.openshift.io", "machinepoolnameleases.hive.openshift.io",
+      "fakeclusterinstalls.hiveinternal.openshift.io", "clusterdeprovisions.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io",
+      "observabilityaddons.observability.open-cluster-management.io", "clusterprovisions.hive.openshift.io",
+      "observatoria.core.observatorium.io", "checkpoints.hive.openshift.io", "clustersyncs.hiveinternal.openshift.io"]'
   name: advanced-cluster-management.v2.4.2
   namespace: placeholder
   labels:
@@ -1830,7 +1830,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION_RELEASE
                   value: quay.io/stolostron/multicluster-operators-subscription-release@sha256:a3af97df694272ee3c089cc596c020c212ab31ec8ae7d0409333475cce6d20fa
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR
-                  value: quay.io/stolostron/multiclusterhub-operator@sha256:adf34879058f22851e028e4692ff6d8c22442bfcb517c63b6cc1bd9196de1510
+                  value: quay.io/stolostron/multiclusterhub-operator@sha256:6a366d82ad46212d3a349893db90851160f3eb7057ef7430080992c9d7d82c9d
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
                   value: quay.io/stolostron/multiclusterhub-operator-tests@sha256:39171a664de19a0a72510ae88268bc3cca3923dd5bc8cdbd883bb390cf8806ed
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
@@ -1891,7 +1891,7 @@ spec:
                   value: quay.io/stolostron/volsync-mover-rsync@sha256:ff296e3dc3b20841d4533676f49c2811e7acb8c08c522cd2cd9dade542c05741
                 - name: OPERAND_IMAGE_WORK
                   value: quay.io/stolostron/work@sha256:fc40c399ef16f6e48cddae2cf2b3ecd3dc21990c9a20c50faa7caf77b89796cf
-                image: quay.io/stolostron/multiclusterhub-operator@sha256:adf34879058f22851e028e4692ff6d8c22442bfcb517c63b6cc1bd9196de1510
+                image: quay.io/stolostron/multiclusterhub-operator@sha256:6a366d82ad46212d3a349893db90851160f3eb7057ef7430080992c9d7d82c9d
                 livenessProbe:
                   httpGet:
                     path: /healthz
