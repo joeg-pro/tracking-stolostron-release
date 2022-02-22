@@ -112,12 +112,12 @@
   {
     "image-name": "cluster-backup-controller",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-eba1445998b725a3830a4544055a2b479d724b41",
-    "git-sha256": "eba1445998b725a3830a4544055a2b479d724b41",
+    "image-tag": "2.5.0-a63f4cde6e9b577884389442b5e95d0268fc131a",
+    "git-sha256": "a63f4cde6e9b577884389442b5e95d0268fc131a",
     "git-repository": "stolostron/cluster-backup-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:4d6e89b6e8cf09aefa24525f04e715606943e5f79a35e87a5c79b3aacee56b72",
+    "image-digest": "sha256:7b73ef1d842a2a4eb211cc7f85f3b50b8a5193981289b4f61797fd036e9de22e",
     "image-key": "cluster_backup_controller"
   },
   {
@@ -342,11 +342,11 @@
   {
     "image-name": "helloworld",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-c95c8a809f34d80ff451cb42ba6a1cc95902a794",
-    "git-sha256": "c95c8a809f34d80ff451cb42ba6a1cc95902a794",
+    "image-tag": "1.0.0-e7dd84d6338ebf2f84133b5673978e0a731eef55",
+    "git-sha256": "e7dd84d6338ebf2f84133b5673978e0a731eef55",
     "git-repository": "stolostron/example-cicd-component",
     "image-remote": "quay.io/stolostron",
-    "image-digest": "sha256:e8b9d437bf89614084d3059e9c4ed1682c78ca24966d1db2aa7b8165fef478c6",
+    "image-digest": "sha256:00e2ea525fdad1021e52ae442788c1234cf1480d6ba11b4223aaa68222a30ab5",
     "image-key": "helloworld"
   },
   {
@@ -528,12 +528,12 @@
   {
     "image-name": "multiclusterhub-repo",
     "image-version": "2.5",
-    "image-tag": "2.5-dc4ec7ec2e3f6be60d505a89623ef1b0200b2ff6",
-    "git-sha256": "dc4ec7ec2e3f6be60d505a89623ef1b0200b2ff6",
+    "image-tag": "2.5-8b867649d66487408f734ea857866d6136db814e",
+    "git-sha256": "8b867649d66487408f734ea857866d6136db814e",
     "git-repository": "stolostron/multiclusterhub-repo",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:838169c29b3aa7fcdd98cb9d1be0d9e9e1de5a6b369e983dcb5b85af41b470cf",
+    "image-digest": "sha256:77fe911ee887fa7a40e4060d88df566b4ac0c11cfbe8263cac5dccbbe635061c",
     "image-key": "multiclusterhub_repo"
   },
   {
@@ -602,13 +602,13 @@
     "image-key": "oauth_proxy"
   },
   {
-    "image-name": "postgresql-12-centos7",
+    "image-name": "postgresql-12",
     "image-version": "latest",
     "image-tag": "latest",
     "git-sha256": "ffffffffffffffffffffffffffffffffffffffff",
     "git-repository": "openshift/unknown",
     "image-remote": "quay.io/stolostron",
-    "image-digest": "sha256:94727d70e0afbf4e167e078744f3a10ac9d82edc553d57b0ecbb5443264f07e1",
+    "image-digest": "sha256:dd2186a953bd831f98e7059b70c3b0b12e23c891f75137f823075222c2290f26",
     "image-key": "postgresql_12"
   },
   {
