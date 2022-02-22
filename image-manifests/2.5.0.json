@@ -613,13 +613,13 @@
   },
   {
     "image-name": "prometheus",
-    "image-version": "2.5",
-    "image-tag": "2.5-452accc1922d11b20d1d3daeb58a28d5ee27a66d",
-    "git-sha256": "452accc1922d11b20d1d3daeb58a28d5ee27a66d",
+    "image-version": "2.5.0",
+    "image-tag": "2.5.0-cddb305f000dfe1745401ebc3e041b04ec141cfa",
+    "git-sha256": "cddb305f000dfe1745401ebc3e041b04ec141cfa",
     "git-repository": "stolostron/prometheus",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:fb5135e2ae57e2ae985b3088bca2b84e23955a30b571e0421143a5ab8f0a3187",
+    "image-digest": "sha256:b652d2dc3a9a12eeec65652ab2e64f0b8ed8f7464db354e3f33d2fc422174d5d",
     "image-key": "prometheus"
   },
   {
