@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-22T15:44:28Z'
+    createdAt: '2022-02-22T16:09:30Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1368,7 +1368,9 @@ spec:
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/stolostron/helloprow-go@sha256:4b00171a00bf22ce254417ff2fe69aeabc513bc19a209918af906c186ff648f6
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/stolostron/helloworld@sha256:00e2ea525fdad1021e52ae442788c1234cf1480d6ba11b4223aaa68222a30ab5
+                  value: quay.io/stolostron/helloworld@sha256:fa5e6b22595242e9abb984c20a154c4d65a056e8c11922b022c6c6b860414624
+                - name: OPERAND_IMAGE_HYPERSHIFT_DEPLOYMENT_CONTROLLER
+                  value: quay.io/stolostron/hypershift-deployment-controller@sha256:98307f4666b3bcda846c4fe0d10d1a5112d320a01108eb357edd83622f937059
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
                   value: quay.io/stolostron/iam-policy-controller@sha256:6e3280000fcb576bc5d08446d44e6add5add4e0eeceb4e4d32285cdf0584a0b4
                 - name: OPERAND_IMAGE_INSIGHTS_CLIENT
@@ -1416,7 +1418,7 @@ spec:
                 - name: OPERAND_IMAGE_OAUTH_PROXY
                   value: quay.io/stolostron/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
                 - name: OPERAND_IMAGE_POSTGRESQL_12
-                  value: quay.io/stolostron/postgresql-12@sha256:dd2186a953bd831f98e7059b70c3b0b12e23c891f75137f823075222c2290f26
+                  value: quay.io/stolostron/postgresql-12@sha256:da0b8d525b173ef472ff4c71fae60b396f518860d6313c4f3287b844aab6d622
                 - name: OPERAND_IMAGE_PROMETHEUS
                   value: quay.io/stolostron/prometheus@sha256:b652d2dc3a9a12eeec65652ab2e64f0b8ed8f7464db354e3f33d2fc422174d5d
                 - name: OPERAND_IMAGE_PROMETHEUS_ALERTMANAGER
@@ -2191,7 +2193,9 @@ spec:
   - name: helloprow_go
     image: quay.io/stolostron/helloprow-go@sha256:4b00171a00bf22ce254417ff2fe69aeabc513bc19a209918af906c186ff648f6
   - name: helloworld
-    image: quay.io/stolostron/helloworld@sha256:00e2ea525fdad1021e52ae442788c1234cf1480d6ba11b4223aaa68222a30ab5
+    image: quay.io/stolostron/helloworld@sha256:fa5e6b22595242e9abb984c20a154c4d65a056e8c11922b022c6c6b860414624
+  - name: hypershift_deployment_controller
+    image: quay.io/stolostron/hypershift-deployment-controller@sha256:98307f4666b3bcda846c4fe0d10d1a5112d320a01108eb357edd83622f937059
   - name: iam_policy_controller
     image: quay.io/stolostron/iam-policy-controller@sha256:6e3280000fcb576bc5d08446d44e6add5add4e0eeceb4e4d32285cdf0584a0b4
   - name: insights_client
@@ -2227,7 +2231,7 @@ spec:
   - name: oauth_proxy
     image: quay.io/stolostron/origin-oauth-proxy@sha256:ae1b3ad6a9e76271de5c6d16abe5586abac043da032d686d1fc78f43ed7f3606
   - name: postgresql_12
-    image: quay.io/stolostron/postgresql-12@sha256:dd2186a953bd831f98e7059b70c3b0b12e23c891f75137f823075222c2290f26
+    image: quay.io/stolostron/postgresql-12@sha256:da0b8d525b173ef472ff4c71fae60b396f518860d6313c4f3287b844aab6d622
   - name: prometheus
     image: quay.io/stolostron/prometheus@sha256:b652d2dc3a9a12eeec65652ab2e64f0b8ed8f7464db354e3f33d2fc422174d5d
   - name: prometheus_alertmanager
