@@ -22,14 +22,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-22T19:50:38Z'
+    createdAt: '2022-02-22T20:18:10Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1435,7 +1436,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_COLLECTOR
                   value: quay.io/stolostron/search-collector@sha256:e305dda6da8fc87bac8735985508e7cae365fa4e8772bf34f185fb8256013bd2
                 - name: OPERAND_IMAGE_SEARCH_E2E
-                  value: quay.io/stolostron/search-e2e@sha256:5c97b71054834eabe9e73326ff4f2c7c15bd48f7fda9944d8643718e24213c60
+                  value: quay.io/stolostron/search-e2e@sha256:32d2a9be6cd37963123b09e65f6cfe68b7e0b443697e9b8704dd292474c5d413
                 - name: OPERAND_IMAGE_SEARCH_INDEXER
                   value: quay.io/stolostron/search-indexer@sha256:2cd86d9cdaf5fcdd584ff91c6b3db8839b4163458a25399db510597bb69b3c1e
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
@@ -2246,7 +2247,7 @@ spec:
   - name: search_collector
     image: quay.io/stolostron/search-collector@sha256:e305dda6da8fc87bac8735985508e7cae365fa4e8772bf34f185fb8256013bd2
   - name: search_e2e
-    image: quay.io/stolostron/search-e2e@sha256:5c97b71054834eabe9e73326ff4f2c7c15bd48f7fda9944d8643718e24213c60
+    image: quay.io/stolostron/search-e2e@sha256:32d2a9be6cd37963123b09e65f6cfe68b7e0b443697e9b8704dd292474c5d413
   - name: search_indexer
     image: quay.io/stolostron/search-indexer@sha256:2cd86d9cdaf5fcdd584ff91c6b3db8839b4163458a25399db510597bb69b3c1e
   - name: search_operator
