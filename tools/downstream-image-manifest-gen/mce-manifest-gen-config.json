@@ -4,10 +4,16 @@
         "image-namespace": "multicluster-engine",
 
         "image-list": [
+            {"acm-component-name": "assisted_image_service",           "build-info-env-var": "ASSISTED_IMAGE_SERVICE"},
+            {"acm-component-name": "assisted_installer",               "build-info-env-var": "ASSISTED_INSTALLER"},
+            {"acm-component-name": "assisted_installer_agent",         "build-info-env-var": "ASSISTED_INSTALLER_AGENT"},
+            {"acm-component-name": "assisted_installer_controller",    "build-info-env-var": "ASSISTED_INSTALLER_REPORTER"},
+            {"acm-component-name": "assisted_service",                 "build-info-env-var": "AGENT_SERVICE"},
             {"acm-component-name": "backplane_must_gather",            "build-info-env-var": "MUST_GATHER"},
             {"acm-component-name": "clusterclaims_controller",         "build-info-env-var": "CLUSTERCLAIMS_CONTROLLER"},
             {"acm-component-name": "cluster_curator_controller",       "build-info-env-var": "CLUSTER_CURATOR_CONTROLLER"},
             {"acm-component-name": "clusterlifecycle_state_metrics",   "build-info-env-var": "CLUSTERLIFECYCLE_STATE_METRICS"},
+            {"acm-component-name": "console-mce",                      "build-info-env-var": "CONSOLE_MCE"},
             {"acm-component-name": "discovery_operator",               "build-info-env-var": "DISCOVERY_OPERATOR"},
             {"acm-component-name": "managedcluster_import_controller", "build-info-env-var": "MANAGEDCLUSTER_IMPORT_CONTROLLER"},
             {"acm-component-name": "managed_serviceaccount",           "build-info-env-var": "MANAGED_SERVICEACCOUNT"},
@@ -19,6 +25,16 @@
             {"acm-component-name": "registration_operator",            "build-info-env-var": "REGISTRATION_OPERATOR"},
             {"acm-component-name": "work",                             "build-info-env-var": "WORK"},
             {"acm-component-name": "backplane_operator",               "build-info-env-var": "MULTICLUSTER_ENGINE_OPERATOR"}
+        ]
+    },
+    "external-images": {
+        "image-list": [ {
+              "acm-component-name": "postgresql_12",
+              "build-name":         "postgresql-12-container",
+              "build-tag":          "rhel-8.3.1-z-container-released",
+              "prefix-to-remove":   "rhel8-",
+              "image-remote":       "registry.redhat.io/rhel8"
+            }
         ]
     }
 }
