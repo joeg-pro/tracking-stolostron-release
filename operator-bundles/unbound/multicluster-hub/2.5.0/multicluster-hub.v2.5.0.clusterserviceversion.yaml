@@ -15,9 +15,10 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2022-02-23T22:08:54Z'
+    createdAt: '2022-02-24T14:55:02Z'
     description: Open management of Openshift and Kubernetes clusters
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: multicluster-hub.v2.5.0
   namespace: placeholder
   labels:
@@ -168,6 +169,9 @@ spec:
       version: v1alpha1
     - kind: SubmarinerConfig
       name: submarinerconfigs.submarineraddon.open-cluster-management.io
+      version: v1alpha1
+    - kind: SubmarinerDiagnoseConfig
+      name: submarinerdiagnoseconfigs.submarineraddon.open-cluster-management.io
       version: v1alpha1
   install:
     strategy: deployment
@@ -965,6 +969,15 @@ spec:
           - patch
           - delete
         - apiGroups:
+          - submariner.io
+          resources:
+          - brokers
+          verbs:
+          - create
+          - get
+          - update
+          - delete
+        - apiGroups:
           - ''
           resources:
           - secrets
@@ -1021,6 +1034,14 @@ spec:
           verbs:
           - update
           - patch
+        - apiGroups:
+          - addon.open-cluster-management.io
+          resources:
+          - clustermanagementaddons
+          verbs:
+          - get
+          - list
+          - watch
         - apiGroups:
           - addon.open-cluster-management.io
           resources:
@@ -1264,7 +1285,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.name
-                image: quay.io/open-cluster-management/submariner-addon:latest
+                image: quay.io/stolostron/submariner-addon:latest
                 livenessProbe:
                   httpGet:
                     path: /healthz
