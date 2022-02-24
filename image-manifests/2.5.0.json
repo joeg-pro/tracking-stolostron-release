@@ -332,11 +332,11 @@
   {
     "image-name": "helloworld",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-77ec958d56b676feb5f7dd367be2b9ddecc9e0c6",
-    "git-sha256": "77ec958d56b676feb5f7dd367be2b9ddecc9e0c6",
+    "image-tag": "1.0.0-bc16292aecf25ea4d5cfeadfd1c132a40d782e3e",
+    "git-sha256": "bc16292aecf25ea4d5cfeadfd1c132a40d782e3e",
     "git-repository": "stolostron/example-cicd-component",
     "image-remote": "quay.io/stolostron",
-    "image-digest": "sha256:ede30cee6f52844614480dfffa608b18e4fa906f309e7faa4619dc7074653f93",
+    "image-digest": "sha256:1c22bc984e2cba13fe22e20c88c30e107a6c95f87653fc5c206af9931bfbddd7",
     "image-key": "helloworld"
   },
   {
@@ -757,12 +757,12 @@
   {
     "image-name": "submariner-addon",
     "image-version": "0.5.0",
-    "image-tag": "0.5.0-67dca5b1086f42f708a5c6443537e7e335a1167d",
-    "git-sha256": "67dca5b1086f42f708a5c6443537e7e335a1167d",
+    "image-tag": "0.5.0-719d95bff52ed0ced5105ece3e80455bff935a0c",
+    "git-sha256": "719d95bff52ed0ced5105ece3e80455bff935a0c",
     "git-repository": "stolostron/submariner-addon",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:0e33fe18951f4837d9de5fbb06480c6eff5245f90595a5e4014b6e43027706ed",
+    "image-digest": "sha256:07bd7c064180b43f306e0268fd2caee5960886ff2b1c37ace2cb36ef29233f19",
     "image-key": "submariner_addon"
   },
   {
