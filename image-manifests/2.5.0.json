@@ -134,12 +134,12 @@
   {
     "image-name": "cluster-proxy",
     "image-version": "2.5",
-    "image-tag": "2.5-59662b903690a99562d8a12875dd01ad1c44dd73",
-    "git-sha256": "59662b903690a99562d8a12875dd01ad1c44dd73",
+    "image-tag": "2.5-94551fba8d4d7e40f3ce194a35c9baf28a5427b0",
+    "git-sha256": "94551fba8d4d7e40f3ce194a35c9baf28a5427b0",
     "git-repository": "stolostron/cluster-proxy",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:30db108cb08ab6a743cafa626d64bd27cd5d2f3b588fcb43e92cec3b0c8efcba",
+    "image-digest": "sha256:27a524886f10a723f4f11d24416f2535746d0ba711b3a0aa0ca3d0065ed8de19",
     "image-key": "cluster_proxy"
   },
   {
@@ -342,12 +342,12 @@
   {
     "image-name": "hypershift-deployment-controller",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-05e7094ede34c272287340c48b6296bf790a3cdd",
-    "git-sha256": "05e7094ede34c272287340c48b6296bf790a3cdd",
+    "image-tag": "2.5.0-bbdf9befc5b073bf108cb348e11ed049af368cdc",
+    "git-sha256": "bbdf9befc5b073bf108cb348e11ed049af368cdc",
     "git-repository": "stolostron/hypershift-deployment-controller",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:434676587684a880de47f0b02d8de37a60821d95e8292104b5897a3eff47124b",
+    "image-digest": "sha256:c088d93b2e4e47af4684e762f7c76dff07c36b61da29240fdfd5700066749a53",
     "image-key": "hypershift_deployment_controller"
   },
   {
