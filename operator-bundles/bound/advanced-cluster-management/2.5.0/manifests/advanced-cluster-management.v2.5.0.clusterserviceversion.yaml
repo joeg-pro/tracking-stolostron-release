@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-25T06:28:31Z'
+    createdAt: '2022-02-25T08:48:46Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1350,7 +1350,7 @@ spec:
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
                   value: quay.io/stolostron/cluster-lifecycle-e2e@sha256:350585832564739ee8f2eab26b84c07245b5b43b03b5a41e52d4c5fb9678d69d
                 - name: OPERAND_IMAGE_CLUSTER_PROXY
-                  value: quay.io/stolostron/cluster-proxy@sha256:0a380ac2d589d5c3911c65883897eb71a4034efebb15eceea7b64118d43a0bf4
+                  value: quay.io/stolostron/cluster-proxy@sha256:0084301361d0d4fa43b4363ca3fbc04d26271a54f9a4807bf9891cbb1b9f63d2
                 - name: OPERAND_IMAGE_CLUSTER_PROXY_ADDON
                   value: quay.io/stolostron/cluster-proxy-addon@sha256:fc3bdef678f073ebe6a1dbcc0afa2518e12d4909f3f9742d275c55f3f953032a
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
@@ -2173,7 +2173,7 @@ spec:
   - name: cluster_lifecycle_e2e
     image: quay.io/stolostron/cluster-lifecycle-e2e@sha256:350585832564739ee8f2eab26b84c07245b5b43b03b5a41e52d4c5fb9678d69d
   - name: cluster_proxy
-    image: quay.io/stolostron/cluster-proxy@sha256:0a380ac2d589d5c3911c65883897eb71a4034efebb15eceea7b64118d43a0bf4
+    image: quay.io/stolostron/cluster-proxy@sha256:0084301361d0d4fa43b4363ca3fbc04d26271a54f9a4807bf9891cbb1b9f63d2
   - name: cluster_proxy_addon
     image: quay.io/stolostron/cluster-proxy-addon@sha256:fc3bdef678f073ebe6a1dbcc0afa2518e12d4909f3f9742d275c55f3f953032a
   - name: config_policy_controller
