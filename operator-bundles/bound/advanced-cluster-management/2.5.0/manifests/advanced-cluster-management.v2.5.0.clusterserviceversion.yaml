@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-25T14:30:11Z'
+    createdAt: '2022-02-25T15:10:21Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1350,7 +1350,7 @@ spec:
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
                   value: quay.io/stolostron/cluster-lifecycle-e2e@sha256:12ee219cb4555b85742308c659596dae178140a3656bdce4809558a9cb224a1b
                 - name: OPERAND_IMAGE_CLUSTER_PROXY
-                  value: quay.io/stolostron/cluster-proxy@sha256:30db108cb08ab6a743cafa626d64bd27cd5d2f3b588fcb43e92cec3b0c8efcba
+                  value: quay.io/stolostron/cluster-proxy@sha256:27a524886f10a723f4f11d24416f2535746d0ba711b3a0aa0ca3d0065ed8de19
                 - name: OPERAND_IMAGE_CLUSTER_PROXY_ADDON
                   value: quay.io/stolostron/cluster-proxy-addon@sha256:fc3bdef678f073ebe6a1dbcc0afa2518e12d4909f3f9742d275c55f3f953032a
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
@@ -1388,7 +1388,7 @@ spec:
                 - name: OPERAND_IMAGE_HELLOWORLD
                   value: quay.io/stolostron/helloworld@sha256:1c22bc984e2cba13fe22e20c88c30e107a6c95f87653fc5c206af9931bfbddd7
                 - name: OPERAND_IMAGE_HYPERSHIFT_DEPLOYMENT_CONTROLLER
-                  value: quay.io/stolostron/hypershift-deployment-controller@sha256:434676587684a880de47f0b02d8de37a60821d95e8292104b5897a3eff47124b
+                  value: quay.io/stolostron/hypershift-deployment-controller@sha256:c088d93b2e4e47af4684e762f7c76dff07c36b61da29240fdfd5700066749a53
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
                   value: quay.io/stolostron/iam-policy-controller@sha256:6e3280000fcb576bc5d08446d44e6add5add4e0eeceb4e4d32285cdf0584a0b4
                 - name: OPERAND_IMAGE_INSIGHTS_CLIENT
@@ -2173,7 +2173,7 @@ spec:
   - name: cluster_lifecycle_e2e
     image: quay.io/stolostron/cluster-lifecycle-e2e@sha256:12ee219cb4555b85742308c659596dae178140a3656bdce4809558a9cb224a1b
   - name: cluster_proxy
-    image: quay.io/stolostron/cluster-proxy@sha256:30db108cb08ab6a743cafa626d64bd27cd5d2f3b588fcb43e92cec3b0c8efcba
+    image: quay.io/stolostron/cluster-proxy@sha256:27a524886f10a723f4f11d24416f2535746d0ba711b3a0aa0ca3d0065ed8de19
   - name: cluster_proxy_addon
     image: quay.io/stolostron/cluster-proxy-addon@sha256:fc3bdef678f073ebe6a1dbcc0afa2518e12d4909f3f9742d275c55f3f953032a
   - name: config_policy_controller
@@ -2211,7 +2211,7 @@ spec:
   - name: helloworld
     image: quay.io/stolostron/helloworld@sha256:1c22bc984e2cba13fe22e20c88c30e107a6c95f87653fc5c206af9931bfbddd7
   - name: hypershift_deployment_controller
-    image: quay.io/stolostron/hypershift-deployment-controller@sha256:434676587684a880de47f0b02d8de37a60821d95e8292104b5897a3eff47124b
+    image: quay.io/stolostron/hypershift-deployment-controller@sha256:c088d93b2e4e47af4684e762f7c76dff07c36b61da29240fdfd5700066749a53
   - name: iam_policy_controller
     image: quay.io/stolostron/iam-policy-controller@sha256:6e3280000fcb576bc5d08446d44e6add5add4e0eeceb4e4d32285cdf0584a0b4
   - name: insights_client
