@@ -14,3 +14,4 @@ appropriate set of generated unbound bundle manifests from within a `release-x.y
 repo and then fializes them using the same bundle-binding scripts found here and used upstream, 
 using a donwstream-specific image manifest.  Building of the bundle image is done using
 a downstream-specific Dockerfile and build process.
+
