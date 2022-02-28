@@ -57,12 +57,12 @@
   {
     "image-name": "assisted-installer-agent",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-b656f9eb2c3a1f45fcd9e58b3e8b1924c1ee1130",
-    "git-sha256": "b656f9eb2c3a1f45fcd9e58b3e8b1924c1ee1130",
+    "image-tag": "2.5.0-5dd71705eec88800d595c4805974402942571d20",
+    "git-sha256": "5dd71705eec88800d595c4805974402942571d20",
     "git-repository": "openshift/assisted-installer-agent",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:3a98843e2511389a2ea0877e5543660792172ddaee64df1ac2a20d2b1ca5ebd7",
+    "image-digest": "sha256:6bf20f48a7bcd8a55ea78fc18ddb27b87b7f2176e4c8c91ad34dfab7206fafe8",
     "image-key": "assisted_installer_agent"
   },
   {
@@ -507,12 +507,12 @@
   {
     "image-name": "multiclusterhub-operator",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-d00de121efdb52506eb3eeae12d15eff2b3e33a3",
-    "git-sha256": "d00de121efdb52506eb3eeae12d15eff2b3e33a3",
+    "image-tag": "2.5.0-671f20ab4120bd6d41b52656bc5db599816838dd",
+    "git-sha256": "671f20ab4120bd6d41b52656bc5db599816838dd",
     "git-repository": "stolostron/multiclusterhub-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:0eb07d574c5f13656bbceeac9fa23d9673225b1d819a724af158f1188d7611d5",
+    "image-digest": "sha256:f99086421bfea3dee1d7f848b4dffc99ebcce8cb2e4c188e855a8f6997376661",
     "image-key": "multiclusterhub_operator"
   },
   {
