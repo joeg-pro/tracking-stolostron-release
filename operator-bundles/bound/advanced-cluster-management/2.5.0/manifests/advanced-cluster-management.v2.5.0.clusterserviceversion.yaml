@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-02-28T21:41:21Z'
+    createdAt: '2022-02-28T21:45:21Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1361,7 +1361,7 @@ spec:
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
                   value: quay.io/stolostron/endpoint-monitoring-operator@sha256:fdf4f0beef9e8eae4f9d63b7d43af0f63b3d2fa5193718c07e382ef7520e64fd
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_ADDON_CONTROLLER
-                  value: quay.io/stolostron/governance-policy-addon-controller@sha256:0b00a93f395254103070285f06ea823b869033c6bd0055288ecc7f45a55eb178
+                  value: quay.io/stolostron/governance-policy-addon-controller@sha256:6914d346e2f2905f32526d79f2cd4876a10e8bb182d8c91cb289b2b3c9b906ff
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
                   value: quay.io/stolostron/governance-policy-propagator@sha256:978df2c93f0af6cfee28731c457bf830569a56640e5fbc69d08a792feec57e9a
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
@@ -2184,7 +2184,7 @@ spec:
   - name: endpoint_monitoring_operator
     image: quay.io/stolostron/endpoint-monitoring-operator@sha256:fdf4f0beef9e8eae4f9d63b7d43af0f63b3d2fa5193718c07e382ef7520e64fd
   - name: governance_policy_addon_controller
-    image: quay.io/stolostron/governance-policy-addon-controller@sha256:0b00a93f395254103070285f06ea823b869033c6bd0055288ecc7f45a55eb178
+    image: quay.io/stolostron/governance-policy-addon-controller@sha256:6914d346e2f2905f32526d79f2cd4876a10e8bb182d8c91cb289b2b3c9b906ff
   - name: governance_policy_propagator
     image: quay.io/stolostron/governance-policy-propagator@sha256:978df2c93f0af6cfee28731c457bf830569a56640e5fbc69d08a792feec57e9a
   - name: governance_policy_spec_sync
