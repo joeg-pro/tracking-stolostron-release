@@ -79,12 +79,12 @@
   {
     "image-name": "assisted-service",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-61c15559e0190a0c4800b877111d67bc31b02239",
-    "git-sha256": "61c15559e0190a0c4800b877111d67bc31b02239",
+    "image-tag": "2.5.0-1d025b8108f016038d6c2dcf444b9314aefdadcb",
+    "git-sha256": "1d025b8108f016038d6c2dcf444b9314aefdadcb",
     "git-repository": "openshift/assisted-service",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:e508344823c7676fd86a605eec7f14b406f3619d661149d34e7f8fc31c3d7e43",
+    "image-digest": "sha256:df9ef5d80217cfb6fa4284f4130b833ed575e9eca355c907705c54b4e1494313",
     "image-key": "assisted_service"
   },
   {
@@ -474,12 +474,12 @@
   {
     "image-name": "multicluster-operators-application",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-7004c9eadfa10245e9d4ca2c2d6d01014dc8e845",
-    "git-sha256": "7004c9eadfa10245e9d4ca2c2d6d01014dc8e845",
+    "image-tag": "2.5.0-748030bf183287bdce89f7fbfd3aab1e1416f770",
+    "git-sha256": "748030bf183287bdce89f7fbfd3aab1e1416f770",
     "git-repository": "stolostron/multicloud-operators-application",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:bc8ef900f9fada4e8a42b2168b2aa1b98bf452e5f00f87cbcb18bba88e096d01",
+    "image-digest": "sha256:90a643e416498ff27c5a6a4686b1f0ff4543af3a59547b602ccd0a7ae168215d",
     "image-key": "multicluster_operators_application"
   },
   {
