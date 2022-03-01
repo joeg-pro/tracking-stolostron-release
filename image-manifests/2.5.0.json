@@ -787,6 +787,17 @@
     "image-key": "volsync"
   },
   {
+    "image-name": "volsync-addon-controller",
+    "image-version": "2.5.0",
+    "image-tag": "2.5.0-e88c812ccbf976fc32f9680dcc6ae765104b13fb",
+    "git-sha256": "e88c812ccbf976fc32f9680dcc6ae765104b13fb",
+    "git-repository": "stolostron/volsync-addon-controller",
+    "image-remote": "quay.io/stolostron",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:8ce6d72d032556baa2488a3f15d022bba0c6a6b22640f8b7aef4ef5ecbd6564b",
+    "image-key": "volsync_addon_controller"
+  },
+  {
     "image-name": "volsync-mover-rclone",
     "image-version": "ocm-2.4",
     "image-tag": "ocm-2.4",
