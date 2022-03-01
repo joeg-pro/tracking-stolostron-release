@@ -72,19 +72,19 @@
         "image-list": [ { 
               "acm-component-name": "oauth_proxy",
               "build-name":         "golang-github-openshift-oauth-proxy-container",
-              "build-tag":          "rhaos-4.5-rhel-7-container-released",
+              "build-tag":          "rhaos-4.9-rhel-8-container-released",
               "prefix-to-remove":   "openshift-",
               "image-remote":       "registry.redhat.io/openshift4" 
             },{ 
               "acm-component-name": "prometheus-alertmanager",
               "build-name":         "golang-github-prometheus-alertmanager-container",
-              "build-tag":          "rhaos-4.5-rhel-7-container-released",
+              "build-tag":          "rhaos-4.9-rhel-8-container-released",
               "prefix-to-remove":   "openshift-",
               "image-remote":       "registry.redhat.io/openshift4" 
             },{
               "acm-component-name": "prometheus-config-reloader",
               "build-name":         "configmap-reload-container",
-              "build-tag":          "rhaos-4.5-rhel-7-container-released",
+              "build-tag":          "rhaos-4.9-rhel-8-container-released",
               "prefix-to-remove":   "openshift-",
               "image-remote":       "registry.redhat.io/openshift4"
             }
