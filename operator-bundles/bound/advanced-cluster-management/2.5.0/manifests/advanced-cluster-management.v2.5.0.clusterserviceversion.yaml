@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-02T21:21:26Z'
+    createdAt: '2022-03-02T21:40:35Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1438,7 +1438,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
                   value: quay.io/stolostron/multicluster-operators-channel@sha256:144e2e52be013f69e32851ffad28743aeb36abd5fe814135426ca5fe3d3cc969
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION
-                  value: quay.io/stolostron/multicluster-operators-subscription@sha256:bc7c98e20c40fc27f2ce0a21159c969b95ee2d90b85678582e2838b2ca127f71
+                  value: quay.io/stolostron/multicluster-operators-subscription@sha256:d15331e2ff2c9358524d39a5cceb56272620b624d4e2555895931151a7a30aa5
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR
                   value: quay.io/stolostron/multiclusterhub-operator@sha256:54b81aae00ad8c2b43fc68fc404dbd341367792541ebd64a122d5c4e166dbbe9
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
@@ -1715,7 +1715,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/stolostron/multicluster-operators-subscription@sha256:bc7c98e20c40fc27f2ce0a21159c969b95ee2d90b85678582e2838b2ca127f71
+                image: quay.io/stolostron/multicluster-operators-subscription@sha256:d15331e2ff2c9358524d39a5cceb56272620b624d4e2555895931151a7a30aa5
                 name: multicluster-operators-placementrule
                 resources:
                   limits:
@@ -1966,7 +1966,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/stolostron/multicluster-operators-subscription@sha256:bc7c98e20c40fc27f2ce0a21159c969b95ee2d90b85678582e2838b2ca127f71
+                image: quay.io/stolostron/multicluster-operators-subscription@sha256:d15331e2ff2c9358524d39a5cceb56272620b624d4e2555895931151a7a30aa5
                 name: multicluster-operators-subscription-report
                 resources:
                   limits:
@@ -2048,7 +2048,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/stolostron/multicluster-operators-subscription@sha256:bc7c98e20c40fc27f2ce0a21159c969b95ee2d90b85678582e2838b2ca127f71
+                image: quay.io/stolostron/multicluster-operators-subscription@sha256:d15331e2ff2c9358524d39a5cceb56272620b624d4e2555895931151a7a30aa5
                 name: multicluster-operators-standalone-subscription
                 resources:
                   limits:
@@ -2143,7 +2143,7 @@ spec:
                     - ls
                   initialDelaySeconds: 15
                   periodSeconds: 15
-                image: quay.io/stolostron/multicluster-operators-subscription@sha256:bc7c98e20c40fc27f2ce0a21159c969b95ee2d90b85678582e2838b2ca127f71
+                image: quay.io/stolostron/multicluster-operators-subscription@sha256:d15331e2ff2c9358524d39a5cceb56272620b624d4e2555895931151a7a30aa5
                 name: multicluster-operators-hub-subscription
                 resources:
                   limits:
