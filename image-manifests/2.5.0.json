@@ -386,12 +386,12 @@
   {
     "image-name": "klusterlet-addon-controller",
     "image-version": "release-2.5",
-    "image-tag": "release-2.5-5c2ce5d11cd7c8282303f402885bbeefd9dcdfa0",
-    "git-sha256": "5c2ce5d11cd7c8282303f402885bbeefd9dcdfa0",
+    "image-tag": "release-2.5-4bf78a97df79845617b79389b2d21939d237536a",
+    "git-sha256": "4bf78a97df79845617b79389b2d21939d237536a",
     "git-repository": "stolostron/klusterlet-addon-controller",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:ec9b60cfcf77ba1138042f375e2a396db35d320d209e372a6fcf286e815d70d3",
+    "image-digest": "sha256:6c12c7082f2a4496261f6e0d00914ac144a7b7aaae440b7cdbf884b455f37c56",
     "image-key": "klusterlet_addon_controller"
   },
   {
@@ -735,12 +735,12 @@
   {
     "image-name": "search-operator",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-3c562a9b6d3d7d9bf7af705342545e892abec614",
-    "git-sha256": "3c562a9b6d3d7d9bf7af705342545e892abec614",
+    "image-tag": "2.4.0-c04c0a00a8b661ec97fe41be9300de1969775566",
+    "git-sha256": "c04c0a00a8b661ec97fe41be9300de1969775566",
     "git-repository": "stolostron/search-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:35cd84094a12af861681a4edf1add893ba1e144bcd93f28a5bfd3ef528426095",
+    "image-digest": "sha256:0361b8a1ad9e864d01eb9c11df8ab2ccfe7a1cf56b2035bb76bc182ab48a8981",
     "image-key": "search_operator"
   },
   {
