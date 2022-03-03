@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-03T03:10:37Z'
+    createdAt: '2022-03-03T03:19:53Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1418,7 +1418,7 @@ spec:
                 - name: OPERAND_IMAGE_INSIGHTS_METRICS
                   value: quay.io/stolostron/insights-metrics@sha256:506f51cc8524ce864c35855f3faece628c11fe6160cc8d07f21f731d5312b4a7
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_CONTROLLER
-                  value: quay.io/stolostron/klusterlet-addon-controller@sha256:ec9b60cfcf77ba1138042f375e2a396db35d320d209e372a6fcf286e815d70d3
+                  value: quay.io/stolostron/klusterlet-addon-controller@sha256:6c12c7082f2a4496261f6e0d00914ac144a7b7aaae440b7cdbf884b455f37c56
                 - name: OPERAND_IMAGE_KLUSTERLET_ADDON_OPERATOR
                   value: quay.io/stolostron/klusterlet-addon-operator@sha256:60f41560e731d71fdd87add30fe5e4beba94ddd2243b317d1449ac8e3f2823f5
                 - name: OPERAND_IMAGE_KUBE_RBAC_PROXY
@@ -1482,7 +1482,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_INDEXER
                   value: quay.io/stolostron/search-indexer@sha256:2cd86d9cdaf5fcdd584ff91c6b3db8839b4163458a25399db510597bb69b3c1e
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
-                  value: quay.io/stolostron/search-operator@sha256:35cd84094a12af861681a4edf1add893ba1e144bcd93f28a5bfd3ef528426095
+                  value: quay.io/stolostron/search-operator@sha256:0361b8a1ad9e864d01eb9c11df8ab2ccfe7a1cf56b2035bb76bc182ab48a8981
                 - name: OPERAND_IMAGE_SEARCH_V2_API
                   value: quay.io/stolostron/search-v2-api@sha256:c7f1f6b95dbab1254d1601dd2fe2cb4308ec9028b0e52b33f3a545fddabfca60
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
@@ -2243,7 +2243,7 @@ spec:
   - name: insights_metrics
     image: quay.io/stolostron/insights-metrics@sha256:506f51cc8524ce864c35855f3faece628c11fe6160cc8d07f21f731d5312b4a7
   - name: klusterlet_addon_controller
-    image: quay.io/stolostron/klusterlet-addon-controller@sha256:ec9b60cfcf77ba1138042f375e2a396db35d320d209e372a6fcf286e815d70d3
+    image: quay.io/stolostron/klusterlet-addon-controller@sha256:6c12c7082f2a4496261f6e0d00914ac144a7b7aaae440b7cdbf884b455f37c56
   - name: klusterlet_addon_operator
     image: quay.io/stolostron/klusterlet-addon-operator@sha256:60f41560e731d71fdd87add30fe5e4beba94ddd2243b317d1449ac8e3f2823f5
   - name: kube_rbac_proxy
@@ -2295,7 +2295,7 @@ spec:
   - name: search_indexer
     image: quay.io/stolostron/search-indexer@sha256:2cd86d9cdaf5fcdd584ff91c6b3db8839b4163458a25399db510597bb69b3c1e
   - name: search_operator
-    image: quay.io/stolostron/search-operator@sha256:35cd84094a12af861681a4edf1add893ba1e144bcd93f28a5bfd3ef528426095
+    image: quay.io/stolostron/search-operator@sha256:0361b8a1ad9e864d01eb9c11df8ab2ccfe7a1cf56b2035bb76bc182ab48a8981
   - name: search_v2_api
     image: quay.io/stolostron/search-v2-api@sha256:c7f1f6b95dbab1254d1601dd2fe2cb4308ec9028b0e52b33f3a545fddabfca60
   - name: thanos
