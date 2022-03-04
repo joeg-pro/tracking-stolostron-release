@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-04T17:57:33Z'
+    createdAt: '2022-03-04T18:12:51Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1484,7 +1484,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
                   value: quay.io/stolostron/search-operator@sha256:0361b8a1ad9e864d01eb9c11df8ab2ccfe7a1cf56b2035bb76bc182ab48a8981
                 - name: OPERAND_IMAGE_SEARCH_V2_API
-                  value: quay.io/stolostron/search-v2-api@sha256:5f0c55604046ed0aff4a959d59fcc1b6fbcff654825d88566fb25efedf15fe81
+                  value: quay.io/stolostron/search-v2-api@sha256:8f2c3367d58d1d5bfec1005189e39f33bb36adfab070a1e4dacfd69debb4fc69
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
                   value: quay.io/stolostron/submariner-addon@sha256:ecd33cd6087bbd2447bac4b120d60fb9dbd0f1614e77fbff6afb51c117ec36af
                 - name: OPERAND_IMAGE_THANOS
@@ -2297,7 +2297,7 @@ spec:
   - name: search_operator
     image: quay.io/stolostron/search-operator@sha256:0361b8a1ad9e864d01eb9c11df8ab2ccfe7a1cf56b2035bb76bc182ab48a8981
   - name: search_v2_api
-    image: quay.io/stolostron/search-v2-api@sha256:5f0c55604046ed0aff4a959d59fcc1b6fbcff654825d88566fb25efedf15fe81
+    image: quay.io/stolostron/search-v2-api@sha256:8f2c3367d58d1d5bfec1005189e39f33bb36adfab070a1e4dacfd69debb4fc69
   - name: thanos
     image: quay.io/stolostron/thanos@sha256:87d7947183533db7a5ea809ce88b4b5f26034fe8dcbc48e29135043ef1a4fb83
   - name: volsync
