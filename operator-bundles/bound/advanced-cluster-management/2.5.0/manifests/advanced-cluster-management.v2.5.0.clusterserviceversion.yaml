@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-07T15:09:40Z'
+    createdAt: '2022-03-07T15:18:52Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1467,7 +1467,7 @@ spec:
                 - name: OPERAND_IMAGE_PROMETHEUS_OPERATOR
                   value: quay.io/stolostron/prometheus-operator@sha256:cf51f5302998cdd82edeeaf60a01cf11289101fb7e02c7a12a7b765c0c9751ff
                 - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
-                  value: quay.io/stolostron/rbac-query-proxy@sha256:eda89f24be554b236ea48efaeb245dae2fdfd73608fdb1b994f4d9d871f2ac01
+                  value: quay.io/stolostron/rbac-query-proxy@sha256:5f3f15505174dae6d3f1c5d8452f9f364b0a2a54d3f293a11e6bf0f514820faa
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
                   value: quay.io/stolostron/redisgraph-tls@sha256:d6df97ce9b73c19d65aeae5a895cfcf6d01421808bbabc97e8be3d8139e2bbcf
                 - name: OPERAND_IMAGE_SEARCH_AGGREGATOR
@@ -2280,7 +2280,7 @@ spec:
   - name: prometheus_operator
     image: quay.io/stolostron/prometheus-operator@sha256:cf51f5302998cdd82edeeaf60a01cf11289101fb7e02c7a12a7b765c0c9751ff
   - name: rbac_query_proxy
-    image: quay.io/stolostron/rbac-query-proxy@sha256:eda89f24be554b236ea48efaeb245dae2fdfd73608fdb1b994f4d9d871f2ac01
+    image: quay.io/stolostron/rbac-query-proxy@sha256:5f3f15505174dae6d3f1c5d8452f9f364b0a2a54d3f293a11e6bf0f514820faa
   - name: redisgraph_tls
     image: quay.io/stolostron/redisgraph-tls@sha256:d6df97ce9b73c19d65aeae5a895cfcf6d01421808bbabc97e8be3d8139e2bbcf
   - name: search_aggregator
