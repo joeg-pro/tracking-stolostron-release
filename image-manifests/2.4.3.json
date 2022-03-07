@@ -434,7 +434,7 @@
     "git-repository": "stolostron/klusterlet-addon-controller",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:24ba0a52dd00f4f30662dff60e0e41eec336d949ccbfd8ff8863b407069fc307",
+    "image-digest": "sha256:f33243b2ec5bd285c098c9f3c37a3502d50b385c9621297bfc99d52809244733",
     "image-key": "klusterlet_addon_controller"
   },
   {
@@ -583,12 +583,12 @@
   {
     "image-name": "multicluster-operators-subscription",
     "image-version": "2.4.0",
-    "image-tag": "2.4.0-0f3488ace1eb5ad0686bc10078bd2a5b004e4bf1",
-    "git-sha256": "0f3488ace1eb5ad0686bc10078bd2a5b004e4bf1",
+    "image-tag": "2.4.0-b3786c26a94c5124c528a11d970309a56b0d6a47",
+    "git-sha256": "b3786c26a94c5124c528a11d970309a56b0d6a47",
     "git-repository": "stolostron/multicloud-operators-subscription",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:9c95e90a9a66079868172fbe9dacb8b841c8e8d059121520366c15e0f1502b5e",
+    "image-digest": "sha256:080ba7178e02a3f79761fbeb91c56634aa9786bc1185c270bf49b277a2f423d5",
     "image-key": "multicluster_operators_subscription"
   },
   {
