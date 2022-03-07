@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-07T15:00:22Z'
+    createdAt: '2022-03-07T15:07:35Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1440,7 +1440,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION
                   value: quay.io/stolostron/multicluster-operators-subscription@sha256:d6d5a3f68adc36da8d61beda8fa66d501b8da66287e926b19492d6f232c8974e
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR
-                  value: quay.io/stolostron/multiclusterhub-operator@sha256:54b81aae00ad8c2b43fc68fc404dbd341367792541ebd64a122d5c4e166dbbe9
+                  value: quay.io/stolostron/multiclusterhub-operator@sha256:31f1075e8e8de4de27faeca3cce1f64741ff9db88d8f9ded6ef7ec89c7d4882a
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
                   value: quay.io/stolostron/multiclusterhub-operator-tests@sha256:03341dec839b0af3015f80df8e45be77efdbfa3fee03ac378b783253e2cb396a
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
@@ -1499,7 +1499,7 @@ spec:
                   value: quay.io/stolostron/volsync-mover-restic@sha256:e0d36f1e322ea5dd103b3e29aa91395c5c0eed5a8938bfe30351a3648eb294cf
                 - name: OPERAND_IMAGE_VOLSYNC_MOVER_RSYNC
                   value: quay.io/stolostron/volsync-mover-rsync@sha256:ff296e3dc3b20841d4533676f49c2811e7acb8c08c522cd2cd9dade542c05741
-                image: quay.io/stolostron/multiclusterhub-operator@sha256:54b81aae00ad8c2b43fc68fc404dbd341367792541ebd64a122d5c4e166dbbe9
+                image: quay.io/stolostron/multiclusterhub-operator@sha256:31f1075e8e8de4de27faeca3cce1f64741ff9db88d8f9ded6ef7ec89c7d4882a
                 livenessProbe:
                   httpGet:
                     path: /healthz
