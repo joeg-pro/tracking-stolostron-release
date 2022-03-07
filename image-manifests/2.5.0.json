@@ -462,13 +462,13 @@
   },
   {
     "image-name": "multicluster-observability-operator",
-    "image-version": "2.5",
-    "image-tag": "2.5-91a110691451c1ffa9ffd39f925a5ab15fe89e9c",
-    "git-sha256": "91a110691451c1ffa9ffd39f925a5ab15fe89e9c",
+    "image-version": "2.5.0",
+    "image-tag": "2.5.0-5193f726e7d80927871b37ff9bfe7b4f03ca97e1",
+    "git-sha256": "5193f726e7d80927871b37ff9bfe7b4f03ca97e1",
     "git-repository": "stolostron/multicluster-observability-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:3ea608c7227667f37136334a5e32d1ccf778f0d3cce9694ac39286f63af8a406",
+    "image-digest": "sha256:14dfdc51077032a742d5e0fed3442665bea7d27d78e0ba770e594c4c20cf4b8e",
     "image-key": "multicluster_observability_operator"
   },
   {
@@ -659,12 +659,12 @@
   {
     "image-name": "rbac-query-proxy",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-9268da6cdfd818b6d1a3d71429d5720d89befae6",
-    "git-sha256": "9268da6cdfd818b6d1a3d71429d5720d89befae6",
+    "image-tag": "2.5.0-5193f726e7d80927871b37ff9bfe7b4f03ca97e1",
+    "git-sha256": "5193f726e7d80927871b37ff9bfe7b4f03ca97e1",
     "git-repository": "stolostron/multicluster-observability-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:0449516de87ae03af0e385b4afc28fed2232acf921d65a30867e4cd0a1539135",
+    "image-digest": "sha256:eda89f24be554b236ea48efaeb245dae2fdfd73608fdb1b994f4d9d871f2ac01",
     "image-key": "rbac_query_proxy"
   },
   {
