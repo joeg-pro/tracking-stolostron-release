@@ -167,12 +167,12 @@
   {
     "image-name": "console",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-dce74263308b61e32ceccbc7d41ca9f87179b131",
-    "git-sha256": "dce74263308b61e32ceccbc7d41ca9f87179b131",
+    "image-tag": "2.5.0-2c3ecd2bf4c1e287d9042434f9974aec4d686a7b",
+    "git-sha256": "2c3ecd2bf4c1e287d9042434f9974aec4d686a7b",
     "git-repository": "stolostron/console",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:77f4bdedd696716b5d0d9074adfd34cedfec5942830cab9cae4d60ab51239611",
+    "image-digest": "sha256:2cc985aa1f55c9e3eb3e9c0ab77d8d7b5e1dc181699bc2fddfdae12b6ee0c169",
     "image-key": "console"
   },
   {
@@ -332,11 +332,11 @@
   {
     "image-name": "helloworld",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-6d69675cfc48e01f257ef6bf851f1b5d415366b0",
-    "git-sha256": "6d69675cfc48e01f257ef6bf851f1b5d415366b0",
+    "image-tag": "1.0.0-dc932c24f01dfb8cd0fcad521909f0a937ba1558",
+    "git-sha256": "dc932c24f01dfb8cd0fcad521909f0a937ba1558",
     "git-repository": "stolostron/example-cicd-component",
     "image-remote": "quay.io/stolostron",
-    "image-digest": "sha256:290cdc818d9f84e3f7ffda58b534ee13791cd7e146e79541e37e93a7ce91bcb0",
+    "image-digest": "sha256:66e73fe299467ac13059e8555bd800ddb8af64ed4c8de27cb402c354fa91c24f",
     "image-key": "helloworld"
   },
   {
