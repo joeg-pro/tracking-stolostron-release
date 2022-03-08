@@ -507,34 +507,34 @@
   {
     "image-name": "multiclusterhub-operator",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-27eed2bd823e1f66dc94474ef8f260ef1dc57eb0",
-    "git-sha256": "27eed2bd823e1f66dc94474ef8f260ef1dc57eb0",
+    "image-tag": "2.5.0-e9c5711bcbe86967b4c5fe49027dd8ed4f016420",
+    "git-sha256": "e9c5711bcbe86967b4c5fe49027dd8ed4f016420",
     "git-repository": "stolostron/multiclusterhub-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:f371800a8c9f4127e90277b4e5d66d768507f77b9d78f43e6be39b6fcb1a8775",
+    "image-digest": "sha256:cbaa2a3c6cb1060f4d43dc703486d53e26a049e5cadbb852ee226434a0cc9302",
     "image-key": "multiclusterhub_operator"
   },
   {
     "image-name": "multiclusterhub-operator-tests",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-27eed2bd823e1f66dc94474ef8f260ef1dc57eb0",
-    "git-sha256": "27eed2bd823e1f66dc94474ef8f260ef1dc57eb0",
+    "image-tag": "2.5.0-e9c5711bcbe86967b4c5fe49027dd8ed4f016420",
+    "git-sha256": "e9c5711bcbe86967b4c5fe49027dd8ed4f016420",
     "git-repository": "stolostron/multiclusterhub-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:13b75bef8347ca01a654b5bb695a3a038f6157670d2f88fe5fce516ab76bdee4",
+    "image-digest": "sha256:41a301335f9e47ed08723a0de09a0d153da80c5752734a559056664647b7a24f",
     "image-key": "multiclusterhub_operator_tests"
   },
   {
     "image-name": "multiclusterhub-repo",
     "image-version": "2.5",
-    "image-tag": "2.5-75f0351d6c906a4bed3eb244e305ade452e0e6ec",
-    "git-sha256": "75f0351d6c906a4bed3eb244e305ade452e0e6ec",
+    "image-tag": "2.5-0754bf56dd71f84d5d170d06512dfc47d273ab5e",
+    "git-sha256": "0754bf56dd71f84d5d170d06512dfc47d273ab5e",
     "git-repository": "stolostron/multiclusterhub-repo",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:5d684a3790ede09f0e1378705068926f051053adda7651902655e1daed5212c6",
+    "image-digest": "sha256:fd845c0e19acf8f38e153cce6e74e21b8ca74b033d7d134e41e71c59e5eee074",
     "image-key": "multiclusterhub_repo"
   },
   {
