@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-09T14:53:46Z'
+    createdAt: '2022-03-09T15:22:20Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["checkpoints.hive.openshift.io", "machinepoolnameleases.hive.openshift.io",
-      "fakeclusterinstalls.hiveinternal.openshift.io", "clusterstates.hive.openshift.io", "observatoria.core.observatorium.io",
-      "observabilityaddons.observability.open-cluster-management.io", "clusterprovisions.hive.openshift.io",
-      "clusterdeprovisions.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "clustersyncs.hiveinternal.openshift.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "fakeclusterinstalls.hiveinternal.openshift.io",
+      "machinepoolnameleases.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "clustersyncs.hiveinternal.openshift.io",
+      "clusterdeprovisions.hive.openshift.io", "clusterprovisions.hive.openshift.io", "clusterstates.hive.openshift.io",
+      "checkpoints.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: advanced-cluster-management.v2.4.3
   namespace: placeholder
   labels:
@@ -1784,11 +1784,11 @@ spec:
                 - name: OPERAND_IMAGE_GRC_UI_API
                   value: quay.io/stolostron/grc-ui-api@sha256:e1de7be7b3d503b6d233472f6583ce29b5dffb10bc1e98c12900996c0a391f3b
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
-                  value: quay.io/stolostron/grc-ui-tests@sha256:048cba97354bd3c015bf088db37eb51035eecbec41ff5888b30ffb10a2bebda5
+                  value: quay.io/stolostron/grc-ui-tests@sha256:09635c02e2bab455a187d2db9a9c13e1d1a76ab0c7f095e258dfa8bf68065911
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/stolostron/helloprow-go@sha256:3a787364d41781295e6717f16c664ea8de6788928bd34158cde0e58e85f4223c
                 - name: OPERAND_IMAGE_HELLOWORLD
-                  value: quay.io/stolostron/helloworld@sha256:f7b806d56a8deb4788a1c575cb859d94fb275d5c5e01d6e2d1a590aefe1d88b3
+                  value: quay.io/stolostron/helloworld@sha256:d3c7b837320147468ff7ab54e7b2d02077592451e53196ea45a37956ec700204
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
                   value: quay.io/stolostron/hive@sha256:77893d60f8fe578ea87114d882daf27bab484ce55d221fb17ba77e1c78ad7024
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
@@ -2708,11 +2708,11 @@ spec:
   - name: grc_ui_api
     image: quay.io/stolostron/grc-ui-api@sha256:e1de7be7b3d503b6d233472f6583ce29b5dffb10bc1e98c12900996c0a391f3b
   - name: grc_ui_tests
-    image: quay.io/stolostron/grc-ui-tests@sha256:048cba97354bd3c015bf088db37eb51035eecbec41ff5888b30ffb10a2bebda5
+    image: quay.io/stolostron/grc-ui-tests@sha256:09635c02e2bab455a187d2db9a9c13e1d1a76ab0c7f095e258dfa8bf68065911
   - name: helloprow_go
     image: quay.io/stolostron/helloprow-go@sha256:3a787364d41781295e6717f16c664ea8de6788928bd34158cde0e58e85f4223c
   - name: helloworld
-    image: quay.io/stolostron/helloworld@sha256:f7b806d56a8deb4788a1c575cb859d94fb275d5c5e01d6e2d1a590aefe1d88b3
+    image: quay.io/stolostron/helloworld@sha256:d3c7b837320147468ff7ab54e7b2d02077592451e53196ea45a37956ec700204
   - name: iam_policy_controller
     image: quay.io/stolostron/iam-policy-controller@sha256:ece3a1b680644653f105ea7bb712cb473a94c817909cacf77358825a079745b1
   - name: insights_client
