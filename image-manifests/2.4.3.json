@@ -354,12 +354,12 @@
   {
     "image-name": "grc-ui-tests",
     "image-version": "3.6.0",
-    "image-tag": "3.6.0-74db16d7ee4374d52fc57f9284f7b513995663fa",
-    "git-sha256": "74db16d7ee4374d52fc57f9284f7b513995663fa",
+    "image-tag": "3.6.0-cb8ef797f4dc49c6d330d896d65ff61fe0c23468",
+    "git-sha256": "cb8ef797f4dc49c6d330d896d65ff61fe0c23468",
     "git-repository": "stolostron/grc-ui",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:048cba97354bd3c015bf088db37eb51035eecbec41ff5888b30ffb10a2bebda5",
+    "image-digest": "sha256:09635c02e2bab455a187d2db9a9c13e1d1a76ab0c7f095e258dfa8bf68065911",
     "image-key": "grc_ui_tests"
   },
   {
@@ -376,11 +376,11 @@
   {
     "image-name": "helloworld",
     "image-version": "1.0.1",
-    "image-tag": "1.0.1-c7bb3e6cfef0d3ed82c9306d44e736b88ca24377",
-    "git-sha256": "c7bb3e6cfef0d3ed82c9306d44e736b88ca24377",
+    "image-tag": "1.0.1-3788c7c36e948dbc208ac38720fcd5d11216c3bc",
+    "git-sha256": "3788c7c36e948dbc208ac38720fcd5d11216c3bc",
     "git-repository": "stolostron/example-cicd-component",
     "image-remote": "quay.io/stolostron",
-    "image-digest": "sha256:f7b806d56a8deb4788a1c575cb859d94fb275d5c5e01d6e2d1a590aefe1d88b3",
+    "image-digest": "sha256:d3c7b837320147468ff7ab54e7b2d02077592451e53196ea45a37956ec700204",
     "image-key": "helloworld"
   },
   {
