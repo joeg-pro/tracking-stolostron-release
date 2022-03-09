@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-09T23:14:20Z'
+    createdAt: '2022-03-09T23:18:23Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1366,7 +1366,7 @@ spec:
                 - name: OPERAND_IMAGE_BAILER
                   value: quay.io/stolostron/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
-                  value: quay.io/stolostron/cert-policy-controller@sha256:268ad20d5326bd7ed1e50c4541caedf0164848841620c5b005a96b1e0af3176f
+                  value: quay.io/stolostron/cert-policy-controller@sha256:1621d303db772201f37b4f7d38b9dd5469e3c0dcbb34c826865e4ae2e1f51667
                 - name: OPERAND_IMAGE_CLUSTER_BACKUP_CONTROLLER
                   value: quay.io/stolostron/cluster-backup-controller@sha256:09c5323eae9e05eae48b42bdf84d94d0a3f073ea167c132c838765a256f7a209
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
@@ -2150,7 +2150,7 @@ spec:
                 - name: OPERAND_IMAGE_BAILER
                   value: quay.io/stolostron/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
-                  value: quay.io/stolostron/cert-policy-controller@sha256:268ad20d5326bd7ed1e50c4541caedf0164848841620c5b005a96b1e0af3176f
+                  value: quay.io/stolostron/cert-policy-controller@sha256:1621d303db772201f37b4f7d38b9dd5469e3c0dcbb34c826865e4ae2e1f51667
                 - name: OPERAND_IMAGE_CLUSTER_BACKUP_CONTROLLER
                   value: quay.io/stolostron/cluster-backup-controller@sha256:09c5323eae9e05eae48b42bdf84d94d0a3f073ea167c132c838765a256f7a209
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
@@ -2343,7 +2343,7 @@ spec:
   - name: bailer
     image: quay.io/stolostron/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
   - name: cert_policy_controller
-    image: quay.io/stolostron/cert-policy-controller@sha256:268ad20d5326bd7ed1e50c4541caedf0164848841620c5b005a96b1e0af3176f
+    image: quay.io/stolostron/cert-policy-controller@sha256:1621d303db772201f37b4f7d38b9dd5469e3c0dcbb34c826865e4ae2e1f51667
   - name: cluster_backup_controller
     image: quay.io/stolostron/cluster-backup-controller@sha256:09c5323eae9e05eae48b42bdf84d94d0a3f073ea167c132c838765a256f7a209
   - name: cluster_lifecycle_e2e
