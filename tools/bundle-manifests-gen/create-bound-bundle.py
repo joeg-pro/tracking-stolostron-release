@@ -256,20 +256,44 @@ def add_image_ref_env_vars_to_deployment(deployment, target_containers,
       except KeyError:
          container_env_vars = list()
 
+      # Notes:
+      #
+      # - (1) In a first pass of this, we explicitly excluded adding image-ref env vars
+      #   for images that were use din the CSV itself, as it didn't seem the "operand
+      #   stuff" needed to know about operator images.  That turned out to not be the
+      #   case for at least one ACM operand thing (registration-operator) so now we add
+      #   image refs for everything we know about.
+      #
+      # - (2) Prior to ACM 2.5, the only deployment/container that needed the image-ref
+      #   env vars was that of the Hub (or MCE) operator, and it wasn't making use of any
+      #   image-ref env vars in its unbundled form.  But as of ACM 2.5, one of the
+      #   AppSub operators now makes use of image-ref env var toos, and morover the
+      #   community operators source bundle we merge into the ACM one may be setting
+      #   some of these same env vars too, and we want to make sure the image-ref we
+      #   inject will override anything that was in the source bundle.  So we have env
+      #   var code to make sure the overriding occurs.
+      #
+      # Convert en-var list into a map to make it easy to ensure that any env var
+      # we set here will override any that we inherited due to bundle merging, etc.
+      #
+      # Nicely, due to the insertion-order-preserving nature of dict() iteration in
+      # Python 3.5+, our final conversion back to a list preserves the order of any
+      # inherited env vars (with updates as needed) while still having the ones we
+      # added appear at the end of the list in the CSV.  This means the output we
+      # produce is the same before and after the Note 2 change for those cases where
+      # no overriding was necessary.
+
+      env_var_map = {e["name"] : e for e in container_env_vars}
+
       for image_info in image_manifest.values():
-         # Notes:  In a first pass of this, we explicitly excluded adding image-ref
-         # env vars for images that were use din the CSV itself, as it didn't seem
-         # the "operand stuff" needed to know about operator images.  That's not the
-         # case (at least for registration-operator) so now we add image refs for
-         # everything we know about.
-
-         # TODO: Maybe check the env var isn't already defined?
          entry = dict()
-         entry["name"]  = "%s_%s" % (image_ref_env_var_prefix, image_info["image-key"].upper())
+         env_var_name   = "%s_%s" % (image_ref_env_var_prefix, image_info["image-key"].upper())
+         entry["name"]  = env_var_name
          entry["value"] = image_info["image-ref-to-use"]
-         container_env_vars.append(entry)
+         env_var_map[env_var_name] = entry
 
-      if not container_env_vars:
+      if env_var_map:
+         container_env_vars = [e for e in env_var_map.values()]
          container_spec["env"] = container_env_vars
       target_containers[container_name]["added"] = True
    #

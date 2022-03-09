@@ -131,6 +131,12 @@ if [[ "$rel_x" -ge 2 ]]; then
    if [[ "$rel_y" -ge 3 ]]; then
       image_ref_containers+=("multiclusterhub-operator/multiclusterhub-operator")
   fi
+
+   # Since ACM 2.5:
+   if [[ "$rel_y" -ge 5 ]]; then
+      image_ref_containers+=("multicluster-operators-hub-subscription/multicluster-operators-hub-subscription")
+  fi
+
 fi
 
 # Specify specific version skips we need to bypass bad releases:
