@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-10T19:07:33Z'
+    createdAt: '2022-03-10T19:10:42Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1415,7 +1415,7 @@ spec:
                 - name: OPERAND_IMAGE_GRC_UI_API
                   value: quay.io/stolostron/grc-ui-api@sha256:385d29d8b6d2d95dae2140ed0ebe1e84d7bcb04ba97ec370a635f96b0e04d30e
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
-                  value: quay.io/stolostron/grc-ui-tests@sha256:4acf033a7355874dcc559b2d0b537f8215456751f90516816519de7f0b7ba132
+                  value: quay.io/stolostron/grc-ui-tests@sha256:958321a80182a65e03cd0483461df1a523bb578b9fba97417dfec9996ba06e9c
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/stolostron/helloprow-go@sha256:4b00171a00bf22ce254417ff2fe69aeabc513bc19a209918af906c186ff648f6
                 - name: OPERAND_IMAGE_HELLOWORLD
@@ -2199,7 +2199,7 @@ spec:
                 - name: OPERAND_IMAGE_GRC_UI_API
                   value: quay.io/stolostron/grc-ui-api@sha256:385d29d8b6d2d95dae2140ed0ebe1e84d7bcb04ba97ec370a635f96b0e04d30e
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
-                  value: quay.io/stolostron/grc-ui-tests@sha256:4acf033a7355874dcc559b2d0b537f8215456751f90516816519de7f0b7ba132
+                  value: quay.io/stolostron/grc-ui-tests@sha256:958321a80182a65e03cd0483461df1a523bb578b9fba97417dfec9996ba06e9c
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/stolostron/helloprow-go@sha256:4b00171a00bf22ce254417ff2fe69aeabc513bc19a209918af906c186ff648f6
                 - name: OPERAND_IMAGE_HELLOWORLD
@@ -2392,7 +2392,7 @@ spec:
   - name: grc_ui_api
     image: quay.io/stolostron/grc-ui-api@sha256:385d29d8b6d2d95dae2140ed0ebe1e84d7bcb04ba97ec370a635f96b0e04d30e
   - name: grc_ui_tests
-    image: quay.io/stolostron/grc-ui-tests@sha256:4acf033a7355874dcc559b2d0b537f8215456751f90516816519de7f0b7ba132
+    image: quay.io/stolostron/grc-ui-tests@sha256:958321a80182a65e03cd0483461df1a523bb578b9fba97417dfec9996ba06e9c
   - name: helloprow_go
     image: quay.io/stolostron/helloprow-go@sha256:4b00171a00bf22ce254417ff2fe69aeabc513bc19a209918af906c186ff648f6
   - name: helloworld
