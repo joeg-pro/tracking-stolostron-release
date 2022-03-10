@@ -22,14 +22,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-10T19:17:30Z'
+    createdAt: '2022-03-10T20:42:55Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -129,7 +130,7 @@ spec:
         - urn:alm:descriptor:com.tectonic.ui:select:Basic
       - description: Provides optional configuration for components
         displayName: Component Configuration
-        path: componentConfig
+        path: components
         x-descriptors:
         - urn:alm:descriptor:com.tectonic.ui:hidden
       - description: Provide the customized OpenShift default ingress CA certificate to RHACM
@@ -150,13 +151,13 @@ spec:
         x-descriptors:
         - urn:alm:descriptor:com.tectonic.ui:advanced
         - urn:alm:descriptor:com.tectonic.ui:booleanSwitch
-      - description: Enable cluster backup
+      - description: (Deprecated) Enable cluster backup
         displayName: Enable Cluster Backup
         path: enableClusterBackup
         x-descriptors:
         - urn:alm:descriptor:com.tectonic.ui:advanced
         - urn:alm:descriptor:com.tectonic.ui:booleanSwitch
-      - description: Enable cluster proxy addon
+      - description: (Deprecated) Enable cluster proxy addon
         displayName: Enable Cluster Proxy Addon
         path: enableClusterProxyAddon
         x-descriptors:
@@ -1413,7 +1414,7 @@ spec:
                 - name: OPERAND_IMAGE_GRC_UI
                   value: quay.io/stolostron/grc-ui@sha256:4ee9ccafd9bbc6128f265cccce35491b69e4f76cf0763aa93907f047b9085dfd
                 - name: OPERAND_IMAGE_GRC_UI_API
-                  value: quay.io/stolostron/grc-ui-api@sha256:385d29d8b6d2d95dae2140ed0ebe1e84d7bcb04ba97ec370a635f96b0e04d30e
+                  value: quay.io/stolostron/grc-ui-api@sha256:2ad0e699b25d839db20e7cb748f01a7deeb720f852cb4c88cd7fc3bfa095da17
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
                   value: quay.io/stolostron/grc-ui-tests@sha256:958321a80182a65e03cd0483461df1a523bb578b9fba97417dfec9996ba06e9c
                 - name: OPERAND_IMAGE_HELLOPROW_GO
@@ -2197,7 +2198,7 @@ spec:
                 - name: OPERAND_IMAGE_GRC_UI
                   value: quay.io/stolostron/grc-ui@sha256:4ee9ccafd9bbc6128f265cccce35491b69e4f76cf0763aa93907f047b9085dfd
                 - name: OPERAND_IMAGE_GRC_UI_API
-                  value: quay.io/stolostron/grc-ui-api@sha256:385d29d8b6d2d95dae2140ed0ebe1e84d7bcb04ba97ec370a635f96b0e04d30e
+                  value: quay.io/stolostron/grc-ui-api@sha256:2ad0e699b25d839db20e7cb748f01a7deeb720f852cb4c88cd7fc3bfa095da17
                 - name: OPERAND_IMAGE_GRC_UI_TESTS
                   value: quay.io/stolostron/grc-ui-tests@sha256:958321a80182a65e03cd0483461df1a523bb578b9fba97417dfec9996ba06e9c
                 - name: OPERAND_IMAGE_HELLOPROW_GO
@@ -2390,7 +2391,7 @@ spec:
   - name: grc_ui
     image: quay.io/stolostron/grc-ui@sha256:4ee9ccafd9bbc6128f265cccce35491b69e4f76cf0763aa93907f047b9085dfd
   - name: grc_ui_api
-    image: quay.io/stolostron/grc-ui-api@sha256:385d29d8b6d2d95dae2140ed0ebe1e84d7bcb04ba97ec370a635f96b0e04d30e
+    image: quay.io/stolostron/grc-ui-api@sha256:2ad0e699b25d839db20e7cb748f01a7deeb720f852cb4c88cd7fc3bfa095da17
   - name: grc_ui_tests
     image: quay.io/stolostron/grc-ui-tests@sha256:958321a80182a65e03cd0483461df1a523bb578b9fba97417dfec9996ba06e9c
   - name: helloprow_go
