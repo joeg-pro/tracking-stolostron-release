@@ -463,12 +463,12 @@
   {
     "image-name": "multicluster-observability-operator",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-dbfb88adf87f0ad5bc47005f799f4c37448562ce",
-    "git-sha256": "dbfb88adf87f0ad5bc47005f799f4c37448562ce",
+    "image-tag": "2.5.0-467a071773d5e6f13d6645ef8ad5b071cb4657a1",
+    "git-sha256": "467a071773d5e6f13d6645ef8ad5b071cb4657a1",
     "git-repository": "stolostron/multicluster-observability-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:1a56d0c05942f3510963e94d5f2081f5a0500187fb73563689e1c264fdc6594b",
+    "image-digest": "sha256:cd780815b07dbc4e0c6db953f03b20e14d71acb31ce45b5f25fa1a1fc9aeaf6a",
     "image-key": "multicluster_observability_operator"
   },
   {
@@ -562,12 +562,12 @@
   {
     "image-name": "observability-e2e-test",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-dbfb88adf87f0ad5bc47005f799f4c37448562ce",
-    "git-sha256": "dbfb88adf87f0ad5bc47005f799f4c37448562ce",
+    "image-tag": "2.5.0-467a071773d5e6f13d6645ef8ad5b071cb4657a1",
+    "git-sha256": "467a071773d5e6f13d6645ef8ad5b071cb4657a1",
     "git-repository": "stolostron/multicluster-observability-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:fb31bb68508a660dd478dce473c803e74a9dfd42a22a17332fae114c238e748a",
+    "image-digest": "sha256:5a3817db734e3cf7cfdc70a4a019104bf208c73cbcfd0d91077abcb1f704f56a",
     "image-key": "observability_e2e_test"
   },
   {
