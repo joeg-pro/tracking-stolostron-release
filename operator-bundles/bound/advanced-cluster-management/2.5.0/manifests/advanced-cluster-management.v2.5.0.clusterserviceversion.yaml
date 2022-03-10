@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-10T15:04:26Z'
+    createdAt: '2022-03-10T15:05:16Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1462,7 +1462,7 @@ spec:
                 - name: OPERAND_IMAGE_NODE_EXPORTER
                   value: quay.io/stolostron/node-exporter@sha256:351133c65942e94df09bb05139902482b77cdac949e2dc68d22acf9e8a47468d
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
-                  value: quay.io/stolostron/observability-e2e-test@sha256:5a3817db734e3cf7cfdc70a4a019104bf208c73cbcfd0d91077abcb1f704f56a
+                  value: quay.io/stolostron/observability-e2e-test@sha256:fb31bb68508a660dd478dce473c803e74a9dfd42a22a17332fae114c238e748a
                 - name: OPERAND_IMAGE_OBSERVATORIUM
                   value: quay.io/stolostron/observatorium@sha256:b49053d6ac4dc918da61da0efa4147dbfdb5712651cce3b89f93168b0f94fffa
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
@@ -2246,7 +2246,7 @@ spec:
                 - name: OPERAND_IMAGE_NODE_EXPORTER
                   value: quay.io/stolostron/node-exporter@sha256:351133c65942e94df09bb05139902482b77cdac949e2dc68d22acf9e8a47468d
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
-                  value: quay.io/stolostron/observability-e2e-test@sha256:5a3817db734e3cf7cfdc70a4a019104bf208c73cbcfd0d91077abcb1f704f56a
+                  value: quay.io/stolostron/observability-e2e-test@sha256:fb31bb68508a660dd478dce473c803e74a9dfd42a22a17332fae114c238e748a
                 - name: OPERAND_IMAGE_OBSERVATORIUM
                   value: quay.io/stolostron/observatorium@sha256:b49053d6ac4dc918da61da0efa4147dbfdb5712651cce3b89f93168b0f94fffa
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
@@ -2427,7 +2427,7 @@ spec:
   - name: node_exporter
     image: quay.io/stolostron/node-exporter@sha256:351133c65942e94df09bb05139902482b77cdac949e2dc68d22acf9e8a47468d
   - name: observability_e2e_test
-    image: quay.io/stolostron/observability-e2e-test@sha256:5a3817db734e3cf7cfdc70a4a019104bf208c73cbcfd0d91077abcb1f704f56a
+    image: quay.io/stolostron/observability-e2e-test@sha256:fb31bb68508a660dd478dce473c803e74a9dfd42a22a17332fae114c238e748a
   - name: observatorium
     image: quay.io/stolostron/observatorium@sha256:b49053d6ac4dc918da61da0efa4147dbfdb5712651cce3b89f93168b0f94fffa
   - name: observatorium_operator
