@@ -22,14 +22,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-10T05:37:11Z'
+    createdAt: '2022-03-10T06:20:15Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1451,7 +1452,7 @@ spec:
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
                   value: quay.io/stolostron/observability-e2e-test@sha256:fb31bb68508a660dd478dce473c803e74a9dfd42a22a17332fae114c238e748a
                 - name: OPERAND_IMAGE_OBSERVATORIUM
-                  value: quay.io/stolostron/observatorium@sha256:cee16b6474b81542140d3c0460e78ba7906bb2bff504a6cc6563526603f49c83
+                  value: quay.io/stolostron/observatorium@sha256:b49053d6ac4dc918da61da0efa4147dbfdb5712651cce3b89f93168b0f94fffa
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
                   value: quay.io/stolostron/observatorium-operator@sha256:fa7a241b9d9714f2104e5095ffad45801c61f14ef181e31d480721cc30f3cbbb
                 - name: OPERAND_IMAGE_OAUTH_PROXY
@@ -2235,7 +2236,7 @@ spec:
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
                   value: quay.io/stolostron/observability-e2e-test@sha256:fb31bb68508a660dd478dce473c803e74a9dfd42a22a17332fae114c238e748a
                 - name: OPERAND_IMAGE_OBSERVATORIUM
-                  value: quay.io/stolostron/observatorium@sha256:cee16b6474b81542140d3c0460e78ba7906bb2bff504a6cc6563526603f49c83
+                  value: quay.io/stolostron/observatorium@sha256:b49053d6ac4dc918da61da0efa4147dbfdb5712651cce3b89f93168b0f94fffa
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
                   value: quay.io/stolostron/observatorium-operator@sha256:fa7a241b9d9714f2104e5095ffad45801c61f14ef181e31d480721cc30f3cbbb
                 - name: OPERAND_IMAGE_OAUTH_PROXY
@@ -2416,7 +2417,7 @@ spec:
   - name: observability_e2e_test
     image: quay.io/stolostron/observability-e2e-test@sha256:fb31bb68508a660dd478dce473c803e74a9dfd42a22a17332fae114c238e748a
   - name: observatorium
-    image: quay.io/stolostron/observatorium@sha256:cee16b6474b81542140d3c0460e78ba7906bb2bff504a6cc6563526603f49c83
+    image: quay.io/stolostron/observatorium@sha256:b49053d6ac4dc918da61da0efa4147dbfdb5712651cce3b89f93168b0f94fffa
   - name: observatorium_operator
     image: quay.io/stolostron/observatorium-operator@sha256:fa7a241b9d9714f2104e5095ffad45801c61f14ef181e31d480721cc30f3cbbb
   - name: oauth_proxy
