@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-10T19:10:42Z'
+    createdAt: '2022-03-10T19:17:30Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1369,7 +1369,7 @@ spec:
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER
                   value: quay.io/stolostron/assisted-installer@sha256:1065e35e49f9fa5889080a4069cd1711d47b12e19f17f161a1c6072aa96bb71e
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_AGENT
-                  value: quay.io/stolostron/assisted-installer-agent@sha256:8b91dc34424384c30827f74c927bf6b05f83b0b1f53a51e6120609c548293f42
+                  value: quay.io/stolostron/assisted-installer-agent@sha256:4291a17f888a2f32b5ce53517041c709392a8206367082edb5aef72b4748db29
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_CONTROLLER
                   value: quay.io/stolostron/assisted-installer-controller@sha256:86662c1a342cb1cc0dd8f5502e56b9a04c85c96922f5a195cb28c8f0a5771849
                 - name: OPERAND_IMAGE_ASSISTED_SERVICE
@@ -1479,7 +1479,7 @@ spec:
                 - name: OPERAND_IMAGE_PROMETHEUS_OPERATOR
                   value: quay.io/stolostron/prometheus-operator@sha256:cf51f5302998cdd82edeeaf60a01cf11289101fb7e02c7a12a7b765c0c9751ff
                 - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
-                  value: quay.io/stolostron/rbac-query-proxy@sha256:8d11c243e0682503eee41c20cbcba9c34365e759b14a1bd672377f696b9e3ad0
+                  value: quay.io/stolostron/rbac-query-proxy@sha256:220e894f1e9fec59d3a6dbe53c9e3d9cbfa116e0de858c3e0bdef66ad11817ee
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
                   value: quay.io/stolostron/redisgraph-tls@sha256:c1af0f502b6e17bfc0ded55e688dff2e3f6d3c16ca3ad073f071dd551d9da598
                 - name: OPERAND_IMAGE_SEARCH_AGGREGATOR
@@ -2153,7 +2153,7 @@ spec:
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER
                   value: quay.io/stolostron/assisted-installer@sha256:1065e35e49f9fa5889080a4069cd1711d47b12e19f17f161a1c6072aa96bb71e
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_AGENT
-                  value: quay.io/stolostron/assisted-installer-agent@sha256:8b91dc34424384c30827f74c927bf6b05f83b0b1f53a51e6120609c548293f42
+                  value: quay.io/stolostron/assisted-installer-agent@sha256:4291a17f888a2f32b5ce53517041c709392a8206367082edb5aef72b4748db29
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_CONTROLLER
                   value: quay.io/stolostron/assisted-installer-controller@sha256:86662c1a342cb1cc0dd8f5502e56b9a04c85c96922f5a195cb28c8f0a5771849
                 - name: OPERAND_IMAGE_ASSISTED_SERVICE
@@ -2263,7 +2263,7 @@ spec:
                 - name: OPERAND_IMAGE_PROMETHEUS_OPERATOR
                   value: quay.io/stolostron/prometheus-operator@sha256:cf51f5302998cdd82edeeaf60a01cf11289101fb7e02c7a12a7b765c0c9751ff
                 - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
-                  value: quay.io/stolostron/rbac-query-proxy@sha256:8d11c243e0682503eee41c20cbcba9c34365e759b14a1bd672377f696b9e3ad0
+                  value: quay.io/stolostron/rbac-query-proxy@sha256:220e894f1e9fec59d3a6dbe53c9e3d9cbfa116e0de858c3e0bdef66ad11817ee
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
                   value: quay.io/stolostron/redisgraph-tls@sha256:c1af0f502b6e17bfc0ded55e688dff2e3f6d3c16ca3ad073f071dd551d9da598
                 - name: OPERAND_IMAGE_SEARCH_AGGREGATOR
@@ -2346,7 +2346,7 @@ spec:
   - name: assisted_installer
     image: quay.io/stolostron/assisted-installer@sha256:1065e35e49f9fa5889080a4069cd1711d47b12e19f17f161a1c6072aa96bb71e
   - name: assisted_installer_agent
-    image: quay.io/stolostron/assisted-installer-agent@sha256:8b91dc34424384c30827f74c927bf6b05f83b0b1f53a51e6120609c548293f42
+    image: quay.io/stolostron/assisted-installer-agent@sha256:4291a17f888a2f32b5ce53517041c709392a8206367082edb5aef72b4748db29
   - name: assisted_installer_controller
     image: quay.io/stolostron/assisted-installer-controller@sha256:86662c1a342cb1cc0dd8f5502e56b9a04c85c96922f5a195cb28c8f0a5771849
   - name: assisted_service
@@ -2444,7 +2444,7 @@ spec:
   - name: prometheus_operator
     image: quay.io/stolostron/prometheus-operator@sha256:cf51f5302998cdd82edeeaf60a01cf11289101fb7e02c7a12a7b765c0c9751ff
   - name: rbac_query_proxy
-    image: quay.io/stolostron/rbac-query-proxy@sha256:8d11c243e0682503eee41c20cbcba9c34365e759b14a1bd672377f696b9e3ad0
+    image: quay.io/stolostron/rbac-query-proxy@sha256:220e894f1e9fec59d3a6dbe53c9e3d9cbfa116e0de858c3e0bdef66ad11817ee
   - name: redisgraph_tls
     image: quay.io/stolostron/redisgraph-tls@sha256:c1af0f502b6e17bfc0ded55e688dff2e3f6d3c16ca3ad073f071dd551d9da598
   - name: search_aggregator
