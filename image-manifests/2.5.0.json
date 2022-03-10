@@ -57,12 +57,12 @@
   {
     "image-name": "assisted-installer-agent",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-ad17f8e1a5607df93672271b680ec045c852c044",
-    "git-sha256": "ad17f8e1a5607df93672271b680ec045c852c044",
+    "image-tag": "2.5.0-4fbd870ebd146094b31f99835841648c25a3b3b8",
+    "git-sha256": "4fbd870ebd146094b31f99835841648c25a3b3b8",
     "git-repository": "openshift/assisted-installer-agent",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:8b91dc34424384c30827f74c927bf6b05f83b0b1f53a51e6120609c548293f42",
+    "image-digest": "sha256:4291a17f888a2f32b5ce53517041c709392a8206367082edb5aef72b4748db29",
     "image-key": "assisted_installer_agent"
   },
   {
@@ -659,12 +659,12 @@
   {
     "image-name": "rbac-query-proxy",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-467a071773d5e6f13d6645ef8ad5b071cb4657a1",
-    "git-sha256": "467a071773d5e6f13d6645ef8ad5b071cb4657a1",
+    "image-tag": "2.5.0-cab1983dab1a88c9f48d1e4589d504cf5ea8bf7e",
+    "git-sha256": "cab1983dab1a88c9f48d1e4589d504cf5ea8bf7e",
     "git-repository": "stolostron/multicluster-observability-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:8d11c243e0682503eee41c20cbcba9c34365e759b14a1bd672377f696b9e3ad0",
+    "image-digest": "sha256:220e894f1e9fec59d3a6dbe53c9e3d9cbfa116e0de858c3e0bdef66ad11817ee",
     "image-key": "rbac_query_proxy"
   },
   {
