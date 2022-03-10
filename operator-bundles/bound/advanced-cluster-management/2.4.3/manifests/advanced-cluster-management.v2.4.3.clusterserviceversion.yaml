@@ -27,17 +27,17 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-09T15:22:20Z'
+    createdAt: '2022-03-10T07:40:41Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "fakeclusterinstalls.hiveinternal.openshift.io",
-      "machinepoolnameleases.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io", "clustersyncs.hiveinternal.openshift.io",
-      "clusterdeprovisions.hive.openshift.io", "clusterprovisions.hive.openshift.io", "clusterstates.hive.openshift.io",
-      "checkpoints.hive.openshift.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["clusterdeprovisions.hive.openshift.io", "checkpoints.hive.openshift.io",
+      "observatoria.core.observatorium.io", "fakeclusterinstalls.hiveinternal.openshift.io", "clusterstates.hive.openshift.io",
+      "observabilityaddons.observability.open-cluster-management.io", "clusterprovisions.hive.openshift.io",
+      "clustersyncs.hiveinternal.openshift.io", "machinepoolnameleases.hive.openshift.io", "clustersyncleases.hiveinternal.openshift.io"]'
   name: advanced-cluster-management.v2.4.3
   namespace: placeholder
   labels:
@@ -1748,7 +1748,7 @@ spec:
                 - name: OPERAND_IMAGE_CLUSTER_PROXY_ADDON
                   value: quay.io/stolostron/cluster-proxy-addon@sha256:a759ec30d45e8b4b75d28380d9c02d3bef528d4b48c4942ce512d01a860363de
                 - name: OPERAND_IMAGE_CLUSTERCLAIMS_CONTROLLER
-                  value: quay.io/stolostron/clusterclaims-controller@sha256:a4854bb2a9716e6dc11fb55b0ed3944241f627cdc8a6569021e45da369431215
+                  value: quay.io/stolostron/clusterclaims-controller@sha256:11f9c56fd58df4cfa5504efd354eda37eef80784b043fb8b1256fd4b965c47f2
                 - name: OPERAND_IMAGE_CLUSTERLIFECYCLE_STATE_METRICS
                   value: quay.io/stolostron/clusterlifecycle-state-metrics@sha256:6ddafdfaf79a178dd44ac9ceb5fd9d1a2e97446fad4e9b83dabcaee96d759b52
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
@@ -1790,7 +1790,7 @@ spec:
                 - name: OPERAND_IMAGE_HELLOWORLD
                   value: quay.io/stolostron/helloworld@sha256:d3c7b837320147468ff7ab54e7b2d02077592451e53196ea45a37956ec700204
                 - name: OPERAND_IMAGE_OPENSHIFT_HIVE
-                  value: quay.io/stolostron/hive@sha256:77893d60f8fe578ea87114d882daf27bab484ce55d221fb17ba77e1c78ad7024
+                  value: quay.io/stolostron/hive@sha256:c1a45033cc205f404d47b4ddbcd1708badb44aec8162810336b4ba05f9b8101e
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
                   value: quay.io/stolostron/iam-policy-controller@sha256:ece3a1b680644653f105ea7bb712cb473a94c817909cacf77358825a079745b1
                 - name: OPERAND_IMAGE_INSIGHTS_CLIENT
@@ -2616,7 +2616,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.namespace
-                image: quay.io/stolostron/hive@sha256:77893d60f8fe578ea87114d882daf27bab484ce55d221fb17ba77e1c78ad7024
+                image: quay.io/stolostron/hive@sha256:c1a45033cc205f404d47b4ddbcd1708badb44aec8162810336b4ba05f9b8101e
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -2672,7 +2672,7 @@ spec:
   - name: cluster_proxy_addon
     image: quay.io/stolostron/cluster-proxy-addon@sha256:a759ec30d45e8b4b75d28380d9c02d3bef528d4b48c4942ce512d01a860363de
   - name: clusterclaims_controller
-    image: quay.io/stolostron/clusterclaims-controller@sha256:a4854bb2a9716e6dc11fb55b0ed3944241f627cdc8a6569021e45da369431215
+    image: quay.io/stolostron/clusterclaims-controller@sha256:11f9c56fd58df4cfa5504efd354eda37eef80784b043fb8b1256fd4b965c47f2
   - name: clusterlifecycle_state_metrics
     image: quay.io/stolostron/clusterlifecycle-state-metrics@sha256:6ddafdfaf79a178dd44ac9ceb5fd9d1a2e97446fad4e9b83dabcaee96d759b52
   - name: config_policy_controller
