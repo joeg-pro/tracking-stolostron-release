@@ -299,8 +299,8 @@
   {
     "image-name": "grc-ui-api",
     "image-version": "3.6.0",
-    "image-tag": "3.6.0-9bc97052244280545ef7792287673cc102268a56",
-    "git-sha256": "9bc97052244280545ef7792287673cc102268a56",
+    "image-tag": "3.6.0-f25a6e0ce6a34a4a003b8b3c22d8f910ce97f620",
+    "git-sha256": "f25a6e0ce6a34a4a003b8b3c22d8f910ce97f620",
     "git-repository": "stolostron/grc-ui-api",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
@@ -463,12 +463,12 @@
   {
     "image-name": "multicluster-observability-operator",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-cab1983dab1a88c9f48d1e4589d504cf5ea8bf7e",
-    "git-sha256": "cab1983dab1a88c9f48d1e4589d504cf5ea8bf7e",
+    "image-tag": "2.5.0-7cf9b58e7f8d6e3f94741a7390219e3cc203813f",
+    "git-sha256": "7cf9b58e7f8d6e3f94741a7390219e3cc203813f",
     "git-repository": "stolostron/multicluster-observability-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:244369e67de6e5084e8e4ed9d933613ba202edc8adb73cc0de82ded9c6f9f59d",
+    "image-digest": "sha256:ef3886ed49f2c1d29b2fea2cf7f31bbc1a2bceae52468cffe1dab09a821b1bc5",
     "image-key": "multicluster_observability_operator"
   },
   {
@@ -659,12 +659,12 @@
   {
     "image-name": "rbac-query-proxy",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-cab1983dab1a88c9f48d1e4589d504cf5ea8bf7e",
-    "git-sha256": "cab1983dab1a88c9f48d1e4589d504cf5ea8bf7e",
+    "image-tag": "2.5.0-7cf9b58e7f8d6e3f94741a7390219e3cc203813f",
+    "git-sha256": "7cf9b58e7f8d6e3f94741a7390219e3cc203813f",
     "git-repository": "stolostron/multicluster-observability-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:220e894f1e9fec59d3a6dbe53c9e3d9cbfa116e0de858c3e0bdef66ad11817ee",
+    "image-digest": "sha256:7ce586cc077f529115f07642cf6d817cd1c6d81e2325def26f97d3400e3deab7",
     "image-key": "rbac_query_proxy"
   },
   {
