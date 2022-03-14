@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-14T20:23:56Z'
+    createdAt: '2022-03-14T20:30:30Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1389,7 +1389,7 @@ spec:
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/stolostron/config-policy-controller@sha256:2458fab784f18aa1247f71deadc3eafb95e0ca83a9a52cd3814aaf500e01f925
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/stolostron/console@sha256:268767d69447c3f5c6a6c03c7116491e462dce4eefe791b0595932c1a10be573
+                  value: quay.io/stolostron/console@sha256:3ad5a83da1547c3e974f56c1205a6b88882ae06f10806aefacad519a1dd5806d
                 - name: OPERAND_IMAGE_CONSOLE_API
                   value: quay.io/stolostron/console-api@sha256:a2685496c2fb72d370ca64ebbcd9b8b0030a9317680eb470018d35e138a5b8ce
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
@@ -2173,7 +2173,7 @@ spec:
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/stolostron/config-policy-controller@sha256:2458fab784f18aa1247f71deadc3eafb95e0ca83a9a52cd3814aaf500e01f925
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/stolostron/console@sha256:268767d69447c3f5c6a6c03c7116491e462dce4eefe791b0595932c1a10be573
+                  value: quay.io/stolostron/console@sha256:3ad5a83da1547c3e974f56c1205a6b88882ae06f10806aefacad519a1dd5806d
                 - name: OPERAND_IMAGE_CONSOLE_API
                   value: quay.io/stolostron/console-api@sha256:a2685496c2fb72d370ca64ebbcd9b8b0030a9317680eb470018d35e138a5b8ce
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
@@ -2366,7 +2366,7 @@ spec:
   - name: config_policy_controller
     image: quay.io/stolostron/config-policy-controller@sha256:2458fab784f18aa1247f71deadc3eafb95e0ca83a9a52cd3814aaf500e01f925
   - name: console
-    image: quay.io/stolostron/console@sha256:268767d69447c3f5c6a6c03c7116491e462dce4eefe791b0595932c1a10be573
+    image: quay.io/stolostron/console@sha256:3ad5a83da1547c3e974f56c1205a6b88882ae06f10806aefacad519a1dd5806d
   - name: console_api
     image: quay.io/stolostron/console-api@sha256:a2685496c2fb72d370ca64ebbcd9b8b0030a9317680eb470018d35e138a5b8ce
   - name: endpoint_monitoring_operator
