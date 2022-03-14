@@ -68,8 +68,8 @@
   {
     "image-name": "assisted-installer-controller",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-6a4afdd477b1cc64e5a298c308c81c42d7dd1f13",
-    "git-sha256": "6a4afdd477b1cc64e5a298c308c81c42d7dd1f13",
+    "image-tag": "2.5.0-bdb26ccfa9c2e04f4a11a31e7901ae0697072200",
+    "git-sha256": "bdb26ccfa9c2e04f4a11a31e7901ae0697072200",
     "git-repository": "openshift/assisted-installer",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
@@ -362,6 +362,28 @@
     "image-key": "iam_policy_controller"
   },
   {
+    "image-name": "insights-client",
+    "image-version": "2.3.0",
+    "image-tag": "2.3.0-c6ac27e555e9deba9849ae064d3cceea18f1bf1c",
+    "git-sha256": "c6ac27e555e9deba9849ae064d3cceea18f1bf1c",
+    "git-repository": "stolostron/insights-client",
+    "image-remote": "quay.io/stolostron",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:b9e796184d84a015b7324d56b17177e81e3234ae41aaed31a5b08630641dca85",
+    "image-key": "insights_client"
+  },
+  {
+    "image-name": "insights-metrics",
+    "image-version": "2.3.0",
+    "image-tag": "2.3.0-e159f82cb27240fec8f217d1f9c57923fd3b7c61",
+    "git-sha256": "e159f82cb27240fec8f217d1f9c57923fd3b7c61",
+    "git-repository": "stolostron/insights-metrics",
+    "image-remote": "quay.io/stolostron",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:506f51cc8524ce864c35855f3faece628c11fe6160cc8d07f21f731d5312b4a7",
+    "image-key": "insights_metrics"
+  },
+  {
     "image-name": "klusterlet-addon-controller",
     "image-version": "release-2.5",
     "image-tag": "release-2.5-c708cd57b2763013e7f49b8dec489628acb02ad9",
@@ -395,6 +417,17 @@
     "image-key": "kube_rbac_proxy"
   },
   {
+    "image-name": "kube-state-metrics",
+    "image-version": "2.5",
+    "image-tag": "2.5-7fbe4ea31a1d94016693402bfe5a30f81461d029",
+    "git-sha256": "7fbe4ea31a1d94016693402bfe5a30f81461d029",
+    "git-repository": "stolostron/kube-state-metrics",
+    "image-remote": "quay.io/stolostron",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:81f90db9213fba461407244930f9614762f49dc88b3f09a9a7b929a86a9bb552",
+    "image-key": "kube_state_metrics"
+  },
+  {
     "image-name": "management-ingress",
     "image-version": "2.3.0",
     "image-tag": "2.3.0-2c7abb3245cfcc2bac1f743e9436a928f5435a75",
@@ -426,6 +459,17 @@
     "image-remote-src": "registry.ci.openshift.org/stolostron",
     "image-digest": "sha256:e6cdd8f93c979a5a53097ed605a4808d3a865c0d93a84e3c9d0ce30eedf1e715",
     "image-key": "multicloud_integrations"
+  },
+  {
+    "image-name": "multicluster-observability-operator",
+    "image-version": "2.5.0",
+    "image-tag": "2.5.0-7cf9b58e7f8d6e3f94741a7390219e3cc203813f",
+    "git-sha256": "7cf9b58e7f8d6e3f94741a7390219e3cc203813f",
+    "git-repository": "stolostron/multicluster-observability-operator",
+    "image-remote": "quay.io/stolostron",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:ef3886ed49f2c1d29b2fea2cf7f31bbc1a2bceae52468cffe1dab09a821b1bc5",
+    "image-key": "multicluster_observability_operator"
   },
   {
     "image-name": "multicluster-operators-application",
