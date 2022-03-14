@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-14T15:17:35Z'
+    createdAt: '2022-03-14T16:12:48Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1364,7 +1364,7 @@ spec:
                 - name: OPERAND_IMAGE_APPLICATION_UI_TESTS
                   value: quay.io/stolostron/application-ui-tests@sha256:1f3668b2ad06ddb458971c43a1c94df492ae22901c4fa728b5c290689f11a911
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
-                  value: quay.io/stolostron/applifecycle-backend-e2e@sha256:0245f2a42677408cb295d5cf58dfb9ff86a5ad821f168b5512936d16e6eb4d5b
+                  value: quay.io/stolostron/applifecycle-backend-e2e@sha256:318cba3577fe6b302c72ed3158849f0a8ee576b6d3003637103508d3e6849ee5
                 - name: OPERAND_IMAGE_ASSISTED_IMAGE_SERVICE
                   value: quay.io/stolostron/assisted-image-service@sha256:d19358767a2253fdbe52fd49571a1c9449a3f03d415e9f28ac90f1571966a57d
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER
@@ -1458,7 +1458,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
                   value: quay.io/stolostron/multiclusterhub-repo@sha256:a56b29b1b60f04441667e2386e5867a17b5e45e0d85f9ae7e747b2be4b934c3d
                 - name: OPERAND_IMAGE_MUST_GATHER
-                  value: quay.io/stolostron/must-gather@sha256:ae63e353a9256c98930ec32c43ae86717009cba42eba9ba5e2f85d27fd04a8f6
+                  value: quay.io/stolostron/must-gather@sha256:d10a6b28315f0d10c59210df5709d11fa1671cf000ad6fa61980f52f30b3c412
                 - name: OPERAND_IMAGE_NODE_EXPORTER
                   value: quay.io/stolostron/node-exporter@sha256:351133c65942e94df09bb05139902482b77cdac949e2dc68d22acf9e8a47468d
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
@@ -2148,7 +2148,7 @@ spec:
                 - name: OPERAND_IMAGE_APPLICATION_UI_TESTS
                   value: quay.io/stolostron/application-ui-tests@sha256:1f3668b2ad06ddb458971c43a1c94df492ae22901c4fa728b5c290689f11a911
                 - name: OPERAND_IMAGE_APPLIFECYCLE_BACKEND_E2E
-                  value: quay.io/stolostron/applifecycle-backend-e2e@sha256:0245f2a42677408cb295d5cf58dfb9ff86a5ad821f168b5512936d16e6eb4d5b
+                  value: quay.io/stolostron/applifecycle-backend-e2e@sha256:318cba3577fe6b302c72ed3158849f0a8ee576b6d3003637103508d3e6849ee5
                 - name: OPERAND_IMAGE_ASSISTED_IMAGE_SERVICE
                   value: quay.io/stolostron/assisted-image-service@sha256:d19358767a2253fdbe52fd49571a1c9449a3f03d415e9f28ac90f1571966a57d
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER
@@ -2242,7 +2242,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
                   value: quay.io/stolostron/multiclusterhub-repo@sha256:a56b29b1b60f04441667e2386e5867a17b5e45e0d85f9ae7e747b2be4b934c3d
                 - name: OPERAND_IMAGE_MUST_GATHER
-                  value: quay.io/stolostron/must-gather@sha256:ae63e353a9256c98930ec32c43ae86717009cba42eba9ba5e2f85d27fd04a8f6
+                  value: quay.io/stolostron/must-gather@sha256:d10a6b28315f0d10c59210df5709d11fa1671cf000ad6fa61980f52f30b3c412
                 - name: OPERAND_IMAGE_NODE_EXPORTER
                   value: quay.io/stolostron/node-exporter@sha256:351133c65942e94df09bb05139902482b77cdac949e2dc68d22acf9e8a47468d
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
@@ -2341,7 +2341,7 @@ spec:
   - name: application_ui_tests
     image: quay.io/stolostron/application-ui-tests@sha256:1f3668b2ad06ddb458971c43a1c94df492ae22901c4fa728b5c290689f11a911
   - name: applifecycle_backend_e2e
-    image: quay.io/stolostron/applifecycle-backend-e2e@sha256:0245f2a42677408cb295d5cf58dfb9ff86a5ad821f168b5512936d16e6eb4d5b
+    image: quay.io/stolostron/applifecycle-backend-e2e@sha256:318cba3577fe6b302c72ed3158849f0a8ee576b6d3003637103508d3e6849ee5
   - name: assisted_image_service
     image: quay.io/stolostron/assisted-image-service@sha256:d19358767a2253fdbe52fd49571a1c9449a3f03d415e9f28ac90f1571966a57d
   - name: assisted_installer
@@ -2423,7 +2423,7 @@ spec:
   - name: multiclusterhub_repo
     image: quay.io/stolostron/multiclusterhub-repo@sha256:a56b29b1b60f04441667e2386e5867a17b5e45e0d85f9ae7e747b2be4b934c3d
   - name: must_gather
-    image: quay.io/stolostron/must-gather@sha256:ae63e353a9256c98930ec32c43ae86717009cba42eba9ba5e2f85d27fd04a8f6
+    image: quay.io/stolostron/must-gather@sha256:d10a6b28315f0d10c59210df5709d11fa1671cf000ad6fa61980f52f30b3c412
   - name: node_exporter
     image: quay.io/stolostron/node-exporter@sha256:351133c65942e94df09bb05139902482b77cdac949e2dc68d22acf9e8a47468d
   - name: observability_e2e_test
