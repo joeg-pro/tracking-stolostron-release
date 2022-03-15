@@ -46,12 +46,12 @@
   {
     "image-name": "assisted-installer",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-e0139985a09745440cfb7d90e14f7154922de9f0",
-    "git-sha256": "e0139985a09745440cfb7d90e14f7154922de9f0",
+    "image-tag": "2.5.0-11626f9a25c5ff7a7511840ae039adf3ae385e1d",
+    "git-sha256": "11626f9a25c5ff7a7511840ae039adf3ae385e1d",
     "git-repository": "openshift/assisted-installer",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:7167add1f8640bdf0a1843874566d22b16560a7d03bb9dd34a2b2d6b2525e2f1",
+    "image-digest": "sha256:e9fa677652ea58a9f6796bfde1bb03ad52679b7b424273453016963d85fc6602",
     "image-key": "assisted_installer"
   },
   {
@@ -68,23 +68,23 @@
   {
     "image-name": "assisted-installer-controller",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-e0139985a09745440cfb7d90e14f7154922de9f0",
-    "git-sha256": "e0139985a09745440cfb7d90e14f7154922de9f0",
+    "image-tag": "2.5.0-11626f9a25c5ff7a7511840ae039adf3ae385e1d",
+    "git-sha256": "11626f9a25c5ff7a7511840ae039adf3ae385e1d",
     "git-repository": "openshift/assisted-installer",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:b613f2f4bdd1c35cd55768e3484b3185d8dee717519722f3875ff6c091cc20c6",
+    "image-digest": "sha256:e6a89c068e58786129c9708863c93aee43572984822fc8cfce7257004ecd330d",
     "image-key": "assisted_installer_controller"
   },
   {
     "image-name": "assisted-service",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-d45305aa6fd4423864c340fd66e068df0dc0554a",
-    "git-sha256": "d45305aa6fd4423864c340fd66e068df0dc0554a",
+    "image-tag": "2.5.0-beb1c41cf66b5a1fd0e8e8e7f83af15f5f8c5d88",
+    "git-sha256": "beb1c41cf66b5a1fd0e8e8e7f83af15f5f8c5d88",
     "git-repository": "openshift/assisted-service",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:1933314d5606be228b7a40ab32574cb9a49a793ec3dc22acde143800fcb52f96",
+    "image-digest": "sha256:322cbbc1a456580ba717267f84cbce306d88206516405b2021790e1ee160951a",
     "image-key": "assisted_service"
   },
   {
