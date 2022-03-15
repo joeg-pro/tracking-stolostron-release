@@ -22,15 +22,14 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-15T19:27:47Z'
+    createdAt: '2022-03-15T19:29:29Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1452,7 +1451,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION
                   value: quay.io/stolostron/multicluster-operators-subscription@sha256:bccc75ccdf66fe49d9d0cd8bf10bfc79a53d9ce95ecb0baafe9b7c32969ec761
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR
-                  value: quay.io/stolostron/multiclusterhub-operator@sha256:5492388a670c959cd7cb66a68bbc3f6e2d3b7001f2759405b28a1402856fbf26
+                  value: quay.io/stolostron/multiclusterhub-operator@sha256:6aa363dae49c255747ce26e66eb6d8ef6302b958a7fd36cdc44d8d7a7bdb6a3f
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
                   value: quay.io/stolostron/multiclusterhub-operator-tests@sha256:10809deb4dad2d5806a5d78e1a1f919185f810d48d7f15f493e3be153a681c30
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
@@ -1511,7 +1510,7 @@ spec:
                   value: quay.io/stolostron/volsync-mover-restic@sha256:e0d36f1e322ea5dd103b3e29aa91395c5c0eed5a8938bfe30351a3648eb294cf
                 - name: OPERAND_IMAGE_VOLSYNC_MOVER_RSYNC
                   value: quay.io/stolostron/volsync-mover-rsync@sha256:ff296e3dc3b20841d4533676f49c2811e7acb8c08c522cd2cd9dade542c05741
-                image: quay.io/stolostron/multiclusterhub-operator@sha256:5492388a670c959cd7cb66a68bbc3f6e2d3b7001f2759405b28a1402856fbf26
+                image: quay.io/stolostron/multiclusterhub-operator@sha256:6aa363dae49c255747ce26e66eb6d8ef6302b958a7fd36cdc44d8d7a7bdb6a3f
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -2236,7 +2235,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_SUBSCRIPTION
                   value: quay.io/stolostron/multicluster-operators-subscription@sha256:bccc75ccdf66fe49d9d0cd8bf10bfc79a53d9ce95ecb0baafe9b7c32969ec761
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR
-                  value: quay.io/stolostron/multiclusterhub-operator@sha256:5492388a670c959cd7cb66a68bbc3f6e2d3b7001f2759405b28a1402856fbf26
+                  value: quay.io/stolostron/multiclusterhub-operator@sha256:6aa363dae49c255747ce26e66eb6d8ef6302b958a7fd36cdc44d8d7a7bdb6a3f
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_OPERATOR_TESTS
                   value: quay.io/stolostron/multiclusterhub-operator-tests@sha256:10809deb4dad2d5806a5d78e1a1f919185f810d48d7f15f493e3be153a681c30
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
