@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-15T19:52:12Z'
+    createdAt: '2022-03-15T19:54:52Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1410,7 +1410,7 @@ spec:
                 - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
                   value: quay.io/stolostron/grafana-dashboard-loader@sha256:a3c22b5a74974afcc3ae5fad9737cca18c4b10f5d286808df8520481d2e6f289
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
-                  value: quay.io/stolostron/grc-policy-framework-tests@sha256:43746a57b6c67c46da0c4188afdbd2d539b255948f9a004e270409c3cd6caff2
+                  value: quay.io/stolostron/grc-policy-framework-tests@sha256:a963a87a6719467acf5c4e54ac1e07f9a6087ca09e8ccad0859aa26aee40b730
                 - name: OPERAND_IMAGE_GRC_UI
                   value: quay.io/stolostron/grc-ui@sha256:aa305fd6bc03bafc696046be906dba56e1dec987801ae06d6a3d2c6e498e06ad
                 - name: OPERAND_IMAGE_GRC_UI_API
@@ -2194,7 +2194,7 @@ spec:
                 - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
                   value: quay.io/stolostron/grafana-dashboard-loader@sha256:a3c22b5a74974afcc3ae5fad9737cca18c4b10f5d286808df8520481d2e6f289
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
-                  value: quay.io/stolostron/grc-policy-framework-tests@sha256:43746a57b6c67c46da0c4188afdbd2d539b255948f9a004e270409c3cd6caff2
+                  value: quay.io/stolostron/grc-policy-framework-tests@sha256:a963a87a6719467acf5c4e54ac1e07f9a6087ca09e8ccad0859aa26aee40b730
                 - name: OPERAND_IMAGE_GRC_UI
                   value: quay.io/stolostron/grc-ui@sha256:aa305fd6bc03bafc696046be906dba56e1dec987801ae06d6a3d2c6e498e06ad
                 - name: OPERAND_IMAGE_GRC_UI_API
@@ -2387,7 +2387,7 @@ spec:
   - name: grafana_dashboard_loader
     image: quay.io/stolostron/grafana-dashboard-loader@sha256:a3c22b5a74974afcc3ae5fad9737cca18c4b10f5d286808df8520481d2e6f289
   - name: grc_policy_framework_tests
-    image: quay.io/stolostron/grc-policy-framework-tests@sha256:43746a57b6c67c46da0c4188afdbd2d539b255948f9a004e270409c3cd6caff2
+    image: quay.io/stolostron/grc-policy-framework-tests@sha256:a963a87a6719467acf5c4e54ac1e07f9a6087ca09e8ccad0859aa26aee40b730
   - name: grc_ui
     image: quay.io/stolostron/grc-ui@sha256:aa305fd6bc03bafc696046be906dba56e1dec987801ae06d6a3d2c6e498e06ad
   - name: grc_ui_api
