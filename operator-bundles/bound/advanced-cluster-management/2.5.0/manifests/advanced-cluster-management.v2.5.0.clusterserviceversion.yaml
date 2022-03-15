@@ -22,14 +22,15 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-15T13:21:38Z'
+    createdAt: '2022-03-15T13:43:12Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1369,7 +1370,7 @@ spec:
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER
                   value: quay.io/stolostron/assisted-installer@sha256:7167add1f8640bdf0a1843874566d22b16560a7d03bb9dd34a2b2d6b2525e2f1
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_AGENT
-                  value: quay.io/stolostron/assisted-installer-agent@sha256:d8a35abc4a184a97bc8eb2c7b358f2c6bcef794c587a144c06ad5b7d42de2899
+                  value: quay.io/stolostron/assisted-installer-agent@sha256:c1562fdc4cf8cba84163c534e601898b336fd23fb74f6b61eff6f0b6a291b2e7
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_CONTROLLER
                   value: quay.io/stolostron/assisted-installer-controller@sha256:b613f2f4bdd1c35cd55768e3484b3185d8dee717519722f3875ff6c091cc20c6
                 - name: OPERAND_IMAGE_ASSISTED_SERVICE
@@ -2153,7 +2154,7 @@ spec:
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER
                   value: quay.io/stolostron/assisted-installer@sha256:7167add1f8640bdf0a1843874566d22b16560a7d03bb9dd34a2b2d6b2525e2f1
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_AGENT
-                  value: quay.io/stolostron/assisted-installer-agent@sha256:d8a35abc4a184a97bc8eb2c7b358f2c6bcef794c587a144c06ad5b7d42de2899
+                  value: quay.io/stolostron/assisted-installer-agent@sha256:c1562fdc4cf8cba84163c534e601898b336fd23fb74f6b61eff6f0b6a291b2e7
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_CONTROLLER
                   value: quay.io/stolostron/assisted-installer-controller@sha256:b613f2f4bdd1c35cd55768e3484b3185d8dee717519722f3875ff6c091cc20c6
                 - name: OPERAND_IMAGE_ASSISTED_SERVICE
@@ -2346,7 +2347,7 @@ spec:
   - name: assisted_installer
     image: quay.io/stolostron/assisted-installer@sha256:7167add1f8640bdf0a1843874566d22b16560a7d03bb9dd34a2b2d6b2525e2f1
   - name: assisted_installer_agent
-    image: quay.io/stolostron/assisted-installer-agent@sha256:d8a35abc4a184a97bc8eb2c7b358f2c6bcef794c587a144c06ad5b7d42de2899
+    image: quay.io/stolostron/assisted-installer-agent@sha256:c1562fdc4cf8cba84163c534e601898b336fd23fb74f6b61eff6f0b6a291b2e7
   - name: assisted_installer_controller
     image: quay.io/stolostron/assisted-installer-controller@sha256:b613f2f4bdd1c35cd55768e3484b3185d8dee717519722f3875ff6c091cc20c6
   - name: assisted_service
