@@ -211,12 +211,12 @@
   {
     "image-name": "governance-policy-propagator",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-fbf96e655e889aed1dc76dff175a7d40a8d13e50",
-    "git-sha256": "fbf96e655e889aed1dc76dff175a7d40a8d13e50",
+    "image-tag": "1.0.0-3e870bcf8a07efc081303831499fbd513b352827",
+    "git-sha256": "3e870bcf8a07efc081303831499fbd513b352827",
     "git-repository": "stolostron/governance-policy-propagator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:adba27b5aaa03a83ba8a51faca78a231f5cf0141124b60b6fa36a41bfafb5b58",
+    "image-digest": "sha256:abc6ec4271666be0e97af8dd78075f94bc45a7e62bdc7ba83ceaf2b288f5b588",
     "image-key": "governance_policy_propagator"
   },
   {
@@ -233,12 +233,12 @@
   {
     "image-name": "governance-policy-status-sync",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-30733a4eddda533d73f983511d555ba53192e0d7",
-    "git-sha256": "30733a4eddda533d73f983511d555ba53192e0d7",
+    "image-tag": "1.0.0-305755d2c208456835cb1e2a620e1e956a61c749",
+    "git-sha256": "305755d2c208456835cb1e2a620e1e956a61c749",
     "git-repository": "stolostron/governance-policy-status-sync",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:4911a9cf98e23789a88f15c5c4390facd8ceb1136ce87a28cad5eaf7f18cf652",
+    "image-digest": "sha256:db9f4d68323409273eeb5fdd0ccfd602303c5146148de12ac2bab00e9f04ca54",
     "image-key": "governance_policy_status_sync"
   },
   {
@@ -789,12 +789,12 @@
   {
     "image-name": "volsync-addon-controller",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-457890ed309003c47e9c8c0585808eb18cb76e58",
-    "git-sha256": "457890ed309003c47e9c8c0585808eb18cb76e58",
+    "image-tag": "2.5.0-960ce27c2f4472b2f5e7dacdb712a199e745efe9",
+    "git-sha256": "960ce27c2f4472b2f5e7dacdb712a199e745efe9",
     "git-repository": "stolostron/volsync-addon-controller",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:79ac5ec008d7f03938cd0fc759e4f566aeeaaac2bf87151508efe33678f9427a",
+    "image-digest": "sha256:a6d97094e2269286e82db40fb5c307377a0645d8d175f3fc16e1721c425b566b",
     "image-key": "volsync_addon_controller"
   },
   {
