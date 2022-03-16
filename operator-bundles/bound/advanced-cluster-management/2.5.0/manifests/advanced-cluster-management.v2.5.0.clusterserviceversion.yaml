@@ -22,15 +22,14 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-16T21:41:50Z'
+    createdAt: '2022-03-16T21:50:05Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1374,7 +1373,7 @@ spec:
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_CONTROLLER
                   value: quay.io/stolostron/assisted-installer-controller@sha256:e6a89c068e58786129c9708863c93aee43572984822fc8cfce7257004ecd330d
                 - name: OPERAND_IMAGE_ASSISTED_SERVICE
-                  value: quay.io/stolostron/assisted-service@sha256:5fa8d9370752633a7552522af821925ec1267eda932d1692a3cfd9b5e59145fb
+                  value: quay.io/stolostron/assisted-service@sha256:e6a9192b8b9c4c335a360be1416e5aa7f58f754f68f10ac7b52c06552a085da1
                 - name: OPERAND_IMAGE_BAILER
                   value: quay.io/stolostron/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
@@ -2158,7 +2157,7 @@ spec:
                 - name: OPERAND_IMAGE_ASSISTED_INSTALLER_CONTROLLER
                   value: quay.io/stolostron/assisted-installer-controller@sha256:e6a89c068e58786129c9708863c93aee43572984822fc8cfce7257004ecd330d
                 - name: OPERAND_IMAGE_ASSISTED_SERVICE
-                  value: quay.io/stolostron/assisted-service@sha256:5fa8d9370752633a7552522af821925ec1267eda932d1692a3cfd9b5e59145fb
+                  value: quay.io/stolostron/assisted-service@sha256:e6a9192b8b9c4c335a360be1416e5aa7f58f754f68f10ac7b52c06552a085da1
                 - name: OPERAND_IMAGE_BAILER
                   value: quay.io/stolostron/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
@@ -2351,7 +2350,7 @@ spec:
   - name: assisted_installer_controller
     image: quay.io/stolostron/assisted-installer-controller@sha256:e6a89c068e58786129c9708863c93aee43572984822fc8cfce7257004ecd330d
   - name: assisted_service
-    image: quay.io/stolostron/assisted-service@sha256:5fa8d9370752633a7552522af821925ec1267eda932d1692a3cfd9b5e59145fb
+    image: quay.io/stolostron/assisted-service@sha256:e6a9192b8b9c4c335a360be1416e5aa7f58f754f68f10ac7b52c06552a085da1
   - name: bailer
     image: quay.io/stolostron/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
   - name: cert_policy_controller
