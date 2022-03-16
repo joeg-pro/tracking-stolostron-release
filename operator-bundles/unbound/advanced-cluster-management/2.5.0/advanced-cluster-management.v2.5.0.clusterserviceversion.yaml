@@ -22,15 +22,14 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-16T20:48:39Z'
+    createdAt: '2022-03-16T21:11:28Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
       "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
       "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -128,11 +127,6 @@ spec:
         - urn:alm:descriptor:com.tectonic.ui:advanced
         - urn:alm:descriptor:com.tectonic.ui:select:High
         - urn:alm:descriptor:com.tectonic.ui:select:Basic
-      - description: Provides optional configuration for components
-        displayName: Component Configuration
-        path: components
-        x-descriptors:
-        - urn:alm:descriptor:com.tectonic.ui:hidden
       - description: Provide the customized OpenShift default ingress CA certificate to RHACM
         displayName: Custom CA Configmap
         path: customCAConfigmap
@@ -182,6 +176,11 @@ spec:
       - description: Developer Overrides
         displayName: Developer Overrides
         path: overrides
+        x-descriptors:
+        - urn:alm:descriptor:com.tectonic.ui:hidden
+      - description: Provides optional configuration for components
+        displayName: Component Configuration
+        path: overrides.components
         x-descriptors:
         - urn:alm:descriptor:com.tectonic.ui:hidden
       - description: (Deprecated) Install cert-manager into its own namespace
