@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-16T15:23:41Z'
+    createdAt: '2022-03-16T15:26:59Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1457,7 +1457,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
                   value: quay.io/stolostron/multiclusterhub-repo@sha256:69bf7ea8c775ef4ea2fec29d4f59ce6491e189aaf001d35efa9b73094c9f05e1
                 - name: OPERAND_IMAGE_MUST_GATHER
-                  value: quay.io/stolostron/must-gather@sha256:d10a6b28315f0d10c59210df5709d11fa1671cf000ad6fa61980f52f30b3c412
+                  value: quay.io/stolostron/must-gather@sha256:038c8837924894c447d20c85745544b95dea53f5a48dd50c232c75ee813693c0
                 - name: OPERAND_IMAGE_NODE_EXPORTER
                   value: quay.io/stolostron/node-exporter@sha256:351133c65942e94df09bb05139902482b77cdac949e2dc68d22acf9e8a47468d
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
@@ -2241,7 +2241,7 @@ spec:
                 - name: OPERAND_IMAGE_MULTICLUSTERHUB_REPO
                   value: quay.io/stolostron/multiclusterhub-repo@sha256:69bf7ea8c775ef4ea2fec29d4f59ce6491e189aaf001d35efa9b73094c9f05e1
                 - name: OPERAND_IMAGE_MUST_GATHER
-                  value: quay.io/stolostron/must-gather@sha256:d10a6b28315f0d10c59210df5709d11fa1671cf000ad6fa61980f52f30b3c412
+                  value: quay.io/stolostron/must-gather@sha256:038c8837924894c447d20c85745544b95dea53f5a48dd50c232c75ee813693c0
                 - name: OPERAND_IMAGE_NODE_EXPORTER
                   value: quay.io/stolostron/node-exporter@sha256:351133c65942e94df09bb05139902482b77cdac949e2dc68d22acf9e8a47468d
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
@@ -2422,7 +2422,7 @@ spec:
   - name: multiclusterhub_repo
     image: quay.io/stolostron/multiclusterhub-repo@sha256:69bf7ea8c775ef4ea2fec29d4f59ce6491e189aaf001d35efa9b73094c9f05e1
   - name: must_gather
-    image: quay.io/stolostron/must-gather@sha256:d10a6b28315f0d10c59210df5709d11fa1671cf000ad6fa61980f52f30b3c412
+    image: quay.io/stolostron/must-gather@sha256:038c8837924894c447d20c85745544b95dea53f5a48dd50c232c75ee813693c0
   - name: node_exporter
     image: quay.io/stolostron/node-exporter@sha256:351133c65942e94df09bb05139902482b77cdac949e2dc68d22acf9e8a47468d
   - name: observability_e2e_test
