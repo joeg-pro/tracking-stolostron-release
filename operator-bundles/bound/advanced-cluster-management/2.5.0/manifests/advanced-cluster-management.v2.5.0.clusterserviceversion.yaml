@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-16T14:56:29Z'
+    createdAt: '2022-03-16T15:23:41Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1497,7 +1497,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_V2_API
                   value: quay.io/stolostron/search-v2-api@sha256:8f2c3367d58d1d5bfec1005189e39f33bb36adfab070a1e4dacfd69debb4fc69
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
-                  value: quay.io/stolostron/submariner-addon@sha256:ecd33cd6087bbd2447bac4b120d60fb9dbd0f1614e77fbff6afb51c117ec36af
+                  value: quay.io/stolostron/submariner-addon@sha256:7dd0b8159f7ea3f7ba8c6a0165926a8436a099095b27fe19a76852a26f94dbd4
                 - name: OPERAND_IMAGE_THANOS
                   value: quay.io/stolostron/thanos@sha256:87d7947183533db7a5ea809ce88b4b5f26034fe8dcbc48e29135043ef1a4fb83
                 - name: OPERAND_IMAGE_VOLSYNC
@@ -1641,7 +1641,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.name
-                image: quay.io/stolostron/submariner-addon@sha256:ecd33cd6087bbd2447bac4b120d60fb9dbd0f1614e77fbff6afb51c117ec36af
+                image: quay.io/stolostron/submariner-addon@sha256:7dd0b8159f7ea3f7ba8c6a0165926a8436a099095b27fe19a76852a26f94dbd4
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -2281,7 +2281,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_V2_API
                   value: quay.io/stolostron/search-v2-api@sha256:8f2c3367d58d1d5bfec1005189e39f33bb36adfab070a1e4dacfd69debb4fc69
                 - name: OPERAND_IMAGE_SUBMARINER_ADDON
-                  value: quay.io/stolostron/submariner-addon@sha256:ecd33cd6087bbd2447bac4b120d60fb9dbd0f1614e77fbff6afb51c117ec36af
+                  value: quay.io/stolostron/submariner-addon@sha256:7dd0b8159f7ea3f7ba8c6a0165926a8436a099095b27fe19a76852a26f94dbd4
                 - name: OPERAND_IMAGE_THANOS
                   value: quay.io/stolostron/thanos@sha256:87d7947183533db7a5ea809ce88b4b5f26034fe8dcbc48e29135043ef1a4fb83
                 - name: OPERAND_IMAGE_VOLSYNC
