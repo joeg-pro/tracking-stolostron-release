@@ -1,27 +1,5 @@
 [
   {
-    "image-name": "application-ui",
-    "image-version": "2.5.0",
-    "image-tag": "2.5.0-366589632fe8020819ac1aa0408bc93f84b96081",
-    "git-sha256": "366589632fe8020819ac1aa0408bc93f84b96081",
-    "git-repository": "stolostron/application-ui",
-    "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:9e07c64cffc2b35a5671f6140f1922072e6a4a24938e8c1b4ab7b07e8d0f8036",
-    "image-key": "application_ui"
-  },
-  {
-    "image-name": "application-ui-tests",
-    "image-version": "2.5.0",
-    "image-tag": "2.5.0-366589632fe8020819ac1aa0408bc93f84b96081",
-    "git-sha256": "366589632fe8020819ac1aa0408bc93f84b96081",
-    "git-repository": "stolostron/application-ui",
-    "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:1f3668b2ad06ddb458971c43a1c94df492ae22901c4fa728b5c290689f11a911",
-    "image-key": "application_ui_tests"
-  },
-  {
     "image-name": "applifecycle-backend-e2e",
     "image-version": "2.5.0",
     "image-tag": "2.5.0-b2e3e3cc3a56c891e1e2d735b2c438b281392d5b",
@@ -176,17 +154,6 @@
     "image-key": "console"
   },
   {
-    "image-name": "console-api",
-    "image-version": "2.4.0",
-    "image-tag": "2.4.0-28dbf0e327faea33298e284aa34598a5c4022921",
-    "git-sha256": "28dbf0e327faea33298e284aa34598a5c4022921",
-    "git-repository": "stolostron/console-api",
-    "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:a2685496c2fb72d370ca64ebbcd9b8b0030a9317680eb470018d35e138a5b8ce",
-    "image-key": "console_api"
-  },
-  {
     "image-name": "endpoint-monitoring-operator",
     "image-version": "2.5.0",
     "image-tag": "2.5.0-c65c30d939f7626ba845b8c33d7d050cad900b52",
@@ -286,39 +253,6 @@
     "image-key": "grc_policy_framework_tests"
   },
   {
-    "image-name": "grc-ui",
-    "image-version": "3.6.0",
-    "image-tag": "3.6.0-289452bbbd919e0da40cc68364185ce3b22a1c4a",
-    "git-sha256": "289452bbbd919e0da40cc68364185ce3b22a1c4a",
-    "git-repository": "stolostron/grc-ui",
-    "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:aa305fd6bc03bafc696046be906dba56e1dec987801ae06d6a3d2c6e498e06ad",
-    "image-key": "grc_ui"
-  },
-  {
-    "image-name": "grc-ui-api",
-    "image-version": "3.6.0",
-    "image-tag": "3.6.0-f25a6e0ce6a34a4a003b8b3c22d8f910ce97f620",
-    "git-sha256": "f25a6e0ce6a34a4a003b8b3c22d8f910ce97f620",
-    "git-repository": "stolostron/grc-ui-api",
-    "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:2ad0e699b25d839db20e7cb748f01a7deeb720f852cb4c88cd7fc3bfa095da17",
-    "image-key": "grc_ui_api"
-  },
-  {
-    "image-name": "grc-ui-tests",
-    "image-version": "3.6.0",
-    "image-tag": "3.6.0-289452bbbd919e0da40cc68364185ce3b22a1c4a",
-    "git-sha256": "289452bbbd919e0da40cc68364185ce3b22a1c4a",
-    "git-repository": "stolostron/grc-ui",
-    "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:82d531363ec5be366a2ed22814c08b65173e30725011ae6bde0109fd5042d156",
-    "image-key": "grc_ui_tests"
-  },
-  {
     "image-name": "helloprow-go",
     "image-version": "1.0.0",
     "image-tag": "1.0.0-c52ac9282ddfe8d3459e0202c47951c9249ddae1",
@@ -332,11 +266,11 @@
   {
     "image-name": "helloworld",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-d6a42ba75afabdf422e3cef6a2cd37d13b84ba79",
-    "git-sha256": "d6a42ba75afabdf422e3cef6a2cd37d13b84ba79",
+    "image-tag": "1.0.0-ce49e6d065d8debfcb004be2e00fff97e39f8a19",
+    "git-sha256": "ce49e6d065d8debfcb004be2e00fff97e39f8a19",
     "git-repository": "stolostron/example-cicd-component",
     "image-remote": "quay.io/stolostron",
-    "image-digest": "sha256:5a8ddd8e9f5ad43ec25ccbf1e0f5330871240c3c5bb35d3aefaa973929755b3b",
+    "image-digest": "sha256:379c820313f3493999247df38fdaafa64346983d9d74acf2c249e1dd4c50b23a",
     "image-key": "helloworld"
   },
   {
