@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-17T13:35:37Z'
+    createdAt: '2022-03-17T13:39:06Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1412,7 +1412,7 @@ spec:
                 - name: OPERAND_IMAGE_HYPERSHIFT_DEPLOYMENT_CONTROLLER
                   value: quay.io/stolostron/hypershift-deployment-controller@sha256:c088d93b2e4e47af4684e762f7c76dff07c36b61da29240fdfd5700066749a53
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
-                  value: quay.io/stolostron/iam-policy-controller@sha256:d6a534d342a8ed22b0461ced319abc813480aaf460fb039cecf2e99f4decbe59
+                  value: quay.io/stolostron/iam-policy-controller@sha256:04d5678712d644d5b88b77e3f8000f618c3b507c4518eec1025dc2e7d925f8d0
                 - name: OPERAND_IMAGE_INSIGHTS_CLIENT
                   value: quay.io/stolostron/insights-client@sha256:b9e796184d84a015b7324d56b17177e81e3234ae41aaed31a5b08630641dca85
                 - name: OPERAND_IMAGE_INSIGHTS_METRICS
@@ -2184,7 +2184,7 @@ spec:
                 - name: OPERAND_IMAGE_HYPERSHIFT_DEPLOYMENT_CONTROLLER
                   value: quay.io/stolostron/hypershift-deployment-controller@sha256:c088d93b2e4e47af4684e762f7c76dff07c36b61da29240fdfd5700066749a53
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
-                  value: quay.io/stolostron/iam-policy-controller@sha256:d6a534d342a8ed22b0461ced319abc813480aaf460fb039cecf2e99f4decbe59
+                  value: quay.io/stolostron/iam-policy-controller@sha256:04d5678712d644d5b88b77e3f8000f618c3b507c4518eec1025dc2e7d925f8d0
                 - name: OPERAND_IMAGE_INSIGHTS_CLIENT
                   value: quay.io/stolostron/insights-client@sha256:b9e796184d84a015b7324d56b17177e81e3234ae41aaed31a5b08630641dca85
                 - name: OPERAND_IMAGE_INSIGHTS_METRICS
@@ -2365,7 +2365,7 @@ spec:
   - name: hypershift_deployment_controller
     image: quay.io/stolostron/hypershift-deployment-controller@sha256:c088d93b2e4e47af4684e762f7c76dff07c36b61da29240fdfd5700066749a53
   - name: iam_policy_controller
-    image: quay.io/stolostron/iam-policy-controller@sha256:d6a534d342a8ed22b0461ced319abc813480aaf460fb039cecf2e99f4decbe59
+    image: quay.io/stolostron/iam-policy-controller@sha256:04d5678712d644d5b88b77e3f8000f618c3b507c4518eec1025dc2e7d925f8d0
   - name: insights_client
     image: quay.io/stolostron/insights-client@sha256:b9e796184d84a015b7324d56b17177e81e3234ae41aaed31a5b08630641dca85
   - name: insights_metrics
