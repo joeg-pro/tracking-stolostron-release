@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-17T12:30:51Z'
+    createdAt: '2022-03-17T12:34:10Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1385,7 +1385,7 @@ spec:
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/stolostron/config-policy-controller@sha256:76cb01f7604970118beac237b8a1222d6a938783cb3b8ececee6a07fa353ef97
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/stolostron/console@sha256:2835ec11d177d7e72f0cd13482d351f8517fb21a9512dd42340845d99d9a7f6a
+                  value: quay.io/stolostron/console@sha256:5d927cf288562c4ef745a2cf678f38f9b29240522cbad72a6e4e208f55d4c386
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
                   value: quay.io/stolostron/endpoint-monitoring-operator@sha256:42e478c17c96d116d67dfd862e7fe7679f81b424645db06747dd78f872ee034e
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_ADDON_CONTROLLER
@@ -1397,7 +1397,7 @@ spec:
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_STATUS_SYNC
                   value: quay.io/stolostron/governance-policy-status-sync@sha256:db9f4d68323409273eeb5fdd0ccfd602303c5146148de12ac2bab00e9f04ca54
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_TEMPLATE_SYNC
-                  value: quay.io/stolostron/governance-policy-template-sync@sha256:6e75e29f5d5044640147c302a48e77055c4f6d3c1531ce2bd7a293cce8f97ef0
+                  value: quay.io/stolostron/governance-policy-template-sync@sha256:2af4b373c66e47f95dadb0a0f0cdb434db0dece93f9b972118486cbbd2fcec7a
                 - name: OPERAND_IMAGE_GRAFANA
                   value: quay.io/stolostron/grafana@sha256:d566255671fafcecd98abfafaf75bdf2c914b62db575c78bdff251865ba16839
                 - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
@@ -2157,7 +2157,7 @@ spec:
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/stolostron/config-policy-controller@sha256:76cb01f7604970118beac237b8a1222d6a938783cb3b8ececee6a07fa353ef97
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/stolostron/console@sha256:2835ec11d177d7e72f0cd13482d351f8517fb21a9512dd42340845d99d9a7f6a
+                  value: quay.io/stolostron/console@sha256:5d927cf288562c4ef745a2cf678f38f9b29240522cbad72a6e4e208f55d4c386
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
                   value: quay.io/stolostron/endpoint-monitoring-operator@sha256:42e478c17c96d116d67dfd862e7fe7679f81b424645db06747dd78f872ee034e
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_ADDON_CONTROLLER
@@ -2169,7 +2169,7 @@ spec:
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_STATUS_SYNC
                   value: quay.io/stolostron/governance-policy-status-sync@sha256:db9f4d68323409273eeb5fdd0ccfd602303c5146148de12ac2bab00e9f04ca54
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_TEMPLATE_SYNC
-                  value: quay.io/stolostron/governance-policy-template-sync@sha256:6e75e29f5d5044640147c302a48e77055c4f6d3c1531ce2bd7a293cce8f97ef0
+                  value: quay.io/stolostron/governance-policy-template-sync@sha256:2af4b373c66e47f95dadb0a0f0cdb434db0dece93f9b972118486cbbd2fcec7a
                 - name: OPERAND_IMAGE_GRAFANA
                   value: quay.io/stolostron/grafana@sha256:d566255671fafcecd98abfafaf75bdf2c914b62db575c78bdff251865ba16839
                 - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
@@ -2338,7 +2338,7 @@ spec:
   - name: config_policy_controller
     image: quay.io/stolostron/config-policy-controller@sha256:76cb01f7604970118beac237b8a1222d6a938783cb3b8ececee6a07fa353ef97
   - name: console
-    image: quay.io/stolostron/console@sha256:2835ec11d177d7e72f0cd13482d351f8517fb21a9512dd42340845d99d9a7f6a
+    image: quay.io/stolostron/console@sha256:5d927cf288562c4ef745a2cf678f38f9b29240522cbad72a6e4e208f55d4c386
   - name: endpoint_monitoring_operator
     image: quay.io/stolostron/endpoint-monitoring-operator@sha256:42e478c17c96d116d67dfd862e7fe7679f81b424645db06747dd78f872ee034e
   - name: governance_policy_addon_controller
@@ -2350,7 +2350,7 @@ spec:
   - name: governance_policy_status_sync
     image: quay.io/stolostron/governance-policy-status-sync@sha256:db9f4d68323409273eeb5fdd0ccfd602303c5146148de12ac2bab00e9f04ca54
   - name: governance_policy_template_sync
-    image: quay.io/stolostron/governance-policy-template-sync@sha256:6e75e29f5d5044640147c302a48e77055c4f6d3c1531ce2bd7a293cce8f97ef0
+    image: quay.io/stolostron/governance-policy-template-sync@sha256:2af4b373c66e47f95dadb0a0f0cdb434db0dece93f9b972118486cbbd2fcec7a
   - name: grafana
     image: quay.io/stolostron/grafana@sha256:d566255671fafcecd98abfafaf75bdf2c914b62db575c78bdff251865ba16839
   - name: grafana_dashboard_loader
