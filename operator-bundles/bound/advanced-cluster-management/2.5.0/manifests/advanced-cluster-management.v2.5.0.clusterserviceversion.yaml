@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-18T16:17:15Z'
+    createdAt: '2022-03-18T16:59:42Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1403,7 +1403,7 @@ spec:
                 - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
                   value: quay.io/stolostron/grafana-dashboard-loader@sha256:15929d97f502b84028833e8d9d79901c68b446715cd7998468de157f4bfe4318
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
-                  value: quay.io/stolostron/grc-policy-framework-tests@sha256:bbd2751c88d460a4d13153abd7274306f72484587918ed5ffd2d3a6ff4e32d05
+                  value: quay.io/stolostron/grc-policy-framework-tests@sha256:4f5dce01575b8bf858d4ba53413c85f1fca8a79cf0df2c8fc02bd8b4f8fc9337
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/stolostron/helloprow-go@sha256:4b00171a00bf22ce254417ff2fe69aeabc513bc19a209918af906c186ff648f6
                 - name: OPERAND_IMAGE_HELLOWORLD
@@ -2175,7 +2175,7 @@ spec:
                 - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
                   value: quay.io/stolostron/grafana-dashboard-loader@sha256:15929d97f502b84028833e8d9d79901c68b446715cd7998468de157f4bfe4318
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
-                  value: quay.io/stolostron/grc-policy-framework-tests@sha256:bbd2751c88d460a4d13153abd7274306f72484587918ed5ffd2d3a6ff4e32d05
+                  value: quay.io/stolostron/grc-policy-framework-tests@sha256:4f5dce01575b8bf858d4ba53413c85f1fca8a79cf0df2c8fc02bd8b4f8fc9337
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/stolostron/helloprow-go@sha256:4b00171a00bf22ce254417ff2fe69aeabc513bc19a209918af906c186ff648f6
                 - name: OPERAND_IMAGE_HELLOWORLD
@@ -2356,7 +2356,7 @@ spec:
   - name: grafana_dashboard_loader
     image: quay.io/stolostron/grafana-dashboard-loader@sha256:15929d97f502b84028833e8d9d79901c68b446715cd7998468de157f4bfe4318
   - name: grc_policy_framework_tests
-    image: quay.io/stolostron/grc-policy-framework-tests@sha256:bbd2751c88d460a4d13153abd7274306f72484587918ed5ffd2d3a6ff4e32d05
+    image: quay.io/stolostron/grc-policy-framework-tests@sha256:4f5dce01575b8bf858d4ba53413c85f1fca8a79cf0df2c8fc02bd8b4f8fc9337
   - name: helloprow_go
     image: quay.io/stolostron/helloprow-go@sha256:4b00171a00bf22ce254417ff2fe69aeabc513bc19a209918af906c186ff648f6
   - name: helloworld
