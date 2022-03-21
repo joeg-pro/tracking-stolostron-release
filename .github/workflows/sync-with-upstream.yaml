@@ -12,7 +12,7 @@ jobs:
     env:
       GITHUB_USER_NAME: acm-cicd
       GITHUB_USER_EMAIL: acm-cicd@redhat.com
-      GITHUB_TOKEN: ${{secrets.ff_gh_token}}
+      GITHUB_TOKEN: ${{ secrets.FF_GITHUB_TOKEN }}
       REPO_TO_TRACK: stolostron/release:joeg-pro/tracking-stolostron-release
       BRANCHES_TO_TRACK: release-2.5:test-release-2.5 release-2.4:test-release-2.4
 
@@ -20,7 +20,7 @@ jobs:
     - name: Check out sync tools
       uses: actions/checkout@v3
       with:
-         token: ${{env.GITHUB_TOKEN}}
+         token: ${{ env.GITHUB_TOKEN }}
          repository: joeg-pro/tracking-tools
          path: tools
 
