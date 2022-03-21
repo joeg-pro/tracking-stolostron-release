@@ -1,0 +1,29 @@
+name: Sync With Upstream
+
+on:
+  schedule:
+    - cron: '*/10 * * * *' # every 10 minutes
+  workflow_dispatch: # on button click
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    env:
+      GITHUB_USER_NAME: acm-cicd
+      GITHUB_USER_EMAIL: acm-cicd@redhat.com
+      GITHUB_TOKEN: ${{secrets.ff_gh_token}}
+      REPO_TO_TRACK: stolostron/release:joeg-pro/tracking-stolostron-release
+      BRANCHES_TO_TRACK: release-2.5:test-release-2.5 release-2.4:test-release-2.4
+
+    steps:
+    - name: Check out sync tools
+      uses: actions/checkout@v3
+      with:
+         token: ${{env.GITHUB_TOKEN}}
+         repository: joeg-pro/tracking-tools
+         path: tools
+
+    - name: Sync with Upstream
+      run: |
+        ./tools/tools/fast-forward.sh
