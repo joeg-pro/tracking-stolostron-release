@@ -14,7 +14,6 @@ metadata:
        "kind":"MultiClusterHub","metadata":{"name":"multiclusterhub","namespace":"open-cluster-management"},
        "spec": {}}'
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
-    operators.openshift.io/valid-subscription: '["OpenShift Platform Plus", "Red Hat Advanced Cluster Management"]'
   name: "*Insert* eg: advanced-cluster-management.v2.0.1"
   namespace: placeholder
 spec:
