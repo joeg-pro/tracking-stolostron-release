@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-22T14:31:17Z'
+    createdAt: '2022-03-22T14:39:56Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1501,7 +1501,7 @@ spec:
                 - name: OPERAND_IMAGE_VOLSYNC
                   value: quay.io/stolostron/volsync@sha256:c5b490399998fbed56814ad8438741b233533884e4168b0b9dd0f4ff8da80087
                 - name: OPERAND_IMAGE_VOLSYNC_ADDON_CONTROLLER
-                  value: quay.io/stolostron/volsync-addon-controller@sha256:a6d97094e2269286e82db40fb5c307377a0645d8d175f3fc16e1721c425b566b
+                  value: quay.io/stolostron/volsync-addon-controller@sha256:9031f3a89d0f2bc8124e80cfdde5ea4f090d2d9841481e673d0524d0982446d0
                 - name: OPERAND_IMAGE_VOLSYNC_MOVER_RCLONE
                   value: quay.io/stolostron/volsync-mover-rclone@sha256:1d51d11b50b2247bc40aa14ff6c4eb06237514936299c370a3439724de61ff62
                 - name: OPERAND_IMAGE_VOLSYNC_MOVER_RESTIC
@@ -2273,7 +2273,7 @@ spec:
                 - name: OPERAND_IMAGE_VOLSYNC
                   value: quay.io/stolostron/volsync@sha256:c5b490399998fbed56814ad8438741b233533884e4168b0b9dd0f4ff8da80087
                 - name: OPERAND_IMAGE_VOLSYNC_ADDON_CONTROLLER
-                  value: quay.io/stolostron/volsync-addon-controller@sha256:a6d97094e2269286e82db40fb5c307377a0645d8d175f3fc16e1721c425b566b
+                  value: quay.io/stolostron/volsync-addon-controller@sha256:9031f3a89d0f2bc8124e80cfdde5ea4f090d2d9841481e673d0524d0982446d0
                 - name: OPERAND_IMAGE_VOLSYNC_MOVER_RCLONE
                   value: quay.io/stolostron/volsync-mover-rclone@sha256:1d51d11b50b2247bc40aa14ff6c4eb06237514936299c370a3439724de61ff62
                 - name: OPERAND_IMAGE_VOLSYNC_MOVER_RESTIC
@@ -2440,7 +2440,7 @@ spec:
   - name: volsync
     image: quay.io/stolostron/volsync@sha256:c5b490399998fbed56814ad8438741b233533884e4168b0b9dd0f4ff8da80087
   - name: volsync_addon_controller
-    image: quay.io/stolostron/volsync-addon-controller@sha256:a6d97094e2269286e82db40fb5c307377a0645d8d175f3fc16e1721c425b566b
+    image: quay.io/stolostron/volsync-addon-controller@sha256:9031f3a89d0f2bc8124e80cfdde5ea4f090d2d9841481e673d0524d0982446d0
   - name: volsync_mover_rclone
     image: quay.io/stolostron/volsync-mover-rclone@sha256:1d51d11b50b2247bc40aa14ff6c4eb06237514936299c370a3439724de61ff62
   - name: volsync_mover_restic
