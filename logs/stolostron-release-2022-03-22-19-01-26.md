@@ -1,0 +1,21 @@
+## Fast foarding of stolostron/release into joeg-pro/tracking-stolostron-release.
+
+## Status Summary:
+
+release-2.5 -> test-release-2.5: Picked up 2 commits.  
+release-2.4 -> test-release-2.4: Already in sync.  
+
+### Branch release-2.5 -> test-release-2.5:
+
+Pending commits:
+
+```
+67f94838af5bf13c000fbd56d8e22fa6f96234e0 Add snapshot 2022-03-22-18-55-06 for release 2.5.0 from pipeline quay-retag branch
+e8edec486c031fe5566c90cf6d75a8dea4687ea0 Add snapshot 2022-03-22-18-45-32 to release-2.5 2.5.0 [skip ci]
+```
+
+Status: Fast-forwarded successfully.
+
+### Branch release-2.4 -> test-release-2.4:
+
+Branches are already in sync, nothing to do.
