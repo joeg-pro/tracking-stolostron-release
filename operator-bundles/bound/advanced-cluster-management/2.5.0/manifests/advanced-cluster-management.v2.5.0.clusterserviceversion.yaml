@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-22T02:02:30Z'
+    createdAt: '2022-03-22T10:06:47Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1383,7 +1383,7 @@ spec:
                 - name: OPERAND_IMAGE_CLUSTER_PROXY
                   value: quay.io/stolostron/cluster-proxy@sha256:806ca49995cba5fb836d4f270a789885ff367c3b031a354990cfc1489e41a2a9
                 - name: OPERAND_IMAGE_CLUSTER_PROXY_ADDON
-                  value: quay.io/stolostron/cluster-proxy-addon@sha256:cdbf944765c0ff7eacbe70805f9762cc73e2ed92970460453b071a98b278ed22
+                  value: quay.io/stolostron/cluster-proxy-addon@sha256:a468a482d282668502b0c361e218770444288bfc2aee4cf7fc1039c2ffeeb020
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/stolostron/config-policy-controller@sha256:76cb01f7604970118beac237b8a1222d6a938783cb3b8ececee6a07fa353ef97
                 - name: OPERAND_IMAGE_CONSOLE
@@ -2155,7 +2155,7 @@ spec:
                 - name: OPERAND_IMAGE_CLUSTER_PROXY
                   value: quay.io/stolostron/cluster-proxy@sha256:806ca49995cba5fb836d4f270a789885ff367c3b031a354990cfc1489e41a2a9
                 - name: OPERAND_IMAGE_CLUSTER_PROXY_ADDON
-                  value: quay.io/stolostron/cluster-proxy-addon@sha256:cdbf944765c0ff7eacbe70805f9762cc73e2ed92970460453b071a98b278ed22
+                  value: quay.io/stolostron/cluster-proxy-addon@sha256:a468a482d282668502b0c361e218770444288bfc2aee4cf7fc1039c2ffeeb020
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/stolostron/config-policy-controller@sha256:76cb01f7604970118beac237b8a1222d6a938783cb3b8ececee6a07fa353ef97
                 - name: OPERAND_IMAGE_CONSOLE
@@ -2336,7 +2336,7 @@ spec:
   - name: cluster_proxy
     image: quay.io/stolostron/cluster-proxy@sha256:806ca49995cba5fb836d4f270a789885ff367c3b031a354990cfc1489e41a2a9
   - name: cluster_proxy_addon
-    image: quay.io/stolostron/cluster-proxy-addon@sha256:cdbf944765c0ff7eacbe70805f9762cc73e2ed92970460453b071a98b278ed22
+    image: quay.io/stolostron/cluster-proxy-addon@sha256:a468a482d282668502b0c361e218770444288bfc2aee4cf7fc1039c2ffeeb020
   - name: config_policy_controller
     image: quay.io/stolostron/config-policy-controller@sha256:76cb01f7604970118beac237b8a1222d6a938783cb3b8ececee6a07fa353ef97
   - name: console
