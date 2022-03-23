@@ -112,12 +112,12 @@
   {
     "image-name": "cluster-proxy",
     "image-version": "2.5",
-    "image-tag": "2.5-b6c402d3315d8f0ec6551a31069e39d15c978a58",
-    "git-sha256": "b6c402d3315d8f0ec6551a31069e39d15c978a58",
+    "image-tag": "2.5-7333ba40c01628194d7bb2c2abff499273c18d1a",
+    "git-sha256": "7333ba40c01628194d7bb2c2abff499273c18d1a",
     "git-repository": "stolostron/cluster-proxy",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:806ca49995cba5fb836d4f270a789885ff367c3b031a354990cfc1489e41a2a9",
+    "image-digest": "sha256:8fd062784b0479cb0a3a9da1be6f156d717e69d046bd3b6eb4875e6761b5cdc1",
     "image-key": "cluster_proxy"
   },
   {
@@ -691,8 +691,8 @@
   {
     "image-name": "submariner-addon",
     "image-version": "0.5.0",
-    "image-tag": "0.5.0-cc50f88396ddebaba3e99a334c7189656724b2e9",
-    "git-sha256": "cc50f88396ddebaba3e99a334c7189656724b2e9",
+    "image-tag": "0.5.0-6a37def0eaaefd0cd19d3e5d9d2bc033486aa6c7",
+    "git-sha256": "6a37def0eaaefd0cd19d3e5d9d2bc033486aa6c7",
     "git-repository": "stolostron/submariner-addon",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
