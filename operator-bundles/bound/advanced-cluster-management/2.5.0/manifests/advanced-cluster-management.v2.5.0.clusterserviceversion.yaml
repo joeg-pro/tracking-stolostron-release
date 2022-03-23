@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-23T20:42:25Z'
+    createdAt: '2022-03-23T20:57:42Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1464,7 +1464,7 @@ spec:
                 - name: OPERAND_IMAGE_OBSERVATORIUM
                   value: quay.io/stolostron/observatorium@sha256:b99346d1df7b143b6d150230f21449f811982f5b76cd73cf5ee63c2552ee7017
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
-                  value: quay.io/stolostron/observatorium-operator@sha256:fa7a241b9d9714f2104e5095ffad45801c61f14ef181e31d480721cc30f3cbbb
+                  value: quay.io/stolostron/observatorium-operator@sha256:8c3e405a37c2701bd191ed56ef7b8eae5ea65a0c80fedd3e7bdcd6d57410af90
                 - name: OPERAND_IMAGE_OAUTH_PROXY
                   value: quay.io/stolostron/origin-oauth-proxy@sha256:c92a1480b2628d50d8fe158df9451598406e2e5cc7177cf5efcb81caba120afd
                 - name: OPERAND_IMAGE_POSTGRESQL_12
@@ -2236,7 +2236,7 @@ spec:
                 - name: OPERAND_IMAGE_OBSERVATORIUM
                   value: quay.io/stolostron/observatorium@sha256:b99346d1df7b143b6d150230f21449f811982f5b76cd73cf5ee63c2552ee7017
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
-                  value: quay.io/stolostron/observatorium-operator@sha256:fa7a241b9d9714f2104e5095ffad45801c61f14ef181e31d480721cc30f3cbbb
+                  value: quay.io/stolostron/observatorium-operator@sha256:8c3e405a37c2701bd191ed56ef7b8eae5ea65a0c80fedd3e7bdcd6d57410af90
                 - name: OPERAND_IMAGE_OAUTH_PROXY
                   value: quay.io/stolostron/origin-oauth-proxy@sha256:c92a1480b2628d50d8fe158df9451598406e2e5cc7177cf5efcb81caba120afd
                 - name: OPERAND_IMAGE_POSTGRESQL_12
@@ -2405,7 +2405,7 @@ spec:
   - name: observatorium
     image: quay.io/stolostron/observatorium@sha256:b99346d1df7b143b6d150230f21449f811982f5b76cd73cf5ee63c2552ee7017
   - name: observatorium_operator
-    image: quay.io/stolostron/observatorium-operator@sha256:fa7a241b9d9714f2104e5095ffad45801c61f14ef181e31d480721cc30f3cbbb
+    image: quay.io/stolostron/observatorium-operator@sha256:8c3e405a37c2701bd191ed56ef7b8eae5ea65a0c80fedd3e7bdcd6d57410af90
   - name: oauth_proxy
     image: quay.io/stolostron/origin-oauth-proxy@sha256:c92a1480b2628d50d8fe158df9451598406e2e5cc7177cf5efcb81caba120afd
   - name: postgresql_12
