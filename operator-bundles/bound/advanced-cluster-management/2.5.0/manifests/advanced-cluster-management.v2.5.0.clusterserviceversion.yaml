@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-24T00:55:04Z'
+    createdAt: '2022-03-24T03:02:03Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1461,7 +1461,7 @@ spec:
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
                   value: quay.io/stolostron/observability-e2e-test@sha256:a67d837e7455acf00d3eaa7ef31836e25d5d27d935a108ab3445f02703ce4584
                 - name: OPERAND_IMAGE_OBSERVATORIUM
-                  value: quay.io/stolostron/observatorium@sha256:b99346d1df7b143b6d150230f21449f811982f5b76cd73cf5ee63c2552ee7017
+                  value: quay.io/stolostron/observatorium@sha256:a0bffcb87a07cc85460aa6adc0542dfa8d701ee95911ca7d1e8fd298b29b66f4
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
                   value: quay.io/stolostron/observatorium-operator@sha256:8c3e405a37c2701bd191ed56ef7b8eae5ea65a0c80fedd3e7bdcd6d57410af90
                 - name: OPERAND_IMAGE_OAUTH_PROXY
@@ -2233,7 +2233,7 @@ spec:
                 - name: OPERAND_IMAGE_OBSERVABILITY_E2E_TEST
                   value: quay.io/stolostron/observability-e2e-test@sha256:a67d837e7455acf00d3eaa7ef31836e25d5d27d935a108ab3445f02703ce4584
                 - name: OPERAND_IMAGE_OBSERVATORIUM
-                  value: quay.io/stolostron/observatorium@sha256:b99346d1df7b143b6d150230f21449f811982f5b76cd73cf5ee63c2552ee7017
+                  value: quay.io/stolostron/observatorium@sha256:a0bffcb87a07cc85460aa6adc0542dfa8d701ee95911ca7d1e8fd298b29b66f4
                 - name: OPERAND_IMAGE_OBSERVATORIUM_OPERATOR
                   value: quay.io/stolostron/observatorium-operator@sha256:8c3e405a37c2701bd191ed56ef7b8eae5ea65a0c80fedd3e7bdcd6d57410af90
                 - name: OPERAND_IMAGE_OAUTH_PROXY
@@ -2402,7 +2402,7 @@ spec:
   - name: observability_e2e_test
     image: quay.io/stolostron/observability-e2e-test@sha256:a67d837e7455acf00d3eaa7ef31836e25d5d27d935a108ab3445f02703ce4584
   - name: observatorium
-    image: quay.io/stolostron/observatorium@sha256:b99346d1df7b143b6d150230f21449f811982f5b76cd73cf5ee63c2552ee7017
+    image: quay.io/stolostron/observatorium@sha256:a0bffcb87a07cc85460aa6adc0542dfa8d701ee95911ca7d1e8fd298b29b66f4
   - name: observatorium_operator
     image: quay.io/stolostron/observatorium-operator@sha256:8c3e405a37c2701bd191ed56ef7b8eae5ea65a0c80fedd3e7bdcd6d57410af90
   - name: oauth_proxy
