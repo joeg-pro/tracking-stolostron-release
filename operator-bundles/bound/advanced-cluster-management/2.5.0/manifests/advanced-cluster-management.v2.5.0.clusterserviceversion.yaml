@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-24T00:47:49Z'
+    createdAt: '2022-03-24T00:48:42Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1406,7 +1406,7 @@ spec:
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
                   value: quay.io/stolostron/governance-policy-spec-sync@sha256:333aee910bac0f227c9f5d06dea416e1e224929fc0a7f87d9e5068fa4875570e
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_STATUS_SYNC
-                  value: quay.io/stolostron/governance-policy-status-sync@sha256:322cae6e950334da1c5001b4ad1dafe0aa638b6768f0bb578b8298eed8432254
+                  value: quay.io/stolostron/governance-policy-status-sync@sha256:e75ad45226eab5417e6f25ff38d63e2d706d67e76b385252534f217ad0291cfd
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_TEMPLATE_SYNC
                   value: quay.io/stolostron/governance-policy-template-sync@sha256:77c795a8e953986d6220c8fd583848d1df72415c623d791f0af7e8e1ef92dc8b
                 - name: OPERAND_IMAGE_GRAFANA
@@ -1414,7 +1414,7 @@ spec:
                 - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
                   value: quay.io/stolostron/grafana-dashboard-loader@sha256:15929d97f502b84028833e8d9d79901c68b446715cd7998468de157f4bfe4318
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
-                  value: quay.io/stolostron/grc-policy-framework-tests@sha256:e2b67c7ef518c6102b30be64557ff5d43610520782b0ed010681f8f23efb1f72
+                  value: quay.io/stolostron/grc-policy-framework-tests@sha256:8342c09bed24d390e98b76183a68bef0296617dce1dd2c7a870346162e9566b9
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/stolostron/helloprow-go@sha256:4b00171a00bf22ce254417ff2fe69aeabc513bc19a209918af906c186ff648f6
                 - name: OPERAND_IMAGE_HELLOWORLD
@@ -2178,7 +2178,7 @@ spec:
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
                   value: quay.io/stolostron/governance-policy-spec-sync@sha256:333aee910bac0f227c9f5d06dea416e1e224929fc0a7f87d9e5068fa4875570e
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_STATUS_SYNC
-                  value: quay.io/stolostron/governance-policy-status-sync@sha256:322cae6e950334da1c5001b4ad1dafe0aa638b6768f0bb578b8298eed8432254
+                  value: quay.io/stolostron/governance-policy-status-sync@sha256:e75ad45226eab5417e6f25ff38d63e2d706d67e76b385252534f217ad0291cfd
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_TEMPLATE_SYNC
                   value: quay.io/stolostron/governance-policy-template-sync@sha256:77c795a8e953986d6220c8fd583848d1df72415c623d791f0af7e8e1ef92dc8b
                 - name: OPERAND_IMAGE_GRAFANA
@@ -2186,7 +2186,7 @@ spec:
                 - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
                   value: quay.io/stolostron/grafana-dashboard-loader@sha256:15929d97f502b84028833e8d9d79901c68b446715cd7998468de157f4bfe4318
                 - name: OPERAND_IMAGE_GRC_POLICY_FRAMEWORK_TESTS
-                  value: quay.io/stolostron/grc-policy-framework-tests@sha256:e2b67c7ef518c6102b30be64557ff5d43610520782b0ed010681f8f23efb1f72
+                  value: quay.io/stolostron/grc-policy-framework-tests@sha256:8342c09bed24d390e98b76183a68bef0296617dce1dd2c7a870346162e9566b9
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/stolostron/helloprow-go@sha256:4b00171a00bf22ce254417ff2fe69aeabc513bc19a209918af906c186ff648f6
                 - name: OPERAND_IMAGE_HELLOWORLD
@@ -2359,7 +2359,7 @@ spec:
   - name: governance_policy_spec_sync
     image: quay.io/stolostron/governance-policy-spec-sync@sha256:333aee910bac0f227c9f5d06dea416e1e224929fc0a7f87d9e5068fa4875570e
   - name: governance_policy_status_sync
-    image: quay.io/stolostron/governance-policy-status-sync@sha256:322cae6e950334da1c5001b4ad1dafe0aa638b6768f0bb578b8298eed8432254
+    image: quay.io/stolostron/governance-policy-status-sync@sha256:e75ad45226eab5417e6f25ff38d63e2d706d67e76b385252534f217ad0291cfd
   - name: governance_policy_template_sync
     image: quay.io/stolostron/governance-policy-template-sync@sha256:77c795a8e953986d6220c8fd583848d1df72415c623d791f0af7e8e1ef92dc8b
   - name: grafana
@@ -2367,7 +2367,7 @@ spec:
   - name: grafana_dashboard_loader
     image: quay.io/stolostron/grafana-dashboard-loader@sha256:15929d97f502b84028833e8d9d79901c68b446715cd7998468de157f4bfe4318
   - name: grc_policy_framework_tests
-    image: quay.io/stolostron/grc-policy-framework-tests@sha256:e2b67c7ef518c6102b30be64557ff5d43610520782b0ed010681f8f23efb1f72
+    image: quay.io/stolostron/grc-policy-framework-tests@sha256:8342c09bed24d390e98b76183a68bef0296617dce1dd2c7a870346162e9566b9
   - name: helloprow_go
     image: quay.io/stolostron/helloprow-go@sha256:4b00171a00bf22ce254417ff2fe69aeabc513bc19a209918af906c186ff648f6
   - name: helloworld
