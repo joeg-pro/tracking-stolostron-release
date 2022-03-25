@@ -397,12 +397,12 @@
   {
     "image-name": "multicluster-observability-operator",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-79cf61aa7a2f2fa5f4ed0fe51eabdde36967479d",
-    "git-sha256": "79cf61aa7a2f2fa5f4ed0fe51eabdde36967479d",
+    "image-tag": "2.5.0-5dab83947c71b53de95bb4debfd62b8e982da978",
+    "git-sha256": "5dab83947c71b53de95bb4debfd62b8e982da978",
     "git-repository": "stolostron/multicluster-observability-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:063a1965685d3f0ec3f34522963d2b5cafbbcede97dee79d1d13579b96fa6f30",
+    "image-digest": "sha256:75c762f58345d9076e43318811c46c6e35a7ec9cd4a72c7a5e4f7d832d5bd7a5",
     "image-key": "multicluster_observability_operator"
   },
   {
@@ -593,8 +593,8 @@
   {
     "image-name": "rbac-query-proxy",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-5c68747cc89a381ca463687407dd9109471319d0",
-    "git-sha256": "5c68747cc89a381ca463687407dd9109471319d0",
+    "image-tag": "2.5.0-5dab83947c71b53de95bb4debfd62b8e982da978",
+    "git-sha256": "5dab83947c71b53de95bb4debfd62b8e982da978",
     "git-repository": "stolostron/multicluster-observability-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
@@ -658,12 +658,12 @@
   {
     "image-name": "search-indexer",
     "image-version": "2.5",
-    "image-tag": "2.5-e4eb0b0396f5f6ae89fffed246342a94bb5492fa",
-    "git-sha256": "e4eb0b0396f5f6ae89fffed246342a94bb5492fa",
+    "image-tag": "2.5-fb5cbe858b2af559c0fe08cb2b1bee8b7e353b5d",
+    "git-sha256": "fb5cbe858b2af559c0fe08cb2b1bee8b7e353b5d",
     "git-repository": "stolostron/search-indexer",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:f90764e02b28aeabb6198af43f2dc680d89dcd1ac8f094f77b9539ed3df61789",
+    "image-digest": "sha256:4da1263780ba970172ff67fdda8d9667dc4d969419756c530646b649793ee0da",
     "image-key": "search_indexer"
   },
   {
