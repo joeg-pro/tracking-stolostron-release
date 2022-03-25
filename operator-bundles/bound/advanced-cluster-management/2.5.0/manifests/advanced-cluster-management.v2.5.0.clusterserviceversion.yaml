@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-25T21:16:15Z'
+    createdAt: '2022-03-25T21:32:50Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -31,7 +31,8 @@ metadata:
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
     operators.openshift.io/valid-subscription: '["OpenShift Platform Plus", "Red Hat Advanced Cluster
       Management for Kubernetes"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1477,7 +1478,7 @@ spec:
                 - name: OPERAND_IMAGE_PROMETHEUS_OPERATOR
                   value: quay.io/stolostron/prometheus-operator@sha256:cf51f5302998cdd82edeeaf60a01cf11289101fb7e02c7a12a7b765c0c9751ff
                 - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
-                  value: quay.io/stolostron/rbac-query-proxy@sha256:b6ae7b9ded75cc14cf687412d6a8fac11c72c0b8b3dbe644b6f4d36a8d138b79
+                  value: quay.io/stolostron/rbac-query-proxy@sha256:55853286f6a6defd519b728ab24e62c3e68b14422f496e09b5d4bb42c2e2e48e
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
                   value: quay.io/stolostron/redisgraph-tls@sha256:6da16ae948b52b3f47ee77216d5a737ad3125b0fd81ecfb23bb08538c3ab7171
                 - name: OPERAND_IMAGE_SEARCH_AGGREGATOR
@@ -2249,7 +2250,7 @@ spec:
                 - name: OPERAND_IMAGE_PROMETHEUS_OPERATOR
                   value: quay.io/stolostron/prometheus-operator@sha256:cf51f5302998cdd82edeeaf60a01cf11289101fb7e02c7a12a7b765c0c9751ff
                 - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
-                  value: quay.io/stolostron/rbac-query-proxy@sha256:b6ae7b9ded75cc14cf687412d6a8fac11c72c0b8b3dbe644b6f4d36a8d138b79
+                  value: quay.io/stolostron/rbac-query-proxy@sha256:55853286f6a6defd519b728ab24e62c3e68b14422f496e09b5d4bb42c2e2e48e
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
                   value: quay.io/stolostron/redisgraph-tls@sha256:6da16ae948b52b3f47ee77216d5a737ad3125b0fd81ecfb23bb08538c3ab7171
                 - name: OPERAND_IMAGE_SEARCH_AGGREGATOR
@@ -2418,7 +2419,7 @@ spec:
   - name: prometheus_operator
     image: quay.io/stolostron/prometheus-operator@sha256:cf51f5302998cdd82edeeaf60a01cf11289101fb7e02c7a12a7b765c0c9751ff
   - name: rbac_query_proxy
-    image: quay.io/stolostron/rbac-query-proxy@sha256:b6ae7b9ded75cc14cf687412d6a8fac11c72c0b8b3dbe644b6f4d36a8d138b79
+    image: quay.io/stolostron/rbac-query-proxy@sha256:55853286f6a6defd519b728ab24e62c3e68b14422f496e09b5d4bb42c2e2e48e
   - name: redisgraph_tls
     image: quay.io/stolostron/redisgraph-tls@sha256:6da16ae948b52b3f47ee77216d5a737ad3125b0fd81ecfb23bb08538c3ab7171
   - name: search_aggregator
