@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-28T10:22:27Z'
+    createdAt: '2022-03-28T10:28:41Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -31,7 +31,8 @@ metadata:
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
     operators.openshift.io/valid-subscription: '["OpenShift Platform Plus", "Red Hat Advanced Cluster
       Management for Kubernetes"]'
-    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
+    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
+      "observatoria.core.observatorium.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1403,7 +1404,7 @@ spec:
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/stolostron/config-policy-controller@sha256:76cb01f7604970118beac237b8a1222d6a938783cb3b8ececee6a07fa353ef97
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/stolostron/console@sha256:04f8466390ce11d613c282ec7b7da039d3c19ec2c9cd6a0a357267f5bcebf7a6
+                  value: quay.io/stolostron/console@sha256:9043c8224a8de93a8db188bd4e03bfe1232f88df5a0cb05e2c493d35c2a9787f
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
                   value: quay.io/stolostron/endpoint-monitoring-operator@sha256:d1bcb1cd623ec61c32bc7f0a1215b081919c636729d7b79eb3e125ae3b331d50
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_ADDON_CONTROLLER
@@ -1424,6 +1425,10 @@ spec:
                   value: quay.io/stolostron/grc-policy-framework-tests@sha256:02d6ca5423a1ef734a8d696f9dd1b69e7fc006f1882a5916ef58dc7bf9c344bb
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/stolostron/helloprow-go@sha256:4b00171a00bf22ce254417ff2fe69aeabc513bc19a209918af906c186ff648f6
+                - name: OPERAND_IMAGE_HELLOWORLD
+                  value: quay.io/stolostron/helloworld@sha256:b17cfa9a3d35ba18f19c8bfa7826352446fc25ffecc5f0df2568e699743d6af8
+                - name: OPERAND_IMAGE_HYPERSHIFT_DEPLOYMENT_CONTROLLER
+                  value: quay.io/stolostron/hypershift-deployment-controller@sha256:c088d93b2e4e47af4684e762f7c76dff07c36b61da29240fdfd5700066749a53
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
                   value: quay.io/stolostron/iam-policy-controller@sha256:b251fae4e1df15ccc26297aeb1661d939508f0ce8a8d08eb8fd9201d9c23bb14
                 - name: OPERAND_IMAGE_INSIGHTS_CLIENT
@@ -2171,7 +2176,7 @@ spec:
                 - name: OPERAND_IMAGE_CONFIG_POLICY_CONTROLLER
                   value: quay.io/stolostron/config-policy-controller@sha256:76cb01f7604970118beac237b8a1222d6a938783cb3b8ececee6a07fa353ef97
                 - name: OPERAND_IMAGE_CONSOLE
-                  value: quay.io/stolostron/console@sha256:04f8466390ce11d613c282ec7b7da039d3c19ec2c9cd6a0a357267f5bcebf7a6
+                  value: quay.io/stolostron/console@sha256:9043c8224a8de93a8db188bd4e03bfe1232f88df5a0cb05e2c493d35c2a9787f
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
                   value: quay.io/stolostron/endpoint-monitoring-operator@sha256:d1bcb1cd623ec61c32bc7f0a1215b081919c636729d7b79eb3e125ae3b331d50
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_ADDON_CONTROLLER
@@ -2192,6 +2197,10 @@ spec:
                   value: quay.io/stolostron/grc-policy-framework-tests@sha256:02d6ca5423a1ef734a8d696f9dd1b69e7fc006f1882a5916ef58dc7bf9c344bb
                 - name: OPERAND_IMAGE_HELLOPROW_GO
                   value: quay.io/stolostron/helloprow-go@sha256:4b00171a00bf22ce254417ff2fe69aeabc513bc19a209918af906c186ff648f6
+                - name: OPERAND_IMAGE_HELLOWORLD
+                  value: quay.io/stolostron/helloworld@sha256:b17cfa9a3d35ba18f19c8bfa7826352446fc25ffecc5f0df2568e699743d6af8
+                - name: OPERAND_IMAGE_HYPERSHIFT_DEPLOYMENT_CONTROLLER
+                  value: quay.io/stolostron/hypershift-deployment-controller@sha256:c088d93b2e4e47af4684e762f7c76dff07c36b61da29240fdfd5700066749a53
                 - name: OPERAND_IMAGE_IAM_POLICY_CONTROLLER
                   value: quay.io/stolostron/iam-policy-controller@sha256:b251fae4e1df15ccc26297aeb1661d939508f0ce8a8d08eb8fd9201d9c23bb14
                 - name: OPERAND_IMAGE_INSIGHTS_CLIENT
@@ -2348,7 +2357,7 @@ spec:
   - name: config_policy_controller
     image: quay.io/stolostron/config-policy-controller@sha256:76cb01f7604970118beac237b8a1222d6a938783cb3b8ececee6a07fa353ef97
   - name: console
-    image: quay.io/stolostron/console@sha256:04f8466390ce11d613c282ec7b7da039d3c19ec2c9cd6a0a357267f5bcebf7a6
+    image: quay.io/stolostron/console@sha256:9043c8224a8de93a8db188bd4e03bfe1232f88df5a0cb05e2c493d35c2a9787f
   - name: endpoint_monitoring_operator
     image: quay.io/stolostron/endpoint-monitoring-operator@sha256:d1bcb1cd623ec61c32bc7f0a1215b081919c636729d7b79eb3e125ae3b331d50
   - name: governance_policy_addon_controller
@@ -2369,6 +2378,10 @@ spec:
     image: quay.io/stolostron/grc-policy-framework-tests@sha256:02d6ca5423a1ef734a8d696f9dd1b69e7fc006f1882a5916ef58dc7bf9c344bb
   - name: helloprow_go
     image: quay.io/stolostron/helloprow-go@sha256:4b00171a00bf22ce254417ff2fe69aeabc513bc19a209918af906c186ff648f6
+  - name: helloworld
+    image: quay.io/stolostron/helloworld@sha256:b17cfa9a3d35ba18f19c8bfa7826352446fc25ffecc5f0df2568e699743d6af8
+  - name: hypershift_deployment_controller
+    image: quay.io/stolostron/hypershift-deployment-controller@sha256:c088d93b2e4e47af4684e762f7c76dff07c36b61da29240fdfd5700066749a53
   - name: iam_policy_controller
     image: quay.io/stolostron/iam-policy-controller@sha256:b251fae4e1df15ccc26297aeb1661d939508f0ce8a8d08eb8fd9201d9c23bb14
   - name: insights_client
