@@ -264,27 +264,6 @@
     "image-key": "helloprow_go"
   },
   {
-    "image-name": "helloworld",
-    "image-version": "1.0.0",
-    "image-tag": "1.0.0-f5fda6dbf99c20530d977d6804b4d117682bbdee",
-    "git-sha256": "f5fda6dbf99c20530d977d6804b4d117682bbdee",
-    "git-repository": "stolostron/example-cicd-component",
-    "image-remote": "quay.io/stolostron",
-    "image-digest": "sha256:b17cfa9a3d35ba18f19c8bfa7826352446fc25ffecc5f0df2568e699743d6af8",
-    "image-key": "helloworld"
-  },
-  {
-    "image-name": "hypershift-deployment-controller",
-    "image-version": "2.5.0",
-    "image-tag": "2.5.0-bbdf9befc5b073bf108cb348e11ed049af368cdc",
-    "git-sha256": "bbdf9befc5b073bf108cb348e11ed049af368cdc",
-    "git-repository": "stolostron/hypershift-deployment-controller",
-    "image-remote": "quay.io/stolostron",
-    "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:c088d93b2e4e47af4684e762f7c76dff07c36b61da29240fdfd5700066749a53",
-    "image-key": "hypershift_deployment_controller"
-  },
-  {
     "image-name": "iam-policy-controller",
     "image-version": "2.0.0",
     "image-tag": "2.0.0-448202c45ee88931095afcee5d44217b2028a4e9",
@@ -691,12 +670,12 @@
   {
     "image-name": "submariner-addon",
     "image-version": "0.5.0",
-    "image-tag": "0.5.0-d0632ff99d47e9a6b2d006b023e26abc50b1ad66",
-    "git-sha256": "d0632ff99d47e9a6b2d006b023e26abc50b1ad66",
+    "image-tag": "0.5.0-76237a7d84841fb1e9013f6f663c2738118fc6f2",
+    "git-sha256": "76237a7d84841fb1e9013f6f663c2738118fc6f2",
     "git-repository": "stolostron/submariner-addon",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:6abba1282f51386c6fd9e46e80b4c638b60f417f8a54330792aed8faf4f53f9e",
+    "image-digest": "sha256:62e74d769a1670bb14425cdb4a3f32d66aa1d848f4012eb39657ea3e5f81cb4d",
     "image-key": "submariner_addon"
   },
   {
