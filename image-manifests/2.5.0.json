@@ -145,12 +145,12 @@
   {
     "image-name": "console",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-a96d43041df9c69baccb359e1e6d2cb0abc674bf",
-    "git-sha256": "a96d43041df9c69baccb359e1e6d2cb0abc674bf",
+    "image-tag": "2.5.0-85570785f5a5027d0a415e822c4380750ee25ecc",
+    "git-sha256": "85570785f5a5027d0a415e822c4380750ee25ecc",
     "git-repository": "stolostron/console",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:04f8466390ce11d613c282ec7b7da039d3c19ec2c9cd6a0a357267f5bcebf7a6",
+    "image-digest": "sha256:9043c8224a8de93a8db188bd4e03bfe1232f88df5a0cb05e2c493d35c2a9787f",
     "image-key": "console"
   },
   {
@@ -262,6 +262,27 @@
     "image-remote-src": "registry.ci.openshift.org/stolostron",
     "image-digest": "sha256:4b00171a00bf22ce254417ff2fe69aeabc513bc19a209918af906c186ff648f6",
     "image-key": "helloprow_go"
+  },
+  {
+    "image-name": "helloworld",
+    "image-version": "1.0.0",
+    "image-tag": "1.0.0-f5fda6dbf99c20530d977d6804b4d117682bbdee",
+    "git-sha256": "f5fda6dbf99c20530d977d6804b4d117682bbdee",
+    "git-repository": "stolostron/example-cicd-component",
+    "image-remote": "quay.io/stolostron",
+    "image-digest": "sha256:b17cfa9a3d35ba18f19c8bfa7826352446fc25ffecc5f0df2568e699743d6af8",
+    "image-key": "helloworld"
+  },
+  {
+    "image-name": "hypershift-deployment-controller",
+    "image-version": "2.5.0",
+    "image-tag": "2.5.0-bbdf9befc5b073bf108cb348e11ed049af368cdc",
+    "git-sha256": "bbdf9befc5b073bf108cb348e11ed049af368cdc",
+    "git-repository": "stolostron/hypershift-deployment-controller",
+    "image-remote": "quay.io/stolostron",
+    "image-remote-src": "registry.ci.openshift.org/stolostron",
+    "image-digest": "sha256:c088d93b2e4e47af4684e762f7c76dff07c36b61da29240fdfd5700066749a53",
+    "image-key": "hypershift_deployment_controller"
   },
   {
     "image-name": "iam-policy-controller",
