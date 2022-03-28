@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-28T13:58:29Z'
+    createdAt: '2022-03-28T14:00:59Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1498,7 +1498,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_E2E
                   value: quay.io/stolostron/search-e2e@sha256:166a1b32248b668a34c776f82438e6b37ad278955f9170f60235069c3e3fff47
                 - name: OPERAND_IMAGE_SEARCH_INDEXER
-                  value: quay.io/stolostron/search-indexer@sha256:4da1263780ba970172ff67fdda8d9667dc4d969419756c530646b649793ee0da
+                  value: quay.io/stolostron/search-indexer@sha256:577b67099cb5c29e94e36f0f1ee78916e1da2e4025b5009c95a74b9cd66e2385
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
                   value: quay.io/stolostron/search-operator@sha256:2d4e6c7a3880c54c057d883fa0adc56f5a7cd091f6ed0c87fc46b9b7bfcd5a1c
                 - name: OPERAND_IMAGE_SEARCH_V2_API
@@ -2270,7 +2270,7 @@ spec:
                 - name: OPERAND_IMAGE_SEARCH_E2E
                   value: quay.io/stolostron/search-e2e@sha256:166a1b32248b668a34c776f82438e6b37ad278955f9170f60235069c3e3fff47
                 - name: OPERAND_IMAGE_SEARCH_INDEXER
-                  value: quay.io/stolostron/search-indexer@sha256:4da1263780ba970172ff67fdda8d9667dc4d969419756c530646b649793ee0da
+                  value: quay.io/stolostron/search-indexer@sha256:577b67099cb5c29e94e36f0f1ee78916e1da2e4025b5009c95a74b9cd66e2385
                 - name: OPERAND_IMAGE_SEARCH_OPERATOR
                   value: quay.io/stolostron/search-operator@sha256:2d4e6c7a3880c54c057d883fa0adc56f5a7cd091f6ed0c87fc46b9b7bfcd5a1c
                 - name: OPERAND_IMAGE_SEARCH_V2_API
@@ -2439,7 +2439,7 @@ spec:
   - name: search_e2e
     image: quay.io/stolostron/search-e2e@sha256:166a1b32248b668a34c776f82438e6b37ad278955f9170f60235069c3e3fff47
   - name: search_indexer
-    image: quay.io/stolostron/search-indexer@sha256:4da1263780ba970172ff67fdda8d9667dc4d969419756c530646b649793ee0da
+    image: quay.io/stolostron/search-indexer@sha256:577b67099cb5c29e94e36f0f1ee78916e1da2e4025b5009c95a74b9cd66e2385
   - name: search_operator
     image: quay.io/stolostron/search-operator@sha256:2d4e6c7a3880c54c057d883fa0adc56f5a7cd091f6ed0c87fc46b9b7bfcd5a1c
   - name: search_v2_api
