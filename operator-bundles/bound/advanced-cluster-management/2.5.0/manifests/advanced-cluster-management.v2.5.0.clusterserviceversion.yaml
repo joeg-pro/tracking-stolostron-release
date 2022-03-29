@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-29T18:05:28Z'
+    createdAt: '2022-03-29T18:19:41Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -31,8 +31,7 @@ metadata:
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
     operators.openshift.io/valid-subscription: '["OpenShift Platform Plus", "Red Hat Advanced Cluster
       Management for Kubernetes"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1446,11 +1445,11 @@ spec:
                 - name: OPERAND_IMAGE_MANAGEMENT_INGRESS
                   value: quay.io/stolostron/management-ingress@sha256:b4e2f2a3c7ad4656c11f70153eb05010f9f1039a622d25cc0fba8533ecc726e2
                 - name: OPERAND_IMAGE_METRICS_COLLECTOR
-                  value: quay.io/stolostron/metrics-collector@sha256:4ca8e9e8627820d75958a0b8c4fbae810a5fe5f0ad8dd707bd9686f9d9b42c0b
+                  value: quay.io/stolostron/metrics-collector@sha256:77f40df8e493d8ba9fc86bbeee460fc04a5f637868752662d46952c99e3451d6
                 - name: OPERAND_IMAGE_MULTICLOUD_INTEGRATIONS
                   value: quay.io/stolostron/multicloud-integrations@sha256:87668d000731b321bd5b60fd3e7fee7e84b4a711c262297fa3238fed46ed8dff
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
-                  value: quay.io/stolostron/multicluster-observability-operator@sha256:294dfffad0c3cb1cd809c993fb99d17ee186d0c9b4e60b11715e33754f6e20d2
+                  value: quay.io/stolostron/multicluster-observability-operator@sha256:1ba79c7535e5f203db414ccde6ec802938e9addbe88e96961047dc0dcb100dfe
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
                   value: quay.io/stolostron/multicluster-operators-application@sha256:c1c89f40b1bb23e26f82eb3df279b1b51d9c8e32810e55eb8966390eebe1748a
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
@@ -1486,7 +1485,7 @@ spec:
                 - name: OPERAND_IMAGE_PROMETHEUS_OPERATOR
                   value: quay.io/stolostron/prometheus-operator@sha256:cf51f5302998cdd82edeeaf60a01cf11289101fb7e02c7a12a7b765c0c9751ff
                 - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
-                  value: quay.io/stolostron/rbac-query-proxy@sha256:c9580a1c3cf6fd0c60bdfc6702d42bbd976d43a65da4071d6be6a31bc83c5a7d
+                  value: quay.io/stolostron/rbac-query-proxy@sha256:1026f153965ca426e0bb4201f938f0f60e71b79913b009a4aaa154a61822438e
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
                   value: quay.io/stolostron/redisgraph-tls@sha256:6da16ae948b52b3f47ee77216d5a737ad3125b0fd81ecfb23bb08538c3ab7171
                 - name: OPERAND_IMAGE_SEARCH_AGGREGATOR
@@ -1580,7 +1579,7 @@ spec:
                   value: /usr/local/manifests
                 - name: SPOKE_NAMESPACE
                   value: open-cluster-management-addon-observability
-                image: quay.io/stolostron/multicluster-observability-operator@sha256:294dfffad0c3cb1cd809c993fb99d17ee186d0c9b4e60b11715e33754f6e20d2
+                image: quay.io/stolostron/multicluster-observability-operator@sha256:1ba79c7535e5f203db414ccde6ec802938e9addbe88e96961047dc0dcb100dfe
                 lifecycle:
                   preStop:
                     exec:
@@ -2218,11 +2217,11 @@ spec:
                 - name: OPERAND_IMAGE_MANAGEMENT_INGRESS
                   value: quay.io/stolostron/management-ingress@sha256:b4e2f2a3c7ad4656c11f70153eb05010f9f1039a622d25cc0fba8533ecc726e2
                 - name: OPERAND_IMAGE_METRICS_COLLECTOR
-                  value: quay.io/stolostron/metrics-collector@sha256:4ca8e9e8627820d75958a0b8c4fbae810a5fe5f0ad8dd707bd9686f9d9b42c0b
+                  value: quay.io/stolostron/metrics-collector@sha256:77f40df8e493d8ba9fc86bbeee460fc04a5f637868752662d46952c99e3451d6
                 - name: OPERAND_IMAGE_MULTICLOUD_INTEGRATIONS
                   value: quay.io/stolostron/multicloud-integrations@sha256:87668d000731b321bd5b60fd3e7fee7e84b4a711c262297fa3238fed46ed8dff
                 - name: OPERAND_IMAGE_MULTICLUSTER_OBSERVABILITY_OPERATOR
-                  value: quay.io/stolostron/multicluster-observability-operator@sha256:294dfffad0c3cb1cd809c993fb99d17ee186d0c9b4e60b11715e33754f6e20d2
+                  value: quay.io/stolostron/multicluster-observability-operator@sha256:1ba79c7535e5f203db414ccde6ec802938e9addbe88e96961047dc0dcb100dfe
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_APPLICATION
                   value: quay.io/stolostron/multicluster-operators-application@sha256:c1c89f40b1bb23e26f82eb3df279b1b51d9c8e32810e55eb8966390eebe1748a
                 - name: OPERAND_IMAGE_MULTICLUSTER_OPERATORS_CHANNEL
@@ -2258,7 +2257,7 @@ spec:
                 - name: OPERAND_IMAGE_PROMETHEUS_OPERATOR
                   value: quay.io/stolostron/prometheus-operator@sha256:cf51f5302998cdd82edeeaf60a01cf11289101fb7e02c7a12a7b765c0c9751ff
                 - name: OPERAND_IMAGE_RBAC_QUERY_PROXY
-                  value: quay.io/stolostron/rbac-query-proxy@sha256:c9580a1c3cf6fd0c60bdfc6702d42bbd976d43a65da4071d6be6a31bc83c5a7d
+                  value: quay.io/stolostron/rbac-query-proxy@sha256:1026f153965ca426e0bb4201f938f0f60e71b79913b009a4aaa154a61822438e
                 - name: OPERAND_IMAGE_REDISGRAPH_TLS
                   value: quay.io/stolostron/redisgraph-tls@sha256:6da16ae948b52b3f47ee77216d5a737ad3125b0fd81ecfb23bb08538c3ab7171
                 - name: OPERAND_IMAGE_SEARCH_AGGREGATOR
@@ -2399,7 +2398,7 @@ spec:
   - name: management_ingress
     image: quay.io/stolostron/management-ingress@sha256:b4e2f2a3c7ad4656c11f70153eb05010f9f1039a622d25cc0fba8533ecc726e2
   - name: metrics_collector
-    image: quay.io/stolostron/metrics-collector@sha256:4ca8e9e8627820d75958a0b8c4fbae810a5fe5f0ad8dd707bd9686f9d9b42c0b
+    image: quay.io/stolostron/metrics-collector@sha256:77f40df8e493d8ba9fc86bbeee460fc04a5f637868752662d46952c99e3451d6
   - name: multiclusterhub_operator_tests
     image: quay.io/stolostron/multiclusterhub-operator-tests@sha256:faf22ce0e00cf8da8e612a440c3317b05011b1c2ced0ed86d8b175a6046b52cd
   - name: multiclusterhub_repo
@@ -2427,7 +2426,7 @@ spec:
   - name: prometheus_operator
     image: quay.io/stolostron/prometheus-operator@sha256:cf51f5302998cdd82edeeaf60a01cf11289101fb7e02c7a12a7b765c0c9751ff
   - name: rbac_query_proxy
-    image: quay.io/stolostron/rbac-query-proxy@sha256:c9580a1c3cf6fd0c60bdfc6702d42bbd976d43a65da4071d6be6a31bc83c5a7d
+    image: quay.io/stolostron/rbac-query-proxy@sha256:1026f153965ca426e0bb4201f938f0f60e71b79913b009a4aaa154a61822438e
   - name: redisgraph_tls
     image: quay.io/stolostron/redisgraph-tls@sha256:6da16ae948b52b3f47ee77216d5a737ad3125b0fd81ecfb23bb08538c3ab7171
   - name: search_aggregator
