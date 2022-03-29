@@ -145,12 +145,12 @@
   {
     "image-name": "console",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-6e54020686a4d72b7336c2ecdeac41ef5e5c291d",
-    "git-sha256": "6e54020686a4d72b7336c2ecdeac41ef5e5c291d",
+    "image-tag": "2.5.0-c78889e52130320e383e043780f111cf708a3b71",
+    "git-sha256": "c78889e52130320e383e043780f111cf708a3b71",
     "git-repository": "stolostron/console",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:19a2d3aa2e1321a158621f66f01563b422c938143d2f93306c17aaf5dcf6238e",
+    "image-digest": "sha256:6ee95bf5b341f1480f4b9e546dc5e230c3108b36629f5035257b241063d064e1",
     "image-key": "console"
   },
   {
@@ -441,23 +441,23 @@
   {
     "image-name": "multiclusterhub-operator",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-320190cf2a7c12d87753670c7b3cb98c7663a5eb",
-    "git-sha256": "320190cf2a7c12d87753670c7b3cb98c7663a5eb",
+    "image-tag": "2.5.0-b4c724bc58d01111d9f9f75da35d2e5b0307250e",
+    "git-sha256": "b4c724bc58d01111d9f9f75da35d2e5b0307250e",
     "git-repository": "stolostron/multiclusterhub-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:9af33adfc4260c8a1f7c8587853a5d85e777644ad7e6ba2e797c6a42b04eaba8",
+    "image-digest": "sha256:fec61efb11ce0d9265182437441e5caab3d83f3aa5fc650f30052fc4f03d056e",
     "image-key": "multiclusterhub_operator"
   },
   {
     "image-name": "multiclusterhub-operator-tests",
     "image-version": "2.5.0",
-    "image-tag": "2.5.0-320190cf2a7c12d87753670c7b3cb98c7663a5eb",
-    "git-sha256": "320190cf2a7c12d87753670c7b3cb98c7663a5eb",
+    "image-tag": "2.5.0-b4c724bc58d01111d9f9f75da35d2e5b0307250e",
+    "git-sha256": "b4c724bc58d01111d9f9f75da35d2e5b0307250e",
     "git-repository": "stolostron/multiclusterhub-operator",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:537c0d21dab2bb89b56fbeb423c251a5bd544f3a896735879a76ba48c8f61b6d",
+    "image-digest": "sha256:5e93eea11aaa071dc0dfae0d6d85b1d016fcec13700b002d6a16010bc6b1a14e",
     "image-key": "multiclusterhub_operator_tests"
   },
   {
