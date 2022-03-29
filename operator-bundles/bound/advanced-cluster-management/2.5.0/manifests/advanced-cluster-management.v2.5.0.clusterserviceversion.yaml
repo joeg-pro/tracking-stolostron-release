@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-29T13:49:24Z'
+    createdAt: '2022-03-29T14:11:19Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -31,8 +31,7 @@ metadata:
     operators.openshift.io/infrastructure-features: '["disconnected", "proxy-aware", "fips"]'
     operators.openshift.io/valid-subscription: '["OpenShift Platform Plus", "Red Hat Advanced Cluster
       Management for Kubernetes"]'
-    operators.operatorframework.io/internal-objects: '["observabilityaddons.observability.open-cluster-management.io",
-      "observatoria.core.observatorium.io"]'
+    operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: advanced-cluster-management.v2.5.0
   namespace: placeholder
   labels:
@@ -1408,7 +1407,7 @@ spec:
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
                   value: quay.io/stolostron/endpoint-monitoring-operator@sha256:d1bcb1cd623ec61c32bc7f0a1215b081919c636729d7b79eb3e125ae3b331d50
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_ADDON_CONTROLLER
-                  value: quay.io/stolostron/governance-policy-addon-controller@sha256:abbb0c718b9b9ca700dee03ee7d2ed82a827c27a49173429919c7dfbad02d8d5
+                  value: quay.io/stolostron/governance-policy-addon-controller@sha256:8b915fd567da11c81d7813e36eb8e1c195b60d04ac4746c05b52ad5be1ce166b
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
                   value: quay.io/stolostron/governance-policy-propagator@sha256:bebbf4b4860e79486c8024cca5e556501ab904a734719070a66e4a6cf20e73c2
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
@@ -2180,7 +2179,7 @@ spec:
                 - name: OPERAND_IMAGE_ENDPOINT_MONITORING_OPERATOR
                   value: quay.io/stolostron/endpoint-monitoring-operator@sha256:d1bcb1cd623ec61c32bc7f0a1215b081919c636729d7b79eb3e125ae3b331d50
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_ADDON_CONTROLLER
-                  value: quay.io/stolostron/governance-policy-addon-controller@sha256:abbb0c718b9b9ca700dee03ee7d2ed82a827c27a49173429919c7dfbad02d8d5
+                  value: quay.io/stolostron/governance-policy-addon-controller@sha256:8b915fd567da11c81d7813e36eb8e1c195b60d04ac4746c05b52ad5be1ce166b
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
                   value: quay.io/stolostron/governance-policy-propagator@sha256:bebbf4b4860e79486c8024cca5e556501ab904a734719070a66e4a6cf20e73c2
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
@@ -2361,7 +2360,7 @@ spec:
   - name: endpoint_monitoring_operator
     image: quay.io/stolostron/endpoint-monitoring-operator@sha256:d1bcb1cd623ec61c32bc7f0a1215b081919c636729d7b79eb3e125ae3b331d50
   - name: governance_policy_addon_controller
-    image: quay.io/stolostron/governance-policy-addon-controller@sha256:abbb0c718b9b9ca700dee03ee7d2ed82a827c27a49173429919c7dfbad02d8d5
+    image: quay.io/stolostron/governance-policy-addon-controller@sha256:8b915fd567da11c81d7813e36eb8e1c195b60d04ac4746c05b52ad5be1ce166b
   - name: governance_policy_propagator
     image: quay.io/stolostron/governance-policy-propagator@sha256:bebbf4b4860e79486c8024cca5e556501ab904a734719070a66e4a6cf20e73c2
   - name: governance_policy_spec_sync
