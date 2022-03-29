@@ -189,12 +189,12 @@
   {
     "image-name": "governance-policy-spec-sync",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-9ff8916dd1feaedb81b104db8d6a3052d8c6525a",
-    "git-sha256": "9ff8916dd1feaedb81b104db8d6a3052d8c6525a",
+    "image-tag": "1.0.0-9f331bcd2aa470fdf85bf95e96d44e9b2a90daef",
+    "git-sha256": "9f331bcd2aa470fdf85bf95e96d44e9b2a90daef",
     "git-repository": "stolostron/governance-policy-spec-sync",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:124b31db666185b75f1812143d233182abdb9f142ed12960559cd97f77d71493",
+    "image-digest": "sha256:e0d86fbbf90e54d56eecdf376a9e2e619435d64cc57388750ca9043ccee1cf04",
     "image-key": "governance_policy_spec_sync"
   },
   {
@@ -266,11 +266,11 @@
   {
     "image-name": "helloworld",
     "image-version": "1.0.0",
-    "image-tag": "1.0.0-f5fda6dbf99c20530d977d6804b4d117682bbdee",
-    "git-sha256": "f5fda6dbf99c20530d977d6804b4d117682bbdee",
+    "image-tag": "1.0.0-357e38754cac3447c4b369260ebe700ff8cfcd13",
+    "git-sha256": "357e38754cac3447c4b369260ebe700ff8cfcd13",
     "git-repository": "stolostron/example-cicd-component",
     "image-remote": "quay.io/stolostron",
-    "image-digest": "sha256:b17cfa9a3d35ba18f19c8bfa7826352446fc25ffecc5f0df2568e699743d6af8",
+    "image-digest": "sha256:c946e1510bc38c4c67c324c9b3a82d58b02b1d443348038c475b86d8b0a3568b",
     "image-key": "helloworld"
   },
   {
@@ -287,12 +287,12 @@
   {
     "image-name": "iam-policy-controller",
     "image-version": "2.0.0",
-    "image-tag": "2.0.0-448202c45ee88931095afcee5d44217b2028a4e9",
-    "git-sha256": "448202c45ee88931095afcee5d44217b2028a4e9",
+    "image-tag": "2.0.0-8d6300cf5da66e3a2b283172dc79c2cc2377bc23",
+    "git-sha256": "8d6300cf5da66e3a2b283172dc79c2cc2377bc23",
     "git-repository": "stolostron/iam-policy-controller",
     "image-remote": "quay.io/stolostron",
     "image-remote-src": "registry.ci.openshift.org/stolostron",
-    "image-digest": "sha256:b251fae4e1df15ccc26297aeb1661d939508f0ce8a8d08eb8fd9201d9c23bb14",
+    "image-digest": "sha256:fc0683f1f99ec2c8480c1ce6e2888ae9881e9d570b688aa3c78fd83031d24bf6",
     "image-key": "iam_policy_controller"
   },
   {
