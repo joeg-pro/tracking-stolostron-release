@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-29T14:11:19Z'
+    createdAt: '2022-03-29T14:12:52Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -1391,7 +1391,7 @@ spec:
                 - name: OPERAND_IMAGE_BAILER
                   value: quay.io/stolostron/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
-                  value: quay.io/stolostron/cert-policy-controller@sha256:890e6b1a3de236ab3f1a519b13bbae4d5b8e8651bf6b32031890dec978ae481e
+                  value: quay.io/stolostron/cert-policy-controller@sha256:2d43c3e636115ae8e60bfc324ded1afc557e42035e14b855a2c4952fc864ffcf
                 - name: OPERAND_IMAGE_CLUSTER_BACKUP_CONTROLLER
                   value: quay.io/stolostron/cluster-backup-controller@sha256:f310ccbe8b1cb2fec12a61d7fb31ad56acebac827f7d2ed3679ad56a6e0dd7fc
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
@@ -1409,13 +1409,13 @@ spec:
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_ADDON_CONTROLLER
                   value: quay.io/stolostron/governance-policy-addon-controller@sha256:8b915fd567da11c81d7813e36eb8e1c195b60d04ac4746c05b52ad5be1ce166b
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
-                  value: quay.io/stolostron/governance-policy-propagator@sha256:bebbf4b4860e79486c8024cca5e556501ab904a734719070a66e4a6cf20e73c2
+                  value: quay.io/stolostron/governance-policy-propagator@sha256:e58d0932c0b30104ac2847e9d82a5b4b1e97ecdebf712a25e0de30b841ffcd9d
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
-                  value: quay.io/stolostron/governance-policy-spec-sync@sha256:124b31db666185b75f1812143d233182abdb9f142ed12960559cd97f77d71493
+                  value: quay.io/stolostron/governance-policy-spec-sync@sha256:e0d86fbbf90e54d56eecdf376a9e2e619435d64cc57388750ca9043ccee1cf04
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_STATUS_SYNC
-                  value: quay.io/stolostron/governance-policy-status-sync@sha256:e75ad45226eab5417e6f25ff38d63e2d706d67e76b385252534f217ad0291cfd
+                  value: quay.io/stolostron/governance-policy-status-sync@sha256:bff7fb95b486956de951164e0b83b607e5c484bc6453676efa315f1162813850
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_TEMPLATE_SYNC
-                  value: quay.io/stolostron/governance-policy-template-sync@sha256:77c795a8e953986d6220c8fd583848d1df72415c623d791f0af7e8e1ef92dc8b
+                  value: quay.io/stolostron/governance-policy-template-sync@sha256:fdf09ed9edc010d69ec125724d5436d8a07e777dd55c300433c63fcc140cc2b6
                 - name: OPERAND_IMAGE_GRAFANA
                   value: quay.io/stolostron/grafana@sha256:d566255671fafcecd98abfafaf75bdf2c914b62db575c78bdff251865ba16839
                 - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
@@ -2163,7 +2163,7 @@ spec:
                 - name: OPERAND_IMAGE_BAILER
                   value: quay.io/stolostron/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
                 - name: OPERAND_IMAGE_CERT_POLICY_CONTROLLER
-                  value: quay.io/stolostron/cert-policy-controller@sha256:890e6b1a3de236ab3f1a519b13bbae4d5b8e8651bf6b32031890dec978ae481e
+                  value: quay.io/stolostron/cert-policy-controller@sha256:2d43c3e636115ae8e60bfc324ded1afc557e42035e14b855a2c4952fc864ffcf
                 - name: OPERAND_IMAGE_CLUSTER_BACKUP_CONTROLLER
                   value: quay.io/stolostron/cluster-backup-controller@sha256:f310ccbe8b1cb2fec12a61d7fb31ad56acebac827f7d2ed3679ad56a6e0dd7fc
                 - name: OPERAND_IMAGE_CLUSTER_LIFECYCLE_E2E
@@ -2181,13 +2181,13 @@ spec:
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_ADDON_CONTROLLER
                   value: quay.io/stolostron/governance-policy-addon-controller@sha256:8b915fd567da11c81d7813e36eb8e1c195b60d04ac4746c05b52ad5be1ce166b
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_PROPAGATOR
-                  value: quay.io/stolostron/governance-policy-propagator@sha256:bebbf4b4860e79486c8024cca5e556501ab904a734719070a66e4a6cf20e73c2
+                  value: quay.io/stolostron/governance-policy-propagator@sha256:e58d0932c0b30104ac2847e9d82a5b4b1e97ecdebf712a25e0de30b841ffcd9d
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_SPEC_SYNC
-                  value: quay.io/stolostron/governance-policy-spec-sync@sha256:124b31db666185b75f1812143d233182abdb9f142ed12960559cd97f77d71493
+                  value: quay.io/stolostron/governance-policy-spec-sync@sha256:e0d86fbbf90e54d56eecdf376a9e2e619435d64cc57388750ca9043ccee1cf04
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_STATUS_SYNC
-                  value: quay.io/stolostron/governance-policy-status-sync@sha256:e75ad45226eab5417e6f25ff38d63e2d706d67e76b385252534f217ad0291cfd
+                  value: quay.io/stolostron/governance-policy-status-sync@sha256:bff7fb95b486956de951164e0b83b607e5c484bc6453676efa315f1162813850
                 - name: OPERAND_IMAGE_GOVERNANCE_POLICY_TEMPLATE_SYNC
-                  value: quay.io/stolostron/governance-policy-template-sync@sha256:77c795a8e953986d6220c8fd583848d1df72415c623d791f0af7e8e1ef92dc8b
+                  value: quay.io/stolostron/governance-policy-template-sync@sha256:fdf09ed9edc010d69ec125724d5436d8a07e777dd55c300433c63fcc140cc2b6
                 - name: OPERAND_IMAGE_GRAFANA
                   value: quay.io/stolostron/grafana@sha256:d566255671fafcecd98abfafaf75bdf2c914b62db575c78bdff251865ba16839
                 - name: OPERAND_IMAGE_GRAFANA_DASHBOARD_LOADER
@@ -2344,7 +2344,7 @@ spec:
   - name: bailer
     image: quay.io/stolostron/bailer@sha256:60d8a155084fe202a3d8581fac3ce56ae0e4f0b7cc71a3bbe855c2d142b04dab
   - name: cert_policy_controller
-    image: quay.io/stolostron/cert-policy-controller@sha256:890e6b1a3de236ab3f1a519b13bbae4d5b8e8651bf6b32031890dec978ae481e
+    image: quay.io/stolostron/cert-policy-controller@sha256:2d43c3e636115ae8e60bfc324ded1afc557e42035e14b855a2c4952fc864ffcf
   - name: cluster_backup_controller
     image: quay.io/stolostron/cluster-backup-controller@sha256:f310ccbe8b1cb2fec12a61d7fb31ad56acebac827f7d2ed3679ad56a6e0dd7fc
   - name: cluster_lifecycle_e2e
@@ -2362,13 +2362,13 @@ spec:
   - name: governance_policy_addon_controller
     image: quay.io/stolostron/governance-policy-addon-controller@sha256:8b915fd567da11c81d7813e36eb8e1c195b60d04ac4746c05b52ad5be1ce166b
   - name: governance_policy_propagator
-    image: quay.io/stolostron/governance-policy-propagator@sha256:bebbf4b4860e79486c8024cca5e556501ab904a734719070a66e4a6cf20e73c2
+    image: quay.io/stolostron/governance-policy-propagator@sha256:e58d0932c0b30104ac2847e9d82a5b4b1e97ecdebf712a25e0de30b841ffcd9d
   - name: governance_policy_spec_sync
-    image: quay.io/stolostron/governance-policy-spec-sync@sha256:124b31db666185b75f1812143d233182abdb9f142ed12960559cd97f77d71493
+    image: quay.io/stolostron/governance-policy-spec-sync@sha256:e0d86fbbf90e54d56eecdf376a9e2e619435d64cc57388750ca9043ccee1cf04
   - name: governance_policy_status_sync
-    image: quay.io/stolostron/governance-policy-status-sync@sha256:e75ad45226eab5417e6f25ff38d63e2d706d67e76b385252534f217ad0291cfd
+    image: quay.io/stolostron/governance-policy-status-sync@sha256:bff7fb95b486956de951164e0b83b607e5c484bc6453676efa315f1162813850
   - name: governance_policy_template_sync
-    image: quay.io/stolostron/governance-policy-template-sync@sha256:77c795a8e953986d6220c8fd583848d1df72415c623d791f0af7e8e1ef92dc8b
+    image: quay.io/stolostron/governance-policy-template-sync@sha256:fdf09ed9edc010d69ec125724d5436d8a07e777dd55c300433c63fcc140cc2b6
   - name: grafana
     image: quay.io/stolostron/grafana@sha256:d566255671fafcecd98abfafaf75bdf2c914b62db575c78bdff251865ba16839
   - name: grafana_dashboard_loader
