@@ -123,6 +123,7 @@ fi
 # environment variables injected for the bundle's related images.
 
 image_ref_containers=()
+add_vers_env_var=0
 
 # Since ACM 2.x:
 if [[ "$rel_x" -ge 2 ]]; then
@@ -135,6 +136,7 @@ if [[ "$rel_x" -ge 2 ]]; then
    # Since ACM 2.5:
    if [[ "$rel_y" -ge 5 ]]; then
       image_ref_containers+=("multicluster-operators-hub-subscription/multicluster-operators-hub-subscription")
+      add_vers_env_var=1
   fi
 
 fi
@@ -156,5 +158,5 @@ gen_bound_bundle pkg_name bundle_vers \
    explicit_default_channel \
    explicit_prev_csv_vers skip_list \
    suppress_all_repl_graph_properties \
-   red_hat_downstream
+   red_hat_downstream add_vers_env_var
 

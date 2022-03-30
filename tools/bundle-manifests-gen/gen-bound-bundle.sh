@@ -77,6 +77,7 @@ my_dir=$(dirname $(readlink -f $0))
 #
 # -E Omit related-images list (optional).
 # -e Deployment/container to receive image-ref env vars (optional, can be repeated).
+# -V Add operator-version env var to deployment/containers mentioned in -e options.
 #
 # -T Use image tag (as specified in image manifest) rather than digest.
 # -t Tag override: Tag used for all images, overriding tag from image manifest.
@@ -84,7 +85,7 @@ my_dir=$(dirname $(readlink -f $0))
 #
 # Specifying -t or -s implies the use of tags (-T).
 
-opt_flags="I:O:n:v:p:k:K:m:d:c:i:r:Ee:Tt:s:"
+opt_flags="I:O:n:v:p:k:K:m:d:c:i:r:Ee:Tt:s:V"
 
 omit_related_images=0
 
@@ -133,6 +134,8 @@ while getopts "$opt_flags" OPTION; do
       E) omit_related_images=1
          ;;
       e) add_image_ref_opts+=("--add-image-ref-env-vars-to" "$OPTARG")
+         ;;
+      V) add_vers_env_var_opt="--add-vers-env-var"
          ;;
       i) name_to_key_opts+=("--image-name-to-key" "$OPTARG")
          ;;
@@ -234,5 +237,6 @@ $my_dir/create-bound-bundle.py \
    "${default_channel_opt[@]}" "${addl_channel_opts[@]}" \
    "${name_to_key_opts[@]}" "${rgy_ns_override_opts[@]}" \
    $add_related_images_opt "${add_image_ref_opts[@]}" \
+   $add_vers_env_var_opt \
    $use_image_tags_opt "${tag_override_opt[@]}" "${tag_suffix_opt[@]}"
 

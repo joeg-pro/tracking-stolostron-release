@@ -328,12 +328,13 @@ function gen_unbound_bundle {
 #       explicit_prev_csv_release or l_skip_list variables, and automatic determination of
 #       these aspects when not explicitly specified.
 #
-# Reserved for future implementation:
-#
-# $11 = red_hat_downstream: (Optional, nameref)
+# $11 = red_hat_downstream: (Optional, nameref) ** NOT YET IMPLEMENTED **
 #       If non-zero, enable Red Hat downstream build mode. Generates the bundle in a way
 #       cuttomized for the Red Hat OSBS downstream build process. Optoinal. If omitted, the
 #       bundle is generated in a way that is consistent with upstream practices.
+#
+# $13 = add_vers_env_var (optional, nameref)
+#       If one, add the OPERATOR_VERSION env var to all image-ref containers.
 #
 # Source pkg:  this_repo/operator-bundles/unbound/<package-name>
 # Output pkg:  this_repo/operator-bundles/bound/<package-name>
@@ -368,10 +369,15 @@ function gen_bound_bundle {
    local -nr l_suppress_all_repl_graph_properties="$1"
    local -nr l_red_hat_downstream="$2"
 
+   if [[ -n "$3" ]]; then
+      local -nr l_add_vers_env_var="$3"
+   fi
+
    #--- Input variable validation ---
 
    local suppress_all_repl_graph_properties=${l_suppress_all_repl_graph_properties:-0}
    local red_hat_downstream=${l_red_hat_downstream:-0}
+   local add_vers_env_var=${l_add_vers_env_var:-0}
 
    if [[ -z "$l_pkg_name" ]]; then
       >&2 echo "Error: Bundle package name is required (l_pkg_name)."
@@ -706,6 +712,11 @@ function gen_bound_bundle {
    for c in "${l_image_ref_containers[@]}"; do
       dash_lower_e_opts+=("-e" "$c")
    done
+   dash_upper_v_opt=""
+   if [[ $add_vers_env_var -eq 1 ]]; then
+      dash_upper_v_opt="-V"
+   fi
+
 
    # We probably have to think through how community contributors will build the entire
    # set of OCM parts, including the budnle.
@@ -773,6 +784,9 @@ function gen_bound_bundle {
       fi
       echo "  With inage-ref enviornment variables being injected into $cnt operator $containers"
    fi
+   if [[ -n "$dash_upper_v_opt" ]]; then
+      echo "  Injecting OPERATOR_VERSION enviornment variable into image-ref containers"
+   fi
    if [[ -n "$dash_lower_r_opts" ]]; then
       echo "  Remapping all image references to registry/namespace $rgy_and_ns_override"
    fi
@@ -792,6 +806,6 @@ function gen_bound_bundle {
       "${dash_lower_p_opt[@]}" "${dash_lower_k_opt[@]}" "${dash_upper_k_opts[@]}" \
       "${dash_lower_r_opts[@]}" "${dash_lower_t_opt[@]}"  \
       -I "$unbound_pkg_dir" -O "$bound_pkg_dir" -m "$manifest_file" \
-      "${dash_lower_i_opts[@]}" "${dash_lower_e_opts[@]}"
+      "${dash_lower_i_opts[@]}" "${dash_lower_e_opts[@]}" "$dash_upper_v_opt"
 }
 

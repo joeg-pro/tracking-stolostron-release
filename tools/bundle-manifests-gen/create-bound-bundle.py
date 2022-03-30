@@ -237,7 +237,7 @@ def load_target_containers(target_container_specs):
 
 # Add image reference environment variables to secifeid containers of a deployment.
 def add_image_ref_env_vars_to_deployment(deployment, target_containers,
-                                         image_manifest, image_ref_env_var_prefix):
+                                         image_manifest, image_ref_env_var_prefix, csv_vers):
 
    deployment_name = deployment["name"]
    pod_spec = deployment["spec"]["template"]["spec"]
@@ -292,6 +292,26 @@ def add_image_ref_env_vars_to_deployment(deployment, target_containers,
          entry["value"] = image_info["image-ref-to-use"]
          env_var_map[env_var_name] = entry
 
+      # If asked (by csv_vers being non-null), also add an env var specifying the
+      # CSV (operator) version as long  as the env var in question isn't already present.
+      #
+      # TODO: In future, maybe add teh ability to inject the version env var
+      # indepedently of getting all of the imect-ref ones too?
+      #
+      # Hopefully the name we pick won't someday conflict with an env var OLM wants to use.
+
+      version_env_var_name = "OPERATOR_VERSION"
+
+      if csv_vers:
+         if version_env_var_name not in env_var_map:
+            entry = dict()
+            entry["name"] = version_env_var_name
+            entry["value"] = csv_vers
+            env_var_map[version_env_var_name] = entry
+         else:
+            die("Deployment/container %s:%s already defines env var %s" %
+                (deployment_name, container_name, version_env_var_name))
+
       if env_var_map:
          container_env_vars = [e for e in env_var_map.values()]
          container_spec["env"] = container_env_vars
@@ -332,6 +352,8 @@ def main():
    parser.add_argument("--tag-override", dest="tag_override")
    parser.add_argument("--tag-suffix",   dest="tag_suffix")
 
+   parser.add_argument("--add-vers-env-var",  dest="add_vers_env_var", action="store_true")
+
    args = parser.parse_args()
 
    source_bundle_pathn = args.source_bundle_pathn
@@ -359,6 +381,8 @@ def main():
    use_tags     = args.use_tags
    tag_override = args.tag_override
    tag_suffix   = args.tag_suffix
+
+   add_vers_env_var = args.add_vers_env_var
 
    # Have tag_override or tag_suffix imply use-tags:
    use_tags = use_tags or tag_override or tag_suffix
@@ -511,8 +535,10 @@ def main():
       update_image_refs_in_deployment(deployment, image_key_mapping, image_manifest)
       if deployment_name in image_ref_containers:
          conatiners_of_deployment = image_ref_containers[deployment_name]
-         add_image_ref_env_vars_to_deployment(deployment, conatiners_of_deployment,
-                                              image_manifest, image_ref_env_var_prefix)
+         add_csv_vers = csv_vers if add_vers_env_var else None
+         add_image_ref_env_vars_to_deployment(deployment, conatiners_of_deployment, image_manifest,
+                                              image_ref_env_var_prefix, add_csv_vers)
+
    #
    image_ref_containers_not_found = False
    for dn in image_ref_containers:
