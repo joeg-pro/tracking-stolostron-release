@@ -22,7 +22,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'true'
     support: Red Hat
-    createdAt: '2022-03-30T21:17:23Z'
+    createdAt: '2022-03-30T21:32:09Z'
     description: Advanced provisioning and management of OpenShift and Kubernetes clusters
     operatorframework.io/suggested-namespace: open-cluster-management
     operatorframework.io/initialization-resource: '{"apiVersion":"operator.open-cluster-management.io/v1",
@@ -966,6 +966,7 @@ spec:
           - addon.open-cluster-management.io
           resources:
           - clustermanagementaddons
+          - clustermanagementaddons/finalizers
           verbs:
           - create
           - update
@@ -978,6 +979,7 @@ spec:
           resources:
           - managedclusteraddons
           - managedclusteraddons/status
+          - managedclusteraddons/finalizers
           verbs:
           - watch
           - create

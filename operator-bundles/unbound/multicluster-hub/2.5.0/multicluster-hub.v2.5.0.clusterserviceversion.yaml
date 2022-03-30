@@ -15,7 +15,7 @@ metadata:
     categories: Integration & Delivery
     certified: 'false'
     support: The Open Cluster Management Project
-    createdAt: '2022-03-30T21:17:20Z'
+    createdAt: '2022-03-30T21:32:06Z'
     description: Open management of Openshift and Kubernetes clusters
     operators.operatorframework.io/internal-objects: '["observatoria.core.observatorium.io", "observabilityaddons.observability.open-cluster-management.io"]'
   name: multicluster-hub.v2.5.0
@@ -798,6 +798,7 @@ spec:
           - addon.open-cluster-management.io
           resources:
           - clustermanagementaddons
+          - clustermanagementaddons/finalizers
           verbs:
           - create
           - update
@@ -810,6 +811,7 @@ spec:
           resources:
           - managedclusteraddons
           - managedclusteraddons/status
+          - managedclusteraddons/finalizers
           verbs:
           - watch
           - create
